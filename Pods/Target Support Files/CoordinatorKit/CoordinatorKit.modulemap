@@ -1,0 +1,6 @@
+framework module CoordinatorKit {
+  umbrella header "CoordinatorKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

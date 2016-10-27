@@ -1,0 +1,23 @@
+{
+  "name": "ChartView",
+  "version": "0.0.1",
+  "summary": "A simpler and easier to use version of UITableView designed to resemble a table.",
+  "homepage": "https://github.com/nathanlanza/ChartView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nathan Lanza": "nathan@lanza.io"
+  },
+  "source": {
+    "git": "https://github.com/nathanlanza/ChartView.git",
+    "tag": "0.0.1"
+  },
+  "social_media_url": "https://twitter.com/lanzaio",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "*",
+  "frameworks": "UIKit"
+}
