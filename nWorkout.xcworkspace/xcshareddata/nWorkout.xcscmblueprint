@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "09D8489C310662028FB8140F4E7C491B90068861",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F5F1FDB46F245B3EDB7113421C9242959122E55D" : 9223372036854775807,
+    "09D8489C310662028FB8140F4E7C491B90068861" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7D5C0700-0E7A-47DB-B198-F62B0CEAC29C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F5F1FDB46F245B3EDB7113421C9242959122E55D" : "CoordinatorKit\/",
+    "09D8489C310662028FB8140F4E7C491B90068861" : "nWorkout\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "nWorkout",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "nWorkout.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nathanlanza\/nWorkout.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "09D8489C310662028FB8140F4E7C491B90068861"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nathanlanza\/CoordinatorKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F5F1FDB46F245B3EDB7113421C9242959122E55D"
+    }
+  ]
+}
