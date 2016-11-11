@@ -1,6 +1,15 @@
 import UIKit
 import ChartView
 
+extension WorkoutCell: ConfigurableCell {
+    static var identifier: String { return "ConfigurableCell" }
+    func configure(for object: Workout, at indexPath: IndexPath) {
+        chartView.numberOfRows = 4
+        chartView.columnWidthPercentages = [50,50]
+        chartView.columnTypes = [UILabel.self, UILabel.self]
+    }
+}
+
 class WorkoutCell: ChartViewCell {
     
     var labels: [UILabel] { return chartView.rowViews.map { $0.columnViews[0] as! UILabel } }

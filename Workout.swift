@@ -10,6 +10,10 @@ class Workout: Base {
 }
 
 extension Workout: DataProvider {
+    func append(_ object: Lift) {
+        lifts.append(object)
+    }
+
     func numberOfItems() -> Int {
         return lifts.count
     }
@@ -19,7 +23,7 @@ extension Workout: DataProvider {
     func index(of object: Lift) -> Int? {
         return lifts.index(of: object)
     }
-    func insert(object: Lift, at index: Int) {
+    func insert(_ object: Lift, at index: Int) {
         lifts.insert(object, at: index)
     }
     func remove(at index: Int) {

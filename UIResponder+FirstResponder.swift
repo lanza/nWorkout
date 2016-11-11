@@ -12,3 +12,7 @@ extension UIResponder {
         UIResponder._currentFirstResponder = self
     }
 }
+
+extension UIStoryboard {
+    static var main: UIStoryboard { return UIStoryboard(name: "Main", bundle: nil) }
+}

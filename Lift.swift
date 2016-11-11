@@ -5,7 +5,15 @@ class Lift: Base {
     dynamic var name = ""
     let sets = List<Set>()
 }
+
+
+
+
 extension Lift: DataProvider {
+    func append(_ object: Set) {
+        sets.append(object)
+    }
+
     func numberOfItems() -> Int {
         return sets.count
     }
@@ -15,7 +23,7 @@ extension Lift: DataProvider {
     func index(of object: Set) -> Int? {
         return sets.index(of: object)
     }
-    func insert(object: Set, at index: Int) {
+    func insert(_ object: Set, at index: Int) {
         sets.insert(object, at: index)
     }
     func remove(at index: Int) {

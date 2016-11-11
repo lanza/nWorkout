@@ -1,29 +1,25 @@
 import UIKit
 
 struct Theme {
-    static func setupAppearances() {
+    static func `do`() {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.titleTextAttributes = [
-            NSFontAttributeName: Fonts.boldTitle,
-            NSForegroundColorAttributeName: Colors.tint
+            NSForegroundColorAttributeName: Colors.Nav.title
         ]
         navBarAppearance.barStyle = .black
-        navBarAppearance.barTintColor = Colors.foreground
+        navBarAppearance.barTintColor = Colors.Nav.barTint
         
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.barStyle = .black
-        tabBarAppearance.barTintColor = Colors.foreground
+        tabBarAppearance.barTintColor = Colors.Tab.barTint
         tabBarAppearance.unselectedItemTintColor = .white
         
-        let barButtonItemAppearance = UIBarButtonItem.appearance()
-        let attr = [ NSFontAttributeName: Fonts.title ]
-        barButtonItemAppearance.setTitleTextAttributes(attr, for: UIControlState())
+//        let barButtonItemAppearance = UIBarButtonItem.appearance()
         
         let tableViewAppearance = UITableView.appearance()
-        tableViewAppearance.backgroundColor = Colors.background
+        tableViewAppearance.backgroundColor = Colors.Table.background
         
-        let labelAppearance = UILabel.appearance()
-        labelAppearance.font = Fonts.title
+//        let labelAppearance = UILabel.appearance()
     }
     
     struct Colors {
@@ -33,22 +29,23 @@ struct Theme {
         static var light = #colorLiteral(red: 0.9568895725, green: 0.9568895725, blue: 0.9568895725, alpha: 1)
         static var lighter = #colorLiteral(red: 0.9568895725, green: 0.9568895725, blue: 0.9568895725, alpha: 1)
         
-        static var tint = Colors.main
-        static var background = Colors.lighter
-        static var lightBackground = Colors.light
-        static var sectionHeader = Colors.main
-        static var foreground = Colors.dark
-        static var lightText = UIColor(red: 0.64, green: 0.65, blue: 0.8, alpha: 1)
+        struct Table {
+            static var background = Colors.light
+        }
+        struct Nav {
+            static var barTint = Colors.dark
+            static var title = Colors.main
+        }
+        struct Tab {
+            static var barTint = Colors.dark
+        }
+        
         
         static var outerTableViewBackground = Colors.light
         static var innerTableViewBackground = Colors.light
     }
     struct Fonts {
-        static let boldTitle = UIFont.boldSystemFont(ofSize: 17)
-        static let title = UIFont.boldSystemFont(ofSize: 16)
-        static let subtitle = UIFont.boldSystemFont(ofSize: 13)
-        
-        static let tableHeader = UIFont.boldSystemFont(ofSize: 10)
-        static let cellNameLabel = UIFont.boldSystemFont(ofSize: 16)
+        struct Nav {
+        }
     }
 }

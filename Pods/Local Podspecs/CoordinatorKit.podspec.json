@@ -1,19 +1,23 @@
 {
   "name": "CoordinatorKit",
-  "version": "0.0.2",
-  "summary": "A framework that implements Coordinators a la Khanlou in a fashion similar to how UIViewControllers work.",
+  "version": "0.0.4",
+  "summary": "A framework that implements the coordinator pattern in a fashion similar to how UIViewControllers work.",
   "homepage": "https://github.com/nathanlanza/CoordinatorKit",
-  "license": "MIT",
-  "authors": {
-    "Nathan Lanza": "nathan@lanza.io"
-  },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "source": {
     "git": "https://github.com/nathanlanza/CoordinatorKit.git",
-    "tag": "0.0.2"
+    "tag": "0.0.4"
   },
-  "source_files": "CoordinatorKit/*.{h,m,swift}",
-  "frameworks": "UIKit"
+  "frameworks": "UIKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Nathan Lanza": "nathan@lanza.io"
+  },
+  "social_media_url": "https://twitter.com/nlanzaio",
+  "source_files": "CoordinatorKit/Classes/**/*"
 }

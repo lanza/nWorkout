@@ -4,13 +4,15 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "F5F1FDB46F245B3EDB7113421C9242959122E55D" : 9223372036854775807,
-    "09D8489C310662028FB8140F4E7C491B90068861" : 9223372036854775807
+    "B0E34614BE4EA032D227B8FE050910D8CFB41F4D" : 9223372036854775807,
+    "09D8489C310662028FB8140F4E7C491B90068861" : 9223372036854775807,
+    "3919D94F71DFB326B07CBD01403C73AEAED5FB26" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7D5C0700-0E7A-47DB-B198-F62B0CEAC29C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "F5F1FDB46F245B3EDB7113421C9242959122E55D" : "CoordinatorKit\/",
-    "09D8489C310662028FB8140F4E7C491B90068861" : "nWorkout\/"
+    "B0E34614BE4EA032D227B8FE050910D8CFB41F4D" : "CoordinatorKit\/",
+    "09D8489C310662028FB8140F4E7C491B90068861" : "nWorkout\/",
+    "3919D94F71DFB326B07CBD01403C73AEAED5FB26" : "ChartView\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "nWorkout",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -22,9 +24,14 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "09D8489C310662028FB8140F4E7C491B90068861"
     },
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nathanlanza\/ChartView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3919D94F71DFB326B07CBD01403C73AEAED5FB26"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nathanlanza\/CoordinatorKit.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F5F1FDB46F245B3EDB7113421C9242959122E55D"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B0E34614BE4EA032D227B8FE050910D8CFB41F4D"
     }
   ]
 }

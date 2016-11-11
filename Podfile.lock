@@ -1,6 +1,6 @@
 PODS:
   - ChartView (0.0.1)
-  - CoordinatorKit (0.0.2)
+  - CoordinatorKit (0.0.4)
   - DZNEmptyDataSet (1.8.1)
   - Realm (2.0.2):
     - Realm/Headers (= 2.0.2)
@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ChartView: 39f9d2c61765ca3f00136bf498afb54111f9e0f7
-  CoordinatorKit: f7dc06e3760bbd709c7a22bb3cb8378594f3dc60
+  CoordinatorKit: 9329d20b4bc418bf07067ec015f8198f9fab4aca
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8

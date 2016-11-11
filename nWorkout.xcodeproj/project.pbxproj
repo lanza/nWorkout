@@ -17,6 +17,12 @@
 		B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B356FBC21DC09C160006A0F0 /* AppDelegate.swift */; };
 		B356FBC51DC09C160006A0F0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B356FBC41DC09C160006A0F0 /* TableViewController.swift */; };
 		B356FBCD1DC09C160006A0F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B356FBCB1DC09C160006A0F0 /* LaunchScreen.storyboard */; };
+		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
+		B3780EED1DD5A5480087CEC1 /* ViewControllerFromStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEC1DD5A5470087CEC1 /* ViewControllerFromStoryboard.swift */; };
+		B3780EF01DD5A7010087CEC1 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEE1DD5A7010087CEC1 /* DataSource.swift */; };
+		B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF21DD5A7100087CEC1 /* ArrayProvider.swift */; };
+		B3780EF61DD5AF2D0087CEC1 /* WorkoutsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */; };
+		B3780EF81DD5B0C80087CEC1 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF71DD5B0C80087CEC1 /* ConfigurableCell.swift */; };
 		B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38208711DC2B1850008D6F8 /* WorkoutCell.swift */; };
 		B38208751DC2B1FA0008D6F8 /* WorkoutsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38208741DC2B1FA0008D6F8 /* WorkoutsDataProvider.swift */; };
 		B38208771DC2B22A0008D6F8 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38208761DC2B22A0008D6F8 /* Set.swift */; };
@@ -39,6 +45,12 @@
 		B356FBC41DC09C160006A0F0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = nWorkout/TableViewController.swift; sourceTree = "<group>"; };
 		B356FBCC1DC09C160006A0F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B356FBCE1DC09C160006A0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3780EEA1DD5A4530087CEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B3780EEC1DD5A5470087CEC1 /* ViewControllerFromStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFromStoryboard.swift; sourceTree = "<group>"; };
+		B3780EEE1DD5A7010087CEC1 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		B3780EF21DD5A7100087CEC1 /* ArrayProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayProvider.swift; sourceTree = "<group>"; };
+		B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsDataSource.swift; sourceTree = "<group>"; };
+		B3780EF71DD5B0C80087CEC1 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		B38208711DC2B1850008D6F8 /* WorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		B38208741DC2B1FA0008D6F8 /* WorkoutsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsDataProvider.swift; sourceTree = "<group>"; };
 		B38208761DC2B22A0008D6F8 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
@@ -75,11 +87,13 @@
 		B356FBB61DC09C160006A0F0 = {
 			isa = PBXGroup;
 			children = (
+				B3780EEA1DD5A4530087CEC1 /* Main.storyboard */,
 				B34BA0551DC1CC29006B6A51 /* Theme.swift */,
 				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
 				B3D456C61DC1E4A0008075D5 /* UIKit Extensions */,
 				B3D456C51DC1E494008075D5 /* Coordinators */,
 				B3D456C71DC1E4AD008075D5 /* Controllers */,
+				B3780EF41DD5AF1B0087CEC1 /* Data Sources */,
 				B38208731DC2B1930008D6F8 /* Cells */,
 				B3D456C41DC1E48C008075D5 /* Model */,
 				B356FBC11DC09C160006A0F0 /* Other */,
@@ -108,21 +122,32 @@
 			path = nWorkout;
 			sourceTree = "<group>";
 		};
+		B3780EF41DD5AF1B0087CEC1 /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B3780EEE1DD5A7010087CEC1 /* DataSource.swift */,
+				B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */,
+			);
+			name = "Data Sources";
+			sourceTree = "<group>";
+		};
 		B38208731DC2B1930008D6F8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B3780EF71DD5B0C80087CEC1 /* ConfigurableCell.swift */,
 				B38208711DC2B1850008D6F8 /* WorkoutCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		B382087C1DC2B3D40008D6F8 /* DataProvider */ = {
+		B382087C1DC2B3D40008D6F8 /* Data Providers */ = {
 			isa = PBXGroup;
 			children = (
 				B3D456C21DC1E309008075D5 /* DataProvider.swift */,
+				B3780EF21DD5A7100087CEC1 /* ArrayProvider.swift */,
 				B38208741DC2B1FA0008D6F8 /* WorkoutsDataProvider.swift */,
 			);
-			name = DataProvider;
+			name = "Data Providers";
 			sourceTree = "<group>";
 		};
 		B382087D1DC2B3DD0008D6F8 /* Objects */ = {
@@ -139,7 +164,7 @@
 		B3D456C41DC1E48C008075D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B382087C1DC2B3D40008D6F8 /* DataProvider */,
+				B382087C1DC2B3D40008D6F8 /* Data Providers */,
 				B382087D1DC2B3DD0008D6F8 /* Objects */,
 			);
 			name = Model;
@@ -158,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				B34BA0531DC1CC22006B6A51 /* UIResponder+FirstResponder.swift */,
+				B3780EEC1DD5A5470087CEC1 /* ViewControllerFromStoryboard.swift */,
 			);
 			name = "UIKit Extensions";
 			sourceTree = "<group>";
@@ -246,6 +272,7 @@
 			files = (
 				B3D456C91DC1EC13008075D5 /* Assets.xcassets in Resources */,
 				B356FBCD1DC09C160006A0F0 /* LaunchScreen.storyboard in Resources */,
+				B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38208751DC2B1FA0008D6F8 /* WorkoutsDataProvider.swift in Sources */,
+				B3780EF01DD5A7010087CEC1 /* DataSource.swift in Sources */,
 				B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */,
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
 				B356FBC51DC09C160006A0F0 /* TableViewController.swift in Sources */,
@@ -312,12 +340,16 @@
 				B38208791DC2B23E0008D6F8 /* Base.swift in Sources */,
 				B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */,
 				B34BA05C1DC1CCED006B6A51 /* Lift.swift in Sources */,
+				B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */,
+				B3780EF81DD5B0C80087CEC1 /* ConfigurableCell.swift in Sources */,
 				B3312B341DC12F9700318AA6 /* MainCoordinator.swift in Sources */,
 				B382087B1DC2B2C00008D6F8 /* WorkoutsTVC.swift in Sources */,
 				B38208771DC2B22A0008D6F8 /* Set.swift in Sources */,
 				B382087F1DC2B3EE0008D6F8 /* WorkoutTVC.swift in Sources */,
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
+				B3780EED1DD5A5480087CEC1 /* ViewControllerFromStoryboard.swift in Sources */,
 				B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */,
+				B3780EF61DD5AF2D0087CEC1 /* WorkoutsDataSource.swift in Sources */,
 				B34BA0581DC1CC33006B6A51 /* Lets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
