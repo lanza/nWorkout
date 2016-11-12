@@ -1,9 +1,9 @@
 import UIKit
 
-class WorkoutsDataSource: DataSource<BaseDataProvider<Workout>,WorkoutCell> {
+class RoutinesDataSource: DataSource<BaseDataProvider<Workout>,WorkoutCell> {
     
     init(tableView: UITableView) {
-        super.init(tableView: tableView, provider: BaseDataProvider<Workout>(isWorkout: true))
+        super.init(tableView: tableView, provider: BaseDataProvider<Workout>(isWorkout: false))
     }
     
     override func initialSetup() {

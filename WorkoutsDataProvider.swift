@@ -1,26 +1,30 @@
 import Foundation
 import RealmSwift
 
-class WorkoutsDataProvider: DataProvider {
+class BaseDataProvider<BaseType: Base>: DataProvider {
     
-    init() {
-        objects = realm.objects(Workout.self)
+    let isWorkout: Bool
+    
+    init(isWorkout: Bool) {
+        self.isWorkout = isWorkout
+        objects = realm.objects(BaseType.self).filter("isWorkout = %@", isWorkout)
     }
     
     let realm = try! Realm()
-    let objects: Results<Workout>
+    let objects: Results<BaseType>
     
-    func object(at index: Int) -> Workout {
+    func object(at index: Int) -> BaseType {
+        print("Workouts data provider")
         return objects[index]
     }
     func numberOfItems() -> Int {
         return objects.count
     }
-    func index(of object: Workout) -> Int? {
+    func index(of object: BaseType) -> Int? {
         return objects.index(of: object)
     }
     
-    func append(_ object: Workout) { fatalError() }
-    func insert(_ object: Workout, at index: Int) { fatalError() }
+    func append(_ object: BaseType) { fatalError() }
+    func insert(_ object: BaseType, at index: Int) { fatalError() }
     func remove(at index: Int) { fatalError() }
 }

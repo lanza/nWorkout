@@ -18,6 +18,7 @@ extension Workout: DataProvider {
         return lifts.count
     }
     func object(at index: Int) -> Lift {
+        print("Workout")
         return lifts[index]
     }
     func index(of object: Lift) -> Int? {
