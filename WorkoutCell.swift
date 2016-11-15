@@ -71,21 +71,42 @@ class BaseChartViewDataSource<BaseType: DataProvider>: ChartViewDataSource {
 
 
 class SetRowView: RowView {
+    
     var isWorkout = false
+    
+    var selectedColumnViewTypes: [String]!
+    var selectedColumnViewWidths: [CGFloat]!
+    
     override var columnViewTypes: [UIView.Type] {
-        if isWorkout {
-            return [UILabel.self, UILabel.self, UITextField.self, UITextField.self, UIButton.self]
-        } else {
-            return [UITextField.self, UITextField.self]
+        if isWorkout == false {
+            return [UITextField.self,UITextField.self]
         }
+        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","TargetWeight","TargetReps"]
+        
+        return selectedColumnViewTypes.map { dict[$0]! }
     }
     override var columnWidthPercentages: [CGFloat] {
-        if isWorkout {
-            return [10,34,23,23,10]
-        } else {
+        if isWorkout == false {
             return [50,50]
         }
+        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [10,45,45]
+        let sum = selectedColumnViewWidths.reduce(0, +)
+        return selectedColumnViewWidths.map { ($0 * 100) / sum }
+    }
+    
+    let dict: [String:UIView.Type] = [
+        "SetNumber":UILabel.self, "PreviousWeight":UILabel.self,
+        "PreviousReps":UILabel.self, "TargetWeight":UITextField.self,
+        "TargetReps":UITextField.self, "FailureWeight":UITextField.self,
+        "FailureReps":UITextField.self, "Timer":UILabel.self,
+        "Note":UIButton.self
+    ]
+    var setNumberLabel: UILabel? {
+        guard let index = selectedColumnViewTypes.index(of: "SetNumber") else { return nil }
+        guard let setNumberLabel = columnViews[index] as? UILabel else { fatalError() }
+        return setNumberLabel
     }
 }
+
 
 
