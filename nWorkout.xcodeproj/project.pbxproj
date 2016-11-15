@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FD2BC34109241A918F41B15 /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B8E7FF219D372643F9F7E6 /* Pods_nWorkout.framework */; };
+		B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */; };
 		B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */; };
 		B31E9FBB1DD6AE2000B9AEFC /* RoutinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */; };
 		B31E9FBD1DD6AE2B00B9AEFC /* RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTypeTVC.swift; sourceTree = "<group>"; };
 		B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDataSource.swift; sourceTree = "<group>"; };
 		B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutinesDataSource.swift; sourceTree = "<group>"; };
 		B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineDataSource.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				B328D8111DD6FA52000948ED /* StatisticsTVC.swift */,
 				B328D8131DD6FA5E000948ED /* SettingsTVC.swift */,
 				B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */,
+				B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				B328D8161DD70046000948ED /* StatisticsDataSource.swift in Sources */,
 				B3BB318E1DDAA2360015F9B0 /* StatisticsCoordinator.swift in Sources */,
 				B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */,
+				B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */,
 				B34BA05C1DC1CCED006B6A51 /* Lift.swift in Sources */,
 				B3BB31841DDAA15B0015F9B0 /* WorkoutCoordinator.swift in Sources */,
 				B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */,

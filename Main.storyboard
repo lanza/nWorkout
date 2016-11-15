@@ -391,6 +391,40 @@
             </objects>
             <point key="canvasLocation" x="-609" y="2133"/>
         </scene>
+        <!--Lift TypeTVC-->
+        <scene sceneID="wzh-LC-HZf">
+            <objects>
+                <viewController storyboardIdentifier="LiftTypeTVC" id="y9O-E0-hAa" customClass="LiftTypeTVC" customModule="nWorkout" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uDN-jw-5jJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Jd-eD-g1x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BNJ-If-Jkc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fRs-Qj-gKV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fRs-Qj-gKV" firstAttribute="top" secondItem="BNJ-If-Jkc" secondAttribute="top" id="4aQ-zI-ndu"/>
+                            <constraint firstItem="3Jd-eD-g1x" firstAttribute="top" secondItem="fRs-Qj-gKV" secondAttribute="bottom" id="9Su-PP-kjR"/>
+                            <constraint firstItem="fRs-Qj-gKV" firstAttribute="leading" secondItem="BNJ-If-Jkc" secondAttribute="leading" id="Jfc-OJ-gSe"/>
+                            <constraint firstAttribute="trailing" secondItem="fRs-Qj-gKV" secondAttribute="trailing" id="tFv-Zw-mVJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UA8-g6-9TF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1jD-dJ-6xK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="S3I-lp-6Vp"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nl8-2G-egQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="523.125" y="3158.4507042253522"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="ktG-Db-xD9">
             <objects>
@@ -426,6 +460,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfi-6K-GYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1492.5" y="2132.7464788732395"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hqq-8O-2rL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3aI-NO-S7q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="asF-Ks-UhO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="y9O-E0-hAa" kind="relationship" relationship="rootViewController" id="jTz-ki-MUC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qmJ-S8-VZ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-474.375" y="3158.4507042253522"/>
         </scene>
     </scenes>
     <resources>
