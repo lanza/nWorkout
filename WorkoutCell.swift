@@ -77,34 +77,28 @@ class BaseChartViewDataSource<BaseType: DataProvider>: ChartViewDataSource {
 
 class SetRowView: RowView {
     
-    var isWorkout = false
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+    
+    required init() {
+        super.init()
+        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","TargetWeight","TargetReps"]
+        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [10,45,45]
+        
+        configColumnViewTypes()
+        configColumnWidthPercentages()
+    }
     
     var selectedColumnViewTypes: [String]!
     var selectedColumnViewWidths: [CGFloat]!
     
-    override var columnViewTypes: [UIView.Type] {
-        if let cvt = _cvt { return cvt }
-        if isWorkout == false {
-            return [UITextField.self,UITextField.self]
-        }
-        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","TargetWeight","TargetReps"]
-        
-        _cvt = selectedColumnViewTypes.map { dict[$0]! }
-        return _cvt
+    func configColumnViewTypes() {
+        columnViewTypes = selectedColumnViewTypes.map { dict[$0]! }
     }
-    private var _cvt: [UIView.Type]!
     
-    override var columnWidthPercentages: [CGFloat] {
-        if let cwt = _cwt { return cwt }
-        if isWorkout == false {
-            return [50,50]
-        }
-        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [10,45,45]
+    func configColumnWidthPercentages() {
         let sum = selectedColumnViewWidths.reduce(0, +)
-        _cwt = selectedColumnViewWidths.map { ($0 * 100) / sum }
-        return _cwt
+        columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
     }
-    private var _cwt: [CGFloat]!
     
     let dict: [String:UIView.Type] = [
         "SetNumber":UILabel.self, "PreviousWeight":UILabel.self,

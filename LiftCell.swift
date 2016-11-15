@@ -57,7 +57,6 @@ class LiftCell: ChartViewCell {
         db = DisposeBag()
     }
     
-    
     var db = DisposeBag()
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -73,6 +72,10 @@ extension LiftCell: ConfigurableCell {
         chartView.configurationClosure = { (index,rowView) in
             let rowView = rowView as! SetRowView
             let set = object.object(at: index)
+            
+            if let snl = rowView.setNumberLabel {
+                snl.text = String(index)
+            }
             if let twtf = rowView.targetWeightTextField {
                 twtf.text = String(set.weight)
             }
