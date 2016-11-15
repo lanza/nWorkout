@@ -1,6 +1,6 @@
 import UIKit
 
-class WorkoutDataSource: DataSource<Workout,LiftCell> {
+class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     
     var isActive = false
     
@@ -35,7 +35,7 @@ class WorkoutDataSource: DataSource<Workout,LiftCell> {
             cell.textLabel?.textAlignment = .center
             return cell
         } else {
-            let cell = super.tableView(tableView, cellForRowAt: indexPath) as! LiftCell
+            let cell = super.tableView(tableView, cellForRowAt: indexPath) as! WorkoutLiftCell
             
             let lift = provider.object(at: indexPath.row)
             

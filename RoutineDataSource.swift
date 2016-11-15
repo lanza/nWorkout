@@ -1,6 +1,6 @@
 import UIKit
 
-class RoutineDataSource: DataSource<Workout,LiftCell> {
+class RoutineDataSource: DataSource<Workout,RoutineLiftCell> {
     
     override func initialSetup() {
         super.initialSetup()
@@ -24,7 +24,7 @@ class RoutineDataSource: DataSource<Workout,LiftCell> {
             cell.textLabel?.textAlignment = .center
             return cell
         } else {
-            let cell = super.tableView(tableView, cellForRowAt: indexPath) as! LiftCell
+            let cell = super.tableView(tableView, cellForRowAt: indexPath) as! RoutineLiftCell
             
             let lift = provider.object(at: indexPath.row)
             

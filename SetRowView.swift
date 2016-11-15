@@ -1,29 +1,38 @@
 import UIKit
 import ChartView
 
+class RoutineSetRowView: SetRowView {
+    override func setupSelectedColumnViewTypesAndWidth() {
+        selectedColumnViewTypes = ["SetNumber","TargetWeight","TargetReps"]
+        selectedColumnViewWidths = [10,45,45]
+    }
+}
+
+
 class SetRowView: RowView {
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
     required init() {
         super.init()
-        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","TargetWeight","TargetReps","CompletedWeight","CompletedReps"]
-        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [12,22,22,22,22]
         
+        setupSelectedColumnViewTypesAndWidth()
         configColumnViewTypes()
         configColumnWidthPercentages()
     }
     
     var selectedColumnViewTypes: [String]!
     var selectedColumnViewWidths: [CGFloat]!
-    
     func configColumnViewTypes() {
         columnViewTypes = selectedColumnViewTypes.map { dict[$0]! }
     }
-    
     func configColumnWidthPercentages() {
         let sum = selectedColumnViewWidths.reduce(0, +)
         columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
+    }
+    func setupSelectedColumnViewTypesAndWidth() {
+        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","TargetWeight","TargetReps","CompletedWeight","CompletedReps"]
+        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [12,22,22,22,22]
     }
     
     let dict: [String:UIView.Type] = [

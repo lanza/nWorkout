@@ -3,6 +3,20 @@ import ChartView
 import RxSwift
 import RxCocoa
 
+class WorkoutLiftCell: LiftCell {
+    override func setupChartView() {
+        super.setupChartView()
+        chartView.register(SetRowView.self, forResuseIdentifier: "row")
+    }
+}
+
+class RoutineLiftCell: LiftCell {
+    override func setupChartView() {
+        super.setupChartView()
+        chartView.register(RoutineSetRowView.self, forResuseIdentifier: "row")
+    }
+}
+
 class LiftCell: ChartViewCell {
     
     var rowViews: [SetRowView] { return chartView.rowViews as! [SetRowView] }
@@ -38,7 +52,6 @@ class LiftCell: ChartViewCell {
             ])
     }
     func setupChartView() {
-        chartView.register(SetRowView.self, forResuseIdentifier: "row")
         chartView.chartViewDataSource = ChartViewConfigurator(rowHeight: 31, numberOfRows: 0, rowSpacing: 2, backgroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
     }
     
