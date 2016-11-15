@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3FD2BC34109241A918F41B15 /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B8E7FF219D372643F9F7E6 /* Pods_nWorkout.framework */; };
 		B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */; };
+		B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC651DDB02A1002F826C /* LiftCell.swift */; };
 		B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */; };
 		B31E9FBB1DD6AE2000B9AEFC /* RoutinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */; };
 		B31E9FBD1DD6AE2B00B9AEFC /* RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */; };
@@ -16,8 +17,6 @@
 		B328D8101DD6FA3C000948ED /* RoutineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D80F1DD6FA3C000948ED /* RoutineTVC.swift */; };
 		B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8111DD6FA52000948ED /* StatisticsTVC.swift */; };
 		B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8131DD6FA5E000948ED /* SettingsTVC.swift */; };
-		B328D8161DD70046000948ED /* StatisticsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8151DD70046000948ED /* StatisticsDataSource.swift */; };
-		B328D8181DD70061000948ED /* SettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8171DD70061000948ED /* SettingsDataSource.swift */; };
 		B3312B341DC12F9700318AA6 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3312B331DC12F9700318AA6 /* MainCoordinator.swift */; };
 		B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0531DC1CC22006B6A51 /* UIResponder+FirstResponder.swift */; };
 		B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0551DC1CC29006B6A51 /* Theme.swift */; };
@@ -53,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTypeTVC.swift; sourceTree = "<group>"; };
+		B31CEC651DDB02A1002F826C /* LiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
 		B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDataSource.swift; sourceTree = "<group>"; };
 		B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutinesDataSource.swift; sourceTree = "<group>"; };
 		B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineDataSource.swift; sourceTree = "<group>"; };
@@ -60,8 +60,6 @@
 		B328D80F1DD6FA3C000948ED /* RoutineTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineTVC.swift; sourceTree = "<group>"; };
 		B328D8111DD6FA52000948ED /* StatisticsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTVC.swift; sourceTree = "<group>"; };
 		B328D8131DD6FA5E000948ED /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
-		B328D8151DD70046000948ED /* StatisticsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsDataSource.swift; sourceTree = "<group>"; };
-		B328D8171DD70061000948ED /* SettingsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDataSource.swift; sourceTree = "<group>"; };
 		B3312B331DC12F9700318AA6 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCoordinator.swift; path = nWorkout/MainCoordinator.swift; sourceTree = "<group>"; };
 		B34BA0531DC1CC22006B6A51 /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
 		B34BA0551DC1CC29006B6A51 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -166,8 +164,6 @@
 				B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */,
 				B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */,
 				B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */,
-				B328D8151DD70046000948ED /* StatisticsDataSource.swift */,
-				B328D8171DD70061000948ED /* SettingsDataSource.swift */,
 			);
 			name = "Data Sources";
 			sourceTree = "<group>";
@@ -177,6 +173,7 @@
 			children = (
 				B3780EF71DD5B0C80087CEC1 /* ConfigurableCell.swift */,
 				B38208711DC2B1850008D6F8 /* WorkoutCell.swift */,
+				B31CEC651DDB02A1002F826C /* LiftCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -388,13 +385,11 @@
 				B38208751DC2B1FA0008D6F8 /* BaseDataProvider.swift in Sources */,
 				B3780EF01DD5A7010087CEC1 /* DataSource.swift in Sources */,
 				B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */,
-				B328D8181DD70061000948ED /* SettingsDataSource.swift in Sources */,
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
 				B34BA05A1DC1CC4B006B6A51 /* Workout.swift in Sources */,
 				B38208791DC2B23E0008D6F8 /* Base.swift in Sources */,
 				B3BB31901DDAA24C0015F9B0 /* SettingsCoordinator.swift in Sources */,
-				B328D8161DD70046000948ED /* StatisticsDataSource.swift in Sources */,
 				B3BB318E1DDAA2360015F9B0 /* StatisticsCoordinator.swift in Sources */,
 				B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */,
 				B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */,
@@ -408,6 +403,7 @@
 				B3BB318C1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift in Sources */,
 				B3780EF81DD5B0C80087CEC1 /* ConfigurableCell.swift in Sources */,
 				B3BB31861DDAA17B0015F9B0 /* RoutinesCoordinator.swift in Sources */,
+				B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */,
 				B31E9FBF1DD6AE3400B9AEFC /* RoutinesTVC.swift in Sources */,
 				B3312B341DC12F9700318AA6 /* MainCoordinator.swift in Sources */,
 				B328D8101DD6FA3C000948ED /* RoutineTVC.swift in Sources */,

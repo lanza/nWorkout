@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -218,7 +219,7 @@
         <!--SettingsTVC-->
         <scene sceneID="zH3-Xi-gok">
             <objects>
-                <viewController storyboardIdentifier="SettingsTVC" id="msX-7W-5oO" customClass="SettingsTVC" customModule="nWorkout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsTVC" automaticallyAdjustsScrollViewInsets="NO" id="msX-7W-5oO" customClass="SettingsTVC" customModule="nWorkout" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L3Z-Jd-23e"/>
                         <viewControllerLayoutGuide type="bottom" id="kCw-zQ-Pia"/>
@@ -228,19 +229,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jnf-We-bkT">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="223" width="320" height="296"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the cells you want to display in your workouts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUO-gA-B7r">
+                                <rect key="frame" x="16" y="64" width="288" height="159"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jnf-We-bkT" firstAttribute="top" secondItem="7ib-29-Ujd" secondAttribute="top" id="6ep-fH-F3d"/>
                             <constraint firstAttribute="trailing" secondItem="jnf-We-bkT" secondAttribute="trailing" id="AU9-Ez-Kkc"/>
+                            <constraint firstItem="iUO-gA-B7r" firstAttribute="top" secondItem="L3Z-Jd-23e" secondAttribute="bottom" id="LSG-KC-JbW"/>
+                            <constraint firstItem="jnf-We-bkT" firstAttribute="top" secondItem="iUO-gA-B7r" secondAttribute="bottom" id="MM3-K4-EZa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iUO-gA-B7r" secondAttribute="trailing" id="PIR-2t-tsS"/>
+                            <constraint firstItem="jnf-We-bkT" firstAttribute="top" secondItem="L3Z-Jd-23e" secondAttribute="bottom" constant="159" id="Wd1-Bl-Bxr"/>
                             <constraint firstItem="jnf-We-bkT" firstAttribute="leading" secondItem="7ib-29-Ujd" secondAttribute="leading" id="eha-nU-BFs"/>
+                            <constraint firstItem="iUO-gA-B7r" firstAttribute="leading" secondItem="7ib-29-Ujd" secondAttribute="leadingMargin" id="lZw-1J-vNW"/>
                             <constraint firstItem="kCw-zQ-Pia" firstAttribute="top" secondItem="jnf-We-bkT" secondAttribute="bottom" id="oih-o8-UFX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vov-RL-D6R"/>
+                    <connections>
+                        <outlet property="tableView" destination="jnf-We-bkT" id="uTO-zE-wW0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8v-M5-NZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
