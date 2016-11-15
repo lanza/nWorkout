@@ -11,4 +11,6 @@ target 'nWorkout' do
   pod 'CoordinatorKit', :path => '~/Documents/CoordinatorKit', :branch => 'master'
   pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master'
 
+  pod 'Charts'
+
 end

@@ -129,7 +129,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AbW-bh-BGE">
-                        <barButtonItem key="leftBarButtonItem" title="Hide" id="8d6-Ze-MKE"/>
                         <barButtonItem key="rightBarButtonItem" title="Add Lift" id="pjI-Dt-yHZ"/>
                     </navigationItem>
                     <connections>
@@ -196,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j2f-mt-hxp">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>

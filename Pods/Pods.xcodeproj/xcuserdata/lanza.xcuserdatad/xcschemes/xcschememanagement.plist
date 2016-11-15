@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CoordinatorKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,37 +52,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>023B966F2615D02A16711E4C96525963</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>180ABCA1BD6C0AAC1AEBB75646A59367</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1FA915F92324F4E805E5E91E62250DAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4B2D37EC84A6695A0278DBB68ACFD56C</key>
+		<key>23E56850B08B17274E06A2797AAC863A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>69972EBDB76BB32FE482DA84B0DF349B</key>
+		<key>578E19698FE674EFA9821DDC70F1492B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>64EFF154CBF3E077C7E71876A151EBBB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A603E8CDCE0AC130E9D545B22217D901</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A996EED8C188E4DBA8EC501E9AF16A71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C74740A5BF5C1861F33D068A627F6114</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DA91EAD235D873F637A6FB596F19658B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

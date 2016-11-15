@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.0.0):
+    - Charts/Core (= 3.0.0)
+  - Charts/Core (3.0.0)
   - ChartView (0.0.1)
   - CoordinatorKit (0.0.4)
   - DZNEmptyDataSet (1.8.1)
@@ -12,6 +15,7 @@ PODS:
   - RxSwift (3.0.0-rc.1)
 
 DEPENDENCIES:
+  - Charts
   - ChartView (from `~/Documents/ChartView`)
   - CoordinatorKit (from `~/Documents/CoordinatorKit`)
   - DZNEmptyDataSet
@@ -28,6 +32,7 @@ EXTERNAL SOURCES:
     :path: "~/Documents/CoordinatorKit"
 
 SPEC CHECKSUMS:
+  Charts: beb341928d2135613b4325a6c6aff9f2f6de895e
   ChartView: 39f9d2c61765ca3f00136bf498afb54111f9e0f7
   CoordinatorKit: 9329d20b4bc418bf07067ec015f8198f9fab4aca
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -36,6 +41,6 @@ SPEC CHECKSUMS:
   RxCocoa: e72a074a7f38896ec0382d096df5f58df10115c7
   RxSwift: d7a3819dd71789c473e3cbf1a0c02d58b2692739
 
-PODFILE CHECKSUM: 9f3a4e5b9d82eb2406b94e5862763533fbeb32a2
+PODFILE CHECKSUM: 1701065c8f958b79259beca2a85ba058f3ba9449
 
 COCOAPODS: 1.1.1
