@@ -2,6 +2,10 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+extension LiftTypeTVC: ViewControllerFromStoryboard {
+    static var storyboardIdentifier: String { return "LiftTypeTVC" }
+}
+
 class LiftTypeTVC: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!

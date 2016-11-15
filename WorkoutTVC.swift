@@ -13,6 +13,7 @@ class WorkoutTVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
         
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout)
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
@@ -25,10 +26,17 @@ class WorkoutTVC: UIViewController {
             let indexPath = IndexPath(row: index, section: 0)
             self.tableView.insertRows(at: [indexPath], with: .automatic)
         }).addDisposableTo(db)
-        
     }
-
     
+    var didTapAddNewLift: (() -> ())!
 
     let db = DisposeBag()
+}
+
+extension WorkoutTVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            didTapAddNewLift()
+        }
+    }
 }

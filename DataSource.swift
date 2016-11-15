@@ -28,5 +28,8 @@ class DataSource<Provider: DataProvider, Cell: UITableViewCell>: NSObject, UITab
         return cell
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 }
 
