@@ -71,7 +71,21 @@ class BaseChartViewDataSource<BaseType: DataProvider>: ChartViewDataSource {
 
 
 class SetRowView: RowView {
-    override var columnViewTypes: [UIView.Type] { return [UITextField.self, UITextField.self] }
+    var isWorkout = false
+    override var columnViewTypes: [UIView.Type] {
+        if isWorkout {
+            return [UILabel.self, UILabel.self, UITextField.self, UITextField.self, UIButton.self]
+        } else {
+            return [UITextField.self, UITextField.self]
+        }
+    }
+    override var columnWidthPercentages: [CGFloat] {
+        if isWorkout {
+            return [10,34,23,23,10]
+        } else {
+            return [50,50]
+        }
+    }
 }
 
 
