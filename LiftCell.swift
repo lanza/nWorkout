@@ -82,6 +82,12 @@ extension LiftCell: ConfigurableCell {
             if let trtf = rowView.targetRepsTextField {
                 trtf.text = String(set.reps)
             }
+            if let cwtf = rowView.completedWeightTextField {
+                cwtf.text = String(set.completedWeight)
+            }
+            if let crtf = rowView.completedRepsTextField {
+                crtf.text = String(set.completedReps)
+            }
         }
         
         chartView.setup()
