@@ -1,8 +1,9 @@
 import UIKit
+import RealmSwift
 
 class StatisticsDataSource: DataSource<BaseDataProvider<Lift>,StatisticsCell> {
-    init(tableView: UITableView) {
-        super.init(tableView: tableView, provider: BaseDataProvider<Lift>(isWorkout: true))
+    init(tableView: UITableView, lifts: Results<Lift>) {
+        super.init(tableView: tableView, provider: BaseDataProvider<Lift>(objects: lifts))
     }
     
     override func initialSetup() {

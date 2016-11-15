@@ -6,6 +6,20 @@ class Lift: Base {
     let sets = List<Set>()
 }
 
+extension Lift {
+    func makeWorkoutLift() -> Lift {
+        let lift = Lift()
+        
+        lift.name = name
+        for set in sets {
+            lift.sets.append(set.makeWorkoutSet())
+        }
+        lift.isWorkout = true
+        
+        return lift
+    }
+}
+
 
 
 

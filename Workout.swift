@@ -9,6 +9,21 @@ class Workout: Base {
     dynamic var finishDate: Date? = nil
 }
 
+extension Workout {
+    func makeWorkoutWorkout() -> Workout {
+        let workout = Workout()
+        
+        for lift in lifts {
+            workout.lifts.append(lift.makeWorkoutLift())
+        }
+        workout.name = name
+        workout.isComplete = false
+        workout.isWorkout = true
+        
+        return workout
+    }
+}
+
 extension Workout: DataProvider {
     func append(_ object: Lift) {
         lifts.append(object)

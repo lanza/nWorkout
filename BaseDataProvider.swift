@@ -3,14 +3,10 @@ import RealmSwift
 
 class BaseDataProvider<BaseType: Base>: DataProvider {
     
-    let isWorkout: Bool
-    
-    init(isWorkout: Bool) {
-        self.isWorkout = isWorkout
-        objects = realm.objects(BaseType.self).filter("isWorkout = %@", isWorkout)
+    init(objects: Results<BaseType>) {
+        self.objects = objects
     }
     
-    let realm = try! Realm()
     let objects: Results<BaseType>
     
     func object(at index: Int) -> BaseType {

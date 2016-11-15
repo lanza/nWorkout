@@ -15,7 +15,6 @@ class DataSource<Provider: DataProvider, Cell: UITableViewCell>: NSObject, UITab
     
     func initialSetup() {
         tableView.dataSource = self
-        tableView.delegate = self
         tableView.register(Cell.self, forCellReuseIdentifier: Cell.identifier)
     }
     

@@ -7,11 +7,12 @@ extension StatisticsTVC: ViewControllerFromStoryboard {
 class StatisticsTVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var dataSource: StatisticsDataSource!
+    let lifts = RLM.realm.objects(Lift.self).filter("isWorkout = true")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = StatisticsDataSource(tableView: tableView)
+        dataSource = StatisticsDataSource(tableView: tableView, lifts: lifts)
     }
 
 }
