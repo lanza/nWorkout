@@ -6,6 +6,7 @@ import RxCocoa
 class WorkoutCoordinator: Coordinator {
     var workoutTVC: WorkoutTVC { return viewController as! WorkoutTVC }
     var workout: Workout!
+    var isActive: Bool { return !workout.isComplete }
     
     override func loadViewController() {
         viewController = WorkoutTVC.new()
@@ -23,10 +24,24 @@ class WorkoutCoordinator: Coordinator {
                 self.dismiss(animated: true)
                 self.workoutTVC.addNewLift(name: name)
             }
-            
             self.present(ltcNav, animated: true)
         }
+        
+        workoutTVC.didFinishWorkout = {
+            RLM.write {
+                self.workout.isComplete = true
+                self.workout.finishDate = Date()
+            }
+            self.navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
+        }
+        workoutTVC.didCancelWorkout = {
+            RLM.write {
+                RLM.realm.delete(self.workout)
+            }
+            self.navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
+        }
     }
+    
     let db = DisposeBag()
 }
 

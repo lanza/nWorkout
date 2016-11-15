@@ -10,11 +10,13 @@ class WorkoutTVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var dataSource: WorkoutDataSource!
     var workout: Workout!
+    var isActive: Bool { return !workout.isComplete }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout)
+        dataSource.isActive = isActive
         
         navigationItem.rightBarButtonItem = editButtonItem
     }
@@ -30,6 +32,8 @@ class WorkoutTVC: UIViewController {
         self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
     var didTapAddNewLift: (() -> ())!
+    var didFinishWorkout: (() -> ())!
+    var didCancelWorkout: (() -> ())!
 
     let db = DisposeBag()
 }
@@ -37,7 +41,15 @@ class WorkoutTVC: UIViewController {
 extension WorkoutTVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            didTapAddNewLift()
+            switch indexPath.row {
+            case 0:
+                didTapAddNewLift()
+            case 1:
+                didCancelWorkout()
+            case 2:
+                didFinishWorkout()
+            default: fatalError()
+            }
         }
     }
 }

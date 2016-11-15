@@ -64,6 +64,7 @@ class BaseChartViewDataSource<BaseType: DataProvider>: ChartViewDataSource {
     var numberOfRows: Int { return object.numberOfItems() }
     var rowHeight: CGFloat { return 25 }
     var rowSpacing: CGFloat { return 2 }
+    var backgroundColor: UIColor { return .darkGray }
 }
 
 extension LiftCell: ConfigurableCell {
@@ -80,7 +81,6 @@ extension LiftCell: ConfigurableCell {
                 repsTextField.text = String(set.reps)
             }
         }
-        
         chartView.setup()
         setNeedsUpdateConstraints()
     }
@@ -115,7 +115,6 @@ class LiftCell: ChartViewCell {
         addSetButton.setTitle("Add Set...", for: UIControlState())
         addSetButton.translatesAutoresizingMaskIntoConstraints = false
         bottomContentView.addSubview(addSetButton)
-        bottomContentView.backgroundColor = .blue
         
         NSLayoutConstraint.activate([
             addSetButton.leftAnchor.constraint(equalTo: bottomContentView.leftAnchor),

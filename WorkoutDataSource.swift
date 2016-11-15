@@ -2,6 +2,8 @@ import UIKit
 
 class WorkoutDataSource: DataSource<Workout,LiftCell> {
     
+    var isActive = false
+    
     override func initialSetup() {
         super.initialSetup()
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -13,7 +15,7 @@ class WorkoutDataSource: DataSource<Workout,LiftCell> {
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 {
-            return 1
+            return 3
         } else {
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
@@ -21,7 +23,15 @@ class WorkoutDataSource: DataSource<Workout,LiftCell> {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 1 {
             let cell = UITableViewCell()
-            cell.textLabel?.text = "Add Lift"
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = "Add Lift"
+            case 1:
+                cell.textLabel?.text = "Cancel Workout"
+            case 2:
+                cell.textLabel?.text = "Finish Workout"
+            default: fatalError()
+            }
             cell.textLabel?.textAlignment = .center
             return cell
         } else {

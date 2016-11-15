@@ -171,7 +171,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="vJU-R2-BNF">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gP2-fD-bwu"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="P6j-ic-J7g"/>
                     </navigationItem>
                     <connections>
                         <outlet property="blankWorkoutButton" destination="Qab-8h-DaZ" id="wUw-kn-8Ns"/>

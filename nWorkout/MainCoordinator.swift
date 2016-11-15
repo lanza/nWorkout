@@ -75,18 +75,21 @@ class MainCoordinator: TabBarCoordinator {
         swc.didSelectRoutine = { [unowned self] routine in
             self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
             if let routine = routine {
-                self.activeWorkoutCoordinator!.activeWorkout = routine.makeWorkoutWorkout()
+                self.activeWorkoutCoordinator!.workout = routine.makeWorkoutWorkout()
             } else {
-                self.activeWorkoutCoordinator!.activeWorkout = Workout()
+                self.activeWorkoutCoordinator!.workout = Workout()
             }
             RLM.write {
-                RLM.realm.add(self.activeWorkoutCoordinator!.activeWorkout)
+                RLM.realm.add(self.activeWorkoutCoordinator!.workout)
             }
             self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
             self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: nil, action: nil)
             self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext: {
                 self.dismiss(animated: true)
             }).addDisposableTo(self.db)
+            self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
+                self.activeWorkoutCoordinator = nil
+            }
             return self.activeWorkoutCoordinator!
         }
         

@@ -16,7 +16,7 @@ class WorkoutsTVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true").sorted(byProperty: "startDate")
+        workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true").filter("isComplete = true").sorted(byProperty: "startDate")
         dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
     }
    
