@@ -420,6 +420,9 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1jD-dJ-6xK"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="S3I-lp-6Vp"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="fRs-Qj-gKV" id="QLh-GG-wnP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl8-2G-egQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
