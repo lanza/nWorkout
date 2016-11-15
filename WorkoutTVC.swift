@@ -18,7 +18,6 @@ class WorkoutTVC: UIViewController {
         
         navigationItem.rightBarButtonItem = editButtonItem
     }
-   
     func addNewLift(name: String) {
         let lift = Lift()
         RLM.write {

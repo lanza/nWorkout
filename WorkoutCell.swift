@@ -1,10 +1,13 @@
 import UIKit
 import ChartView
+import RxSwift
+import RxCocoa
 
 extension WorkoutCell: ConfigurableCell {
     static var identifier: String { return "WorkoutCell" }
     func configure(for object: Workout, at indexPath: IndexPath) {
-        chartView.numberOfRows = object.numberOfItems()
+        
+        chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
     
         label.text = String(describing: object.startDate)
         
@@ -35,7 +38,6 @@ class WorkoutCell: ChartViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        
         label.translatesAutoresizingMaskIntoConstraints = false
         topContentView.addSubview(label)
         
@@ -45,19 +47,33 @@ class WorkoutCell: ChartViewCell {
             label.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
         ])
         
-        chartView.chartViewDataSource = ChartViewDataSource(rowHeight: 31, numberOfRows: 0, rowSpacing: 2, rowBackgroundColor: #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1), backgroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
+        
+        
+        chartView.chartViewDataSource = ChartViewConfigurator(rowHeight: 31, numberOfRows: 0, rowSpacing: 2, backgroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
         
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
 
+
+class BaseChartViewDataSource<BaseType: DataProvider>: ChartViewDataSource {
+    init(object: BaseType) {
+        self.object = object
+    }
+    var object: BaseType
+    var numberOfRows: Int { return object.numberOfItems() }
+    var rowHeight: CGFloat { return 25 }
+    var rowSpacing: CGFloat { return 2 }
+}
+
 extension LiftCell: ConfigurableCell {
     static var identifier: String { return "LiftCell" }
     func configure(for object: Lift, at indexPath: IndexPath) {
-        chartView.numberOfRows = object.numberOfItems()
         label.text = object.name
         
-        chartView.configurationClosure = { [unowned object] in
+        chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
+        
+        chartView.configurationClosure = { 
             for (index,(weightTextField,repsTextField)) in zip(self.weightTextFields,self.repsTextFields).enumerated() {
                 let set = object.object(at: index)
                 weightTextField.text = String(set.weight)
@@ -70,12 +86,18 @@ extension LiftCell: ConfigurableCell {
     }
 }
 
+
+class SetRowView: RowView {
+    override var columnViewTypes: [UIView.Type] { return [UITextField.self, UITextField.self] }
+}
+
 class LiftCell: ChartViewCell {
     
     var weightTextFields: [UITextField] { return chartView.views(at: 0) as! [UITextField] }
     var repsTextFields: [UITextField] { return chartView.views(at: 1) as! [UITextField] }
     
     let label = UILabel()
+    let addSetButton = UIButton(type: .roundedRect)
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -90,8 +112,28 @@ class LiftCell: ChartViewCell {
             label.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
         ])
         
-        chartView.chartViewDataSource = ChartViewDataSource(rowHeight: 31, numberOfRows: 0, rowSpacing: 2, rowBackgroundColor: #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1), backgroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
+        addSetButton.setTitle("Add Set...", for: UIControlState())
+        addSetButton.translatesAutoresizingMaskIntoConstraints = false
+        bottomContentView.addSubview(addSetButton)
+        bottomContentView.backgroundColor = .blue
+        
+        NSLayoutConstraint.activate([
+            addSetButton.leftAnchor.constraint(equalTo: bottomContentView.leftAnchor),
+            addSetButton.rightAnchor.constraint(equalTo: bottomContentView.rightAnchor),
+            addSetButton.topAnchor.constraint(equalTo: bottomContentView.topAnchor),
+            addSetButton.bottomAnchor.constraint(equalTo: bottomContentView.bottomAnchor)
+        ])
+        chartView.register(SetRowView.self, forResuseIdentifier: "row")
+        chartView.chartViewDataSource = ChartViewConfigurator(rowHeight: 31, numberOfRows: 0, rowSpacing: 2, backgroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        db = DisposeBag()
+    }
+    
+   
+    var db = DisposeBag()
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }

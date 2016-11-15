@@ -25,7 +25,22 @@ class WorkoutDataSource: DataSource<Workout,LiftCell> {
             cell.textLabel?.textAlignment = .center
             return cell
         } else {
-            return super.tableView(tableView, cellForRowAt: indexPath)
+            let cell = super.tableView(tableView, cellForRowAt: indexPath) as! LiftCell
+            
+            let lift = provider.object(at: indexPath.row)
+            
+            cell.addSetButton.rx.tap.subscribe(onNext: {
+                self.tableView.beginUpdates()
+                let set = Set()
+                RLM.write {
+                    set.weight = 225
+                    set.reps = 5
+                    lift.sets.append(set)
+                    cell.chartView.setup()
+                }
+                self.tableView.endUpdates()
+            }).addDisposableTo(cell.db)
+            return cell
         }
     }
     
