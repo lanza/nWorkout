@@ -8,15 +8,13 @@ extension WorkoutCell: ConfigurableCell {
     func configure(for object: Workout, at indexPath: IndexPath) {
         
         chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
-    
+        
         label.text = String(describing: object.startDate)
         
-        chartView.configurationClosure = { [unowned object] in
-            for (index,(nameOfLiftLabel,setCountLabel)) in self.labels.enumerated() {
-                let lift = object.object(at: index)
-                nameOfLiftLabel.text = lift.name
-                setCountLabel.text = String(lift.sets.count) + " sets"
-            }
+        chartView.configurationClosure = { (index,rowView) in
+            let lift = object.object(at: index)
+            (rowView.columnViews[0] as! UILabel).text = lift.name
+            (rowView.columnViews[1] as! UILabel).text = String(lift.sets.count) + " sets"
         }
         
         chartView.setup()
@@ -35,9 +33,7 @@ class WorkoutCell: ChartViewCell {
     
     let label = UILabel()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    func setupTopContentView() {
         label.translatesAutoresizingMaskIntoConstraints = false
         topContentView.addSubview(label)
         
@@ -45,12 +41,21 @@ class WorkoutCell: ChartViewCell {
             label.topAnchor.constraint(equalTo: topContentView.topAnchor),
             label.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
             label.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
-        ])
-        
-        
-        
+            ])
+    }
+    func setupBottomContentView() {
+        //
+    }
+    func setupChartView() {
         chartView.chartViewDataSource = ChartViewConfigurator(rowHeight: 31, numberOfRows: 0, rowSpacing: 2, backgroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
+    }
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        setupTopContentView()
+        setupBottomContentView()
+        setupChartView()
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
@@ -71,21 +76,53 @@ class BaseChartViewDataSource<BaseType: DataProvider>: ChartViewDataSource {
 
 
 class SetRowView: RowView {
-    var isWorkout = false
-    override var columnViewTypes: [UIView.Type] {
-        if isWorkout {
-            return [UILabel.self, UILabel.self, UITextField.self, UITextField.self, UIButton.self]
-        } else {
-            return [UITextField.self, UITextField.self]
-        }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+    
+    required init() {
+        super.init()
+        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","TargetWeight","TargetReps"]
+        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [10,45,45]
+        
+        configColumnViewTypes()
+        configColumnWidthPercentages()
     }
-    override var columnWidthPercentages: [CGFloat] {
-        if isWorkout {
-            return [10,34,23,23,10]
-        } else {
-            return [50,50]
-        }
+    
+    var selectedColumnViewTypes: [String]!
+    var selectedColumnViewWidths: [CGFloat]!
+    
+    func configColumnViewTypes() {
+        columnViewTypes = selectedColumnViewTypes.map { dict[$0]! }
+    }
+    
+    func configColumnWidthPercentages() {
+        let sum = selectedColumnViewWidths.reduce(0, +)
+        columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
+    }
+    
+    let dict: [String:UIView.Type] = [
+        "SetNumber":UILabel.self, "PreviousWeight":UILabel.self,
+        "PreviousReps":UILabel.self, "TargetWeight":UITextField.self,
+        "TargetReps":UITextField.self, "FailureWeight":UITextField.self,
+        "FailureReps":UITextField.self, "Timer":UILabel.self,
+        "Note":UIButton.self
+    ]
+    var setNumberLabel: UILabel? {
+        guard let index = selectedColumnViewTypes.index(of: "SetNumber") else { return nil }
+        guard let snl = columnViews[index] as? UILabel else { fatalError() }
+        return snl
+    }
+    var targetWeightTextField: UITextField? {
+        guard let index = selectedColumnViewTypes.index(of: "TargetWeight") else { return nil }
+        guard let twtf = columnViews[index] as? UITextField else { fatalError() }
+        return twtf
+    }
+    var targetRepsTextField: UITextField? {
+        guard let index = selectedColumnViewTypes.index(of: "TargetReps") else { return nil }
+        guard let trtf = columnViews[index] as? UITextField else { fatalError() }
+        return trtf
     }
 }
+
 
 
