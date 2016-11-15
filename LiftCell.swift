@@ -5,15 +5,16 @@ import RxCocoa
 
 class LiftCell: ChartViewCell {
     
-    var weightTextFields: [UITextField] { return chartView.views(at: 0) as! [UITextField] }
-    var repsTextFields: [UITextField] { return chartView.views(at: 1) as! [UITextField] }
+    var rowViews: [SetRowView] { return chartView.rowViews as! [SetRowView] }
+    
+    var setNumberLables: [UILabel?] { return rowViews.map { $0.setNumberLabel } }
+    var weightTextFields: [UITextField?] { return rowViews.map { $0.targetWeightTextField } }
+    var repsTextFields: [UITextField?] { return rowViews.map { $0.targetRepsTextField } }
     
     let label = UILabel()
     let addSetButton = UIButton(type: .roundedRect)
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    func setupTopContentView() {
         label.text = "Hi muffin"
         label.translatesAutoresizingMaskIntoConstraints = false
         topContentView.addSubview(label)
@@ -23,7 +24,8 @@ class LiftCell: ChartViewCell {
             label.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
             label.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
             ])
-        
+    }
+    func setupBottomContentView() {
         addSetButton.setTitle("Add Set...", for: UIControlState())
         addSetButton.translatesAutoresizingMaskIntoConstraints = false
         bottomContentView.addSubview(addSetButton)
@@ -34,8 +36,20 @@ class LiftCell: ChartViewCell {
             addSetButton.topAnchor.constraint(equalTo: bottomContentView.topAnchor),
             addSetButton.bottomAnchor.constraint(equalTo: bottomContentView.bottomAnchor)
             ])
+    }
+    func setupChartView() {
         chartView.register(SetRowView.self, forResuseIdentifier: "row")
         chartView.chartViewDataSource = ChartViewConfigurator(rowHeight: 31, numberOfRows: 0, rowSpacing: 2, backgroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
+    }
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupTopContentView()
+        setupBottomContentView()
+        setupChartView()
+        
+        
     }
     
     override func prepareForReuse() {
@@ -56,13 +70,17 @@ extension LiftCell: ConfigurableCell {
         
         chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
         
-        chartView.configurationClosure = {
-            for (index,(weightTextField,repsTextField)) in zip(self.weightTextFields,self.repsTextFields).enumerated() {
-                let set = object.object(at: index)
-                weightTextField.text = String(set.weight)
-                repsTextField.text = String(set.reps)
+        chartView.configurationClosure = { (index,rowView) in
+            let rowView = rowView as! SetRowView
+            let set = object.object(at: index)
+            if let twtf = rowView.targetWeightTextField {
+                twtf.text = String(set.weight)
+            }
+            if let trtf = rowView.targetRepsTextField {
+                trtf.text = String(set.reps)
             }
         }
+        
         chartView.setup()
         setNeedsUpdateConstraints()
     }
