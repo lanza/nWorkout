@@ -22,5 +22,9 @@ class BaseDataProvider<BaseType: Base>: DataProvider {
     
     func append(_ object: BaseType) { fatalError() }
     func insert(_ object: BaseType, at index: Int) { fatalError() }
-    func remove(at index: Int) { fatalError() }
+    func remove(at index: Int) {
+        RLM.write {
+            RLM.realm.delete(object(at: index))
+        }
+    }
 }

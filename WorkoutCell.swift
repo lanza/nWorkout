@@ -9,7 +9,7 @@ extension WorkoutCell: ConfigurableCell {
         
         chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
         
-        label.text = String(describing: object.startDate)
+        label.text = Lets.workoutDateDF.string(from: object.startDate)
         
         chartView.configurationClosure = { (index,rowView) in
             let lift = object.object(at: index)

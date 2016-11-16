@@ -19,6 +19,9 @@ class WorkoutsTVC: UIViewController {
         
         workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true").filter("isComplete = true").sorted(byProperty: "startDate")
         dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
+        dataSource.displayAlert = { alert in
+            self.present(alert, animated: true, completion: nil)
+        }
     }
    
     override func viewDidLoad() {
@@ -26,8 +29,9 @@ class WorkoutsTVC: UIViewController {
         tableView.delegate = self
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
-        
         tableView.tableFooterView = UIView()
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
    
     var didSelectWorkout: ((Workout) -> ())!
