@@ -18,6 +18,15 @@ class WeightAndRepsTextField: UITextField {
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
 
+class CompletedWeightAndRepsTextField: WeightAndRepsTextField {
+    override init() {
+        super.init()
+        isHidden = !(UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true)
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+}
+
 class SetNumberLabel: UILabel {
     init() {
         super.init(frame: CGRect.zero)
@@ -38,7 +47,13 @@ class WeightAndRepsLabel: UILabel {
 
 class SetRowView: RowView {
     
-    weak var set: (nWorkout.Set)!
+    var showCompletedTextFields = UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true {
+        didSet {
+            completedWeightTextField?.isHidden = !showCompletedTextFields
+            completedRepsTextField?.isHidden = !showCompletedTextFields
+        }
+    }
+    var set: (nWorkout.Set)!
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
@@ -60,8 +75,8 @@ class SetRowView: RowView {
         columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
     }
     func setupSelectedColumnViewTypesAndWidth() {
-        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","TargetWeight","TargetReps","CompletedWeight","CompletedReps"]
-        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [12,22,22,22,22]
+        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","TargetWeight","TargetReps","CompletedWeight","CompletedReps","CompleteButton"]
+        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [12,22,22,22,22,12]
     }
     
     let dict: [String:UIView.Type] = [
@@ -69,7 +84,7 @@ class SetRowView: RowView {
         "PreviousReps":WeightAndRepsLabel.self, "TargetWeight":WeightAndRepsTextField.self,
         "TargetReps":WeightAndRepsTextField.self, "CompletedWeight":WeightAndRepsTextField.self,
         "CompletedReps":WeightAndRepsTextField.self, "Timer":UILabel.self,
-        "Note":UIButton.self
+        "Note":UIButton.self, "CompleteButton":UIButton.self
     ]
     var setNumberLabel: UILabel? {
         guard let index = selectedColumnViewTypes.index(of: "SetNumber") else { return nil }
@@ -95,5 +110,10 @@ class SetRowView: RowView {
         guard let index = selectedColumnViewTypes.index(of: "CompletedReps") else { return nil }
         guard let crtf = columnViews[index] as? UITextField else { fatalError() }
         return crtf
+    }
+    var completeButton: UIButton? {
+        guard let index = selectedColumnViewTypes.index(of: "CompleteButton") else { return nil }
+        guard let cb = columnViews[index] as? UIButton else { fatalError() }
+        return cb
     }
 }

@@ -42,6 +42,8 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
             cell.lift = lift
             
             cell.addSetButton.rx.tap.subscribe(onNext: {
+                self.currentlyEditingTextField?.resignFirstResponder()
+                self.currentlyEditingTextField = nil
                 self.tableView.beginUpdates()
                 let set = Set()
                 RLM.write {
@@ -67,22 +69,34 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
         setupObserversForCurrentlyEditing(cell: cell)
         setupObserversForTextHandling(cell: cell)
         setupObserversForSettingBackTextAfterEditing(cell: cell)
-    
+        setupObserversForUpdatingSetValues(cell: cell)
     }
     
     func setupObserversForUpdatingSetValues(cell: WorkoutLiftCell) {
          for setRowView in cell.chartView.rowViews as! [SetRowView] {
             setRowView.targetWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
-                setRowView.set.weight = Double(setRowView.targetWeightTextField!.text!)!
+                guard let value = Double(setRowView.targetWeightTextField!.text!), value != setRowView.set.weight else { return }
+                RLM.write {
+                    setRowView.set.weight = value
+                }
             }).addDisposableTo(cell.db)
             setRowView.targetRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
-                setRowView.set.reps = Int(setRowView.completedRepsTextField!.text!)!
+                guard let value = Int(setRowView.targetRepsTextField!.text!), value != setRowView.set.reps else { return }
+                RLM.write {
+                    setRowView.set.reps = value
+                }
             }).addDisposableTo(cell.db)
             setRowView.completedWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
-                setRowView.set.completedWeight = Double(setRowView.completedWeightTextField!.text!)!
+                guard let value = Double(setRowView.completedWeightTextField!.text!), value != setRowView.set.completedWeight else { return }
+                RLM.write {
+                    setRowView.set.completedWeight = value
+                }
             }).addDisposableTo(cell.db)
             setRowView.completedRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
-                setRowView.set.completedReps = Int(setRowView.completedRepsTextField!.text!)!
+                guard let value = Int(setRowView.completedRepsTextField!.text!), value != setRowView.set.completedReps else { return }
+                RLM.write {
+                    setRowView.set.completedReps = value
+                }
             }).addDisposableTo(cell.db)
         }
     }
