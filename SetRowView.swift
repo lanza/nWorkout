@@ -1,5 +1,7 @@
 import UIKit
 import ChartView
+import RxSwift
+import RxCocoa
 
 class RoutineSetRowView: SetRowView {
     override func setupSelectedColumnViewTypesAndWidth() {
@@ -116,4 +118,5 @@ class SetRowView: RowView {
         guard let cb = columnViews[index] as? UIButton else { fatalError() }
         return cb
     }
+    var db = DisposeBag()
 }

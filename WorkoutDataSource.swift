@@ -51,6 +51,7 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
                     set.reps = 5
                     lift.sets.append(set)
                     cell.chartView.setup()
+                    self.setupRowConnections(for: cell.chartView.rowViews.last as! SetRowView, cell: cell)
                 }
                 self.tableView.endUpdates()
             }).addDisposableTo(cell.db)
@@ -66,115 +67,113 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     var currentlyEditingTextField: UITextField?
     
     func setupSetConnections(for cell: WorkoutLiftCell) {
-        setupObserversForCurrentlyEditing(cell: cell)
-        setupObserversForTextHandling(cell: cell)
-        setupObserversForSettingBackTextAfterEditing(cell: cell)
-        setupObserversForUpdatingSetValues(cell: cell)
+        for setRowView in cell.rowViews {
+            setupRowConnections(for: setRowView, cell: cell)
+        }
     }
     
-    func setupObserversForUpdatingSetValues(cell: WorkoutLiftCell) {
-         for setRowView in cell.chartView.rowViews as! [SetRowView] {
+    func setupRowConnections(for setRowView: SetRowView, cell: WorkoutLiftCell) {
+        setupObserversForCurrentlyEditing(setRowView: setRowView, cell: cell)
+        setupObserversForTextHandling(setRowView: setRowView)
+        setupObserversForSettingBackTextAfterEditing(setRowView: setRowView)
+        setupObserversForUpdatingSetValues(setRowView: setRowView)
+    }
+    
+    func setupObserversForUpdatingSetValues(setRowView: SetRowView) {
             setRowView.targetWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
                 guard let value = Double(setRowView.targetWeightTextField!.text!), value != setRowView.set.weight else { return }
                 RLM.write {
                     setRowView.set.weight = value
                 }
-            }).addDisposableTo(cell.db)
+            }).addDisposableTo(setRowView.db)
             setRowView.targetRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
                 guard let value = Int(setRowView.targetRepsTextField!.text!), value != setRowView.set.reps else { return }
                 RLM.write {
                     setRowView.set.reps = value
                 }
-            }).addDisposableTo(cell.db)
+            }).addDisposableTo(setRowView.db)
             setRowView.completedWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
                 guard let value = Double(setRowView.completedWeightTextField!.text!), value != setRowView.set.completedWeight else { return }
                 RLM.write {
                     setRowView.set.completedWeight = value
                 }
-            }).addDisposableTo(cell.db)
+            }).addDisposableTo(setRowView.db)
             setRowView.completedRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
                 guard let value = Int(setRowView.completedRepsTextField!.text!), value != setRowView.set.completedReps else { return }
                 RLM.write {
                     setRowView.set.completedReps = value
                 }
-            }).addDisposableTo(cell.db)
-        }
+            }).addDisposableTo(setRowView.db)
     }
     
-    func setupObserversForSettingBackTextAfterEditing(cell: WorkoutLiftCell) {
-        for setRowView in cell.chartView.rowViews as! [SetRowView] {
-            setRowView.targetWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
-                if setRowView.targetWeightTextField?.text == "" {
-                    setRowView.targetWeightTextField?.text = setRowView.targetWeightTextField?.placeholder
-                }
-            }).addDisposableTo(cell.db)
-            setRowView.targetRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
-                if setRowView.targetRepsTextField?.text == "" {
-                    setRowView.targetRepsTextField?.text = setRowView.targetRepsTextField?.placeholder
-                }
-            }).addDisposableTo(cell.db)
-            setRowView.completedWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
-                if setRowView.completedWeightTextField?.text == "" {
-                    setRowView.completedWeightTextField?.text = setRowView.completedWeightTextField?.placeholder
-                }
-            }).addDisposableTo(cell.db)
-            setRowView.completedRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
-                if setRowView.completedRepsTextField?.text == "" {
-                    setRowView.completedRepsTextField?.text = setRowView.completedRepsTextField?.placeholder
-                }
-            }).addDisposableTo(cell.db)
-        }
+    func setupObserversForSettingBackTextAfterEditing(setRowView: SetRowView) {
+        setRowView.targetWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
+            if setRowView.targetWeightTextField?.text == "" {
+                setRowView.targetWeightTextField?.text = setRowView.targetWeightTextField?.placeholder
+            }
+        }).addDisposableTo(setRowView.db)
+        setRowView.targetRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
+            if setRowView.targetRepsTextField?.text == "" {
+                setRowView.targetRepsTextField?.text = setRowView.targetRepsTextField?.placeholder
+            }
+        }).addDisposableTo(setRowView.db)
+        setRowView.completedWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
+            if setRowView.completedWeightTextField?.text == "" {
+                setRowView.completedWeightTextField?.text = setRowView.completedWeightTextField?.placeholder
+            }
+        }).addDisposableTo(setRowView.db)
+        setRowView.completedRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
+            if setRowView.completedRepsTextField?.text == "" {
+                setRowView.completedRepsTextField?.text = setRowView.completedRepsTextField?.placeholder
+            }
+        }).addDisposableTo(setRowView.db)
     }
     
    
-    func setupObserversForTextHandling(cell: WorkoutLiftCell) {
-        for setRowView in cell.chartView.rowViews as! [SetRowView] {
-            setRowView.targetWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
-                guard setRowView.targetWeightTextField?.text != nil else { return }
-                setRowView.targetWeightTextField?.placeholder = setRowView.targetWeightTextField?.text
-                setRowView.targetWeightTextField?.text = nil
-            }).addDisposableTo(cell.db)
-            setRowView.targetRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
-                guard setRowView.targetRepsTextField?.text != nil else { return }
-                setRowView.targetRepsTextField?.placeholder = setRowView.targetRepsTextField?.text
-                setRowView.targetRepsTextField?.text = nil
-            }).addDisposableTo(cell.db)
-            setRowView.completedWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
-                guard setRowView.completedWeightTextField?.text != nil else { return }
-                setRowView.completedWeightTextField?.placeholder = setRowView.completedWeightTextField?.text
-                setRowView.completedWeightTextField?.text = nil
-            }).addDisposableTo(cell.db)
-            setRowView.completedRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
-                guard setRowView.completedRepsTextField?.text != nil else { return }
-                setRowView.completedRepsTextField?.placeholder = setRowView.completedRepsTextField?.text
-                setRowView.completedRepsTextField?.text = nil
-            }).addDisposableTo(cell.db)
-        }
+    func setupObserversForTextHandling(setRowView: SetRowView) {
+        setRowView.targetWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
+            guard setRowView.targetWeightTextField?.text != nil else { return }
+            setRowView.targetWeightTextField?.placeholder = setRowView.targetWeightTextField?.text
+            setRowView.targetWeightTextField?.text = nil
+        }).addDisposableTo(setRowView.db)
+        setRowView.targetRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
+            guard setRowView.targetRepsTextField?.text != nil else { return }
+            setRowView.targetRepsTextField?.placeholder = setRowView.targetRepsTextField?.text
+            setRowView.targetRepsTextField?.text = nil
+        }).addDisposableTo(setRowView.db)
+        setRowView.completedWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
+            guard setRowView.completedWeightTextField?.text != nil else { return }
+            setRowView.completedWeightTextField?.placeholder = setRowView.completedWeightTextField?.text
+            setRowView.completedWeightTextField?.text = nil
+        }).addDisposableTo(setRowView.db)
+        setRowView.completedRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
+            guard setRowView.completedRepsTextField?.text != nil else { return }
+            setRowView.completedRepsTextField?.placeholder = setRowView.completedRepsTextField?.text
+            setRowView.completedRepsTextField?.text = nil
+        }).addDisposableTo(setRowView.db)
     }
     
-    func setupObserversForCurrentlyEditing(cell: WorkoutLiftCell) {
-         for setRowView in cell.chartView.rowViews as! [SetRowView] {
-            setRowView.targetWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
-                self.currentlyEditingLiftCell = cell
-                self.currentlyEditingRowView = setRowView
-                self.currentlyEditingTextField = setRowView.targetWeightTextField
-            }).addDisposableTo(cell.db)
-            setRowView.targetRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
-                self.currentlyEditingLiftCell = cell
-                self.currentlyEditingRowView = setRowView
-                self.currentlyEditingTextField = setRowView.targetRepsTextField
-            }).addDisposableTo(cell.db)
-            setRowView.completedWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
-                self.currentlyEditingLiftCell = cell
-                self.currentlyEditingRowView = setRowView
-                self.currentlyEditingTextField = setRowView.completedWeightTextField
-            }).addDisposableTo(cell.db)
-            setRowView.completedRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
-                self.currentlyEditingLiftCell = cell
-                self.currentlyEditingRowView = setRowView
-                self.currentlyEditingTextField = setRowView.completedRepsTextField
-            }).addDisposableTo(cell.db)
-        }
+    func setupObserversForCurrentlyEditing(setRowView: SetRowView, cell: WorkoutLiftCell) {
+        setRowView.targetWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
+            self.currentlyEditingLiftCell = cell
+            self.currentlyEditingRowView = setRowView
+            self.currentlyEditingTextField = setRowView.targetWeightTextField
+        }).addDisposableTo(setRowView.db)
+        setRowView.targetRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
+            self.currentlyEditingLiftCell = cell
+            self.currentlyEditingRowView = setRowView
+            self.currentlyEditingTextField = setRowView.targetRepsTextField
+        }).addDisposableTo(setRowView.db)
+        setRowView.completedWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
+            self.currentlyEditingLiftCell = cell
+            self.currentlyEditingRowView = setRowView
+            self.currentlyEditingTextField = setRowView.completedWeightTextField
+        }).addDisposableTo(setRowView.db)
+        setRowView.completedRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
+            self.currentlyEditingLiftCell = cell
+            self.currentlyEditingRowView = setRowView
+            self.currentlyEditingTextField = setRowView.completedRepsTextField
+        }).addDisposableTo(setRowView.db)
     }
 }
 
