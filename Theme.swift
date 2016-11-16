@@ -13,6 +13,7 @@ struct Theme {
         tabBarAppearance.barStyle = .black
         tabBarAppearance.barTintColor = Colors.Tab.barTint
         tabBarAppearance.tintColor = Colors.Tab.tint
+        tabBarAppearance.unselectedItemTintColor = Colors.Tab.unselectedItemTint
         
 //        let barButtonItemAppearance = UIBarButtonItem.appearance()
         
@@ -39,6 +40,7 @@ struct Theme {
         struct Tab {
             static let barTint = Colors.dark
             static let tint = Colors.main
+            static let unselectedItemTint = UIColor.white       
         }
         struct Keyboard {
             static let background = Colors.dark

@@ -5,12 +5,29 @@ import RxSwift
 import RxCocoa
 
 class MainCoordinator: TabBarCoordinator {
-    
+  
+    func checkForUnfinishedWorkout() {
+        let workouts = RLM.realm.objects(Workout.self).filter("isComplete = false").filter("isWorkout = true")
+        print(workouts)
+        if let first = workouts.first {
+            self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
+            self.activeWorkoutCoordinator?.workout = first
+            
+            self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
+            self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: nil, action: nil)
+            self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext: {
+                self.dismiss(animated: true)
+            }).addDisposableTo(self.db)
+            self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
+                self.activeWorkoutCoordinator = nil
+            }
+            displayActiveWorkout()
+        }
+    }
    
     override func viewControllerDidLoad() {
         super.viewControllerDidLoad()
         delegate = self
-        
         Theme.do()
         
         let wc = WorkoutsCoordinator()
@@ -24,7 +41,6 @@ class MainCoordinator: TabBarCoordinator {
         rcNav.tabBarItem.image = #imageLiteral(resourceName: "routine")
         rcNav.tabBarItem.title = "Routines"
         rc.navigationItem.title = "Routines"
-        
         
         let stc = StatisticsCoordinator()
         let stcNav = NavigationCoordinator(rootCoordinator: stc)
@@ -41,6 +57,16 @@ class MainCoordinator: TabBarCoordinator {
         let coordinators = [wcNav,rcNav,dummy,stcNav,secNav]
         self.coordinators = coordinators
         
+        let itemWidth = tabBarController.tabBar.frame.width / CGFloat(tabBarController.tabBar.items!.count)
+        let backgroundView = UIView(frame: CGRect(x: itemWidth * 2, y: 0, width: itemWidth, height: tabBarController.tabBar.frame.height))
+        backgroundView.backgroundColor = Theme.Colors.main
+        tabBarController.tabBar.insertSubview(backgroundView, at: 0)
+        
+    }
+    override func didNavigateToViewController(_ animated: Bool) {
+        super.didNavigateToViewController(animated)
+        
+        checkForUnfinishedWorkout()
     }
     
     let dummy: Coordinator = {
@@ -92,7 +118,6 @@ class MainCoordinator: TabBarCoordinator {
             }
             return self.activeWorkoutCoordinator!
         }
-        
         present(swcNav, animated: true)
     }
     func displayActiveWorkout() {
@@ -102,7 +127,15 @@ class MainCoordinator: TabBarCoordinator {
         present(awcNav, animated: true)
     }
     
-    var activeWorkoutCoordinator: ActiveWorkoutCoordinator?
+    var activeWorkoutCoordinator: ActiveWorkoutCoordinator? {
+        didSet {
+            if activeWorkoutCoordinator == nil {
+                dummy.tabBarItem.image = #imageLiteral(resourceName: "newWorkout")
+            } else {
+                dummy.tabBarItem.image = #imageLiteral(resourceName: "show")
+            }
+        }
+    }
     
     let db = DisposeBag()
 }

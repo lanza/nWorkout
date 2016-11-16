@@ -1,4 +1,5 @@
 import UIKit
+import CoordinatorKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -11,7 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         AppDelegate.main = self
         window = UIWindow()
-        window?.rootViewController = mainCoordinator.viewController
+        mainCoordinator.willNavigateToViewController(false)
+        defer { mainCoordinator.didNavigateToViewController(false) }
+        window?.setRootCoordinator(mainCoordinator)
         window?.makeKeyAndVisible()
         return true
     }
