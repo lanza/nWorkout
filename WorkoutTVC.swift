@@ -12,6 +12,12 @@ class WorkoutTVC: UIViewController {
     var workout: Workout!
     var isActive: Bool { return !workout.isComplete }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Keyboard.shared.delegate = dataSource
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -53,3 +59,6 @@ extension WorkoutTVC: UITableViewDelegate {
         }
     }
 }
+
+
+

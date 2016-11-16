@@ -8,8 +8,37 @@ class RoutineSetRowView: SetRowView {
     }
 }
 
+class WeightAndRepsTextField: UITextField {
+    init() {
+        super.init(frame: CGRect.zero)
+        textAlignment = .center
+        inputView = Keyboard.shared
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+}
+
+class SetNumberLabel: UILabel {
+    init() {
+        super.init(frame: CGRect.zero)
+        textAlignment = .center
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+}
+
+class WeightAndRepsLabel: UILabel {
+    init() {
+        super.init(frame: CGRect.zero)
+        textAlignment = .center
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+}
 
 class SetRowView: RowView {
+    
+    weak var set: (nWorkout.Set)!
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
@@ -36,10 +65,10 @@ class SetRowView: RowView {
     }
     
     let dict: [String:UIView.Type] = [
-        "SetNumber":UILabel.self, "PreviousWeight":UILabel.self,
-        "PreviousReps":UILabel.self, "TargetWeight":UITextField.self,
-        "TargetReps":UITextField.self, "CompletedWeight":UITextField.self,
-        "CompletedReps":UITextField.self, "Timer":UILabel.self,
+        "SetNumber":SetNumberLabel.self, "PreviousWeight":WeightAndRepsLabel.self,
+        "PreviousReps":WeightAndRepsLabel.self, "TargetWeight":WeightAndRepsTextField.self,
+        "TargetReps":WeightAndRepsTextField.self, "CompletedWeight":WeightAndRepsTextField.self,
+        "CompletedReps":WeightAndRepsTextField.self, "Timer":UILabel.self,
         "Note":UIButton.self
     ]
     var setNumberLabel: UILabel? {

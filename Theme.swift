@@ -40,6 +40,10 @@ struct Theme {
             static let barTint = Colors.dark
             static let tint = Colors.main
         }
+        struct Keyboard {
+            static let background = Colors.dark
+            static let keys = Colors.main
+        }
         
         
         static var outerTableViewBackground = Colors.light

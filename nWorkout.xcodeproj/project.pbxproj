@@ -27,6 +27,7 @@
 		B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B356FBC21DC09C160006A0F0 /* AppDelegate.swift */; };
 		B356FBCD1DC09C160006A0F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B356FBCB1DC09C160006A0F0 /* LaunchScreen.storyboard */; };
 		B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */; };
+		B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
 		B3780EED1DD5A5480087CEC1 /* ViewControllerFromStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEC1DD5A5470087CEC1 /* ViewControllerFromStoryboard.swift */; };
@@ -74,6 +75,7 @@
 		B356FBCC1DC09C160006A0F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B356FBCE1DC09C160006A0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRowView.swift; sourceTree = "<group>"; };
+		B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyboard&KeyboardDelegate.swift"; sourceTree = "<group>"; };
 		B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutVC.swift; sourceTree = "<group>"; };
 		B3780EEA1DD5A4530087CEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B3780EEC1DD5A5470087CEC1 /* ViewControllerFromStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFromStoryboard.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		B356FBB61DC09C160006A0F0 = {
 			isa = PBXGroup;
 			children = (
+				B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */,
 				B3780EEA1DD5A4530087CEC1 /* Main.storyboard */,
 				B34BA0551DC1CC29006B6A51 /* Theme.swift */,
 				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
@@ -177,8 +180,8 @@
 			children = (
 				B3780EF71DD5B0C80087CEC1 /* ConfigurableCell.swift */,
 				B38208711DC2B1850008D6F8 /* WorkoutCell.swift */,
-				B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */,
 				B31CEC651DDB02A1002F826C /* LiftCell.swift */,
+				B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				B382087B1DC2B2C00008D6F8 /* WorkoutsTVC.swift in Sources */,
 				B38208771DC2B22A0008D6F8 /* Set.swift in Sources */,
 				B382087F1DC2B3EE0008D6F8 /* WorkoutTVC.swift in Sources */,
+				B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */,
 				B31E9FBB1DD6AE2000B9AEFC /* RoutinesDataSource.swift in Sources */,
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
 				B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */,

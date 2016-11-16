@@ -6,7 +6,7 @@ class Set: Base {
     dynamic var reps = 0
     dynamic var isWarmup = false
     dynamic var completedWeight: Double = 0
-    dynamic var completedReps: Double = 0
+    dynamic var completedReps = 0
 }
 
 extension Set {

@@ -16,8 +16,8 @@ class MainCoordinator: TabBarCoordinator {
         let wc = WorkoutsCoordinator()
         let wcNav = NavigationCoordinator(rootCoordinator: wc)
         wcNav.tabBarItem.image = #imageLiteral(resourceName: "workout")
-        wcNav.tabBarItem.title = "Workouts"
-        wc.navigationItem.title = "Workouts"
+        wcNav.tabBarItem.title = "History"
+        wc.navigationItem.title = "History"
         
         let rc = RoutinesCoordinator()
         let rcNav = NavigationCoordinator(rootCoordinator: rc)

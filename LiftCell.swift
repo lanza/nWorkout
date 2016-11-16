@@ -19,6 +19,8 @@ class RoutineLiftCell: LiftCell {
 
 class LiftCell: ChartViewCell {
     
+    weak var lift: Lift!
+    
     var rowViews: [SetRowView] { return chartView.rowViews as! [SetRowView] }
     
     var setNumberLables: [UILabel?] { return rowViews.map { $0.setNumberLabel } }
@@ -78,6 +80,7 @@ class LiftCell: ChartViewCell {
 extension LiftCell: ConfigurableCell {
     static var identifier: String { return "LiftCell" }
     func configure(for object: Lift, at indexPath: IndexPath) {
+        
         label.text = object.name
         
         chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
@@ -85,6 +88,7 @@ extension LiftCell: ConfigurableCell {
         chartView.configurationClosure = { (index,rowView) in
             let rowView = rowView as! SetRowView
             let set = object.object(at: index)
+            rowView.set = set
             
             if let snl = rowView.setNumberLabel {
                 snl.text = String(index)
