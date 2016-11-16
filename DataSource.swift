@@ -41,5 +41,8 @@ class DataSource<Provider: DataProvider, Cell: UITableViewCell>: NSObject, UITab
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return false
     }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        fatalError()
+    }
 }
 

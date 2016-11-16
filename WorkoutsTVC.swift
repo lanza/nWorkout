@@ -10,6 +10,11 @@ extension WorkoutsTVC: ViewControllerFromStoryboard {
 
 class WorkoutsTVC: UIViewController {
     
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     var dataSource: WorkoutsDataSource!
     var workouts: Results<Workout>!

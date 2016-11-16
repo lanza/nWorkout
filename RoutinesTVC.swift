@@ -21,6 +21,11 @@ extension RoutinesTVC: ViewControllerFromStoryboard {
 
 class RoutinesTVC: UIViewController {
     
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     var dataSource: RoutinesDataSource!
     var routines: Results<Workout>!
@@ -30,6 +35,10 @@ class RoutinesTVC: UIViewController {
        
         routines = RLM.realm.objects(Workout.self).filter("isWorkout = false").sorted(byProperty: "name")
         dataSource = RoutinesDataSource(tableView: tableView, workouts: routines)
+        
+        dataSource.displayAlert = { alert in
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -38,6 +47,8 @@ class RoutinesTVC: UIViewController {
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
+        
+        navigationItem.leftBarButtonItem = editButtonItem
         
         
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
@@ -54,10 +65,10 @@ class RoutinesTVC: UIViewController {
                     RLM.realm.add(routine)
                 }
                
-                guard let index = self.routines.index(of: routine) else { fatalError() }
+                self.dataSource.provider.append(routine)
+                guard let index = self.dataSource.provider.index(of: routine) else { fatalError() }
                 let indexPath = IndexPath(row: index, section: 0)
                 self.tableView.insertRows(at: [indexPath], with: .automatic)
-                
             })
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
