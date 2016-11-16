@@ -12,10 +12,17 @@ class RoutineTVC: UIViewController {
     var dataSource: RoutineDataSource!
     var routine: Workout!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Keyboard.shared.delegate = dataSource.textFieldBehaviorHandler
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         dataSource = RoutineDataSource(tableView: tableView, provider: routine)
+        tableView.tableFooterView = UIView()
         
         navigationItem.rightBarButtonItem = editButtonItem
     }

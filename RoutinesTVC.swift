@@ -69,6 +69,9 @@ class RoutinesTVC: UIViewController {
                 guard let index = self.dataSource.provider.index(of: routine) else { fatalError() }
                 let indexPath = IndexPath(row: index, section: 0)
                 self.tableView.insertRows(at: [indexPath], with: .automatic)
+                if self.dataSource.provider.numberOfItems() == 1 {
+                    self.tableView.reloadData()
+                }
             })
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)

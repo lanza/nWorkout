@@ -36,14 +36,14 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
             return cell
         } else {
             let cell = super.tableView(tableView, cellForRowAt: indexPath) as! WorkoutLiftCell
-            setupSetConnections(for: cell)
+            textFieldBehaviorHandler.setupSetConnections(for: cell)
             
             let lift = provider.object(at: indexPath.row)
             cell.lift = lift
             
             cell.addSetButton.rx.tap.subscribe(onNext: {
-                self.currentlyEditingTextField?.resignFirstResponder()
-                self.currentlyEditingTextField = nil
+                self.textFieldBehaviorHandler.currentlyEditingTextField?.resignFirstResponder()
+                self.textFieldBehaviorHandler.currentlyEditingTextField = nil
                 self.tableView.beginUpdates()
                 let set = Set()
                 RLM.write {
@@ -51,7 +51,7 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
                     set.reps = 5
                     lift.sets.append(set)
                     cell.chartView.setup()
-                    self.setupRowConnections(for: cell.chartView.rowViews.last as! SetRowView, cell: cell)
+                    self.textFieldBehaviorHandler.setupRowConnections(for: cell.chartView.rowViews.last as! SetRowView, cell: cell)
                 }
                 self.tableView.endUpdates()
             }).addDisposableTo(cell.db)
@@ -59,20 +59,23 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
         }
     }
     
-   
-    var liftCells = [WorkoutLiftCell]()
+    var textFieldBehaviorHandler = TextFieldBehaviorHandler()
+
+}
+class TextFieldBehaviorHandler: KeyboardDelegate {
+        var liftCells = [LiftCell]()
     
-    var currentlyEditingLiftCell: WorkoutLiftCell?
+    var currentlyEditingLiftCell: LiftCell?
     var currentlyEditingRowView: SetRowView?
     var currentlyEditingTextField: UITextField?
     
-    func setupSetConnections(for cell: WorkoutLiftCell) {
+    func setupSetConnections(for cell: LiftCell) {
         for setRowView in cell.rowViews {
             setupRowConnections(for: setRowView, cell: cell)
         }
     }
     
-    func setupRowConnections(for setRowView: SetRowView, cell: WorkoutLiftCell) {
+    func setupRowConnections(for setRowView: SetRowView, cell: LiftCell) {
         setupObserversForCurrentlyEditing(setRowView: setRowView, cell: cell)
         setupObserversForTextHandling(setRowView: setRowView)
         setupObserversForSettingBackTextAfterEditing(setRowView: setRowView)
@@ -153,7 +156,7 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
         }).addDisposableTo(setRowView.db)
     }
     
-    func setupObserversForCurrentlyEditing(setRowView: SetRowView, cell: WorkoutLiftCell) {
+    func setupObserversForCurrentlyEditing(setRowView: SetRowView, cell: LiftCell) {
         setRowView.targetWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
             self.currentlyEditingLiftCell = cell
             self.currentlyEditingRowView = setRowView
@@ -175,10 +178,6 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
             self.currentlyEditingTextField = setRowView.completedRepsTextField
         }).addDisposableTo(setRowView.db)
     }
-}
-
-
-extension WorkoutDataSource: KeyboardDelegate {
     func hideWasTapped() {
         UIResponder.currentFirstResponder()?.resignFirstResponder()
     }
@@ -244,3 +243,4 @@ extension WorkoutDataSource: KeyboardDelegate {
         currentlyEditingTextField!.text?.append(character)
     }
 }
+

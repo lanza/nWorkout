@@ -36,6 +36,9 @@ class WorkoutsDataSource: DataSource<BaseDataProvider<Workout>,WorkoutCell> {
     func deleteWorkout(at indexPath: IndexPath) {
         provider.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        if provider.numberOfItems() == 0 {
+            tableView.reloadData()
+        }
     }
 }
     

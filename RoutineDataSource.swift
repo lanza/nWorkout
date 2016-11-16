@@ -25,25 +25,27 @@ class RoutineDataSource: DataSource<Workout,RoutineLiftCell> {
             return cell
         } else {
             let cell = super.tableView(tableView, cellForRowAt: indexPath) as! RoutineLiftCell
+            textFieldBehaviorHandler.setupSetConnections(for: cell)
             
             let lift = provider.object(at: indexPath.row)
+            cell.lift = lift
             
             cell.addSetButton.rx.tap.subscribe(onNext: {
+                self.textFieldBehaviorHandler.currentlyEditingTextField?.resignFirstResponder()
+                self.textFieldBehaviorHandler.currentlyEditingTextField = nil
+                self.tableView.beginUpdates()
                 let set = Set()
                 RLM.write {
-                    DispatchQueue.main.async {
-                        self.tableView.beginUpdates()
-                    }
                     set.weight = 225
                     set.reps = 5
                     lift.sets.append(set)
-                    DispatchQueue.main.async {
-                        cell.chartView.setup()
-                        self.tableView.endUpdates()
-                    }
+                    cell.chartView.setup()
+                    self.textFieldBehaviorHandler.setupRowConnections(for: cell.chartView.rowViews.last! as! SetRowView, cell: cell)
                 }
+                self.tableView.endUpdates()
             }).addDisposableTo(cell.db)
             return cell
         }
     }
+    var textFieldBehaviorHandler = TextFieldBehaviorHandler()
 }

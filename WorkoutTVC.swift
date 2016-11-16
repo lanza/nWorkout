@@ -15,7 +15,7 @@ class WorkoutTVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        Keyboard.shared.delegate = dataSource
+        Keyboard.shared.delegate = dataSource.textFieldBehaviorHandler
     }
     
     override func viewDidLoad() {
