@@ -15,6 +15,10 @@ class RoutineLiftCell: LiftCell {
         super.setupChartView()
         chartView.register(RoutineSetRowView.self, forResuseIdentifier: "row")
     }
+    
+    override func configure(for object: Lift, at indexPath: IndexPath) {
+        super.configure(for: object, at: indexPath)
+    }
 }
 
 class LiftCell: ChartViewCell {
@@ -44,6 +48,9 @@ class LiftCell: ChartViewCell {
     func setupBottomContentView() {
         addSetButton.setTitle("Add Set...", for: UIControlState())
         addSetButton.translatesAutoresizingMaskIntoConstraints = false
+        addSetButton.layer.borderColor = UIColor.darkGray.cgColor
+        addSetButton.layer.borderWidth = 3
+        
         bottomContentView.addSubview(addSetButton)
         
         NSLayoutConstraint.activate([
@@ -89,7 +96,7 @@ extension LiftCell: ConfigurableCell {
             rowView.set = set
             
             if let snl = rowView.setNumberLabel {
-                snl.text = String(index)
+                snl.text = String(index + 1)
             }
             if let twtf = rowView.targetWeightTextField {
                 twtf.text = String(set.weight)

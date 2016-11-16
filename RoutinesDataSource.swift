@@ -1,7 +1,7 @@
 import UIKit
 import RealmSwift
 
-class RoutinesDataSource: DataSource<BaseDataProvider<Workout>,WorkoutCell> {
+class RoutinesDataSource: DataSource<BaseDataProvider<Workout>,RoutineCell> {
     
     init(tableView: UITableView, workouts: Results<Workout>) {
         let provider = BaseDataProvider(objects: workouts)
