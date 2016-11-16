@@ -2,6 +2,7 @@ import UIKit
 import RealmSwift
 import RxSwift
 import RxCocoa
+import DZNEmptyDataSet
 
 extension WorkoutsTVC: ViewControllerFromStoryboard {
     static var storyboardIdentifier: String { return "WorkoutsTVC" }
@@ -23,8 +24,10 @@ class WorkoutsTVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = self
         
-        
+        tableView.tableFooterView = UIView()
     }
    
     var didSelectWorkout: ((Workout) -> ())!
@@ -36,4 +39,19 @@ extension WorkoutsTVC: UITableViewDelegate {
         let workout = workouts[indexPath.row]
         didSelectWorkout(workout)
     }
+}
+
+extension WorkoutsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return #imageLiteral(resourceName: "workout")
+    }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "You have not done any workouts")
+    }
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Click the + at the bottom to start your first workout or the \"Routines\" tab to set up a routine")
+    }
+//    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+//        return NSAttributedString(string: "This is the button title")
+//    }
 }

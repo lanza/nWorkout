@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RealmSwift
+import DZNEmptyDataSet
 
 extension SelectWorkoutVC: ViewControllerFromStoryboard {
     static var storyboardIdentifier: String { return "SelectWorkoutVC" }
@@ -14,6 +15,8 @@ class SelectWorkoutVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         
         let realm = try! Realm()
         let objects = Array(realm.objects(Workout.self).filter("isWorkout = false"))
@@ -36,3 +39,18 @@ extension SelectWorkoutCell: ConfigurableCell {
     }
 }
 
+
+extension SelectWorkoutVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return #imageLiteral(resourceName: "workout")
+    }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Create a routine to be able to select a routine to format your workout.")
+    }
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "To add a routine, close this page and click the \"Routines\" tab.")
+    }
+    //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+    //        return NSAttributedString(string: "This is the button title")
+    //    }
+}

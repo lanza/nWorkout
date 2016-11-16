@@ -1,6 +1,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import DZNEmptyDataSet
 
 extension LiftTypeTVC: ViewControllerFromStoryboard {
     static var storyboardIdentifier: String { return "LiftTypeTVC" }
@@ -14,6 +15,9 @@ class LiftTypeTVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = self
+        tableView.tableFooterView = UIView()
        
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -53,3 +57,17 @@ class LiftTypeTVC: UIViewController {
     let db = DisposeBag()
 }
 
+extension LiftTypeTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return #imageLiteral(resourceName: "workout")
+    }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "You have no exercise types, yet!")
+    }
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Click the + in the top right to add a new exercise type.")
+    }
+    //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+    //        return NSAttributedString(string: "This is the button title")
+    //    }
+}

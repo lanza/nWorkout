@@ -23,6 +23,7 @@ class WorkoutTVC: UIViewController {
         tableView.delegate = self
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout)
         dataSource.isActive = isActive
+        tableView.tableFooterView = UIView()
         
         navigationItem.rightBarButtonItem = editButtonItem
     }

@@ -2,6 +2,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RealmSwift
+import DZNEmptyDataSet
 
 class RLM {
     static let realm = try! Realm()
@@ -34,6 +35,9 @@ class RoutinesTVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
         
         
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
@@ -58,8 +62,6 @@ class RoutinesTVC: UIViewController {
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }).addDisposableTo(db)
-        
-        
     }
     
 
@@ -75,7 +77,20 @@ extension RoutinesTVC: UITableViewDelegate {
 }
 
 
-
+extension RoutinesTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return #imageLiteral(resourceName: "routine")
+    }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "You do not have any routines, yet!")
+    }
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Click the + at the top to add your first routine.")
+    }
+    //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+    //        return NSAttributedString(string: "This is the button title")
+    //    }
+}
 
 
 
