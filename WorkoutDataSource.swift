@@ -238,9 +238,9 @@ extension WorkoutDataSource: KeyboardDelegate {
         }
     }
     func backspaceWasTapped() {
-        //
+        currentlyEditingTextField?.deleteBackward()
     }
     func keyWasTapped(character: String) {
-        //
+        currentlyEditingTextField!.text?.append(character)
     }
 }

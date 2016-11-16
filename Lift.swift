@@ -4,6 +4,9 @@ import RealmSwift
 class Lift: Base {
     dynamic var name = ""
     let sets = List<Set>()
+    dynamic var _previousStrings: String = ""
+    var previousStrings: [String] { return _previousStrings.components(separatedBy: ",") }
+    
 }
 
 extension Lift {
@@ -15,6 +18,8 @@ extension Lift {
             lift.sets.append(set.makeWorkoutSet())
         }
         lift.isWorkout = true
+        
+        lift._previousStrings = UserDefaults.standard.value(forKey: "last" + lift.name) as? String ?? ""
         
         return lift
     }

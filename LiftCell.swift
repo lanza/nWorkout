@@ -63,8 +63,6 @@ class LiftCell: ChartViewCell {
         setupTopContentView()
         setupBottomContentView()
         setupChartView()
-        
-        
     }
     
     override func prepareForReuse() {
@@ -104,6 +102,13 @@ extension LiftCell: ConfigurableCell {
             }
             if let crtf = rowView.completedRepsTextField {
                 crtf.text = String(set.completedReps)
+            }
+            if let pl = rowView.previousLabel {
+                if object.previousStrings.count > index && object.previousStrings[0] != "" {
+                    pl.text = object.previousStrings[index]
+                } else {
+                    pl.text = "No previous set"
+                }
             }
         }
         

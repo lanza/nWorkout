@@ -31,6 +31,11 @@ class WorkoutCoordinator: Coordinator {
             RLM.write {
                 self.workout.isComplete = true
                 self.workout.finishDate = Date()
+                for lift in self.workout.lifts {
+                    let string = lift.sets.map { "\($0.completedWeight)" + " x " + "\($0.completedReps)" }.joined(separator: ",")
+                    print(string)
+                    UserDefaults.standard.set(string, forKey: "last" + lift.name)
+                }
             }
             self.navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
         }

@@ -5,7 +5,6 @@ class Workout: Base {
     let lifts = List<Lift>()
     dynamic var name = ""
     dynamic var isComplete = false
-    dynamic var startDate = Date()
     dynamic var finishDate: Date? = nil
 }
 

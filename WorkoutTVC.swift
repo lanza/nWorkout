@@ -30,6 +30,7 @@ class WorkoutTVC: UIViewController {
         let lift = Lift()
         RLM.write {
             lift.name = name
+            lift._previousStrings = UserDefaults.standard.value(forKey: "last" + lift.name) as? String ?? ""
             RLM.realm.add(lift)
             self.workout.lifts.append(lift)
         }

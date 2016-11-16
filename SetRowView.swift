@@ -23,7 +23,7 @@ class WeightAndRepsTextField: UITextField {
 class CompletedWeightAndRepsTextField: WeightAndRepsTextField {
     override init() {
         super.init()
-        isHidden = !(UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true)
+//        isHidden = !(UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -77,17 +77,22 @@ class SetRowView: RowView {
         columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
     }
     func setupSelectedColumnViewTypesAndWidth() {
-        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","TargetWeight","TargetReps","CompletedWeight","CompletedReps","CompleteButton"]
-        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [12,22,22,22,22,12]
+        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","Previous","TargetWeight","TargetReps","CompletedWeight","CompletedReps","CompleteButton"]
+        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [9,30,22,22,22,22,12]
     }
     
     let dict: [String:UIView.Type] = [
-        "SetNumber":SetNumberLabel.self, "PreviousWeight":WeightAndRepsLabel.self,
-        "PreviousReps":WeightAndRepsLabel.self, "TargetWeight":WeightAndRepsTextField.self,
-        "TargetReps":WeightAndRepsTextField.self, "CompletedWeight":WeightAndRepsTextField.self,
-        "CompletedReps":WeightAndRepsTextField.self, "Timer":UILabel.self,
+        "SetNumber":SetNumberLabel.self,
+        "Previous":WeightAndRepsLabel.self, "TargetWeight":WeightAndRepsTextField.self,
+        "TargetReps":WeightAndRepsTextField.self, "CompletedWeight":CompletedWeightAndRepsTextField.self,
+        "CompletedReps":CompletedWeightAndRepsTextField.self, "Timer":UILabel.self,
         "Note":UIButton.self, "CompleteButton":UIButton.self
     ]
+    var previousLabel: UILabel? {
+        guard let index = selectedColumnViewTypes.index(of: "Previous") else { return nil }
+        guard let pl = columnViews[index] as? UILabel else { fatalError() }
+        return pl
+    }
     var setNumberLabel: UILabel? {
         guard let index = selectedColumnViewTypes.index(of: "SetNumber") else { return nil }
         guard let snl = columnViews[index] as? UILabel else { fatalError() }
