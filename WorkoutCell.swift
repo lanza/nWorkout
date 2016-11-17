@@ -63,6 +63,8 @@ class WorkoutCell: ChartViewCell {
         setupTopContentView()
         setupBottomContentView()
         setupChartView()
+        
+        backgroundColor = Theme.Colors.light
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
