@@ -37,7 +37,7 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
         } else {
             let cell = super.tableView(tableView, cellForRowAt: indexPath) as! WorkoutLiftCell
             textFieldBehaviorHandler.setupSetConnections(for: cell)
-            
+                        
             let lift = provider.object(at: indexPath.row)
             cell.lift = lift
             

@@ -23,7 +23,7 @@ class WeightAndRepsTextField: UITextField {
 class CompletedWeightAndRepsTextField: WeightAndRepsTextField {
     override init() {
         super.init()
-        //        isHidden = !(UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true)
+        isHidden = !(UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -65,6 +65,12 @@ class CompleteButton: UIButton {
 }
 
 class SetRowView: RowView {
+    
+    override func setupColumns() {
+        super.setupColumns()
+        
+        setupButtons()
+    }
     
     var showCompletedTextFields = UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true {
         didSet {
@@ -175,5 +181,5 @@ class SetRowView: RowView {
         guard let fb = columnViews[index] as? UIButton else { fatalError() }
         return fb
     }
-    var db = DisposeBag()
+    var db: DisposeBag!
 }
