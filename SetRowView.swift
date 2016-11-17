@@ -23,7 +23,7 @@ class WeightAndRepsTextField: UITextField {
 class CompletedWeightAndRepsTextField: WeightAndRepsTextField {
     override init() {
         super.init()
-//        isHidden = !(UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true)
+        //        isHidden = !(UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -44,6 +44,21 @@ class WeightAndRepsLabel: UILabel {
         textAlignment = .center
     }
     
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+}
+
+class FailButton: UIButton {
+    init() {
+        super.init(frame: CGRect.zero)
+        setTitle("F", for: UIControlState())
+    }
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+}
+class CompleteButton: UIButton {
+    init() {
+        super.init(frame: CGRect.zero)
+        setTitle("", for: UIControlState())
+    }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
 
@@ -77,16 +92,46 @@ class SetRowView: RowView {
         columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
     }
     func setupSelectedColumnViewTypesAndWidth() {
-        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","Previous","TargetWeight","TargetReps","CompletedWeight","CompletedReps","CompleteButton"]
+        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","Previous","TargetWeight","TargetReps","CompletedWeight","CompletedReps","CompleteButton", "FailButton"]
         selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [9,30,22,22,22,22,12]
     }
     
+    var didFail = false {
+        didSet {
+            completeButton?.isHidden = didFail
+            completedRepsTextField?.isHidden = !didFail
+            completedWeightTextField?.isHidden = !didFail
+        }
+    }
+    var isComplete = false {
+        didSet {
+            completeButton?.setTitle(isComplete ? "Done" : "", for: UIControlState())
+            didFail = false
+            completedWeightTextField?.isHidden = true
+            completedRepsTextField?.isHidden = true
+            RLM.write {
+                set.completedWeight = isComplete ? set.weight : 0
+                set.completedReps = isComplete ? set.reps : 0
+            }            
+        }
+    }
+    
+    func setupButtons() {
+        db = DisposeBag()
+        failButton?.rx.tap.subscribe(onNext: { [unowned self] in
+            self.didFail = !self.didFail
+        }).addDisposableTo(db)
+        completeButton?.rx.tap.subscribe(onNext: { [unowned self] in
+            self.isComplete = !self.isComplete
+        }).addDisposableTo(db)
+    }
+    
     let dict: [String:UIView.Type] = [
-        "SetNumber":SetNumberLabel.self,
-        "Previous":WeightAndRepsLabel.self, "TargetWeight":WeightAndRepsTextField.self,
-        "TargetReps":WeightAndRepsTextField.self, "CompletedWeight":CompletedWeightAndRepsTextField.self,
-        "CompletedReps":CompletedWeightAndRepsTextField.self, "Timer":UILabel.self,
-        "Note":UIButton.self, "CompleteButton":UIButton.self
+        "SetNumber":SetNumberLabel.self, "Previous":WeightAndRepsLabel.self,
+        "TargetWeight":WeightAndRepsTextField.self, "TargetReps":WeightAndRepsTextField.self,
+        "CompletedWeight":CompletedWeightAndRepsTextField.self, "CompletedReps":CompletedWeightAndRepsTextField.self,
+        "Timer":UILabel.self, "Note":UIButton.self,
+        "CompleteButton":CompleteButton.self, "FailButton":FailButton.self
     ]
     var previousLabel: UILabel? {
         guard let index = selectedColumnViewTypes.index(of: "Previous") else { return nil }
@@ -122,6 +167,11 @@ class SetRowView: RowView {
         guard let index = selectedColumnViewTypes.index(of: "CompleteButton") else { return nil }
         guard let cb = columnViews[index] as? UIButton else { fatalError() }
         return cb
+    }
+    var failButton: UIButton? {
+        guard let index = selectedColumnViewTypes.index(of: "FailButton") else { return nil }
+        guard let fb = columnViews[index] as? UIButton else { fatalError() }
+        return fb
     }
     var db = DisposeBag()
 }
