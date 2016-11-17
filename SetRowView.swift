@@ -51,6 +51,7 @@ class FailButton: UIButton {
     init() {
         super.init(frame: CGRect.zero)
         setTitle("F", for: UIControlState())
+        setTitleColor(.red, for: UIControlState())
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
@@ -58,6 +59,7 @@ class CompleteButton: UIButton {
     init() {
         super.init(frame: CGRect.zero)
         setTitle("", for: UIControlState())
+        setTitleColor(.red, for: UIControlState())
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
@@ -93,7 +95,7 @@ class SetRowView: RowView {
     }
     func setupSelectedColumnViewTypesAndWidth() {
         selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","Previous","TargetWeight","TargetReps","CompletedWeight","CompletedReps","CompleteButton", "FailButton"]
-        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [9,30,22,22,22,22,12]
+        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [9,30,22,22,22,22,9,9]
     }
     
     var didFail = false {
