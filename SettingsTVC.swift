@@ -7,6 +7,7 @@ extension SettingsTVC: ViewControllerFromStoryboard {
 }
 
 class SettingsTVC: UIViewController {
+    @IBOutlet weak var hideCompletionUntilFailTappedSwitch: UISwitch!
 
     @IBOutlet weak var tableView: UITableView!
     var workoutCells = ["Last Workout Weight","Last Workout Reps", "Failure Weight", "Failure Reps", "Break timer", "Note", "Status"]
@@ -19,6 +20,10 @@ class SettingsTVC: UIViewController {
     }
     
     func setupRx() {
+        
+        hideCompletionUntilFailTappedSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
+            UserDefaults.standard.set(self.hideCompletionUntilFailTappedSwitch.isOn, forKey: "hideCompletionUntilFailTapped")
+        }).addDisposableTo(db)
         
         Observable.just(workoutCells).bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { index, string, cell in
             cell.textLabel?.text = string

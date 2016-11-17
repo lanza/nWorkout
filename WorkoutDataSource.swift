@@ -15,7 +15,7 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 {
-            return 3
+            return isActive ? 3 : 1
         } else {
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
