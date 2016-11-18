@@ -30,6 +30,13 @@ class WorkoutTVC: UIViewController {
         navigationItem.rightBarButtonItem = editButtonItem
         
         keyboardHandler = KeyboardHandler.new(tableView: tableView, view: view)
+        
+        NotificationCenter.default.rx.notification(Notification.Name(rawValue: "chartViewWillDelete")).subscribe(onNext: { noti in
+            self.tableView.beginUpdates()
+        }).addDisposableTo(db)
+        NotificationCenter.default.rx.notification(Notification.Name(rawValue: "chartViewDidDelete")).subscribe(onNext: { noti in
+            self.tableView.endUpdates()
+        }).addDisposableTo(db)
     }
     func addNewLift(name: String) {
         let lift = Lift()
