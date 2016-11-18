@@ -23,7 +23,6 @@ class RoutineLiftCell: LiftCell {
 
 extension LiftCell: ChartViewDelegate {
     func chartView(_ chartView: ChartView, commit editingStyle: ChartView.EditingStyle, forRowAt index: Int) {
-        print("HI chartview deletion delegate method was sent")
         RLM.write {
             let set = lift.sets[index]
             lift.sets.remove(objectAtIndex: index)
