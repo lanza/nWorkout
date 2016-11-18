@@ -21,6 +21,17 @@ class RoutineLiftCell: LiftCell {
     }
 }
 
+extension LiftCell: ChartViewDelegate {
+    func chartView(_ chartView: ChartView, commit editingStyle: ChartView.EditingStyle, forRowAt index: Int) {
+        print("HI chartview deletion delegate method was sent")
+        RLM.write {
+            let set = lift.sets[index]
+            lift.sets.remove(objectAtIndex: index)
+            RLM.realm.delete(set)
+        }
+    }
+}
+
 class LiftCell: ChartViewCell {
     
     weak var lift: Lift!
@@ -63,6 +74,7 @@ class LiftCell: ChartViewCell {
     }
     func setupChartView() {
         chartView.chartViewDataSource = ChartViewConfigurator(rowHeight: 31, numberOfRows: 0, rowSpacing: 2, backgroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
+        chartView.delegate = self
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
