@@ -50,7 +50,7 @@ class LiftCell: ChartViewCell {
         addSetButton.translatesAutoresizingMaskIntoConstraints = false
         addSetButton.layer.borderColor = UIColor.darkGray.cgColor
         addSetButton.layer.borderWidth = 3
-        addSetButton.backgroundColor = .white
+//        addSetButton.backgroundColor = .white
         
         bottomContentView.addSubview(addSetButton)
         

@@ -12,6 +12,8 @@ class RoutineTVC: UIViewController {
     var dataSource: RoutineDataSource!
     var routine: Workout!
     
+    var keyboardHandler: KeyboardHandler!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -25,6 +27,8 @@ class RoutineTVC: UIViewController {
         tableView.tableFooterView = UIView()
         
         navigationItem.rightBarButtonItem = editButtonItem
+        
+        keyboardHandler = KeyboardHandler.new(tableView: tableView, view: view)
     }
     func addNewLift(name: String) {
         let lift = Lift()

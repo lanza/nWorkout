@@ -82,12 +82,14 @@ class KeyboardHandler: NSObject {
     var keyboardHeight: CGFloat!
     func keyboardWillShow(_ notification: Notification) {
         if let userInfo = notification.userInfo {
+            
             defaultInsets = tableView.contentInset
+
             let value = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
             keyboardHeight = value?.height ?? view.frame.height * CGFloat(Lets.keyboardToViewRatio)
             
-            
             let insets = UIEdgeInsets(top: defaultInsets.top, left: defaultInsets.left, bottom: keyboardHeight, right: defaultInsets.right)
+            
             tableView.contentInset = insets
             tableView.scrollIndicatorInsets = insets
         }
@@ -97,17 +99,18 @@ class KeyboardHandler: NSObject {
     }
     
     func scrollToTextField() {
-        print(#function)
-        
         if let firstResponder = UIResponder.currentFirstResponder() as? UIView {
+            
             let frFrame = firstResponder.frame
+            
             let corrected = UIApplication.shared.keyWindow!.convert(frFrame, from: firstResponder.superview)
             let yRelativeToKeyboard = (view.frame.height - keyboardHeight) - (corrected.origin.y + corrected.height)
-            print(yRelativeToKeyboard)
+
             if yRelativeToKeyboard < 0 {
-                print("what")
+                
                 let frInViewsFrame = view.convert(frFrame, from: firstResponder.superview)
                 let scrollPoint = CGPoint(x: 0, y: frInViewsFrame.origin.y - keyboardHeight - tableView.contentInset.top - frInViewsFrame.height - UIApplication.shared.statusBarFrame.height)
+                
                 tableView.setContentOffset(scrollPoint, animated: true)
             }
         }
@@ -117,6 +120,7 @@ class KeyboardHandler: NSObject {
         UIView.animate(withDuration: 0.2) {
             guard let defaultInsets = self.defaultInsets else { return }
             self.tableView.contentInset = defaultInsets
+            self.tableView.scrollIndicatorInsets = defaultInsets
         }
     }
     deinit {
