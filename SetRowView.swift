@@ -65,10 +65,12 @@ class CompleteButton: UIButton {
 }
 
 class SetRowView: RowView {
-    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        set = nil
+    }
     override func setupColumns() {
         super.setupColumns()
-        
         setupButtons()
     }
     
@@ -125,7 +127,6 @@ class SetRowView: RowView {
     }
     
     func setupButtons() {
-        db = DisposeBag()
         failButton?.rx.tap.subscribe(onNext: { [unowned self] in
             self.didFail = !self.didFail
         }).addDisposableTo(db)

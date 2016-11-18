@@ -31,13 +31,6 @@ class RoutineCell: WorkoutCell {
 
 class WorkoutCell: ChartViewCell {
     
-    
-    var labels: [(UILabel,UILabel)] {
-        let firsts = chartView.views(at: 0) as! [UILabel]
-        let seconds = chartView.views(at: 1) as! [UILabel]
-        return Array(zip(firsts,seconds))
-    }
-    
     let label = UILabel()
     
     func setupTopContentView() {
