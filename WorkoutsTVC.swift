@@ -22,7 +22,7 @@ class WorkoutsTVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true").filter("isComplete = true").sorted(byProperty: "startDate")
+        workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true").filter("isComplete = true").sorted(byProperty: "startDate", ascending: false)
         dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
         dataSource.displayAlert = { alert in
             self.present(alert, animated: true, completion: nil)

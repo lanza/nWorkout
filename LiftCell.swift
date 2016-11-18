@@ -43,14 +43,14 @@ class LiftCell: ChartViewCell {
             label.topAnchor.constraint(equalTo: topContentView.topAnchor),
             label.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
             label.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
-            ])
+        ])
     }
     func setupBottomContentView() {
         addSetButton.setTitle("Add Set...", for: UIControlState())
         addSetButton.translatesAutoresizingMaskIntoConstraints = false
         addSetButton.layer.borderColor = UIColor.darkGray.cgColor
         addSetButton.layer.borderWidth = 3
-//        addSetButton.backgroundColor = .white
+        addSetButton.backgroundColor = .white
         
         bottomContentView.addSubview(addSetButton)
         

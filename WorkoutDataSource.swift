@@ -42,21 +42,30 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
             cell.lift = lift
             
             cell.addSetButton.rx.tap.subscribe(onNext: {
-                self.textFieldBehaviorHandler.currentlyEditingTextField?.resignFirstResponder()
-                self.textFieldBehaviorHandler.currentlyEditingTextField = nil
-                self.tableView.beginUpdates()
-                let set = Set()
-                RLM.write {
-                    set.weight = 225
-                    set.reps = 5
-                    lift.sets.append(set)
-                    cell.chartView.setup()
-                    self.textFieldBehaviorHandler.setupRowConnections(for: cell.chartView.rowViews.last as! SetRowView, cell: cell)
-                }
-                self.tableView.endUpdates()
+                self.addSet(for: lift, and: cell)
             }).addDisposableTo(cell.db)
             return cell
         }
+    }
+    
+    func addSet(for lift: Lift, and cell: LiftCell) {
+        textFieldBehaviorHandler.currentlyEditingTextField?.resignFirstResponder()
+        textFieldBehaviorHandler.currentlyEditingTextField = nil
+        tableView.beginUpdates()
+        let set = Set()
+        RLM.write {
+            if let last = lift.sets.last {
+                set.weight = last.weight
+                set.reps = last.reps
+            } else {
+                set.weight = 225
+                set.reps = 5
+            }
+            lift.sets.append(set)
+            cell.chartView.setup()
+            self.textFieldBehaviorHandler.setupRowConnections(for: cell.chartView.rowViews.last as! SetRowView, cell: cell)
+        }
+        tableView.endUpdates()
     }
     
     var textFieldBehaviorHandler = TextFieldBehaviorHandler()
@@ -185,25 +194,25 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
     func getNeighborTextField(for textField: UITextField) -> UITextField? {
         guard let cerv = currentlyEditingRowView else { fatalError() }
         if textField === cerv.targetWeightTextField {
-            if let trtf = cerv.targetRepsTextField {
+            if let trtf = cerv.targetRepsTextField, trtf.isHidden == false {
                 return trtf
-            } else if let cwtf = cerv.completedWeightTextField {
+            } else if let cwtf = cerv.completedWeightTextField, cwtf.isHidden == false {
                 return cwtf
-            } else if let crtf = cerv.completedRepsTextField {
+            } else if let crtf = cerv.completedRepsTextField, crtf.isHidden == false {
                 return crtf
             } else {
                 return nil
             }
         } else if textField === cerv.targetRepsTextField {
-            if let cwtf = cerv.completedWeightTextField {
+            if let cwtf = cerv.completedWeightTextField, cwtf.isHidden == false {
                 return cwtf
-            } else if let crtf = cerv.completedRepsTextField {
+            } else if let crtf = cerv.completedRepsTextField, crtf.isHidden == false {
                 return crtf
             } else {
                 return nil
             }
         } else if textField === cerv.completedWeightTextField {
-            if let crtf = cerv.completedRepsTextField {
+            if let crtf = cerv.completedRepsTextField, crtf.isHidden == false {
                 return crtf
             } else {
                 return nil

@@ -31,21 +31,31 @@ class RoutineDataSource: DataSource<Workout,RoutineLiftCell> {
             cell.lift = lift
             
             cell.addSetButton.rx.tap.subscribe(onNext: {
-                self.textFieldBehaviorHandler.currentlyEditingTextField?.resignFirstResponder()
-                self.textFieldBehaviorHandler.currentlyEditingTextField = nil
-                self.tableView.beginUpdates()
-                let set = Set()
-                RLM.write {
-                    set.weight = 225
-                    set.reps = 5
-                    lift.sets.append(set)
-                    cell.chartView.setup()
-                    self.textFieldBehaviorHandler.setupRowConnections(for: cell.chartView.rowViews.last! as! SetRowView, cell: cell)
-                }
-                self.tableView.endUpdates()
+                self.addSet(for: lift, and: cell)
             }).addDisposableTo(cell.db)
             return cell
         }
     }
+    
+    func addSet(for lift: Lift, and cell: LiftCell) {
+        textFieldBehaviorHandler.currentlyEditingTextField?.resignFirstResponder()
+        textFieldBehaviorHandler.currentlyEditingTextField = nil
+        tableView.beginUpdates()
+        let set = Set()
+        RLM.write {
+            if let last = lift.sets.last {
+                set.weight = last.weight
+                set.reps = last.reps
+            } else {
+                set.weight = 225
+                set.reps = 5
+            }
+            lift.sets.append(set)
+            cell.chartView.setup()
+            self.textFieldBehaviorHandler.setupRowConnections(for: cell.chartView.rowViews.last as! SetRowView, cell: cell)
+        }
+        tableView.endUpdates()
+    }
+    
     var textFieldBehaviorHandler = TextFieldBehaviorHandler()
 }
