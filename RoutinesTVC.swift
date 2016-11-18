@@ -85,7 +85,7 @@ class RoutinesTVC: UIViewController {
 
 extension RoutinesTVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let routine = routines[indexPath.row]
+        let routine = dataSource.provider.object(at: indexPath.row)
         didSelectRoutine(routine)
     }
 }
