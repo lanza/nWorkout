@@ -71,6 +71,7 @@ class SetRowView: RowView {
     }
     override func setupColumns() {
         super.setupColumns()
+        db = DisposeBag()
         setupButtons()
     }
     
