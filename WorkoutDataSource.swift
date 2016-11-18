@@ -68,7 +68,13 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
         tableView.endUpdates()
     }
     
-    var textFieldBehaviorHandler = TextFieldBehaviorHandler()
+    lazy var textFieldBehaviorHandler: TextFieldBehaviorHandler = {
+        let tfbh = TextFieldBehaviorHandler()
+        tfbh.liftNeedsNewSet = { [unowned self] in
+            self.addSet(for: tfbh.currentlyEditingLiftCell!.lift, and:  tfbh.currentlyEditingLiftCell!)
+        }
+        return tfbh
+    }()
 
 }
 class TextFieldBehaviorHandler: KeyboardDelegate {
@@ -191,6 +197,8 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
         UIResponder.currentFirstResponder()?.resignFirstResponder()
     }
     
+    var liftNeedsNewSet: (()->())!
+    
     func getNeighborTextField(for textField: UITextField) -> UITextField? {
         guard let cerv = currentlyEditingRowView else { fatalError() }
         if textField === cerv.targetWeightTextField {
@@ -224,6 +232,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
     
     func nextWasTapped() {
         guard let cetf = currentlyEditingTextField, var cerv = currentlyEditingRowView, let celc = currentlyEditingLiftCell else { fatalError() }
+
         if let neighbor = getNeighborTextField(for: cetf) {
             neighbor.becomeFirstResponder()
         } else if let rowIndex = celc.rowViews.index(of: cerv), celc.rowViews.count > rowIndex + 1 {
@@ -243,6 +252,9 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
                 currentlyEditingRowView = nil
                 currentlyEditingLiftCell = nil
             }
+        } else {
+            liftNeedsNewSet()
+            currentlyEditingLiftCell?.rowViews.last!.targetWeightTextField?.becomeFirstResponder()
         }
     }
     func backspaceWasTapped() {
