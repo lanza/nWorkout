@@ -57,5 +57,11 @@ class RoutineDataSource: DataSource<Workout,RoutineLiftCell> {
         tableView.endUpdates()
     }
     
-    var textFieldBehaviorHandler = TextFieldBehaviorHandler()
+    lazy var textFieldBehaviorHandler: TextFieldBehaviorHandler = {
+        let tfbh = TextFieldBehaviorHandler()
+        tfbh.liftNeedsNewSet = { [unowned self] in
+            self.addSet(for: tfbh.currentlyEditingLiftCell!.lift, and:  tfbh.currentlyEditingLiftCell!)
+        }
+        return tfbh
+    }()
 }
