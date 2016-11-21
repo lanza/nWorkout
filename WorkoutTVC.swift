@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import DZNEmptyDataSet
 
 extension WorkoutTVC: ViewControllerFromStoryboard {
     static var storyboardIdentifier: String { return "WorkoutTVC" }
@@ -25,7 +26,9 @@ class WorkoutTVC: UIViewController {
         tableView.delegate = self
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout)
         dataSource.isActive = isActive
-        tableView.tableFooterView = UIView()
+        
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         
         navigationItem.rightBarButtonItem = editButtonItem
         
@@ -37,7 +40,18 @@ class WorkoutTVC: UIViewController {
         NotificationCenter.default.rx.notification(Notification.Name(rawValue: "chartViewDidDelete")).subscribe(onNext: { noti in
             self.tableView.endUpdates()
         }).addDisposableTo(db)
+        
+        dataSource.addLiftButton.rx.tap.subscribe(onNext: {
+            self.didTapAddNewLift()
+        }).addDisposableTo(db)
+        dataSource.cancelWorkoutButton.rx.tap.subscribe(onNext: {
+            self.didCancelWorkout()
+        }).addDisposableTo(db)
+        dataSource.finishWorkoutButtoon.rx.tap.subscribe(onNext: {
+            self.didFinishWorkout()
+        }).addDisposableTo(db)
     }
+    
     func addNewLift(name: String) {
         let lift = Lift()
         RLM.write {
@@ -58,19 +72,22 @@ class WorkoutTVC: UIViewController {
 }
 
 extension WorkoutTVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            switch indexPath.row {
-            case 0:
-                didTapAddNewLift()
-            case 1:
-                didCancelWorkout()
-            case 2:
-                didFinishWorkout()
-            default: fatalError()
-            }
-        }
+
+}
+
+extension WorkoutTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return #imageLiteral(resourceName: "workout")
     }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "You have not added any lifts, yet!")
+    }
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Click \"Add Lift\" to add a new exercise to your Workout.")
+    }
+    //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+    //        return NSAttributedString(string: "This is the button title")
+    //    }
 }
 
 class KeyboardHandler: NSObject {

@@ -22,6 +22,16 @@ extension WorkoutCell: ConfigurableCell {
     }
 }
 
+class ColumnRowView: RowView {
+    required init() {
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError()
+    }
+
+}
+
 class RoutineCell: WorkoutCell {
     override func configure(for object: Workout, at indexPath: IndexPath) {
         super.configure(for: object, at: indexPath)
