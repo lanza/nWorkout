@@ -72,7 +72,6 @@ class LiftCell: ChartViewCell {
             ])
     }
     func setupChartView() {
-        chartView.chartViewDataSource = ChartViewConfigurator(rowHeight: 31, numberOfRows: 0, rowSpacing: 2, backgroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
         chartView.delegate = self
     }
     

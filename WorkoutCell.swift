@@ -47,7 +47,7 @@ class WorkoutCell: ChartViewCell {
         //
     }
     func setupChartView() {
-        chartView.chartViewDataSource = ChartViewConfigurator(rowHeight: 31, numberOfRows: 0, rowSpacing: 2, backgroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
+
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -70,7 +70,7 @@ class BaseChartViewDataSource<BaseType: DataProvider>: ChartViewDataSource {
     var object: BaseType
     var numberOfRows: Int { return object.numberOfItems() }
     var rowHeight: CGFloat { return 25 }
-    var rowSpacing: CGFloat { return 2 }
+    var rowSpacing: CGFloat { return 1 }
     var backgroundColor: UIColor { return .darkGray }
 }
 

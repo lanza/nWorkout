@@ -8,6 +8,7 @@ struct Theme {
         ]
         navBarAppearance.barStyle = .black
         navBarAppearance.barTintColor = Colors.Nav.barTint
+        navBarAppearance.tintColor = Colors.Nav.tint
         
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.barStyle = .black
@@ -36,6 +37,7 @@ struct Theme {
         struct Nav {
             static let barTint = Colors.dark
             static let title = Colors.main
+            static let tint = Colors.main
         }
         struct Tab {
             static let barTint = Colors.dark
