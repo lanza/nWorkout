@@ -6,35 +6,49 @@ class RoutineDataSource: DataSource<Workout,RoutineLiftCell> {
         super.initialSetup()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
+        
+        setupFooterView()
     }
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+    
+    func setupFooterView() {
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
+
+        
+        addLiftButton = UIButton(type: .custom)
+        addLiftButton.setTitle("Add Lift", for: UIControlState())
+        addLiftButton.setTitleColor(.black, for: UIControlState())
+        footer.backgroundColor = .white
+        footer.addSubview(addLiftButton)
+        addLiftButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            addLiftButton.topAnchor.constraint(equalTo: footer.topAnchor),
+            addLiftButton.leftAnchor.constraint(equalTo: footer.leftAnchor),
+            addLiftButton.bottomAnchor.constraint(equalTo: footer.bottomAnchor),
+            addLiftButton.rightAnchor.constraint(equalTo: footer.rightAnchor)
+            ])
+        
+        let label = UILabel()
+        label.text = "HI"
+        
+        footer.addSubview(label)
+        
+        tableView.tableFooterView = footer
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
-            return 1
-        } else {
-            return super.tableView(tableView, numberOfRowsInSection: section)
-        }
-    }
+    
+    var addLiftButton: UIButton!
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 1 {
-            let cell = UITableViewCell()
-            cell.textLabel?.text = "Add Lift"
-            cell.textLabel?.textAlignment = .center
-            return cell
-        } else {
-            let cell = super.tableView(tableView, cellForRowAt: indexPath) as! RoutineLiftCell
-            textFieldBehaviorHandler.setupSetConnections(for: cell)
-            
-            let lift = provider.object(at: indexPath.row)
-            cell.lift = lift
-            
-            cell.addSetButton.rx.tap.subscribe(onNext: {
-                self.addSet(for: lift, and: cell)
-            }).addDisposableTo(cell.db)
-            return cell
-        }
+        let cell = super.tableView(tableView, cellForRowAt: indexPath) as! RoutineLiftCell
+        textFieldBehaviorHandler.setupSetConnections(for: cell)
+        
+        let lift = provider.object(at: indexPath.row)
+        cell.lift = lift
+        
+        cell.addSetButton.rx.tap.subscribe(onNext: {
+            self.addSet(for: lift, and: cell)
+        }).addDisposableTo(cell.db)
+        return cell
     }
     
     func addSet(for lift: Lift, and cell: LiftCell) {

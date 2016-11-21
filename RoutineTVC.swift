@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import DZNEmptyDataSet
 
 extension RoutineTVC: ViewControllerFromStoryboard {
     static var storyboardIdentifier: String { return "RoutineTVC" }
@@ -16,7 +17,7 @@ class RoutineTVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tableView.reloadData()
         Keyboard.shared.delegate = dataSource.textFieldBehaviorHandler
     }
     
@@ -24,7 +25,9 @@ class RoutineTVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         dataSource = RoutineDataSource(tableView: tableView, provider: routine)
-        tableView.tableFooterView = UIView()
+        
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         
         navigationItem.rightBarButtonItem = editButtonItem
         
@@ -35,6 +38,10 @@ class RoutineTVC: UIViewController {
         }).addDisposableTo(db)
         NotificationCenter.default.rx.notification(Notification.Name(rawValue: "chartViewDidDelete")).subscribe(onNext: { noti in
             self.tableView.endUpdates()
+        }).addDisposableTo(db)
+        
+        dataSource.addLiftButton.rx.tap.subscribe(onNext: {
+            self.didTapAddNewLift()
         }).addDisposableTo(db)
     }
     func addNewLift(name: String) {
@@ -55,9 +62,20 @@ class RoutineTVC: UIViewController {
 }
 
 extension RoutineTVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            didTapAddNewLift()
-        }
+
+}
+
+extension RoutineTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return #imageLiteral(resourceName: "routine")
     }
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "You have not added any lifts, yet!")
+    }
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Click \"Add Lift\" to add a new exercise to your Routine.")
+    }
+    //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+    //        return NSAttributedString(string: "This is the button title")
+    //    }
 }

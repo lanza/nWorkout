@@ -113,13 +113,25 @@ extension LiftCell: ConfigurableCell {
                 snl.text = String(index + 1)
             }
             if let twtf = rowView.targetWeightTextField {
-                twtf.text = String(set.weight)
+                var weight: String
+                if set.weight.remainder(dividingBy: 1) == 0 {
+                    weight = String(Int(set.weight))
+                } else {
+                    weight = String(set.weight)
+                }
+                twtf.text = weight
             }
             if let trtf = rowView.targetRepsTextField {
                 trtf.text = String(set.reps)
             }
             if let cwtf = rowView.completedWeightTextField {
-                cwtf.text = String(set.completedWeight)
+                var weight: String
+                if set.completedWeight.remainder(dividingBy: 1) == 0 {
+                    weight = String(Int(set.completedWeight))
+                } else {
+                    weight = String(set.completedWeight)
+                }
+                cwtf.text = weight
             }
             if let crtf = rowView.completedRepsTextField {
                 crtf.text = String(set.completedReps)
