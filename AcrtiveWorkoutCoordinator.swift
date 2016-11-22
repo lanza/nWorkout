@@ -32,7 +32,8 @@ class ActiveWorkoutCoordinator: Coordinator {
                 self.workout.isComplete = true
                 self.workout.finishDate = Date()
                 for lift in self.workout.lifts {
-                    let string = lift.sets.map { "\($0.completedWeight)" + " x " + "\($0.completedReps)" }.joined(separator: ",")
+                    
+                    let string = lift.sets.map { "\(($0.completedWeight.remainder(dividingBy: 1) == 0) ? String(Int($0.completedWeight)) : String($0.completedWeight))" + " x " + "\($0.completedReps)" }.joined(separator: ",")
                     print(string)
                     UserDefaults.standard.set(string, forKey: "last" + lift.name)
                 }
