@@ -114,6 +114,7 @@ class SetRowView: RowView {
     
     var didFail = false {
         didSet {
+            failButton?.setTitleColor(didFail ? .red : .black)
             completeButton?.isHidden = didFail
             completedRepsTextField?.isHidden = !didFail
             completedWeightTextField?.isHidden = !didFail
