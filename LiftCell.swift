@@ -132,14 +132,14 @@ extension LiftCell: ConfigurableCell {
                 }
                 cwtf.text = weight
                 
-                if set.completedReps > 0 {
+                if set.completedReps > 0 && set.completedReps < set.reps {
                     cwtf.isHidden = false
                 }
             }
             if let crtf = rowView.completedRepsTextField {
                 crtf.text = String(set.completedReps)
                 
-                if set.completedReps > 0 {
+                if set.completedReps > 0 && set.completedReps < set.reps {
                     crtf.isHidden = false
                 }
             }
@@ -155,7 +155,7 @@ extension LiftCell: ConfigurableCell {
                 cb.setTitle("Done")
             }
             
-            if set.completedReps > 0, set.completedWeight > 0, let fb = rowView.failButton {
+            if set.completedReps > 0 && set.completedReps < set.reps, set.completedWeight > 0, let fb = rowView.failButton {
                 fb.setTitleColor(.red)
             }
         }
