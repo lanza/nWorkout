@@ -131,8 +131,10 @@ class MainCoordinator: TabBarCoordinator {
         didSet {
             if activeWorkoutCoordinator == nil {
                 dummy.tabBarItem.image = #imageLiteral(resourceName: "newWorkout")
+                dummy.tabBarItem.title = "Start"
             } else {
                 dummy.tabBarItem.image = #imageLiteral(resourceName: "show")
+                dummy.tabBarItem.title = "Show"
             }
         }
     }

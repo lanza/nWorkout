@@ -21,6 +21,9 @@ struct Theme {
         let tableViewAppearance = UITableView.appearance()
         tableViewAppearance.backgroundColor = Colors.Table.background
         
+        let buttonAppearance = UIButton.appearance()
+        buttonAppearance.setTitleColor(Colors.Button.title, for: UIControlState())
+        
 //        let labelAppearance = UILabel.appearance()
     }
     
@@ -30,6 +33,10 @@ struct Theme {
         static let dark = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         static let light = #colorLiteral(red: 0.9568895725, green: 0.9568895725, blue: 0.9568895725, alpha: 1)
         static let lighter = #colorLiteral(red: 0.9568895725, green: 0.9568895725, blue: 0.9568895725, alpha: 1)
+        
+        struct Button {
+            static let title = Colors.main
+        }
         
         struct Table {
             static let background = Colors.light
