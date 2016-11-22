@@ -72,6 +72,8 @@ class WorkoutTVC: UIViewController {
 }
 
 extension WorkoutTVC: UITableViewDelegate {
+    
+    
 
 }
 

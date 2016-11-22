@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FD2BC34109241A918F41B15 /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B8E7FF219D372643F9F7E6 /* Pods_nWorkout.framework */; };
+		B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */; };
 		B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */; };
 		B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC651DDB02A1002F826C /* LiftCell.swift */; };
 		B31CEC681DDB0A8B002F826C /* StatisticsChartsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC671DDB0A8B002F826C /* StatisticsChartsVC.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldBehaviorHandler.swift; sourceTree = "<group>"; };
 		B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTypeTVC.swift; sourceTree = "<group>"; };
 		B31CEC651DDB02A1002F826C /* LiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
 		B31CEC671DDB0A8B002F826C /* StatisticsChartsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsChartsVC.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				B3780EEE1DD5A7010087CEC1 /* DataSource.swift */,
 				B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */,
 				B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */,
+				B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */,
 				B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */,
 				B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */,
 			);
@@ -396,6 +399,7 @@
 				B31CEC681DDB0A8B002F826C /* StatisticsChartsVC.swift in Sources */,
 				B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */,
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
+				B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */,
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
 				B34BA05A1DC1CC4B006B6A51 /* Workout.swift in Sources */,
 				B38208791DC2B23E0008D6F8 /* Base.swift in Sources */,
