@@ -2,6 +2,10 @@ import Foundation
 import CoreGraphics
 
 struct Lets {
+    
+    static let combineFailAndCompletedWeightAndRepsKey = "CombineFailAndCompletedWeightAndReps"
+    
+    
     static let workoutDateFormat = "EEEE - MM/d/yyyy - h:mm a"
     static let workoutStartTimeFormat = "h:mm a"
     static let workoutDurationTimeFormat = "h:mm"

@@ -133,14 +133,18 @@ extension LiftCell: ConfigurableCell {
                 cwtf.text = weight
                 
                 if set.completedReps > 0 && set.completedReps < set.reps {
-                    cwtf.isHidden = false
+                    if rowView.combinedView != nil {
+                        cwtf.isHidden = false
+                    }
                 }
             }
             if let crtf = rowView.completedRepsTextField {
                 crtf.text = String(set.completedReps)
                 
                 if set.completedReps > 0 && set.completedReps < set.reps {
-                    crtf.isHidden = false
+                    if rowView.combinedView != nil {
+                        crtf.isHidden = false
+                    }
                 }
             }
             if let pl = rowView.previousLabel {
@@ -151,8 +155,14 @@ extension LiftCell: ConfigurableCell {
                 }
             }
             
-            if let cb = rowView.completeButton, set.weight == set.completedWeight, set.reps == set.completedReps {
-                cb.setTitle("Done")
+            if let cb = rowView.completeButton {
+                if set.weight == set.completedWeight, set.reps == set.completedReps {
+                    cb.setTitle("Done")
+                } else if rowView.combinedView != nil,
+                (set.weight > set.completedWeight && set.completedWeight > 0 && set.completedReps > 0) ||
+                    (set.completedReps > 0 && set.completedReps < set.reps) {
+                    cb.isHidden = true
+                }
             }
             
             if set.completedReps > 0 && set.completedReps < set.reps, set.completedWeight > 0, let fb = rowView.failButton {

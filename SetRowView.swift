@@ -23,7 +23,7 @@ class WeightAndRepsTextField: UITextField {
 class CompletedWeightAndRepsTextField: WeightAndRepsTextField {
     override init() {
         super.init()
-        isHidden = !(UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true)
+        isHidden = (UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool == false)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -89,12 +89,6 @@ class SetRowView: RowView {
         setupButtons()
     }
     
-    var showCompletedTextFields = UserDefaults.standard.value(forKey: "alwaysShowCompletedTextFields") as? Bool == true {
-        didSet {
-            completedWeightTextField?.isHidden = !showCompletedTextFields
-            completedRepsTextField?.isHidden = !showCompletedTextFields
-        }
-    }
     var set: (nWorkout.Set)!
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -118,11 +112,11 @@ class SetRowView: RowView {
         columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
     }
     func setupSelectedColumnViewTypesAndWidth() {
-        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","Previous","TargetWeight","TargetReps","CompletedWeight","CompletedReps","CompleteButton", "FailButton"]
-        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [9,30,22,22,22,22,9,9]
+        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","Previous","TargetWeight","TargetReps",Lets.combineFailAndCompletedWeightAndRepsKey, "FailButton"]
+        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [9,30,22,22,45,9]
     }
     func configOtherSettings() {
-        usesCombinedView = UserDefaults.standard.value(forKey: "CombineFailAndCompletedWeightAndReps") as? Bool ?? false
+        usesCombinedView = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
     }
     var usesCombinedView = false
     var didFail = false {
@@ -130,9 +124,9 @@ class SetRowView: RowView {
             failButton?.setTitleColor(didFail ? .red : .black)
             if combinedView != nil {
                 completeButton?.isHidden = didFail
+                completedWeightTextField?.isHidden = !didFail
                 completedRepsTextField?.isHidden = !didFail
             }
-            completedWeightTextField?.isHidden = !didFail
         }
     }
     var isComplete = false {
@@ -167,7 +161,7 @@ class SetRowView: RowView {
         "CompletedWeight":CompletedWeightAndRepsTextField.self, "CompletedReps":CompletedWeightAndRepsTextField.self,
         "Timer":UILabel.self, "Note":UIButton.self,
         "CompleteButton":CompleteButton.self, "FailButton":FailButton.self,
-        "CombinedFailAndCompletedWeightAndReps":CombinedView.self
+        Lets.combineFailAndCompletedWeightAndRepsKey:CombinedView.self
     ]
     
     class CombinedView: UIView {
@@ -190,12 +184,13 @@ class SetRowView: RowView {
                 completedRepsTextField.topAnchor.constraint(equalTo: topAnchor),
                 completedRepsTextField.bottomAnchor.constraint(equalTo: bottomAnchor),
                 completedRepsTextField.rightAnchor.constraint(equalTo: rightAnchor),
+                completedWeightTextField.widthAnchor.constraint(equalTo: completedRepsTextField.widthAnchor),
                 
                 completeButton.leftAnchor.constraint(equalTo: leftAnchor),
                 completeButton.topAnchor.constraint(equalTo: topAnchor),
                 completeButton.rightAnchor.constraint(equalTo: rightAnchor),
                 completeButton.bottomAnchor.constraint(equalTo: bottomAnchor)
-           ])
+                ])
         }
         
         let completedWeightTextField = CompletedWeightAndRepsTextField()
@@ -207,7 +202,7 @@ class SetRowView: RowView {
     
     var combinedView: CombinedView? {
         guard usesCombinedView else { return nil }
-        guard let index = selectedColumnViewTypes.index(of: "CombinedFailAndCompletedWeightAndReps") else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: Lets.combineFailAndCompletedWeightAndRepsKey) else { return nil }
         guard let cv = columnViews[index] as? CombinedView else { fatalError() }
         return cv
     }
