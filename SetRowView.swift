@@ -23,7 +23,6 @@ class WeightAndRepsTextField: UITextField {
 class CompletedWeightAndRepsTextField: WeightAndRepsTextField {
     override init() {
         super.init()
-        isHidden = (UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool == false)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -168,6 +167,8 @@ class SetRowView: RowView {
         
         init() {
             super.init(frame: CGRect.zero)
+            backgroundColor = .clear
+            isOpaque = false
             
             completedWeightTextField.translatesAutoresizingMaskIntoConstraints = false
             completedRepsTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -180,7 +181,7 @@ class SetRowView: RowView {
                 completedWeightTextField.leftAnchor.constraint(equalTo: leftAnchor),
                 completedWeightTextField.topAnchor.constraint(equalTo: topAnchor),
                 completedWeightTextField.bottomAnchor.constraint(equalTo: bottomAnchor),
-                completedWeightTextField.rightAnchor.constraint(equalTo: completedRepsTextField.leftAnchor, constant: 1),
+                completedWeightTextField.rightAnchor.constraint(equalTo: completedRepsTextField.leftAnchor, constant: -5),
                 completedRepsTextField.topAnchor.constraint(equalTo: topAnchor),
                 completedRepsTextField.bottomAnchor.constraint(equalTo: bottomAnchor),
                 completedRepsTextField.rightAnchor.constraint(equalTo: rightAnchor),

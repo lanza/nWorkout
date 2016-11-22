@@ -131,21 +131,9 @@ extension LiftCell: ConfigurableCell {
                     weight = String(set.completedWeight)
                 }
                 cwtf.text = weight
-                
-                if set.completedReps > 0 && set.completedReps < set.reps {
-                    if rowView.combinedView != nil {
-                        cwtf.isHidden = false
-                    }
-                }
             }
             if let crtf = rowView.completedRepsTextField {
                 crtf.text = String(set.completedReps)
-                
-                if set.completedReps > 0 && set.completedReps < set.reps {
-                    if rowView.combinedView != nil {
-                        crtf.isHidden = false
-                    }
-                }
             }
             if let pl = rowView.previousLabel {
                 if object.previousStrings.count > index && object.previousStrings[0] != "" {
@@ -158,15 +146,27 @@ extension LiftCell: ConfigurableCell {
             if let cb = rowView.completeButton {
                 if set.weight == set.completedWeight, set.reps == set.completedReps {
                     cb.setTitle("Done")
-                } else if rowView.combinedView != nil,
-                (set.weight > set.completedWeight && set.completedWeight > 0 && set.completedReps > 0) ||
-                    (set.completedReps > 0 && set.completedReps < set.reps) {
-                    cb.isHidden = true
                 }
             }
             
             if set.completedReps > 0 && set.completedReps < set.reps, set.completedWeight > 0, let fb = rowView.failButton {
                 fb.setTitleColor(.red)
+            }
+            
+            if let cv = rowView.combinedView {
+                if set.weight == set.completedWeight && set.reps == set.completedReps {
+                    cv.completeButton.isHidden = false
+                    cv.completedWeightTextField.isHidden = true
+                    cv.completedRepsTextField.isHidden = true
+                } else if set.completedWeight == 0 && set.completedReps == 0 {
+                    cv.completeButton.isHidden = false
+                    cv.completedWeightTextField.isHidden = true
+                    cv.completedRepsTextField.isHidden = true
+                } else {
+                    cv.completeButton.isHidden = true
+                    cv.completedWeightTextField.isHidden = false
+                    cv.completedRepsTextField.isHidden = false
+                }
             }
         }
         
