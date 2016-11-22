@@ -22,7 +22,7 @@ class SettingsTVC: UIViewController {
     func setupRx() {
         
         hideCompletionUntilFailTappedSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
-            UserDefaults.standard.set(self.hideCompletionUntilFailTappedSwitch.isOn, forKey: "hideCompletionUntilFailTapped")
+            UserDefaults.standard.set(self.hideCompletionUntilFailTappedSwitch.isOn, forKey: "CombineFailAndCompletedWeightAndReps")
         }).addDisposableTo(db)
         
         Observable.just(workoutCells).bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { index, string, cell in

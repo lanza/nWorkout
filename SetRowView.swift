@@ -73,7 +73,7 @@ class CompleteButton: UIButton {
         titleLabel?.numberOfLines = 1
         titleLabel?.minimumScaleFactor = 5/titleLabel!.font.pointSize
         titleLabel?.adjustsFontSizeToFitWidth = true
-
+        
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
@@ -105,6 +105,7 @@ class SetRowView: RowView {
         setupSelectedColumnViewTypesAndWidth()
         configColumnViewTypes()
         configColumnWidthPercentages()
+        configOtherSettings()
     }
     
     var selectedColumnViewTypes: [String]!
@@ -120,12 +121,17 @@ class SetRowView: RowView {
         selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","Previous","TargetWeight","TargetReps","CompletedWeight","CompletedReps","CompleteButton", "FailButton"]
         selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [9,30,22,22,22,22,9,9]
     }
-    
+    func configOtherSettings() {
+        usesCombinedView = UserDefaults.standard.value(forKey: "CombineFailAndCompletedWeightAndReps") as? Bool ?? false
+    }
+    var usesCombinedView = false
     var didFail = false {
         didSet {
             failButton?.setTitleColor(didFail ? .red : .black)
-            completeButton?.isHidden = didFail
-            completedRepsTextField?.isHidden = !didFail
+            if combinedView != nil {
+                completeButton?.isHidden = didFail
+                completedRepsTextField?.isHidden = !didFail
+            }
             completedWeightTextField?.isHidden = !didFail
         }
     }
@@ -133,12 +139,16 @@ class SetRowView: RowView {
         didSet {
             completeButton?.setTitle(isComplete ? "Done" : "", for: UIControlState())
             didFail = false
-            completedWeightTextField?.isHidden = true
-            completedRepsTextField?.isHidden = true
+            
+            if combinedView != nil {
+                completedWeightTextField?.isHidden = true
+                completedRepsTextField?.isHidden = true
+            }
+            
             RLM.write {
                 set.completedWeight = isComplete ? set.weight : 0
                 set.completedReps = isComplete ? set.reps : 0
-            }            
+            }
         }
     }
     
@@ -156,8 +166,52 @@ class SetRowView: RowView {
         "TargetWeight":WeightAndRepsTextField.self, "TargetReps":WeightAndRepsTextField.self,
         "CompletedWeight":CompletedWeightAndRepsTextField.self, "CompletedReps":CompletedWeightAndRepsTextField.self,
         "Timer":UILabel.self, "Note":UIButton.self,
-        "CompleteButton":CompleteButton.self, "FailButton":FailButton.self
+        "CompleteButton":CompleteButton.self, "FailButton":FailButton.self,
+        "CombinedFailAndCompletedWeightAndReps":CombinedView.self
     ]
+    
+    class CombinedView: UIView {
+        
+        init() {
+            super.init(frame: CGRect.zero)
+            
+            completedWeightTextField.translatesAutoresizingMaskIntoConstraints = false
+            completedRepsTextField.translatesAutoresizingMaskIntoConstraints = false
+            completeButton.translatesAutoresizingMaskIntoConstraints = false
+            addSubview(completedWeightTextField)
+            addSubview(completedRepsTextField)
+            addSubview(completeButton)
+            
+            NSLayoutConstraint.activate([
+                completedWeightTextField.leftAnchor.constraint(equalTo: leftAnchor),
+                completedWeightTextField.topAnchor.constraint(equalTo: topAnchor),
+                completedWeightTextField.bottomAnchor.constraint(equalTo: bottomAnchor),
+                completedWeightTextField.rightAnchor.constraint(equalTo: completedRepsTextField.leftAnchor, constant: 1),
+                completedRepsTextField.topAnchor.constraint(equalTo: topAnchor),
+                completedRepsTextField.bottomAnchor.constraint(equalTo: bottomAnchor),
+                completedRepsTextField.rightAnchor.constraint(equalTo: rightAnchor),
+                
+                completeButton.leftAnchor.constraint(equalTo: leftAnchor),
+                completeButton.topAnchor.constraint(equalTo: topAnchor),
+                completeButton.rightAnchor.constraint(equalTo: rightAnchor),
+                completeButton.bottomAnchor.constraint(equalTo: bottomAnchor)
+           ])
+        }
+        
+        let completedWeightTextField = CompletedWeightAndRepsTextField()
+        let completedRepsTextField = CompletedWeightAndRepsTextField()
+        let completeButton = CompleteButton()
+        
+        required init?(coder aDecoder: NSCoder) { fatalError() }
+    }
+    
+    var combinedView: CombinedView? {
+        guard usesCombinedView else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: "CombinedFailAndCompletedWeightAndReps") else { return nil }
+        guard let cv = columnViews[index] as? CombinedView else { fatalError() }
+        return cv
+    }
+    
     var previousLabel: UILabel? {
         guard let index = selectedColumnViewTypes.index(of: "Previous") else { return nil }
         guard let pl = columnViews[index] as? UILabel else { fatalError() }
@@ -179,16 +233,25 @@ class SetRowView: RowView {
         return trtf
     }
     var completedWeightTextField: UITextField? {
+        if let cv = combinedView {
+            return cv.completedWeightTextField
+        }
         guard let index = selectedColumnViewTypes.index(of: "CompletedWeight") else { return nil }
         guard let cwtf = columnViews[index] as? UITextField else { fatalError() }
         return cwtf
     }
     var completedRepsTextField: UITextField? {
+        if let cv = combinedView {
+            return cv.completedRepsTextField
+        }
         guard let index = selectedColumnViewTypes.index(of: "CompletedReps") else { return nil }
         guard let crtf = columnViews[index] as? UITextField else { fatalError() }
         return crtf
     }
     var completeButton: UIButton? {
+        if let cv = combinedView {
+            return cv.completeButton
+        }
         guard let index = selectedColumnViewTypes.index(of: "CompleteButton") else { return nil }
         guard let cb = columnViews[index] as? UIButton else { fatalError() }
         return cb
