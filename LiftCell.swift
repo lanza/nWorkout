@@ -151,7 +151,7 @@ extension LiftCell: ConfigurableCell {
                 }
             }
             
-            if let cb = rowView.completeButton, set.weight == set.completedWeight {
+            if let cb = rowView.completeButton, set.weight == set.completedWeight, set.reps == set.completedReps {
                 cb.setTitle("Done")
             }
             
