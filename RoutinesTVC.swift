@@ -52,10 +52,8 @@ class RoutinesTVC: UIViewController {
         
         
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
-            let alert = UIAlertController(title: "Create new Routine", message: nil, preferredStyle: .alert)
-            alert.addTextField { textField in
-                
-            }
+            let alert = UIAlertController.alert(title: "Create new Routine", message: nil)
+            
             alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default) { action in
                 guard let name = alert.textFields?.first?.text else { fatalError() }
                

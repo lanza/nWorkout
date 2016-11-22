@@ -3,6 +3,17 @@ import RxCocoa
 import RxSwift
 import DZNEmptyDataSet
 
+extension UIAlertController {
+    static func alert(title: String, message: String?) -> UIAlertController {
+        let a = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        a.addTextField { tf in
+            tf.keyboardAppearance = .dark
+            tf.returnKeyType = .done
+        }
+        return a
+    }
+}
+
 extension LiftTypeTVC: ViewControllerFromStoryboard {
     static var storyboardIdentifier: String { return "LiftTypeTVC" }
 }
@@ -30,10 +41,7 @@ class LiftTypeTVC: UIViewController {
         }.addDisposableTo(db)
         
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
-            let alert = UIAlertController(title: "Add new lift type", message: nil, preferredStyle: .alert)
-            alert.addTextField { textField in
-                //
-            }
+            let alert = UIAlertController.alert(title: "Add new lift type", message: nil)
             
             let okay = UIAlertAction(title: "Okay", style: .default) { _ in
                 guard let name = alert.textFields?.first?.text else { fatalError() }
