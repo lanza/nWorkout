@@ -45,7 +45,7 @@ class WeightAndRepsLabel: UILabel {
         
         textColor = .lightGray
         
-        numberOfLines = Int(7/font.pointSize)
+        minimumScaleFactor = 7/font.pointSize
         adjustsFontSizeToFitWidth = true
     }
     
@@ -65,6 +65,11 @@ class CompleteButton: UIButton {
         super.init(frame: CGRect.zero)
         setTitle("", for: UIControlState())
         setTitleColor(.red, for: UIControlState())
+        
+        titleLabel?.numberOfLines = 1
+        titleLabel?.minimumScaleFactor = 5/titleLabel!.font.pointSize
+        titleLabel?.adjustsFontSizeToFitWidth = true
+
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
