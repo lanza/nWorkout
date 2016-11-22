@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class TextFieldBehaviorHandler: KeyboardDelegate {
     var liftCells = [LiftCell]()

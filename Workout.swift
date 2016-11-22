@@ -27,12 +27,11 @@ extension Workout: DataProvider {
     func append(_ object: Lift) {
         lifts.append(object)
     }
-
+    
     func numberOfItems() -> Int {
         return lifts.count
     }
     func object(at index: Int) -> Lift {
-        print("Workout")
         return lifts[index]
     }
     func index(of object: Lift) -> Int? {
@@ -42,6 +41,19 @@ extension Workout: DataProvider {
         lifts.insert(object, at: index)
     }
     func remove(at index: Int) {
-        lifts.remove(objectAtIndex: index)
+        let lift = lifts[index]
+        RLM.write {
+            lifts.remove(objectAtIndex: index)
+            RLM.realm.delete(lift)
+        }
     }
+    func move(from sourceIndex: Int, to destinationIndex: Int) {
+        let lift = lifts[sourceIndex]
+        RLM.write {
+            lifts.remove(objectAtIndex: sourceIndex)
+            lifts.insert(lift, at: destinationIndex)
+        }
+    }
+    
 }
+

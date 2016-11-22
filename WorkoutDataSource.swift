@@ -50,7 +50,6 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     let cancelWorkoutButton = UIButton()
     let finishWorkoutButtoon = UIButton()
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath) as! WorkoutLiftCell
         textFieldBehaviorHandler.setupSetConnections(for: cell)
@@ -92,6 +91,51 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
         return tfbh
     }()
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { fatalError() }
+        provider.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        if provider.numberOfItems() == 0 {
+            tableView.reloadData()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        provider.move(from: sourceIndexPath.row, to: destinationIndexPath.row)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

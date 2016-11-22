@@ -8,6 +8,12 @@ extension WorkoutTVC: ViewControllerFromStoryboard {
 }
 
 class WorkoutTVC: UIViewController {
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     var dataSource: WorkoutDataSource!
     var workout: Workout!
@@ -72,8 +78,7 @@ class WorkoutTVC: UIViewController {
 }
 
 extension WorkoutTVC: UITableViewDelegate {
-    
-    
+
 
 }
 
