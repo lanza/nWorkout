@@ -131,9 +131,17 @@ extension LiftCell: ConfigurableCell {
                     weight = String(set.completedWeight)
                 }
                 cwtf.text = weight
+                
+                if set.completedReps > 0 {
+                    cwtf.isHidden = false
+                }
             }
             if let crtf = rowView.completedRepsTextField {
                 crtf.text = String(set.completedReps)
+                
+                if set.completedReps > 0 {
+                    crtf.isHidden = false
+                }
             }
             if let pl = rowView.previousLabel {
                 if object.previousStrings.count > index && object.previousStrings[0] != "" {
@@ -141,6 +149,14 @@ extension LiftCell: ConfigurableCell {
                 } else {
                     pl.text = "No previous set"
                 }
+            }
+            
+            if let cb = rowView.completeButton, set.weight == set.completedWeight {
+                cb.setTitle("Done")
+            }
+            
+            if set.completedReps > 0, set.completedWeight > 0, let fb = rowView.failButton {
+                fb.setTitleColor(.red)
             }
         }
         

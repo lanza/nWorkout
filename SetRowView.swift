@@ -56,7 +56,7 @@ class FailButton: UIButton {
     init() {
         super.init(frame: CGRect.zero)
         setTitle("F", for: UIControlState())
-        setTitleColor(.red, for: UIControlState())
+        setTitleColor(.black, for: UIControlState())
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
