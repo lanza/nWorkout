@@ -14,7 +14,9 @@ extension WorkoutCell: ConfigurableCell {
         chartView.configurationClosure = { (index,rowView) in
             let lift = object.object(at: index)
             (rowView.columnViews[0] as! UILabel).text = lift.name
+            (rowView.columnViews[0] as! UILabel).textAlignment = .center
             (rowView.columnViews[1] as! UILabel).text = String(lift.sets.count) + " sets"
+            (rowView.columnViews[1] as! UILabel).textAlignment = .center
         }
         
         chartView.setup()
@@ -23,6 +25,7 @@ extension WorkoutCell: ConfigurableCell {
 }
 
 class ColumnRowView: RowView {
+    
     required init() {
         super.init()
     }

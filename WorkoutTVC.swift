@@ -114,7 +114,9 @@ class KeyboardHandler: NSObject {
     func keyboardWillShow(_ notification: Notification) {
         if let userInfo = notification.userInfo {
             
-            defaultInsets = tableView.contentInset
+            if defaultInsets == nil {
+                defaultInsets = tableView.contentInset
+            }
 
             let value = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
             keyboardHeight = value?.height ?? view.frame.height * CGFloat(Lets.keyboardToViewRatio)
@@ -152,6 +154,7 @@ class KeyboardHandler: NSObject {
             guard let defaultInsets = self.defaultInsets else { return }
             self.tableView.contentInset = defaultInsets
             self.tableView.scrollIndicatorInsets = defaultInsets
+            self.defaultInsets = nil
         }
     }
     deinit {
