@@ -3,9 +3,22 @@ import CoreGraphics
 
 struct Lets {
     
+    static let setNumberKey = "Set Number"
+    static let targetWeightKey = "Target Weight"
+    static let targetRepsKey = "Target Reps"
+    static let completedWeightKey = "Completed Weight"
+    static let completedRepsKey = "Completed Reps"
+    static let doneButtonKey = "Done Button"
+    static let previousWorkoutKey = "Previous Workout"
+    static let failButtonKey = "Fail Button"
+    
+    static let doneButtonCompletedWeightCompletedRepsKey = "Done Button/Completed Weight/Completed Reps"
+    
+    
+    
     static let combineFailAndCompletedWeightAndRepsKey = "CombineFailAndCompletedWeightAndReps"
-    static let selectedColumnViewTypesKey = "selectedColumnViewTypes"
-    static let selectedColumnViewWidthsKey = "selectedColumnViewWidths"
+    
+    static let viewInfoKey = "View Info"
     
     
     static let workoutDateFormat = "EEEE - MM/d/yyyy - h:mm a"
