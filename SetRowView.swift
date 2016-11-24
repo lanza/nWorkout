@@ -100,7 +100,7 @@ class SetRowView: RowView {
         configColumnWidthPercentages()
         configOtherSettings()
     }
-    
+    let viewInfos = (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all
     var selectedColumnViewTypes: [String]!
     var selectedColumnViewWidths: [CGFloat]!
     func configColumnViewTypes() {
@@ -111,9 +111,8 @@ class SetRowView: RowView {
         columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
     }
     func setupSelectedColumnViewTypesAndWidth() {
-        selectedColumnViewTypes = UserDefaults.standard.value(forKey: Lets.selectedColumnViewTypesKey) as? [String] ??
-            ["SetNumber","Previous","TargetWeight","TargetReps",Lets.combineFailAndCompletedWeightAndRepsKey, "FailButton"]
-        selectedColumnViewWidths = UserDefaults.standard.value(forKey: Lets.selectedColumnViewWidthsKey) as? [CGFloat] ?? [9,30,22,22,45,9]
+        selectedColumnViewTypes = viewInfos.filter { $0.isOn }.map { $0.name }
+        selectedColumnViewWidths = viewInfos.filter { $0.isOn }.map { $0.width }
     }
     func configOtherSettings() {
         usesCombinedView = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
@@ -122,6 +121,7 @@ class SetRowView: RowView {
     var didFail = false {
         didSet {
             failButton?.setTitleColor(didFail ? .red : .black)
+            completeButton?.setTitle("")
             if combinedView != nil {
                 completeButton?.isHidden = didFail
                 completedWeightTextField?.isHidden = !didFail
@@ -131,7 +131,7 @@ class SetRowView: RowView {
     }
     var isComplete = false {
         didSet {
-            completeButton?.setTitle(isComplete ? "Done" : "", for: UIControlState())
+            completeButton?.setTitle(isComplete ? "Done" : "")
             didFail = false
             
             if combinedView != nil {
@@ -156,11 +156,16 @@ class SetRowView: RowView {
     }
     
     let dict: [String:UIView.Type] = [
-        "SetNumber":SetNumberLabel.self, "Previous":WeightAndRepsLabel.self,
-        "TargetWeight":WeightAndRepsTextField.self, "TargetReps":WeightAndRepsTextField.self,
-        "CompletedWeight":CompletedWeightAndRepsTextField.self, "CompletedReps":CompletedWeightAndRepsTextField.self,
-        "Timer":UILabel.self, "Note":UIButton.self,
-        "CompleteButton":CompleteButton.self, "FailButton":FailButton.self,
+        Lets.setNumberKey:SetNumberLabel.self,
+        Lets.previousWorkoutKey:WeightAndRepsLabel.self,
+        Lets.targetWeightKey:WeightAndRepsTextField.self,
+        Lets.targetRepsKey:WeightAndRepsTextField.self,
+        Lets.completedWeightKey:CompletedWeightAndRepsTextField.self,
+        Lets.completedRepsKey:CompletedWeightAndRepsTextField.self,
+        "Timer":UILabel.self,
+        "Note":UIButton.self,
+        Lets.doneButtonKey:CompleteButton.self,
+        Lets.failButtonKey:FailButton.self,
         Lets.combineFailAndCompletedWeightAndRepsKey:CombinedView.self
     ]
     
@@ -210,22 +215,22 @@ class SetRowView: RowView {
     }
     
     var previousLabel: UILabel? {
-        guard let index = selectedColumnViewTypes.index(of: "Previous") else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: Lets.previousWorkoutKey) else { return nil }
         guard let pl = columnViews[index] as? UILabel else { fatalError() }
         return pl
     }
     var setNumberLabel: UILabel? {
-        guard let index = selectedColumnViewTypes.index(of: "SetNumber") else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: Lets.setNumberKey) else { return nil }
         guard let snl = columnViews[index] as? UILabel else { fatalError() }
         return snl
     }
     var targetWeightTextField: UITextField? {
-        guard let index = selectedColumnViewTypes.index(of: "TargetWeight") else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: Lets.targetWeightKey) else { return nil }
         guard let twtf = columnViews[index] as? UITextField else { fatalError() }
         return twtf
     }
     var targetRepsTextField: UITextField? {
-        guard let index = selectedColumnViewTypes.index(of: "TargetReps") else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: Lets.targetRepsKey) else { return nil }
         guard let trtf = columnViews[index] as? UITextField else { fatalError() }
         return trtf
     }
@@ -233,7 +238,7 @@ class SetRowView: RowView {
         if let cv = combinedView {
             return cv.completedWeightTextField
         }
-        guard let index = selectedColumnViewTypes.index(of: "CompletedWeight") else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: Lets.completedWeightKey) else { return nil }
         guard let cwtf = columnViews[index] as? UITextField else { fatalError() }
         return cwtf
     }
@@ -241,7 +246,7 @@ class SetRowView: RowView {
         if let cv = combinedView {
             return cv.completedRepsTextField
         }
-        guard let index = selectedColumnViewTypes.index(of: "CompletedReps") else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: Lets.completedRepsKey) else { return nil }
         guard let crtf = columnViews[index] as? UITextField else { fatalError() }
         return crtf
     }
@@ -249,12 +254,12 @@ class SetRowView: RowView {
         if let cv = combinedView {
             return cv.completeButton
         }
-        guard let index = selectedColumnViewTypes.index(of: "CompleteButton") else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: Lets.doneButtonKey) else { return nil }
         guard let cb = columnViews[index] as? UIButton else { fatalError() }
         return cb
     }
     var failButton: UIButton? {
-        guard let index = selectedColumnViewTypes.index(of: "FailButton") else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: Lets.failButtonKey) else { return nil }
         guard let fb = columnViews[index] as? UIButton else { fatalError() }
         return fb
     }

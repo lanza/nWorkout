@@ -7,7 +7,7 @@ extension SettingsTVC: ViewControllerFromStoryboard {
 }
 
 struct ViewInfo: Equatable {
-    static func ==(lhs: ViewInfo, rhs: ViewInfo) {
+    static func ==(lhs: ViewInfo, rhs: ViewInfo) -> Bool {
         return lhs.name == rhs.name
     }
     var name: String
@@ -61,38 +61,39 @@ class SettingsTVC: UIViewController {
         hideCompletionUntilFailTappedSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
             UserDefaults.standard.set(self.hideCompletionUntilFailTappedSwitch.isOn, forKey: Lets.combineFailAndCompletedWeightAndRepsKey)
             if self.hideCompletionUntilFailTappedSwitch.isOn {
-            }})
             
-//                let cwIndex = self.viewInfos$.value.
-//                self.workoutCells$.value[cwIndex] = Lets.doneButtonCompletedWeightCompletedRepsKey
-//                let crIndex = self.workoutCells$.value.index(of: Lets.completedRepsKey)!
-//                self.workoutCells$.value.remove(at: crIndex)
-//                let dbIndex = self.workoutCells$.value.index(of: Lets.doneButtonKey)!
-//                self.workoutCells$.value.remove(at: dbIndex)
-//                
-//            } else {
-//                
-//                let cIndex = self.workoutCells$.value.index(of: Lets.doneButtonCompletedWeightCompletedRepsKey)!
-//                self.workoutCells$.value[cIndex] = Lets.completedWeightKey
-//                self.workoutCells$.value.append(contentsOf: [Lets.completedRepsKey,Lets.doneButtonKey])
-//            }
-//        }).addDisposableTo(db)
-//        
-//        workoutCells$.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { index, string, cell in
-//            cell.textLabel?.text = string
-//            let swtch = UISwitch()
-//            swtch.rx.value.subscribe(onNext: { value in
-//                self.
-//            }).addDisposableTo(db)
-//            cell.accessoryView =
-//        }.addDisposableTo(db)
-//       
-//        tableView.rx.itemMoved.subscribe(onNext: { itemMovedEvent in
-//            let item = self.workoutCells$.value.remove(at: itemMovedEvent.sourceIndex.row)
-//            self.workoutCells$.value.insert(item, at: itemMovedEvent.destinationIndex.row)
-//        }).addDisposableTo(db)
+                let cwIndex = self.viewInfos$.value.index { $0.name == Lets.completedRepsKey }!
+                self.viewInfos$.value[cwIndex].name = Lets.doneButtonCompletedWeightCompletedRepsKey
+                let crIndex = self.viewInfos$.value.index { $0.name == Lets.completedRepsKey }!
+                self.viewInfos$.value.remove(at: crIndex)
+                let dbIndex = self.viewInfos$.value.index { $0.name == Lets.doneButtonKey }!
+                self.viewInfos$.value.remove(at: dbIndex)
+                
+            } else {
+                
+                let cIndex = self.viewInfos$.value.index { $0.name == Lets.doneButtonCompletedWeightCompletedRepsKey }!
+                self.viewInfos$.value[cIndex].name = Lets.completedWeightKey
+                self.viewInfos$.value.append(contentsOf: [ViewInfo(name: Lets.completedRepsKey, width: 20, isOn: true), ViewInfo(name: Lets.doneButtonKey, width: 20, isOn: true)])
+            }
+        }).addDisposableTo(db)
         
-//        tableView.rx.setDelegate(self).addDisposableTo(db)
+        viewInfos$.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { index, viewInfo, cell in
+            cell.textLabel?.text = viewInfo.name
+            let swtch = UISwitch()
+            swtch.rx.value.subscribe(onNext: { [unowned self] value in
+                self.viewInfos$.value[index].isOn = value
+            }).addDisposableTo(self.db)
+            
+            cell.accessoryView = swtch
+            
+        }.addDisposableTo(db)
+       
+        tableView.rx.itemMoved.subscribe(onNext: { itemMovedEvent in
+            let item = self.viewInfos$.value.remove(at: itemMovedEvent.sourceIndex.row)
+            self.viewInfos$.value.insert(item, at: itemMovedEvent.destinationIndex.row)
+        }).addDisposableTo(db)
+        
+        tableView.rx.setDelegate(self).addDisposableTo(db)
     }
     
     
