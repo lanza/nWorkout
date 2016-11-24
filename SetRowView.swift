@@ -108,7 +108,9 @@ class SetRowView: RowView {
     }
     func configColumnWidthPercentages() {
         let sum = selectedColumnViewWidths.reduce(0, +)
+        print(sum)
         columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
+        print(columnWidthPercentages)
     }
     func setupSelectedColumnViewTypesAndWidth() {
         selectedColumnViewTypes = viewInfos.filter { $0.isOn }.map { $0.name }
@@ -121,7 +123,9 @@ class SetRowView: RowView {
     var didFail = false {
         didSet {
             failButton?.setTitleColor(didFail ? .red : .black)
-            completeButton?.setTitle("")
+            if didFail {
+                completeButton?.setTitle("")
+            }
             if combinedView != nil {
                 completeButton?.isHidden = didFail
                 completedWeightTextField?.isHidden = !didFail
@@ -166,7 +170,7 @@ class SetRowView: RowView {
         "Note":UIButton.self,
         Lets.doneButtonKey:CompleteButton.self,
         Lets.failButtonKey:FailButton.self,
-        Lets.combineFailAndCompletedWeightAndRepsKey:CombinedView.self
+        Lets.doneButtonCompletedWeightCompletedRepsKey:CombinedView.self
     ]
     
     class CombinedView: UIView {
@@ -196,7 +200,8 @@ class SetRowView: RowView {
                 completeButton.leftAnchor.constraint(equalTo: leftAnchor),
                 completeButton.topAnchor.constraint(equalTo: topAnchor),
                 completeButton.rightAnchor.constraint(equalTo: rightAnchor),
-                completeButton.bottomAnchor.constraint(equalTo: bottomAnchor)
+                completeButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+                completeButton.widthAnchor.constraint(equalTo: widthAnchor)
                 ])
         }
         
@@ -209,7 +214,7 @@ class SetRowView: RowView {
     
     var combinedView: CombinedView? {
         guard usesCombinedView else { return nil }
-        guard let index = selectedColumnViewTypes.index(of: Lets.combineFailAndCompletedWeightAndRepsKey) else { return nil }
+        guard let index = selectedColumnViewTypes.index(of: Lets.doneButtonCompletedWeightCompletedRepsKey) else { return nil }
         guard let cv = columnViews[index] as? CombinedView else { fatalError() }
         return cv
     }

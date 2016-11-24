@@ -56,6 +56,7 @@ class SettingsTVC: UIViewController {
         hideCompletionUntilFailTappedSwitch.isOn = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
 
         setupRx()
+
         tableView.setEditing(true, animated: false)
     }
     
@@ -71,7 +72,7 @@ class SettingsTVC: UIViewController {
             UserDefaults.standard.set(self.hideCompletionUntilFailTappedSwitch.isOn, forKey: Lets.combineFailAndCompletedWeightAndRepsKey)
             if self.hideCompletionUntilFailTappedSwitch.isOn {
             
-                let cwIndex = self.viewInfos$.value.index { $0.name == Lets.completedRepsKey }!
+                let cwIndex = self.viewInfos$.value.index { $0.name == Lets.completedWeightKey }!
                 self.viewInfos$.value[cwIndex].name = Lets.doneButtonCompletedWeightCompletedRepsKey
                 let crIndex = self.viewInfos$.value.index { $0.name == Lets.completedRepsKey }!
                 self.viewInfos$.value.remove(at: crIndex)
@@ -89,6 +90,7 @@ class SettingsTVC: UIViewController {
         viewInfos$.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: SettingsCell.self)) { index, viewInfo, cell in
             cell.nameLabel.text = viewInfo.name
             cell.widthTextField.text = String(describing: viewInfo.width)
+            cell.isOnSwitch.isOn = viewInfo.isOn
             cell.isOnSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
                 self.viewInfos$.value[index].isOn = cell.isOnSwitch.isOn
             }).addDisposableTo(self.db)
@@ -119,7 +121,7 @@ extension SettingsTVC: UITableViewDelegate {
         return .none
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 25
+        return 42
     }
 }
 
