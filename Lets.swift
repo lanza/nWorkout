@@ -4,6 +4,8 @@ import CoreGraphics
 struct Lets {
     
     static let combineFailAndCompletedWeightAndRepsKey = "CombineFailAndCompletedWeightAndReps"
+    static let selectedColumnViewTypesKey = "selectedColumnViewTypes"
+    static let selectedColumnViewWidthsKey = "selectedColumnViewWidths"
     
     
     static let workoutDateFormat = "EEEE - MM/d/yyyy - h:mm a"

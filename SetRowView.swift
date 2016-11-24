@@ -111,8 +111,9 @@ class SetRowView: RowView {
         columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
     }
     func setupSelectedColumnViewTypesAndWidth() {
-        selectedColumnViewTypes = UserDefaults.standard.value(forKey: "selectedColumnViewTypes") as? [String] ?? ["SetNumber","Previous","TargetWeight","TargetReps",Lets.combineFailAndCompletedWeightAndRepsKey, "FailButton"]
-        selectedColumnViewWidths = UserDefaults.standard.value(forKey: "selectedColumnViewWidths") as? [CGFloat] ?? [9,30,22,22,45,9]
+        selectedColumnViewTypes = UserDefaults.standard.value(forKey: Lets.selectedColumnViewTypesKey) as? [String] ??
+            ["SetNumber","Previous","TargetWeight","TargetReps",Lets.combineFailAndCompletedWeightAndRepsKey, "FailButton"]
+        selectedColumnViewWidths = UserDefaults.standard.value(forKey: Lets.selectedColumnViewWidthsKey) as? [CGFloat] ?? [9,30,22,22,45,9]
     }
     func configOtherSettings() {
         usesCombinedView = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
