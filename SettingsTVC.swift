@@ -39,6 +39,8 @@ class SettingsCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var widthTextField: UITextField!
     @IBOutlet weak var isOnSwitch: UISwitch!
+    
+    var db: DisposeBag!
 }
 
 class SettingsTVC: UIViewController {
@@ -88,12 +90,18 @@ class SettingsTVC: UIViewController {
         }).addDisposableTo(db)
         
         viewInfos$.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: SettingsCell.self)) { index, viewInfo, cell in
+            cell.db = DisposeBag()
             cell.nameLabel.text = viewInfo.name
-            cell.widthTextField.text = String(describing: viewInfo.width)
+            cell.widthTextField.text = viewInfo.width.remainder(dividingBy: 1) == 0 ? String(describing: Int(viewInfo.width)) : String(describing: viewInfo.width)
+            cell.widthTextField.rx.controlEvent(.editingDidEnd).subscribe(onNext: { [unowned self] in
+                self.viewInfos$.value[index].width = CGFloat(Double(cell.widthTextField.text ?? "20")!)
+            }).addDisposableTo(cell.db)
+
+            
             cell.isOnSwitch.isOn = viewInfo.isOn
             cell.isOnSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
                 self.viewInfos$.value[index].isOn = cell.isOnSwitch.isOn
-            }).addDisposableTo(self.db)
+            }).addDisposableTo(cell.db)
             
         }.addDisposableTo(db)
     
