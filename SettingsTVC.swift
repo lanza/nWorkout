@@ -40,11 +40,14 @@ class SettingsTVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
 
-    var viewInfos$ = Variable((UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all)
+    var viewInfos$ = Variable<[ViewInfo]>([])
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        viewInfos$.value = ((UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all)
         
         setupRx()
         tableView.setEditing(true, animated: false)
@@ -78,6 +81,7 @@ class SettingsTVC: UIViewController {
         }).addDisposableTo(db)
         
         viewInfos$.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { index, viewInfo, cell in
+            print("hi")
             cell.textLabel?.text = viewInfo.name
             let swtch = UISwitch()
             swtch.rx.value.subscribe(onNext: { [unowned self] value in
