@@ -35,6 +35,12 @@ struct ViewInfo: Equatable {
     }
 }
 
+class SettingsCell: UITableViewCell {
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var widthTextField: UITextField!
+    @IBOutlet weak var isOnSwitch: UISwitch!
+}
+
 class SettingsTVC: UIViewController {
     @IBOutlet weak var hideCompletionUntilFailTappedSwitch: UISwitch!
     
@@ -45,10 +51,10 @@ class SettingsTVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
+
         viewInfos$.value = ((UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all)
-        
+        hideCompletionUntilFailTappedSwitch.isOn = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
+
         setupRx()
         tableView.setEditing(true, animated: false)
     }
@@ -80,18 +86,15 @@ class SettingsTVC: UIViewController {
             }
         }).addDisposableTo(db)
         
-        viewInfos$.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { index, viewInfo, cell in
-            print("hi")
-            cell.textLabel?.text = viewInfo.name
-            let swtch = UISwitch()
-            swtch.rx.value.subscribe(onNext: { [unowned self] value in
-                self.viewInfos$.value[index].isOn = value
+        viewInfos$.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: SettingsCell.self)) { index, viewInfo, cell in
+            cell.nameLabel.text = viewInfo.name
+            cell.widthTextField.text = String(describing: viewInfo.width)
+            cell.isOnSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
+                self.viewInfos$.value[index].isOn = cell.isOnSwitch.isOn
             }).addDisposableTo(self.db)
             
-            cell.accessoryView = swtch
-            
         }.addDisposableTo(db)
-       
+    
         tableView.rx.itemMoved.subscribe(onNext: { itemMovedEvent in
             let item = self.viewInfos$.value.remove(at: itemMovedEvent.sourceIndex.row)
             self.viewInfos$.value.insert(item, at: itemMovedEvent.destinationIndex.row)
