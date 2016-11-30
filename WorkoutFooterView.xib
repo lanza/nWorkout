@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11761" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WorkoutFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="451" height="189"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECu-2g-epG">
+                    <rect key="frame" x="20" y="20" width="411" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGc-yp-5L2">
+                            <rect key="frame" x="0.0" y="0.0" width="411" height="44"/>
+                            <state key="normal" title="Add Exercise"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="QGc-yp-5L2" secondAttribute="bottom" id="DkW-WS-Oai"/>
+                        <constraint firstAttribute="trailing" secondItem="QGc-yp-5L2" secondAttribute="trailing" id="biM-Iq-BK3"/>
+                        <constraint firstItem="QGc-yp-5L2" firstAttribute="top" secondItem="ECu-2g-epG" secondAttribute="top" id="g2u-EZ-Hxa"/>
+                        <constraint firstItem="QGc-yp-5L2" firstAttribute="leading" secondItem="ECu-2g-epG" secondAttribute="leading" id="qAL-dF-p1N"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TiU-fu-XKr">
+                    <rect key="frame" x="20" y="72" width="411" height="44.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOu-aT-UHM">
+                            <rect key="frame" x="0.0" y="0.0" width="411" height="44.5"/>
+                            <state key="normal" title="Cancel Workout"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="uOu-aT-UHM" firstAttribute="leading" secondItem="TiU-fu-XKr" secondAttribute="leading" id="aoD-4m-Kj0"/>
+                        <constraint firstAttribute="bottom" secondItem="uOu-aT-UHM" secondAttribute="bottom" id="bks-yE-NXE"/>
+                        <constraint firstItem="uOu-aT-UHM" firstAttribute="top" secondItem="TiU-fu-XKr" secondAttribute="top" id="dX9-cm-flL"/>
+                        <constraint firstAttribute="trailing" secondItem="uOu-aT-UHM" secondAttribute="trailing" id="oY0-4a-Pv5"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aa-M0-JLH">
+                    <rect key="frame" x="20" y="124.5" width="411" height="44.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qa-aG-Fe1">
+                            <rect key="frame" x="0.0" y="0.0" width="411" height="44.5"/>
+                            <state key="normal" title="Finish Workout"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="2Qa-aG-Fe1" secondAttribute="trailing" id="G6N-8B-WB4"/>
+                        <constraint firstAttribute="bottom" secondItem="2Qa-aG-Fe1" secondAttribute="bottom" id="W88-9L-b2L"/>
+                        <constraint firstItem="2Qa-aG-Fe1" firstAttribute="leading" secondItem="1aa-M0-JLH" secondAttribute="leading" id="XEQ-6Z-OAM"/>
+                        <constraint firstItem="2Qa-aG-Fe1" firstAttribute="top" secondItem="1aa-M0-JLH" secondAttribute="top" id="faE-VM-EZo"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ECu-2g-epG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="9A0-Ji-V8B"/>
+                <constraint firstItem="TiU-fu-XKr" firstAttribute="height" secondItem="ECu-2g-epG" secondAttribute="height" id="K1l-Th-E2r"/>
+                <constraint firstAttribute="trailing" secondItem="1aa-M0-JLH" secondAttribute="trailing" constant="20" symbolic="YES" id="Kdf-F4-uw3"/>
+                <constraint firstItem="TiU-fu-XKr" firstAttribute="top" secondItem="ECu-2g-epG" secondAttribute="bottom" constant="8" symbolic="YES" id="Pxy-cT-a3x"/>
+                <constraint firstItem="1aa-M0-JLH" firstAttribute="top" secondItem="TiU-fu-XKr" secondAttribute="bottom" constant="8" symbolic="YES" id="Q7D-dD-BLT"/>
+                <constraint firstAttribute="trailing" secondItem="ECu-2g-epG" secondAttribute="trailing" constant="20" symbolic="YES" id="W0V-rx-MHc"/>
+                <constraint firstItem="TiU-fu-XKr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="gSf-SO-W3S"/>
+                <constraint firstAttribute="bottom" secondItem="1aa-M0-JLH" secondAttribute="bottom" constant="20" symbolic="YES" id="nMW-Nn-ml6"/>
+                <constraint firstItem="ECu-2g-epG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="oti-Dn-Ijb"/>
+                <constraint firstItem="1aa-M0-JLH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="utx-bn-WD3"/>
+                <constraint firstItem="1aa-M0-JLH" firstAttribute="height" secondItem="ECu-2g-epG" secondAttribute="height" id="v9V-gp-Rc0"/>
+                <constraint firstAttribute="trailing" secondItem="TiU-fu-XKr" secondAttribute="trailing" constant="20" symbolic="YES" id="xZH-Rx-dpW"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addLiftButton" destination="uOu-aT-UHM" id="5Uc-Am-BrD"/>
+                <outlet property="cancelWorkoutButton" destination="QGc-yp-5L2" id="kVn-dD-30e"/>
+                <outlet property="finishWorkoutButton" destination="2Qa-aG-Fe1" id="9VK-1e-5TY"/>
+            </connections>
+            <point key="canvasLocation" x="72.5" y="-185.5"/>
+        </view>
+    </objects>
+</document>

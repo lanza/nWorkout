@@ -13,42 +13,22 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     }
     
     func setupFooterView() {
-        let footer = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80))
-        
-
-        addLiftButton.setTitle("Add Lift", for: UIControlState())
-        cancelWorkoutButton.setTitle("Cancel Workout", for: UIControlState())
-        finishWorkoutButtoon.setTitle("Finish Workout", for: UIControlState())
-        
-        addLiftButton.setTitleColor(.black, for: UIControlState())
-        cancelWorkoutButton.setTitleColor(.black, for: UIControlState())
-        finishWorkoutButtoon.setTitleColor(.black, for: UIControlState())
-        
-        footer.backgroundColor = .white
-        
-        footer.addSubview(addLiftButton)
-        footer.addSubview(cancelWorkoutButton)
-        footer.addSubview(finishWorkoutButtoon)
-        
-        addLiftButton.translatesAutoresizingMaskIntoConstraints = false
-        cancelWorkoutButton.translatesAutoresizingMaskIntoConstraints = false
-        finishWorkoutButtoon.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            addLiftButton.topAnchor.constraint(equalTo: footer.topAnchor),
-            addLiftButton.leftAnchor.constraint(equalTo: footer.leftAnchor),
-            addLiftButton.rightAnchor.constraint(equalTo: footer.rightAnchor),
-            addLiftButton.bottomAnchor.constraint(equalTo: cancelWorkoutButton.topAnchor),
-            cancelWorkoutButton.bottomAnchor.constraint(equalTo: finishWorkoutButtoon.topAnchor),
-            finishWorkoutButtoon.bottomAnchor.constraint(equalTo: footer.bottomAnchor)
-            ])
-        
-        tableView.tableFooterView = footer
+        workoutFooterView = WorkoutFooterView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80))
+        tableView.tableFooterView = workoutFooterView
     }
     
-    let addLiftButton = UIButton()
-    let cancelWorkoutButton = UIButton()
-    let finishWorkoutButtoon = UIButton()
+    class WorkoutFooterView: UIView {
+        @IBOutlet weak var addLiftButton: UIButton!
+        @IBOutlet weak var cancelWorkoutButton: UIButton!
+        @IBOutlet weak var finishWorkoutButton: UIButton!
+        
+    }
+    
+    var workoutFooterView: WorkoutFooterView!
+    
+    var addLiftButton: UIButton { return workoutFooterView.addLiftButton }
+    var cancelWorkoutButton: UIButton { return workoutFooterView.cancelWorkoutButton }
+    var finishWorkoutButtoon: UIButton { return workoutFooterView.finishWorkoutButton }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath) as! WorkoutLiftCell
