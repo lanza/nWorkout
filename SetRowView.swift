@@ -5,7 +5,7 @@ import RxCocoa
 
 class RoutineSetRowView: SetRowView {
     override func setupSelectedColumnViewTypesAndWidth() {
-        selectedColumnViewTypes = ["SetNumber","TargetWeight","TargetReps"]
+        selectedColumnViewTypes = [Lets.setNumberKey,Lets.targetWeightKey,Lets.targetRepsKey]
         selectedColumnViewWidths = [10,45,45]
     }
 }
