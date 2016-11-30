@@ -22,6 +22,7 @@
 		B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8131DD6FA5E000948ED /* SettingsTVC.swift */; };
 		B3312B341DC12F9700318AA6 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3312B331DC12F9700318AA6 /* MainCoordinator.swift */; };
 		B335C3651DEEA88800D21562 /* WorkoutFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B335C3641DEEA88800D21562 /* WorkoutFooterView.xib */; };
+		B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */; };
 		B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0531DC1CC22006B6A51 /* UIResponder+FirstResponder.swift */; };
 		B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0551DC1CC29006B6A51 /* Theme.swift */; };
 		B34BA0581DC1CC33006B6A51 /* Lets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0571DC1CC33006B6A51 /* Lets.swift */; };
@@ -71,6 +72,7 @@
 		B328D8131DD6FA5E000948ED /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		B3312B331DC12F9700318AA6 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCoordinator.swift; path = nWorkout/MainCoordinator.swift; sourceTree = "<group>"; };
 		B335C3641DEEA88800D21562 /* WorkoutFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutFooterView.xib; sourceTree = "<group>"; };
+		B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFooterView.swift; sourceTree = "<group>"; };
 		B34BA0531DC1CC22006B6A51 /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
 		B34BA0551DC1CC29006B6A51 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B34BA0571DC1CC33006B6A51 /* Lets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lets.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				B3780EEE1DD5A7010087CEC1 /* DataSource.swift */,
 				B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */,
 				B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */,
+				B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */,
 				B335C3641DEEA88800D21562 /* WorkoutFooterView.xib */,
 				B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */,
 				B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */,
@@ -407,6 +410,7 @@
 				B31CEC681DDB0A8B002F826C /* StatisticsChartsVC.swift in Sources */,
 				B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */,
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
+				B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */,
 				B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */,
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
 				B34BA05A1DC1CC4B006B6A51 /* Workout.swift in Sources */,
