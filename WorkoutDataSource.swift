@@ -13,7 +13,7 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     }
     
     func setupFooterView() {
-        workoutFooterView = WorkoutFooterView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80))
+        workoutFooterView = WorkoutFooterView.fromNib()
         tableView.tableFooterView = workoutFooterView
     }
     
@@ -22,6 +22,10 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
         @IBOutlet weak var cancelWorkoutButton: UIButton!
         @IBOutlet weak var finishWorkoutButton: UIButton!
         
+        static func fromNib() -> WorkoutFooterView {
+            guard let view = Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?[0] as? WorkoutFooterView else { fatalError() }
+            return view
+        }
     }
     
     var workoutFooterView: WorkoutFooterView!
