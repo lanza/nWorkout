@@ -4,16 +4,8 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-extension WorkoutsTVC: ViewControllerFromStoryboard {
-    static var storyboardIdentifier: String { return "WorkoutsTVC" }
-}
-
-class WorkoutsTVC: UIViewController {
+class WorkoutsTVC: UITableViewController {
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        tableView.setEditing(editing, animated: animated)
-    }
     
     @IBOutlet weak var tableView: UITableView!
     var dataSource: WorkoutsDataSource!

@@ -3,7 +3,6 @@ import RxCocoa
 import RxSwift
 
 extension SettingsTVC: ViewControllerFromStoryboard {
-    static var storyboardIdentifier: String { return "SettingsTVC" }
 }
 
 struct ViewInfo: Equatable {

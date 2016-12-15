@@ -4,7 +4,6 @@ import RxCocoa
 import DZNEmptyDataSet
 
 extension StatisticsTVC: ViewControllerFromStoryboard {
-    static var storyboardIdentifier: String { return "StatisticsTVC" }
 }
 
 class StatisticsTVC: UIViewController {

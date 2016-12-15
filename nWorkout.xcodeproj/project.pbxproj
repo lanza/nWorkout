@@ -34,7 +34,7 @@
 		B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
-		B3780EED1DD5A5480087CEC1 /* ViewControllerFromStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEC1DD5A5470087CEC1 /* ViewControllerFromStoryboard.swift */; };
+		B3780EED1DD5A5480087CEC1 /* Protocols&Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEC1DD5A5470087CEC1 /* Protocols&Extensions.swift */; };
 		B3780EF01DD5A7010087CEC1 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEE1DD5A7010087CEC1 /* DataSource.swift */; };
 		B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF21DD5A7100087CEC1 /* ArrayProvider.swift */; };
 		B3780EF61DD5AF2D0087CEC1 /* WorkoutsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */; };
@@ -86,7 +86,7 @@
 		B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyboard&KeyboardDelegate.swift"; sourceTree = "<group>"; };
 		B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutVC.swift; sourceTree = "<group>"; };
 		B3780EEA1DD5A4530087CEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		B3780EEC1DD5A5470087CEC1 /* ViewControllerFromStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFromStoryboard.swift; sourceTree = "<group>"; };
+		B3780EEC1DD5A5470087CEC1 /* Protocols&Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Protocols&Extensions.swift"; sourceTree = "<group>"; };
 		B3780EEE1DD5A7010087CEC1 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		B3780EF21DD5A7100087CEC1 /* ArrayProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayProvider.swift; sourceTree = "<group>"; };
 		B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsDataSource.swift; sourceTree = "<group>"; };
@@ -130,6 +130,16 @@
 				E6B8E7FF219D372643F9F7E6 /* Pods_nWorkout.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B32887A31E03344100259D66 /* Settings & Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				B328D8111DD6FA52000948ED /* StatisticsTVC.swift */,
+				B31CEC671DDB0A8B002F826C /* StatisticsChartsVC.swift */,
+				B328D8131DD6FA5E000948ED /* SettingsTVC.swift */,
+			);
+			name = "Settings & Statistics";
 			sourceTree = "<group>";
 		};
 		B356FBB61DC09C160006A0F0 = {
@@ -248,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				B34BA0531DC1CC22006B6A51 /* UIResponder+FirstResponder.swift */,
-				B3780EEC1DD5A5470087CEC1 /* ViewControllerFromStoryboard.swift */,
+				B3780EEC1DD5A5470087CEC1 /* Protocols&Extensions.swift */,
 				B3170D161DE3D792001A11CE /* UIView+Extensions.swift */,
 			);
 			name = "UIKit Extensions";
@@ -258,14 +268,12 @@
 			isa = PBXGroup;
 			children = (
 				B382087A1DC2B2C00008D6F8 /* WorkoutsTVC.swift */,
-				B382087E1DC2B3EE0008D6F8 /* WorkoutTVC.swift */,
 				B31E9FBE1DD6AE3400B9AEFC /* RoutinesTVC.swift */,
+				B382087E1DC2B3EE0008D6F8 /* WorkoutTVC.swift */,
 				B328D80F1DD6FA3C000948ED /* RoutineTVC.swift */,
-				B328D8111DD6FA52000948ED /* StatisticsTVC.swift */,
-				B31CEC671DDB0A8B002F826C /* StatisticsChartsVC.swift */,
-				B328D8131DD6FA5E000948ED /* SettingsTVC.swift */,
 				B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */,
 				B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */,
+				B32887A31E03344100259D66 /* Settings & Statistics */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -440,7 +448,7 @@
 				B31E9FBB1DD6AE2000B9AEFC /* RoutinesDataSource.swift in Sources */,
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
 				B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */,
-				B3780EED1DD5A5480087CEC1 /* ViewControllerFromStoryboard.swift in Sources */,
+				B3780EED1DD5A5480087CEC1 /* Protocols&Extensions.swift in Sources */,
 				B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */,
 				B3BB31881DDAA19C0015F9B0 /* RoutineCoordinator.swift in Sources */,
 				B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */,

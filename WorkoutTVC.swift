@@ -4,7 +4,6 @@ import RxCocoa
 import DZNEmptyDataSet
 
 extension WorkoutTVC: ViewControllerFromStoryboard {
-    static var storyboardIdentifier: String { return "WorkoutTVC" }
 }
 
 class WorkoutTVC: UIViewController {

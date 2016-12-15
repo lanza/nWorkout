@@ -4,7 +4,6 @@ import RxCocoa
 import DZNEmptyDataSet
 
 extension RoutineTVC: ViewControllerFromStoryboard {
-    static var storyboardIdentifier: String { return "RoutineTVC" }
 }
 
 class RoutineTVC: UIViewController {

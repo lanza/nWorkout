@@ -5,7 +5,7 @@ import RealmSwift
 import DZNEmptyDataSet
 
 extension SelectWorkoutVC: ViewControllerFromStoryboard {
-    static var storyboardIdentifier: String { return "SelectWorkoutVC" }
+
 }
 
 class SelectWorkoutVC: UIViewController {

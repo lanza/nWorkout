@@ -15,7 +15,6 @@ extension UIAlertController {
 }
 
 extension LiftTypeTVC: ViewControllerFromStoryboard {
-    static var storyboardIdentifier: String { return "LiftTypeTVC" }
 }
 
 class LiftTypeTVC: UIViewController {

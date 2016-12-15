@@ -16,7 +16,6 @@ class RLM {
 }
 
 extension RoutinesTVC: ViewControllerFromStoryboard {
-    static var storyboardIdentifier: String { return "RoutinesTVC" }
 }
 
 class RoutinesTVC: UIViewController {
