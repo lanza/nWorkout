@@ -19,7 +19,7 @@ extension LiftTypeTVC: ViewControllerFromStoryboard {
 }
 
 class LiftTypeTVC: UIViewController {
-   
+    
     @IBOutlet weak var tableView: UITableView!
     
     var liftTypes = Variable(UserDefaults.standard.value(forKey: "liftTypes") as? [String] ?? [])
@@ -29,16 +29,15 @@ class LiftTypeTVC: UIViewController {
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
-       
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         setupRx()
     }
-   
+    
     func setupRx() {
         liftTypes.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { index, string, cell in
             cell.textLabel?.text = string
-        }.addDisposableTo(db)
+            }.addDisposableTo(db)
         
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
             let alert = UIAlertController.alert(title: "Add new lift type", message: nil)
@@ -46,7 +45,7 @@ class LiftTypeTVC: UIViewController {
             let okay = UIAlertAction(title: "Okay", style: .default) { _ in
                 guard let name = alert.textFields?.first?.text else { fatalError() }
                 self.liftTypes.value.append(name)
-                UserDefaults.standard.setValue(self.liftTypes.value, forKey: "liftTypes")
+                self.save()
             }
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(okay)
@@ -59,11 +58,21 @@ class LiftTypeTVC: UIViewController {
             self.didSelectLiftName(name)
         }).addDisposableTo(db)
         
+        tableView.rx.itemDeleted.subscribe(onNext: { indexPath in
+            self.liftTypes.value.remove(at: indexPath.row)
+            self.save()
+        }).addDisposableTo(db)
     }
-   
+    
+    func save() {
+        UserDefaults.standard.setValue(self.liftTypes.value, forKey: "liftTypes")
+    }
+    
+    
     var didSelectLiftName: ((String) -> ())!
     let db = DisposeBag()
 }
+
 
 extension LiftTypeTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
