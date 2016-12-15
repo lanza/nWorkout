@@ -22,7 +22,7 @@ extension ReusableView where Self: UIView {
 }
 
 extension UITableView {
-    func register<Cell: UITableViewCell>(type: Cell.Type) where Cell: ReusableView {
+    func register<Cell: UITableViewCell>(_ type: Cell.Type) where Cell: ReusableView {
         register(Cell.self, forCellReuseIdentifier: Cell.reuseIdentifier)
     }
 }
@@ -33,3 +33,5 @@ extension UITableView {
         return cell
     }
 }
+
+extension UITableViewCell: ReusableView { }

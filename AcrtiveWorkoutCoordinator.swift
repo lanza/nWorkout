@@ -9,7 +9,7 @@ class ActiveWorkoutCoordinator: Coordinator {
     var workoutTVC: WorkoutTVC { return viewController as! WorkoutTVC }
     
     override func loadViewController() {
-        viewController = WorkoutTVC.new()
+        viewController = WorkoutTVC()
         workoutTVC.workout = workout
         
         workoutTVC.didTapAddNewLift = {

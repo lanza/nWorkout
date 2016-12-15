@@ -8,7 +8,7 @@ class RoutineCoordinator: Coordinator {
     var routine: Workout!
     
     override func loadViewController() {
-        viewController = RoutineTVC.new()
+        viewController = RoutineTVC()
         routineTVC.routine = routine
 
         routineTVC.didTapAddNewLift = {

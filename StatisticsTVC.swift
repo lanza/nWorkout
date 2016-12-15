@@ -3,11 +3,8 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-extension StatisticsTVC: ViewControllerFromStoryboard {
-}
-
-class StatisticsTVC: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+class StatisticsTVC: UITableViewController {
+    
     var pairs = Variable([(String,Int)]())
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,17 +20,18 @@ class StatisticsTVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self)
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
-        
         
         setupRx()
     }
     
     func setupRx() {
-        pairs.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { index, pair, cell in
+        tableView.dataSource = nil
+        tableView.delegate = nil
+        pairs.asObservable().bindTo(tableView.rx.items(cellIdentifier: UITableViewCell.reuseIdentifier, cellType: UITableViewCell.self)) { index, pair, cell in
             cell.textLabel?.text = pair.0
             cell.detailTextLabel?.text = "Done \(pair.1) times"
         }.addDisposableTo(db)

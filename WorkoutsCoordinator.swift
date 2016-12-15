@@ -6,7 +6,7 @@ class WorkoutsCoordinator: Coordinator {
     var workoutsTVC: WorkoutsTVC { return viewController as! WorkoutsTVC }
     
     override func loadViewController() {
-        viewController = WorkoutsTVC.new()
+        viewController = WorkoutsTVC()
         
         workoutsTVC.didSelectWorkout = { workout in
             let wvc = WorkoutCoordinator()

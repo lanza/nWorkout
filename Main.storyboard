@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="64F-9t-Ck5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="64F-9t-Ck5">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,77 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Workouts-->
-        <scene sceneID="L1D-bf-xCa">
-            <objects>
-                <viewController storyboardIdentifier="WorkoutsTVC" title="Workouts" id="Nwn-xd-Way" customClass="WorkoutsTVC" customModule="nWorkout" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6d6-eo-Nfw"/>
-                        <viewControllerLayoutGuide type="bottom" id="h4g-cs-BAx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7X2-vN-SGc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iEl-CL-UpR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="iEl-CL-UpR" secondAttribute="trailing" id="EcC-5Z-qne"/>
-                            <constraint firstItem="iEl-CL-UpR" firstAttribute="top" secondItem="7X2-vN-SGc" secondAttribute="top" id="df8-r7-s6w"/>
-                            <constraint firstItem="h4g-cs-BAx" firstAttribute="top" secondItem="iEl-CL-UpR" secondAttribute="bottom" id="f3E-BE-4V6"/>
-                            <constraint firstItem="iEl-CL-UpR" firstAttribute="leading" secondItem="7X2-vN-SGc" secondAttribute="leading" id="tdi-j7-GoH"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Workouts" image="workout" selectedImage="workout" id="7J8-Ac-ZEz"/>
-                    <navigationItem key="navigationItem" title="Workouts" id="sRz-39-fa7"/>
-                    <connections>
-                        <outlet property="tableView" destination="iEl-CL-UpR" id="zGH-6D-tfe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y8y-nd-VPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2175" y="1279"/>
-        </scene>
-        <!--Routines-->
-        <scene sceneID="Rqm-YP-rCk">
-            <objects>
-                <viewController storyboardIdentifier="RoutinesTVC" id="k6K-c5-vkw" customClass="RoutinesTVC" customModule="nWorkout" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CLp-Vf-X2K"/>
-                        <viewControllerLayoutGuide type="bottom" id="GL0-uI-hHR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2KO-dW-aRv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8s-VI-U8C">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="o8s-VI-U8C" firstAttribute="leading" secondItem="2KO-dW-aRv" secondAttribute="leading" id="24Q-nI-bqg"/>
-                            <constraint firstItem="GL0-uI-hHR" firstAttribute="top" secondItem="o8s-VI-U8C" secondAttribute="bottom" id="WeK-cV-Wns"/>
-                            <constraint firstAttribute="trailing" secondItem="o8s-VI-U8C" secondAttribute="trailing" id="c2k-hR-bFL"/>
-                            <constraint firstItem="o8s-VI-U8C" firstAttribute="top" secondItem="2KO-dW-aRv" secondAttribute="top" id="mxZ-pM-rJK"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Routines" id="aw9-tB-83I">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Th-B6-WVX"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="o8s-VI-U8C" id="gua-dR-4xn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="040-Xz-HdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1331.25" y="1277.1126760563379"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bOe-zG-uWd">
             <objects>
@@ -93,11 +22,7 @@
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="AFJ-tH-lnT" kind="relationship" relationship="viewControllers" id="xA6-bp-i1Y"/>
-                        <segue destination="awV-zB-QcQ" kind="relationship" relationship="viewControllers" id="hhc-50-fUr"/>
                         <segue destination="x33-Sv-1Gb" kind="relationship" relationship="viewControllers" id="CZv-9C-hrA"/>
-                        <segue destination="5Jd-P2-7hF" kind="relationship" relationship="viewControllers" id="gvm-44-w2Q"/>
-                        <segue destination="RYE-yk-UZL" kind="relationship" relationship="viewControllers" id="srS-jL-UGu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qkk-OB-M5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -201,40 +126,6 @@
             </objects>
             <point key="canvasLocation" x="-579.375" y="1277.1126760563379"/>
         </scene>
-        <!--StatisticsTVC-->
-        <scene sceneID="LjX-94-jSh">
-            <objects>
-                <viewController storyboardIdentifier="StatisticsTVC" id="He7-dK-Xif" customClass="StatisticsTVC" customModule="nWorkout" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vbE-Hp-3qn"/>
-                        <viewControllerLayoutGuide type="bottom" id="B7b-Yb-e6z"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Sjs-8L-ekh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j2f-mt-hxp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="j2f-mt-hxp" firstAttribute="leading" secondItem="Sjs-8L-ekh" secondAttribute="leading" id="1XI-I5-yfh"/>
-                            <constraint firstItem="B7b-Yb-e6z" firstAttribute="top" secondItem="j2f-mt-hxp" secondAttribute="bottom" id="jnt-Aj-8DH"/>
-                            <constraint firstAttribute="trailing" secondItem="j2f-mt-hxp" secondAttribute="trailing" id="tnr-M6-lZ7"/>
-                            <constraint firstItem="j2f-mt-hxp" firstAttribute="top" secondItem="Sjs-8L-ekh" secondAttribute="top" id="wsR-cA-wec"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="IBx-YU-Wjp"/>
-                    <connections>
-                        <outlet property="tableView" destination="j2f-mt-hxp" id="Lck-Fo-fxH"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jN3-7p-X4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="322.5" y="1277.1126760563379"/>
-        </scene>
         <!--SettingsTVC-->
         <scene sceneID="zH3-Xi-gok">
             <objects>
@@ -248,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jnf-We-bkT">
-                                <rect key="frame" x="0.0" y="223" width="320" height="296"/>
+                                <rect key="frame" x="0.0" y="223" width="320" height="345"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="f8D-e7-ya9" customClass="SettingsCell" customModule="nWorkout" customModuleProvider="target">
@@ -336,52 +227,6 @@
             </objects>
             <point key="canvasLocation" x="1250.625" y="1276.056338028169"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="JNC-S7-YJw">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="awV-zB-QcQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="UXz-uT-9AY"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="JfZ-mm-Yy4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.34117648010000001" green="0.62352943419999995" blue="0.16862745579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Nwn-xd-Way" kind="relationship" relationship="rootViewController" id="DzV-hn-X2Q"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EDr-aY-wT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2175" y="543"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="O9M-fc-tla">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AFJ-tH-lnT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="4sq-F7-agO"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2e6-dv-1O6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.34117648010000001" green="0.62352943419999995" blue="0.16862745579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="k6K-c5-vkw" kind="relationship" relationship="rootViewController" id="ENW-HO-EhV"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jtf-T3-w6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1331" y="543"/>
-        </scene>
         <!--Item 1-->
         <scene sceneID="vH6-X3-UWs">
             <objects>
@@ -406,29 +251,6 @@
             <point key="canvasLocation" x="-578" y="543"/>
         </scene>
         <!--Item-->
-        <scene sceneID="zh7-fl-h44">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Jd-P2-7hF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="TW9-DF-mMK"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dTZ-9X-Mr6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.34117648010000001" green="0.62352943419999995" blue="0.16862745579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="He7-dK-Xif" kind="relationship" relationship="rootViewController" id="jRd-dJ-arz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S8Z-hT-hon" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="326" y="543"/>
-        </scene>
-        <!--Item-->
         <scene sceneID="ddG-Bv-FJA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RYE-yk-UZL" sceneMemberID="viewController">
@@ -450,40 +272,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTI-IN-CKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1251" y="543"/>
-        </scene>
-        <!--RoutineTVC-->
-        <scene sceneID="buD-Vd-mSY">
-            <objects>
-                <viewController storyboardIdentifier="RoutineTVC" id="Hts-iv-Gso" customClass="RoutineTVC" customModule="nWorkout" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="r6K-7U-Gaa"/>
-                        <viewControllerLayoutGuide type="bottom" id="B2W-MC-10s"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Sjl-fN-WAN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bWV-pP-Of3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="bWV-pP-Of3" secondAttribute="bottom" id="DV4-fJ-JNf"/>
-                            <constraint firstItem="bWV-pP-Of3" firstAttribute="leading" secondItem="Sjl-fN-WAN" secondAttribute="leading" id="NtN-Zw-bBv"/>
-                            <constraint firstAttribute="trailing" secondItem="bWV-pP-Of3" secondAttribute="trailing" id="U40-4t-84t"/>
-                            <constraint firstItem="bWV-pP-Of3" firstAttribute="top" secondItem="Sjl-fN-WAN" secondAttribute="top" id="zeT-6M-kE5"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="3Kk-5F-YHB"/>
-                    <connections>
-                        <outlet property="tableView" destination="bWV-pP-Of3" id="kzl-F5-bgZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CHx-0M-HE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2153" y="2133"/>
         </scene>
         <!--Lift TypeTVC-->
         <scene sceneID="wzh-LC-HZf">
@@ -560,25 +348,6 @@
             </objects>
             <point key="canvasLocation" x="4845" y="2453.8732394366198"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="GlD-ZQ-H1i">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iqm-J5-pNA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="qmK-YO-hPq"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lEo-y2-Sjd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Hts-iv-Gso" kind="relationship" relationship="rootViewController" id="LXJ-pl-ILV"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qfi-6K-GYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1500" y="2132.7464788732395"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hqq-8O-2rL">
             <objects>
@@ -643,24 +412,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3m-ra-a6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-476.25" y="2380.9859154929577"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="6ki-Yq-orR">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Bfh-BN-f3p" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="ZD2-GB-RRR">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="iqm-J5-pNA" kind="relationship" relationship="viewControllers" id="9kw-3D-bHI"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hmy-hq-EmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="845.625" y="2132.7464788732395"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Yh1-z6-P5B">
@@ -755,7 +506,4 @@
             <point key="canvasLocation" x="6937.5" y="3866.1971830985917"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="workout" width="30" height="30"/>
-    </resources>
 </document>

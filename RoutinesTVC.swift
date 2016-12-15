@@ -15,17 +15,8 @@ class RLM {
     }
 }
 
-extension RoutinesTVC: ViewControllerFromStoryboard {
-}
-
-class RoutinesTVC: UIViewController {
+class RoutinesTVC: UITableViewController {
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        tableView.setEditing(editing, animated: animated)
-    }
-    
-    @IBOutlet weak var tableView: UITableView!
     var dataSource: RoutinesDataSource!
     var routines: Results<Workout>!
     
@@ -42,13 +33,11 @@ class RoutinesTVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
         
         navigationItem.leftBarButtonItem = editButtonItem
-        
         
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
             let alert = UIAlertController.alert(title: "Create new Routine", message: nil)
@@ -80,8 +69,8 @@ class RoutinesTVC: UIViewController {
     let db = DisposeBag()
 }
 
-extension RoutinesTVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension RoutinesTVC {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let routine = dataSource.provider.object(at: indexPath.row)
         didSelectRoutine(routine)
     }

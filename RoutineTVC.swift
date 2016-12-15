@@ -3,17 +3,8 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-extension RoutineTVC: ViewControllerFromStoryboard {
-}
-
-class RoutineTVC: UIViewController {
+class RoutineTVC: UITableViewController {
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        tableView.setEditing(editing, animated: animated)
-    }
-    
-    @IBOutlet weak var tableView: UITableView!
     var dataSource: RoutineDataSource!
     var routine: Workout!
     
@@ -27,7 +18,6 @@ class RoutineTVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
         dataSource = RoutineDataSource(tableView: tableView, provider: routine)
         
         tableView.emptyDataSetSource = self
@@ -63,10 +53,6 @@ class RoutineTVC: UIViewController {
     var didTapAddNewLift: (() -> ())!
     
     let db = DisposeBag()
-}
-
-extension RoutineTVC: UITableViewDelegate {
-
 }
 
 extension RoutineTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {

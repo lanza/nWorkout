@@ -3,17 +3,8 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-extension WorkoutTVC: ViewControllerFromStoryboard {
-}
-
-class WorkoutTVC: UIViewController {
+class WorkoutTVC: UITableViewController {
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        tableView.setEditing(editing, animated: animated)
-    }
-    
-    @IBOutlet weak var tableView: UITableView!
     var dataSource: WorkoutDataSource!
     var workout: Workout!
     var isActive: Bool { return !workout.isComplete }
@@ -28,7 +19,6 @@ class WorkoutTVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout)
         dataSource.isActive = isActive
         
@@ -74,11 +64,6 @@ class WorkoutTVC: UIViewController {
     var didCancelWorkout: (() -> ())!
 
     let db = DisposeBag()
-}
-
-extension WorkoutTVC: UITableViewDelegate {
-
-
 }
 
 extension WorkoutTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
