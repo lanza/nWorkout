@@ -14,12 +14,7 @@ extension UIAlertController {
     }
 }
 
-extension LiftTypeTVC: ViewControllerFromStoryboard {
-}
-
-class LiftTypeTVC: UIViewController {
-    
-    @IBOutlet weak var tableView: UITableView!
+class LiftTypeTVC: UITableViewController {
     
     var liftTypes = Variable(UserDefaults.standard.value(forKey: "liftTypes") as? [String] ?? [])
     
@@ -29,12 +24,12 @@ class LiftTypeTVC: UIViewController {
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self)
         setupRx()
     }
     
     func setupRx() {
-        liftTypes.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { index, string, cell in
+        liftTypes.asObservable().bindTo(tableView.rx.items(cellIdentifier: UITableViewCell.reuseIdentifier, cellType: UITableViewCell.self)) { index, string, cell in
             cell.textLabel?.text = string
             }.addDisposableTo(db)
         
@@ -66,7 +61,7 @@ class LiftTypeTVC: UIViewController {
     func save() {
         UserDefaults.standard.setValue(self.liftTypes.value, forKey: "liftTypes")
     }
-    
+
     
     var didSelectLiftName: ((String) -> ())!
     let db = DisposeBag()
