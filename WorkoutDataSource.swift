@@ -17,7 +17,7 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
         tableView.tableFooterView = workoutFooterView
     }
     
-
+    
     
     var workoutFooterView: WorkoutFooterView!
     
@@ -42,19 +42,11 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
         textFieldBehaviorHandler.currentlyEditingTextField?.resignFirstResponder()
         textFieldBehaviorHandler.currentlyEditingTextField = nil
         tableView.beginUpdates()
-        let set = Set()
-        RLM.write {
-            if let last = lift.sets.last {
-                set.weight = last.weight
-                set.reps = last.reps
-            } else {
-                set.weight = 225
-                set.reps = 5
-            }
-            lift.sets.append(set)
-            cell.chartView.setup()
-            self.textFieldBehaviorHandler.setupRowConnections(for: cell.chartView.rowViews.last as! SetRowView, cell: cell)
-        }
+        _ = provider.addNewSet(for: lift)
+        
+        cell.chartView.setup()
+        self.textFieldBehaviorHandler.setupRowConnections(for: cell.chartView.rowViews.last as! SetRowView, cell: cell)
+        
         tableView.endUpdates()
     }
     

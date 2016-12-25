@@ -19,6 +19,8 @@ class WorkoutTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
+        
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout)
         dataSource.isActive = isActive
         
@@ -62,7 +64,7 @@ class WorkoutTVC: UITableViewController {
     var didTapAddNewLift: (() -> ())!
     var didFinishWorkout: (() -> ())!
     var didCancelWorkout: (() -> ())!
-
+    
     let db = DisposeBag()
 }
 
@@ -101,7 +103,7 @@ class KeyboardHandler: NSObject {
             if defaultInsets == nil {
                 defaultInsets = tableView.contentInset
             }
-
+            
             let value = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
             keyboardHeight = value?.height ?? view.frame.height * CGFloat(Lets.keyboardToViewRatio)
             
@@ -122,7 +124,7 @@ class KeyboardHandler: NSObject {
             
             let corrected = UIApplication.shared.keyWindow!.convert(frFrame, from: firstResponder.superview)
             let yRelativeToKeyboard = (view.frame.height - keyboardHeight) - (corrected.origin.y + corrected.height)
-
+            
             if yRelativeToKeyboard < 0 {
                 
                 let frInViewsFrame = view.convert(frFrame, from: firstResponder.superview)

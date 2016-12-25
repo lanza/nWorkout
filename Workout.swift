@@ -6,6 +6,21 @@ class Workout: Base {
     dynamic var name = ""
     dynamic var isComplete = false
     dynamic var finishDate: Date? = nil
+    
+    func addNewSet(for lift: Lift) -> Set {
+        let set = Set()
+        RLM.write {
+            let last = lift.sets.last
+            set.weight = last?.weight ?? 45
+            set.reps = last?.reps ?? 6
+            lift.sets.append(set)
+        }
+        return set
+    }
+    func addNewLift() -> Lift {
+        let lift = Lift()
+        return lift
+    }
 }
 
 extension Workout {

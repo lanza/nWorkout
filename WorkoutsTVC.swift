@@ -5,7 +5,7 @@ import RxCocoa
 import DZNEmptyDataSet
 
 class WorkoutsTVC: UITableViewController {
-
+    
     var dataSource: WorkoutsDataSource!
     var workouts: Results<Workout>!
     
@@ -18,16 +18,17 @@ class WorkoutsTVC: UITableViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
         
         navigationItem.leftBarButtonItem = editButtonItem
     }
-   
+    
     var didSelectWorkout: ((Workout) -> ())!
     let db = DisposeBag()
 }
@@ -49,7 +50,7 @@ extension WorkoutsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "Click the + at the bottom to start your first workout or the \"Routines\" tab to set up a routine")
     }
-//    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-//        return NSAttributedString(string: "This is the button title")
-//    }
+    //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+    //        return NSAttributedString(string: "This is the button title")
+    //    }
 }

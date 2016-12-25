@@ -18,6 +18,8 @@ class RoutineTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
+        
         dataSource = RoutineDataSource(tableView: tableView, provider: routine)
         
         tableView.emptyDataSetSource = self
@@ -49,7 +51,7 @@ class RoutineTVC: UITableViewController {
         let indexPath = IndexPath(row: index, section: 0)
         self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
-   
+    
     var didTapAddNewLift: (() -> ())!
     
     let db = DisposeBag()

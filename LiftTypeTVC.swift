@@ -20,6 +20,8 @@ class LiftTypeTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
+        
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
@@ -61,7 +63,7 @@ class LiftTypeTVC: UITableViewController {
     func save() {
         UserDefaults.standard.setValue(self.liftTypes.value, forKey: "liftTypes")
     }
-
+    
     
     var didSelectLiftName: ((String) -> ())!
     let db = DisposeBag()
