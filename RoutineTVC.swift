@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-class RoutineTVC: UITableViewController {
+class RoutineTVC: UIViewController {
     
     var dataSource: RoutineDataSource!
     var routine: Workout!
@@ -16,9 +16,14 @@ class RoutineTVC: UITableViewController {
         Keyboard.shared.delegate = dataSource.textFieldBehaviorHandler
     }
     
+    let tableView = UITableView()
+    
+    override func loadView() {
+        view = tableView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false
         
         dataSource = RoutineDataSource(tableView: tableView, provider: routine)
         

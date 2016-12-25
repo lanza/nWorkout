@@ -4,10 +4,16 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-class WorkoutsTVC: UITableViewController {
+class WorkoutsTVC: UIViewController {
     
     var dataSource: WorkoutsDataSource!
     var workouts: Results<Workout>!
+    
+    let tableView = UITableView()
+    
+    override func loadView() {
+        view = tableView
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -21,7 +27,6 @@ class WorkoutsTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
@@ -33,8 +38,8 @@ class WorkoutsTVC: UITableViewController {
     let db = DisposeBag()
 }
 
-extension WorkoutsTVC {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension WorkoutsTVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let workout = workouts[indexPath.row]
         didSelectWorkout(workout)
     }

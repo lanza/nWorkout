@@ -14,13 +14,18 @@ extension UIAlertController {
     }
 }
 
-class LiftTypeTVC: UITableViewController {
+class LiftTypeTVC: UIViewController {
     
     var liftTypes = Variable(UserDefaults.standard.value(forKey: "liftTypes") as? [String] ?? [])
     
+    let tableView = UITableView()
+    
+    override func loadView() {
+        view = tableView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false
         
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self

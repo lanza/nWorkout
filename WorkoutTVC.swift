@@ -3,13 +3,19 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-class WorkoutTVC: UITableViewController {
+class WorkoutTVC: UIViewController {
     
     var dataSource: WorkoutDataSource!
     var workout: Workout!
     var isActive: Bool { return !workout.isComplete }
     
     var keyboardHandler: KeyboardHandler!
+    
+    let tableView = UITableView()
+    
+    override func loadView() {
+        view = tableView
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -19,8 +25,7 @@ class WorkoutTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false
-        
+
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout)
         dataSource.isActive = isActive
         

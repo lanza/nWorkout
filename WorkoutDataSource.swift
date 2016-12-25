@@ -17,8 +17,6 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
         tableView.tableFooterView = workoutFooterView
     }
     
-    
-    
     var workoutFooterView: WorkoutFooterView!
     
     var addLiftButton: UIButton { return workoutFooterView.addLiftButton }
@@ -41,7 +39,9 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     func addSet(for lift: Lift, and cell: LiftCell) {
         textFieldBehaviorHandler.currentlyEditingTextField?.resignFirstResponder()
         textFieldBehaviorHandler.currentlyEditingTextField = nil
+        
         tableView.beginUpdates()
+        
         _ = provider.addNewSet(for: lift)
         
         cell.chartView.setup()
