@@ -21,7 +21,7 @@ class LiftTypeTVC: UIViewController {
     let tableView = UITableView()
     
     override func loadView() {
-        view = tableView
+        view = tableView        
     }
     
     override func viewDidLoad() {

@@ -7,11 +7,14 @@ class WorkoutsCoordinator: Coordinator {
     
     override func loadViewController() {
         viewController = WorkoutsTVC()
-        
-        workoutsTVC.didSelectWorkout = { workout in
-            let wvc = WorkoutCoordinator()
-            wvc.workout = workout
-            self.show(wvc, sender: self)
-        }
+        workoutsTVC.delegate = self
+    }
+}
+
+extension WorkoutsCoordinator: WorkoutsTVCDelegate {
+    func workoutsTVC(_ workoutsTVC: WorkoutsTVC, didSelectWorkout workout: Workout) {
+        let wvc = WorkoutCoordinator()
+        wvc.workout = workout
+        show(wvc, sender: self)
     }
 }

@@ -4,7 +4,13 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
+protocol WorkoutsTVCDelegate: class {
+    func workoutsTVC(_ workoutsTVC: WorkoutsTVC, didSelectWorkout workout: Workout)
+}
+
 class WorkoutsTVC: UIViewController {
+    
+    weak var delegate: WorkoutsTVCDelegate!
     
     var dataSource: WorkoutsDataSource!
     var workouts: Results<Workout>!
@@ -34,14 +40,13 @@ class WorkoutsTVC: UIViewController {
         navigationItem.leftBarButtonItem = editButtonItem
     }
     
-    var didSelectWorkout: ((Workout) -> ())!
     let db = DisposeBag()
 }
 
 extension WorkoutsTVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let workout = workouts[indexPath.row]
-        didSelectWorkout(workout)
+        delegate!.workoutsTVC(self, didSelectWorkout: workout)
     }
 }
 

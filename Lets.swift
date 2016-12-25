@@ -14,8 +14,6 @@ struct Lets {
     
     static let doneButtonCompletedWeightCompletedRepsKey = "Done Button/Completed Weight/Completed Reps"
     
-    
-    
     static let combineFailAndCompletedWeightAndRepsKey = "CombineFailAndCompletedWeightAndReps"
     
     static let viewInfoKey = "View Info"
