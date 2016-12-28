@@ -4,28 +4,25 @@ import RxSwift
 import RealmSwift
 import DZNEmptyDataSet
 
-class RLM {
-    static let realm = try! Realm()
-    static func write(transaction: ()->()) {
-        do {
-            try realm.write(transaction)
-        } catch let error {
-            print(error)
-        }
-    }
-}
-
-class RoutinesTVC: UITableViewController {
+class RoutinesTVC: UIViewController {
+    
+    weak var delegate: WorkoutsTVCDelegate!
     
     var dataSource: RoutinesDataSource!
-    var routines: Results<Workout>!
+    var workouts: Results<Workout>!
+    
+    let tableView = UITableView()
+    
+    override func loadView() {
+        view = tableView
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
-        routines = RLM.realm.objects(Workout.self).filter("isWorkout = false").sorted(byProperty: "name")
-        dataSource = RoutinesDataSource(tableView: tableView, workouts: routines)
+        workouts = RLM.realm.objects(Workout.self).filter("isWorkout = false").sorted(byProperty: "name")
         
+        dataSource = RoutinesDataSource(tableView: tableView, workouts: workouts)
         dataSource.displayAlert = { alert in
             self.present(alert, animated: true, completion: nil)
         }
@@ -69,8 +66,8 @@ class RoutinesTVC: UITableViewController {
     let db = DisposeBag()
 }
 
-extension RoutinesTVC {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension RoutinesTVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let routine = dataSource.provider.object(at: indexPath.row)
         didSelectRoutine(routine)
     }

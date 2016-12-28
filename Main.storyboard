@@ -23,6 +23,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="x33-Sv-1Gb" kind="relationship" relationship="viewControllers" id="CZv-9C-hrA"/>
+                        <segue destination="RYE-yk-UZL" kind="relationship" relationship="viewControllers" id="o7A-Pd-cJ0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qkk-OB-M5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jnf-We-bkT">
-                                <rect key="frame" x="0.0" y="223" width="320" height="345"/>
+                                <rect key="frame" x="0.0" y="223" width="320" height="296"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="f8D-e7-ya9" customClass="SettingsCell" customModule="nWorkout" customModuleProvider="target">
@@ -170,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8v-M5-NZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8" y="1040"/>
+            <point key="canvasLocation" x="606" y="774"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="vH6-X3-UWs">
@@ -216,7 +217,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTI-IN-CKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8" y="306"/>
+            <point key="canvasLocation" x="444" y="40"/>
         </scene>
     </scenes>
 </document>

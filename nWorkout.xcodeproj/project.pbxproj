@@ -32,6 +32,8 @@
 		B356FBCD1DC09C160006A0F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B356FBCB1DC09C160006A0F0 /* LaunchScreen.storyboard */; };
 		B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */; };
 		B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */; };
+		B36F37E81E0F7FF100667263 /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
+		B36F37EA1E0F804F00667263 /* BaseWorkoutsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E91E0F804F00667263 /* BaseWorkoutsTVC.swift */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
 		B3780EED1DD5A5480087CEC1 /* Protocols&Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEC1DD5A5470087CEC1 /* Protocols&Extensions.swift */; };
@@ -84,6 +86,8 @@
 		B356FBCE1DC09C160006A0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRowView.swift; sourceTree = "<group>"; };
 		B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyboard&KeyboardDelegate.swift"; sourceTree = "<group>"; };
+		B36F37E71E0F7FF100667263 /* RLM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLM.swift; sourceTree = "<group>"; };
+		B36F37E91E0F804F00667263 /* BaseWorkoutsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorkoutsTVC.swift; sourceTree = "<group>"; };
 		B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutVC.swift; sourceTree = "<group>"; };
 		B3780EEA1DD5A4530087CEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B3780EEC1DD5A5470087CEC1 /* Protocols&Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Protocols&Extensions.swift"; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 		B3D456C41DC1E48C008075D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B36F37E71E0F7FF100667263 /* RLM.swift */,
 				B382087C1DC2B3D40008D6F8 /* Data Providers */,
 				B382087D1DC2B3DD0008D6F8 /* Objects */,
 			);
@@ -267,6 +272,7 @@
 		B3D456C71DC1E4AD008075D5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B36F37E91E0F804F00667263 /* BaseWorkoutsTVC.swift */,
 				B382087A1DC2B2C00008D6F8 /* WorkoutsTVC.swift */,
 				B31E9FBE1DD6AE3400B9AEFC /* RoutinesTVC.swift */,
 				B382087E1DC2B3EE0008D6F8 /* WorkoutTVC.swift */,
@@ -418,6 +424,7 @@
 				B31CEC681DDB0A8B002F826C /* StatisticsChartsVC.swift in Sources */,
 				B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */,
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
+				B36F37EA1E0F804F00667263 /* BaseWorkoutsTVC.swift in Sources */,
 				B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */,
 				B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */,
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
@@ -435,6 +442,7 @@
 				B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */,
 				B31E9FBD1DD6AE2B00B9AEFC /* RoutineDataSource.swift in Sources */,
 				B3BB318C1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift in Sources */,
+				B36F37E81E0F7FF100667263 /* RLM.swift in Sources */,
 				B3780EF81DD5B0C80087CEC1 /* ConfigurableCell.swift in Sources */,
 				B3BB31861DDAA17B0015F9B0 /* RoutinesCoordinator.swift in Sources */,
 				B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */,
