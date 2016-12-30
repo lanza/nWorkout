@@ -30,6 +30,7 @@
                         <constraint firstAttribute="trailing" secondItem="QGc-yp-5L2" secondAttribute="trailing" id="biM-Iq-BK3"/>
                         <constraint firstItem="QGc-yp-5L2" firstAttribute="top" secondItem="ECu-2g-epG" secondAttribute="top" id="g2u-EZ-Hxa"/>
                         <constraint firstItem="QGc-yp-5L2" firstAttribute="leading" secondItem="ECu-2g-epG" secondAttribute="leading" id="qAL-dF-p1N"/>
+                        <constraint firstItem="QGc-yp-5L2" firstAttribute="height" secondItem="ECu-2g-epG" secondAttribute="height" id="thi-AF-zxv"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TiU-fu-XKr">
@@ -42,6 +43,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="uOu-aT-UHM" firstAttribute="height" secondItem="TiU-fu-XKr" secondAttribute="height" id="NvT-Mz-r1O"/>
                         <constraint firstItem="uOu-aT-UHM" firstAttribute="leading" secondItem="TiU-fu-XKr" secondAttribute="leading" id="aoD-4m-Kj0"/>
                         <constraint firstAttribute="bottom" secondItem="uOu-aT-UHM" secondAttribute="bottom" id="bks-yE-NXE"/>
                         <constraint firstItem="uOu-aT-UHM" firstAttribute="top" secondItem="TiU-fu-XKr" secondAttribute="top" id="dX9-cm-flL"/>
@@ -59,6 +61,7 @@
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="2Qa-aG-Fe1" secondAttribute="trailing" id="G6N-8B-WB4"/>
+                        <constraint firstItem="2Qa-aG-Fe1" firstAttribute="height" secondItem="1aa-M0-JLH" secondAttribute="height" id="NTJ-ck-VoY"/>
                         <constraint firstAttribute="bottom" secondItem="2Qa-aG-Fe1" secondAttribute="bottom" id="W88-9L-b2L"/>
                         <constraint firstItem="2Qa-aG-Fe1" firstAttribute="leading" secondItem="1aa-M0-JLH" secondAttribute="leading" id="XEQ-6Z-OAM"/>
                         <constraint firstItem="2Qa-aG-Fe1" firstAttribute="top" secondItem="1aa-M0-JLH" secondAttribute="top" id="faE-VM-EZo"/>
