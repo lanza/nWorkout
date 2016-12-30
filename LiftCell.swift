@@ -3,12 +3,7 @@ import ChartView
 import RxSwift
 import RxCocoa
 
-class WorkoutLiftCell: LiftCell {
-    override func setupChartView() {
-        super.setupChartView()
-        chartView.register(SetRowView.self, forResuseIdentifier: "row")
-    }
-}
+
 
 class RoutineLiftCell: LiftCell {
     override func setupChartView() {

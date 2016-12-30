@@ -1,10 +1,5 @@
 import UIKit
 
-enum ActiveOrFinished {
-    case active
-    case finished
-}
-
 class WorkoutFooterView: UIView {
     
     var activeOrFinished: ActiveOrFinished!
@@ -16,7 +11,7 @@ class WorkoutFooterView: UIView {
     let stackView = UIStackView(axis: .vertical, spacing: 10, distribution: .fillEqually)
     
     static func create(_ activeOrFinished: ActiveOrFinished) -> WorkoutFooterView {
-        let view = WorkoutFooterView(frame: CGRect(x: 0, y: 0, width: 0, height: activeOrFinished == .active ? 200 : 50))
+        let view = WorkoutFooterView(frame: CGRect(x: 0, y: 0, width: 0, height: activeOrFinished == .active ? 200 : 80))
         view.activeOrFinished = activeOrFinished
         
         view.addSubview(view.stackView)
