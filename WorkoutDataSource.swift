@@ -13,7 +13,7 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     }
     
     func setupFooterView() {
-        workoutFooterView = WorkoutFooterView.fromNib()
+        workoutFooterView = WorkoutFooterView.create()
         tableView.tableFooterView = workoutFooterView
     }
     

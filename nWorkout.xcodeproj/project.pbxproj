@@ -21,7 +21,6 @@
 		B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8111DD6FA52000948ED /* StatisticsTVC.swift */; };
 		B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8131DD6FA5E000948ED /* SettingsTVC.swift */; };
 		B3312B341DC12F9700318AA6 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3312B331DC12F9700318AA6 /* MainCoordinator.swift */; };
-		B335C3651DEEA88800D21562 /* WorkoutFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B335C3641DEEA88800D21562 /* WorkoutFooterView.xib */; };
 		B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */; };
 		B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0531DC1CC22006B6A51 /* UIResponder+FirstResponder.swift */; };
 		B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0551DC1CC29006B6A51 /* Theme.swift */; };
@@ -58,6 +57,8 @@
 		B3D456C91DC1EC13008075D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3D456C81DC1EC13008075D5 /* Assets.xcassets */; };
 		B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */; };
 		B3FCCD251E137828003EF14E /* BaseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD241E137828003EF14E /* BaseTVC.swift */; };
+		B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */; };
+		B3FCCD2C1E171D2E003EF14E /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD2B1E171D2E003EF14E /* UIStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,7 +75,6 @@
 		B328D8111DD6FA52000948ED /* StatisticsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTVC.swift; sourceTree = "<group>"; };
 		B328D8131DD6FA5E000948ED /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		B3312B331DC12F9700318AA6 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCoordinator.swift; path = nWorkout/MainCoordinator.swift; sourceTree = "<group>"; };
-		B335C3641DEEA88800D21562 /* WorkoutFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutFooterView.xib; sourceTree = "<group>"; };
 		B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFooterView.swift; sourceTree = "<group>"; };
 		B34BA0531DC1CC22006B6A51 /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
 		B34BA0551DC1CC29006B6A51 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -113,6 +113,8 @@
 		B3D456C81DC1EC13008075D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorkoutsTVC.swift; sourceTree = "<group>"; };
 		B3FCCD241E137828003EF14E /* BaseTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTVC.swift; sourceTree = "<group>"; };
+		B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		B3FCCD2B1E171D2E003EF14E /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		D148E4FD66FFC0CA971296DF /* Pods-nWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.release.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.release.xcconfig"; sourceTree = "<group>"; };
 		E6B8E7FF219D372643F9F7E6 /* Pods_nWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DF9B2951A07F3A468D8C66 /* Pods-nWorkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				B3D456C51DC1E494008075D5 /* Coordinators */,
 				B3D456C71DC1E4AD008075D5 /* Controllers */,
 				B3780EF41DD5AF1B0087CEC1 /* Data Sources */,
+				B3FCCD2A1E171906003EF14E /* Auxiliary Classes */,
 				B3D456C41DC1E48C008075D5 /* Model */,
 				B3FCCD271E171736003EF14E /* Views */,
 				B356FBC11DC09C160006A0F0 /* Other */,
@@ -193,7 +196,6 @@
 				B3780EEE1DD5A7010087CEC1 /* DataSource.swift */,
 				B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */,
 				B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */,
-				B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */,
 				B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */,
 				B3FCCD261E15C9F9003EF14E /* Removed */,
 			);
@@ -298,9 +300,18 @@
 			children = (
 				B38208731DC2B1930008D6F8 /* Cells */,
 				B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */,
-				B335C3641DEEA88800D21562 /* WorkoutFooterView.xib */,
+				B3FCCD2B1E171D2E003EF14E /* UIStackView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		B3FCCD2A1E171906003EF14E /* Auxiliary Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */,
+				B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */,
+			);
+			name = "Auxiliary Classes";
 			sourceTree = "<group>";
 		};
 		DBD3A75B04BA5C514F4A4D03 /* Pods */ = {
@@ -378,7 +389,6 @@
 				B3D456C91DC1EC13008075D5 /* Assets.xcassets in Resources */,
 				B356FBCD1DC09C160006A0F0 /* LaunchScreen.storyboard in Resources */,
 				B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */,
-				B335C3651DEEA88800D21562 /* WorkoutFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +476,7 @@
 				B3BB31861DDAA17B0015F9B0 /* RoutinesCoordinator.swift in Sources */,
 				B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */,
 				B31E9FBF1DD6AE3400B9AEFC /* RoutinesTVC.swift in Sources */,
+				B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */,
 				B3312B341DC12F9700318AA6 /* MainCoordinator.swift in Sources */,
 				B3FCCD251E137828003EF14E /* BaseTVC.swift in Sources */,
 				B328D8101DD6FA3C000948ED /* RoutineTVC.swift in Sources */,
@@ -479,6 +490,7 @@
 				B3780EED1DD5A5480087CEC1 /* Protocols&Extensions.swift in Sources */,
 				B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */,
 				B3BB31881DDAA19C0015F9B0 /* RoutineCoordinator.swift in Sources */,
+				B3FCCD2C1E171D2E003EF14E /* UIStackView.swift in Sources */,
 				B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */,
 				B3780EF61DD5AF2D0087CEC1 /* WorkoutsDataSource.swift in Sources */,
 				B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */,
