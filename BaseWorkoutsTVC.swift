@@ -1,9 +1,34 @@
-//
-//  BaseWorkoutsTVC.swift
-//  nWorkout
-//
-//  Created by Nathan Lanza on 12/24/16.
-//  Copyright © 2016 Nathan Lanza. All rights reserved.
-//
+import UIKit
+import RealmSwift
+import RxSwift
+import RxCocoa
+import DZNEmptyDataSet
 
-import Foundation
+class BaseWorkoutsTVC<Cell: UITableViewCell>: BaseTVC, UITableViewDelegate where Cell: ConfigurableCell, Cell.Object == Workout {
+    weak var delegate: WorkoutsTVCDelegate!
+    
+    var dataSource: WorkoutsDataSource<Cell>!
+    var workouts: Results<Workout>!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.delegate = self
+        
+        tableView.tableFooterView = UIView()
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+    
+    let db = DisposeBag()
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Fuck you")
+    }
+}
+
+//extension BaseWorkoutsTVC: UITableViewDelegate {}
+
+protocol WorkoutsTVCDelegate: class {
+    func workoutsTVC(_ workoutsTVC: WorkoutsTVC, didSelectWorkout workout: Workout)
+    func routinesTVC(_ routinesTVC: RoutinesTVC, didSelectRoutine routine: Workout)
+}

@@ -4,25 +4,15 @@ import RxSwift
 import RealmSwift
 import DZNEmptyDataSet
 
-class RoutinesTVC: UIViewController {
-    
-    weak var delegate: WorkoutsTVCDelegate!
-    
-    var dataSource: RoutinesDataSource!
-    var workouts: Results<Workout>!
-    
-    let tableView = UITableView()
-    
-    override func loadView() {
-        view = tableView
-    }
+class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
         workouts = RLM.realm.objects(Workout.self).filter("isWorkout = false").sorted(byProperty: "name")
         
-        dataSource = RoutinesDataSource(tableView: tableView, workouts: workouts)
+        dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
+        dataSource.name = "Routine"
         dataSource.displayAlert = { alert in
             self.present(alert, animated: true, completion: nil)
         }
@@ -32,9 +22,7 @@ class RoutinesTVC: UIViewController {
         super.viewDidLoad()
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
-        tableView.tableFooterView = UIView()
         
-        navigationItem.leftBarButtonItem = editButtonItem
         
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
             let alert = UIAlertController.alert(title: "Create new Routine", message: nil)
@@ -60,21 +48,10 @@ class RoutinesTVC: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }).addDisposableTo(db)
     }
-    
-
-    var didSelectRoutine: ((Workout) -> ())!
-    let db = DisposeBag()
-}
-
-extension RoutinesTVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let routine = dataSource.provider.object(at: indexPath.row)
-        didSelectRoutine(routine)
+        delegate!.routinesTVC(self, didSelectRoutine: routine)
     }
-}
-
-
-extension RoutinesTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "routine")
     }
@@ -88,6 +65,8 @@ extension RoutinesTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     //        return NSAttributedString(string: "This is the button title")
     //    }
 }
+
+extension RoutinesTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {}
 
 
 

@@ -7,11 +7,17 @@ class RoutinesCoordinator: Coordinator {
     
     override func loadViewController() {
         viewController = RoutinesTVC()
-        
-        routinesTVC.didSelectRoutine = { routine in
-            let rvc = RoutineCoordinator()
-            rvc.routine = routine
-            self.show(rvc, sender: self)
-        }
+    }
+}
+
+extension RoutinesCoordinator: WorkoutsTVCDelegate {
+    func routinesTVC(_ routinesTVC: RoutinesTVC, didSelectRoutine routine: Workout) {
+        let rvc = RoutineCoordinator()
+        rvc.routine = routine
+        self.show(rvc, sender: self)
+    }
+    func workoutsTVC(_ workoutsTVC: WorkoutsTVC, didSelectWorkout workout: Workout) {
+        fatalError()
+        //fuck swift
     }
 }

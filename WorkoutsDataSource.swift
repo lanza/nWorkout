@@ -1,7 +1,9 @@
 import UIKit
 import RealmSwift
 
-class WorkoutsDataSource: DataSource<BaseDataProvider<Workout>,WorkoutCell> {
+class WorkoutsDataSource<Cell: UITableViewCell> : DataSource<BaseDataProvider<Workout>,Cell> where Cell: ConfigurableCell, Cell.Object == Workout {
+    
+    var name: String!
     
     init(tableView: UITableView, workouts: Results<Workout>) {
         let provider = BaseDataProvider(objects: workouts)
@@ -21,7 +23,7 @@ class WorkoutsDataSource: DataSource<BaseDataProvider<Workout>,WorkoutCell> {
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { fatalError() }
-        let alert = UIAlertController(title: "Delete Workout?", message: "Are you sure you want to delete this workout?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete \(name)?", message: "Are you sure you want to delete this \(name)?", preferredStyle: .alert)
         let yes = UIAlertAction(title: "Yes", style: .default) { _ in
             self.deleteWorkout(at: indexPath)
         }

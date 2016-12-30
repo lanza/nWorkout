@@ -19,10 +19,9 @@ class LiftTypeTVC: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         
-    
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Lift", style: .plain, target: nil, action: nil)
     }
-    
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
     var liftTypes = Variable(UserDefaults.standard.value(forKey: "liftTypes") as? [String] ?? [])

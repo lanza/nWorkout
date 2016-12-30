@@ -12,6 +12,9 @@ class WorkoutsCoordinator: Coordinator {
 }
 
 extension WorkoutsCoordinator: WorkoutsTVCDelegate {
+    func routinesTVC(_ routinesTVC: RoutinesTVC, didSelectRoutine routine: Workout) {
+        fatalError() //fuck swift
+    }
     func workoutsTVC(_ workoutsTVC: WorkoutsTVC, didSelectWorkout workout: Workout) {
         let wvc = WorkoutCoordinator()
         wvc.workout = workout

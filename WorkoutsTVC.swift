@@ -4,29 +4,15 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-protocol WorkoutsTVCDelegate: class {
-    func workoutsTVC(_ workoutsTVC: WorkoutsTVC, didSelectWorkout workout: Workout)
-}
+class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
 
-class WorkoutsTVC: UIViewController {
-    
-    weak var delegate: WorkoutsTVCDelegate!
-    
-    var dataSource: WorkoutsDataSource!
-    var workouts: Results<Workout>!
-    
-    let tableView = UITableView()
-    
-    override func loadView() {
-        view = tableView
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true").filter("isComplete = true").sorted(byProperty: "startDate", ascending: false)
         
         dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
+        dataSource.name = "Workout"
         dataSource.displayAlert = { alert in
             self.present(alert, animated: true, completion: nil)
         }
@@ -40,18 +26,13 @@ class WorkoutsTVC: UIViewController {
         
         navigationItem.leftBarButtonItem = editButtonItem
     }
-    
-    let db = DisposeBag()
-}
 
-extension WorkoutsTVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    //mark: - Swift is so fucking stupid
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let workout = workouts[indexPath.row]
         delegate!.workoutsTVC(self, didSelectWorkout: workout)
     }
-}
-
-extension WorkoutsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")
     }
@@ -65,3 +46,5 @@ extension WorkoutsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     //        return NSAttributedString(string: "This is the button title")
     //    }
 }
+
+extension WorkoutsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {}
