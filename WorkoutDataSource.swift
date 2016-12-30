@@ -2,7 +2,12 @@ import UIKit
 
 class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     
-    var isActive = false
+    init(tableView: UITableView, provider: Workout, activeOrFinished: ActiveOrFinished) {
+        self.activeOrFinished = activeOrFinished
+        super.init(tableView: tableView, provider: provider)
+    }
+    
+    var activeOrFinished: ActiveOrFinished!
     
     override func initialSetup() {
         super.initialSetup()
@@ -13,7 +18,7 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     }
     
     func setupFooterView() {
-        workoutFooterView = WorkoutFooterView.create()
+        workoutFooterView = WorkoutFooterView.create(activeOrFinished)
         tableView.tableFooterView = workoutFooterView
     }
     

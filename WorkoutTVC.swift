@@ -7,7 +7,7 @@ class WorkoutTVC: UIViewController {
     
     var dataSource: WorkoutDataSource!
     var workout: Workout!
-    var isActive: Bool { return !workout.isComplete }
+    var activeOrFinished: ActiveOrFinished { return workout.activeOrFinished }
     
     var keyboardHandler: KeyboardHandler!
     
@@ -24,8 +24,7 @@ class WorkoutTVC: UIViewController {
     }
     
     func setDataSource() {
-        dataSource = WorkoutDataSource(tableView: tableView, provider: workout)
-        dataSource.isActive = isActive
+        dataSource = WorkoutDataSource(tableView: tableView, provider: workout, activeOrFinished: activeOrFinished)
     }
     func setEmptyDataSet() {
         tableView.emptyDataSetSource = self

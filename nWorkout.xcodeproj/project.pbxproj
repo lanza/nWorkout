@@ -59,6 +59,8 @@
 		B3FCCD251E137828003EF14E /* BaseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD241E137828003EF14E /* BaseTVC.swift */; };
 		B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */; };
 		B3FCCD2C1E171D2E003EF14E /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD2B1E171D2E003EF14E /* UIStackView.swift */; };
+		B3FCCD321E17249D003EF14E /* WorkoutFooterViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD311E17249D003EF14E /* WorkoutFooterViewButton.swift */; };
+		B3FCCD351E1724EA003EF14E /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD341E1724EA003EF14E /* CGColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +117,8 @@
 		B3FCCD241E137828003EF14E /* BaseTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTVC.swift; sourceTree = "<group>"; };
 		B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		B3FCCD2B1E171D2E003EF14E /* UIStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		B3FCCD311E17249D003EF14E /* WorkoutFooterViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFooterViewButton.swift; sourceTree = "<group>"; };
+		B3FCCD341E1724EA003EF14E /* CGColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		D148E4FD66FFC0CA971296DF /* Pods-nWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.release.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.release.xcconfig"; sourceTree = "<group>"; };
 		E6B8E7FF219D372643F9F7E6 /* Pods_nWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DF9B2951A07F3A468D8C66 /* Pods-nWorkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.debug.xcconfig"; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 				B34BA0531DC1CC22006B6A51 /* UIResponder+FirstResponder.swift */,
 				B3780EEC1DD5A5470087CEC1 /* Protocols&Extensions.swift */,
 				B3170D161DE3D792001A11CE /* UIView+Extensions.swift */,
+				B3FCCD2B1E171D2E003EF14E /* UIStackView.swift */,
+				B3FCCD341E1724EA003EF14E /* CGColor.swift */,
 			);
 			name = "UIKit Extensions";
 			sourceTree = "<group>";
@@ -300,7 +306,7 @@
 			children = (
 				B38208731DC2B1930008D6F8 /* Cells */,
 				B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */,
-				B3FCCD2B1E171D2E003EF14E /* UIStackView.swift */,
+				B3FCCD311E17249D003EF14E /* WorkoutFooterViewButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */,
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
 				B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */,
+				B3FCCD351E1724EA003EF14E /* CGColor.swift in Sources */,
 				B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */,
 				B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */,
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
@@ -463,6 +470,7 @@
 				B3BB318E1DDAA2360015F9B0 /* StatisticsCoordinator.swift in Sources */,
 				B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */,
 				B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */,
+				B3FCCD321E17249D003EF14E /* WorkoutFooterViewButton.swift in Sources */,
 				B34BA05C1DC1CCED006B6A51 /* Lift.swift in Sources */,
 				B3BB31841DDAA15B0015F9B0 /* WorkoutCoordinator.swift in Sources */,
 				B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */,

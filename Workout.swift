@@ -5,6 +5,9 @@ class Workout: Base {
     let lifts = List<Lift>()
     dynamic var name = ""
     dynamic var isComplete = false
+    var activeOrFinished: ActiveOrFinished {
+        return isComplete ? .finished : .active
+    }
     dynamic var finishDate: Date? = nil
     
     func addNewSet(for lift: Lift) -> Set {

@@ -10,7 +10,6 @@ class BaseDataProvider<BaseType: Base>: DataProvider {
     var objects: [BaseType]
     
     func object(at index: Int) -> BaseType {
-        print("Workouts data provider")
         return objects[index]
     }
     func numberOfItems() -> Int {

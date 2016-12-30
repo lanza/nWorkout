@@ -1,20 +1,31 @@
 import UIKit
 
+enum ActiveOrFinished {
+    case active
+    case finished
+}
+
 class WorkoutFooterView: UIView {
     
-    let addLiftButton = TableFooterViewButton.create(title: "Add Lift")
-    let cancelWorkoutButton = TableFooterViewButton.create(title: "Cancel Workout")
-    let finishWorkoutButton = TableFooterViewButton.create(title: "Finish Workout")
+    var activeOrFinished: ActiveOrFinished!
+    
+    let addLiftButton = WorkoutFooterViewButton.create(title: "Add Lift")
+    let cancelWorkoutButton = WorkoutFooterViewButton.create(title: "Cancel Workout")
+    let finishWorkoutButton = WorkoutFooterViewButton.create(title: "Finish Workout")
     
     let stackView = UIStackView(axis: .vertical, spacing: 10, distribution: .fillEqually)
     
-    static func create() -> WorkoutFooterView {
+    static func create(_ activeOrFinished: ActiveOrFinished) -> WorkoutFooterView {
         let view = WorkoutFooterView(frame: CGRect(x: 0, y: 0, width: 0, height: 200))
+        view.activeOrFinished = activeOrFinished
         
         view.addSubview(view.stackView)
         view.stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let buttons = [view.addLiftButton, view.cancelWorkoutButton, view.finishWorkoutButton]
+        var buttons: [WorkoutFooterViewButton] = [view.addLiftButton]
+        if view.activeOrFinished == .active {
+            buttons.append(contentsOf: [view.cancelWorkoutButton, view.finishWorkoutButton])
+        }
         
         for button in buttons {
             view.addSubview(button)
@@ -32,26 +43,7 @@ class WorkoutFooterView: UIView {
     }
 }
 
-class TableFooterViewButton: UIButton {
-    static func create(title: String) -> TableFooterViewButton {
-        let b = TableFooterViewButton()
-        b.setTitleColor(.black)
-        b.setTitle(title)
-        
-        b.layer.borderColor = .blue
-        b.layer.borderWidth = 5
-        b.layer.cornerRadius = 5
-        
-        return b
-    }
-}
 
 
-extension CGColor {
-    static var blue: CGColor {
-        return UIColor.blue.cgColor
-    }
-    static var white: CGColor {
-        return UIColor.white.cgColor
-    }
-}
+
+
