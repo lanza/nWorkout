@@ -189,7 +189,6 @@
 			children = (
 				B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */,
 				B3780EEA1DD5A4530087CEC1 /* Main.storyboard */,
-				B360593A1E1C41C300EBE620 /* StartBlankWorkoutButton.swift */,
 				B34BA0551DC1CC29006B6A51 /* Theme.swift */,
 				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
 				B3D456C61DC1E4A0008075D5 /* UIKit Extensions */,
@@ -389,6 +388,7 @@
 		B3FCCD271E171736003EF14E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B360593A1E1C41C300EBE620 /* StartBlankWorkoutButton.swift */,
 				B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */,
 				B3FCCD311E17249D003EF14E /* WorkoutFooterViewButton.swift */,
 				B38208731DC2B1930008D6F8 /* Cells */,

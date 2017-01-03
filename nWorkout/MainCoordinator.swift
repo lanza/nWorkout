@@ -140,7 +140,7 @@ extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
         activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
             self.activeWorkoutCoordinator = nil
         }
-        return activeWorkoutCoordinator!
+        return  activeWorkoutCoordinator!
     }
 }
 
