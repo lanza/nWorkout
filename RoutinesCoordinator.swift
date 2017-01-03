@@ -7,6 +7,7 @@ class RoutinesCoordinator: Coordinator {
     
     override func loadViewController() {
         viewController = RoutinesTVC()
+        routinesTVC.delegate = self
     }
 }
 
