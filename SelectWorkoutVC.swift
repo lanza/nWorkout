@@ -4,17 +4,24 @@ import RxCocoa
 import RealmSwift
 import DZNEmptyDataSet
 
+protocol SelectWorkoutDelegate: class {
+    func cancelSelected(for selectWorkoutVC: SelectWorkoutVC)
+}
+
 class SelectWorkoutVC: UIViewController {
+    
+    weak var delegate: SelectWorkoutDelegate!
     
     var tableView = UITableView(frame: CGRect.zero, style: .plain)
     var blankWorkoutButton = StartBlankWorkoutButton.create()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.dataSource = self
-        
+                
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
+            self.delegate.cancelSelected(for: self)
+        }).addDisposableTo(db)
         
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self

@@ -8,17 +8,12 @@ class SelectWorkoutCoordinator: Coordinator {
     var selectWorkoutVC: SelectWorkoutVC { return viewController as! SelectWorkoutVC }
     
     override func loadViewController() {
-        viewController = SelectWorkoutVC.new()
+        viewController = SelectWorkoutVC()
+        selectWorkoutVC.delegate = self
     }
     override func viewControllerDidLoad() {
         super.viewControllerDidLoad()
-        
-        selectWorkoutVC.navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: { [unowned self] in
-            self.navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
-        }).addDisposableTo(db)
-        
-        selectWorkoutVC.view.setNeedsLayout()
-        
+
         selectWorkoutVC.tableView.rx.modelSelected(Workout.self).subscribe(onNext: { routine in
             let awc = self.didSelectRoutine(routine)
             self.show(awc, sender: self)
@@ -33,3 +28,10 @@ class SelectWorkoutCoordinator: Coordinator {
     var didSelectRoutine: ((Workout?) -> (ActiveWorkoutCoordinator))!
     let db = DisposeBag()
 }
+
+extension SelectWorkoutCoordinator: SelectWorkoutDelegate {
+    func cancelSelected(for selectWorkoutVC: SelectWorkoutVC) {
+        navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
+    }
+}
+
