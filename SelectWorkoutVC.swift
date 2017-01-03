@@ -6,17 +6,36 @@ import DZNEmptyDataSet
 
 protocol SelectWorkoutDelegate: class {
     func cancelSelected(for selectWorkoutVC: SelectWorkoutVC)
+    func startBlankWorkoutSelected(for selectWorkoutVC: SelectWorkoutVC)
+    func selectWorkoutVC(_ selectWorkoutVC: SelectWorkoutVC, selectedRoutine routine: Workout)
 }
 
 class SelectWorkoutVC: UIViewController {
     
     weak var delegate: SelectWorkoutDelegate!
     
-    var tableView = UITableView(frame: CGRect.zero, style: .plain)
-    var blankWorkoutButton = StartBlankWorkoutButton.create()
+    var tableView = UITableView(frame: CGRect.zero, style: .grouped)
+    var startBlankWorkoutButton = StartBlankWorkoutButton.create()
+    
+    override func loadView() {
+        view = UIView()
+        view.backgroundColor = .white
+    }
+    
+    func setupView() {
+        view.addSubview(tableView)
+        view.addSubview(startBlankWorkoutButton)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        startBlankWorkoutButton.translatesAutoresizingMaskIntoConstraints = false
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        startBlankWorkoutButton.rx.tap.subscribe(onNext: {
+            self.delegate.startBlankWorkoutSelected(for: self)
+        }).addDisposableTo(db)
                 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
@@ -33,6 +52,10 @@ class SelectWorkoutVC: UIViewController {
         Observable.just(objects).bindTo(tableView.rx.items(cellIdentifier: SelectWorkoutCell.identifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
             cell.configure(for: workout, at: IndexPath(row: index, section: 0))
         }.addDisposableTo(db)
+        
+        tableView.rx.modelSelected(Workout.self).subscribe(onNext: { routine in
+            self.delegate.selectWorkoutVC(self, selectedRoutine: routine)
+        }).addDisposableTo(db)
     }
 
     let db = DisposeBag()
