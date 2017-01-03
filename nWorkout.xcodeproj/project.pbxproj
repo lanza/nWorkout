@@ -43,6 +43,7 @@
 		B36059371E1C3EF600EBE620 /* FailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059361E1C3EF600EBE620 /* FailButton.swift */; };
 		B36059391E1C3F0700EBE620 /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059381E1C3F0700EBE620 /* CompleteButton.swift */; };
 		B360593B1E1C41C300EBE620 /* StartBlankWorkoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360593A1E1C41C300EBE620 /* StartBlankWorkoutButton.swift */; };
+		B360593D1E1C4ACE00EBE620 /* SelectWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360593C1E1C4ACE00EBE620 /* SelectWorkoutCell.swift */; };
 		B36F37E81E0F7FF100667263 /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
@@ -116,6 +117,7 @@
 		B36059361E1C3EF600EBE620 /* FailButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailButton.swift; sourceTree = "<group>"; };
 		B36059381E1C3F0700EBE620 /* CompleteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
 		B360593A1E1C41C300EBE620 /* StartBlankWorkoutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartBlankWorkoutButton.swift; sourceTree = "<group>"; };
+		B360593C1E1C4ACE00EBE620 /* SelectWorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutCell.swift; sourceTree = "<group>"; };
 		B36F37E71E0F7FF100667263 /* RLM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLM.swift; sourceTree = "<group>"; };
 		B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutVC.swift; sourceTree = "<group>"; };
 		B3780EEA1DD5A4530087CEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				B3780EF71DD5B0C80087CEC1 /* ConfigurableCell.swift */,
 				B36059231E1C3DCF00EBE620 /* BaseChartViewDataSource.swift */,
+				B360593C1E1C4ACE00EBE620 /* SelectWorkoutCell.swift */,
 				B36059271E1C3E2B00EBE620 /* WorkoutCell */,
 				B36059281E1C3E3C00EBE620 /* LiftCell */,
 				B36059291E1C3E4600EBE620 /* RowView */,
@@ -539,6 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3170D171DE3D792001A11CE /* UIButton+Extensions.swift in Sources */,
+				B360593D1E1C4ACE00EBE620 /* SelectWorkoutCell.swift in Sources */,
 				B38208751DC2B1FA0008D6F8 /* BaseDataProvider.swift in Sources */,
 				B3780EF01DD5A7010087CEC1 /* DataSource.swift in Sources */,
 				B31CEC681DDB0A8B002F826C /* StatisticsChartsVC.swift in Sources */,

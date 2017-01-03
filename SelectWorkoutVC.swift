@@ -73,20 +73,13 @@ class SelectWorkoutVC: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
             self.delegate.cancelSelected(for: self)
-        }).addDisposableTo(db)        
+        }).addDisposableTo(db)
     }
 
     let db = DisposeBag()
 }
 
-class SelectWorkoutCell: UITableViewCell {}
-extension SelectWorkoutCell: ConfigurableCell {
-    static var identifier: String { return "SelectWorkoutCell" }
-    func configure(for object: Workout, at indexPath: IndexPath) {
-        textLabel?.text = object.name
-        detailTextLabel?.text = object.lifts.map { $0.name }.joined(separator: ", ")
-    }
-}
+
 
 
 extension SelectWorkoutVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
