@@ -24,24 +24,6 @@ extension WorkoutCell: ConfigurableCell {
     }
 }
 
-class ColumnRowView: RowView {
-    
-    required init() {
-        super.init()
-    }
-    
-    required init?(coder aDecoder: NSCoder) { fatalError()
-    }
-
-}
-
-class RoutineCell: WorkoutCell {
-    override func configure(for object: Workout, at indexPath: IndexPath) {
-        super.configure(for: object, at: indexPath)
-        label.text = object.name
-    }
-}
-
 class WorkoutCell: ChartViewCell {
     
     let label = UILabel()
@@ -76,16 +58,7 @@ class WorkoutCell: ChartViewCell {
 }
 
 
-class BaseChartViewDataSource<BaseType: DataProvider>: ChartViewDataSource {
-    init(object: BaseType) {
-        self.object = object
-    }
-    var object: BaseType
-    var numberOfRows: Int { return object.numberOfItems() }
-    var rowHeight: CGFloat { return 25 }
-    var rowSpacing: CGFloat { return 1 }
-    var backgroundColor: UIColor { return .darkGray }
-}
+
 
 
 

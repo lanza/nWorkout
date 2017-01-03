@@ -31,6 +31,17 @@
 		B356FBCD1DC09C160006A0F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B356FBCB1DC09C160006A0F0 /* LaunchScreen.storyboard */; };
 		B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */; };
 		B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */; };
+		B36059201E1C3D8F00EBE620 /* ColumnRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360591F1E1C3D8F00EBE620 /* ColumnRowView.swift */; };
+		B36059221E1C3DB000EBE620 /* RoutineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059211E1C3DB000EBE620 /* RoutineCell.swift */; };
+		B36059241E1C3DCF00EBE620 /* BaseChartViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059231E1C3DCF00EBE620 /* BaseChartViewDataSource.swift */; };
+		B36059261E1C3E0800EBE620 /* RoutineLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059251E1C3E0800EBE620 /* RoutineLiftCell.swift */; };
+		B360592C1E1C3E7600EBE620 /* RoutineSetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360592B1E1C3E7600EBE620 /* RoutineSetRowView.swift */; };
+		B360592E1E1C3E8900EBE620 /* WeightAndRepsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360592D1E1C3E8900EBE620 /* WeightAndRepsTextField.swift */; };
+		B36059301E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360592F1E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift */; };
+		B36059331E1C3EC700EBE620 /* SetNumberLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059321E1C3EC700EBE620 /* SetNumberLabel.swift */; };
+		B36059351E1C3EDF00EBE620 /* WeightAndRepsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059341E1C3EDF00EBE620 /* WeightAndRepsLabel.swift */; };
+		B36059371E1C3EF600EBE620 /* FailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059361E1C3EF600EBE620 /* FailButton.swift */; };
+		B36059391E1C3F0700EBE620 /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059381E1C3F0700EBE620 /* CompleteButton.swift */; };
 		B36F37E81E0F7FF100667263 /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
@@ -92,6 +103,17 @@
 		B356FBCE1DC09C160006A0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRowView.swift; sourceTree = "<group>"; };
 		B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyboard&KeyboardDelegate.swift"; sourceTree = "<group>"; };
+		B360591F1E1C3D8F00EBE620 /* ColumnRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnRowView.swift; sourceTree = "<group>"; };
+		B36059211E1C3DB000EBE620 /* RoutineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineCell.swift; sourceTree = "<group>"; };
+		B36059231E1C3DCF00EBE620 /* BaseChartViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartViewDataSource.swift; sourceTree = "<group>"; };
+		B36059251E1C3E0800EBE620 /* RoutineLiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineLiftCell.swift; sourceTree = "<group>"; };
+		B360592B1E1C3E7600EBE620 /* RoutineSetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineSetRowView.swift; sourceTree = "<group>"; };
+		B360592D1E1C3E8900EBE620 /* WeightAndRepsTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightAndRepsTextField.swift; sourceTree = "<group>"; };
+		B360592F1E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedWeightAndRepsTextField.swift; sourceTree = "<group>"; };
+		B36059321E1C3EC700EBE620 /* SetNumberLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNumberLabel.swift; sourceTree = "<group>"; };
+		B36059341E1C3EDF00EBE620 /* WeightAndRepsLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightAndRepsLabel.swift; sourceTree = "<group>"; };
+		B36059361E1C3EF600EBE620 /* FailButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailButton.swift; sourceTree = "<group>"; };
+		B36059381E1C3F0700EBE620 /* CompleteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
 		B36F37E71E0F7FF100667263 /* RLM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLM.swift; sourceTree = "<group>"; };
 		B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutVC.swift; sourceTree = "<group>"; };
 		B3780EEA1DD5A4530087CEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -200,6 +222,57 @@
 			path = nWorkout;
 			sourceTree = "<group>";
 		};
+		B36059271E1C3E2B00EBE620 /* WorkoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				B38208711DC2B1850008D6F8 /* WorkoutCell.swift */,
+				B36059211E1C3DB000EBE620 /* RoutineCell.swift */,
+			);
+			name = WorkoutCell;
+			sourceTree = "<group>";
+		};
+		B36059281E1C3E3C00EBE620 /* LiftCell */ = {
+			isa = PBXGroup;
+			children = (
+				B31CEC651DDB02A1002F826C /* LiftCell.swift */,
+				B36059251E1C3E0800EBE620 /* RoutineLiftCell.swift */,
+				B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */,
+			);
+			name = LiftCell;
+			sourceTree = "<group>";
+		};
+		B36059291E1C3E4600EBE620 /* RowView */ = {
+			isa = PBXGroup;
+			children = (
+				B360592A1E1C3E6900EBE620 /* SetRowView */,
+				B360591F1E1C3D8F00EBE620 /* ColumnRowView.swift */,
+			);
+			name = RowView;
+			sourceTree = "<group>";
+		};
+		B360592A1E1C3E6900EBE620 /* SetRowView */ = {
+			isa = PBXGroup;
+			children = (
+				B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */,
+				B360592B1E1C3E7600EBE620 /* RoutineSetRowView.swift */,
+				B36059311E1C3EB400EBE620 /* View types */,
+			);
+			name = SetRowView;
+			sourceTree = "<group>";
+		};
+		B36059311E1C3EB400EBE620 /* View types */ = {
+			isa = PBXGroup;
+			children = (
+				B360592F1E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift */,
+				B360592D1E1C3E8900EBE620 /* WeightAndRepsTextField.swift */,
+				B36059321E1C3EC700EBE620 /* SetNumberLabel.swift */,
+				B36059341E1C3EDF00EBE620 /* WeightAndRepsLabel.swift */,
+				B36059381E1C3F0700EBE620 /* CompleteButton.swift */,
+				B36059361E1C3EF600EBE620 /* FailButton.swift */,
+			);
+			name = "View types";
+			sourceTree = "<group>";
+		};
 		B3780EF41DD5AF1B0087CEC1 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,10 +289,10 @@
 			isa = PBXGroup;
 			children = (
 				B3780EF71DD5B0C80087CEC1 /* ConfigurableCell.swift */,
-				B38208711DC2B1850008D6F8 /* WorkoutCell.swift */,
-				B31CEC651DDB02A1002F826C /* LiftCell.swift */,
-				B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */,
-				B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */,
+				B36059231E1C3DCF00EBE620 /* BaseChartViewDataSource.swift */,
+				B36059271E1C3E2B00EBE620 /* WorkoutCell */,
+				B36059281E1C3E3C00EBE620 /* LiftCell */,
+				B36059291E1C3E4600EBE620 /* RowView */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -313,9 +386,9 @@
 		B3FCCD271E171736003EF14E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B38208731DC2B1930008D6F8 /* Cells */,
 				B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */,
 				B3FCCD311E17249D003EF14E /* WorkoutFooterViewButton.swift */,
+				B38208731DC2B1930008D6F8 /* Cells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -469,9 +542,11 @@
 				B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */,
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
 				B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */,
+				B360592E1E1C3E8900EBE620 /* WeightAndRepsTextField.swift in Sources */,
 				B3FCCD351E1724EA003EF14E /* CGColor+Extensions.swift in Sources */,
 				B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */,
 				B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */,
+				B36059301E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift in Sources */,
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
 				B34BA05A1DC1CC4B006B6A51 /* Workout.swift in Sources */,
 				B38208791DC2B23E0008D6F8 /* Base.swift in Sources */,
@@ -481,10 +556,13 @@
 				B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */,
 				B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */,
 				B3FCCD321E17249D003EF14E /* WorkoutFooterViewButton.swift in Sources */,
+				B36059201E1C3D8F00EBE620 /* ColumnRowView.swift in Sources */,
 				B34BA05C1DC1CCED006B6A51 /* Lift.swift in Sources */,
 				B3BB31841DDAA15B0015F9B0 /* WorkoutCoordinator.swift in Sources */,
 				B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */,
 				B3BB318A1DDAA1B60015F9B0 /* AcrtiveWorkoutCoordinator.swift in Sources */,
+				B36059221E1C3DB000EBE620 /* RoutineCell.swift in Sources */,
+				B360592C1E1C3E7600EBE620 /* RoutineSetRowView.swift in Sources */,
 				B3FCCD391E172AC3003EF14E /* WorkoutLiftCell.swift in Sources */,
 				B3BB31821DDAA1390015F9B0 /* WorkoutsCoordinator.swift in Sources */,
 				B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */,
@@ -493,9 +571,13 @@
 				B36F37E81E0F7FF100667263 /* RLM.swift in Sources */,
 				B3780EF81DD5B0C80087CEC1 /* ConfigurableCell.swift in Sources */,
 				B3BB31861DDAA17B0015F9B0 /* RoutinesCoordinator.swift in Sources */,
+				B36059391E1C3F0700EBE620 /* CompleteButton.swift in Sources */,
+				B36059261E1C3E0800EBE620 /* RoutineLiftCell.swift in Sources */,
 				B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */,
+				B36059331E1C3EC700EBE620 /* SetNumberLabel.swift in Sources */,
 				B31E9FBF1DD6AE3400B9AEFC /* RoutinesTVC.swift in Sources */,
 				B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */,
+				B36059371E1C3EF600EBE620 /* FailButton.swift in Sources */,
 				B3312B341DC12F9700318AA6 /* MainCoordinator.swift in Sources */,
 				B3FCCD251E137828003EF14E /* BaseTVC.swift in Sources */,
 				B328D8101DD6FA3C000948ED /* RoutineTVC.swift in Sources */,
@@ -503,11 +585,13 @@
 				B38208771DC2B22A0008D6F8 /* Set.swift in Sources */,
 				B382087F1DC2B3EE0008D6F8 /* WorkoutTVC.swift in Sources */,
 				B3FCCD371E172A9F003EF14E /* ActiveOrFinished.swift in Sources */,
+				B36059241E1C3DCF00EBE620 /* BaseChartViewDataSource.swift in Sources */,
 				B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */,
 				B31E9FBB1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift in Sources */,
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
 				B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */,
 				B3780EED1DD5A5480087CEC1 /* UIStoryboard&ViewControllerFromStoryboard.swift in Sources */,
+				B36059351E1C3EDF00EBE620 /* WeightAndRepsLabel.swift in Sources */,
 				B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */,
 				B3BB31881DDAA19C0015F9B0 /* RoutineCoordinator.swift in Sources */,
 				B3FCCD2C1E171D2E003EF14E /* UIStackView+Extensions.swift in Sources */,

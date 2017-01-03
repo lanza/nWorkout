@@ -4,18 +4,6 @@ import RxSwift
 import RxCocoa
 
 
-
-class RoutineLiftCell: LiftCell {
-    override func setupChartView() {
-        super.setupChartView()
-        chartView.register(RoutineSetRowView.self, forResuseIdentifier: "row")
-    }
-    
-    override func configure(for object: Lift, at indexPath: IndexPath) {
-        super.configure(for: object, at: indexPath)
-    }
-}
-
 extension LiftCell: ChartViewDelegate {
     func chartView(_ chartView: ChartView, commit editingStyle: ChartView.EditingStyle, forRowAt index: Int) {
         RLM.write {
