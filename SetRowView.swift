@@ -108,9 +108,7 @@ class SetRowView: RowView {
     }
     func configColumnWidthPercentages() {
         let sum = selectedColumnViewWidths.reduce(0, +)
-        print(sum)
         columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
-        print(columnWidthPercentages)
     }
     func setupSelectedColumnViewTypesAndWidth() {
         selectedColumnViewTypes = viewInfos.filter { $0.isOn }.map { $0.name }

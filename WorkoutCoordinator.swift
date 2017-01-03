@@ -33,7 +33,6 @@ class WorkoutCoordinator: Coordinator {
                 self.workout.finishDate = Date()
                 for lift in self.workout.lifts {
                     let string = lift.sets.map { "\($0.completedWeight)" + " x " + "\($0.completedReps)" }.joined(separator: ",")
-                    print(string)
                     UserDefaults.standard.set(string, forKey: "last" + lift.name)
                 }
             }

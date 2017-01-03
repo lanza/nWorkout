@@ -23,7 +23,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
             let alert = UIAlertController.alert(title: "Create new Routine", message: nil)
             

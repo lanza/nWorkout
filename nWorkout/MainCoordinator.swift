@@ -8,7 +8,6 @@ class MainCoordinator: TabBarCoordinator {
   
     func checkForUnfinishedWorkout() {
         let workouts = RLM.realm.objects(Workout.self).filter("isComplete = false").filter("isWorkout = true")
-        print(workouts)
         if let first = workouts.first {
             self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
             self.activeWorkoutCoordinator?.workout = first
@@ -60,8 +59,7 @@ class MainCoordinator: TabBarCoordinator {
         let itemWidth = tabBarController.tabBar.frame.width / CGFloat(tabBarController.tabBar.items!.count)
         let backgroundView = UIView(frame: CGRect(x: itemWidth * 2, y: 0, width: itemWidth, height: tabBarController.tabBar.frame.height))
         backgroundView.backgroundColor = Theme.Colors.main
-        tabBarController.tabBar.insertSubview(backgroundView, at: 0)
-        
+        tabBarController.tabBar.insertSubview(backgroundView, at: 0)        
     }
     override func didNavigateToViewController(_ animated: Bool) {
         super.didNavigateToViewController(animated)

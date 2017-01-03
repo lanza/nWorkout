@@ -21,9 +21,7 @@ class BaseWorkoutsTVC<Cell: UITableViewCell>: BaseTVC, UITableViewDelegate where
     
     let db = DisposeBag()
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Fuck you")
-    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
 }
 
 //extension BaseWorkoutsTVC: UITableViewDelegate {}
