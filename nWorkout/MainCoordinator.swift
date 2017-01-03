@@ -94,28 +94,9 @@ class MainCoordinator: TabBarCoordinator {
     
     func displaySelectWorkout() {
         let swc = SelectWorkoutCoordinator()
+        swc.delegate = self
         let swcNav = NavigationCoordinator(rootCoordinator: swc)
         swc.navigationItem.title = "Select Workout"
-        swc.didSelectRoutine = { [unowned self] routine in
-            self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
-            if let routine = routine {
-                self.activeWorkoutCoordinator!.workout = routine.makeWorkoutWorkout()
-            } else {
-                self.activeWorkoutCoordinator!.workout = Workout()
-            }
-            RLM.write {
-                RLM.realm.add(self.activeWorkoutCoordinator!.workout)
-            }
-            self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
-            self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: nil, action: nil)
-            self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext: {
-                self.dismiss(animated: true)
-            }).addDisposableTo(self.db)
-            self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
-                self.activeWorkoutCoordinator = nil
-            }
-            return self.activeWorkoutCoordinator!
-        }
         present(swcNav, animated: true)
     }
     func displayActiveWorkout() {
@@ -138,6 +119,29 @@ class MainCoordinator: TabBarCoordinator {
     }
     
     let db = DisposeBag()
+}
+
+extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
+    func selectWorkoutCoordinator(_ selectWorkoutCoordinator: SelectWorkoutCoordinator, didSelectRoutine routine: Workout?) -> ActiveWorkoutCoordinator {
+        activeWorkoutCoordinator = ActiveWorkoutCoordinator()
+        if let routine = routine {
+            activeWorkoutCoordinator!.workout = routine.makeWorkoutWorkout()
+        } else {
+            activeWorkoutCoordinator!.workout = Workout()
+        }
+        RLM.write {
+            RLM.realm.add(self.activeWorkoutCoordinator!.workout)
+        }
+        activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
+        activeWorkoutCoordinator!.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: nil, action: nil)
+        activeWorkoutCoordinator!.navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext: {
+            self.dismiss(animated: true)
+        }).addDisposableTo(self.db)
+        activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
+            self.activeWorkoutCoordinator = nil
+        }
+        return activeWorkoutCoordinator!
+    }
 }
 
 extension MainCoordinator: TabBarCoordinatorDelegate {
