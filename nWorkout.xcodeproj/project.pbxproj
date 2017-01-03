@@ -42,6 +42,7 @@
 		B36059351E1C3EDF00EBE620 /* WeightAndRepsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059341E1C3EDF00EBE620 /* WeightAndRepsLabel.swift */; };
 		B36059371E1C3EF600EBE620 /* FailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059361E1C3EF600EBE620 /* FailButton.swift */; };
 		B36059391E1C3F0700EBE620 /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059381E1C3F0700EBE620 /* CompleteButton.swift */; };
+		B360593B1E1C41C300EBE620 /* StartBlankWorkoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360593A1E1C41C300EBE620 /* StartBlankWorkoutButton.swift */; };
 		B36F37E81E0F7FF100667263 /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
@@ -114,6 +115,7 @@
 		B36059341E1C3EDF00EBE620 /* WeightAndRepsLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightAndRepsLabel.swift; sourceTree = "<group>"; };
 		B36059361E1C3EF600EBE620 /* FailButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailButton.swift; sourceTree = "<group>"; };
 		B36059381E1C3F0700EBE620 /* CompleteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
+		B360593A1E1C41C300EBE620 /* StartBlankWorkoutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartBlankWorkoutButton.swift; sourceTree = "<group>"; };
 		B36F37E71E0F7FF100667263 /* RLM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLM.swift; sourceTree = "<group>"; };
 		B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutVC.swift; sourceTree = "<group>"; };
 		B3780EEA1DD5A4530087CEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */,
 				B3780EEA1DD5A4530087CEC1 /* Main.storyboard */,
+				B360593A1E1C41C300EBE620 /* StartBlankWorkoutButton.swift */,
 				B34BA0551DC1CC29006B6A51 /* Theme.swift */,
 				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
 				B3D456C61DC1E4A0008075D5 /* UIKit Extensions */,
@@ -582,6 +585,7 @@
 				B3FCCD251E137828003EF14E /* BaseTVC.swift in Sources */,
 				B328D8101DD6FA3C000948ED /* RoutineTVC.swift in Sources */,
 				B382087B1DC2B2C00008D6F8 /* WorkoutsTVC.swift in Sources */,
+				B360593B1E1C41C300EBE620 /* StartBlankWorkoutButton.swift in Sources */,
 				B38208771DC2B22A0008D6F8 /* Set.swift in Sources */,
 				B382087F1DC2B3EE0008D6F8 /* WorkoutTVC.swift in Sources */,
 				B3FCCD371E172A9F003EF14E /* ActiveOrFinished.swift in Sources */,

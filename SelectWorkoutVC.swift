@@ -4,17 +4,18 @@ import RxCocoa
 import RealmSwift
 import DZNEmptyDataSet
 
-extension SelectWorkoutVC: ViewControllerFromStoryboard {
-
-}
-
 class SelectWorkoutVC: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var blankWorkoutButton: UIButton!
+    var tableView = UITableView(frame: CGRect.zero, style: .plain)
+    var blankWorkoutButton = StartBlankWorkoutButton.create()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
+        
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         

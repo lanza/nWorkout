@@ -25,9 +25,6 @@ extension Lift {
     }
 }
 
-
-
-
 extension Lift: DataProvider {
     func append(_ object: Set) {
         sets.append(object)
