@@ -64,7 +64,9 @@ extension Lift: DataProvider {
         sets.insert(object, at: index)
     }
     func remove(at index: Int) {
+        let set = object(at: index)
         sets.remove(objectAtIndex: index)
+        set.deleteSelf()
     }
 }
 

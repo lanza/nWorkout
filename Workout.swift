@@ -80,11 +80,9 @@ extension Workout: DataProvider {
         lifts.insert(object, at: index)
     }
     func remove(at index: Int) {
-        let lift = lifts[index]
-        RLM.write {
-            lifts.remove(objectAtIndex: index)
-            RLM.realm.delete(lift)
-        }
+        let lift = object(at: index)
+        lifts.remove(objectAtIndex: index)
+        lift.deleteSelf()
     }
     func move(from sourceIndex: Int, to destinationIndex: Int) {
         let lift = lifts[sourceIndex]
