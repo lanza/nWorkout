@@ -28,18 +28,27 @@ class Workout: Base {
         }
         return lift
     }
+    
+    static func new(isWorkout: Bool, isComplete: Bool, name: String) -> Workout {
+        let workout = Workout()
+        RLM.write {
+            workout.name = name
+            workout.isWorkout = isWorkout
+            workout.isComplete = isComplete
+        }
+        return workout
+    }
 }
 
 extension Workout {
     func makeWorkoutWorkout() -> Workout {
-        let workout = Workout()
+        let workout = Workout.new(isWorkout: true, isComplete: false, name: name)
         
-        for lift in lifts {
-            workout.lifts.append(lift.makeWorkoutLift())
+        RLM.write {
+            for lift in lifts {
+                workout.lifts.append(lift.makeWorkoutLift())
+            }
         }
-        workout.name = name
-        workout.isComplete = false
-        workout.isWorkout = true
         
         return workout
     }
