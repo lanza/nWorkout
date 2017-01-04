@@ -48,6 +48,8 @@
 		B36059411E1C4B5600EBE620 /* LiftTypeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059401E1C4B5600EBE620 /* LiftTypeCoordinator.swift */; };
 		B36059441E1C92A600EBE620 /* ViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059431E1C92A600EBE620 /* ViewInfo.swift */; };
 		B36059461E1C92C100EBE620 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059451E1C92C100EBE620 /* SettingsCell.swift */; };
+		B36059481E1C951C00EBE620 /* CombinedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059471E1C951C00EBE620 /* CombinedView.swift */; };
+		B360594A1E1C957300EBE620 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059491E1C957300EBE620 /* UIView+Extensions.swift */; };
 		B36F37E81E0F7FF100667263 /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
@@ -126,6 +128,8 @@
 		B36059401E1C4B5600EBE620 /* LiftTypeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTypeCoordinator.swift; sourceTree = "<group>"; };
 		B36059431E1C92A600EBE620 /* ViewInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInfo.swift; sourceTree = "<group>"; };
 		B36059451E1C92C100EBE620 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		B36059471E1C951C00EBE620 /* CombinedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinedView.swift; sourceTree = "<group>"; };
+		B36059491E1C957300EBE620 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		B36F37E71E0F7FF100667263 /* RLM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLM.swift; sourceTree = "<group>"; };
 		B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutVC.swift; sourceTree = "<group>"; };
 		B3780EEA1DD5A4530087CEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -275,6 +279,7 @@
 		B36059311E1C3EB400EBE620 /* View types */ = {
 			isa = PBXGroup;
 			children = (
+				B36059471E1C951C00EBE620 /* CombinedView.swift */,
 				B360592F1E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift */,
 				B360592D1E1C3E8900EBE620 /* WeightAndRepsTextField.swift */,
 				B36059321E1C3EC700EBE620 /* SetNumberLabel.swift */,
@@ -378,6 +383,7 @@
 				B3780EEC1DD5A5470087CEC1 /* UIStoryboard&ViewControllerFromStoryboard.swift */,
 				B360593E1E1C4B1700EBE620 /* UIAlertController+Extensions.swift */,
 				B3170D161DE3D792001A11CE /* UIButton+Extensions.swift */,
+				B36059491E1C957300EBE620 /* UIView+Extensions.swift */,
 				B3FCCD2B1E171D2E003EF14E /* UIStackView+Extensions.swift */,
 				B3FCCD341E1724EA003EF14E /* CGColor+Extensions.swift */,
 			);
@@ -574,6 +580,7 @@
 				B3FCCD351E1724EA003EF14E /* CGColor+Extensions.swift in Sources */,
 				B36059441E1C92A600EBE620 /* ViewInfo.swift in Sources */,
 				B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */,
+				B36059481E1C951C00EBE620 /* CombinedView.swift in Sources */,
 				B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */,
 				B36059461E1C92C100EBE620 /* SettingsCell.swift in Sources */,
 				B36059301E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift in Sources */,
@@ -590,6 +597,7 @@
 				B34BA05C1DC1CCED006B6A51 /* Lift.swift in Sources */,
 				B3BB31841DDAA15B0015F9B0 /* WorkoutCoordinator.swift in Sources */,
 				B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */,
+				B360594A1E1C957300EBE620 /* UIView+Extensions.swift in Sources */,
 				B3BB318A1DDAA1B60015F9B0 /* AcrtiveWorkoutCoordinator.swift in Sources */,
 				B36059221E1C3DB000EBE620 /* RoutineCell.swift in Sources */,
 				B360592C1E1C3E7600EBE620 /* RoutineSetRowView.swift in Sources */,
