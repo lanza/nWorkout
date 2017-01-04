@@ -17,8 +17,11 @@ class BaseTVC: UIViewController {
         view = tableView
     }
     
-
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.delegate = self
+    }    
 }
 
 extension BaseTVC: UITableViewDelegate {
