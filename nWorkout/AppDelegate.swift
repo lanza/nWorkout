@@ -11,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let thing = RLM.realm.objects(Lift.self).filter("isWorkout = false")
+        let thing = RLM.realm.objects(Set.self).filter("isWorkout = false")
         let array = Array(thing)
         print(array)
         print(array.count)
