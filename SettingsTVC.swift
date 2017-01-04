@@ -21,6 +21,7 @@ class SettingsTVC: UIViewController {
         setupRx()
 
         tableView.setEditing(true, animated: false)
+        tableView.isScrollEnabled = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {

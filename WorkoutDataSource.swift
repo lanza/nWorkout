@@ -46,10 +46,11 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: Co
     }
     
     func addSet(for lift: Lift, and cell: LiftCell) {
-        textFieldBehaviorHandler.currentlyEditingTextField?.resignFirstResponder()
-        textFieldBehaviorHandler.currentlyEditingTextField = nil
         
         tableView.beginUpdates()
+        
+        textFieldBehaviorHandler.currentlyEditingTextField?.resignFirstResponder()
+        textFieldBehaviorHandler.currentlyEditingTextField = nil
         
         _ = provider.addNewSet(for: lift)
         
