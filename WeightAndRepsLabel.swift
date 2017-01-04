@@ -7,8 +7,7 @@ class WeightAndRepsLabel: UILabel {
         
         textColor = .lightGray
         
-        minimumScaleFactor = 7/font.pointSize
-        adjustsFontSizeToFitWidth = true
+        setFontScaling(minimum: 7)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }

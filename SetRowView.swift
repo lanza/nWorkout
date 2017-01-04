@@ -107,53 +107,53 @@ class SetRowView: RowView {
         return cv
     }
     
-    var previousLabel: UILabel? {
+    var previousLabel: WeightAndRepsLabel? {
         guard let index = selectedColumnViewTypes.index(of: Lets.previousWorkoutKey) else { return nil }
-        guard let pl = columnViews[index] as? UILabel else { fatalError() }
+        guard let pl = columnViews[index] as? WeightAndRepsLabel else { fatalError() }
         return pl
     }
-    var setNumberLabel: UILabel? {
+    var setNumberLabel: SetNumberLabel? {
         guard let index = selectedColumnViewTypes.index(of: Lets.setNumberKey) else { return nil }
-        guard let snl = columnViews[index] as? UILabel else { fatalError() }
+        guard let snl = columnViews[index] as? SetNumberLabel else { fatalError() }
         return snl
     }
-    var targetWeightTextField: UITextField? {
+    var targetWeightTextField: WeightAndRepsTextField? {
         guard let index = selectedColumnViewTypes.index(of: Lets.targetWeightKey) else { return nil }
-        guard let twtf = columnViews[index] as? UITextField else { fatalError() }
+        guard let twtf = columnViews[index] as? WeightAndRepsTextField else { fatalError() }
         return twtf
     }
-    var targetRepsTextField: UITextField? {
+    var targetRepsTextField: WeightAndRepsTextField? {
         guard let index = selectedColumnViewTypes.index(of: Lets.targetRepsKey) else { return nil }
-        guard let trtf = columnViews[index] as? UITextField else { fatalError() }
+        guard let trtf = columnViews[index] as? WeightAndRepsTextField else { fatalError() }
         return trtf
     }
-    var completedWeightTextField: UITextField? {
+    var completedWeightTextField: CompletedWeightAndRepsTextField? {
         if let cv = combinedView {
             return cv.completedWeightTextField
         }
         guard let index = selectedColumnViewTypes.index(of: Lets.completedWeightKey) else { return nil }
-        guard let cwtf = columnViews[index] as? UITextField else { fatalError() }
+        guard let cwtf = columnViews[index] as? CompletedWeightAndRepsTextField else { fatalError() }
         return cwtf
     }
-    var completedRepsTextField: UITextField? {
+    var completedRepsTextField: CompletedWeightAndRepsTextField? {
         if let cv = combinedView {
             return cv.completedRepsTextField
         }
         guard let index = selectedColumnViewTypes.index(of: Lets.completedRepsKey) else { return nil }
-        guard let crtf = columnViews[index] as? UITextField else { fatalError() }
+        guard let crtf = columnViews[index] as? CompletedWeightAndRepsTextField else { fatalError() }
         return crtf
     }
-    var completeButton: UIButton? {
+    var completeButton: CompleteButton? {
         if let cv = combinedView {
             return cv.completeButton
         }
         guard let index = selectedColumnViewTypes.index(of: Lets.doneButtonKey) else { return nil }
-        guard let cb = columnViews[index] as? UIButton else { fatalError() }
+        guard let cb = columnViews[index] as? CompleteButton else { fatalError() }
         return cb
     }
-    var failButton: UIButton? {
+    var failButton: FailButton? {
         guard let index = selectedColumnViewTypes.index(of: Lets.failButtonKey) else { return nil }
-        guard let fb = columnViews[index] as? UIButton else { fatalError() }
+        guard let fb = columnViews[index] as? FailButton else { fatalError() }
         return fb
     }
     var db: DisposeBag!
