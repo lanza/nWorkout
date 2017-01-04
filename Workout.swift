@@ -32,6 +32,7 @@ class Workout: Base {
             workout.name = name
             workout.isWorkout = isWorkout
             workout.isComplete = isComplete
+            RLM.realm.add(workout)
         }
         return workout
     }

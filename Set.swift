@@ -18,6 +18,7 @@ class Set: Base {
             set.reps = reps
             set.completedWeight = completedWeight
             set.completedReps = completedReps
+            RLM.realm.add(set)
         }
         
         return set

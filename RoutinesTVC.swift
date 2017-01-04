@@ -30,8 +30,8 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
             alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default) { action in
                 guard let name = alert.textFields?.first?.text else { fatalError() }
                
-                let routine = Workout()
-                routine.name = name
+                let routine = Workout.new(isWorkout: false, isComplete: false, name: name)
+
                 RLM.write {
                     RLM.realm.add(routine)
                 }
