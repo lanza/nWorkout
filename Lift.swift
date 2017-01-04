@@ -26,8 +26,9 @@ extension Lift {
     func makeWorkoutLift() -> Lift {
         let lift = Lift.new(isWorkout: true, name: name)
         
-        RLM.write {
-            for set in sets {
+        for set in sets {
+            let new = set.makeWorkoutSet()
+            RLM.write {
                 lift.sets.append(set.makeWorkoutSet())
             }
         }

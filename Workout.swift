@@ -42,12 +42,13 @@ extension Workout {
     func makeWorkoutWorkout() -> Workout {
         let workout = Workout.new(isWorkout: true, isComplete: false, name: name)
         
-        RLM.write {
-            for lift in lifts {
-                workout.lifts.append(lift.makeWorkoutLift())
+        for lift in lifts {
+            let new = lift.makeWorkoutLift()
+            RLM.write {
+                workout.lifts.append(new)
             }
         }
-        
+    
         return workout
     }
 }
