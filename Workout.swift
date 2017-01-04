@@ -57,7 +57,7 @@ extension Workout {
                 workout.lifts.append(new)
             }
         }
-    
+        
         return workout
     }
 }
@@ -81,7 +81,9 @@ extension Workout: DataProvider {
     }
     func remove(at index: Int) {
         let lift = object(at: index)
-        lifts.remove(objectAtIndex: index)
+        RLM.write {
+            lifts.remove(objectAtIndex: index)
+        }
         lift.deleteSelf()
     }
     func move(from sourceIndex: Int, to destinationIndex: Int) {

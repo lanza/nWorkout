@@ -65,7 +65,9 @@ extension Lift: DataProvider {
     }
     func remove(at index: Int) {
         let set = object(at: index)
-        sets.remove(objectAtIndex: index)
+        RLM.write {
+            sets.remove(objectAtIndex: index)
+        }
         set.deleteSelf()
     }
 }
