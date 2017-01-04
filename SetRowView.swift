@@ -140,7 +140,7 @@ class SetRowView: RowView {
             return cv.completedRepsTextField
         }
         guard let index = selectedColumnViewTypes.index(of: Lets.completedRepsKey) else { return nil }
-        guard let crtf = columnViews[index] as? CompletedWeightAndRepsTextField else { fatalError() }
+        guard let crtf = columnViews[index] as? CompletedWeightAndRepsTextField else { fatalError() }
         return crtf
     }
     var completeButton: CompleteButton? {

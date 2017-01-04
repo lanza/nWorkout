@@ -115,7 +115,7 @@ extension LiftCell: ConfigurableCell {
                 }
                 cwtf.text = weight
             }
-            if let crtf = rowView.completedRepsTextField as? CompletedWeightAndRepsTextField {
+            if let crtf = rowView.completedRepsTextField {
                 crtf.setNumber(int: set.completedReps)
             }
             if let pl = rowView.previousLabel {
