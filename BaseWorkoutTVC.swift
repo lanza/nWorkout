@@ -3,13 +3,11 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
+class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
     
     var dataSource: WorkoutDataSource<Cell>!
     var workout: Workout!
-    
-    var activeOrFinished: ActiveOrFinished { return workout.activeOrFinished }
-    
+
     var keyboardHandler: KeyboardHandler!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -19,17 +17,16 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC where Cell: ConfigurableCell, Cell
     }
     
     func setDataSource() {
-        dataSource = WorkoutDataSource(tableView: tableView, provider: workout, activeOrFinished: activeOrFinished)
+        fatalError()
     }
     func setEmptyDataSet() {
-//        tableView.emptyDataSetSource = self
-//        tableView.emptyDataSetDelegate = self
-        
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setDataSource()
         setEmptyDataSet()
         
@@ -54,6 +51,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC where Cell: ConfigurableCell, Cell
         let lift = Lift()
         RLM.write {
             lift.name = name
+            fatalError("Fix this nathan")
             lift._previousStrings = UserDefaults.standard.value(forKey: "last" + lift.name) as? String ?? ""
             RLM.realm.add(lift)
             self.workout.lifts.append(lift)
@@ -80,8 +78,3 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC where Cell: ConfigurableCell, Cell
     //    }
     
 }
-
-
-//extension BaseWorkoutTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-//    
-//}
