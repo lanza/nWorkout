@@ -5,8 +5,8 @@ class WorkoutFooterView: UIView {
     var activeOrFinished: ActiveOrFinished!
     
     let addLiftButton = WorkoutFooterViewButton.create(title: "Add Lift")
-    let cancelWorkoutButton = WorkoutFooterViewButton.create(title: "Cancel Workout")
-    let finishWorkoutButton = WorkoutFooterViewButton.create(title: "Finish Workout")
+    var cancelWorkoutButton: WorkoutFooterViewButton!
+    var finishWorkoutButton: WorkoutFooterViewButton!
     
     let stackView = UIStackView(axis: .vertical, spacing: 10, distribution: .fillEqually)
     
@@ -19,6 +19,8 @@ class WorkoutFooterView: UIView {
         
         var buttons: [WorkoutFooterViewButton] = [view.addLiftButton]
         if view.activeOrFinished == .active {
+            view.cancelWorkoutButton = WorkoutFooterViewButton.create(title: "Cancel Workout")
+            view.finishWorkoutButton = WorkoutFooterViewButton.create(title: "Finish Workout")
             buttons.append(contentsOf: [view.cancelWorkoutButton, view.finishWorkoutButton])
         }
         

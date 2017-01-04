@@ -53,7 +53,7 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: Co
         
         _ = provider.addNewSet(for: lift)
         
-        cell.chartView.setup()
+        cell.chartView.setup()  
         self.textFieldBehaviorHandler.setupRowConnections(for: cell.chartView.rowViews.last as! SetRowView, cell: cell)
         
         tableView.endUpdates()
