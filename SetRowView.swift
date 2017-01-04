@@ -50,6 +50,10 @@ class SetRowView: RowView {
             if didFail {
                 completeButton?.setTitle("")
                 completedWeightTextField?.setNumber(double: set.failureWeight())
+                RLM.write {
+                    set.completedWeight = set.failureWeight()
+                }
+                completedRepsTextField?.becomeFirstResponder()
             }
             if combinedView != nil {
                 completeButton?.isHidden = didFail
