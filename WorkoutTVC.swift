@@ -3,12 +3,23 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
+protocol WorkoutTVCDelegate: class {
+    func hideTapped(for workoutTVC: WorkoutTVC)
+}
+
 class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
+    
+    weak var delegate: WorkoutTVCDelegate!
     
     var activeOrFinished: ActiveOrFinished { return workout.activeOrFinished }
     
     override func setDataSource() {
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout, activeOrFinished: activeOrFinished)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -20,6 +31,13 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
         dataSource.finishWorkoutButtoon.rx.tap.subscribe(onNext: {
             self.didFinishWorkout()
         }).addDisposableTo(db)
+        
+        if activeOrFinished == .active {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: nil, action: nil)
+            navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
+                self.delegate.hideTapped(for: self)
+            }).addDisposableTo(db)
+        }
     }
     
     var didFinishWorkout: (() -> ())!

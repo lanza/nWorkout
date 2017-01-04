@@ -3,13 +3,20 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol ActiveWorkoutCoordinatorDelegate: class {
+    func hideTapped(for activeWorkoutCoordinator: ActiveWorkoutCoordinator)
+}
+
 class ActiveWorkoutCoordinator: Coordinator {
+    
+    weak var delegate: ActiveWorkoutCoordinatorDelegate!
     
     var workout: Workout!
     var workoutTVC: WorkoutTVC { return viewController as! WorkoutTVC }
     
     override func loadViewController() {
         viewController = WorkoutTVC()
+        workoutTVC.delegate = self
         workoutTVC.workout = workout
         
         workoutTVC.didTapAddNewLift = {
@@ -51,4 +58,10 @@ class ActiveWorkoutCoordinator: Coordinator {
     
     var workoutIsNotActive: (() -> ())!
     let db = DisposeBag()
+}
+
+extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
+    func hideTapped(for workoutTVC: WorkoutTVC) {
+        self.delegate.hideTapped(for: self)
+    }
 }

@@ -10,6 +10,7 @@ class MainCoordinator: TabBarCoordinator {
         let workouts = RLM.realm.objects(Workout.self).filter("isComplete = false").filter("isWorkout = true")
         if let first = workouts.first {
             self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
+            self.activeWorkoutCoordinator?.delegate = self
             self.activeWorkoutCoordinator?.workout = first
             
             self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
@@ -115,6 +116,8 @@ extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
     func selectWorkoutCoordinator(_ selectWorkoutCoordinator: SelectWorkoutCoordinator, didSelectRoutine routine: Workout?) -> ActiveWorkoutCoordinator {
         
         activeWorkoutCoordinator = ActiveWorkoutCoordinator()
+        activeWorkoutCoordinator?.delegate = self
+        
         if let routine = routine {
             activeWorkoutCoordinator!.workout = routine.makeWorkoutWorkout()
         } else {
@@ -123,11 +126,7 @@ extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
         RLM.write {
             RLM.realm.add(self.activeWorkoutCoordinator!.workout)
         }
-        activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
-        activeWorkoutCoordinator!.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: nil, action: nil)
-        activeWorkoutCoordinator!.navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext: {
-            self.dismiss(animated: true)
-        }).addDisposableTo(self.db)
+
         activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
             self.activeWorkoutCoordinator = nil
         }
@@ -143,6 +142,12 @@ extension MainCoordinator: TabBarCoordinatorDelegate {
         } else {
             return true
         }
+    }
+}
+
+extension MainCoordinator: ActiveWorkoutCoordinatorDelegate {
+    func hideTapped(for activeWorkoutCoordinator: ActiveWorkoutCoordinator) {
+        dismiss(animated: true)
     }
 }
 
