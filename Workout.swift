@@ -13,6 +13,7 @@ class Workout: Base {
     func addNewSet(for lift: Lift) -> Set {
         let set = Set()
         RLM.write {
+            set.isWorkout = isWorkout
             let last = lift.sets.last
             set.weight = last?.weight ?? 45
             set.reps = last?.reps ?? 6
@@ -20,8 +21,11 @@ class Workout: Base {
         }
         return set
     }
-    func addNewLift() -> Lift {
-        let lift = Lift()
+    func addNewLift(name: String) -> Lift {
+        let lift = Lift.new(isWorkout: isWorkout, name: name)
+        RLM.write {
+            lifts.append(lift)
+        }
         return lift
     }
 }

@@ -7,6 +7,24 @@ class Lift: Base {
     dynamic var _previousStrings: String = ""
     var previousStrings: [String] { return _previousStrings.components(separatedBy: ",") }
     
+    internal required init() {
+        super.init()
+    }
+    required init(value: Any, schema: RLMSchema) { fatalError("init(value:schema:) has not been implemented") }
+    
+    static func new(isWorkout: Bool, name: String) -> Lift {
+        let lift = Lift()
+        
+        RLM.write {
+            lift.name = name
+            lift.isWorkout = isWorkout
+            if lift.isWorkout {
+                lift._previousStrings = UserDefaults.standard.value(forKey: "last" + lift.name) as? String ?? ""
+            }
+            RLM.realm.add(lift)
+        }
+        return lift
+    }
 }
 
 extension Lift {

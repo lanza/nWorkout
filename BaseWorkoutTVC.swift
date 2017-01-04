@@ -48,17 +48,9 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
     }
     
     func addNewLift(name: String) {
-        let lift = Lift()
-        RLM.write {
-            lift.isWorkout = self.workout.isWorkout
-            lift.name = name
-            if lift.isWorkout {
-                lift._previousStrings = UserDefaults.standard.value(forKey: "last" + lift.name) as? String ?? ""
-            }
-            RLM.realm.add(lift)
-            self.workout.lifts.append(lift)
-        }
-        let index = self.workout.index(of: lift)!
+        let lift = workout.addNewLift(name: name)
+        
+        let index = workout.index(of: lift)!
         let indexPath = IndexPath(row: index, section: 0)
         self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
