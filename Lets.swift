@@ -2,7 +2,20 @@ import Foundation
 import CoreGraphics
 
 struct Lets {
-
+    
+    //MARK: Main words
+    static let history = "History"
+    static let routines = "Routines"
+    static let statistics = "Statistics"
+    static let settings = "Settings"
+    static let start = "Start"
+    
+    //MARK: Bar Button Item labels
+    static let hide = "Hide"
+    
+    //MARK: Various labels
+    static let selectWorkout = "Select Workout"
+    
     
     static let setNumberKey = "Set Number"
     static let targetWeightKey = "Target Weight"
@@ -21,7 +34,7 @@ struct Lets {
 
 
     static let workoutDateFormat = "EEEE - MM/d/yyyy - h:mm a"
-//    static let workoutStartTimeFormat = "h:mm a"
+    static let workoutStartTimeFormat = "h:mm a"
 //    static let workoutDurationTimeFormat = "h:mm"
     static let timeZoneAbbreviation = "EST"
 
@@ -35,14 +48,14 @@ struct Lets {
         formatter.timeZone = TimeZone(abbreviation: Lets.timeZoneAbbreviation)
         return formatter
     }()
-//    static let workoutStartTimeDF: DateFormatter = {
-//        let f = DateFormatter()
-//        f.dateFormat = Lets.workoutStartTimeFormat
-//        let locale = Locale(identifier: "en_US_POSIX")
-//        f.locale = locale
-//        f.timeZone = TimeZone(abbreviation: Lets.timeZoneAbbreviation)
-//        return f
-//    }()
+    static let workoutStartTimeDF: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = Lets.workoutStartTimeFormat
+        let locale = Locale(identifier: "en_US_POSIX")
+        f.locale = locale
+        f.timeZone = TimeZone(abbreviation: Lets.timeZoneAbbreviation)
+        return f
+    }()
 //    static let workoutDurationDF: DateFormatter = {
 //        let f = DateFormatter()
 //        f.dateFormat = Lets.workoutDurationTimeFormat

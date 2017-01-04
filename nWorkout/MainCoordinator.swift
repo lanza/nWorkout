@@ -14,7 +14,7 @@ class MainCoordinator: TabBarCoordinator {
             self.activeWorkoutCoordinator?.workout = first
             
             self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
-            self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: nil, action: nil)
+            self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem = UIBarButtonItem(title: Lets.hide, style: .plain, target: nil, action: nil)
             self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext: {
                 self.dismiss(animated: true)
             }).addDisposableTo(self.db)
@@ -33,26 +33,26 @@ class MainCoordinator: TabBarCoordinator {
         let wc = WorkoutsCoordinator()
         let wcNav = NavigationCoordinator(rootCoordinator: wc)
         wcNav.tabBarItem.image = #imageLiteral(resourceName: "workout")
-        wcNav.tabBarItem.title = "History"
-        wc.navigationItem.title = "History"
+        wcNav.tabBarItem.title = Lets.history
+        wc.navigationItem.title = Lets.history
         
         let rc = RoutinesCoordinator()
         let rcNav = NavigationCoordinator(rootCoordinator: rc)
         rcNav.tabBarItem.image = #imageLiteral(resourceName: "routine")
-        rcNav.tabBarItem.title = "Routines"
-        rc.navigationItem.title = "Routines"
+        rcNav.tabBarItem.title = Lets.routines
+        rc.navigationItem.title = Lets.routines
         
         let stc = StatisticsCoordinator()
         let stcNav = NavigationCoordinator(rootCoordinator: stc)
         stcNav.tabBarItem.image = #imageLiteral(resourceName: "statistics")
-        stcNav.tabBarItem.title = "Statistics"
-        stc.navigationItem.title = "Statistics"
+        stcNav.tabBarItem.title = Lets.statistics
+        stc.navigationItem.title = Lets.statistics
         
         let sec = SettingsCoordinator()
         let secNav = NavigationCoordinator(rootCoordinator: sec)
         secNav.tabBarItem.image = #imageLiteral(resourceName: "settings")
-        secNav.tabBarItem.title = "Settings"
-        sec.navigationItem.title = "Settings"
+        secNav.tabBarItem.title = Lets.settings
+        sec.navigationItem.title = Lets.settings
         
         let coordinators = [wcNav,rcNav,dummy,stcNav,secNav]
         self.coordinators = coordinators
@@ -71,7 +71,7 @@ class MainCoordinator: TabBarCoordinator {
     let dummy: Coordinator = {
         let c = Coordinator()
         c.tabBarItem.image = #imageLiteral(resourceName: "newWorkout")
-        c.tabBarItem.title = "Start"
+        c.tabBarItem.title = Lets.start
         return c
     }()
     
@@ -87,12 +87,12 @@ class MainCoordinator: TabBarCoordinator {
         let swc = SelectWorkoutCoordinator()
         swc.delegate = self
         let swcNav = NavigationCoordinator(rootCoordinator: swc)
-        swc.navigationItem.title = "Select Workout"
+        swc.navigationItem.title = Lets.selectWorkout
         present(swcNav, animated: true)
     }
     func displayActiveWorkout() {
         let awcNav = NavigationCoordinator(rootCoordinator: activeWorkoutCoordinator!)
-        activeWorkoutCoordinator!.navigationItem.title = " Probably should chagne this"
+        activeWorkoutCoordinator!.navigationItem.title = Lets.workoutStartTimeDF.string(from: activeWorkoutCoordinator!.workout.startDate)
         
         present(awcNav, animated: true)
     }
