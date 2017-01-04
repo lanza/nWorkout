@@ -29,15 +29,13 @@ class Lift: Base {
 
 extension Lift {
     func makeWorkoutLift() -> Lift {
-        let lift = Lift()
+        let lift = Lift.new(isWorkout: true, name: name)
         
-        lift.name = name
-        for set in sets {
-            lift.sets.append(set.makeWorkoutSet())
+        RLM.write {
+            for set in sets {
+                lift.sets.append(set.makeWorkoutSet())
+            }
         }
-        lift.isWorkout = true
-        
-        lift._previousStrings = UserDefaults.standard.value(forKey: "last" + lift.name) as? String ?? ""
         
         return lift
     }
@@ -47,7 +45,7 @@ extension Lift: DataProvider {
     func append(_ object: Set) {
         sets.append(object)
     }
-
+    
     func numberOfItems() -> Int {
         return sets.count
     }
