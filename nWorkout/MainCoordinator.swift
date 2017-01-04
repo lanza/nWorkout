@@ -113,11 +113,12 @@ class MainCoordinator: TabBarCoordinator {
 
 extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
     func selectWorkoutCoordinator(_ selectWorkoutCoordinator: SelectWorkoutCoordinator, didSelectRoutine routine: Workout?) -> ActiveWorkoutCoordinator {
+        
         activeWorkoutCoordinator = ActiveWorkoutCoordinator()
         if let routine = routine {
             activeWorkoutCoordinator!.workout = routine.makeWorkoutWorkout()
         } else {
-            activeWorkoutCoordinator!.workout = Workout()
+            activeWorkoutCoordinator!.workout = Workout.new(isWorkout: true, isComplete: false, name: "Blank")
         }
         RLM.write {
             RLM.realm.add(self.activeWorkoutCoordinator!.workout)

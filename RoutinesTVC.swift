@@ -31,12 +31,9 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
                 guard let name = alert.textFields?.first?.text else { fatalError() }
                
                 let routine = Workout.new(isWorkout: false, isComplete: false, name: name)
-
-                RLM.write {
-                    RLM.realm.add(routine)
-                }
                
                 self.dataSource.provider.append(routine)
+                
                 guard let index = self.dataSource.provider.index(of: routine) else { fatalError() }
                 let indexPath = IndexPath(row: index, section: 0)
                 self.tableView.insertRows(at: [indexPath], with: .automatic)
