@@ -44,6 +44,8 @@
 		B36059391E1C3F0700EBE620 /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059381E1C3F0700EBE620 /* CompleteButton.swift */; };
 		B360593B1E1C41C300EBE620 /* StartBlankWorkoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360593A1E1C41C300EBE620 /* StartBlankWorkoutButton.swift */; };
 		B360593D1E1C4ACE00EBE620 /* SelectWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360593C1E1C4ACE00EBE620 /* SelectWorkoutCell.swift */; };
+		B360593F1E1C4B1700EBE620 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360593E1E1C4B1700EBE620 /* UIAlertController+Extensions.swift */; };
+		B36059411E1C4B5600EBE620 /* LiftTypeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059401E1C4B5600EBE620 /* LiftTypeCoordinator.swift */; };
 		B36F37E81E0F7FF100667263 /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
@@ -118,6 +120,8 @@
 		B36059381E1C3F0700EBE620 /* CompleteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
 		B360593A1E1C41C300EBE620 /* StartBlankWorkoutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartBlankWorkoutButton.swift; sourceTree = "<group>"; };
 		B360593C1E1C4ACE00EBE620 /* SelectWorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutCell.swift; sourceTree = "<group>"; };
+		B360593E1E1C4B1700EBE620 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		B36059401E1C4B5600EBE620 /* LiftTypeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTypeCoordinator.swift; sourceTree = "<group>"; };
 		B36F37E71E0F7FF100667263 /* RLM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLM.swift; sourceTree = "<group>"; };
 		B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutVC.swift; sourceTree = "<group>"; };
 		B3780EEA1DD5A4530087CEC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -346,6 +350,7 @@
 				B3BB31871DDAA19C0015F9B0 /* RoutineCoordinator.swift */,
 				B3BB31851DDAA17B0015F9B0 /* RoutinesCoordinator.swift */,
 				B3BB31831DDAA15B0015F9B0 /* WorkoutCoordinator.swift */,
+				B36059401E1C4B5600EBE620 /* LiftTypeCoordinator.swift */,
 				B3BB31811DDAA1390015F9B0 /* WorkoutsCoordinator.swift */,
 			);
 			name = Coordinators;
@@ -357,6 +362,7 @@
 				B3FCCD3A1E172B1A003EF14E /* ReusableView.swift */,
 				B34BA0531DC1CC22006B6A51 /* UIResponder+FirstResponder.swift */,
 				B3780EEC1DD5A5470087CEC1 /* UIStoryboard&ViewControllerFromStoryboard.swift */,
+				B360593E1E1C4B1700EBE620 /* UIAlertController+Extensions.swift */,
 				B3170D161DE3D792001A11CE /* UIButton+Extensions.swift */,
 				B3FCCD2B1E171D2E003EF14E /* UIStackView+Extensions.swift */,
 				B3FCCD341E1724EA003EF14E /* CGColor+Extensions.swift */,
@@ -546,6 +552,7 @@
 				B38208751DC2B1FA0008D6F8 /* BaseDataProvider.swift in Sources */,
 				B3780EF01DD5A7010087CEC1 /* DataSource.swift in Sources */,
 				B31CEC681DDB0A8B002F826C /* StatisticsChartsVC.swift in Sources */,
+				B36059411E1C4B5600EBE620 /* LiftTypeCoordinator.swift in Sources */,
 				B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */,
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
 				B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */,
@@ -579,6 +586,7 @@
 				B3780EF81DD5B0C80087CEC1 /* ConfigurableCell.swift in Sources */,
 				B3BB31861DDAA17B0015F9B0 /* RoutinesCoordinator.swift in Sources */,
 				B36059391E1C3F0700EBE620 /* CompleteButton.swift in Sources */,
+				B360593F1E1C4B1700EBE620 /* UIAlertController+Extensions.swift in Sources */,
 				B36059261E1C3E0800EBE620 /* RoutineLiftCell.swift in Sources */,
 				B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */,
 				B36059331E1C3EC700EBE620 /* SetNumberLabel.swift in Sources */,

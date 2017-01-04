@@ -1,6 +1,6 @@
 import UIKit
 
-class DataSource<Provider: DataProvider, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate where Cell: ConfigurableCell, Provider.Object == Cell.Object {
+class DataSource<Provider: DataProvider, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate where Cell: ConfigurableCell, Cell: ReusableView, Provider.Object == Cell.Object {
     
     let tableView: UITableView
     let provider: Provider
@@ -15,14 +15,14 @@ class DataSource<Provider: DataProvider, Cell: UITableViewCell>: NSObject, UITab
     
     func initialSetup() {
         tableView.dataSource = self
-        tableView.register(Cell.self, forCellReuseIdentifier: Cell.identifier)
+        tableView.register(Cell.self, forCellReuseIdentifier: Cell.reuseIdentifier)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return provider.numberOfItems()
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.identifier, for: indexPath) as! Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.reuseIdentifier, for: indexPath) as! Cell
         let object = provider.object(at: indexPath.row)
         cell.configure(for: object, at: indexPath)
         return cell

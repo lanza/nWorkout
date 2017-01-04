@@ -79,9 +79,6 @@ class SelectWorkoutVC: UIViewController {
     let db = DisposeBag()
 }
 
-
-
-
 extension SelectWorkoutVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")

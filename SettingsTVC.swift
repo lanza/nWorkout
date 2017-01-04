@@ -41,6 +41,11 @@ class SettingsCell: UITableViewCell {
     
     var db: DisposeBag!
 }
+extension SettingsCell: ConfigurableCell {
+    func configure(for object: ViewInfo, at indexPath: IndexPath) {
+        //
+    }
+}
 
 class SettingsTVC: UIViewController {
     @IBOutlet weak var hideCompletionUntilFailTappedSwitch: UISwitch!
