@@ -29,7 +29,7 @@ extension Lift {
         for set in sets {
             let new = set.makeWorkoutSet()
             RLM.write {
-                lift.sets.append(set.makeWorkoutSet())
+                lift.sets.append(new)
             }
         }
         
