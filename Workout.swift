@@ -39,6 +39,15 @@ class Workout: Base {
 }
 
 extension Workout {
+    override func deleteSelf() {
+        for lift in lifts {
+            lift.deleteSelf()
+        }
+        super.deleteSelf()
+    }
+}
+
+extension Workout {
     func makeWorkoutWorkout() -> Workout {
         let workout = Workout.new(isWorkout: true, isComplete: false, name: name)
         

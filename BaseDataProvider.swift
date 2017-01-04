@@ -30,9 +30,7 @@ class BaseDataProvider<BaseType: Base>: DataProvider {
         objects.insert(toMove, at: destinationIndex)
     }
     func remove(at index: Int) {
-        RLM.write {
-            RLM.realm.delete(object(at: index))
-            objects.remove(at: index)
-        }
+        object(at: index).deleteSelf()
+        objects.remove(at: index)
     }
 }

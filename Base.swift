@@ -5,4 +5,10 @@ class Base: Object {
     dynamic var note = ""
     dynamic var isWorkout = false
     dynamic var startDate = Date()
+    
+    func deleteSelf() {
+        RLM.write {
+            RLM.realm.delete(self)
+        }
+    }
 }

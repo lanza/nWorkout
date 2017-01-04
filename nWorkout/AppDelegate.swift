@@ -10,6 +10,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let mainCoordinator = MainCoordinator()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let thing = RLM.realm.objects(Lift.self).filter("isWorkout = false")
+        let array = Array(thing)
+        print(array)
+        print(array.count)
+        
         AppDelegate.main = self
         window = UIWindow()
         mainCoordinator.willNavigateToViewController(false)
