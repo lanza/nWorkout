@@ -11,12 +11,9 @@ class Workout: Base {
     dynamic var finishDate: Date? = nil
     
     func addNewSet(for lift: Lift) -> Set {
-        let set = Set()
+        let last = lift.sets.last
+        let set = Set.new(isWorkout: isWorkout, isWarmup: false, weight: last?.weight ?? 45, reps: last?.reps ?? 6, completedWeight: 0, completedReps: 0)
         RLM.write {
-            set.isWorkout = isWorkout
-            let last = lift.sets.last
-            set.weight = last?.weight ?? 45
-            set.reps = last?.reps ?? 6
             lift.sets.append(set)
         }
         return set

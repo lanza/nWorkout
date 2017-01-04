@@ -7,11 +7,6 @@ class Lift: Base {
     dynamic var _previousStrings: String = ""
     var previousStrings: [String] { return _previousStrings.components(separatedBy: ",") }
     
-    internal required init() {
-        super.init()
-    }
-    required init(value: Any, schema: RLMSchema) { fatalError("init(value:schema:) has not been implemented") }
-    
     static func new(isWorkout: Bool, name: String) -> Lift {
         let lift = Lift()
         
