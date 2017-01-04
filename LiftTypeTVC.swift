@@ -4,8 +4,7 @@ import RxSwift
 import DZNEmptyDataSet
 
 
-
-class LiftTypeTVC: UIViewController {
+class LiftTypeTVC: BaseTVC {
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -16,12 +15,6 @@ class LiftTypeTVC: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
     var liftTypes = Variable(UserDefaults.standard.value(forKey: "liftTypes") as? [String] ?? [])
-    
-    let tableView = UITableView()
-    
-    override func loadView() {
-        view = tableView
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

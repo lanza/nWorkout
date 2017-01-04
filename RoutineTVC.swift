@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-class RoutineTVC: UIViewController {
+class RoutineTVC: BaseTVC {
     
     var dataSource: RoutineDataSource!
     var routine: Workout!
@@ -14,12 +14,6 @@ class RoutineTVC: UIViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
         Keyboard.shared.delegate = dataSource.textFieldBehaviorHandler
-    }
-    
-    let tableView = UITableView()
-    
-    override func loadView() {
-        view = tableView
     }
     
     override func viewDidLoad() {

@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-class StatisticsTVC: UITableViewController {
+class StatisticsTVC: BaseTVC {
     
     var pairs = Variable([(String,Int)]())
     
