@@ -26,5 +26,7 @@ class BaseTVC: UIViewController, UITableViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         UIResponder.currentFirstResponder?.resignFirstResponder()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { }
 }
 

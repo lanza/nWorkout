@@ -20,10 +20,9 @@ class BaseWorkoutsTVC<Cell: UITableViewCell>: BaseTVC where Cell: ConfigurableCe
     
     let db = DisposeBag()
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
+    
 }
-
-//extension BaseWorkoutsTVC: UITableViewDelegate {}
 
 protocol WorkoutsTVCDelegate: class {
     func workoutsTVC(_ workoutsTVC: WorkoutsTVC, didSelectWorkout workout: Workout)
