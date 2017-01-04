@@ -7,7 +7,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
     
     var dataSource: WorkoutDataSource<Cell>!
     var workout: Workout!
-
+    
     var keyboardHandler: KeyboardHandler!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,7 +26,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setDataSource()
         setEmptyDataSet()
         
@@ -50,9 +50,11 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
     func addNewLift(name: String) {
         let lift = Lift()
         RLM.write {
+            lift.isWorkout = self.workout.isWorkout
             lift.name = name
-            fatalError("Fix this nathan")
-            lift._previousStrings = UserDefaults.standard.value(forKey: "last" + lift.name) as? String ?? ""
+            if lift.isWorkout {
+                lift._previousStrings = UserDefaults.standard.value(forKey: "last" + lift.name) as? String ?? ""
+            }
             RLM.realm.add(lift)
             self.workout.lifts.append(lift)
         }

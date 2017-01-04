@@ -74,16 +74,6 @@ class MainCoordinator: TabBarCoordinator {
         return c
     }()
     
-    func makeWorkouts() {
-        let workout = Workout()
-        workout.append(Lift())
-        workout.append(Lift())
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(workout)
-        }
-    }
-    
     func presentWorkoutCoordinator() {
         if activeWorkoutCoordinator == nil {
             displaySelectWorkout()
