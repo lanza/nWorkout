@@ -17,5 +17,13 @@ class BaseTVC: UIViewController {
         view = tableView
     }
     
+
+    
+}
+
+extension BaseTVC: UITableViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        UIResponder.currentFirstResponder?.resignFirstResponder()
+    }
 }
 

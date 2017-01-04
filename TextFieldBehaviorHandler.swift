@@ -117,7 +117,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
         }).addDisposableTo(setRowView.db)
     }
     func hideWasTapped() {
-        UIResponder.currentFirstResponder()?.resignFirstResponder()
+        UIResponder.currentFirstResponder?.resignFirstResponder()
     }
     
     var liftNeedsNewSet: (()->())!

@@ -35,7 +35,7 @@ class KeyboardHandler: NSObject {
     }
     
     func scrollToTextField() {
-        if let firstResponder = UIResponder.currentFirstResponder() as? UIView {
+        if let firstResponder = UIResponder.currentFirstResponder as? UIView {
             
             let frFrame = firstResponder.frame
             
