@@ -64,7 +64,7 @@ class SetRowView: RowView {
     }
     var isComplete = false {
         didSet {
-            completeButton?.setTitle(isComplete ? "Done" : "")
+            completeButton?.setTitle(isComplete ? Lets.done : "")
             didFail = false
             
             if combinedView != nil {

@@ -12,7 +12,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
         workouts = RLM.realm.objects(Workout.self).filter("isWorkout = false").sorted(byProperty: "name")
         
         dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
-        dataSource.name = "Routine"
+        dataSource.name = Lets.routine
         dataSource.displayAlert = { alert in
             self.present(alert, animated: true, completion: nil)
         }
@@ -24,11 +24,11 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
         tableView.emptyDataSetDelegate = self
         
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Lets.new, style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
-            let alert = UIAlertController.alert(title: "Create new Routine", message: nil)
+            let alert = UIAlertController.alert(title: Lets.createNewRoutine, message: nil)
             
-            alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default) { action in
+            alert.addAction(UIAlertAction(title: Lets.done, style: UIAlertActionStyle.default) { action in
                 guard let name = alert.textFields?.first?.text else { fatalError() }
                
                 let routine = Workout.new(isWorkout: false, isComplete: false, name: name)
@@ -42,7 +42,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
                     self.tableView.reloadData()
                 }
             })
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: Lets.cancel, style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }).addDisposableTo(db)
     }

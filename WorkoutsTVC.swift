@@ -12,7 +12,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
         workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true").filter("isComplete = true").sorted(byProperty: "startDate", ascending: false)
         
         dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
-        dataSource.name = "Workout"
+        dataSource.name = Lets.workout
         dataSource.displayAlert = { alert in
             self.present(alert, animated: true, completion: nil)
         }
@@ -23,8 +23,6 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
-        
-
         
         navigationItem.leftBarButtonItem = editButtonItem
     }

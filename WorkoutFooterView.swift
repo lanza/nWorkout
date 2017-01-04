@@ -4,7 +4,7 @@ class WorkoutFooterView: UIView {
     
     var activeOrFinished: ActiveOrFinished!
     
-    let addLiftButton = WorkoutFooterViewButton.create(title: "Add Lift")
+    let addLiftButton = WorkoutFooterViewButton.create(title: Lets.addLift)
     var cancelWorkoutButton: WorkoutFooterViewButton!
     var finishWorkoutButton: WorkoutFooterViewButton!
     
@@ -19,8 +19,8 @@ class WorkoutFooterView: UIView {
         
         var buttons: [WorkoutFooterViewButton] = [view.addLiftButton]
         if view.activeOrFinished == .active {
-            view.cancelWorkoutButton = WorkoutFooterViewButton.create(title: "Cancel Workout")
-            view.finishWorkoutButton = WorkoutFooterViewButton.create(title: "Finish Workout")
+            view.cancelWorkoutButton = WorkoutFooterViewButton.create(title: Lets.cancelWorkout)
+            view.finishWorkoutButton = WorkoutFooterViewButton.create(title: Lets.finishWorkout)
             buttons.append(contentsOf: [view.cancelWorkoutButton, view.finishWorkoutButton])
         }
         

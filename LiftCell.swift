@@ -79,7 +79,6 @@ class LiftCell: ChartViewCell {
 }
 
 extension LiftCell: ConfigurableCell {
-    static var identifier: String { return "LiftCell" }
     func configure(for object: Lift, at indexPath: IndexPath) {
         
         label.text = object.name
@@ -122,13 +121,13 @@ extension LiftCell: ConfigurableCell {
                 if object.previousStrings.count > index && object.previousStrings[0] != "" {
                     pl.text = object.previousStrings[index]
                 } else {
-                    pl.text = "No previous set"
+                    pl.text = Lets.noPreviousSet
                 }
             }
             
             if let cb = rowView.completeButton {
                 if set.weight == set.completedWeight, set.reps == set.completedReps {
-                    cb.setTitle("Done")
+                    cb.setTitle(Lets.done)
                 }
             }
             

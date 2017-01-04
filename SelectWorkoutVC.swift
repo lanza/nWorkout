@@ -46,9 +46,9 @@ class SelectWorkoutVC: UIViewController {
         
         let realm = try! Realm()
         let objects = Array(realm.objects(Workout.self).filter("isWorkout = false"))
-        tableView.register(SelectWorkoutCell.self, forCellReuseIdentifier: SelectWorkoutCell.identifier)
+        tableView.register(SelectWorkoutCell.self)
         
-        Observable.just(objects).bindTo(tableView.rx.items(cellIdentifier: SelectWorkoutCell.identifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
+        Observable.just(objects).bindTo(tableView.rx.items(cellIdentifier: SelectWorkoutCell.reuseIdentifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
             cell.configure(for: workout, at: IndexPath(row: index, section: 0))
             }.addDisposableTo(db)
         
@@ -70,7 +70,7 @@ class SelectWorkoutVC: UIViewController {
         startBlankWorkoutButton.rx.tap.subscribe(onNext: {
             self.delegate.startBlankWorkoutSelected(for: self)
         }).addDisposableTo(db)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Lets.cancel, style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
             self.delegate.cancelSelected(for: self)
         }).addDisposableTo(db)

@@ -4,7 +4,6 @@ import RxSwift
 import RxCocoa
 
 extension WorkoutCell: ConfigurableCell {
-    static var identifier: String { return "WorkoutCell" }
     func configure(for object: Workout, at indexPath: IndexPath) {
         
         chartView.chartViewDataSource = BaseChartViewDataSource(object: object)

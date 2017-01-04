@@ -23,11 +23,12 @@ class WorkoutsDataSource<Cell: UITableViewCell> : DataSource<BaseDataProvider<Wo
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { fatalError() }
-        let alert = UIAlertController(title: "Delete \(name)?", message: "Are you sure you want to delete this \(name)?", preferredStyle: .alert)
-        let yes = UIAlertAction(title: "Yes", style: .default) { _ in
+        let strings = Lets.deleteConfirmationFor(name: name)
+        let alert = UIAlertController(title: strings.title, message: strings.message, preferredStyle: .alert)
+        let yes = UIAlertAction(title: Lets.yes, style: .default) { _ in
             self.deleteWorkout(at: indexPath)
         }
-        let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        let no = UIAlertAction(title: Lets.no, style: .cancel, handler: nil)
         alert.addAction(yes)
         alert.addAction(no)
         displayAlert(alert)

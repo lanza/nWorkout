@@ -120,7 +120,7 @@ extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
         if let routine = routine {
             activeWorkoutCoordinator!.workout = routine.makeWorkoutWorkout()
         } else {
-            activeWorkoutCoordinator!.workout = Workout.new(isWorkout: true, isComplete: false, name: "Blank")
+            activeWorkoutCoordinator!.workout = Workout.new(isWorkout: true, isComplete: false, name: Lets.blank)
         }
         RLM.write {
             RLM.realm.add(self.activeWorkoutCoordinator!.workout)

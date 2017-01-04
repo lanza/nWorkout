@@ -9,12 +9,12 @@ class LiftTypeTVC: BaseTVC {
     init() {
         super.init(nibName: nil, bundle: nil)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Lift", style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Lets.hide, style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Lets.newLift, style: .plain, target: nil, action: nil)
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
-    var liftTypes = Variable(UserDefaults.standard.value(forKey: "liftTypes") as? [String] ?? [])
+    var liftTypes = Variable(UserDefaults.standard.value(forKey: Lets.liftTypesKey) as? [String] ?? [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +33,14 @@ class LiftTypeTVC: BaseTVC {
             }.addDisposableTo(db)
         
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
-            let alert = UIAlertController.alert(title: "Add new lift type", message: nil)
+            let alert = UIAlertController.alert(title: Lets.addNewLiftType, message: nil)
             
-            let okay = UIAlertAction(title: "Okay", style: .default) { _ in
+            let okay = UIAlertAction(title: Lets.done, style: .default) { _ in
                 guard let name = alert.textFields?.first?.text else { fatalError() }
                 self.liftTypes.value.append(name)
                 self.save()
             }
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let cancel = UIAlertAction(title: Lets.cancel, style: .cancel, handler: nil)
             alert.addAction(okay)
             alert.addAction(cancel)
             
@@ -58,7 +58,7 @@ class LiftTypeTVC: BaseTVC {
     }
     
     func save() {
-        UserDefaults.standard.setValue(self.liftTypes.value, forKey: "liftTypes")
+        UserDefaults.standard.setValue(self.liftTypes.value, forKey: Lets.liftTypesKey)
     }
     
     
