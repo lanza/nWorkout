@@ -1,6 +1,8 @@
 import UIKit
 
-class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
+class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
+    
+    var name: String!
     
     init(tableView: UITableView, provider: Workout, activeOrFinished: ActiveOrFinished) {
         self.activeOrFinished = activeOrFinished
@@ -29,7 +31,7 @@ class WorkoutDataSource: DataSource<Workout,WorkoutLiftCell> {
     var finishWorkoutButtoon: UIButton { return workoutFooterView.finishWorkoutButton }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAt: indexPath) as! WorkoutLiftCell
+        let cell = super.tableView(tableView, cellForRowAt: indexPath) as! Cell
         textFieldBehaviorHandler.setupSetConnections(for: cell)
         
         let lift = provider.object(at: indexPath.row)

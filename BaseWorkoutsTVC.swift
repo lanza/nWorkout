@@ -4,7 +4,7 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-class BaseWorkoutsTVC<Cell: UITableViewCell>: BaseTVC where Cell: ConfigurableCell, Cell.Object == Workout {
+class BaseWorkoutsTVC<Cell: UITableViewCell>: BaseTVC where Cell: ConfigurableCell, Cell.Object == Workout, Cell: ReusableView {
 
     weak var delegate: WorkoutsTVCDelegate!
     

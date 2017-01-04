@@ -3,11 +3,9 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-
-
-class WorkoutTVC: BaseTVC {
+class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
     
-    var dataSource: WorkoutDataSource<WorkoutLiftCell>!
+    var dataSource: WorkoutDataSource<Cell>!
     var workout: Workout!
     
     var activeOrFinished: ActiveOrFinished { return workout.activeOrFinished }
@@ -50,12 +48,6 @@ class WorkoutTVC: BaseTVC {
         dataSource.addLiftButton.rx.tap.subscribe(onNext: {
             self.didTapAddNewLift()
         }).addDisposableTo(db)
-        dataSource.cancelWorkoutButton.rx.tap.subscribe(onNext: {
-            self.didCancelWorkout()
-        }).addDisposableTo(db)
-        dataSource.finishWorkoutButtoon.rx.tap.subscribe(onNext: {
-            self.didFinishWorkout()
-        }).addDisposableTo(db)
     }
     
     func addNewLift(name: String) {
@@ -71,13 +63,9 @@ class WorkoutTVC: BaseTVC {
         self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
     var didTapAddNewLift: (() -> ())!
-    var didFinishWorkout: (() -> ())!
-    var didCancelWorkout: (() -> ())!
     
     let db = DisposeBag()
-}
-
-extension WorkoutTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")
     }
@@ -90,8 +78,10 @@ extension WorkoutTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")
     //    }
+    
 }
 
 
-
-
+extension BaseWorkoutTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    
+}
