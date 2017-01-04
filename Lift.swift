@@ -20,6 +20,13 @@ class Lift: Base {
         }
         return lift
     }
+    
+    override func deleteSelf() {
+        for set in sets {
+            set.deleteSelf()
+        }
+        super.deleteSelf()
+    }
 }
 
 extension Lift {
@@ -37,14 +44,6 @@ extension Lift {
     }
 }
 
-extension Lift {
-    override func deleteSelf() {
-        for set in sets {
-            set.deleteSelf()
-        }
-        super.deleteSelf()
-    }
-}
 
 extension Lift: DataProvider {
     func append(_ object: Set) {

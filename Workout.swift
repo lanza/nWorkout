@@ -36,9 +36,7 @@ class Workout: Base {
         }
         return workout
     }
-}
 
-extension Workout {
     override func deleteSelf() {
         for lift in lifts {
             lift.deleteSelf()
