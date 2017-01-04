@@ -49,7 +49,7 @@ class SetRowView: RowView {
             failButton?.setTitleColor(didFail ? .red : .black)
             if didFail {
                 completeButton?.setTitle("")
-                completedWeightTextField?.text = "\(set.failureWeight())"
+                completedWeightTextField?.setNumber(double: set.failureWeight())
             }
             if combinedView != nil {
                 completeButton?.isHidden = didFail
