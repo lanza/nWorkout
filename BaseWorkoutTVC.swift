@@ -22,8 +22,8 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC where Cell: ConfigurableCell, Cell
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout, activeOrFinished: activeOrFinished)
     }
     func setEmptyDataSet() {
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
+//        tableView.emptyDataSetSource = self
+//        tableView.emptyDataSetDelegate = self
         
     }
     
@@ -82,6 +82,6 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC where Cell: ConfigurableCell, Cell
 }
 
 
-extension BaseWorkoutTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-    
-}
+//extension BaseWorkoutTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+//    
+//}
