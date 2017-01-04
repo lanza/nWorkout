@@ -15,6 +15,7 @@ struct Lets {
     
     //MARK: Various labels
     static let selectWorkout = "Select Workout"
+    static let show = "Show"
     
     
     static let setNumberKey = "Set Number"

@@ -24,6 +24,8 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
         
+
+        
         navigationItem.leftBarButtonItem = editButtonItem
     }
 

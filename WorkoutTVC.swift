@@ -25,6 +25,8 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = Lets.workoutStartTimeDF.string(from: workout.startDate)
+        
         if activeOrFinished == .active {
             dataSource.cancelWorkoutButton.rx.tap.subscribe(onNext: {
                 self.didCancelWorkout()

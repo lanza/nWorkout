@@ -92,7 +92,6 @@ class MainCoordinator: TabBarCoordinator {
     }
     func displayActiveWorkout() {
         let awcNav = NavigationCoordinator(rootCoordinator: activeWorkoutCoordinator!)
-        activeWorkoutCoordinator!.navigationItem.title = Lets.workoutStartTimeDF.string(from: activeWorkoutCoordinator!.workout.startDate)
         
         present(awcNav, animated: true)
     }
@@ -101,10 +100,10 @@ class MainCoordinator: TabBarCoordinator {
         didSet {
             if activeWorkoutCoordinator == nil {
                 dummy.tabBarItem.image = #imageLiteral(resourceName: "newWorkout")
-                dummy.tabBarItem.title = "Start"
+                dummy.tabBarItem.title = Lets.start
             } else {
                 dummy.tabBarItem.image = #imageLiteral(resourceName: "show")
-                dummy.tabBarItem.title = "Show"
+                dummy.tabBarItem.title = Lets.show
             }
         }
     }

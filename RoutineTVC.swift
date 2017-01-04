@@ -16,6 +16,8 @@ class RoutineTVC: BaseWorkoutTVC<RoutineLiftCell> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = workout.name
     }
 
     override func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
