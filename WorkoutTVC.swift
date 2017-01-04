@@ -25,14 +25,14 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource.cancelWorkoutButton.rx.tap.subscribe(onNext: {
-            self.didCancelWorkout()
-        }).addDisposableTo(db)
-        dataSource.finishWorkoutButtoon.rx.tap.subscribe(onNext: {
-            self.didFinishWorkout()
-        }).addDisposableTo(db)
-        
         if activeOrFinished == .active {
+            dataSource.cancelWorkoutButton.rx.tap.subscribe(onNext: {
+                self.didCancelWorkout()
+            }).addDisposableTo(db)
+            dataSource.finishWorkoutButtoon.rx.tap.subscribe(onNext: {
+                self.didFinishWorkout()
+            }).addDisposableTo(db)
+            
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: nil, action: nil)
             navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
                 self.delegate.hideTapped(for: self)
