@@ -5,7 +5,7 @@ import DZNEmptyDataSet
 
 class RoutineTVC: BaseTVC {
     
-    var dataSource: RoutineDataSource!
+    var dataSource: WorkoutDataSource<RoutineLiftCell>!
     var routine: Workout!
     
     var keyboardHandler: KeyboardHandler!
@@ -19,7 +19,7 @@ class RoutineTVC: BaseTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = RoutineDataSource(tableView: tableView, provider: routine)
+        dataSource = WorkoutDataSource(tableView: tableView, provider: routine, activeOrFinished: .finished)
         
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self

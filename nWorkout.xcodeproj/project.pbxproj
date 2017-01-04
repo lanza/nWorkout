@@ -15,7 +15,7 @@
 		B31CEC681DDB0A8B002F826C /* StatisticsChartsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC671DDB0A8B002F826C /* StatisticsChartsVC.swift */; };
 		B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */; };
 		B31E9FBB1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */; };
-		B31E9FBD1DD6AE2B00B9AEFC /* RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */; };
+		B31E9FBD1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */; };
 		B31E9FBF1DD6AE3400B9AEFC /* RoutinesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBE1DD6AE3400B9AEFC /* RoutinesTVC.swift */; };
 		B328D8101DD6FA3C000948ED /* RoutineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D80F1DD6FA3C000948ED /* RoutineTVC.swift */; };
 		B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8111DD6FA52000948ED /* StatisticsTVC.swift */; };
@@ -96,7 +96,7 @@
 		B31CEC671DDB0A8B002F826C /* StatisticsChartsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsChartsVC.swift; sourceTree = "<group>"; };
 		B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDataSource.swift; sourceTree = "<group>"; };
 		B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Removed - RoutinesDataSource.swift"; sourceTree = "<group>"; };
-		B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineDataSource.swift; sourceTree = "<group>"; };
+		B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Removed - RoutineDataSource.swift"; sourceTree = "<group>"; };
 		B31E9FBE1DD6AE3400B9AEFC /* RoutinesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutinesTVC.swift; sourceTree = "<group>"; };
 		B328D80F1DD6FA3C000948ED /* RoutineTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineTVC.swift; sourceTree = "<group>"; };
 		B328D8111DD6FA52000948ED /* StatisticsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTVC.swift; sourceTree = "<group>"; };
@@ -331,7 +331,6 @@
 				B3780EEE1DD5A7010087CEC1 /* DataSource.swift */,
 				B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */,
 				B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */,
-				B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */,
 				B3FCCD261E15C9F9003EF14E /* Removed */,
 			);
 			name = "Data Sources";
@@ -434,6 +433,7 @@
 		B3FCCD261E15C9F9003EF14E /* Removed */ = {
 			isa = PBXGroup;
 			children = (
+				B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */,
 				B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */,
 			);
 			name = Removed;
@@ -630,7 +630,7 @@
 				B3FCCD391E172AC3003EF14E /* WorkoutLiftCell.swift in Sources */,
 				B3BB31821DDAA1390015F9B0 /* WorkoutsCoordinator.swift in Sources */,
 				B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */,
-				B31E9FBD1DD6AE2B00B9AEFC /* RoutineDataSource.swift in Sources */,
+				B31E9FBD1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift in Sources */,
 				B3BB318C1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift in Sources */,
 				B36F37E81E0F7FF100667263 /* RLM.swift in Sources */,
 				B3780EF81DD5B0C80087CEC1 /* ConfigurableCell.swift in Sources */,
