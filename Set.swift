@@ -7,17 +7,26 @@ class Set: Base {
     dynamic var isWarmup = false
     dynamic var completedWeight: Double = 0
     dynamic var completedReps = 0
+    
+    static func new(isWorkout: Bool, isWarmup: Bool, weight: Double, reps: Int, completedWeight: Double, completedReps: Int) -> Set {
+        let set = Set()
+        
+        RLM.write {
+            set.isWorkout = isWorkout
+            set.isWarmup = isWarmup
+            set.weight = weight
+            set.reps = reps
+            set.completedWeight = completedWeight
+            set.completedReps = completedReps
+        }
+        
+        return set
+    }
 }
 
 extension Set {
     func makeWorkoutSet() -> Set {
-        let set = Set()
-        set.weight = weight
-        set.reps = reps
-        set.isWarmup = isWarmup
-        set.completedWeight = completedWeight
-        set.completedReps = completedReps
-        set.isWorkout = true
+        let set = Set.new(isWorkout: true, isWarmup: isWarmup, weight: weight, reps: reps, completedWeight: 0, completedReps: 0)
         
         return set
     }
