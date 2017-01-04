@@ -38,12 +38,8 @@ class WorkoutCell: ChartViewCell {
             label.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
             ])
     }
-    func setupBottomContentView() {
-        //
-    }
-    func setupChartView() {
-
-    }
+    func setupBottomContentView() {    }
+    func setupChartView() {}
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

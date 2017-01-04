@@ -21,4 +21,8 @@ extension Set {
         
         return set
     }
+    
+    func failureWeight() -> Double {
+        return weight
+    }
 }
