@@ -4,7 +4,7 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-class BaseTVC: UIViewController {
+class BaseTVC: UIViewController, UITableViewDelegate {
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
@@ -21,10 +21,8 @@ class BaseTVC: UIViewController {
         super.viewDidLoad()
         
         tableView.delegate = self
-    }    
-}
-
-extension BaseTVC: UITableViewDelegate {
+    }
+    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         UIResponder.currentFirstResponder?.resignFirstResponder()
     }

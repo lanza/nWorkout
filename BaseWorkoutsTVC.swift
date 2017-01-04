@@ -14,8 +14,6 @@ class BaseWorkoutsTVC<Cell: UITableViewCell>: BaseTVC where Cell: ConfigurableCe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        
         tableView.tableFooterView = UIView()
         navigationItem.leftBarButtonItem = editButtonItem
     }
