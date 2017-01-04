@@ -42,7 +42,7 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     
     var didFinishWorkout: (() -> ())!
     var didCancelWorkout: (() -> ())!
-
+    
     
     override func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")
@@ -52,6 +52,10 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     }
     override func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "Click \"Add Lift\" to add a new exercise to your Workout.")
+    }
+    
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+        return 40
     }
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")
