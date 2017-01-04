@@ -46,7 +46,7 @@ struct Lets {
     static let newLift = "New Lift"
     static let noPreviousSet = "No previous set"
     
-    static let failButtonText = "F"
+    static let failButtonText = "Fail"
     
     //MARK: ViewInfo stuff
     static let setNumberKey = "Set Number"

@@ -3,7 +3,7 @@ import UIKit
 class FailButton: UIButton {
     init() {
         super.init(frame: CGRect.zero)
-        setTitle("Fail", for: UIControlState())
+        setTitle(Lets.failButtonText, for: UIControlState())
         setTitleColor(.black, for: UIControlState())
         
         titleLabel?.numberOfLines = 1
