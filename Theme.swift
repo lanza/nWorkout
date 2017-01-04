@@ -29,7 +29,7 @@ struct Theme {
     
     struct Colors {
         
-        static let main = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        static let main = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         static let dark = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         static let light = #colorLiteral(red: 0.9568895725, green: 0.9568895725, blue: 0.9568895725, alpha: 1)
         static let lighter = #colorLiteral(red: 0.9568895725, green: 0.9568895725, blue: 0.9568895725, alpha: 1)
