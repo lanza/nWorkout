@@ -3,19 +3,13 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 
-class WorkoutTVC: UIViewController {
+class WorkoutTVC: BaseTVC {
     
     var dataSource: WorkoutDataSource!
     var workout: Workout!
     var activeOrFinished: ActiveOrFinished { return workout.activeOrFinished }
     
     var keyboardHandler: KeyboardHandler!
-    
-    let tableView = UITableView()
-    
-    override func loadView() {
-        view = tableView
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

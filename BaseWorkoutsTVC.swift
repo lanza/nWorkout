@@ -6,11 +6,6 @@ import DZNEmptyDataSet
 
 class BaseWorkoutsTVC<Cell: UITableViewCell>: BaseTVC, UITableViewDelegate where Cell: ConfigurableCell, Cell.Object == Workout {
 
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        tableView.setEditing(editing, animated: animated)
-    }
-    
     weak var delegate: WorkoutsTVCDelegate!
     
     var dataSource: WorkoutsDataSource<Cell>!
