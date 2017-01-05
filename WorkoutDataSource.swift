@@ -1,8 +1,15 @@
 import UIKit
 
+
+protocol WorkoutDataSourceDelegate: class {
+    func setRowView(_ setRowView: SetRowView, didTapeNoteButtonForSet set: Set)
+}
+
 class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
     
     var name: String!
+    
+    weak var delegate: WorkoutDataSourceDelegate!
     
     //START Specific to Workout
     init(tableView: UITableView, provider: Workout, activeOrFinished: ActiveOrFinished) {
@@ -42,6 +49,9 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: Co
         cell.addSetButton.rx.tap.subscribe(onNext: {
             self.addSet(for: lift, and: cell)
         }).addDisposableTo(cell.db)
+       
+        cell.delegate = self
+        
         return cell
     }
     
@@ -88,8 +98,11 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: Co
     }
 }
 
-
-
+extension WorkoutDataSource: LiftCellDelegate {
+    func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set) {
+        delegate.setRowView(setRowView, didTapeNoteButtonForSet: set)
+    }
+}
 
 
 

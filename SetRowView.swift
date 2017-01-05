@@ -2,8 +2,16 @@ import UIKit
 import ChartView
 import RxSwift
 import RxCocoa
+import CustomIOSAlertView
+
+protocol SetRowViewDelegate: class {
+    func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set)
+}
 
 class SetRowView: RowView {
+   
+    weak var delegate: SetRowViewDelegate!
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         set = nil
@@ -109,7 +117,7 @@ class SetRowView: RowView {
             }
         }).addDisposableTo(db)
         noteButton?.rx.tap.subscribe(onNext: { [unowned self] in
-            print("Note Button is working")
+            self.delegate.setRowView(self, didTapNoteButtonForSet: self.set)
         }).addDisposableTo(db)
     }
     

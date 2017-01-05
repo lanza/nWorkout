@@ -15,7 +15,8 @@ class SettingsTVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewInfos$.value = ((UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all)
+        viewInfos$.value = ViewInfo.all
+//        viewInfos$.value = ((UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all)
         hideCompletionUntilFailTappedSwitch.isOn = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
 
         setupRx()

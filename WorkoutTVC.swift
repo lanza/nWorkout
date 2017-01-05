@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
+import CustomIOSAlertView
 
 protocol WorkoutTVCDelegate: class {
     func hideTapped(for workoutTVC: WorkoutTVC)
@@ -15,6 +16,7 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     
     override func setDataSource() {
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout, activeOrFinished: activeOrFinished)
+        dataSource.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +72,12 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     //    }
 }
 
+extension WorkoutTVC: WorkoutDataSourceDelegate {
+    func setRowView(_ setRowView: SetRowView, didTapeNoteButtonForSet set: Set) {
+        let a = CustomIOSAlertView()
+        a?.show()
+    }
+}
 
 
 

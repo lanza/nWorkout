@@ -3,6 +3,10 @@ import ChartView
 import RxSwift
 import RxCocoa
 
+protocol LiftCellDelegate: class {
+    func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set)
+}
+
 
 extension LiftCell: ChartViewDelegate {
     func chartView(_ chartView: ChartView, commit editingStyle: ChartView.EditingStyle, forRowAt index: Int) {
@@ -14,7 +18,15 @@ extension LiftCell: ChartViewDelegate {
     }
 }
 
+extension LiftCell: SetRowViewDelegate {
+    func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set) {
+        self.delegate.setRowView(setRowView, didTapNoteButtonForSet: set)
+    }
+}
+
 class LiftCell: ChartViewCell {
+    
+    weak var delegate: LiftCellDelegate!
     
     weak var lift: Lift!
     
@@ -87,6 +99,7 @@ extension LiftCell: ConfigurableCell {
         
         chartView.configurationClosure = { (index,rowView) in
             let rowView = rowView as! SetRowView
+            rowView.delegate = self
             let set = object.object(at: index)
             rowView.set = set
             
