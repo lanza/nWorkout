@@ -9,7 +9,7 @@ class Set: Base {
     dynamic var completedReps = 0
     
     var isComplete: Bool { return weight == completedWeight && reps == completedReps }
-    var didFail: Bool { return (completedReps > 0 && completedReps < reps) ||  (completedReps != 0 && completedWeight != 0 && !isComplete) }
+    var didFail: Bool { return (completedReps > 0 && completedReps < reps) ||  (completedReps != 0 && completedWeight != 0 && !isComplete) || (completedWeight > 0 && completedReps == 0) }
     
     static func new(isWorkout: Bool, isWarmup: Bool, weight: Double, reps: Int, completedWeight: Double, completedReps: Int) -> Set {
         let set = Set()
