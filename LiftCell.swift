@@ -37,6 +37,7 @@ class LiftCell: ChartViewCell {
     var repsTextFields: [UITextField?] { return rowViews.map { $0.targetRepsTextField } }
     
     let label = UILabel()
+    let noteButton = NoteButton()
     let addSetButton = UIButton(type: .roundedRect)
     
     func setupTopContentView() {
@@ -44,10 +45,18 @@ class LiftCell: ChartViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         topContentView.addSubview(label)
         
+        noteButton.translatesAutoresizingMaskIntoConstraints = false
+        topContentView.addSubview(noteButton)
+        
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topContentView.topAnchor),
             label.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
-            label.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
+//            label.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor),
+            
+            noteButton.topAnchor.constraint(equalTo: topContentView.topAnchor),
+            noteButton.rightAnchor.constraint(equalTo: topContentView.rightAnchor),
+            noteButton.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
+            
         ])
     }
     func setupBottomContentView() {
