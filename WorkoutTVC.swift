@@ -70,26 +70,36 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")
     //    }
+    
+    func customIOS7dialogButtonTouchUp(inside alertView: Any!, clickedButtonAt buttonIndex: Int) {
+        let av = alertView as! CustomIOSAlertView
+        if let nv = av.containerView as? NoteView<Set> {
+            RLM.write {
+                nv.type.note = nv.textView.text
+            }
+        }
+        av.close()
+    }
 }
 
 extension WorkoutTVC: WorkoutDataSourceDelegate {
     func setRowView(_ setRowView: SetRowView, didTapeNoteButtonForSet set: Set) {
         let a = CustomIOSAlertView()
-        a?.containerView = NoteView.new(for: .set)
+        a?.containerView = NoteView.new(for: set)
+        a?.delegate = self
         a?.show()
     }
 }
 
-class NoteView: UIView {
-    enum NoteFor {
-        case set
-        case lift
-        case workout
-    }
-    var noteFor: NoteFor!
-    static func new(for noteFor: NoteFor) -> NoteView {
+extension WorkoutTVC: CustomIOSAlertViewDelegate { }
+
+
+class NoteView<Type: Base>: UIView {
+    var type: Type!
+    static func new(for type: Type) -> NoteView {
         let n = NoteView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
-        n.noteFor = noteFor
+        n.type = type
+        n.textView.text = n.type.note
         n.setupViews()
         return n
     }
