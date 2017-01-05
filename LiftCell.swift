@@ -93,6 +93,7 @@ extension LiftCell: ConfigurableCell {
             if let snl = rowView.setNumberLabel {
                 snl.text = String(index + 1)
             }
+            
             if let twtf = rowView.targetWeightTextField {
                 var weight: String
                 if set.weight.remainder(dividingBy: 1) == 0 {
@@ -105,14 +106,9 @@ extension LiftCell: ConfigurableCell {
             if let trtf = rowView.targetRepsTextField {
                 trtf.text = String(set.reps)
             }
+            
             if let cwtf = rowView.completedWeightTextField {
-                var weight: String
-                if set.completedWeight.remainder(dividingBy: 1) == 0 {
-                    weight = String(Int(set.completedWeight))
-                } else {
-                    weight = String(set.completedWeight)
-                }
-                cwtf.text = weight
+                cwtf.setNumber(double: set.completedWeight)
             }
             if let crtf = rowView.completedRepsTextField {
                 crtf.setNumber(int: set.completedReps)
@@ -126,15 +122,15 @@ extension LiftCell: ConfigurableCell {
             }
             
             if let cb = rowView.completeButton {
-                cb.setComplete(set.weight == set.completedWeight && set.reps == set.completedReps)
+                cb.setComplete(set.isComplete)
             }
             
             if let fb = rowView.failButton {
-                fb.setFail(set.completedReps > 0 && set.completedReps < set.reps && set.completedWeight > 0)                
+                fb.setFail(set.completedReps > 0 && set.completedReps < set.reps && set.completedWeight > 0)
             }
             
             if let cv = rowView.combinedView {
-                if set.weight == set.completedWeight && set.reps == set.completedReps {
+                if set.isComplete {
                     cv.completeButton.isHidden = false
                     cv.completedWeightTextField.isHidden = true
                     cv.completedRepsTextField.isHidden = true

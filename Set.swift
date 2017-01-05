@@ -8,6 +8,8 @@ class Set: Base {
     dynamic var completedWeight: Double = 0
     dynamic var completedReps = 0
     
+    var isComplete: Bool { return weight == completedWeight && reps == completedReps }
+    
     static func new(isWorkout: Bool, isWarmup: Bool, weight: Double, reps: Int, completedWeight: Double, completedReps: Int) -> Set {
         let set = Set()
         

@@ -48,9 +48,9 @@ class SetRowView: RowView {
         didSet {
             failButton?.setFail(didFail)
             completeButton?.setHide(didFail)
-            completeButton?.setComplete(didFail)
             
             if didFail {
+                completeButton?.setComplete(false)
                 completedWeightTextField?.setNumber(double: set.failureWeight())
                 RLM.write {
                     set.completedWeight = set.failureWeight()
