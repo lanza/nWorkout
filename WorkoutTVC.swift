@@ -75,7 +75,36 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
 extension WorkoutTVC: WorkoutDataSourceDelegate {
     func setRowView(_ setRowView: SetRowView, didTapeNoteButtonForSet set: Set) {
         let a = CustomIOSAlertView()
+        a?.containerView = NoteView.new(for: .set)
         a?.show()
+    }
+}
+
+class NoteView: UIView {
+    enum NoteFor {
+        case set
+        case lift
+        case workout
+    }
+    var noteFor: NoteFor!
+    static func new(for noteFor: NoteFor) -> NoteView {
+        let n = NoteView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
+        n.noteFor = noteFor
+        n.setupViews()
+        return n
+    }
+    let textView = UITextView()
+    
+    func setupViews() {
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(textView)
+        
+        NSLayoutConstraint.activate([
+            textView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            textView.leftAnchor.constraint(equalTo: leftAnchor, constant: 4),
+            textView.rightAnchor.constraint(equalTo: rightAnchor, constant: -4),
+            textView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
+            ])
     }
 }
 
