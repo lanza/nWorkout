@@ -46,7 +46,7 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
         
         let realm = try! Realm()
         let objects = Array(realm.objects(Workout.self).filter("isWorkout = false"))
-        print(objects.count)
+        
         tableView.register(SelectWorkoutCell.self)
         
         Observable.just(objects).bindTo(tableView.rx.items(cellIdentifier: SelectWorkoutCell.reuseIdentifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
@@ -57,8 +57,7 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
             self.delegate.selectWorkoutVC(self, selectedRoutine: routine)
         }).addDisposableTo(db)
         
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
+        tableView.tableFooterView = UIView()
     }
     
     override func viewDidLoad() {
@@ -75,10 +74,16 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
         navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
             self.delegate.cancelSelected(for: self)
         }).addDisposableTo(db)
+        
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        
+        tableView.reloadData()
     }
-
+    
     let db = DisposeBag()
-
+    
+    
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")
     }
