@@ -29,4 +29,8 @@ struct ViewInfo: Equatable {
             ViewInfo(name: Lets.noteButtonKey, width: 8, isOn: true)
         ]
     }
+    
+    static var saved: [ViewInfo] {
+        return (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all
+    }
 }

@@ -44,19 +44,21 @@ class SetRowView: RowView {
         configColumnWidthPercentages()
         configOtherSettings()
     }
-    let viewInfos = (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all
+    let viewInfos = ViewInfo.saved
     var selectedColumnViewTypes: [String]!
     var selectedColumnViewWidths: [CGFloat]!
+    
+    func setupSelectedColumnViewTypesAndWidth() {
+        selectedColumnViewTypes = viewInfos.filter { $0.isOn }.map { $0.name }
+        selectedColumnViewWidths = viewInfos.filter { $0.isOn }.map { $0.width }
+    }
+    
     func configColumnViewTypes() {
         columnViewTypes = selectedColumnViewTypes.map { dict[$0]! }
     }
     func configColumnWidthPercentages() {
         let sum = selectedColumnViewWidths.reduce(0, +)
         columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
-    }
-    func setupSelectedColumnViewTypesAndWidth() {
-        selectedColumnViewTypes = viewInfos.filter { $0.isOn }.map { $0.name }
-        selectedColumnViewWidths = viewInfos.filter { $0.isOn }.map { $0.width }
     }
     func configOtherSettings() {
         usesCombinedView = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
@@ -77,7 +79,7 @@ class SetRowView: RowView {
         self.completedWeightTextField?.setNumber(double: self.didFail ? self.set.failureWeight() : 0 )
         self.completedRepsTextField?.setNumber(int: 0)
         
-        if combinedView != nil {
+        if usesCombinedView {
             completedWeightTextField?.isHidden = !didFail
             completedRepsTextField?.isHidden = !didFail
             completeButton?.setHide(didFail)
