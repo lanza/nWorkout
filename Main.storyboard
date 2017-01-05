@@ -73,7 +73,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WBu-eO-XIe">
                                 <rect key="frame" x="255" y="111" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Should completed weight/reps be hidden unless the fail button was tapped?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="PyA-VK-OIp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Hide completed reps/weight until the fail button was tapped?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="PyA-VK-OIp">
                                 <rect key="frame" x="16" y="72" width="231" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="Q2u-Vb-DZJ"/>
@@ -82,9 +82,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Something else" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbA-SX-1NB">
-                                <rect key="frame" x="16" y="111" width="231" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Something else" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbA-SX-1NB">
+                                <rect key="frame" x="16" y="117" width="231" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -94,8 +93,10 @@
                         <constraints>
                             <constraint firstItem="Mms-3a-8id" firstAttribute="trailing" secondItem="7ib-29-Ujd" secondAttribute="trailingMargin" id="5wP-Lp-Gfe"/>
                             <constraint firstItem="WBu-eO-XIe" firstAttribute="top" secondItem="Mms-3a-8id" secondAttribute="bottom" constant="8" id="6CG-H9-aYu"/>
+                            <constraint firstItem="WBu-eO-XIe" firstAttribute="leading" secondItem="bbA-SX-1NB" secondAttribute="trailing" constant="8" id="7Z3-TA-q1F"/>
                             <constraint firstAttribute="trailing" secondItem="jnf-We-bkT" secondAttribute="trailing" id="AU9-Ez-Kkc"/>
                             <constraint firstItem="WBu-eO-XIe" firstAttribute="trailing" secondItem="7ib-29-Ujd" secondAttribute="trailingMargin" id="Dt2-Pf-bNg"/>
+                            <constraint firstItem="bbA-SX-1NB" firstAttribute="leading" secondItem="7ib-29-Ujd" secondAttribute="leadingMargin" id="Ey7-y0-gLV"/>
                             <constraint firstItem="PyA-VK-OIp" firstAttribute="top" secondItem="L3Z-Jd-23e" secondAttribute="bottom" constant="52" id="GEa-cJ-Qlm"/>
                             <constraint firstItem="jnf-We-bkT" firstAttribute="top" secondItem="iUO-gA-B7r" secondAttribute="bottom" id="MM3-K4-EZa"/>
                             <constraint firstItem="PyA-VK-OIp" firstAttribute="leading" secondItem="7ib-29-Ujd" secondAttribute="leadingMargin" id="N2U-Gx-me9"/>
@@ -104,6 +105,7 @@
                             <constraint firstItem="jnf-We-bkT" firstAttribute="top" secondItem="L3Z-Jd-23e" secondAttribute="bottom" constant="159" id="Wd1-Bl-Bxr"/>
                             <constraint firstItem="Mms-3a-8id" firstAttribute="top" secondItem="L3Z-Jd-23e" secondAttribute="bottom" constant="52" id="Wpr-X2-ehW"/>
                             <constraint firstItem="jnf-We-bkT" firstAttribute="leading" secondItem="7ib-29-Ujd" secondAttribute="leading" id="eha-nU-BFs"/>
+                            <constraint firstItem="bbA-SX-1NB" firstAttribute="top" secondItem="PyA-VK-OIp" secondAttribute="bottom" constant="3" id="f5U-u1-sep"/>
                             <constraint firstItem="iUO-gA-B7r" firstAttribute="leading" secondItem="7ib-29-Ujd" secondAttribute="leadingMargin" id="lZw-1J-vNW"/>
                             <constraint firstItem="kCw-zQ-Pia" firstAttribute="top" secondItem="jnf-We-bkT" secondAttribute="bottom" id="oih-o8-UFX"/>
                         </constraints>
@@ -116,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8v-M5-NZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="774"/>
+            <point key="canvasLocation" x="605.625" y="773.23943661971828"/>
         </scene>
     </scenes>
 </document>

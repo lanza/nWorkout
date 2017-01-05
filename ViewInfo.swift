@@ -31,6 +31,11 @@ struct ViewInfo: Equatable {
     }
    
     static var usesCombinedView: Bool = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
+    static func setUsesCombinedView(_ bool: Bool) {
+        UserDefaults.standard.set(bool, forKey: Lets.combineFailAndCompletedWeightAndRepsKey)
+    }
+    
+    
     static var saved: [ViewInfo] {
         return (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all
     }

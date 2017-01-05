@@ -16,7 +16,7 @@ class SettingsTVC: UIViewController {
         super.viewDidLoad()
 
         viewInfos$.value = ViewInfo.saved
-        hideCompletionUntilFailTappedSwitch.isOn = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
+        hideCompletionUntilFailTappedSwitch.isOn = ViewInfo.usesCombinedView
 
         setupRx()
 
@@ -33,7 +33,9 @@ class SettingsTVC: UIViewController {
     func setupRx() {
         
         hideCompletionUntilFailTappedSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
-            UserDefaults.standard.set(self.hideCompletionUntilFailTappedSwitch.isOn, forKey: Lets.combineFailAndCompletedWeightAndRepsKey)
+            
+            ViewInfo.setUsesCombinedView(self.hideCompletionUntilFailTappedSwitch.isOn)
+            
             if self.hideCompletionUntilFailTappedSwitch.isOn {
             
                 let cwIndex = self.viewInfos$.value.index { $0.name == Lets.completedWeightKey }!
