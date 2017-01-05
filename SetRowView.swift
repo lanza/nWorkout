@@ -29,8 +29,8 @@ class SetRowView: RowView {
                 didSetDidFail()
                 isComplete = set.isComplete
                 didSetIsComplete()
+                noteButton?.update(for: set)
             }
-            noteButton?.update(for: set)
         }
     }
     
