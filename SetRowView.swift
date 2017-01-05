@@ -77,8 +77,10 @@ class SetRowView: RowView {
     var isComplete = false
     func didSetIsComplete() {
         completeButton?.setComplete(isComplete)
-        failButton?.setFail(false)
-        didFail = false
+        if isComplete {
+            failButton?.setFail(false)
+            didFail = false
+        }
         
         self.completedWeightTextField?.setNumber(double: self.didFail ? self.set.failureWeight() : 0 )
         self.completedRepsTextField?.setNumber(int: 0)
@@ -93,7 +95,9 @@ class SetRowView: RowView {
                 self.set.completedWeight = self.didFail ? self.set.failureWeight() : 0
                 self.set.completedReps = 0
             }
-            
+            if self.didFail {
+                self.completedRepsTextField?.becomeFirstResponder()
+            }
         }).addDisposableTo(db)
         completeButton?.rx.tap.subscribe(onNext: { [unowned self] in
             self.isComplete = !self.isComplete
