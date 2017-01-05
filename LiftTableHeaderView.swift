@@ -9,18 +9,11 @@ class LiftTableHeaderView: RowView {
         return l
     }
     var viewInfos = ViewInfo.saved
-    
-    
-    var setNumberLabel: UILabel!
-    var previousWorkoutLabel: UILabel!
-    var targetWeightLabel: UILabel!
-    var targetRepsLabel: UILabel!
-    var completedWeightLabel: UILabel!
-    var completedRepsLabel: UILabel!
-    var doneButtonLabel: UILabel!
-    var failButtonLabel: UILabel!
-    var noteButtonLabel: UILabel!
-    var combinedLabel: UILabel!
+  
+    override func getColumnView(columnNumber: Int) -> UIView {
+        let text = dict[order[columnNumber]]!
+        return LiftTableHeaderLabel.create(text: text)
+    }
     
     let dict = [Lets.setNumberKey:"Set",
                 Lets.previousWorkoutKey:"Previous",
@@ -31,21 +24,13 @@ class LiftTableHeaderView: RowView {
                 Lets.doneButtonKey:"Status",
                 Lets.failButtonKey:"Fail",
                 Lets.noteButtonKey:"Note"
-    ]
-    
-    
+    ] 
     var order: [String]!
     
     func setupViews() {
         order = viewInfos.map { $0.name }
         
-        for key in order {
-            let l = LiftTableHeaderLabel.create(text: dict[key]!)
-            addSubview(l)
-            l.translatesAutoresizingMaskIntoConstraints = false
-            
-            
-        }
+        setupColumns()
     }
 }
 
