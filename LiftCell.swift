@@ -31,6 +31,7 @@ class LiftCell: ChartViewCell {
     
     weak var lift: Lift! {
         didSet {
+            noteButton.update(for: lift)
             noteButton.rx.tap.subscribe(onNext: {
                 self.delegate.liftCell(self, didTapNoteButtonForLift: self.lift)
             }).addDisposableTo(db)
