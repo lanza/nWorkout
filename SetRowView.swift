@@ -42,7 +42,6 @@ class SetRowView: RowView {
         setupSelectedColumnViewTypesAndWidth()
         configColumnViewTypes()
         configColumnWidthPercentages()
-        configOtherSettings()
     }
     let viewInfos = ViewInfo.saved
     var selectedColumnViewTypes: [String]!
@@ -58,14 +57,9 @@ class SetRowView: RowView {
     }
     func configColumnWidthPercentages() {
         let sum = selectedColumnViewWidths.reduce(0, +)
-        columnWidthPercentages = selectedColumnViewWidths.map { ($0 * 100) / sum }
+        columnWidths = selectedColumnViewWidths.map { ($0 * 100) / sum }
     }
-    func configOtherSettings() {
-        usesCombinedView = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
-    }
-    var usesCombinedView = false
-    
-    
+    let usesCombinedView = ViewInfo.usesCombinedView
     
     var didFail = false
     func didSetDidFail() {

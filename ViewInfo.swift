@@ -15,7 +15,7 @@ struct ViewInfo: Equatable {
         return [name,width,isOn]
     }
     
-    static var all: [ViewInfo] {
+    private static var all: [ViewInfo] {
         return [
             ViewInfo(name: Lets.setNumberKey, width: 10, isOn: true),
             ViewInfo(name: Lets.previousWorkoutKey, width: 25, isOn: true),
@@ -29,7 +29,8 @@ struct ViewInfo: Equatable {
             ViewInfo(name: Lets.noteButtonKey, width: 8, isOn: true)
         ]
     }
-    
+   
+    static var usesCombinedView: Bool = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
     static var saved: [ViewInfo] {
         return (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all
     }
