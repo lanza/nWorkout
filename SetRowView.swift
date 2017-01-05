@@ -16,10 +16,12 @@ class SetRowView: RowView {
     
     var set: (nWorkout.Set)! {
         didSet {
-            didFail = set.didFail
-            didSetDidFail()
-            isComplete = set.isComplete
-            didSetIsComplete()
+            if let set = set {
+                didFail = set.didFail
+                didSetDidFail()
+                isComplete = set.isComplete
+                didSetIsComplete()
+            }
         }
     }
     
@@ -57,7 +59,7 @@ class SetRowView: RowView {
     var didFail = false
     func didSetDidFail() {
         failButton?.setFail(didFail)
-
+        
         
         if didFail {
             isComplete = false
