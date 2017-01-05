@@ -48,11 +48,13 @@ class SetRowView: RowView {
         didSet {
             failButton?.setFail(didFail)
             completeButton?.setHide(didFail)
+            completeButton?.setComplete(didFail)
             
             if didFail {
                 completedWeightTextField?.setNumber(double: set.failureWeight())
                 RLM.write {
                     set.completedWeight = set.failureWeight()
+                    set.completedReps = 0
                 }
                 completedRepsTextField?.becomeFirstResponder()
             }
