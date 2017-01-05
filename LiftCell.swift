@@ -11,11 +11,7 @@ protocol LiftCellDelegate: class {
 
 extension LiftCell: ChartViewDelegate {
     func chartView(_ chartView: ChartView, commit editingStyle: ChartView.EditingStyle, forRowAt index: Int) {
-        RLM.write {
-            let set = lift.sets[index]
-            lift.sets.remove(objectAtIndex: index)
-            RLM.realm.delete(set)
-        }
+        lift.remove(at: index)
     }
 }
 

@@ -49,7 +49,7 @@ class ActiveWorkoutCoordinator: Coordinator {
         }
         workoutTVC.didCancelWorkout = {
             RLM.write {
-                RLM.realm.delete(self.workout)
+                self.workout.deleteSelf()
             }
             self.workoutIsNotActive()
             self.navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
