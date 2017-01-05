@@ -27,6 +27,7 @@
 		B34BA0581DC1CC33006B6A51 /* Lets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0571DC1CC33006B6A51 /* Lets.swift */; };
 		B34BA05A1DC1CC4B006B6A51 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0591DC1CC4B006B6A51 /* Workout.swift */; };
 		B34BA05C1DC1CCED006B6A51 /* Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA05B1DC1CCED006B6A51 /* Lift.swift */; };
+		B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */; };
 		B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B356FBC21DC09C160006A0F0 /* AppDelegate.swift */; };
 		B356FBCD1DC09C160006A0F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B356FBCB1DC09C160006A0F0 /* LaunchScreen.storyboard */; };
 		B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */; };
@@ -108,6 +109,7 @@
 		B34BA0571DC1CC33006B6A51 /* Lets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lets.swift; sourceTree = "<group>"; };
 		B34BA0591DC1CC4B006B6A51 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		B34BA05B1DC1CCED006B6A51 /* Lift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lift.swift; sourceTree = "<group>"; };
+		B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
 		B356FBBF1DC09C160006A0F0 /* nWorkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nWorkout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B356FBC21DC09C160006A0F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = nWorkout/AppDelegate.swift; sourceTree = "<group>"; };
 		B356FBCC1DC09C160006A0F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				B36059341E1C3EDF00EBE620 /* WeightAndRepsLabel.swift */,
 				B36059381E1C3F0700EBE620 /* CompleteButton.swift */,
 				B36059361E1C3EF600EBE620 /* FailButton.swift */,
+				B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */,
 			);
 			name = "View types";
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				B3780EED1DD5A5480087CEC1 /* UIStoryboard&ViewControllerFromStoryboard.swift in Sources */,
 				B36059351E1C3EDF00EBE620 /* WeightAndRepsLabel.swift in Sources */,
 				B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */,
+				B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */,
 				B3BB31881DDAA19C0015F9B0 /* RoutineCoordinator.swift in Sources */,
 				B3FCCD2C1E171D2E003EF14E /* UIStackView+Extensions.swift in Sources */,
 				B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */,

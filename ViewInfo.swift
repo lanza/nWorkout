@@ -24,7 +24,9 @@ struct ViewInfo: Equatable {
             ViewInfo(name: Lets.completedWeightKey, width: 20, isOn: true),
             ViewInfo(name: Lets.completedRepsKey, width: 20, isOn: true),
             ViewInfo(name: Lets.doneButtonKey, width: 20, isOn: true),
-            ViewInfo(name: Lets.failButtonKey, width: 20, isOn: true)
+            ViewInfo(name: Lets.failButtonKey, width: 8, isOn: true),
+            
+            ViewInfo(name: Lets.noteButtonKey, width: 8, isOn: true)
         ]
     }
 }

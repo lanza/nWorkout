@@ -37,6 +37,7 @@ struct Lets {
     static let workout = "Workout"
     static let routine = "Routine"
     static let new = "New"
+    static let noteButtonText = "Note"
     
     static let done = "Done"
     static let cancel = "Cancel"
@@ -59,7 +60,7 @@ struct Lets {
     static let failButtonKey = "Fail Button"
     
     static let timerKey = "Timer"
-    static let noteKey = "Note"
+    static let noteButtonKey = "Note"
     
     static let doneButtonCompletedWeightCompletedRepsKey = "Done Button/Completed Weight/Completed Reps"
     static let combineFailAndCompletedWeightAndRepsKey = "CombineFailAndCompletedWeightAndReps"

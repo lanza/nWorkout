@@ -108,6 +108,9 @@ class SetRowView: RowView {
                 self.set.completedReps = self.isComplete ? self.set.reps : 0
             }
         }).addDisposableTo(db)
+        noteButton?.rx.tap.subscribe(onNext: { [unowned self] in
+            print("Note Button is working")
+        }).addDisposableTo(db)
     }
     
     let dict: [String:UIView.Type] = [
@@ -118,12 +121,11 @@ class SetRowView: RowView {
         Lets.completedWeightKey:CompletedWeightAndRepsTextField.self,
         Lets.completedRepsKey:CompletedWeightAndRepsTextField.self,
         "Timer":UILabel.self,
-        "Note":UIButton.self,
+        Lets.noteButtonKey:NoteButton.self,
         Lets.doneButtonKey:CompleteButton.self,
         Lets.failButtonKey:FailButton.self,
         Lets.doneButtonCompletedWeightCompletedRepsKey:CombinedView.self
     ]
-    
     
     
     var combinedView: CombinedView? {
@@ -181,6 +183,11 @@ class SetRowView: RowView {
         guard let index = selectedColumnViewTypes.index(of: Lets.failButtonKey) else { return nil }
         guard let fb = columnViews[index] as? FailButton else { fatalError() }
         return fb
+    }
+    var noteButton: NoteButton? {
+        guard let index = selectedColumnViewTypes.index(of: Lets.noteButtonKey) else { return nil }
+        guard let nb = columnViews[index] as? NoteButton else { fatalError() }
+        return nb
     }
     var db: DisposeBag!
 }
