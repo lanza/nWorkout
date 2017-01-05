@@ -126,13 +126,11 @@ extension LiftCell: ConfigurableCell {
             }
             
             if let cb = rowView.completeButton {
-                if set.weight == set.completedWeight, set.reps == set.completedReps {
-                    cb.setTitle(Lets.done)
-                }
+                cb.setComplete(set.weight == set.completedWeight && set.reps == set.completedReps)
             }
             
-            if set.completedReps > 0 && set.completedReps < set.reps, set.completedWeight > 0, let fb = rowView.failButton {
-                fb.setTitleColor(.red)
+            if let fb = rowView.failButton {
+                fb.setFail(set.completedReps > 0 && set.completedReps < set.reps && set.completedWeight > 0)                
             }
             
             if let cv = rowView.combinedView {

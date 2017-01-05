@@ -7,4 +7,6 @@ class CompletedWeightAndRepsTextField: WeightAndRepsTextField {
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
+
+
 }

@@ -46,17 +46,18 @@ class SetRowView: RowView {
     var usesCombinedView = false
     var didFail = false {
         didSet {
-            failButton?.setTitleColor(didFail ? .red : .black)
+            failButton?.setFail(didFail)
+            completeButton?.setHide(didFail)
+            
             if didFail {
-                completeButton?.setTitle("")
                 completedWeightTextField?.setNumber(double: set.failureWeight())
                 RLM.write {
                     set.completedWeight = set.failureWeight()
                 }
                 completedRepsTextField?.becomeFirstResponder()
             }
+
             if combinedView != nil {
-                completeButton?.isHidden = didFail
                 completedWeightTextField?.isHidden = !didFail
                 completedRepsTextField?.isHidden = !didFail
             }
@@ -64,7 +65,8 @@ class SetRowView: RowView {
     }
     var isComplete = false {
         didSet {
-            completeButton?.setTitle(isComplete ? Lets.done : "")
+            completeButton?.setComplete(isComplete)
+            
             didFail = false
             
             if combinedView != nil {
