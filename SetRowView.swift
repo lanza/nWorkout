@@ -30,6 +30,7 @@ class SetRowView: RowView {
                 isComplete = set.isComplete
                 didSetIsComplete()
             }
+            noteButton?.update(for: set)
         }
     }
     

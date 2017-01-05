@@ -73,26 +73,28 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
     //    }
     func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set) {
         let a = CustomIOSAlertView()
-        a?.containerView = NoteView.new(for: set)
+        a?.containerView = NoteView.new(for: set, view: setRowView)
         a?.delegate = self
         a?.show()
     }
     func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: Lift) {
         let a = CustomIOSAlertView()
-        a?.containerView = NoteView.new(for: lift)
+        a?.containerView = NoteView.new(for: lift, view: liftCell)
         a?.delegate = self
         a?.show()
     }
     func customIOS7dialogButtonTouchUp(inside alertView: Any!, clickedButtonAt buttonIndex: Int) {
         let av = alertView as! CustomIOSAlertView
-        if let nv = av.containerView as? NoteView<Set> {
+        if let nv = av.containerView as? NoteView<Set,SetRowView> {
             RLM.write {
                 nv.type.note = nv.textView.text
             }
-        } else if let nv = av.containerView as? NoteView<Lift> {
+            nv.view.noteButton?.update(for: nv.type)
+        } else if let nv = av.containerView as? NoteView<Lift,LiftCell> {
             RLM.write {
                 nv.type.note = nv.textView.text
             }
+            nv.view.noteButton.update(for: nv.type)
         }
         av.close()
     }
