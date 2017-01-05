@@ -2,8 +2,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
+import CustomIOSAlertView
 
-class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
+class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
     
     var dataSource: WorkoutDataSource<Cell>!
     var workout: Workout!
@@ -29,7 +30,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
         
         setDataSource()
         setEmptyDataSet()
-        
+        dataSource.delegate = self
         
         navigationItem.rightBarButtonItem = editButtonItem
         
@@ -70,5 +71,29 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")
     //    }
-    
+    func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set) {
+        let a = CustomIOSAlertView()
+        a?.containerView = NoteView.new(for: set)
+        a?.delegate = self
+        a?.show()
+    }
+    func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: Lift) {
+        let a = CustomIOSAlertView()
+        a?.containerView = NoteView.new(for: lift)
+        a?.delegate = self
+        a?.show()
+    }
+    func customIOS7dialogButtonTouchUp(inside alertView: Any!, clickedButtonAt buttonIndex: Int) {
+        let av = alertView as! CustomIOSAlertView
+        if let nv = av.containerView as? NoteView<Set> {
+            RLM.write {
+                nv.type.note = nv.textView.text
+            }
+        } else if let nv = av.containerView as? NoteView<Lift> {
+            RLM.write {
+                nv.type.note = nv.textView.text
+            }
+        }
+        av.close()
+    }
 }

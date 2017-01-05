@@ -5,6 +5,7 @@ import RxCocoa
 
 protocol LiftCellDelegate: class {
     func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set)
+    func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: Lift)
 }
 
 
@@ -28,8 +29,15 @@ class LiftCell: ChartViewCell {
     
     weak var delegate: LiftCellDelegate!
     
-    weak var lift: Lift!
+    weak var lift: Lift! {
+        didSet {
+            noteButton.rx.tap.subscribe(onNext: {
+                self.delegate.liftCell(self, didTapNoteButtonForLift: self.lift)
+            }).addDisposableTo(db)
+        }
+    }
     
+        
     var rowViews: [SetRowView] { return chartView.rowViews as! [SetRowView] }
     
     var setNumberLables: [UILabel?] { return rowViews.map { $0.setNumberLabel } }
@@ -56,8 +64,8 @@ class LiftCell: ChartViewCell {
             noteButton.topAnchor.constraint(equalTo: topContentView.topAnchor),
             noteButton.rightAnchor.constraint(equalTo: topContentView.rightAnchor),
             noteButton.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
-            
         ])
+        
     }
     func setupBottomContentView() {
         addSetButton.setTitle("Add Set...", for: UIControlState())

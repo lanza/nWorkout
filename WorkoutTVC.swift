@@ -2,7 +2,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
-import CustomIOSAlertView
 
 protocol WorkoutTVCDelegate: class {
     func hideTapped(for workoutTVC: WorkoutTVC)
@@ -16,7 +15,6 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     
     override func setDataSource() {
         dataSource = WorkoutDataSource(tableView: tableView, provider: workout, activeOrFinished: activeOrFinished)
-        dataSource.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,28 +68,8 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")
     //    }
-    
-    func customIOS7dialogButtonTouchUp(inside alertView: Any!, clickedButtonAt buttonIndex: Int) {
-        let av = alertView as! CustomIOSAlertView
-        if let nv = av.containerView as? NoteView<Set> {
-            RLM.write {
-                nv.type.note = nv.textView.text
-            }
-        }
-        av.close()
-    }
 }
 
-extension WorkoutTVC: WorkoutDataSourceDelegate {
-    func setRowView(_ setRowView: SetRowView, didTapeNoteButtonForSet set: Set) {
-        let a = CustomIOSAlertView()
-        a?.containerView = NoteView.new(for: set)
-        a?.delegate = self
-        a?.show()
-    }
-}
-
-extension WorkoutTVC: CustomIOSAlertViewDelegate { }
 
 
 class NoteView<Type: Base>: UIView {

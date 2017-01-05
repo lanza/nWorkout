@@ -2,7 +2,8 @@ import UIKit
 
 
 protocol WorkoutDataSourceDelegate: class {
-    func setRowView(_ setRowView: SetRowView, didTapeNoteButtonForSet set: Set)
+    func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set)
+    func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: Lift)
 }
 
 class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
@@ -100,7 +101,10 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: Co
 
 extension WorkoutDataSource: LiftCellDelegate {
     func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set) {
-        delegate.setRowView(setRowView, didTapeNoteButtonForSet: set)
+        delegate.setRowView(setRowView, didTapNoteButtonForSet: set)
+    }
+    func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: Lift) {
+        delegate.liftCell(liftCell, didTapNoteButtonForLift: lift)
     }
 }
 
