@@ -18,7 +18,8 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
     var startBlankWorkoutButton = StartBlankWorkoutButton.create()
     
     override func loadView() {
-        view = UIView()
+        automaticallyAdjustsScrollViewInsets = false
+        view = UIView(frame: AppDelegate.main.window!.frame)
         view.backgroundColor = .white
     }
     
@@ -32,17 +33,18 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
             startBlankWorkoutButton.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
             startBlankWorkoutButton.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
             startBlankWorkoutButton.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor),
-            startBlankWorkoutButton.heightAnchor.constraint(equalToConstant: 60),
             tableView.topAnchor.constraint(equalTo: startBlankWorkoutButton.bottomAnchor, constant: 8),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
-        
     }
     
     func setupTableView() {
         tableView.isScrollEnabled = false
+        
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         
         let realm = try! Realm()
         let objects = Array(realm.objects(Workout.self).filter("isWorkout = false"))
@@ -57,13 +59,12 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
             self.delegate.selectWorkoutVC(self, selectedRoutine: routine)
         }).addDisposableTo(db)
         
-        tableView.tableFooterView = UIView()
+//        tableView.tableFooterView = UIView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        automaticallyAdjustsScrollViewInsets = false
         setupView()
         setupTableView()
         
@@ -74,9 +75,10 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
         navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
             self.delegate.cancelSelected(for: self)
         }).addDisposableTo(db)
-        
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         tableView.reloadData()
     }
