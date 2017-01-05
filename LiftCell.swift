@@ -34,7 +34,6 @@ class LiftCell: ChartViewCell {
         }
     }
     
-        
     var rowViews: [SetRowView] { return chartView.rowViews as! [SetRowView] }
     
     var setNumberLables: [UILabel?] { return rowViews.map { $0.setNumberLabel } }
@@ -45,6 +44,8 @@ class LiftCell: ChartViewCell {
     let noteButton = NoteButton()
     let addSetButton = UIButton(type: .roundedRect)
     
+    let header = LiftTableHeaderView.create()
+    
     func setupTopContentView() {
         label.text = "Hi muffin"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,14 +54,20 @@ class LiftCell: ChartViewCell {
         noteButton.translatesAutoresizingMaskIntoConstraints = false
         topContentView.addSubview(noteButton)
         
+        header.translatesAutoresizingMaskIntoConstraints = false
+        topContentView.addSubview(header)
+        
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topContentView.topAnchor),
             label.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
-//            label.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor),
             
             noteButton.topAnchor.constraint(equalTo: topContentView.topAnchor),
             noteButton.rightAnchor.constraint(equalTo: topContentView.rightAnchor),
-            noteButton.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
+            
+            header.bottomAnchor.constraint(equalTo: topContentView.topAnchor),
+            header.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
+            header.rightAnchor.constraint(equalTo: topContentView.rightAnchor),
+            header.topAnchor.constraint(equalTo: noteButton.bottomAnchor, constant: 4)
         ])
         
     }

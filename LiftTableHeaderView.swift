@@ -24,11 +24,12 @@ class LiftTableHeaderView: RowView {
                 Lets.doneButtonKey:"Status",
                 Lets.failButtonKey:"Fail",
                 Lets.noteButtonKey:"Note"
-    ] 
+    ]
     var order: [String]!
     
     func setupViews() {
         order = viewInfos.map { $0.name }
+        columnWidths = viewInfos.map { $0.width }
         
         setupColumns()
     }
