@@ -45,7 +45,9 @@ class SettingsTVC: UIViewController {
                 
             } else {
                 
-                let cIndex = self.viewInfos$.value.index { $0.name == Lets.doneButtonCompletedWeightCompletedRepsKey }!
+                let value = self.viewInfos$.value
+                let cIndex = value.index { $0.name == Lets.doneButtonCompletedWeightCompletedRepsKey }!
+            
                 self.viewInfos$.value[cIndex].name = Lets.completedWeightKey
                 self.viewInfos$.value.append(contentsOf: [ViewInfo(name: Lets.completedRepsKey, width: 20, isOn: true), ViewInfo(name: Lets.doneButtonKey, width: 20, isOn: true)])
             }
