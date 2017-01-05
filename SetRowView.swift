@@ -199,4 +199,5 @@ class SetRowView: RowView {
         return nb
     }
     var db: DisposeBag!
+    var textFieldDB: DisposeBag!
 }
