@@ -14,7 +14,14 @@ class SetRowView: RowView {
         setupButtons()
     }
     
-    var set: (nWorkout.Set)!
+    var set: (nWorkout.Set)! {
+        didSet {
+            didFail = set.didFail
+            didSetDidFail()
+            isComplete = set.isComplete
+            didSetIsComplete()
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
@@ -44,51 +51,59 @@ class SetRowView: RowView {
         usesCombinedView = UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false
     }
     var usesCombinedView = false
-    var didFail = false {
-        didSet {
-            failButton?.setFail(didFail)
-            completeButton?.setHide(didFail)
-            
-            if didFail {
-                completeButton?.setComplete(false)
-                completedWeightTextField?.setNumber(double: set.failureWeight())
-                RLM.write {
-                    set.completedWeight = set.failureWeight()
-                    set.completedReps = 0
-                }
-                completedRepsTextField?.becomeFirstResponder()
-            }
+    
+    
+    
+    var didFail = false
+    func didSetDidFail() {
+        failButton?.setFail(didFail)
 
-            if combinedView != nil {
-                completedWeightTextField?.isHidden = !didFail
-                completedRepsTextField?.isHidden = !didFail
+        
+        if didFail {
+            isComplete = false
+            completeButton?.setComplete(false)
+            
+            completedWeightTextField?.setNumber(double: set.failureWeight())
+            RLM.write {
+                set.completedWeight = set.failureWeight()
+                set.completedReps = 0
+            }
+            completedRepsTextField?.becomeFirstResponder()
+        } else {
+            completedWeightTextField?.setNumber(int: 0)
+            completedRepsTextField?.setNumber(int: 0)
+            RLM.write {
+                set.completedWeight = 0
+                set.completedReps = 0
             }
         }
+        
+        if combinedView != nil {
+            completedWeightTextField?.isHidden = !didFail
+            completedRepsTextField?.isHidden = !didFail
+            completeButton?.setHide(didFail)
+        }
     }
-    var isComplete = false {
-        didSet {
-            completeButton?.setComplete(isComplete)
-            
-            didFail = false
-            
-            if combinedView != nil {
-                completedWeightTextField?.isHidden = true
-                completedRepsTextField?.isHidden = true
-            }
-            
-            RLM.write {
-                set.completedWeight = isComplete ? set.weight : 0
-                set.completedReps = isComplete ? set.reps : 0
-            }
+    var isComplete = false
+    func didSetIsComplete() {
+        completeButton?.setComplete(isComplete)
+        failButton?.setFail(false)
+        didFail = false
+        
+        RLM.write {
+            set.completedWeight = isComplete ? set.weight : 0
+            set.completedReps = isComplete ? set.reps : 0
         }
     }
     
     func setupButtons() {
         failButton?.rx.tap.subscribe(onNext: { [unowned self] in
             self.didFail = !self.didFail
+            self.didSetDidFail()
         }).addDisposableTo(db)
         completeButton?.rx.tap.subscribe(onNext: { [unowned self] in
             self.isComplete = !self.isComplete
+            self.didSetIsComplete()
         }).addDisposableTo(db)
     }
     

@@ -119,31 +119,7 @@ extension LiftCell: ConfigurableCell {
                 } else {
                     pl.text = Lets.noPreviousSet
                 }
-            }
-            
-            if let cb = rowView.completeButton {
-                cb.setComplete(set.isComplete)
-            }
-            
-            if let fb = rowView.failButton {
-                fb.setFail(set.completedReps > 0 && set.completedReps < set.reps && set.completedWeight > 0)
-            }
-            
-            if let cv = rowView.combinedView {
-                if set.isComplete {
-                    cv.completeButton.isHidden = false
-                    cv.completedWeightTextField.isHidden = true
-                    cv.completedRepsTextField.isHidden = true
-                } else if set.completedWeight == 0 && set.completedReps == 0 {
-                    cv.completeButton.isHidden = false
-                    cv.completedWeightTextField.isHidden = true
-                    cv.completedRepsTextField.isHidden = true
-                } else {
-                    cv.completeButton.isHidden = true
-                    cv.completedWeightTextField.isHidden = false
-                    cv.completedRepsTextField.isHidden = false
-                }
-            }
+            }            
         }
         
         chartView.setup()
