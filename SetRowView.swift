@@ -59,26 +59,14 @@ class SetRowView: RowView {
     var didFail = false
     func didSetDidFail() {
         failButton?.setFail(didFail)
-        
-        
+
         if didFail {
             isComplete = false
             completeButton?.setComplete(false)
-            
-            completedWeightTextField?.setNumber(double: set.failureWeight())
-            RLM.write {
-                set.completedWeight = set.failureWeight()
-                set.completedReps = 0
-            }
-            completedRepsTextField?.becomeFirstResponder()
-        } else {
-            completedWeightTextField?.setNumber(int: 0)
-            completedRepsTextField?.setNumber(int: 0)
-            RLM.write {
-                set.completedWeight = 0
-                set.completedReps = 0
-            }
         }
+        
+        self.completedWeightTextField?.setNumber(double: self.didFail ? self.set.failureWeight() : 0 )
+        self.completedRepsTextField?.setNumber(int: 0)
         
         if combinedView != nil {
             completedWeightTextField?.isHidden = !didFail
@@ -92,20 +80,29 @@ class SetRowView: RowView {
         failButton?.setFail(false)
         didFail = false
         
-        RLM.write {
-            set.completedWeight = isComplete ? set.weight : 0
-            set.completedReps = isComplete ? set.reps : 0
-        }
+        self.completedWeightTextField?.setNumber(double: self.didFail ? self.set.failureWeight() : 0 )
+        self.completedRepsTextField?.setNumber(int: 0)
     }
     
     func setupButtons() {
         failButton?.rx.tap.subscribe(onNext: { [unowned self] in
             self.didFail = !self.didFail
             self.didSetDidFail()
+            
+            RLM.write {
+                self.set.completedWeight = self.didFail ? self.set.failureWeight() : 0
+                self.set.completedReps = 0
+            }
+            
         }).addDisposableTo(db)
         completeButton?.rx.tap.subscribe(onNext: { [unowned self] in
             self.isComplete = !self.isComplete
             self.didSetIsComplete()
+            
+            RLM.write {
+                self.set.completedWeight = self.isComplete ? self.set.weight : 0
+                self.set.completedReps = self.isComplete ? self.set.reps : 0
+            }
         }).addDisposableTo(db)
     }
     
