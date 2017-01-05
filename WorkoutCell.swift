@@ -43,6 +43,8 @@ class WorkoutCell: ChartViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        chartView.isUserInteractionEnabled = false
+        
         setupTopContentView()
         setupBottomContentView()
         setupChartView()

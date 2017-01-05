@@ -10,7 +10,7 @@ protocol SelectWorkoutDelegate: class {
     func selectWorkoutVC(_ selectWorkoutVC: SelectWorkoutVC, selectedRoutine routine: Workout)
 }
 
-class SelectWorkoutVC: UIViewController {
+class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     weak var delegate: SelectWorkoutDelegate!
     
@@ -46,6 +46,7 @@ class SelectWorkoutVC: UIViewController {
         
         let realm = try! Realm()
         let objects = Array(realm.objects(Workout.self).filter("isWorkout = false"))
+        print(objects.count)
         tableView.register(SelectWorkoutCell.self)
         
         Observable.just(objects).bindTo(tableView.rx.items(cellIdentifier: SelectWorkoutCell.reuseIdentifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
@@ -77,9 +78,7 @@ class SelectWorkoutVC: UIViewController {
     }
 
     let db = DisposeBag()
-}
 
-extension SelectWorkoutVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")
     }
