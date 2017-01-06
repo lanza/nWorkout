@@ -19,6 +19,8 @@ class LiftTypeTVC: BaseTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Add Lift"
+        
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
