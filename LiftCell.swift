@@ -44,7 +44,11 @@ class LiftCell: ChartViewCell {
     let noteButton = NoteButton()
     let addSetButton = UIButton(type: .roundedRect)
     
-    let header = LiftTableHeaderView.create()
+    var header: LiftTableHeaderView!
+    
+    func setHeader() {
+        header = LiftTableHeaderView.create()
+    }
     
     func setupTopContentView() {
         label.text = "Hi muffin"
@@ -90,6 +94,7 @@ class LiftCell: ChartViewCell {
     }
     func setupChartView() {
         chartView.delegate = self
+        chartView.emptyText = nil
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

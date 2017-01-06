@@ -3,7 +3,11 @@ import ChartView
 
 class LiftTableHeaderView: UIView {
    
-    let liftTableHeaderRowView = LiftTableHeaderRowView.create()
+    var liftTableHeaderRowView: LiftTableHeaderRowView!
+    
+    func setRowView() {
+        liftTableHeaderRowView = LiftTableHeaderRowView.create()
+    }
     
     static func create() -> LiftTableHeaderView {
         let l = LiftTableHeaderView()
@@ -23,6 +27,26 @@ class LiftTableHeaderView: UIView {
             liftTableHeaderRowView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -1)
             ])
     }
+}
+
+class RoutineLiftTableHeaderView: LiftTableHeaderView {
+   
+    override func setRowView() {
+        liftTableHeaderRowView = RoutineLiftTableHeaderRowView.create()
+    }
+    
+}
+
+class RoutineLiftTableHeaderRowView: LiftTableHeaderRowView {
+    override func setupViews() {
+        let i = ViewInfo.routineColumnViewInfo
+        order = i.map { $0.0 }
+        columnWidths = i.map { $0.1 }
+        columnViewTypes = i.map { _ in UILabel.self }
+        
+        setupColumns()
+    }
+    
 }
 
 

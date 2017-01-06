@@ -6,6 +6,10 @@ class RoutineLiftCell: LiftCell {
         chartView.register(RoutineSetRowView.self, forResuseIdentifier: "row")
     }
     
+    override func setHeader() {
+        header = RoutineLiftTableHeaderView.create()
+    }
+    
     override func configure(for object: Lift, at indexPath: IndexPath) {
         super.configure(for: object, at: indexPath)
     }

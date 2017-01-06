@@ -41,6 +41,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
                 if self.dataSource.provider.numberOfItems() == 1 {
                     self.tableView.reloadData()
                 }
+                self.delegate!.routinesTVC(self, didSelectRoutine: routine)
             })
             alert.addAction(UIAlertAction(title: Lets.cancel, style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)

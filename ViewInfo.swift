@@ -35,9 +35,9 @@ struct ViewInfo: Equatable {
     static func setUsesCombinedView(_ bool: Bool) {
         UserDefaults.standard.set(bool, forKey: Lets.combineFailAndCompletedWeightAndRepsKey)
     }
-    
-    
     static var saved: [ViewInfo] {
         return (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all
     }
+    
+    static var routineColumnViewInfo: [(String,CGFloat)] { return [(Lets.setNumberKey,10),(Lets.targetWeightKey,45),(Lets.targetRepsKey,45)] }
 }

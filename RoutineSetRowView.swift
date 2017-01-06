@@ -2,7 +2,8 @@ import Foundation
 
 class RoutineSetRowView: SetRowView {
     override func setupSelectedColumnViewTypesAndWidth() {
-        selectedColumnViewTypes = [Lets.setNumberKey,Lets.targetWeightKey,Lets.targetRepsKey]
-        selectedColumnViewWidths = [10,45,45]
+        let i = ViewInfo.routineColumnViewInfo
+        selectedColumnViewTypes = i.map { $0.0 }
+        selectedColumnViewWidths = i.map { $0.1 }
     }
 }

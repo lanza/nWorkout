@@ -38,7 +38,9 @@ class WorkoutCell: ChartViewCell {
             ])
     }
     func setupBottomContentView() {    }
-    func setupChartView() {}
+    func setupChartView() {
+        chartView.emptyText = "This workout is empty"
+    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
