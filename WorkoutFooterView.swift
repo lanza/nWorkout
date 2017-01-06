@@ -32,8 +32,8 @@ class WorkoutFooterView: UIView {
         NSLayoutConstraint.activate([
             view.stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
             view.stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8),
-            view.stackView.topAnchor.constraint(equalTo: view.topAnchor),
-            view.stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            view.stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            view.stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
         ])
         
         return view
