@@ -47,7 +47,7 @@ class LiftCell: ChartViewCell {
     var header: LiftTableHeaderView!
     
     func setHeader() {
-        header = LiftTableHeaderView.create()
+        header = LiftTableHeaderView()
     }
     
     func setupTopContentView() {

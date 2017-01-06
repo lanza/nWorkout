@@ -5,20 +5,16 @@ class LiftTableHeaderView: UIView {
    
     var liftTableHeaderRowView: LiftTableHeaderRowView!
     
-    func setRowView() {
-        liftTableHeaderRowView = LiftTableHeaderRowView.create()
+    init() {
+        super.init(frame: .zero)
+        backgroundColor = .darkGray
+        setupViews()
+        liftTableHeaderRowView = LiftTableHeaderRowView()
     }
     
-    static func create() -> LiftTableHeaderView {
-        let l = LiftTableHeaderView()
-        l.backgroundColor = .darkGray
-        l.setupViews()
-        return l
-    }
-    
+    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     func setupViews() {
-        setRowView()
         addSubview(liftTableHeaderRowView)
         liftTableHeaderRowView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -31,10 +27,15 @@ class LiftTableHeaderView: UIView {
 }
 
 class RoutineLiftTableHeaderView: LiftTableHeaderView {
-   
-    override func setRowView() {
-        liftTableHeaderRowView = RoutineLiftTableHeaderRowView.create()
+    override init() {
+        super.init()
+        liftTableHeaderRowView = RoutineLiftTableHeaderRowView()
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+   
     
 }
 
@@ -53,12 +54,17 @@ class RoutineLiftTableHeaderRowView: LiftTableHeaderRowView {
 
 class LiftTableHeaderRowView: RowView {
     
-    static func create() -> LiftTableHeaderRowView {
-        let l = LiftTableHeaderRowView()
-        l.backgroundColor = .darkGray
-        l.setupViews()
-        return l
+    required init() {
+        super.init()
+        
+        backgroundColor = .darkGray
+        setupViews()
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var viewInfos = ViewInfo.saved
   
     override func getColumnView(columnNumber: Int) -> UIView {
