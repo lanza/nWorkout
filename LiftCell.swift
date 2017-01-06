@@ -64,10 +64,11 @@ class LiftCell: ChartViewCell {
             noteButton.topAnchor.constraint(equalTo: topContentView.topAnchor),
             noteButton.rightAnchor.constraint(equalTo: topContentView.rightAnchor),
             
-            header.bottomAnchor.constraint(equalTo: topContentView.topAnchor),
+            header.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor),
             header.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
             header.rightAnchor.constraint(equalTo: topContentView.rightAnchor),
-            header.topAnchor.constraint(equalTo: noteButton.bottomAnchor, constant: 4)
+            header.heightAnchor.constraint(equalToConstant: 18),
+            header.topAnchor.constraint(equalTo: noteButton.bottomAnchor, constant: -4)
         ])
         
     }
