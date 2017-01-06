@@ -18,6 +18,7 @@ class LiftTableHeaderView: UIView {
     
     
     func setupViews() {
+        setRowView()
         addSubview(liftTableHeaderRowView)
         liftTableHeaderRowView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

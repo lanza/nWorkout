@@ -57,7 +57,8 @@ class LiftCell: ChartViewCell {
         
         noteButton.translatesAutoresizingMaskIntoConstraints = false
         topContentView.addSubview(noteButton)
-        
+       
+        setHeader()
         header.translatesAutoresizingMaskIntoConstraints = false
         topContentView.addSubview(header)
         
