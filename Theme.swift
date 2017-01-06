@@ -34,12 +34,14 @@ struct Theme {
         static let light = #colorLiteral(red: 0.9568895725, green: 0.9568895725, blue: 0.9568895725, alpha: 1)
         static let lighter = #colorLiteral(red: 0.9568895725, green: 0.9568895725, blue: 0.9568895725, alpha: 1)
         
+        
         struct Button {
             static let title = Colors.main
         }
         
         struct Table {
             static let background = Colors.light
+            static let secondaryBackground = Colors.lighter
         }
         struct Nav {
             static let barTint = Colors.dark

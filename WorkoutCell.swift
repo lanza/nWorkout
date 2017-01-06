@@ -49,7 +49,7 @@ class WorkoutCell: ChartViewCell {
         setupBottomContentView()
         setupChartView()
         
-        backgroundColor = Theme.Colors.light
+        backgroundColor = Theme.Colors.Table.secondaryBackground
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
