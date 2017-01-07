@@ -8,7 +8,11 @@ class LiftTableHeaderView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .darkGray
+        setRV()
         setupViews()
+    }
+    
+    func setRV() {
         liftTableHeaderRowView = LiftTableHeaderRowView()
     }
     
@@ -27,16 +31,9 @@ class LiftTableHeaderView: UIView {
 }
 
 class RoutineLiftTableHeaderView: LiftTableHeaderView {
-    override init() {
-        super.init()
+    override func setRV() {
         liftTableHeaderRowView = RoutineLiftTableHeaderRowView()
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-   
-    
 }
 
 class RoutineLiftTableHeaderRowView: LiftTableHeaderRowView {
