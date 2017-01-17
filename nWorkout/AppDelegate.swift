@@ -4,17 +4,21 @@ import CoordinatorKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    override init() {
+        super.init()
+        
+        AppDelegate.main = self
+    }
+    
     static var main: AppDelegate!
     var window: UIWindow?
     
     let mainCoordinator = MainCoordinator()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        AppDelegate.main = self
         window = UIWindow()
-        mainCoordinator.willNavigateToViewController(false)
-        defer { mainCoordinator.didNavigateToViewController(false) }
-        window?.setRootCoordinator(mainCoordinator)
+        
+        window?.rootCoordinator = mainCoordinator
         window?.makeKeyAndVisible()
         return true
     }
