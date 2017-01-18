@@ -1,23 +1,24 @@
 {
   "name": "CoordinatorKit",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "summary": "A framework that implements the coordinator pattern in a fashion similar to how UIViewControllers work.",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/nathanlanza/CoordinatorKit",
   "platforms": {
     "ios": "9.0"
   },
   "source": {
     "git": "https://github.com/nathanlanza/CoordinatorKit.git",
-    "tag": "0.0.4"
+    "tag": "0.0.5"
   },
   "frameworks": "UIKit",
-  "license": {
-    "type": "MIT",
-    "file": "LICENSE"
-  },
   "authors": {
     "Nathan Lanza": "nathan@lanza.io"
   },
   "social_media_url": "https://twitter.com/nlanzaio",
-  "source_files": "CoordinatorKit/Classes/**/*"
+  "source_files": "Source/*.swift"
 }

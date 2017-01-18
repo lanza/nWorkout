@@ -45,12 +45,12 @@ class ActiveWorkoutCoordinator: Coordinator {
                 }
             }
             self.workoutIsNotActive()
-            self.navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
+            self.navigationCoordinator?.parent?.dismiss(animated: true)
         }
         workoutTVC.didCancelWorkout = {
             self.workout.deleteSelf()
             self.workoutIsNotActive()
-            self.navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
+            self.navigationCoordinator?.parent?.dismiss(animated: true)
         }
     }
     

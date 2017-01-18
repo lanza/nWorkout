@@ -36,13 +36,13 @@ class WorkoutCoordinator: Coordinator {
                     UserDefaults.standard.set(string, forKey: "last" + lift.name)
                 }
             }
-            self.navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
+            self.navigationCoordinator?.parent?.dismiss(animated: true)
         }
         workoutTVC.didCancelWorkout = {
             RLM.write {
                 self.workout.deleteSelf()
             }
-            self.navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
+            self.navigationCoordinator?.parent?.dismiss(animated: true)
         }
     }
     

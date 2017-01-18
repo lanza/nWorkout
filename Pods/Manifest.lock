@@ -3,7 +3,7 @@ PODS:
     - Charts/Core (= 3.0.0)
   - Charts/Core (3.0.0)
   - ChartView (0.0.1)
-  - CoordinatorKit (0.0.4)
+  - CoordinatorKit (0.0.5)
   - CustomIOSAlertView (0.9.5)
   - DZNEmptyDataSet (1.8.1)
   - Realm (2.0.2):
@@ -28,15 +28,15 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ChartView:
     :branch: master
-    :path: ~/Documents/ChartView
+    :path: "~/Documents/ChartView"
   CoordinatorKit:
     :branch: master
-    :path: ~/Documents/CoordinatorKit
+    :path: "~/Documents/CoordinatorKit"
 
 SPEC CHECKSUMS:
   Charts: beb341928d2135613b4325a6c6aff9f2f6de895e
   ChartView: 39f9d2c61765ca3f00136bf498afb54111f9e0f7
-  CoordinatorKit: 9329d20b4bc418bf07067ec015f8198f9fab4aca
+  CoordinatorKit: c4566ceba2063a5a3f2b861eb2646787f5ab5dd9
   CustomIOSAlertView: cc4fa8e36219be3fd5ebcd40789f5b4aaae0f38e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a

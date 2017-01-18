@@ -20,7 +20,7 @@ class SelectWorkoutCoordinator: Coordinator {
 
 extension SelectWorkoutCoordinator: SelectWorkoutDelegate {
     func cancelSelected(for selectWorkoutVC: SelectWorkoutVC) {
-        navigationCoordinator?.parentCoordinator?.dismiss(animated: true)
+        navigationCoordinator?.parent?.dismiss(animated: true)
     }
     func startBlankWorkoutSelected(for selectWorkoutVC: SelectWorkoutVC) {
         let awc = delegate.selectWorkoutCoordinator(self, didSelectRoutine: nil)
