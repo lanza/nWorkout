@@ -24,12 +24,8 @@ class MainCoordinator: TabBarCoordinator {
             displayActiveWorkout()
         }
     }
-   
-    override func viewControllerDidLoad() {
-        super.viewControllerDidLoad()
-        delegate = self
-        Theme.do()
-        
+    
+    func createCoordinators() {
         let wc = WorkoutsCoordinator()
         let wcNav = NavigationCoordinator(rootCoordinator: wc)
         wcNav.tabBarItem.image = #imageLiteral(resourceName: "workout")
@@ -54,13 +50,29 @@ class MainCoordinator: TabBarCoordinator {
         secNav.tabBarItem.title = Lets.settings
         sec.navigationItem.title = Lets.settings
         
-        let coordinators = [wcNav,rcNav,dummy,stcNav,secNav]
+        let coordinators = [wcNav,rcNav,stcNav,secNav]
         self.coordinators = coordinators
+        
+        
         
         let itemWidth = tabBarController.tabBar.frame.width / CGFloat(tabBarController.tabBar.items!.count)
         let backgroundView = UIView(frame: CGRect(x: itemWidth * 2, y: 0, width: itemWidth, height: tabBarController.tabBar.frame.height))
         backgroundView.backgroundColor = Theme.Colors.main
-        tabBarController.tabBar.insertSubview(backgroundView, at: 0)        
+        tabBarController.tabBar.insertSubview(backgroundView, at: 0)
+    }
+    
+    
+    func addDummyCoordinator(for coordinator: Coordinator, at index: Int) {
+       print("hi")
+    }
+   
+    override func viewControllerDidLoad() {
+        super.viewControllerDidLoad()
+        
+        delegate = self
+        Theme.do()
+    
+        createCoordinators()
     }
     override func didNavigateToViewController(_ animated: Bool) {
         super.didNavigateToViewController(animated)
