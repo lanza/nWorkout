@@ -9,6 +9,7 @@ target 'nWorkout' do
   pod 'RxSwift', '3.0'
   pod 'RxCocoa', '3.0'
   pod 'RealmSwift'
+  pod 'RxRealm'
 
   pod 'CoordinatorKit', :path => '~/Documents/CoordinatorKit', :branch => 'master'
   pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master'

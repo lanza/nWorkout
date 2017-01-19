@@ -14,6 +14,9 @@ PODS:
     - Realm (= 2.0.2)
   - RxCocoa (3.0.0):
     - RxSwift (~> 3.0)
+  - RxRealm (0.4.0):
+    - RealmSwift (~> 2.0)
+    - RxSwift (~> 3.0.0)
   - RxSwift (3.0.0)
 
 DEPENDENCIES:
@@ -25,6 +28,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - RealmSwift
   - RxCocoa (= 3.0)
+  - RxRealm
   - RxSwift (= 3.0)
 
 EXTERNAL SOURCES:
@@ -45,8 +49,9 @@ SPEC CHECKSUMS:
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
   RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
+  RxRealm: 6c1052b72118ed6929115801c38f90f0c962f2cf
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
 
-PODFILE CHECKSUM: 9d27365f8b145e291862f2f5ca346766bd843caf
+PODFILE CHECKSUM: eaad07920af54ca3fe860d1315d90df8b42f5c89
 
 COCOAPODS: 1.1.1
