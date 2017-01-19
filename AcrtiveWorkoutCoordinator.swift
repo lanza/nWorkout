@@ -59,6 +59,11 @@ class ActiveWorkoutCoordinator: Coordinator {
 }
 
 extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
+    func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC) {
+        let wdc = WorkoutDetailCoordinator(workout: workoutTVC.workout)
+        show(wdc, sender: self)
+    }
+
     func hideTapped(for workoutTVC: WorkoutTVC) {
         self.delegate.hideTapped(for: self)
     }

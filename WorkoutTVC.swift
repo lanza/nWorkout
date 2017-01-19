@@ -5,6 +5,7 @@ import DZNEmptyDataSet
 
 protocol WorkoutTVCDelegate: class {
     func hideTapped(for workoutTVC: WorkoutTVC)
+    func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC)
 }
 
 class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
@@ -67,6 +68,10 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
         present(a, animated: true)
     }
     var didFinishWorkout: (() -> ())!
+    
+    override func workoutDetailTapped() {
+        delegate.showWorkoutDetailTapped(for: self)
+    }
 }
 
 

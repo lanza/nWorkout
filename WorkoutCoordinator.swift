@@ -10,6 +10,7 @@ class WorkoutCoordinator: Coordinator {
     
     override func loadViewController() {
         viewController = WorkoutTVC()
+        workoutTVC.delegate = self
         workoutTVC.workout = workout
         
         workoutTVC.didTapAddNewLift = {
@@ -49,12 +50,14 @@ class WorkoutCoordinator: Coordinator {
     let db = DisposeBag()
 }
 
-class WorkoutDetailCoordinator: Coordinator {
-    
+extension WorkoutCoordinator: WorkoutTVCDelegate {
+    func hideTapped(for workoutTVC: WorkoutTVC) {} // active only
+    func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC) {
+        let wdc = WorkoutDetailCoordinator(workout: workoutTVC.workout)
+        show(wdc, sender: self)
+    }
 }
 
-class WorkoutDetailVC: UIViewController {
-    
-}
+
 
 
