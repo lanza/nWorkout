@@ -50,6 +50,7 @@ class WorkoutFooterView: UIView {
             view.stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
         ])
         
+        view.setupRx()
         return view
     }
     
