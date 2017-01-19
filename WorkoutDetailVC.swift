@@ -17,12 +17,17 @@ class WorkoutDetailVC: UIViewController {
         view.backgroundColor = .white
         
         setupViews()
-        setupWorkout()
+        setupDateTextFields()
     }
     
-    func setupWorkout() {
+    let df: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .long
+        df.timeStyle = .long
+        return df
+    }()
+    
+    func setupDateTextFields() {
         startDateLabel.text = df.string(from: workout.startDate)
         if let finish = workout.finishDate {
             finishDateLabel.text = df.string(from: finish)
@@ -31,18 +36,30 @@ class WorkoutDetailVC: UIViewController {
     
     
     let stackView = UIStackView(axis: .vertical, spacing: 8, distribution: .fillEqually)
-    let startDateLabel = UILabel()
-    let finishDateLabel = UILabel()
+    let startDateLabel = UITextField()
+    let finishDateLabel = UITextField()
     
-    let thingie = UIDatePicker()
+    let startDatePicker = UIDatePicker()
+    let finishDatePicker = UIDatePicker()
     
     func setupViews() {
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.addArrangedSubview(startDateLabel)
+        startDateLabel.inputView = startDatePicker
         stackView.addArrangedSubview(finishDateLabel)
-        stackView.addArrangedSubview(thingie)
+        finishDateLabel.inputView = finishDatePicker
+        
+        startDatePicker.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
+            self.workout.startDate = self.startDatePicker.date
+            self.setupDateTextFields()
+        }).addDisposableTo(db)
+        
+        finishDatePicker.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
+            self.workout.finishDate = self.finishDatePicker.date
+            self.setupDateTextFields()
+        }).addDisposableTo(db)
         
         NSLayoutConstraint.activate([
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
@@ -51,7 +68,7 @@ class WorkoutDetailVC: UIViewController {
             stackView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -80)
             ])
     }
-    
+    let db = DisposeBag()
 }
 
 
