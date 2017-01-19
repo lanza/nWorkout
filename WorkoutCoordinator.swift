@@ -49,11 +49,40 @@ class WorkoutCoordinator: Coordinator {
     let db = DisposeBag()
 }
 
+extension WorkoutCoordinator: WorkoutTVCDelegate {
+    func hideTapped(for workoutTVC: WorkoutTVC) {} // active only
+    func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC) {
+        let wdc = WorkoutDetailCoordinator(workout: workoutTVC.workout)
+        show(wdc, sender: self)
+    }
+}
+
 class WorkoutDetailCoordinator: Coordinator {
+    
+    let workout: Workout!
+    
+    var workoutDetailVC: WorkoutDetailVC { return viewController as! WorkoutDetailVC }
+    
+    init(workout: Workout) {
+        self.workout = workout
+        super.init()
+    }
+    override func loadViewController() {
+        viewController = WorkoutDetailVC(workout: workout)
+    }
     
 }
 
 class WorkoutDetailVC: UIViewController {
+    
+    let workout: Workout
+    
+    init(workout: Workout) {
+        self.workout = workout
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
     
 }
 
