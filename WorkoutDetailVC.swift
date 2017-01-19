@@ -22,6 +22,7 @@ class WorkoutDetailVC: UIViewController {
     
     func setupWorkout() {
         let df = DateFormatter()
+        df.dateStyle = .long
         startDateLabel.text = df.string(from: workout.startDate)
         if let finish = workout.finishDate {
             finishDateLabel.text = df.string(from: finish)
