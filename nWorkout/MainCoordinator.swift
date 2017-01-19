@@ -53,12 +53,7 @@ class MainCoordinator: TabBarCoordinator {
         let coordinators = [wcNav,rcNav,dummy,stcNav,secNav]
         self.coordinators = coordinators
         
-        
-        
-        let itemWidth = tabBarController.tabBar.frame.width / CGFloat(tabBarController.tabBar.items!.count)
-        let backgroundView = UIView(frame: CGRect(x: itemWidth * 2, y: 0, width: itemWidth, height: tabBarController.tabBar.frame.height))
-        backgroundView.backgroundColor = Theme.Colors.main
-        tabBarController.tabBar.insertSubview(backgroundView, at: 0)
+        colorButtons(colorsAndIndices: [(Theme.Colors.main,2)])
     }
     
    
