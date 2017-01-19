@@ -104,8 +104,9 @@ class StatisticsHistoryTVC: BaseTVC {
     func setupRx() {
         tableView.register(UITableViewCell.self)
         Observable.from(lifts).bindTo(tableView.rx.items(cellIdentifier: UITableViewCell.reuseIdentifier, cellType: UITableViewCell.self)) { index, item, cell in
-            
-            cell.textLabel?.text = String(describing:item.sets.count)
+           
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.text = String(describing: Array(item.sets.map { set in return (set.weight,set.reps) }))
             
         }.addDisposableTo(db)
     }
