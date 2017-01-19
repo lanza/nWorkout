@@ -50,7 +50,7 @@ class MainCoordinator: TabBarCoordinator {
         secNav.tabBarItem.title = Lets.settings
         sec.navigationItem.title = Lets.settings
         
-        let coordinators = [wcNav,rcNav,stcNav,secNav]
+        let coordinators = [wcNav,rcNav,dummy,stcNav,secNav]
         self.coordinators = coordinators
         
         
@@ -73,9 +73,6 @@ class MainCoordinator: TabBarCoordinator {
         Theme.do()
     
         createCoordinators()
-    }
-    override func didNavigateToViewController(_ animated: Bool) {
-        super.didNavigateToViewController(animated)
         
         checkForUnfinishedWorkout()
     }
