@@ -56,13 +56,19 @@ class WorkoutDetailVC: UIViewController {
         stackView.addArrangedSubview(finishDateLabel)
         finishDateLabel.inputView = finishDatePicker
         
-        startDatePicker.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
-            self.workout.startDate = self.startDatePicker.date
+        startDatePicker.rx.controlEvent(.valueChanged).subscribe(onNext: {
+            print("hi")
+            RLM.write {
+                self.workout.startDate = self.startDatePicker.date
+            }
+            
             self.startDateLabel.text = self.df.string(from: self.startDatePicker.date)
         }).addDisposableTo(db)
         
-        finishDatePicker.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
-            self.workout.finishDate = self.finishDatePicker.date
+        finishDatePicker.rx.controlEvent(.valueChanged).subscribe(onNext: {
+            RLM.write {
+                self.workout.finishDate = self.finishDatePicker.date
+            }
             self.finishDateLabel.text = self.df.string(from: self.finishDatePicker.date)
         }).addDisposableTo(db)
         
@@ -72,6 +78,12 @@ class WorkoutDetailVC: UIViewController {
             stackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 20),
             stackView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -80)
             ])
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        startDateLabel.resignFirstResponder()
+        finishDateLabel.resignFirstResponder()
+        super.viewWillDisappear(animated)
     }
     let db = DisposeBag()
 }
