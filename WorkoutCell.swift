@@ -46,7 +46,6 @@ class WorkoutCell: ChartViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        topContentView.backgroundColor = .lightGray
         
         chartView.isUserInteractionEnabled = false
         

@@ -5,6 +5,8 @@ import DZNEmptyDataSet
 
 class StatisticsTVC: BaseTVC {
     
+    weak var delegate: StatisticsTVCDelegate!
+    
     var pairs = Variable([(String,Int)]())
     
     override func viewWillAppear(_ animated: Bool) {
@@ -20,7 +22,7 @@ class StatisticsTVC: BaseTVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self)
+        tableView.register(StatisticsCell.self)
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
@@ -31,13 +33,34 @@ class StatisticsTVC: BaseTVC {
     func setupRx() {
         tableView.dataSource = nil
         tableView.delegate = nil
-        pairs.asObservable().bindTo(tableView.rx.items(cellIdentifier: UITableViewCell.reuseIdentifier, cellType: UITableViewCell.self)) { index, pair, cell in
+        pairs.asObservable().bindTo(tableView.rx.items(cellIdentifier: StatisticsCell.reuseIdentifier, cellType: StatisticsCell.self)) { index, pair, cell in
             cell.textLabel?.text = pair.0
-            cell.detailTextLabel?.text = "Done \(pair.1) times"
+            cell.detailTextLabel?.text = "\(pair.1)"
         }.addDisposableTo(db)
+        
+        tableView.rx.modelSelected((String,Int).self).subscribe(onNext: { item in
+            self.delegate.statisticsTVC(self, didSelectLiftType: item.0)
+        }).addDisposableTo(db)
     }
     let db = DisposeBag()
+}
 
+
+protocol StatisticsTVCDelegate: class {
+    func statisticsTVC(_ statisticsTVC: StatisticsTVC, didSelectLiftType liftType: String)
+}
+
+class StatisticsCell: UITableViewCell {
+  
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .value1, reuseIdentifier: StatisticsCell.reuseIdentifier)
+        
+        accessoryType = .disclosureIndicator
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+    
 }
 
 extension StatisticsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {

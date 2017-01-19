@@ -7,5 +7,14 @@ class StatisticsCoordinator: Coordinator {
     
     override func loadViewController() {
         viewController = StatisticsTVC()
+        statisticsTVC.delegate = self
     }
 }
+
+extension StatisticsCoordinator: StatisticsTVCDelegate {
+    func statisticsTVC(_ statisticsTVC: StatisticsTVC, didSelectLiftType liftType: String) {
+    }
+}
+
+
+//class ChartSelection    
