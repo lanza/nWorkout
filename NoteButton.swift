@@ -3,7 +3,7 @@ import UIKit
 class NoteButton: UIButton {
     init() {
         super.init(frame: CGRect.zero)
-        setTitle(Lets.noteButtonText)
+        setTitle(Lets.abbreviatedNoteButtonText)
         
         titleLabel?.numberOfLines = 1
         titleLabel?.minimumScaleFactor = 3/titleLabel!.font.pointSize

@@ -39,6 +39,7 @@ struct Lets {
     static let routine = "Routine"
     static let new = "New"
     static let noteButtonText = "Note"
+    static let abbreviatedNoteButtonText = "N"
     
     static let done = "Done"
     static let cancel = "Cancel"
@@ -48,7 +49,7 @@ struct Lets {
     static let newLift = "New Lift"
     static let noPreviousSet = "No previous set"
     
-    static let failButtonText = "Fail"
+    static let failButtonText = "F"
     
     //MARK: ViewInfo stuff
     static let setNumberKey = "Set Number"

@@ -120,7 +120,7 @@ class SetRowView: RowView {
     
     let dict: [String:UIView.Type] = [
         Lets.setNumberKey:SetNumberLabel.self,
-        Lets.previousWorkoutKey:WeightAndRepsLabel.self,
+        Lets.previousWorkoutKey:WeightAndRepsLabelHolder.self,
         Lets.targetWeightKey:WeightAndRepsTextField.self,
         Lets.targetRepsKey:WeightAndRepsTextField.self,
         Lets.completedWeightKey:CompletedWeightAndRepsTextField.self,
@@ -140,9 +140,9 @@ class SetRowView: RowView {
         return cv
     }
     
-    var previousLabel: WeightAndRepsLabel? {
+    var previousLabel: WeightAndRepsLabelHolder? {
         guard let index = selectedColumnViewTypes.index(of: Lets.previousWorkoutKey) else { return nil }
-        guard let pl = columnViews[index] as? WeightAndRepsLabel else { fatalError() }
+        guard let pl = columnViews[index] as? WeightAndRepsLabelHolder else { fatalError() }
         return pl
     }
     var setNumberLabel: SetNumberLabel? {
