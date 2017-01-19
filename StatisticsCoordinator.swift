@@ -13,6 +13,18 @@ class StatisticsCoordinator: Coordinator {
 
 extension StatisticsCoordinator: StatisticsTVCDelegate {
     func statisticsTVC(_ statisticsTVC: StatisticsTVC, didSelectLiftType liftType: String) {
+        let slsc = SingleLiftStatisticsCoordinator()
+        show(slsc, sender: self)
+    }
+}
+
+import CoordinatorKit
+import UIKit
+
+class SingleLiftStatisticsCoordinator: Coordinator {
+    let carbonStatisticsVC = CarbonStatisticsVC()
+    override func loadViewController() {
+        viewController = carbonStatisticsVC
     }
 }
 
@@ -23,12 +35,21 @@ import UIKit
 class CarbonStatisticsVC: UIViewController, CarbonTabSwipeNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         
         let items = ["one","two","three"]
         let c = CarbonTabSwipeNavigation(items: items, delegate: self)
+        
+        c.setTabBarHeight(44)
+       
+        c.setNormalColor(Theme.Colors.dark)
+        c.setSelectedColor(Theme.Colors.main)
+       
+        c.carbonSegmentedControl?.setWidth(view.frame.width / 3, forSegmentAt: 0)
+        c.carbonSegmentedControl?.setWidth(view.frame.width / 3, forSegmentAt: 1)
+        c.carbonSegmentedControl?.setWidth(view.frame.width / 3, forSegmentAt: 2)
+        
         c.insert(intoRootViewController: self)
-        
-        
     }
     
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
