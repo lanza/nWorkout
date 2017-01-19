@@ -17,4 +17,21 @@ extension StatisticsCoordinator: StatisticsTVCDelegate {
 }
 
 
-//class ChartSelection    
+import CarbonKit
+import UIKit
+
+class CarbonStatisticsVC: UIViewController, CarbonTabSwipeNavigationDelegate {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let items = ["one","two","three"]
+        let c = CarbonTabSwipeNavigation(items: items, delegate: self)
+        c.insert(intoRootViewController: self)
+        
+        
+    }
+    
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
+        return UIViewController()
+    }
+}
