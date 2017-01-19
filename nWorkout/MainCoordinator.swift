@@ -61,10 +61,6 @@ class MainCoordinator: TabBarCoordinator {
         tabBarController.tabBar.insertSubview(backgroundView, at: 0)
     }
     
-    
-    func addDummyCoordinator(for coordinator: Coordinator, at index: Int) {
-       print("hi")
-    }
    
     override func viewControllerDidLoad() {
         super.viewControllerDidLoad()
@@ -73,7 +69,6 @@ class MainCoordinator: TabBarCoordinator {
         Theme.do()
     
         createCoordinators()
-        
         checkForUnfinishedWorkout()
     }
     
