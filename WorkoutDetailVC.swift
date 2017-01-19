@@ -18,6 +18,11 @@ class WorkoutDetailVC: UIViewController {
         
         setupViews()
         setupDateTextFields()
+        
+        startDatePicker.date = workout.startDate
+        if let finish = workout.finishDate {
+            finishDatePicker.date = finish
+        }
     }
     
     let df: DateFormatter = {
