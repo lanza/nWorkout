@@ -17,11 +17,22 @@ class WorkoutDetailVC: UIViewController {
         view.backgroundColor = .white
         
         setupViews()
-        setupWorkout()
+        setupDateTextFields()
+        
+        startDatePicker.date = workout.startDate
+        if let finish = workout.finishDate {
+            finishDatePicker.date = finish
+        }
     }
     
-    func setupWorkout() {
+    let df: DateFormatter = {
         let df = DateFormatter()
+        df.dateStyle = .long
+        df.timeStyle = .long
+        return df
+    }()
+    
+    func setupDateTextFields() {
         startDateLabel.text = df.string(from: workout.startDate)
         if let finish = workout.finishDate {
             finishDateLabel.text = df.string(from: finish)
@@ -30,18 +41,36 @@ class WorkoutDetailVC: UIViewController {
     
     
     let stackView = UIStackView(axis: .vertical, spacing: 8, distribution: .fillEqually)
-    let startDateLabel = UILabel()
-    let finishDateLabel = UILabel()
+    let startDateLabel = UITextField()
+    let finishDateLabel = UITextField()
     
-    let thingie = UIDatePicker()
+    let startDatePicker = UIDatePicker()
+    let finishDatePicker = UIDatePicker()
     
     func setupViews() {
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.addArrangedSubview(startDateLabel)
+        startDateLabel.inputView = startDatePicker
         stackView.addArrangedSubview(finishDateLabel)
-        stackView.addArrangedSubview(thingie)
+        finishDateLabel.inputView = finishDatePicker
+        
+        startDatePicker.rx.controlEvent(.valueChanged).subscribe(onNext: {
+            print("hi")
+            RLM.write {
+                self.workout.startDate = self.startDatePicker.date
+            }
+            
+            self.startDateLabel.text = self.df.string(from: self.startDatePicker.date)
+        }).addDisposableTo(db)
+        
+        finishDatePicker.rx.controlEvent(.valueChanged).subscribe(onNext: {
+            RLM.write {
+                self.workout.finishDate = self.finishDatePicker.date
+            }
+            self.finishDateLabel.text = self.df.string(from: self.finishDatePicker.date)
+        }).addDisposableTo(db)
         
         NSLayoutConstraint.activate([
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
@@ -51,6 +80,12 @@ class WorkoutDetailVC: UIViewController {
             ])
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        startDateLabel.resignFirstResponder()
+        finishDateLabel.resignFirstResponder()
+        super.viewWillDisappear(animated)
+    }
+    let db = DisposeBag()
 }
 
 
