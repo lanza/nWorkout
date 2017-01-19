@@ -52,10 +52,20 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     //        return NSAttributedString(string: "This is the button title")
     //    }
     
-    override func cancelWorkoutTapped() { didCancelWorkout() }
+    override func cancelWorkoutTapped() {
+        let a = UIAlertController.confirmAction(title: "Cancel Workout?", message: "Are you sure you want to cancel this workout?") { _ in
+            self.didCancelWorkout()
+        }
+        present(a, animated: true)
+    }
     var didCancelWorkout: (() -> ())!
     
-    override func finishWorkoutTapped() { didFinishWorkout() }
+    override func finishWorkoutTapped() {
+        let a = UIAlertController.confirmAction(title: "Finish Workout?", message: "Are you sure you want to finish this workout?") { _ in
+            self.didFinishWorkout()
+        }
+        present(a, animated: true)
+    }
     var didFinishWorkout: (() -> ())!
 }
 
