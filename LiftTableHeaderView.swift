@@ -101,8 +101,8 @@ class LiftTableHeaderLabelHolder: UIView {
         l.addSubview(l.lthl)
         
         NSLayoutConstraint.activate([
-            l.lthl.leftAnchor.constraint(equalTo: l.leftAnchor, constant: 0.5),
-            l.lthl.rightAnchor.constraint(equalTo: l.rightAnchor, constant: -0.5),
+            l.lthl.leftAnchor.constraint(equalTo: l.leftAnchor, constant: 1),
+            l.lthl.rightAnchor.constraint(equalTo: l.rightAnchor, constant: -1),
             l.lthl.topAnchor.constraint(equalTo: l.topAnchor),
             l.lthl.bottomAnchor.constraint(equalTo: l.bottomAnchor)
             ])
@@ -118,7 +118,7 @@ class LiftTableHeaderLabel: UILabel {
         l.numberOfLines = 0
         l.baselineAdjustment = .alignCenters
         
-        l.setFontScaling(minimum: 3)
+        l.setFontScaling(minimum: 1)
         
         return l
     }

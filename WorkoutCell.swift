@@ -33,7 +33,8 @@ class WorkoutCell: ChartViewCell {
         
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topContentView.topAnchor),
-            label.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
+            label.leftAnchor.constraint(equalTo: topContentView.leftAnchor, constant: 4),
+            label.rightAnchor.constraint(equalTo: topContentView.rightAnchor, constant: -4),
             label.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor)
             ])
     }
