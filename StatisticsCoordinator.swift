@@ -37,7 +37,7 @@ class CarbonStatisticsVC: UIViewController, CarbonTabSwipeNavigationDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let items = ["one","two","three"]
+        let items = ["History","Charts","PR"]
         let c = CarbonTabSwipeNavigation(items: items, delegate: self)
         
         c.setTabBarHeight(44)
@@ -53,6 +53,26 @@ class CarbonStatisticsVC: UIViewController, CarbonTabSwipeNavigationDelegate {
     }
     
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
-        return UIViewController()
+        switch index {
+        case 0:
+            return StatisticsHistoryTVC()
+        case 1:
+            return StatisticsChartsTVC()
+        case 2:
+            return StatisticsPersonalRecordTVC()
+        default: fatalError()
+        }
     }
+}
+
+class StatisticsHistoryTVC: BaseTVC {
+    
+}
+
+class StatisticsChartsTVC: BaseTVC {
+    
+}
+
+class StatisticsPersonalRecordTVC: BaseTVC {
+    
 }

@@ -15,7 +15,6 @@
 		B31953A81E305F7900AC2687 /* WorkoutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A71E305F7900AC2687 /* WorkoutDetailVC.swift */; };
 		B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */; };
 		B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC651DDB02A1002F826C /* LiftCell.swift */; };
-		B31CEC681DDB0A8B002F826C /* StatisticsChartsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC671DDB0A8B002F826C /* StatisticsChartsVC.swift */; };
 		B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */; };
 		B31E9FBB1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */; };
 		B31E9FBD1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */; };
@@ -101,7 +100,6 @@
 		B31953A71E305F7900AC2687 /* WorkoutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailVC.swift; sourceTree = "<group>"; };
 		B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTypeTVC.swift; sourceTree = "<group>"; };
 		B31CEC651DDB02A1002F826C /* LiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
-		B31CEC671DDB0A8B002F826C /* StatisticsChartsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsChartsVC.swift; sourceTree = "<group>"; };
 		B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDataSource.swift; sourceTree = "<group>"; };
 		B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Removed - RoutinesDataSource.swift"; sourceTree = "<group>"; };
 		B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Removed - RoutineDataSource.swift"; sourceTree = "<group>"; };
@@ -356,7 +354,6 @@
 			children = (
 				B3BB318D1DDAA2360015F9B0 /* StatisticsCoordinator.swift */,
 				B328D8111DD6FA52000948ED /* StatisticsTVC.swift */,
-				B31CEC671DDB0A8B002F826C /* StatisticsChartsVC.swift */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";
@@ -643,7 +640,6 @@
 				B360593D1E1C4ACE00EBE620 /* SelectWorkoutCell.swift in Sources */,
 				B38208751DC2B1FA0008D6F8 /* BaseDataProvider.swift in Sources */,
 				B3780EF01DD5A7010087CEC1 /* DataSource.swift in Sources */,
-				B31CEC681DDB0A8B002F826C /* StatisticsChartsVC.swift in Sources */,
 				B36059411E1C4B5600EBE620 /* LiftTypeCoordinator.swift in Sources */,
 				B34BA0541DC1CC22006B6A51 /* UIResponder+FirstResponder.swift in Sources */,
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
