@@ -10,6 +10,7 @@ class WorkoutCoordinator: Coordinator {
     
     override func loadViewController() {
         viewController = WorkoutTVC()
+        workoutTVC.delegate = self
         workoutTVC.workout = workout
         
         workoutTVC.didTapAddNewLift = {
@@ -57,33 +58,6 @@ extension WorkoutCoordinator: WorkoutTVCDelegate {
     }
 }
 
-class WorkoutDetailCoordinator: Coordinator {
-    
-    let workout: Workout!
-    
-    var workoutDetailVC: WorkoutDetailVC { return viewController as! WorkoutDetailVC }
-    
-    init(workout: Workout) {
-        self.workout = workout
-        super.init()
-    }
-    override func loadViewController() {
-        viewController = WorkoutDetailVC(workout: workout)
-    }
-    
-}
 
-class WorkoutDetailVC: UIViewController {
-    
-    let workout: Workout
-    
-    init(workout: Workout) {
-        self.workout = workout
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) { fatalError() }
-    
-}
 
 
