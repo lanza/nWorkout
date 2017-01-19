@@ -14,5 +14,6 @@ target 'nWorkout' do
   pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master'
 
   pod 'Charts'
+  pod 'CarbonKit'
 
 end

@@ -58,6 +58,7 @@
 		B360594E1E1C96F700EBE620 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360594D1E1C96F700EBE620 /* UITextField+Extensions.swift */; };
 		B36059501E1CC71F00EBE620 /* BaseWorkoutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360594F1E1CC71F00EBE620 /* BaseWorkoutTVC.swift */; };
 		B36F37E81E0F7FF100667263 /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
+		B37043CF64DB4748C202690A /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0316A7BDDFEBFA05A44D61B /* Pods_nWorkout.framework */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
 		B3780EED1DD5A5480087CEC1 /* UIStoryboard&ViewControllerFromStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEC1DD5A5470087CEC1 /* UIStoryboard&ViewControllerFromStoryboard.swift */; };
@@ -177,8 +178,11 @@
 		B3FCCD361E172A9F003EF14E /* ActiveOrFinished.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveOrFinished.swift; sourceTree = "<group>"; };
 		B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLiftCell.swift; sourceTree = "<group>"; };
 		B3FCCD3A1E172B1A003EF14E /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		C0316A7BDDFEBFA05A44D61B /* Pods_nWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D148E4FD66FFC0CA971296DF /* Pods-nWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.release.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.release.xcconfig"; sourceTree = "<group>"; };
+		DF9D7EE963352210DA1EB68A /* Pods-nWorkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.debug.xcconfig"; sourceTree = "<group>"; };
 		E6B8E7FF219D372643F9F7E6 /* Pods_nWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6EDF271B2A321FB7D322EC2 /* Pods-nWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.release.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.release.xcconfig"; sourceTree = "<group>"; };
 		F5DF9B2951A07F3A468D8C66 /* Pods-nWorkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FD2BC34109241A918F41B15 /* Pods_nWorkout.framework in Frameworks */,
+				B37043CF64DB4748C202690A /* Pods_nWorkout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +206,15 @@
 			);
 			name = Frameworks;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		A9B15D8074999090717EB3C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF9D7EE963352210DA1EB68A /* Pods-nWorkout.debug.xcconfig */,
+				E6EDF271B2A321FB7D322EC2 /* Pods-nWorkout.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		B32887A31E03344100259D66 /* Settings & Statistics */ = {
@@ -227,6 +241,8 @@
 				B3D456C41DC1E48C008075D5 /* Model */,
 				B3FCCD271E171736003EF14E /* Views */,
 				B356FBC11DC09C160006A0F0 /* Other */,
+				A9B15D8074999090717EB3C6 /* Pods */,
+				B8B7C728420C1407EF47E387 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -479,6 +495,14 @@
 				B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */,
 			);
 			name = "Auxiliary Classes";
+			sourceTree = "<group>";
+		};
+		B8B7C728420C1407EF47E387 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0316A7BDDFEBFA05A44D61B /* Pods_nWorkout.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DBD3A75B04BA5C514F4A4D03 /* Pods */ = {
