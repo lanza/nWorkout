@@ -58,12 +58,12 @@ class WorkoutDetailVC: UIViewController {
         
         startDatePicker.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
             self.workout.startDate = self.startDatePicker.date
-            self.setupDateTextFields()
+            self.startDateLabel.text = self.df.string(from: self.startDatePicker.date)
         }).addDisposableTo(db)
         
         finishDatePicker.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
             self.workout.finishDate = self.finishDatePicker.date
-            self.setupDateTextFields()
+            self.finishDateLabel.text = self.df.string(from: self.finishDatePicker.date)
         }).addDisposableTo(db)
         
         NSLayoutConstraint.activate([
