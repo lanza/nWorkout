@@ -6,6 +6,8 @@ class WeightAndRepsTextField: UITextField {
         textAlignment = .center
         inputView = Keyboard.shared
         
+        
+        
         setFontScaling(minimum: 6)
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }

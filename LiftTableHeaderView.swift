@@ -66,7 +66,7 @@ class LiftTableHeaderRowView: RowView {
   
     override func getColumnView(columnNumber: Int) -> UIView {
         let text = dict[order[columnNumber]]!
-        return LiftTableHeaderLabel.create(text: text)
+        return LiftTableHeaderLabelHolder.create(text: text)
     }
     
     let dict = [Lets.setNumberKey:"Set",
@@ -91,14 +91,35 @@ class LiftTableHeaderRowView: RowView {
     }
 }
 
-
+class LiftTableHeaderLabelHolder: UIView {
+    let lthl = LiftTableHeaderLabel.create()
+    static func create(text: String) -> LiftTableHeaderLabelHolder {
+        let l = LiftTableHeaderLabelHolder()
+        l.lthl.text = text
+        
+        l.lthl.translatesAutoresizingMaskIntoConstraints = false
+        l.addSubview(l.lthl)
+        
+        NSLayoutConstraint.activate([
+            l.lthl.leftAnchor.constraint(equalTo: l.leftAnchor, constant: 0.5),
+            l.lthl.rightAnchor.constraint(equalTo: l.rightAnchor, constant: -0.5),
+            l.lthl.topAnchor.constraint(equalTo: l.topAnchor),
+            l.lthl.bottomAnchor.constraint(equalTo: l.bottomAnchor)
+            ])
+        return l
+    }
+}
 
 class LiftTableHeaderLabel: UILabel {
-    static func create(text: String) -> LiftTableHeaderLabel {
+    static func create() -> LiftTableHeaderLabel {
         let l = LiftTableHeaderLabel()
-        l.text = text
+        
         l.textAlignment = .center
+        l.numberOfLines = 0
+        l.baselineAdjustment = .alignCenters
+        
         l.setFontScaling(minimum: 3)
+        
         return l
     }
 }

@@ -200,6 +200,7 @@
 				E6B8E7FF219D372643F9F7E6 /* Pods_nWorkout.framework */,
 			);
 			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B32887A31E03344100259D66 /* Settings & Statistics */ = {
@@ -227,9 +228,6 @@
 				B3D456C41DC1E48C008075D5 /* Model */,
 				B3FCCD271E171736003EF14E /* Views */,
 				B356FBC11DC09C160006A0F0 /* Other */,
-				B356FBC01DC09C160006A0F0 /* Products */,
-				DBD3A75B04BA5C514F4A4D03 /* Pods */,
-				95234BE99C341F7210A0C624 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,11 +237,15 @@
 				B356FBBF1DC09C160006A0F0 /* nWorkout.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B356FBC11DC09C160006A0F0 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				95234BE99C341F7210A0C624 /* Frameworks */,
+				DBD3A75B04BA5C514F4A4D03 /* Pods */,
+				B356FBC01DC09C160006A0F0 /* Products */,
 				B30314671E302F1F00E13EBE /* Assets.xcassets */,
 				B356FBCB1DC09C160006A0F0 /* LaunchScreen.storyboard */,
 				B356FBCE1DC09C160006A0F0 /* Info.plist */,
@@ -478,6 +480,7 @@
 				D148E4FD66FFC0CA971296DF /* Pods-nWorkout.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

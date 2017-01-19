@@ -21,6 +21,7 @@ class BaseTVC: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         tableView.delegate = self
+        tableView.separatorStyle = .none
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
