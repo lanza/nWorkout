@@ -43,9 +43,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
             self.tableView.endUpdates()
         }).addDisposableTo(db)
         
-        dataSource.addLiftButton.rx.tap.subscribe(onNext: {
-            self.didTapAddNewLift()
-        }).addDisposableTo(db)
+        dataSource.workoutFooterView.delegate = self
     }
     
     func addNewLift(name: String) {
@@ -97,5 +95,18 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
             nv.view.noteButton.update(for: nv.type)
         }
         av.close()
+    }
+}
+
+
+extension BaseWorkoutTVC: WorkoutFooterViewDelegate {
+    func addLiftTapped() {
+            self.didTapAddNewLift()
+    }
+    func cancelWorkoutTapped() {
+    }
+    func finishWorkoutTapped() {
+    }
+    func workoutDetailTapped() {
     }
 }
