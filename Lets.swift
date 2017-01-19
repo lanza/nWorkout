@@ -31,6 +31,7 @@ struct Lets {
     static let addLift = "Add Lift"
     static let cancelWorkout = "Cancel Workout"
     static let finishWorkout = "Finish Workout"
+    static let viewWorkoutDetails = "View Workout Details"
     
     static let show = "Show"
     static let blank = "Blank"

@@ -49,4 +49,12 @@ class WorkoutCoordinator: Coordinator {
     let db = DisposeBag()
 }
 
+class WorkoutDetailCoordinator: Coordinator {
+    
+}
+
+class WorkoutDetailVC: UIViewController {
+    
+}
+
 

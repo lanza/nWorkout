@@ -28,29 +28,12 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
         title = Lets.workoutStartTimeDF.string(from: workout.startDate)
         
         if activeOrFinished == .active {
-            dataSource.cancelWorkoutButton.rx.tap.subscribe(onNext: {
-                let a = UIAlertController.confirmAction(title: "Cancel Workout?", message: "Are you sure you want to cancel this workout?") { _ in
-                    self.didCancelWorkout()
-                }
-                self.present(a, animated: true, completion: nil)
-            }).addDisposableTo(db)
-            dataSource.finishWorkoutButtoon.rx.tap.subscribe(onNext: {
-                let a = UIAlertController.confirmAction(title: "Finish Workout?", message: "Are you sure you want to finish this workout?") { _ in
-                    self.didFinishWorkout()
-                }
-                self.present(a, animated: true, completion: nil)
-            }).addDisposableTo(db)
-            
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: Lets.hide, style: .plain, target: nil, action: nil)
             navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
                 self.delegate.hideTapped(for: self)
             }).addDisposableTo(db)
         }
     }
-    
-    var didFinishWorkout: (() -> ())!
-    var didCancelWorkout: (() -> ())!
-    
     
     override func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")
@@ -68,7 +51,25 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")
     //    }
+    
+    override func cancelWorkoutTapped() {
+        let a = UIAlertController.confirmAction(title: "Cancel Workout?", message: "Are you sure you want to cancel this workout?") { _ in
+            self.didCancelWorkout()
+        }
+        present(a, animated: true)
+    }
+    var didCancelWorkout: (() -> ())!
+    
+    override func finishWorkoutTapped() {
+        let a = UIAlertController.confirmAction(title: "Finish Workout?", message: "Are you sure you want to finish this workout?") { _ in
+            self.didFinishWorkout()
+        }
+        present(a, animated: true)
+    }
+    var didFinishWorkout: (() -> ())!
 }
+
+
 
 
 

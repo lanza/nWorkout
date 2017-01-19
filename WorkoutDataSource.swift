@@ -34,11 +34,6 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: Co
     }
     
     var workoutFooterView: WorkoutFooterView!
-    var addLiftButton: UIButton { return workoutFooterView.addLiftButton }
-    // START Workout only
-    var cancelWorkoutButton: UIButton { return workoutFooterView.cancelWorkoutButton }
-    var finishWorkoutButtoon: UIButton { return workoutFooterView.finishWorkoutButton }
-    // END Workout only
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath) as! Cell
@@ -107,6 +102,7 @@ extension WorkoutDataSource: LiftCellDelegate {
         delegate.liftCell(liftCell, didTapNoteButtonForLift: lift)
     }
 }
+
 
 
 

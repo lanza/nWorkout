@@ -4,7 +4,8 @@ import RxCocoa
 import DZNEmptyDataSet
 import CustomIOSAlertView
 
-class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
+class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate, WorkoutFooterViewDelegate
+    where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
     
     var dataSource: WorkoutDataSource<Cell>!
     var workout: Workout!
@@ -43,9 +44,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
             self.tableView.endUpdates()
         }).addDisposableTo(db)
         
-        dataSource.addLiftButton.rx.tap.subscribe(onNext: {
-            self.didTapAddNewLift()
-        }).addDisposableTo(db)
+        dataSource.workoutFooterView.delegate = self
     }
     
     func addNewLift(name: String) {
@@ -97,5 +96,15 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
             nv.view.noteButton.update(for: nv.type)
         }
         av.close()
+    }
+    
+    func addLiftTapped() {
+        self.didTapAddNewLift()
+    }
+    func cancelWorkoutTapped() {
+    }
+    func finishWorkoutTapped() {
+    }
+    func workoutDetailTapped() {
     }
 }
