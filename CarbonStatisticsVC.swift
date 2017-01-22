@@ -71,6 +71,11 @@ class StatisticsChartsTVC: BaseTVC {
         self.liftName = liftName
         super.init(nibName: nil, bundle: nil)
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupTableView()
+    }
     
     let dataSource = RxTableViewSectionedReloadDataSource<ChartSectionModel>()
     
@@ -101,7 +106,7 @@ class ChartCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         chartView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(chartView)
-        contentView.addConstraints([
+        addConstraints([
             chartView.heightAnchor.constraint(equalToConstant: 100),
             chartView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             chartView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
