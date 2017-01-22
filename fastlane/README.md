@@ -23,6 +23,16 @@ This will also make sure the profile is up to date
 fastlane ios screenshot
 ```
 Take Screenshots
+### ios build
+```
+fastlane ios build
+```
+Create ipa
+### ios uploadReal
+```
+fastlane ios uploadReal
+```
+Upload to App Store
 
 ----
 
