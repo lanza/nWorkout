@@ -21,7 +21,11 @@
 
 #include <exception>
 
+#ifdef _WIN32
+#include <win32/pthread/pthread.h>
+#else
 #include <pthread.h>
+#endif
 
 // Use below line to enable a thread bug detection tool. Note: Will make program execution slower.
 // #include <../test/pthread_test.hpp>
@@ -103,7 +107,6 @@ public:
 
     struct process_shared_tag {
     };
-
     /// Initialize this mutex for use across multiple processes. When
     /// constructed this way, the instance may be placed in memory
     /// shared by multiple processes, as well as in a memory mapped

@@ -51,6 +51,9 @@ import RxCocoa
 import RealmSwift
 import RxRealm
 
+import Charts
+import ChartsRealm
+
 class StatisticsChartsTVC: BaseTVC {
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -59,10 +62,20 @@ class StatisticsChartsTVC: BaseTVC {
         super.init(nibName: nil, bundle: nil)
     }
     
+    func setupTableView() {
+        tableView.register(ChartCell.self)
+        Observable.just(["hi"])
+    }
+    
     let liftName: String
 }
 
 class ChartCell: UITableViewCell {
+    let chartView = LineChartView()
+    init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        let set = 3
+    }
     
 }
 

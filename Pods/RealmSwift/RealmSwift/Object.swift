@@ -51,7 +51,7 @@ import Realm.Private
  - `List<T>`, to model many-to-many relationships
 
  `String`, `NSString`, `Date`, `NSDate`, `Data`, `NSData` and `Object` subclass properties can be declared as optional.
- `Int`, `Int8`, `Int16`, Int32`, `Int64`, `Float`, `Double`, `Bool`, and `List` properties cannot. To store an optional
+ `Int`, `Int8`, `Int16`, `Int32`, `Int64`, `Float`, `Double`, `Bool`, and `List` properties cannot. To store an optional
  number, use `RealmOptional<Int>`, `RealmOptional<Float>`, `RealmOptional<Double>`, or `RealmOptional<Bool>` instead,
  which wraps an optional numeric value.
 
@@ -69,7 +69,7 @@ import Realm.Private
  See our [Cocoa guide](http://realm.io/docs/cocoa) for more details.
  */
 @objc(RealmSwiftObject)
-open class Object: RLMObjectBase {
+open class Object: RLMObjectBase, ThreadConfined {
 
     // MARK: Initializers
 
@@ -377,6 +377,23 @@ public class ObjectUtil: NSObject {
     }
 }
 
+// MARK: AssistedObjectiveCBridgeable
+
+// FIXME: Remove when `as! Self` can be written
+private func forceCastToInferred<T, V>(_ x: T) -> V {
+    return x as! V
+}
+
+extension Object: AssistedObjectiveCBridgeable {
+    static func bridging(from objectiveCValue: Any, with metadata: Any?) -> Self {
+        return forceCastToInferred(objectiveCValue)
+    }
+
+    var bridged: (objectiveCValue: Any, metadata: Any?) {
+        return (objectiveCValue: unsafeCastToRLMObject(), metadata: nil)
+    }
+}
+
 #else
 
 /**
@@ -408,7 +425,7 @@ public class ObjectUtil: NSObject {
  - `List<T>`, to model many-to-many relationships
 
  `String`, `NSString`, `NSDate`, `NSData` and `Object` subclass properties can be declared as optional. `Int`, `Int8`,
- Int16`, Int32`, `Int64`, `Float`, `Double`, `Bool`, and `List` properties cannot. To store an optional number, use
+ `Int16`, `Int32`, `Int64`, `Float`, `Double`, `Bool`, and `List` properties cannot. To store an optional number, use
  `RealmOptional<Int>`, `RealmOptional<Float>`, `RealmOptional<Double>`, or `RealmOptional<Bool>` instead, which wraps an
  optional numeric value.
 
@@ -426,7 +443,7 @@ public class ObjectUtil: NSObject {
  See our [Cocoa guide](http://realm.io/docs/cocoa) for more details.
 */
 @objc(RealmSwiftObject)
-public class Object: RLMObjectBase {
+public class Object: RLMObjectBase, ThreadConfined {
     // MARK: Initializers
 
     /**
@@ -731,6 +748,23 @@ public class ObjectUtil: NSObject {
             d[name] = ["class": results.objectClassName, "property": results.propertyName]
             return d
         }
+    }
+}
+
+// MARK: AssistedObjectiveCBridgeable
+
+// FIXME: Remove when `as! Self` can be written
+private func forceCastToInferred<T, V>(x: T) -> V {
+    return x as! V
+}
+
+extension Object: AssistedObjectiveCBridgeable {
+    static func bridging(from objectiveCValue: Any, with metadata: Any?) -> Self {
+        return forceCastToInferred(objectiveCValue)
+    }
+
+    var bridged: (objectiveCValue: Any, metadata: Any?) {
+        return (objectiveCValue: unsafeCastToRLMObject(), metadata: nil)
     }
 }
 

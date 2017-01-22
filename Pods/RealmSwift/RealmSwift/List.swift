@@ -130,10 +130,10 @@ public final class List<T: Object>: ListBase {
     }
 
     /// Returns the first object in the list, or `nil` if the list is empty.
-    public var first: T? { return _rlmArray.firstObject() as! T? }
+    public var first: T? { return unsafeBitCast(_rlmArray.firstObject(), to: Optional<T>.self) }
 
     /// Returns the last object in the list, or `nil` if the list is empty.
-    public var last: T? { return _rlmArray.lastObject() as! T? }
+    public var last: T? { return unsafeBitCast(_rlmArray.lastObject(), to: Optional<T>.self) }
 
     // MARK: KVC
 
@@ -192,6 +192,23 @@ public final class List<T: Object>: ListBase {
     /**
      Returns a `Results` containing the objects in the list, but sorted.
 
+     Objects are sorted based on the values of the given key path. For example, to sort a list of `Student`s from
+     youngest to oldest based on their `age` property, you might call
+     `students.sorted(byKeyPath: "age", ascending: true)`.
+
+     - warning: Lists may only be sorted by properties of boolean, `Date`, `NSDate`, single and double-precision
+                floating point, integer, and string types.
+
+     - parameter keyPath:  The key path to sort by.
+     - parameter ascending: The direction to sort in.
+     */
+    public func sorted(byKeyPath keyPath: String, ascending: Bool = true) -> Results<T> {
+        return sorted(by: [SortDescriptor(keyPath: keyPath, ascending: ascending)])
+    }
+
+    /**
+     Returns a `Results` containing the objects in the list, but sorted.
+
      Objects are sorted based on the values of the given property. For example, to sort a list of `Student`s from
      youngest to oldest based on their `age` property, you might call
      `students.sorted(byProperty: "age", ascending: true)`.
@@ -202,8 +219,9 @@ public final class List<T: Object>: ListBase {
      - parameter property:  The name of the property to sort by.
      - parameter ascending: The direction to sort in.
      */
+    @available(*, deprecated, renamed: "sorted(byKeyPath:ascending:)")
     public func sorted(byProperty property: String, ascending: Bool = true) -> Results<T> {
-        return sorted(by: [SortDescriptor(property: property, ascending: ascending)])
+        return sorted(byKeyPath: property, ascending: ascending)
     }
 
     /**
@@ -212,7 +230,7 @@ public final class List<T: Object>: ListBase {
      - warning: Lists may only be sorted by properties of boolean, `Date`, `NSDate`, single and double-precision
                 floating point, integer, and string types.
 
-     - see: `sorted(byProperty:ascending:)`
+     - see: `sorted(byKeyPath:ascending:)`
     */
     public func sorted<S: Sequence>(by sortDescriptors: S) -> Results<T> where S.Iterator.Element == SortDescriptor {
         return Results<T>(_rlmArray.sortedResults(using: sortDescriptors.map { $0.rlmSortDescriptorValue }))
@@ -444,8 +462,8 @@ public final class List<T: Object>: ListBase {
      - parameter block: The block to be called whenever a change occurs.
      - returns: A token which must be held for as long as you want updates to be delivered.
      */
-    public func addNotificationBlock(_ block: @escaping (RealmCollectionChange<List>) -> ()) -> NotificationToken {
-        return _rlmArray.addNotificationBlock { list, change, error in
+    public func addNotificationBlock(_ block: @escaping (RealmCollectionChange<List>) -> Void) -> NotificationToken {
+        return _rlmArray.addNotificationBlock { _, change, error in
             block(RealmCollectionChange.fromObjc(value: self, change: change, error: error))
         }
     }
@@ -499,6 +517,19 @@ extension List : RealmCollection, RangeReplaceableCollection {
     }
 }
 
+// MARK: AssistedObjectiveCBridgeable
+
+extension List: AssistedObjectiveCBridgeable {
+    internal static func bridging(from objectiveCValue: Any, with metadata: Any?) -> List {
+        guard let objectiveCValue = objectiveCValue as? RLMArray<RLMObject> else { preconditionFailure() }
+        return List(rlmArray: objectiveCValue)
+    }
+
+    internal var bridged: (objectiveCValue: Any, metadata: Any?) {
+        return (objectiveCValue: _rlmArray, metadata: nil)
+    }
+}
+
 // MARK: Unavailable
 
 extension List {
@@ -517,7 +548,7 @@ extension List {
     @available(*, unavailable, renamed: "index(matching:_:)")
     public func index(of predicateFormat: String, _ args: Any...) -> Int? { fatalError() }
 
-    @available(*, unavailable, renamed: "sorted(byProperty:ascending:)")
+    @available(*, unavailable, renamed: "sorted(byKeyPath:ascending:)")
     public func sorted(_ property: String, ascending: Bool = true) -> Results<T> { fatalError() }
 
     @available(*, unavailable, renamed: "sorted(by:)")
@@ -639,7 +670,7 @@ public final class List<T: Object>: ListBase {
     public subscript(index: Int) -> T {
         get {
             throwForNegativeIndex(index)
-            return _rlmArray[UInt(index)] as! T
+            return unsafeBitCast(_rlmArray[UInt(index)], T.self)
         }
         set {
             throwForNegativeIndex(index)
@@ -648,10 +679,10 @@ public final class List<T: Object>: ListBase {
     }
 
     /// Returns the first object in the list, or `nil` if the list is empty.
-    public var first: T? { return _rlmArray.firstObject() as! T? }
+    public var first: T? { return unsafeBitCast(_rlmArray.firstObject(), Optional<T>.self) }
 
     /// Returns the last object in the list, or `nil` if the list is empty.
-    public var last: T? { return _rlmArray.lastObject() as! T? }
+    public var last: T? { return unsafeBitCast(_rlmArray.lastObject(), Optional<T>.self) }
 
     // MARK: KVC
 
@@ -712,17 +743,17 @@ public final class List<T: Object>: ListBase {
     /**
      Returns a `Results` containing the objects in the list, but sorted.
 
-     Objects are sorted based on the values of the given property. For example, to sort a list of `Student`s from
+     Objects are sorted based on the values of the given key path. For example, to sort a list of `Student`s from
      youngest to oldest based on their `age` property, you might call `students.sorted("age", ascending: true)`.
 
      - warning: Lists may only be sorted by properties of boolean, `NSDate`, single and double-precision floating point,
                 integer, and string types.
 
-     - parameter property:  The name of the property to sort by.
+     - parameter keyPath:  The key path to sort by.
      - parameter ascending: The direction to sort in.
      */
-    public func sorted(property: String, ascending: Bool = true) -> Results<T> {
-        return sorted([SortDescriptor(property: property, ascending: ascending)])
+    public func sorted(keyPath: String, ascending: Bool = true) -> Results<T> {
+        return sorted([SortDescriptor(keyPath: keyPath, ascending: ascending)])
     }
 
     /**
@@ -972,7 +1003,7 @@ public final class List<T: Object>: ListBase {
      - returns: A token which must be held for as long as you want updates to be delivered.
      */
     @warn_unused_result(message="You must hold on to the NotificationToken returned from addNotificationBlock")
-    public func addNotificationBlock(block: (RealmCollectionChange<List>) -> ()) -> NotificationToken {
+    public func addNotificationBlock(block: (RealmCollectionChange<List>) -> Void) -> NotificationToken {
         return _rlmArray.addNotificationBlock { list, change, error in
             block(RealmCollectionChange.fromObjc(self, change: change, error: error))
         }
@@ -1021,6 +1052,19 @@ extension List: RealmCollectionType, RangeReplaceableCollectionType {
         return _rlmArray.addNotificationBlock { _, change, error in
             block(RealmCollectionChange.fromObjc(anyCollection, change: change, error: error))
         }
+    }
+}
+
+// MARK: AssistedObjectiveCBridgeable
+
+extension List: AssistedObjectiveCBridgeable {
+    internal static func bridging(from objectiveCValue: Any, with metadata: Any?) -> List {
+        guard let objectiveCValue = objectiveCValue as? RLMArray else { preconditionFailure() }
+        return List(rlmArray: objectiveCValue)
+    }
+
+    internal var bridged: (objectiveCValue: Any, metadata: Any?) {
+        return (objectiveCValue: _rlmArray, metadata: nil)
     }
 }
 
