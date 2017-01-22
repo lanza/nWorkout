@@ -2,12 +2,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
+import RxRealm
 
 class StatisticsTVC: BaseTVC {
     
     weak var delegate: StatisticsTVCDelegate!
     
     var pairs = Variable([(String,Int)]())
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,18 +52,7 @@ protocol StatisticsTVCDelegate: class {
     func statisticsTVC(_ statisticsTVC: StatisticsTVC, didSelectLiftType liftType: String)
 }
 
-class StatisticsCell: UITableViewCell {
-  
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .value1, reuseIdentifier: StatisticsCell.reuseIdentifier)
-        
-        accessoryType = .disclosureIndicator
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) { fatalError() }
-    
-}
+
 
 extension StatisticsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {

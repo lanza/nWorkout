@@ -92,7 +92,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/DZNEmptyDataSet/DZNEmptyDataSet.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Reuse/Reuse.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RxCocoa/RxCocoa.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxDataSources/RxDataSources.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxGesture/RxGesture.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxKeyboard/RxKeyboard.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RxRealm/RxRealm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RxSwift/RxSwift.framework"
 fi
@@ -105,7 +109,11 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/DZNEmptyDataSet/DZNEmptyDataSet.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Reuse/Reuse.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RxCocoa/RxCocoa.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxDataSources/RxDataSources.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxGesture/RxGesture.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RxKeyboard/RxKeyboard.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RxRealm/RxRealm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RxSwift/RxSwift.framework"
 fi

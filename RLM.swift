@@ -10,4 +10,8 @@ class RLM {
             print(error)
         }
     }
+    
+    static func objects<T: Object>(type: T.Type) -> Results<T> {
+        return realm.objects(T.self)
+    }
 }

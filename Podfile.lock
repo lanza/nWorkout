@@ -12,8 +12,18 @@ PODS:
   - Realm/Headers (2.0.2)
   - RealmSwift (2.0.2):
     - Realm (= 2.0.2)
+  - Reuse (0.0.1)
   - RxCocoa (3.0.0):
     - RxSwift (~> 3.0)
+  - RxDataSources (1.0.2):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
+  - RxGesture (0.2.1):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
+  - RxKeyboard (0.4.0):
+    - RxCocoa (>= 3.0)
+    - RxSwift (>= 3.0)
   - RxRealm (0.4.0):
     - RealmSwift (~> 2.0)
     - RxSwift (~> 3.0.0)
@@ -27,7 +37,11 @@ DEPENDENCIES:
   - CustomIOSAlertView (~> 0.9.5)
   - DZNEmptyDataSet
   - RealmSwift
+  - Reuse (from `~/Documents/Reuse`)
   - RxCocoa (= 3.0)
+  - RxDataSources
+  - RxGesture
+  - RxKeyboard
   - RxRealm
   - RxSwift (= 3.0)
 
@@ -38,6 +52,9 @@ EXTERNAL SOURCES:
   CoordinatorKit:
     :branch: master
     :path: "~/Documents/CoordinatorKit"
+  Reuse:
+    :branch: master
+    :path: "~/Documents/Reuse"
 
 SPEC CHECKSUMS:
   CarbonKit: af16a9c0d2b6c908a5985fe4633424d38c9bfc0a
@@ -48,10 +65,14 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
+  Reuse: a02b2321a6636ef6622a2f095456957bbd29b94b
   RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
+  RxDataSources: 1de77880bf5b7fcee42102adcd5a5d65e5b81541
+  RxGesture: 26b8dbfce16f0cf6594e41a4b39d6180cad4cf3c
+  RxKeyboard: ff2813c9b6c42e06a888864d84b4c36b8d9b3c31
   RxRealm: 6c1052b72118ed6929115801c38f90f0c962f2cf
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
 
-PODFILE CHECKSUM: eaad07920af54ca3fe860d1315d90df8b42f5c89
+PODFILE CHECKSUM: f111385dabbd3872d16e746b28cb0b0718774453
 
 COCOAPODS: 1.1.1

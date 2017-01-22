@@ -1,0 +1,27 @@
+{
+  "name": "Reuse",
+  "version": "0.0.1",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "summary": "A short description of Reuse.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/nathanlanza/Reuse",
+  "authors": {
+    "PROJECT_OWNER": "USER_EMAIL"
+  },
+  "source": {
+    "git": "https://github.com/nathanlanza/Reuse.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Source/*.swift",
+  "resource_bundles": {
+    "Reuse": [
+      "Resources/**/*.{png}"
+    ]
+  }
+}

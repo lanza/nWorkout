@@ -11,8 +11,13 @@ target 'nWorkout' do
   pod 'RealmSwift'
   pod 'RxRealm'
 
+  pod 'RxKeyboard'
+  pod 'RxGesture'
+  pod 'RxDataSources'
+
   pod 'CoordinatorKit', :path => '~/Documents/CoordinatorKit', :branch => 'master'
   pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master'
+  pod 'Reuse', :path => '~/Documents/Reuse', :branch => 'master'
 
   pod 'Charts'
   pod 'CarbonKit'

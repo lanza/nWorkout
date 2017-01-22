@@ -19,6 +19,9 @@
 		B31E9FBB1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */; };
 		B31E9FBD1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */; };
 		B31E9FBF1DD6AE3400B9AEFC /* RoutinesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBE1DD6AE3400B9AEFC /* RoutinesTVC.swift */; };
+		B32504021E34447300C51909 /* StatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504011E34447300C51909 /* StatisticsCell.swift */; };
+		B32504041E34455900C51909 /* SingleLiftStatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */; };
+		B32504061E34456C00C51909 /* CarbonStatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504051E34456C00C51909 /* CarbonStatisticsVC.swift */; };
 		B328D8101DD6FA3C000948ED /* RoutineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D80F1DD6FA3C000948ED /* RoutineTVC.swift */; };
 		B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8111DD6FA52000948ED /* StatisticsTVC.swift */; };
 		B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8131DD6FA5E000948ED /* SettingsTVC.swift */; };
@@ -104,6 +107,9 @@
 		B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Removed - RoutinesDataSource.swift"; sourceTree = "<group>"; };
 		B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Removed - RoutineDataSource.swift"; sourceTree = "<group>"; };
 		B31E9FBE1DD6AE3400B9AEFC /* RoutinesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutinesTVC.swift; sourceTree = "<group>"; };
+		B32504011E34447300C51909 /* StatisticsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCell.swift; sourceTree = "<group>"; };
+		B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLiftStatisticsCoordinator.swift; sourceTree = "<group>"; };
+		B32504051E34456C00C51909 /* CarbonStatisticsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarbonStatisticsVC.swift; sourceTree = "<group>"; };
 		B328D80F1DD6FA3C000948ED /* RoutineTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineTVC.swift; sourceTree = "<group>"; };
 		B328D8111DD6FA52000948ED /* StatisticsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTVC.swift; sourceTree = "<group>"; };
 		B328D8131DD6FA5E000948ED /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
@@ -353,7 +359,10 @@
 			isa = PBXGroup;
 			children = (
 				B3BB318D1DDAA2360015F9B0 /* StatisticsCoordinator.swift */,
+				B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */,
+				B32504051E34456C00C51909 /* CarbonStatisticsVC.swift */,
 				B328D8111DD6FA52000948ED /* StatisticsTVC.swift */,
+				B32504011E34447300C51909 /* StatisticsCell.swift */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";
@@ -681,6 +690,7 @@
 				B360594C1E1C967C00EBE620 /* UILabel+Extensions.swift in Sources */,
 				B3B6DB361E1F000700090C45 /* LiftTableHeaderView.swift in Sources */,
 				B3BB31861DDAA17B0015F9B0 /* RoutinesCoordinator.swift in Sources */,
+				B32504061E34456C00C51909 /* CarbonStatisticsVC.swift in Sources */,
 				B36059391E1C3F0700EBE620 /* CompleteButton.swift in Sources */,
 				B360593F1E1C4B1700EBE620 /* UIAlertController+Extensions.swift in Sources */,
 				B36059261E1C3E0800EBE620 /* RoutineLiftCell.swift in Sources */,
@@ -700,6 +710,7 @@
 				B3FCCD371E172A9F003EF14E /* ActiveOrFinished.swift in Sources */,
 				B36059241E1C3DCF00EBE620 /* BaseChartViewDataSource.swift in Sources */,
 				B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */,
+				B32504041E34455900C51909 /* SingleLiftStatisticsCoordinator.swift in Sources */,
 				B31E9FBB1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift in Sources */,
 				B31953A81E305F7900AC2687 /* WorkoutDetailVC.swift in Sources */,
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
@@ -709,6 +720,7 @@
 				B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */,
 				B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */,
 				B3BB31881DDAA19C0015F9B0 /* RoutineCoordinator.swift in Sources */,
+				B32504021E34447300C51909 /* StatisticsCell.swift in Sources */,
 				B3FCCD2C1E171D2E003EF14E /* UIStackView+Extensions.swift in Sources */,
 				B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */,
 				B3780EF61DD5AF2D0087CEC1 /* WorkoutsDataSource.swift in Sources */,
