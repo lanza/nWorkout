@@ -34,7 +34,6 @@ class SettingsTVC: UIViewController {
         
         hideCompletionUntilFailTappedSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
            
-            print(self.hideCompletionUntilFailTappedSwitch.isOn)
             ViewInfo.setUsesCombinedView(self.hideCompletionUntilFailTappedSwitch.isOn)
             
             if self.hideCompletionUntilFailTappedSwitch.isOn {

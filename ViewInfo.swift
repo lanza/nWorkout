@@ -29,6 +29,19 @@ struct ViewInfo: Equatable {
             ViewInfo(name: Lets.noteButtonKey, width: 8, isOn: true)
         ]
     }
+    
+    private static var defaults: [ViewInfo] {
+        return [
+            ViewInfo(name: Lets.setNumberKey, width: 10, isOn: true),
+            ViewInfo(name: Lets.previousWorkoutKey, width: 25, isOn: true),
+            ViewInfo(name: Lets.targetWeightKey, width: 20, isOn: true),
+            ViewInfo(name: Lets.targetRepsKey, width: 20, isOn: true),
+            ViewInfo(name: Lets.doneButtonCompletedWeightCompletedRepsKey, width: 20, isOn: true),
+            ViewInfo(name: Lets.failButtonKey, width: 8, isOn: true),
+            
+            ViewInfo(name: Lets.noteButtonKey, width: 8, isOn: true)
+        ]
+    }
    
     static var usesCombinedView: Bool { return UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false }
     
@@ -36,7 +49,7 @@ struct ViewInfo: Equatable {
         UserDefaults.standard.set(bool, forKey: Lets.combineFailAndCompletedWeightAndRepsKey)
     }
     static var saved: [ViewInfo] {
-        return (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.all
+        return (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.defaults
     }
     
     static var routineColumnViewInfo: [(String,CGFloat)] { return [(Lets.setNumberKey,10),(Lets.targetWeightKey,45),(Lets.targetRepsKey,45)] }

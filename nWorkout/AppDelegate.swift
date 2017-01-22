@@ -17,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let mainCoordinator = MainCoordinator()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+       
+        if let firstRun = UserDefaults.standard.value(forKey: "firstRun") as? Bool, firstRun == false {
+        } else {
+            UserDefaults.standard.set(true, forKey: Lets.combineFailAndCompletedWeightAndRepsKey)
+            UserDefaults.standard.set(false, forKey: "firstRun")
+        }
         
         Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
