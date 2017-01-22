@@ -50,9 +50,19 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 import RxRealm
+import RxDataSources
 
 import Charts
-import ChartsRealm
+
+struct ChartSectionModel {
+    let things = ["hi","what"]
+}
+extension ChartSectionModel: SectionModelType {
+    var items: [String] { return things }
+    init(original: ChartSectionModel, items: [String]) {
+        self.init()
+    }
+}
 
 class StatisticsChartsTVC: BaseTVC {
     
@@ -62,20 +72,44 @@ class StatisticsChartsTVC: BaseTVC {
         super.init(nibName: nil, bundle: nil)
     }
     
+    let dataSource = RxTableViewSectionedReloadDataSource<ChartSectionModel>()
+    
     func setupTableView() {
         tableView.register(ChartCell.self)
-        Observable.just(["hi"])
+        dataSource.configureCell = { ds, tv, ip, item in
+            let cell = tv.dequeueReusableCell(for: ip) as ChartCell
+            return cell
+        }
+        let sections = [ChartSectionModel()]
+        Observable.just(sections).bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(db)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+   
+    let db = DisposeBag()
     let liftName: String
 }
 
 class ChartCell: UITableViewCell {
     let chartView = LineChartView()
-    init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let set = 3
+        chartView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(chartView)
+        contentView.addConstraints([
+            chartView.heightAnchor.constraint(equalToConstant: 100),
+            chartView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            chartView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            chartView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            chartView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
+    required init?(coder aDecoder: NSCoder) { fatalError() }
     
 }
 

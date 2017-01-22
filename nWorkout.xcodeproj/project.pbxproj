@@ -60,7 +60,6 @@
 		B360594E1E1C96F700EBE620 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360594D1E1C96F700EBE620 /* UITextField+Extensions.swift */; };
 		B36059501E1CC71F00EBE620 /* BaseWorkoutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360594F1E1CC71F00EBE620 /* BaseWorkoutTVC.swift */; };
 		B36F37E81E0F7FF100667263 /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
-		B37043CF64DB4748C202690A /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0316A7BDDFEBFA05A44D61B /* Pods_nWorkout.framework */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EEB1DD5A4530087CEC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3780EEA1DD5A4530087CEC1 /* Main.storyboard */; };
 		B3780EED1DD5A5480087CEC1 /* UIStoryboard&ViewControllerFromStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEC1DD5A5470087CEC1 /* UIStoryboard&ViewControllerFromStoryboard.swift */; };
@@ -214,7 +213,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FD2BC34109241A918F41B15 /* Pods_nWorkout.framework in Frameworks */,
-				B37043CF64DB4748C202690A /* Pods_nWorkout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
