@@ -67,7 +67,8 @@ class StatisticsHistoryCell: ChartViewCell {
     required init?(coder aDecoder: NSCoder) { fatalError() }
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+       
+        setupChartView()
         topContentView.addSubview(dateLabel)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -91,20 +92,20 @@ class StatisticsHistoryCell: ChartViewCell {
         return d
     }()
     
-//    func configure(for object: Lift, at indexPath: IndexPath) {
-//        chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
-//        dateLabel.text = "\(obj)"
-//        chartView.configurationClosure = { (index,rowView) in
-//            let set = object.object(at: index)
-//            (rowView.columnViews[0] as! UILabel).text = String(set.weight)
-//            (rowView.columnViews[0] as! UILabel).textAlignment = .center
-//            (rowView.columnViews[1] as! UILabel).text = String(set.reps)
-//            (rowView.columnViews[1] as! UILabel).textAlignment = .center
-//        }
-//        
-//        chartView.setup()
-//        setNeedsUpdateConstraints()
-//    }
+   
+    func setupChartView() {
+        chartView.register(StatisticsHistorySetRowView.self, forResuseIdentifier: "row")
+    }
+}
+
+class StatisticsHistorySetRowView: RowView {
+    required init() {
+        super.init()
+        columnViewTypes = [UILabel.self, UILabel.self, UILabel.self, UILabel.self]
+        columnWidths = [25,25,25,25]
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
 }
 
 
@@ -129,24 +130,26 @@ class StatisticsHistoryTVC: BaseTVC {
         Observable.from(lifts).bindTo(tableView.rx.items(cellType: StatisticsHistoryCell.self)) { indexPath, lift, cell in
             
             cell.chartView.chartViewDataSource = BaseChartViewDataSource(object: lift)
-//            cell.dateLabel.text = cell.df.string(from: lift.startDate)
-            
-           
-//            cell.dateLabel.text = "\(lift.)"
+            cell.dateLabel.text = cell.df.string(from: lift.startDate)
             
             cell.chartView.configurationClosure = { (index,rowView) in
                 let set = lift.object(at: index)
                 (rowView.columnViews[0] as! UILabel).text = String(set.weight)
-                (rowView.columnViews[0] as! UILabel).textAlignment = .center
                 (rowView.columnViews[1] as! UILabel).text = String(set.reps)
-                (rowView.columnViews[1] as! UILabel).textAlignment = .center
+                (rowView.columnViews[2] as! UILabel).text = String(set.completedWeight)
+                (rowView.columnViews[3] as! UILabel).text = String(set.completedReps)
+                
+                rowView.columnViews.forEach { ($0 as! UILabel).textAlignment = .center }
             }
             
             cell.chartView.setup()
             cell.setNeedsUpdateConstraints()
             
             }.addDisposableTo(db)
-        
+    
+        tableView.rx.itemDeleted.subscribe(onNext: { indexPath in
+            
+        }).addDisposableTo(db)
         
     }
     

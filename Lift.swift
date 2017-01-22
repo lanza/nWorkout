@@ -7,12 +7,13 @@ class Lift: Base {
     dynamic var _previousStrings: String = ""
     var previousStrings: [String] { return _previousStrings.components(separatedBy: ",") }
     
-    static func new(isWorkout: Bool, name: String) -> Lift {
+    static func new(isWorkout: Bool, name: String, workout: Workout) -> Lift {
         let lift = Lift()
         
         RLM.write {
-            lift.name = name
             lift.isWorkout = isWorkout
+            lift.name = name
+            lift.workout = workout
             if lift.isWorkout {
                 lift._previousStrings = UserDefaults.standard.value(forKey: "last" + lift.name) as? String ?? ""
             }
@@ -29,15 +30,15 @@ class Lift: Base {
     }
     
     
-    
+    dynamic var workout: Workout?
 }
 
 extension Lift {
-    func makeWorkoutLift() -> Lift {
-        let lift = Lift.new(isWorkout: true, name: name)
+    func makeWorkoutLift(workout: Workout) -> Lift {
+        let lift = Lift.new(isWorkout: true, name: name, workout: workout)
         
         for set in sets {
-            let new = set.makeWorkoutSet()
+            let new = set.makeWorkoutSet(lift: self)
             RLM.write {
                 lift.sets.append(new)
             }

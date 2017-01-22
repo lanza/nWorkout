@@ -1,5 +1,6 @@
 import UIKit
 import CoordinatorKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let mainCoordinator = MainCoordinator()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
+            if oldSchemaVersion < 1 {
+                //do nothing
+            }
+        })
+        
+        
+        let workouts = try! Realm().objects(Workout.self)
+        RLM.write {
+            for workout in workouts {
+                for lift in workout.lifts {
+                    lift.startDate = workout.startDate
+                    for set in lift.sets {
+                        set.startDate = lift.startDate
+                    }
+                }
+            }
+        }
+        
+        let lifts = try! Realm().objects(Lift.self)
+        for lift in lifts {
+            if lift.workout == nil {
+                lift.deleteSelf()
+            }
+        }
+        let sets = try! Realm().objects(Set.self)
+        for set in sets {
+            if set.lift == nil {
+                set.deleteSelf()
+            }
+        }
+        
         window = UIWindow()
         
         window?.rootCoordinator = mainCoordinator

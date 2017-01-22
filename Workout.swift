@@ -12,14 +12,14 @@ class Workout: Base {
     
     func addNewSet(for lift: Lift) -> Set {
         let last = lift.sets.last
-        let set = Set.new(isWorkout: isWorkout, isWarmup: false, weight: last?.weight ?? 45, reps: last?.reps ?? 6, completedWeight: 0, completedReps: 0)
+        let set = Set.new(isWorkout: isWorkout, isWarmup: false, weight: last?.weight ?? 45, reps: last?.reps ?? 6, completedWeight: 0, completedReps: 0, lift: lift)
         RLM.write {
             lift.sets.append(set)
         }
         return set
     }
     func addNewLift(name: String) -> Lift {
-        let lift = Lift.new(isWorkout: isWorkout, name: name)
+        let lift = Lift.new(isWorkout: isWorkout, name: name, workout: self)
         RLM.write {
             lifts.append(lift)
         }
@@ -50,12 +50,11 @@ extension Workout {
         let workout = Workout.new(isWorkout: true, isComplete: false, name: name)
         
         for lift in lifts {
-            let new = lift.makeWorkoutLift()
+            let new = lift.makeWorkoutLift(workout: workout)
             RLM.write {
                 workout.lifts.append(new)
             }
         }
-        
         return workout
     }
 }
