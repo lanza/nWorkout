@@ -48,13 +48,13 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ChartView:
     :branch: master
-    :path: "~/Documents/ChartView"
+    :path: ~/Documents/ChartView
   CoordinatorKit:
     :branch: master
-    :path: "~/Documents/CoordinatorKit"
+    :path: ~/Documents/CoordinatorKit
   Reuse:
     :branch: master
-    :path: "~/Documents/Reuse"
+    :path: ~/Documents/Reuse
 
 SPEC CHECKSUMS:
   CarbonKit: af16a9c0d2b6c908a5985fe4633424d38c9bfc0a
@@ -75,4 +75,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f111385dabbd3872d16e746b28cb0b0718774453
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0
