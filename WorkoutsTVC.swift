@@ -9,7 +9,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true").filter("isComplete = true").sorted(byProperty: "startDate", ascending: false)
+        workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true").filter("isComplete = true").sorted(byKeyPath: "startDate", ascending: false)
         
         dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
         dataSource.name = Lets.workout

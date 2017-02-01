@@ -9,7 +9,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
-        workouts = RLM.realm.objects(Workout.self).filter("isWorkout = false").sorted(byProperty: "name")
+        workouts = RLM.realm.objects(Workout.self).filter("isWorkout = false").sorted(byKeyPath: "name")
         
         dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
         dataSource.name = Lets.routine
