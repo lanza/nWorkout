@@ -48,7 +48,6 @@ struct Theme {
         
         struct Table {
             static let background = Colors.darkest
-            static let secondaryBackground = Colors.lighter
         }
         struct Nav {
             static let barTint = Colors.clear

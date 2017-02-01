@@ -23,6 +23,29 @@ extension WorkoutCell: ConfigurableCell {
     }
 }
 
+class WorkoutCellRowView: RowView {
+    required init() {
+        super.init()
+        
+        columnBackgroundColor = Theme.Colors.Cell.contentBackground
+        
+        columnViewTypes = [DarkLabel.self, DarkLabel.self]
+    }
+    
+    class DarkLabel: UILabel {
+        init() {
+            super.init(frame: .zero)
+            textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+}
+
 class WorkoutCell: ChartViewCell {
     
     let label = UILabel()
@@ -37,6 +60,7 @@ class WorkoutCell: ChartViewCell {
     
     func setupTopContentView() {
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
         topContentView.addSubview(label)
         
         NSLayoutConstraint.activate([
@@ -49,6 +73,10 @@ class WorkoutCell: ChartViewCell {
     func setupBottomContentView() {    }
     func setupChartView() {
         chartView.emptyText = "This workout is empty"
+        chartView.backgroundColor = .clear
+        chartView.setBorder(color: .clear, width: 0, radius: 0)
+        
+        chartView.register(WorkoutCellRowView.self, forResuseIdentifier: "row")
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -61,7 +89,6 @@ class WorkoutCell: ChartViewCell {
         setupChartView()
         setupContentView()
         
-        backgroundColor = Theme.Colors.Table.secondaryBackground
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
 }
