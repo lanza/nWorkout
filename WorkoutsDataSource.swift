@@ -3,6 +3,8 @@ import RealmSwift
 
 class WorkoutsDataSource<Cell: UITableViewCell> : DataSource<BaseDataProvider<Workout>,Cell> where Cell: ConfigurableCell, Cell.Object == Workout, Cell: ReusableView {
     
+    
+    
     var name: String!
     
     init(tableView: UITableView, workouts: Results<Workout>) {

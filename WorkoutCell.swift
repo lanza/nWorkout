@@ -27,6 +27,14 @@ class WorkoutCell: ChartViewCell {
     
     let label = UILabel()
     
+    func setupContentView() {
+        contentView.backgroundColor = Theme.Colors.Cell.contentBackground
+        contentView.setBorder(color: .black, width: 1, radius: 0)
+        
+        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
+    }
+    
+    
     func setupTopContentView() {
         label.translatesAutoresizingMaskIntoConstraints = false
         topContentView.addSubview(label)
@@ -51,6 +59,7 @@ class WorkoutCell: ChartViewCell {
         setupTopContentView()
         setupBottomContentView()
         setupChartView()
+        setupContentView()
         
         backgroundColor = Theme.Colors.Table.secondaryBackground
     }
