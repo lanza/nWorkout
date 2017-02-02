@@ -34,7 +34,7 @@ extension SettingsSectionsModel: AnimatableSectionModelType {
     }
 }
 
-class SettingsTVC: UIViewController, UITableViewDelegate {
+class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelegate {
     
     let tableView = UITableView()
     let viewInfos$ = Variable<[ViewInfo]>([])
@@ -107,10 +107,10 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
             self.sections[1] = SettingsSectionsModel(original: self.sections[1], items: items)
             
         }).addDisposableTo(db)
-
+        
         tableView.rx.setDelegate(self).addDisposableTo(db)
         
-            }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -150,7 +150,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
         
         tableView.tableHeaderView = view
     }
-
+    
     
     //
     //    func setupRx() {
@@ -204,7 +204,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
     
     
     let db = DisposeBag()
-
+    
     func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -214,9 +214,9 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .none
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 42
-//    }
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        return 42
+    //    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
@@ -224,10 +224,22 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
+    func widthDidChange(to double: Double, for cell: CellSettingsCell) {
+        let index = tableView.indexPath(for: cell)!
+        print(sections[index.section].items[index.row])
+    }
+    func switchDidChange(to bool: Bool, for cell: CellSettingsCell) {
+        let index = tableView.indexPath(for: cell)!
+        print(sections[index.section].items[index.row])
+    }
 }
 
 
 class CellSettingsCell: UITableViewCell {
+    
+    weak var delegate: CellSettingsCellDelegate!
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -237,22 +249,31 @@ class CellSettingsCell: UITableViewCell {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        NSLayoutConstraint.activate([
+        let constraints = [
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             titleLabel.rightAnchor.constraint(equalTo: onSwitch.leftAnchor),
-            widthTextField.topAnchor.constraint(equalTo: contentView.topAnchor),
+            widthTextField.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             widthTextField.rightAnchor.constraint(equalTo: onSwitch.rightAnchor),
             widthTextField.bottomAnchor.constraint(equalTo: onSwitch.topAnchor),
-            onSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 8),
-            onSwitch.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 4),
+            onSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8),
+            onSwitch.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
             onSwitch.widthAnchor.constraint(equalTo: widthTextField.widthAnchor),
             onSwitch.heightAnchor.constraint(equalTo: widthTextField.heightAnchor)
-            
-            ])
+        ]
         
+        titleLabel.setContentCompressionResistancePriority(100, for: .horizontal)
+        
+        NSLayoutConstraint.activate(constraints)
         
         backgroundColor = Theme.Colors.dark
+        
+        widthTextField.rx.controlEvent(.valueChanged).subscribe(onNext: {
+            self.delegate.widthDidChange(to: Double(self.widthTextField.text!)!, for: self)
+        }).addDisposableTo(db)
+        onSwitch.rx.value.subscribe(onNext: { value in
+            self.delegate.switchDidChange(to: value, for: self)
+        }).addDisposableTo(db)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -262,13 +283,23 @@ class CellSettingsCell: UITableViewCell {
     let titleLabel = UILabel().then { label in
         label.textColor = .white
         label.backgroundColor = .clear
+        label.numberOfLines = 0
     }
     let widthTextField = UITextField().then { textField in
         textField.textColor = .white
-        textField.backgroundColor = .clear
         textField.textAlignment = .center
     }
-    let onSwitch = UISwitch()
+    let onSwitch = UISwitch().then({ swtch in
+        swtch.tintColor = Theme.Colors.main
+        swtch.onTintColor = Theme.Colors.main
+    })
+    
+    let db = DisposeBag()
+}
+
+protocol CellSettingsCellDelegate: class {
+    func switchDidChange(to bool: Bool, for cell: CellSettingsCell)
+    func widthDidChange(to double: Double, for cell: CellSettingsCell)
 }
 
 
