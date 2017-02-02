@@ -64,7 +64,7 @@ class WorkoutDetailVC: FormViewController {
                 $0.title = "End Time"
                 $0.value = workout.finishDate
                 }.onChange {
-                    guard let new = $0.val  ue else { fatalError() }
+                    guard let new = $0.value else { fatalError() }
                     self.newFinishDate = new
             }
             +++ Section("Note")
