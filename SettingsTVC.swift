@@ -36,6 +36,8 @@ extension SettingsSectionsModel: AnimatableSectionModelType {
 
 class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelegate {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     let tableView = UITableView()
     var viewInfos = ViewInfo.saved
     

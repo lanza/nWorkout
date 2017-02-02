@@ -24,8 +24,8 @@ struct Theme {
         let tableViewCellAppearance = UITableViewCell.appearance()
         tableViewCellAppearance.contentView.backgroundColor = Colors.Cell.contentBackground
         
-        let buttonAppearance = UIButton.appearance()
-        buttonAppearance.setTitleColor(Colors.Button.title, for: UIControlState())
+//        let buttonAppearance = UIButton.appearance()
+//        buttonAppearance.setTitleColor(Colors.Button.title, for: UIControlState())
         
         
     }
@@ -64,7 +64,7 @@ struct Theme {
         }
         struct Keyboard {
             static let background = Colors.dark
-            static let keys = Colors.main
+            static let keys = UIColor.white
         }
     }
     struct Fonts {

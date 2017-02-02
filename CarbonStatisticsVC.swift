@@ -33,6 +33,7 @@ class CarbonStatisticsVC: UIViewController, CarbonTabSwipeNavigationDelegate {
         
         c.setNormalColor(Theme.Colors.dark)
         c.setSelectedColor(Theme.Colors.main)
+        c.setIndicatorColor(Theme.Colors.main)
         
         c.carbonSegmentedControl?.setWidth(view.frame.width / 3, forSegmentAt: 0)
         c.carbonSegmentedControl?.setWidth(view.frame.width / 3, forSegmentAt: 1)
