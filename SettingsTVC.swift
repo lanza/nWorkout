@@ -256,7 +256,8 @@ class CellSettingsCell: UITableViewCell {
         widthTextField.keyboardType = .decimalPad
         
         widthTextField.rx.text.skip(1).subscribe(onNext: { value in
-            self.delegate.widthDidChange(to: CGFloat(Double(value!)!), for: self)
+            let val = value!.characters.count == 0 ? "0" : value!
+            self.delegate.widthDidChange(to: CGFloat(Double(val)!), for: self)
         }).addDisposableTo(db)
         onSwitch.rx.value.skip(1).subscribe(onNext: { value in
             self.delegate.switchDidChange(to: value, for: self)

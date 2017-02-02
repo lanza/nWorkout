@@ -42,14 +42,15 @@ struct ViewInfo: Equatable {
             ViewInfo(name: Lets.noteButtonKey, width: 8, isOn: true)
         ]
     }
-   
+    
     static var usesCombinedView: Bool { return UserDefaults.standard.value(forKey: Lets.combineFailAndCompletedWeightAndRepsKey) as? Bool ?? false }
     
     static func setUsesCombinedView(_ bool: Bool) {
         UserDefaults.standard.set(bool, forKey: Lets.combineFailAndCompletedWeightAndRepsKey)
     }
     static var saved: [ViewInfo] {
-        return (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } } ?? ViewInfo.defaults
+        let stored = (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } }
+        return stored ?? ViewInfo.defaults
     }
     
     static var routineColumnViewInfo: [(String,CGFloat)] { return [(Lets.setNumberKey,10),(Lets.targetWeightKey,45),(Lets.targetRepsKey,45)] }
