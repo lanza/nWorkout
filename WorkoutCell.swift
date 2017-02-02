@@ -79,6 +79,9 @@ class WorkoutCell: ChartViewCell {
         chartView.setBorder(color: .clear, width: 0, radius: 0)
         
         chartView.register(WorkoutCellRowView.self, forResuseIdentifier: "row")
+        
+//        chartView.emptyLabel.backgroundColor = Theme.Colors.dark
+        chartView.emptyLabel.textColor = .white
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -90,6 +93,7 @@ class WorkoutCell: ChartViewCell {
         setupBottomContentView()
         setupChartView()
         setupContentView()
+        
         
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
