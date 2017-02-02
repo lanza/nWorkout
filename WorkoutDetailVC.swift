@@ -36,6 +36,13 @@ class WorkoutDetailVC: FormViewController {
             }
         }
         
+        TextAreaRow.defaultCellUpdate = { cell, row in
+            cell.backgroundColor = Theme.Colors.darker
+            cell.textView.backgroundColor = Theme.Colors.dark
+            
+            cell.textView.textColor = .white
+        }
+        
         
         form +++ Section("Details")
             <<< TextRow() {
@@ -52,33 +59,23 @@ class WorkoutDetailVC: FormViewController {
                 }.onChange {
                     guard let new = $0.value else { fatalError() }
                     self.newStartDate = new
-                }
+            }
             <<< DateTimeRow() {
                 $0.title = "End Time"
                 $0.value = workout.finishDate
                 }.onChange {
-                    guard let new = $0.value else { fatalError() }
+                    guard let new = $0.val  ue else { fatalError() }
                     self.newFinishDate = new
-                }
+            }
             +++ Section("Note")
             <<< TextAreaRow() {
                 $0.value = workout.note
-                $0.tag = "note"
-                
-                $0.cell.backgroundColor = Theme.Colors.darker
-                $0.cell.textView.backgroundColor = Theme.Colors.dark
                 }.onChange {
                     self.newNote = $0.value ?? ""
         }
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let note = (form.rowBy(tag: "note") as! TextAreaRow)
-        note.cell.textView.textColor = .white
-    }
     var newName: String?
     var newStartDate: Date?
     var newFinishDate: Date?
