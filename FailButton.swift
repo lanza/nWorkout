@@ -8,6 +8,8 @@ class FailButton: UIButton {
         titleLabel?.numberOfLines = 1
         titleLabel?.minimumScaleFactor = 3/titleLabel!.font.pointSize
         titleLabel?.adjustsFontSizeToFitWidth = true
+        
+                textColor = .white
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
     

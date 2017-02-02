@@ -16,7 +16,7 @@ where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
         super.viewWillAppear(animated)
         
         Keyboard.shared.delegate = dataSource.textFieldBehaviorHandler
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func setDataSource() {

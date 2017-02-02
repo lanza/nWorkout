@@ -23,6 +23,13 @@ extension LiftCell: SetRowViewDelegate {
 
 class LiftCell: ChartViewCell {
     
+    func setupContentView() {
+        contentView.backgroundColor = Theme.Colors.Cell.contentBackground
+        contentView.setBorder(color: .black, width: 1, radius: 0)
+        
+        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
+    }
+    
     weak var delegate: LiftCellDelegate!
     
     weak var lift: Lift! {
@@ -58,7 +65,7 @@ class LiftCell: ChartViewCell {
         noteButton.translatesAutoresizingMaskIntoConstraints = false
         noteButton.setTitle(Lets.noteButtonText)
         topContentView.addSubview(noteButton)
-       
+        
         setHeader()
         header.translatesAutoresizingMaskIntoConstraints = false
         topContentView.addSubview(header)
@@ -76,7 +83,7 @@ class LiftCell: ChartViewCell {
             header.heightAnchor.constraint(equalToConstant: 18),
             header.topAnchor.constraint(equalTo: noteButton.bottomAnchor, constant: -3),
             header.topAnchor.constraint(equalTo: label.bottomAnchor, constant: -3)
-        ])
+            ])
         
     }
     func setupBottomContentView() {
@@ -98,6 +105,8 @@ class LiftCell: ChartViewCell {
     func setupChartView() {
         chartView.delegate = self
         chartView.emptyText = nil
+        
+        chartView.backgroundColor = .clear
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -106,6 +115,7 @@ class LiftCell: ChartViewCell {
         setupTopContentView()
         setupBottomContentView()
         setupChartView()
+        setupContentView()
         
         backgroundColor = Theme.Colors.light
     }
@@ -162,7 +172,7 @@ extension LiftCell: ConfigurableCell {
                 } else {
                     pl.text = Lets.noPreviousSet
                 }
-            }            
+            }
         }
         
         chartView.setup()

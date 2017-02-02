@@ -39,6 +39,8 @@ class SetRowView: RowView {
     required init() {
         super.init()
         
+        columnBackgroundColor = Theme.Colors.Cell.contentBackground
+        
         setupSelectedColumnViewTypesAndWidth()
         configColumnViewTypes()
         configColumnWidthPercentages()
