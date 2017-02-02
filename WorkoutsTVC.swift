@@ -9,9 +9,9 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     func setTableHeaderView() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
         let label = UILabel()
-        label.text = "Hello"
+        label.text = "History"
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.font = UIFont.systemFont(ofSize: 28)
         
         view.addSubview(label)
         

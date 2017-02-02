@@ -80,7 +80,10 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        
         tableView.reloadData()
+        
     }
     
     let db = DisposeBag()

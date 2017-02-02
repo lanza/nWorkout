@@ -6,8 +6,26 @@ import DZNEmptyDataSet
 
 class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
     
+    func setTableHeaderView() {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
+        let label = UILabel()
+        label.text = "Routines"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 28)
+        
+        view.addSubview(label)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        tableView.tableHeaderView = view
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
        
         workouts = RLM.realm.objects(Workout.self).filter("isWorkout = false").sorted(byKeyPath: "name")
         
@@ -23,6 +41,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
         
+        setTableHeaderView()        
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: Lets.new, style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {

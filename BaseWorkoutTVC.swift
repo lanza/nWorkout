@@ -5,7 +5,7 @@ import DZNEmptyDataSet
 import CustomIOSAlertView
 
 class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate, WorkoutFooterViewDelegate
-    where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
+where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
     
     var dataSource: WorkoutDataSource<Cell>!
     var workout: Workout!
@@ -16,6 +16,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDa
         super.viewWillAppear(animated)
         
         Keyboard.shared.delegate = dataSource.textFieldBehaviorHandler
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func setDataSource() {
