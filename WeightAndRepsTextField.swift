@@ -1,4 +1,5 @@
 import UIKit
+import Reuse
 
 class WeightAndRepsTextField: UITextField {
     init() {

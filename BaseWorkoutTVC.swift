@@ -3,6 +3,7 @@ import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
 import CustomIOSAlertView
+import Reuse
 
 class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate, WorkoutFooterViewDelegate
 where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {

@@ -4,6 +4,7 @@ import RxCocoa
 import RealmSwift
 import RxRealm
 import ChartView
+import Reuse
 
 extension Reactive where Base: UITableView {
     public func items<S: Sequence, Cell: UITableViewCell, O : ObservableType>

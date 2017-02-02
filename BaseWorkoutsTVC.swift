@@ -3,6 +3,7 @@ import RealmSwift
 import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
+import Reuse
 
 class BaseWorkoutsTVC<Cell: UITableViewCell>: UIViewController, UITableViewDelegate where Cell: ConfigurableCell, Cell.Object == Workout, Cell: ReusableView {
     

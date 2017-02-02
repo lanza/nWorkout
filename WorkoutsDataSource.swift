@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import Reuse
 
 class WorkoutsDataSource<Cell: UITableViewCell> : DataSource<BaseDataProvider<Workout>,Cell> where Cell: ConfigurableCell, Cell.Object == Workout, Cell: ReusableView {
     

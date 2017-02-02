@@ -2,6 +2,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxDataSources
+import Reuse
 
 enum SettingsSectionsModel {
     case top
@@ -79,9 +80,9 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
     var sections: [SettingsSectionsModel] = [.top, .cells(items: ["hi", "bye"])]
     
     func setupTableView() {
-        tableView.register(UITableViewCell.self)
+        tableView.register(CellSettingsCell.self)
         dataSource.configureCell = { ds, tv, ip, item in
-            let cell = tv.dequeueReusableCell(for: ip)
+            let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
             cell.textLabel?.text = item
             return cell
         }
@@ -219,7 +220,41 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
 }
 
 
-
+class CellSettingsCell: UITableViewCell {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        let views: [UIView] = [titleLabel,widthTextField,onSwitch]
+        views.forEach { view in
+            contentView.addSubview(view)
+            view.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        NSLayoutConstraint.activate([
+            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            widthTextField.topAnchor.constraint(equalTo: contentView.topAnchor),
+            widthTextField.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            widthTextField.bottomAnchor.constraint(equalTo: onSwitch.topAnchor),
+            onSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            onSwitch.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            ])
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    let titleLabel = UILabel().then { label in
+        label.textColor = .white
+        label.backgroundColor = .clear
+    }
+    let widthTextField = UITextField().then { textField in
+        textField.textColor = .white
+        textField.backgroundColor = .clear
+    }
+    let onSwitch = UISwitch()
+}
 
 
 

@@ -1,4 +1,5 @@
 import UIKit
+import Reuse
 
 class DataSource<Provider: DataProvider, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate where Cell: ConfigurableCell, Cell: ReusableView, Provider.Object == Cell.Object {
     
