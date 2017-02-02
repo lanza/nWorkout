@@ -83,7 +83,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
         tableView.register(CellSettingsCell.self)
         dataSource.configureCell = { ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
-            cell.textLabel?.text = item
+            cell.titleLabel?.text = item
             return cell
         }
         dataSource.titleForHeaderInSection = { ds, index in
@@ -217,6 +217,13 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 42
 //    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 }
 
 
@@ -233,12 +240,18 @@ class CellSettingsCell: UITableViewCell {
         NSLayoutConstraint.activate([
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            titleLabel.rightAnchor.constraint(equalTo: onSwitch.leftAnchor),
             widthTextField.topAnchor.constraint(equalTo: contentView.topAnchor),
             widthTextField.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             widthTextField.bottomAnchor.constraint(equalTo: onSwitch.topAnchor),
             onSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            onSwitch.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            onSwitch.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            onSwitch.widthAnchor.constraint(equalTo: widthTextField.widthAnchor)
+            
             ])
+        
+        
+        backgroundColor = Theme.Colors.dark
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -250,8 +263,8 @@ class CellSettingsCell: UITableViewCell {
         label.backgroundColor = .clear
     }
     let widthTextField = UITextField().then { textField in
-        textField.textColor = .white
-        textField.backgroundColor = .clear
+//        textField.textColor = .white
+//        textField.backgroundColor = .clear
     }
     let onSwitch = UISwitch()
 }
