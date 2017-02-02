@@ -83,7 +83,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
         tableView.register(CellSettingsCell.self)
         dataSource.configureCell = { ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
-            cell.titleLabel?.text = item
+            cell.titleLabel.text = item
             return cell
         }
         dataSource.titleForHeaderInSection = { ds, index in
@@ -238,15 +238,16 @@ class CellSettingsCell: UITableViewCell {
         }
         
         NSLayoutConstraint.activate([
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             titleLabel.rightAnchor.constraint(equalTo: onSwitch.leftAnchor),
             widthTextField.topAnchor.constraint(equalTo: contentView.topAnchor),
-            widthTextField.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            widthTextField.rightAnchor.constraint(equalTo: onSwitch.rightAnchor),
             widthTextField.bottomAnchor.constraint(equalTo: onSwitch.topAnchor),
-            onSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            onSwitch.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            onSwitch.widthAnchor.constraint(equalTo: widthTextField.widthAnchor)
+            onSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 8),
+            onSwitch.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 4),
+            onSwitch.widthAnchor.constraint(equalTo: widthTextField.widthAnchor),
+            onSwitch.heightAnchor.constraint(equalTo: widthTextField.heightAnchor)
             
             ])
         
@@ -263,8 +264,9 @@ class CellSettingsCell: UITableViewCell {
         label.backgroundColor = .clear
     }
     let widthTextField = UITextField().then { textField in
-//        textField.textColor = .white
-//        textField.backgroundColor = .clear
+        textField.textColor = .white
+        textField.backgroundColor = .clear
+        textField.textAlignment = .center
     }
     let onSwitch = UISwitch()
 }
