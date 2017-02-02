@@ -7,7 +7,13 @@ enum SettingsSectionsModel {
     case top
     case cells(items: [String])
 }
-extension SettingsSectionsModel: SectionModelType {
+extension SettingsSectionsModel: AnimatableSectionModelType {
+    var identity: String {
+        switch self {
+        case .top: return "top"
+        case .cells(items: _): return "cells"
+        }
+    }
     typealias Item = String
     var items: [String] {
         switch self {
@@ -29,10 +35,10 @@ extension SettingsSectionsModel: SectionModelType {
 
 class SettingsTVC: UIViewController, UITableViewDelegate {
     
-    let tableView = UITableView(frame: .zero, style: .grouped)
+    let tableView = UITableView()
     let viewInfos$ = Variable<[ViewInfo]>([])
     
-    let dataSource = RxTableViewSectionedReloadDataSource<SettingsSectionsModel>()
+    let dataSource = RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,16 +74,29 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
         
         viewInfos$.value = ViewInfo.saved
         setupTableView()
-        tableView.setEditing(true, animated: false)
     }
     
     var sections: [SettingsSectionsModel] = [.top, .cells(items: ["hi", "bye"])]
     
     func setupTableView() {
         tableView.register(UITableViewCell.self)
+        dataSource.configureCell = { ds, tv, ip, item in
+            let cell = tv.dequeueReusableCell(for: ip)
+            cell.textLabel?.text = item
+            return cell
+        }
+        dataSource.titleForHeaderInSection = { ds, index in
+            return index == 0 ? "Settings" : "Cells"
+        }
+        dataSource.canMoveRowAtIndexPath = { info in
+            return true
+        }
+        dataSource.canEditRowAtIndexPath = { _ in return true }
+        dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .automatic, reloadAnimation: .automatic, deleteAnimation: .automatic)
+        
+        
         
         Observable.just(sections).bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(db)
-        
         tableView.rx.itemMoved.subscribe(onNext: { event in
             
             var items = self.sections[1].items
@@ -87,18 +106,10 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
             self.sections[1] = SettingsSectionsModel(original: self.sections[1], items: items)
             
         }).addDisposableTo(db)
-        
+
         tableView.rx.setDelegate(self).addDisposableTo(db)
         
-        dataSource.configureCell = { ds, tv, ip, item in
-            let cell = tv.dequeueReusableCell(for: ip)
-            cell.textLabel?.text = item
-            return cell
-        }
-        dataSource.titleForHeaderInSection = { ds, index in
-            return index == 0 ? "Settings" : "Cells"
-        }
-    }
+            }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -108,6 +119,12 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
         let ci = tableView.contentInset
         tableView.contentInset = UIEdgeInsets(top: ci.top, left: ci.left, bottom: 49, right: ci.right)
         
+        setEditing(true, animated: true)
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -188,7 +205,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
     let db = DisposeBag()
 
     func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
-        return false
+        return true
     }
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
@@ -196,9 +213,9 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .none
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 42
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 42
+//    }
 }
 
 
