@@ -3,6 +3,7 @@ import RxCocoa
 import RxSwift
 import RealmSwift
 import DZNEmptyDataSet
+import BonMot
 
 class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
     
@@ -73,11 +74,17 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "routine")
     }
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return .white
+    }
+
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "You do not have any routines, yet!")
+        let s = StringStyle(.color(.white))
+        return "You do not have any routines, yet!".styled(with: s)
     }
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "Click the + at the top to add your first routine.")
+        let s = StringStyle(.color(.white))
+        return "Click the + at the top to add your first routine.".styled(with: s)
     }
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")

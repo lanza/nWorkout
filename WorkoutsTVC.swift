@@ -3,6 +3,7 @@ import RealmSwift
 import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
+import BonMot
 
 class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     
@@ -59,15 +60,21 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")
     }
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return .white
+    }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "You have not done any workouts")
+        let s = StringStyle(.color(.white))
+        return "You have not done any workouts".styled(with: s)
     }
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "Click the + at the bottom to start your first workout or the \"Routines\" tab to set up a routine")
+        let s = StringStyle(.color(.white))
+        return "Click the + at the bottom to start your first workout or the \"Routines\" tab to set up a routine".styled(with: s)
     }
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")
     //    }
+    
 }
 
 extension WorkoutsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {}

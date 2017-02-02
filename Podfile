@@ -22,4 +22,6 @@ target 'nWorkout' do
   pod 'Charts'
   pod 'CarbonKit'
 
+  pod 'BonMot'
+
 end

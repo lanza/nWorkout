@@ -1,4 +1,5 @@
 PODS:
+  - BonMot (4.1)
   - CarbonKit (2.1.9)
   - Charts (3.0.1):
     - Charts/Core (= 3.0.1)
@@ -30,6 +31,7 @@ PODS:
   - RxSwift (3.0.0)
 
 DEPENDENCIES:
+  - BonMot
   - CarbonKit
   - Charts
   - ChartView (from `~/Documents/ChartView`)
@@ -57,6 +59,7 @@ EXTERNAL SOURCES:
     :path: ~/Documents/Reuse
 
 SPEC CHECKSUMS:
+  BonMot: 4fa97f5ce7fe03071df35d36426d5712b8a170ee
   CarbonKit: af16a9c0d2b6c908a5985fe4633424d38c9bfc0a
   Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
   ChartView: 0e979e327199aad9f97dced92c5fcb9451950f0c
@@ -73,6 +76,6 @@ SPEC CHECKSUMS:
   RxRealm: 6c1052b72118ed6929115801c38f90f0c962f2cf
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
 
-PODFILE CHECKSUM: f111385dabbd3872d16e746b28cb0b0718774453
+PODFILE CHECKSUM: bb4178ab73808efec811edccb73771881dc854e5
 
 COCOAPODS: 1.2.0
