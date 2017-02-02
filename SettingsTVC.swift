@@ -21,8 +21,8 @@ extension SettingsSectionsModel: SectionModelType {
         switch original {
         case .top:
             self = .top
-        case .cells(let strings):
-            self = .cells(items: strings)
+        case .cells(_):
+            self = .cells(items: items)
         }
     }
 }
@@ -71,10 +71,23 @@ class SettingsTVC: UIViewController, UITableViewDelegate {
         tableView.setEditing(true, animated: false)
     }
     
+    var sections: [SettingsSectionsModel] = [.top, .cells(items: ["hi", "bye"])]
+    
     func setupTableView() {
         tableView.register(UITableViewCell.self)
-        let sections: [SettingsSectionsModel] = [.top, .cells(items: ["hi"])]
+        
         Observable.just(sections).bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(db)
+        
+        tableView.rx.itemMoved.subscribe(onNext: { event in
+            
+            var items = self.sections[1].items
+            let moved = items.remove(at: event.sourceIndex.row)
+            items.insert(moved, at: event.destinationIndex.row)
+            
+            self.sections[1] = SettingsSectionsModel(original: self.sections[1], items: items)
+            
+        }).addDisposableTo(db)
+        
         tableView.rx.setDelegate(self).addDisposableTo(db)
         
         dataSource.configureCell = { ds, tv, ip, item in
