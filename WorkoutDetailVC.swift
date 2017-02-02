@@ -7,27 +7,103 @@ class WorkoutDetailVC: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
+        TextRow.defaultCellUpdate = { cell, row in
+            cell.titleLabel?.textColor = .white
+            cell.textField.textColor = .white
+            cell.backgroundColor = Theme.Colors.dark
+        }
+        TextRow.defaultOnCellHighlightChanged = { cell, row in
+            if row.isHighlighted {
+                cell.titleLabel?.textColor = Theme.Colors.main
+            } else {
+                cell.titleLabel?.textColor = .white
+            }
+        }
+        
+        DateTimeRow.defaultCellUpdate = { cell, row in
+            cell.textLabel?.textColor = .white
+            cell.detailTextLabel?.textColor = .white
+            cell.backgroundColor = Theme.Colors.dark
+        }
+        DateTimeRow.defaultOnCellHighlightChanged = { cell, row in
+            if row.isHighlighted {
+                cell.textLabel?.textColor = Theme.Colors.main
+            } else {
+                cell.textLabel?.textColor = .white
+            }
+        }
+        
+        
         form +++ Section("Details")
             <<< TextRow() {
                 $0.title = "Workout Name"
+                $0.tag = "name"
                 $0.value = workout.name
+                }.onChange {
+                    self.newName = $0.value ?? "none"
             }
             <<< DateTimeRow() {
                 $0.title = "Start Time"
+                $0.tag = "start"
                 $0.value = workout.startDate
-            }
+                }.onChange {
+                    guard let new = $0.value else { fatalError() }
+                    self.newStartDate = new
+                }
             <<< DateTimeRow() {
                 $0.title = "End Time"
                 $0.value = workout.finishDate
-            }
-            
+                }.onChange {
+                    guard let new = $0.value else { fatalError() }
+                    self.newFinishDate = new
+                }
             +++ Section("Note")
             <<< TextAreaRow() {
                 $0.value = workout.note
-            }
+                $0.tag = "note"
+                
+                $0.cell.backgroundColor = Theme.Colors.darker
+                $0.cell.textView.backgroundColor = Theme.Colors.dark
+                }.onChange {
+                    self.newNote = $0.value ?? ""
+        }
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let note = (form.rowBy(tag: "note") as! TextAreaRow)
+        note.cell.textView.textColor = .white
+    }
+    var newName: String?
+    var newStartDate: Date?
+    var newFinishDate: Date?
+    var newNote: String?
+    
     let workout: Workout
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        RLM.write {
+            if let name = newName {
+                workout.name = name
+            }
+            if let start = newStartDate {
+                workout.startDate = start
+            }
+            if let finish = newFinishDate {
+                workout.finishDate = finish
+            }
+            if let note = newNote {
+                workout.note = note
+            }
+        }
+    }
     
     init(workout: Workout) {
         self.workout = workout
