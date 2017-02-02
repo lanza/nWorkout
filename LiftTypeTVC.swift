@@ -2,6 +2,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import DZNEmptyDataSet
+import BonMot
 
 class LiftTypeCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -85,11 +86,16 @@ extension LiftTypeTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")
     }
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return .white
+    }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "You have no exercise types, yet!")
+        let s = StringStyle(.color(.white))
+        return "You have no exercise types, yet!".styled(with: s)
     }
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "Click the + in the top right to add a new exercise type.")
+        let s = StringStyle(.color(.white))
+        return "Click the + in the top right to add a new exercise type.".styled(with: s)
     }
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")

@@ -41,6 +41,12 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
             return new
         }
         pairs.value = Array(zip(lifts.keys, lifts.values))
+        
+        if tabBarController != nil {
+            let ci = tableView.contentInset
+            tableView.contentInset = UIEdgeInsets(top: ci.top, left: ci.left, bottom: 49, right: ci.right)
+        }
+
     }
     
     override func viewDidLoad() {
@@ -105,16 +111,21 @@ protocol StatisticsTVCDelegate: class {
 }
 
 
-
+import BonMot
 extension StatisticsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "statistics")
     }
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return .white
+    }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "You havne't done any workouts, yet!")
+        let s = StringStyle(.color(.white))
+        return "You havne't done any workouts, yet!".styled(with: s)
     }
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "After you've completed a workout, this page will show you statistics on your exercises done.")
+        let s = StringStyle(.color(.white))
+        return "After you've completed a workout, this page will show you statistics on your exercises done.".styled(with: s)
     }
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3FD2BC34109241A918F41B15 /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6B8E7FF219D372643F9F7E6 /* Pods_nWorkout.framework */; };
-		55D5DDA4EA4B72F002E27739 /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0316A7BDDFEBFA05A44D61B /* Pods_nWorkout.framework */; };
 		B30314681E302F1F00E13EBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30314671E302F1F00E13EBE /* Assets.xcassets */; };
 		B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */; };
 		B3170D171DE3D792001A11CE /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3170D161DE3D792001A11CE /* UIButton+Extensions.swift */; };
@@ -214,7 +213,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FD2BC34109241A918F41B15 /* Pods_nWorkout.framework in Frameworks */,
-				55D5DDA4EA4B72F002E27739 /* Pods_nWorkout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,7 +613,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Nathan Lanza";
 				TargetAttributes = {
 					B356FBBE1DC09C160006A0F0 = {

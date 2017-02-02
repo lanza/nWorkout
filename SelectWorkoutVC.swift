@@ -4,6 +4,7 @@ import RxCocoa
 import RxRealm
 import RealmSwift
 import DZNEmptyDataSet
+import BonMot
 
 protocol SelectWorkoutDelegate: class {
     func cancelSelected(for selectWorkoutVC: SelectWorkoutVC)
@@ -89,11 +90,17 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")
     }
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return .white
+    }
+    
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "Create a routine to be able to select a routine to format your workout.")
+        let s = StringStyle(.color(.white))
+        return "Create a routine to be able to select a routine to format your workout.".styled(with: s)
     }
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "To add a routine, close this page and click the \"Routines\" tab.")
+        let s = StringStyle(.color(.white))
+        return "To add a routine, close this page and click the \"Routines\" tab.".styled(with: s)
     }
     //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
     //        return NSAttributedString(string: "This is the button title")

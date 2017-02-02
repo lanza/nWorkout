@@ -24,6 +24,11 @@ where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
         
         Keyboard.shared.delegate = dataSource.textFieldBehaviorHandler
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        if tabBarController != nil {
+            let ci = tableView.contentInset
+            tableView.contentInset = UIEdgeInsets(top: ci.top, left: ci.left, bottom: 49, right: ci.right)
+        }
     }
     
     func setDataSource() {

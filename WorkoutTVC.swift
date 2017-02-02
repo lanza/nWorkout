@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
+import BonMot
 
 protocol WorkoutTVCDelegate: class {
     func hideTapped(for workoutTVC: WorkoutTVC)
@@ -39,11 +40,16 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     override func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return #imageLiteral(resourceName: "workout")
     }
+    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return .white
+    }
     override func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "You have not added any lifts, yet!")
+        let s = StringStyle(.color(.white))
+        return "You have not added any lifts, yet!".styled(with: s)
     }
     override func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "Click \"Add Lift\" to add a new exercise to your Workout.")
+        let s = StringStyle(.color(.white))
+        return "Click \"Add Lift\" to add a new exercise to your Workout.".styled(with: s)
     }
     
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {

@@ -51,6 +51,15 @@ class BaseWorkoutsTVC<Cell: UITableViewCell>: UIViewController, UITableViewDeleg
         tableView.separatorStyle = .none
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if tabBarController != nil {
+            let ci = tableView.contentInset
+            tableView.contentInset = UIEdgeInsets(top: ci.top, left: ci.left, bottom: 49, right: ci.right)
+        }
+
+    }
     let db = DisposeBag()
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
