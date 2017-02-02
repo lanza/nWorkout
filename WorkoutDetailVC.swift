@@ -7,11 +7,24 @@ class WorkoutDetailVC: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        form +++ Section("Section1")
-            <<< TextRow() { row in
-                row.title = "Slut"
-                row.placeholder = "Fuck you"
-        }
+        form +++ Section("Details")
+            <<< TextRow() {
+                $0.title = "Workout Name"
+                $0.value = workout.name
+            }
+            <<< DateTimeRow() {
+                $0.title = "Start Time"
+                $0.value = workout.startDate
+            }
+            <<< DateTimeRow() {
+                $0.title = "End Time"
+                $0.value = workout.finishDate
+            }
+            
+            +++ Section("Note")
+            <<< TextAreaRow() {
+                $0.value = workout.note
+            }
     }
     
     let workout: Workout
