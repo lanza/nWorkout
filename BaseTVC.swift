@@ -19,6 +19,7 @@ class BaseTVC: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Theme.Colors.darkest
         
         tableView.delegate = self
         tableView.separatorStyle = .none
