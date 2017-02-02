@@ -34,10 +34,16 @@ class StatisticsHistoryCell: ChartViewCell {
         chartView.isUserInteractionEnabled = false
         
         
+        contentView.backgroundColor = Theme.Colors.dark
+        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
         
         dateLabel.numberOfLines = 0
     }
-    let dateLabel = UILabel()
+    let dateLabel: UILabel = {
+        let l = UILabel()
+        l.textColor = .white
+        return l
+    }()
     let df: DateFormatter = {
         let d = DateFormatter()
         d.dateStyle = .medium
@@ -86,6 +92,8 @@ class StatisticsHistoryTVC: BaseTVC {
             cell.dateLabel.text = cell.df.string(from: lift.startDate)
             
             cell.chartView.configurationClosure = { (index,rowView) in
+                rowView.columnBackgroundColor = Theme.Colors.darkest
+                rowView.columnViews.forEach { ($0 as! UILabel).textColor = .white }
                 let set = lift.object(at: index)
                 (rowView.columnViews[0] as! UILabel).text = String(set.weight)
                 (rowView.columnViews[1] as! UILabel).text = String(set.reps)
