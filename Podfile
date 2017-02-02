@@ -23,6 +23,6 @@ target 'nWorkout' do
   pod 'CarbonKit'
 
   pod 'BonMot'
-  pod 'Eureka'
+  pod 'Eureka', '~> 2.0.0-beta.1'
 
 end

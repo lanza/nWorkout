@@ -8,6 +8,7 @@ PODS:
   - CoordinatorKit (0.0.6)
   - CustomIOSAlertView (0.9.5)
   - DZNEmptyDataSet (1.8.1)
+  - Eureka (2.0.0-beta.1)
   - Realm (2.3.0):
     - Realm/Headers (= 2.3.0)
   - Realm/Headers (2.3.0)
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - CoordinatorKit (from `~/Documents/CoordinatorKit`)
   - CustomIOSAlertView (~> 0.9.5)
   - DZNEmptyDataSet
+  - Eureka (~> 2.0.0-beta.1)
   - RealmSwift
   - Reuse (from `~/Documents/Reuse`)
   - RxCocoa (= 3.0)
@@ -50,13 +52,13 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ChartView:
     :branch: master
-    :path: ~/Documents/ChartView
+    :path: "~/Documents/ChartView"
   CoordinatorKit:
     :branch: master
-    :path: ~/Documents/CoordinatorKit
+    :path: "~/Documents/CoordinatorKit"
   Reuse:
     :branch: master
-    :path: ~/Documents/Reuse
+    :path: "~/Documents/Reuse"
 
 SPEC CHECKSUMS:
   BonMot: 4fa97f5ce7fe03071df35d36426d5712b8a170ee
@@ -66,6 +68,7 @@ SPEC CHECKSUMS:
   CoordinatorKit: 0e20cf34086abc40594ed8667a244fe50b831a2b
   CustomIOSAlertView: cc4fa8e36219be3fd5ebcd40789f5b4aaae0f38e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   Realm: 69d7de9aa569a11eed490aaabc8f2109e3985ecf
   RealmSwift: dc6f99ea55e59490cec69c860f91932b6bf7efb6
   Reuse: a02b2321a6636ef6622a2f095456957bbd29b94b
@@ -76,6 +79,6 @@ SPEC CHECKSUMS:
   RxRealm: 6c1052b72118ed6929115801c38f90f0c962f2cf
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
 
-PODFILE CHECKSUM: bb4178ab73808efec811edccb73771881dc854e5
+PODFILE CHECKSUM: a161acf38f3ca49bab8489e32523592c1476c9fc
 
 COCOAPODS: 1.2.0

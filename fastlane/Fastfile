@@ -37,7 +37,7 @@ platform :ios do
   desc "Just tf"
   lane :tf do
     testflight
-  do
+  end
 
   desc "Deploy a new version to the App Store"
   lane :release do

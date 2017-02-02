@@ -1,8 +1,30 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Eureka
 
-class WorkoutDetailVC: UIViewController {
+class WorkoutDetailVC: FormViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        form +++ Section("Section1")
+            <<< TextRow() { row in
+                row.title = "Slut"
+                row.placeholder = "Fuck you"
+        }
+    }
+    
+    let workout: Workout
+    
+    init(workout: Workout) {
+        self.workout = workout
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+}
+
+class WorkoutDetailVC2: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
     let workout: Workout
@@ -14,7 +36,7 @@ class WorkoutDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = Theme.Colors.darkest
         
         setupViews()
         setupDateTextFields()
