@@ -2,7 +2,7 @@ import UIKit
 import ChartView
 
 class LiftTableHeaderView: UIView {
-   
+    required init?(coder aDecoder: NSCoder) { fatalError() }
     var liftTableHeaderRowView: LiftTableHeaderRowView!
     
     init() {
@@ -11,12 +11,9 @@ class LiftTableHeaderView: UIView {
         setRV()
         setupViews()
     }
-    
     func setRV() {
         liftTableHeaderRowView = LiftTableHeaderRowView()
     }
-    
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     func setupViews() {
         addSubview(liftTableHeaderRowView)
@@ -50,22 +47,15 @@ class RoutineLiftTableHeaderRowView: LiftTableHeaderRowView {
 
 
 class LiftTableHeaderRowView: RowView {
-    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
     required init() {
         super.init()
-        
         backgroundColor = Theme.Colors.dark
-        
         columnBackgroundColor = Theme.Colors.darkest
-        
         setupViews()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    var viewInfos = ViewInfo.saved
+    let viewInfos = ViewInfo.saved
   
     override func getColumnView(columnNumber: Int) -> UIView {
         let text = dict[order[columnNumber]]!
@@ -86,7 +76,7 @@ class LiftTableHeaderRowView: RowView {
     var order: [String]!
     
     func setupViews() {
-        order = viewInfos.map { $0.name }
+        order = viewInfos.filter { $0.isOn }.map { $0.name }
         columnWidths = viewInfos.map { $0.width }
         columnViewTypes = viewInfos.map { _ in UILabel.self }
         

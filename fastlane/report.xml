@@ -5,34 +5,34 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="3.631928">
+      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="0.000354">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Verifying required fastlane version" time="0.00028">
+      <testcase classname="fastlane.lanes" name="1: Verifying required fastlane version" time="0.00022">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: default_platform" time="0.000147">
+      <testcase classname="fastlane.lanes" name="2: default_platform" time="0.000132">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: cocoapods" time="4.831386">
+      <testcase classname="fastlane.lanes" name="3: cocoapods" time="5.737781">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: gym" time="355.793785">
+      <testcase classname="fastlane.lanes" name="4: gym" time="408.130235">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: pilot" time="801.673635">
+      <testcase classname="fastlane.lanes" name="5: pilot" time="56.308382">
         
-          <failure message="/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:217:in `block in execute_action'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:213:in `chdir'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:213:in `execute_action'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:135:in `trigger_action_by_name'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/fast_file.rb:146:in `method_missing'&#10;Fastfile:30:in `block (2 levels) in parsing_binding'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/lane_manager.rb:52:in `cruise_lane'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/commands_generator.rb:105:in `block (2 levels) in run'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/commander-4.4.3/lib/commander/command.rb:178:in `call'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/commander-4.4.3/lib/commander/command.rb:153:in `run'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/commander-4.4.3/lib/commander/runner.rb:446:in `run_active_command'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:38:in `run!'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/commander-4.4.3/lib/commander/delegates.rb:15:in `run!'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/commands_generator.rb:302:in `run'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/commands_generator.rb:42:in `start'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/fastlane/lib/fastlane/cli_tools_distributor.rb:59:in `take_off'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.13.0/bin/fastlane:15:in `&lt;top (required)&gt;'&#10;/usr/local/bin/fastlane:22:in `load'&#10;/usr/local/bin/fastlane:22:in `&lt;main&gt;'&#10;&#10;&#10;TestFlight requires you to provide the answer to the encryption question&#10;to provide the reply, please add the following to your Info.plist file&#10;&#10;&lt;key&gt;ITSAppUsesNonExemptEncryption&lt;/key&gt;&lt;false/&gt;&#10;&#10;Afterwards re-build your app and try again&#10;iTunes Connect reported: 'You must provide an answer for this question. You cannot start testing without any tester. Please add tester(s) first and try again.'" />
+          <failure message="/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/runner.rb:217:in `block in execute_action'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/runner.rb:213:in `chdir'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/runner.rb:213:in `execute_action'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/runner.rb:135:in `trigger_action_by_name'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/fast_file.rb:146:in `method_missing'&#10;Fastfile:30:in `block (2 levels) in parsing_binding'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/lane_manager.rb:52:in `cruise_lane'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/commands_generator.rb:105:in `block (2 levels) in run'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/commander-4.4.3/lib/commander/command.rb:178:in `call'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/commander-4.4.3/lib/commander/command.rb:153:in `run'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/commander-4.4.3/lib/commander/runner.rb:446:in `run_active_command'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:38:in `run!'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/commander-4.4.3/lib/commander/delegates.rb:15:in `run!'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/commands_generator.rb:302:in `run'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/commands_generator.rb:42:in `start'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/fastlane/lib/fastlane/cli_tools_distributor.rb:59:in `take_off'&#10;/usr/local/lib/ruby/gems/2.4.0/gems/fastlane-2.14.0/bin/fastlane:15:in `&lt;top (required)&gt;'&#10;/usr/local/bin/fastlane:22:in `load'&#10;/usr/local/bin/fastlane:22:in `&lt;main&gt;'&#10;&#10;Error uploading ipa file, for more information see above" />
         
       </testcase>
     

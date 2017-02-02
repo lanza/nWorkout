@@ -109,6 +109,7 @@ class LiftCell: ChartViewCell {
         chartView.emptyText = nil
         
         chartView.backgroundColor = .clear
+        chartView.setBorder(color: .darkGray, width: 0.5, radius: 0)
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
