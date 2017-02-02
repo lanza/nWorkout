@@ -55,7 +55,7 @@ class LiftTableHeaderRowView: RowView {
         setupViews()
     }
     
-    let viewInfos = ViewInfo.saved
+    let viewInfos = ViewInfo.saved.filter { $0.isOn }
   
     override func getColumnView(columnNumber: Int) -> UIView {
         let text = dict[order[columnNumber]]!
@@ -76,7 +76,7 @@ class LiftTableHeaderRowView: RowView {
     var order: [String]!
     
     func setupViews() {
-        order = viewInfos.filter { $0.isOn }.map { $0.name }
+        order = viewInfos.map { $0.name }
         columnWidths = viewInfos.map { $0.width }
         columnViewTypes = viewInfos.map { _ in UILabel.self }
         
