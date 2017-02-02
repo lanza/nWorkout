@@ -4,8 +4,15 @@ import RxCocoa
 import DZNEmptyDataSet
 import CustomIOSAlertView
 
-class BaseWorkoutTVC<Cell: LiftCell>: BaseTVC, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate, WorkoutFooterViewDelegate
+class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate, WorkoutFooterViewDelegate
 where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
+    }
+    
+    let tableView = UITableView()
     
     var dataSource: WorkoutDataSource<Cell>!
     var workout: Workout!
@@ -29,6 +36,36 @@ where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = Theme.Colors.darkest
+        
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: UIApplication.shared.windows[0].frame.width, height: 64))
+        v.backgroundColor = Theme.Colors.darkest
+        view.addSubview(v)
+        v.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            v.topAnchor.constraint(equalTo: view.topAnchor),
+            v.leftAnchor.constraint(equalTo: view.leftAnchor),
+            v.rightAnchor.constraint(equalTo: view.rightAnchor),
+            v.heightAnchor.constraint(equalToConstant: 64),
+            
+            tableView.topAnchor.constraint(equalTo: v.bottomAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
+            ])
+        
+        tableView.tableFooterView = UIView()
+        navigationItem.rightBarButtonItem = editButtonItem
+        
+        
+        view.backgroundColor = Theme.Colors.darkest
+        tableView.delegate = self
+        tableView.separatorStyle = .none
         
         setDataSource()
         setEmptyDataSet()
@@ -97,6 +134,10 @@ where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
             nv.view.noteButton.update(for: nv.type)
         }
         av.close()
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        UIResponder.currentFirstResponder?.resignFirstResponder()
     }
     
     func addLiftTapped() {
