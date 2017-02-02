@@ -37,7 +37,7 @@ extension SettingsSectionsModel: AnimatableSectionModelType {
 class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelegate {
     
     let tableView = UITableView()
-    let viewInfos$ = Variable<[ViewInfo]>([])
+    var viewInfos = ViewInfo.saved
     
     let dataSource = RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>()
     
@@ -73,18 +73,24 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
         
         setTableHeaderView()
         
-        viewInfos$.value = ViewInfo.saved
+        sections = [.top, .cells(items: viewInfos.map { $0.name })]
         setupTableView()
     }
     
-    var sections: [SettingsSectionsModel] = [.top, .cells(items: ["hi", "bye"])]
+    var sections: [SettingsSectionsModel] = []
     
     func setupTableView() {
         tableView.register(CellSettingsCell.self)
         dataSource.configureCell = { [unowned self] ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
+            if ip.section == 1 {
+                let vi = self.viewInfos[ip.row]
+                cell.onSwitch.isOn = vi.isOn
+                cell.widthTextField.text = "\(vi.width)"
+            }
             cell.titleLabel.text = item
             cell.delegate = self
+            
             return cell
         }
         dataSource.titleForHeaderInSection = { ds, index in
@@ -104,8 +110,10 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
             var items = self.sections[1].items
             let moved = items.remove(at: event.sourceIndex.row)
             items.insert(moved, at: event.destinationIndex.row)
-            
             self.sections[1] = SettingsSectionsModel(original: self.sections[1], items: items)
+            
+            let viewInfo = self.viewInfos.remove(at: event.sourceIndex.row)
+            self.viewInfos.insert(viewInfo, at: event.destinationIndex.row)
             
         }).addDisposableTo(db)
         
@@ -132,7 +140,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        UserDefaults.standard.set(viewInfos$.value.map { $0.array }, forKey: Lets.viewInfoKey)
+        UserDefaults.standard.set(viewInfos.map { $0.array }, forKey: Lets.viewInfoKey)
     }
     
     func setTableHeaderView() {
@@ -153,7 +161,6 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     }
     
     
-    //
     //    func setupRx() {
     
     //        hideCompletionUntilFailTappedSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
@@ -179,30 +186,6 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     //            }
     //        }).addDisposableTo(db)
     
-    //        viewInfos$.asObservable().bindTo(tableView.rx.items(cellIdentifier: "cell", cellType: SettingsCell.self)) { index, viewInfo, cell in
-    //            cell.db = DisposeBag()
-    //            cell.nameLabel.text = viewInfo.name
-    //            cell.widthTextField.text = viewInfo.width.remainder(dividingBy: 1) == 0 ? String(describing: Int(viewInfo.width)) : String(describing: viewInfo.width)
-    //            cell.widthTextField.rx.controlEvent(.editingDidEnd).subscribe(onNext: { [unowned self] in
-    //                self.viewInfos$.value[index].width = CGFloat(Double(cell.widthTextField.text ?? "20")!)
-    //            }).addDisposableTo(cell.db)
-    //
-    //
-    //            cell.isOnSwitch.isOn = viewInfo.isOn
-    //            cell.isOnSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
-    //                self.viewInfos$.value[index].isOn = cell.isOnSwitch.isOn
-    //            }).addDisposableTo(cell.db)
-    //
-    //        }.addDisposableTo(db)
-    //
-    //        tableView.rx.itemMoved.subscribe(onNext: { itemMovedEvent in
-    //            let item = self.viewInfos$.value.remove(at: itemMovedEvent.sourceIndex.row)
-    //            self.viewInfos$.value.insert(item, at: itemMovedEvent.destinationIndex.row)
-    //        }).addDisposableTo(db)
-    //
-    //        tableView.rx.setDelegate(self).addDisposableTo(db)
-    //    }
-    
     
     let db = DisposeBag()
     
@@ -226,13 +209,14 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
         return UITableViewAutomaticDimension
     }
     
-    func widthDidChange(to double: Double, for cell: CellSettingsCell) {
+    func widthDidChange(to value: CGFloat, for cell: CellSettingsCell) {
         let index = tableView.indexPath(for: cell)!
-        print(sections[index.section].items[index.row])
+        viewInfos[index.row].width = value
+        
     }
     func switchDidChange(to bool: Bool, for cell: CellSettingsCell) {
         let index = tableView.indexPath(for: cell)!
-        print(sections[index.section].items[index.row])
+        viewInfos[index.row].isOn = !viewInfos[index.row].isOn
     }
 }
 
@@ -269,8 +253,10 @@ class CellSettingsCell: UITableViewCell {
         
         backgroundColor = Theme.Colors.dark
         
-        widthTextField.rx.controlEvent(UIControlEvents.editingDidEnd).subscribe(onNext: {
-            self.delegate.widthDidChange(to: Double(self.widthTextField.text!)!, for: self)
+        widthTextField.keyboardType = .decimalPad
+        
+        widthTextField.rx.text.skip(1).subscribe(onNext: { value in
+            self.delegate.widthDidChange(to: CGFloat(Double(value!)!), for: self)
         }).addDisposableTo(db)
         onSwitch.rx.value.skip(1).subscribe(onNext: { value in
             self.delegate.switchDidChange(to: value, for: self)
@@ -300,7 +286,7 @@ class CellSettingsCell: UITableViewCell {
 
 protocol CellSettingsCellDelegate: class {
     func switchDidChange(to bool: Bool, for cell: CellSettingsCell)
-    func widthDidChange(to double: Double, for cell: CellSettingsCell)
+    func widthDidChange(to value: CGFloat, for cell: CellSettingsCell)
 }
 
 
