@@ -60,6 +60,7 @@ class LiftCell: ChartViewCell {
     func setupTopContentView() {
         label.text = "Hi muffin"
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
         topContentView.addSubview(label)
         
         noteButton.translatesAutoresizingMaskIntoConstraints = false
@@ -90,8 +91,9 @@ class LiftCell: ChartViewCell {
         addSetButton.setTitle("Add Set...", for: UIControlState())
         addSetButton.translatesAutoresizingMaskIntoConstraints = false
         addSetButton.layer.borderColor = UIColor.darkGray.cgColor
-        addSetButton.layer.borderWidth = 3
-        addSetButton.backgroundColor = .white
+        addSetButton.layer.borderWidth = 1
+        addSetButton.backgroundColor = Theme.Colors.darkest
+        addSetButton.setTitleColor(.white)
         
         bottomContentView.addSubview(addSetButton)
         

@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxRealm
 import RealmSwift
 import DZNEmptyDataSet
 
@@ -20,7 +21,7 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
     override func loadView() {
         automaticallyAdjustsScrollViewInsets = false
         view = UIView(frame: AppDelegate.main.window!.frame)
-        view.backgroundColor = .white
+        view.backgroundColor = Theme.Colors.darkest
     }
     
     func setupView() {
@@ -40,18 +41,15 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
             ])
     }
     
+    let objects = RLM.objects(type: Workout.self).filter("isWorkout = false")
+    
     func setupTableView() {
-        tableView.isScrollEnabled = false
-        
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
-        
-        let realm = try! Realm()
-        let objects = Array(realm.objects(Workout.self).filter("isWorkout = false"))
-        
+
         tableView.register(SelectWorkoutCell.self)
         
-        Observable.just(objects).bindTo(tableView.rx.items(cellIdentifier: SelectWorkoutCell.reuseIdentifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
+        Observable.from(objects).bindTo(tableView.rx.items(cellIdentifier: SelectWorkoutCell.reuseIdentifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
             cell.configure(for: workout, at: IndexPath(row: index, section: 0))
             }.addDisposableTo(db)
         
@@ -83,7 +81,6 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
         navigationController?.setNavigationBarHidden(false, animated: false)
         
         tableView.reloadData()
-        
     }
     
     let db = DisposeBag()

@@ -54,7 +54,10 @@ class LiftTableHeaderRowView: RowView {
     required init() {
         super.init()
         
-        backgroundColor = .darkGray
+        backgroundColor = Theme.Colors.dark
+        
+        columnBackgroundColor = Theme.Colors.darkest
+        
         setupViews()
     }
     
@@ -97,6 +100,7 @@ class LiftTableHeaderLabelHolder: UIView {
         let l = LiftTableHeaderLabelHolder()
         l.lthl.text = text
         
+        
         l.lthl.translatesAutoresizingMaskIntoConstraints = false
         l.addSubview(l.lthl)
         
@@ -117,6 +121,9 @@ class LiftTableHeaderLabel: UILabel {
         l.textAlignment = .center
         l.numberOfLines = 0
         l.baselineAdjustment = .alignCenters
+        
+        l.textColor = .white
+        l.backgroundColor = .clear
         
         l.setFontScaling(minimum: 1)
         

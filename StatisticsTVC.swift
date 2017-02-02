@@ -30,6 +30,7 @@ class StatisticsTVC: BaseTVC {
         tableView.tableFooterView = UIView()
         
         setupRx()
+        
     }
     
     func setupRx() {

@@ -9,7 +9,6 @@ class FailButton: UIButton {
         titleLabel?.minimumScaleFactor = 3/titleLabel!.font.pointSize
         titleLabel?.adjustsFontSizeToFitWidth = true
         
-                textColor = .white
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
     

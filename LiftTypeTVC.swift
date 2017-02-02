@@ -3,6 +3,18 @@ import RxCocoa
 import RxSwift
 import DZNEmptyDataSet
 
+class LiftTypeCell: UITableViewCell {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        contentView.backgroundColor = Theme.Colors.Cell.contentBackground
+        contentView.setShadow(offsetWidth: 1, offsetHeight: 1, radius: 1, opacity: 0.7, color: .black)
+        textLabel?.textColor = .white
+    }
+    
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+}
+
 
 class LiftTypeTVC: BaseTVC {
     
@@ -25,12 +37,12 @@ class LiftTypeTVC: BaseTVC {
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
         
-        tableView.register(UITableViewCell.self)
+        tableView.register(LiftTypeCell.self)
         setupRx()
     }
     
     func setupRx() {
-        liftTypes.asObservable().bindTo(tableView.rx.items(cellIdentifier: UITableViewCell.reuseIdentifier, cellType: UITableViewCell.self)) { index, string, cell in
+        liftTypes.asObservable().bindTo(tableView.rx.items(cellIdentifier: LiftTypeCell.reuseIdentifier, cellType: LiftTypeCell.self)) { index, string, cell in
             cell.textLabel?.text = string
             }.addDisposableTo(db)
         

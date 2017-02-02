@@ -8,8 +8,7 @@ class CompleteButton: UIButton {
         titleLabel?.numberOfLines = 1
         titleLabel?.minimumScaleFactor = 5/titleLabel!.font.pointSize
         titleLabel?.adjustsFontSizeToFitWidth = true
-        
-                textColor = .white
+
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
     

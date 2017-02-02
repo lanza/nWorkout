@@ -13,8 +13,6 @@ class WeightAndRepsLabelHolder: UIView {
         warl.translatesAutoresizingMaskIntoConstraints = false
         addSubview(warl)
         
-                textColor = .white
-        
         NSLayoutConstraint.activate([
             warl.leftAnchor.constraint(equalTo: leftAnchor, constant: 3),
             warl.rightAnchor.constraint(equalTo: rightAnchor, constant: -3),

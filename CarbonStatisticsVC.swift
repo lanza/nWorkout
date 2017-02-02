@@ -12,10 +12,11 @@ class CarbonStatisticsVC: UIViewController, CarbonTabSwipeNavigationDelegate {
         title = liftName
     }
     
+    
     let liftName: String
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = Theme.Colors.darkest
         
         let items = ["History","Charts","PR"]
         let c = CarbonTabSwipeNavigation(items: items, delegate: self)

@@ -6,7 +6,7 @@ struct Theme {
         navBarAppearance.titleTextAttributes = [
             NSForegroundColorAttributeName: Colors.Nav.title
         ]
-//        navBarAppearance.barStyle = .black
+        navBarAppearance.barStyle = .blackOpaque
         navBarAppearance.barTintColor = Colors.Nav.barTint
         navBarAppearance.tintColor = Colors.Nav.tint
         navBarAppearance.setBackgroundImage(UIImage(), for: .default)
@@ -51,8 +51,8 @@ struct Theme {
         }
         struct Nav {
             static let barTint = Colors.clear
-            static let title = Colors.main
-            static let tint = Colors.main
+            static let title = UIColor.white
+            static let tint = UIColor.white
         }
         struct Tab {
             static let barTint = Colors.darker

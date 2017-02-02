@@ -300,6 +300,15 @@
 			path = nWorkout;
 			sourceTree = "<group>";
 		};
+		B35DFC441E42B8C0005D770B /* SelectWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */,
+				B360593C1E1C4ACE00EBE620 /* SelectWorkoutCell.swift */,
+			);
+			name = SelectWorkout;
+			sourceTree = "<group>";
+		};
 		B36059271E1C3E2B00EBE620 /* WorkoutCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,7 +420,6 @@
 			children = (
 				B3780EF71DD5B0C80087CEC1 /* ConfigurableCell.swift */,
 				B36059231E1C3DCF00EBE620 /* BaseChartViewDataSource.swift */,
-				B360593C1E1C4ACE00EBE620 /* SelectWorkoutCell.swift */,
 				B36059451E1C92C100EBE620 /* SettingsCell.swift */,
 				B36059271E1C3E2B00EBE620 /* WorkoutCell */,
 				B36059281E1C3E3C00EBE620 /* LiftCell */,
@@ -504,7 +512,7 @@
 				B3FCCD241E137828003EF14E /* BaseTVC.swift */,
 				B36059521E1CC74D00EBE620 /* Plurals */,
 				B36059511E1CC74A00EBE620 /* Singulars */,
-				B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */,
+				B35DFC441E42B8C0005D770B /* SelectWorkout */,
 				B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */,
 				B32887A31E03344100259D66 /* Settings */,
 			);
