@@ -22,24 +22,30 @@ class BaseWorkoutsTVC<Cell: UITableViewCell>: UIViewController, UITableViewDeleg
         super.viewDidLoad()
         
         view.backgroundColor = Theme.Colors.darkest
-
+        
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: UIApplication.shared.windows[0].frame.width, height: 20))
+        v.backgroundColor = Theme.Colors.darkest
+        view.addSubview(v)
+        v.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor, constant: 20),
+            v.topAnchor.constraint(equalTo: view.topAnchor),
+            v.leftAnchor.constraint(equalTo: view.leftAnchor),
+            v.rightAnchor.constraint(equalTo: view.rightAnchor),
+            v.heightAnchor.constraint(equalToConstant: 20),
+            
+            tableView.topAnchor.constraint(equalTo: v.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
             ])        
         
-        let ci = tableView.contentInset
-        tableView.contentInset = UIEdgeInsets(top: ci.top + 20, left: ci.left, bottom: ci.bottom, right: ci.right)
-        
         tableView.tableFooterView = UIView()
         navigationItem.leftBarButtonItem = editButtonItem
-        
+
         
         tableView.delegate = self
         tableView.separatorStyle = .none

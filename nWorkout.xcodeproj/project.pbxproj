@@ -395,11 +395,11 @@
 			isa = PBXGroup;
 			children = (
 				B3BB318D1DDAA2360015F9B0 /* StatisticsCoordinator.swift */,
+				B328D8111DD6FA52000948ED /* StatisticsTVC.swift */,
+				B32504011E34447300C51909 /* StatisticsCell.swift */,
 				B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */,
 				B32504051E34456C00C51909 /* CarbonStatisticsVC.swift */,
 				B37951921E34ACF0000F7428 /* StatisticsHistoryTVC.swift */,
-				B328D8111DD6FA52000948ED /* StatisticsTVC.swift */,
-				B32504011E34447300C51909 /* StatisticsCell.swift */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";

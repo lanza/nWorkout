@@ -4,7 +4,9 @@ import RxCocoa
 import DZNEmptyDataSet
 import RxRealm
 
-class StatisticsTVC: BaseTVC {
+class StatisticsTVC: UIViewController, UITableViewDelegate {
+    
+    let tableView = UITableView()
     
     func setTableHeaderView() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
@@ -43,6 +45,33 @@ class StatisticsTVC: BaseTVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = Theme.Colors.darkest
+        
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: UIApplication.shared.windows[0].frame.width, height: 20))
+        v.backgroundColor = Theme.Colors.darkest
+        view.addSubview(v)
+        v.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            v.topAnchor.constraint(equalTo: view.topAnchor),
+            v.leftAnchor.constraint(equalTo: view.leftAnchor),
+            v.rightAnchor.constraint(equalTo: view.rightAnchor),
+            v.heightAnchor.constraint(equalToConstant: 20),
+            
+            tableView.topAnchor.constraint(equalTo: v.bottomAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
+            ])
+        
+        tableView.tableFooterView = UIView()
+        
+        tableView.delegate = self
+        tableView.separatorStyle = .none
 
         setTableHeaderView()
         
