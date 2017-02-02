@@ -81,9 +81,10 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     
     func setupTableView() {
         tableView.register(CellSettingsCell.self)
-        dataSource.configureCell = { ds, tv, ip, item in
+        dataSource.configureCell = { [unowned self] ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
             cell.titleLabel.text = item
+            cell.delegate = self
             return cell
         }
         dataSource.titleForHeaderInSection = { ds, index in
@@ -268,10 +269,10 @@ class CellSettingsCell: UITableViewCell {
         
         backgroundColor = Theme.Colors.dark
         
-        widthTextField.rx.controlEvent(.valueChanged).subscribe(onNext: {
+        widthTextField.rx.controlEvent(UIControlEvents.editingDidEnd).subscribe(onNext: {
             self.delegate.widthDidChange(to: Double(self.widthTextField.text!)!, for: self)
         }).addDisposableTo(db)
-        onSwitch.rx.value.subscribe(onNext: { value in
+        onSwitch.rx.value.skip(1).subscribe(onNext: { value in
             self.delegate.switchDidChange(to: value, for: self)
         }).addDisposableTo(db)
     }
