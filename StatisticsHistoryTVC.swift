@@ -39,6 +39,7 @@ class StatisticsHistoryCell: ChartViewCell {
         
         dateLabel.numberOfLines = 0
     }
+    
     let dateLabel: UILabel = {
         let l = UILabel()
         l.textColor = .white
@@ -55,12 +56,14 @@ class StatisticsHistoryCell: ChartViewCell {
     func setupChartView() {
         chartView.register(StatisticsHistorySetRowView.self, forResuseIdentifier: "row")
     }
+    
 }
 
 class StatisticsHistorySetRowView: RowView {
     required init() {
         super.init()
-        columnViewTypes = [UILabel.self, UILabel.self, UILabel.self, UILabel.self]
+        columnBackgroundColor = Theme.Colors.darkest
+        columnViewTypes = [DarkLabel.self, DarkLabel.self, DarkLabel.self, DarkLabel.self]
         columnWidths = [25,25,25,25]
     }
     
@@ -92,8 +95,6 @@ class StatisticsHistoryTVC: BaseTVC {
             cell.dateLabel.text = cell.df.string(from: lift.startDate)
             
             cell.chartView.configurationClosure = { (index,rowView) in
-                rowView.columnBackgroundColor = Theme.Colors.darkest
-                rowView.columnViews.forEach { ($0 as! UILabel).textColor = .white }
                 let set = lift.object(at: index)
                 (rowView.columnViews[0] as! UILabel).text = String(set.weight)
                 (rowView.columnViews[1] as! UILabel).text = String(set.reps)

@@ -12,6 +12,12 @@ class CarbonStatisticsVC: UIViewController, CarbonTabSwipeNavigationDelegate {
         title = liftName
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     
     let liftName: String
     override func viewDidLoad() {
@@ -66,6 +72,11 @@ extension ChartSectionModel: SectionModelType {
 }
 
 class StatisticsChartsTVC: BaseTVC {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
     init(liftName: String) {

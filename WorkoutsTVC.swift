@@ -27,6 +27,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        
         workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true").filter("isComplete = true").sorted(byKeyPath: "startDate", ascending: false)
         
         dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
@@ -35,7 +36,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
             self.present(alert, animated: true, completion: nil)
         }
         
-        setTableHeaderView()
+        
     }
     
     override func viewDidLoad() {
@@ -43,6 +44,8 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
+        
+        setTableHeaderView()
         
         navigationItem.leftBarButtonItem = editButtonItem
     }
