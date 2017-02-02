@@ -23,5 +23,6 @@ target 'nWorkout' do
   pod 'CarbonKit'
 
   pod 'BonMot'
+  pod 'Eureka'
 
 end
