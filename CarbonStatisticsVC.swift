@@ -5,6 +5,8 @@ import UIKit
 
 class CarbonStatisticsVC: UIViewController, CarbonTabSwipeNavigationDelegate {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     required init?(coder aDecoder: NSCoder) { fatalError() }
     init(liftName: String) {
         self.liftName = liftName

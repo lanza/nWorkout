@@ -6,6 +6,8 @@ import RxRealm
 
 class StatisticsTVC: UIViewController, UITableViewDelegate {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     let tableView = UITableView()
     
     func setTableHeaderView() {

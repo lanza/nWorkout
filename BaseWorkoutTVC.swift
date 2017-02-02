@@ -7,6 +7,8 @@ import CustomIOSAlertView
 class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate, WorkoutFooterViewDelegate
 where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView.setEditing(editing, animated: animated)

@@ -19,6 +19,8 @@ class LiftTypeCell: UITableViewCell {
 
 class LiftTypeTVC: BaseTVC {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         

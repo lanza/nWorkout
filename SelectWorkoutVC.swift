@@ -14,6 +14,8 @@ protocol SelectWorkoutDelegate: class {
 
 class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     weak var delegate: SelectWorkoutDelegate!
     
     var tableView = UITableView(frame: CGRect.zero, style: .grouped)

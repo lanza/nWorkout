@@ -6,6 +6,8 @@ import DZNEmptyDataSet
 
 class BaseWorkoutsTVC<Cell: UITableViewCell>: UIViewController, UITableViewDelegate where Cell: ConfigurableCell, Cell.Object == Workout, Cell: ReusableView {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView.setEditing(editing, animated: animated)

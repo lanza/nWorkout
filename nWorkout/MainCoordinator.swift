@@ -65,6 +65,7 @@ class MainCoordinator: TabBarCoordinator {
     
         createCoordinators()
         checkForUnfinishedWorkout()
+        
     }
     
     let dummy: Coordinator = {

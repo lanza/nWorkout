@@ -6,6 +6,9 @@ extension SettingsTVC: ViewControllerFromStoryboard {
 }
 
 class SettingsTVC: UIViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     @IBOutlet weak var hideCompletionUntilFailTappedSwitch: UISwitch!
     
     @IBOutlet weak var tableView: UITableView!
