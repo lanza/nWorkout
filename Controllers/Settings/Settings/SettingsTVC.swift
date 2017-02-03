@@ -236,17 +236,19 @@ class CellSettingsCell: UITableViewCell {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
+
+        
         let constraints = [
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            titleLabel.rightAnchor.constraint(equalTo: onSwitch.leftAnchor),
-            widthTextField.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
-            widthTextField.rightAnchor.constraint(equalTo: onSwitch.rightAnchor),
-            widthTextField.bottomAnchor.constraint(equalTo: onSwitch.topAnchor),
-            onSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8),
-            onSwitch.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),            
+            titleLabel.rightAnchor.constraint(equalTo: widthTextField.leftAnchor),
+            widthTextField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            widthTextField.rightAnchor.constraint(equalTo: onSwitch.leftAnchor, constant: -4),
+            onSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -4),
             onSwitch.widthAnchor.constraint(equalTo: widthTextField.widthAnchor),
-            onSwitch.heightAnchor.constraint(equalTo: widthTextField.heightAnchor)
+            onSwitch.heightAnchor.constraint(equalTo: widthTextField.heightAnchor),
+            onSwitch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ]
         
         titleLabel.setContentCompressionResistancePriority(100, for: .horizontal)
@@ -274,11 +276,13 @@ class CellSettingsCell: UITableViewCell {
         label.textColor = .white
         label.backgroundColor = .clear
         label.numberOfLines = 0
+        label.setFontScaling(minimum: 10)
     }
     let widthTextField = UITextField().then { textField in
         textField.textColor = .white
         textField.textAlignment = .center
     }
+
     let onSwitch = UISwitch().then({ swtch in
         swtch.tintColor = Theme.Colors.main
         swtch.onTintColor = Theme.Colors.main
