@@ -34,15 +34,10 @@ platform :ios do
     # You can also use other beta testing services here (run `fastlane actions`)
   end
 
-  desc "Just tf"
-  lane :tf do
-    testflight
-  end
-
   desc "Deploy a new version to the App Store"
   lane :release do
     # match(type: "appstore")
-     snapshot
+    snapshot
     gym(scheme: "nWorkout") # Build your app - more options available
     deliver(force: true)
     frameit
