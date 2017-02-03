@@ -54,4 +54,5 @@ struct ViewInfo: Equatable {
     }
     
     static var routineColumnViewInfo: [(String,CGFloat)] { return [(Lets.setNumberKey,10),(Lets.targetWeightKey,45),(Lets.targetRepsKey,45)] }
+    static var statisticsHistoryColumnViewInfo: [(String,CGFloat)] { return [(Lets.targetWeightKey,25),(Lets.targetRepsKey,25),(Lets.completedWeightKey,25),(Lets.completedRepsKey,25)] }
 }

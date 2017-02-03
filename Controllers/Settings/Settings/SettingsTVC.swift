@@ -241,15 +241,18 @@ class CellSettingsCell: UITableViewCell {
         let constraints = [
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),            
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
             titleLabel.rightAnchor.constraint(equalTo: widthTextField.leftAnchor),
             widthTextField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             widthTextField.rightAnchor.constraint(equalTo: onSwitch.leftAnchor, constant: -4),
             onSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -4),
             onSwitch.widthAnchor.constraint(equalTo: widthTextField.widthAnchor),
             onSwitch.heightAnchor.constraint(equalTo: widthTextField.heightAnchor),
-            onSwitch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            onSwitch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            contentView.heightAnchor.constraint(greaterThanOrEqualTo: onSwitch.heightAnchor, constant: 8)
         ]
+        
+        
         
         titleLabel.setContentCompressionResistancePriority(100, for: .horizontal)
         

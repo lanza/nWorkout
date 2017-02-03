@@ -42,9 +42,23 @@ class RoutineLiftTableHeaderRowView: LiftTableHeaderRowView {
         
         setupColumns()
     }
-    
 }
 
+class StatisticsHistoryTableHeaderRowView: LiftTableHeaderRowView {
+    override func setupViews() {
+        let i = ViewInfo.statisticsHistoryColumnViewInfo
+        order = i.map { $0.0 }
+        columnWidths = i.map { $0.1 }
+        columnViewTypes = i.map { _ in UILabel.self }
+        
+        setupColumns()
+    }
+}
+class StatisticsHistoryTableHeaderView: LiftTableHeaderView {
+    override func setRV() {
+        liftTableHeaderRowView = StatisticsHistoryTableHeaderRowView()
+    }
+}
 
 class LiftTableHeaderRowView: RowView {
     required init?(coder aDecoder: NSCoder) { fatalError() }

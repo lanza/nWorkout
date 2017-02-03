@@ -23,14 +23,8 @@ class StatisticsHistoryCell: ChartViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupChartView()
-        topContentView.addSubview(dateLabel)
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        setupTopContentView()
         
-        topContentView.addConstraints([
-            dateLabel.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
-            dateLabel.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor),
-            dateLabel.topAnchor.constraint(equalTo: topContentView.topAnchor)
-            ])
         
         chartView.isUserInteractionEnabled = false
         
@@ -40,6 +34,31 @@ class StatisticsHistoryCell: ChartViewCell {
         
         dateLabel.numberOfLines = 0
     }
+    
+    func setupTopContentView() {
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        topContentView.addSubview(dateLabel)
+        
+        setHeader()
+        header.translatesAutoresizingMaskIntoConstraints = false
+        topContentView.addSubview(header)
+        
+        topContentView.addConstraints([
+            dateLabel.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
+            dateLabel.topAnchor.constraint(equalTo: topContentView.topAnchor),
+            
+            header.bottomAnchor.constraint(equalTo: topContentView.bottomAnchor),
+            header.leftAnchor.constraint(equalTo: topContentView.leftAnchor),
+            header.rightAnchor.constraint(equalTo: topContentView.rightAnchor),
+            header.heightAnchor.constraint(equalToConstant: 18),
+            header.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 5)
+
+            ])
+    }
+    func setHeader() {
+        header = StatisticsHistoryTableHeaderView()
+    }
+    var header: LiftTableHeaderView!
     
     let dateLabel: UILabel = {
         let l = UILabel()
