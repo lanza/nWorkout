@@ -35,13 +35,13 @@ DEPENDENCIES:
   - BonMot
   - CarbonKit
   - Charts
-  - ChartView (from `~/Documents/ChartView`)
-  - CoordinatorKit (from `~/Documents/CoordinatorKit`)
+  - ChartView (from `~/Projects/ChartView`)
+  - CoordinatorKit (from `~/Projects/CoordinatorKit`)
   - CustomIOSAlertView (~> 0.9.5)
   - DZNEmptyDataSet
   - Eureka (~> 2.0.0-beta.1)
   - RealmSwift
-  - Reuse (from `~/Documents/Reuse`)
+  - Reuse (from `~/Projects/Reuse`)
   - RxCocoa (= 3.0)
   - RxDataSources
   - RxGesture
@@ -52,13 +52,13 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ChartView:
     :branch: master
-    :path: "~/Documents/ChartView"
+    :path: "~/Projects/ChartView"
   CoordinatorKit:
     :branch: master
-    :path: "~/Documents/CoordinatorKit"
+    :path: "~/Projects/CoordinatorKit"
   Reuse:
     :branch: master
-    :path: "~/Documents/Reuse"
+    :path: "~/Projects/Reuse"
 
 SPEC CHECKSUMS:
   BonMot: 4fa97f5ce7fe03071df35d36426d5712b8a170ee
@@ -79,6 +79,6 @@ SPEC CHECKSUMS:
   RxRealm: 6c1052b72118ed6929115801c38f90f0c962f2cf
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
 
-PODFILE CHECKSUM: a161acf38f3ca49bab8489e32523592c1476c9fc
+PODFILE CHECKSUM: e7c61b52d099b5d2622317d60a026416d2cb11e0
 
 COCOAPODS: 1.2.0
