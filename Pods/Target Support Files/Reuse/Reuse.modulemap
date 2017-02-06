@@ -1,6 +1,0 @@
-framework module Reuse {
-  umbrella header "Reuse-umbrella.h"
-
-  export *
-  module * { export * }
-}

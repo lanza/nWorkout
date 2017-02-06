@@ -1,6 +1,0 @@
-framework module ChartView {
-  umbrella header "ChartView-umbrella.h"
-
-  export *
-  module * { export * }
-}
