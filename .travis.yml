@@ -2,7 +2,9 @@ language: objective-c
 osx_image: xcode8.2
 xcode_workspace: nWorkout.xcworkspace
 xcode_scheme: nWorkout
-xcode_sdk: iphonesimulator 10.2
+xcode_sdk: iphonesimulator10.2
 
   
+script: 
+  xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
 
