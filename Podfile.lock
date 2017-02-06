@@ -1,0 +1,92 @@
+PODS:
+  - BonMot (4.1)
+  - CarbonKit (2.1.9)
+  - Charts (3.0.1):
+    - Charts/Core (= 3.0.1)
+  - Charts/Core (3.0.1)
+  - ChartView (0.0.1)
+  - CoordinatorKit (0.0.6)
+  - CustomIOSAlertView (0.9.5)
+  - DZNEmptyDataSet (1.8.1)
+  - Eureka (2.0.0-beta.1)
+  - Realm (2.4.2):
+    - Realm/Headers (= 2.4.2)
+  - Realm/Headers (2.4.2)
+  - RealmSwift (2.4.2):
+    - Realm (= 2.4.2)
+  - Reuse (0.0.1)
+  - RxCocoa (3.0.0):
+    - RxSwift (~> 3.0)
+  - RxDataSources (1.0.2):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
+  - RxGesture (0.2.1):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
+  - RxKeyboard (0.4.1):
+    - RxCocoa (>= 3.0)
+    - RxSwift (>= 3.0)
+  - RxRealm (0.4.0):
+    - RealmSwift (~> 2.0)
+    - RxSwift (~> 3.0.0)
+  - RxSwift (3.0.0)
+
+DEPENDENCIES:
+  - BonMot
+  - CarbonKit
+  - Charts
+  - ChartView (from `https://github.com/nathanlanza/ChartView`)
+  - CoordinatorKit (from `https://github.com/nathanlanza/CoordinatorKit`)
+  - CustomIOSAlertView (~> 0.9.5)
+  - DZNEmptyDataSet
+  - Eureka (~> 2.0.0-beta.1)
+  - RealmSwift
+  - Reuse (from `https://github.com/nathanlanza/Reuse`)
+  - RxCocoa (= 3.0)
+  - RxDataSources
+  - RxGesture
+  - RxKeyboard
+  - RxRealm
+  - RxSwift (= 3.0)
+
+EXTERNAL SOURCES:
+  ChartView:
+    :git: https://github.com/nathanlanza/ChartView
+  CoordinatorKit:
+    :git: https://github.com/nathanlanza/CoordinatorKit
+  Reuse:
+    :git: https://github.com/nathanlanza/Reuse
+
+CHECKOUT OPTIONS:
+  ChartView:
+    :commit: 4c620ae91fc65cde2ec9c9e6b10d84185e0b1749
+    :git: https://github.com/nathanlanza/ChartView
+  CoordinatorKit:
+    :commit: aa612c87337d54a8bbe668fd4aef4df751af920c
+    :git: https://github.com/nathanlanza/CoordinatorKit
+  Reuse:
+    :commit: 727a48574b9b2818ce9f3fa8ebad4121f644c13d
+    :git: https://github.com/nathanlanza/Reuse
+
+SPEC CHECKSUMS:
+  BonMot: 4fa97f5ce7fe03071df35d36426d5712b8a170ee
+  CarbonKit: af16a9c0d2b6c908a5985fe4633424d38c9bfc0a
+  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
+  ChartView: 0e979e327199aad9f97dced92c5fcb9451950f0c
+  CoordinatorKit: 0e20cf34086abc40594ed8667a244fe50b831a2b
+  CustomIOSAlertView: cc4fa8e36219be3fd5ebcd40789f5b4aaae0f38e
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
+  Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
+  RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
+  Reuse: 4f1784926ff12cb369ad0967228401a6b5f1c75f
+  RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
+  RxDataSources: 1de77880bf5b7fcee42102adcd5a5d65e5b81541
+  RxGesture: 26b8dbfce16f0cf6594e41a4b39d6180cad4cf3c
+  RxKeyboard: 4046ecd1884a3bf0dacb823bd2ac8b00482d29ff
+  RxRealm: 6c1052b72118ed6929115801c38f90f0c962f2cf
+  RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
+
+PODFILE CHECKSUM: 29be3dbfc3e204c399e829e9ba7cd5f6e801369d
+
+COCOAPODS: 1.2.0
