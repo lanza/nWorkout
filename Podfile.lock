@@ -14,7 +14,7 @@ PODS:
   - Realm/Headers (2.3.0)
   - RealmSwift (2.3.0):
     - Realm (= 2.3.0)
-  - Reuse (0.0.1)
+  - Reuse (0.1.0)
   - RxCocoa (3.0.0):
     - RxSwift (~> 3.0)
   - RxDataSources (1.0.2):
@@ -35,13 +35,13 @@ DEPENDENCIES:
   - BonMot
   - CarbonKit
   - Charts
-  - ChartView (from `~/Projects/ChartView`)
-  - CoordinatorKit (from `~/Projects/CoordinatorKit`)
+  - ChartView (from `https://github.com/nathanlanza/ChartView`)
+  - CoordinatorKit (from `https://github.com/nathanlanza/CoordinatorKit`)
   - CustomIOSAlertView (~> 0.9.5)
   - DZNEmptyDataSet
   - Eureka (~> 2.0.0-beta.1)
   - RealmSwift
-  - Reuse (from `~/Projects/Reuse`)
+  - Reuse (from `https://github.com/nathanlanza/Reuse`)
   - RxCocoa (= 3.0)
   - RxDataSources
   - RxGesture
@@ -51,14 +51,22 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   ChartView:
-    :branch: master
-    :path: "~/Projects/ChartView"
+    :git: https://github.com/nathanlanza/ChartView
   CoordinatorKit:
-    :branch: master
-    :path: "~/Projects/CoordinatorKit"
+    :git: https://github.com/nathanlanza/CoordinatorKit
   Reuse:
-    :branch: master
-    :path: "~/Projects/Reuse"
+    :git: https://github.com/nathanlanza/Reuse
+
+CHECKOUT OPTIONS:
+  ChartView:
+    :commit: 4c620ae91fc65cde2ec9c9e6b10d84185e0b1749
+    :git: https://github.com/nathanlanza/ChartView
+  CoordinatorKit:
+    :commit: aa612c87337d54a8bbe668fd4aef4df751af920c
+    :git: https://github.com/nathanlanza/CoordinatorKit
+  Reuse:
+    :commit: b204bd48b85fafd53ba38dac2fcc0c980685e408
+    :git: https://github.com/nathanlanza/Reuse
 
 SPEC CHECKSUMS:
   BonMot: 4fa97f5ce7fe03071df35d36426d5712b8a170ee
@@ -71,7 +79,7 @@ SPEC CHECKSUMS:
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   Realm: 69d7de9aa569a11eed490aaabc8f2109e3985ecf
   RealmSwift: dc6f99ea55e59490cec69c860f91932b6bf7efb6
-  Reuse: a02b2321a6636ef6622a2f095456957bbd29b94b
+  Reuse: fa042378756e3f2f75c836f386ea6e4d7b0e3c2b
   RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
   RxDataSources: 1de77880bf5b7fcee42102adcd5a5d65e5b81541
   RxGesture: 26b8dbfce16f0cf6594e41a4b39d6180cad4cf3c
@@ -79,6 +87,6 @@ SPEC CHECKSUMS:
   RxRealm: 6c1052b72118ed6929115801c38f90f0c962f2cf
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
 
-PODFILE CHECKSUM: e7c61b52d099b5d2622317d60a026416d2cb11e0
+PODFILE CHECKSUM: 29be3dbfc3e204c399e829e9ba7cd5f6e801369d
 
 COCOAPODS: 1.2.0
