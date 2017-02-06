@@ -4,10 +4,14 @@ xcode_workspace: nWorkout.xcworkspace
 xcode_scheme: nWorkout
 xcode_sdk: iphonesimulator10.2
 
+before_install:
+  - brew udpate
+  - brew outdated xctool || brew upgrade xctool
+  - brew outdated xcpretty || brew upgrade xcpretty
+
   
 script: 
-  
-  xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-  xctool test -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
+  xctool test -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
 
 
