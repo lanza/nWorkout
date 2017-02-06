@@ -5,7 +5,7 @@ xcode_scheme: nWorkout
 xcode_sdk: iphonesimulator10.2
 
 before_install:
-  - brew udpate
+  - brew update
   - brew outdated xctool || brew upgrade xctool
   - brew outdated xcpretty || brew upgrade xcpretty
 
