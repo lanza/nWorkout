@@ -70,3 +70,8 @@ Pods
 
 # AppCode
 .idea/
+
+# Other
+*.cer
+*.mobileprovision
+
