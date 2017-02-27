@@ -420,9 +420,9 @@
 			isa = PBXGroup;
 			children = (
 				B38208781DC2B23E0008D6F8 /* Base.swift */,
+				B34BA0591DC1CC4B006B6A51 /* Workout.swift */,
 				B34BA05B1DC1CCED006B6A51 /* Lift.swift */,
 				B38208761DC2B22A0008D6F8 /* Set.swift */,
-				B34BA0591DC1CC4B006B6A51 /* Workout.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -460,10 +460,10 @@
 		B3D456C51DC1E494008075D5 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				B3312B331DC12F9700318AA6 /* MainCoordinator.swift */,
 				B3BB31891DDAA1B60015F9B0 /* AcrtiveWorkoutCoordinator.swift */,
 				B356FBC21DC09C160006A0F0 /* AppDelegate.swift */,
 				B36059401E1C4B5600EBE620 /* LiftTypeCoordinator.swift */,
-				B3312B331DC12F9700318AA6 /* MainCoordinator.swift */,
 				B3BB31871DDAA19C0015F9B0 /* RoutineCoordinator.swift */,
 				B3BB31851DDAA17B0015F9B0 /* RoutinesCoordinator.swift */,
 				B3BB318B1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift */,
@@ -985,6 +985,7 @@
 				B39E3A711E47D8F100440F28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
