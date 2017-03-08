@@ -67,6 +67,7 @@ fastlane/test_output
 
 # CocoaPods
 Pods
+Podfile.lock
 
 # AppCode
 .idea/
