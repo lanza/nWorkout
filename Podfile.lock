@@ -35,13 +35,13 @@ DEPENDENCIES:
   - BonMot
   - CarbonKit
   - Charts
-  - ChartView (from `https://github.com/nathanlanza/ChartView`)
-  - CoordinatorKit (from `https://github.com/nathanlanza/CoordinatorKit`)
+  - ChartView (from `~/Documents/ChartView`)
+  - CoordinatorKit (from `~/Documents/CoordinatorKit`)
   - CustomIOSAlertView (~> 0.9.5)
   - DZNEmptyDataSet
   - Eureka (~> 2.0.0-beta.1)
   - RealmSwift
-  - Reuse (from `https://github.com/nathanlanza/Reuse`)
+  - Reuse (from `~/Documents/Reuse`)
   - RxCocoa (= 3.0)
   - RxDataSources
   - RxGesture
@@ -51,22 +51,14 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   ChartView:
-    :git: https://github.com/nathanlanza/ChartView
+    :branch: master
+    :path: ~/Documents/ChartView
   CoordinatorKit:
-    :git: https://github.com/nathanlanza/CoordinatorKit
+    :branch: master
+    :path: ~/Documents/CoordinatorKit
   Reuse:
-    :git: https://github.com/nathanlanza/Reuse
-
-CHECKOUT OPTIONS:
-  ChartView:
-    :commit: b44370033cf6df39cdd442ab19e8a748aa1523ee
-    :git: https://github.com/nathanlanza/ChartView
-  CoordinatorKit:
-    :commit: aa612c87337d54a8bbe668fd4aef4df751af920c
-    :git: https://github.com/nathanlanza/CoordinatorKit
-  Reuse:
-    :commit: 727a48574b9b2818ce9f3fa8ebad4121f644c13d
-    :git: https://github.com/nathanlanza/Reuse
+    :branch: master
+    :path: ~/Documents/Reuse
 
 SPEC CHECKSUMS:
   BonMot: 4fa97f5ce7fe03071df35d36426d5712b8a170ee
@@ -87,6 +79,6 @@ SPEC CHECKSUMS:
   RxRealm: 6c1052b72118ed6929115801c38f90f0c962f2cf
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
 
-PODFILE CHECKSUM: 29be3dbfc3e204c399e829e9ba7cd5f6e801369d
+PODFILE CHECKSUM: 9c45a136705a514c908bc48736505349e3c8a7ca
 
 COCOAPODS: 1.2.0
