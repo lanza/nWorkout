@@ -13,10 +13,7 @@ before_install:
   - gem install xcpretty -N
   - brew update
   - brew install swiftlint || true
-  - gem upgrade
   - gem update
-  - gem update
-  - pod repo update
   - pod repo update
 script: 
   - set -o pipefail
