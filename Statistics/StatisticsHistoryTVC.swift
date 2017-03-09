@@ -95,7 +95,7 @@ class StatisticsHistoryTVC: BaseTVC {
     required init?(coder aDecoder: NSCoder) { fatalError() }
     init(liftName: String) {
         self.liftName = liftName
-        self.lifts = RLM.objects(type: Lift.self).filter("name == %@", liftName).filter("isWorkout == true").sorted(byProperty: "startDate", ascending: false)
+        self.lifts = RLM.objects(type: Lift.self).filter("name == %@", liftName).filter("isWorkout == true").sorted(byKeyPath: "startDate", ascending: false)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -109,7 +109,7 @@ class StatisticsHistoryTVC: BaseTVC {
     func setupRx() {
         
         tableView.register(StatisticsHistoryCell.self)
-        Observable.from(lifts).bindTo(tableView.rx.items(cellType: StatisticsHistoryCell.self)) { indexPath, lift, cell in
+        Observable.collection(from: lifts).bindTo(tableView.rx.items(cellType: StatisticsHistoryCell.self)) { indexPath, lift, cell in
             
             cell.chartView.chartViewDataSource = BaseChartViewDataSource(object: lift)
             cell.dateLabel.text = cell.df.string(from: lift.startDate)
