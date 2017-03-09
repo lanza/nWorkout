@@ -23,5 +23,6 @@ script:
   - set -o pipefail
   - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout build-for-testing | xcpretty -c
   - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.2' | xcpretty -c
+  - xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch 1386 run-tests
 
 
