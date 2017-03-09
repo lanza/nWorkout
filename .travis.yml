@@ -16,6 +16,8 @@ before_install:
   - gem upgrade
   - gem update
   - gem update
+  - pod repo update
+  - pod repo update
 script: 
   - set -o pipefail
   - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
