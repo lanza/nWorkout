@@ -8,13 +8,13 @@ target 'nWorkout' do
 
   pod 'DZNEmptyDataSet'
 
-  pod 'RxSwift', '~> 3.0'
-  pod 'RxCocoa', '~> 3.0'
-  pod 'RealmSwift'
-  pod 'RxRealm'
+  pod 'RxSwift', '~> 3.2'
+  pod 'RxCocoa', '~> 3.2'
+  pod 'RealmSwift', '~> 2.4.3'
+  pod 'RxRealm', '~> 0.5'
 
-  pod 'RxKeyboard'
-  pod 'RxGesture'
+  ##pod 'RxKeyboard'
+  ##pod 'RxGesture'
   pod 'RxDataSources'
   
   if `whoami`[0...-1] == 'lanza'

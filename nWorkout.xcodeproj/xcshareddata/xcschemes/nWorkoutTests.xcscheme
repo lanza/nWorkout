@@ -126,7 +126,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2AA57F25BABA008988A1D0CB82A88043"
+               BlueprintIdentifier = "D1ADF11DE462622B7FDE0C5134CA0B31"
                BuildableName = "Realm.framework"
                BlueprintName = "Realm"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -140,7 +140,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EE1F98F407D26737C64D564A73C2C5FB"
+               BlueprintIdentifier = "7FACF428115570175765307824F468F1"
                BuildableName = "RealmSwift.framework"
                BlueprintName = "RealmSwift"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -154,7 +154,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5AB5A4A768D47FD2846FB9EC4471EC32"
+               BlueprintIdentifier = "A285D5834C210F39ACF9A4AEE0CC1C1B"
                BuildableName = "Reuse.framework"
                BlueprintName = "Reuse"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -182,7 +182,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DB1C79A578A825A3C563FC2A8DED9B7D"
+               BlueprintIdentifier = "D9A00080B2EC51010AA325ABBE5EBA0F"
                BuildableName = "RxCocoa.framework"
                BlueprintName = "RxCocoa"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -196,7 +196,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "088C9FB42006D0E165F464A9F4C96878"
+               BlueprintIdentifier = "E21B154DDDD653565494BF180FB6A740"
                BuildableName = "RxDataSources.framework"
                BlueprintName = "RxDataSources"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -238,7 +238,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F6DD3A459D610A11D972D4884BA8B963"
+               BlueprintIdentifier = "46B6FF19675384892E781E350F50BB6C"
                BuildableName = "RxRealm.framework"
                BlueprintName = "RxRealm"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -252,7 +252,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0E7A45479C1C8A0EF6E53C29BCE1119"
+               BlueprintIdentifier = "7766F3E740EA25740FC2AC2DAF03730A"
                BuildableName = "RxSwift.framework"
                BlueprintName = "RxSwift"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
