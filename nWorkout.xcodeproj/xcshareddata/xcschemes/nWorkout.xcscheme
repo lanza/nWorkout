@@ -298,7 +298,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B39E3A671E47D8F100440F28"
+               BlueprintIdentifier = "B3D50EF71E715A4D0062B118"
                BuildableName = "nWorkoutTests.xctest"
                BlueprintName = "nWorkoutTests"
                ReferencedContainer = "container:nWorkout.xcodeproj">

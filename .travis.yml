@@ -21,7 +21,7 @@ before_install:
   - pod repo update
 script: 
   - set -o pipefail
-  - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
-  - xctool -workspace nWorkout.xcworkspace -scheme nWorkout run-tests | xcpretty -c
+  - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout build-for-testing | xcpretty -c
+  - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.2' | xcpretty -c
 
 

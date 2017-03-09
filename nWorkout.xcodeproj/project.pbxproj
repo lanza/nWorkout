@@ -979,6 +979,7 @@
 				B3D50F001E715A4E0062B118 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
