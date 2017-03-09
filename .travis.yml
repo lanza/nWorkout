@@ -13,6 +13,9 @@ before_install:
   - gem install xcpretty -N
   - brew update
   - brew install swiftlint || true
+  - gem upgrade
+  - gem update
+  - gem update
 script: 
   - set -o pipefail
   - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
