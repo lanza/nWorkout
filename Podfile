@@ -1,3 +1,5 @@
+# vim: set ft=ruby :
+
 target 'nWorkout' do
 
   use_frameworks!

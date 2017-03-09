@@ -13,7 +13,6 @@ before_install:
   - gem install xcpretty -N
   - brew update
   - brew install swiftlint || true
-  - rm Podfile.lock
 script: 
   - set -o pipefail
   - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
