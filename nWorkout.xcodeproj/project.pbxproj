@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DF7CCC7CAC55B8F1B4BAD5E /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482513A7A77DC057EC885E74 /* Pods_nWorkout.framework */; };
 		B30314681E302F1F00E13EBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30314671E302F1F00E13EBE /* Assets.xcassets */; };
 		B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */; };
 		B31953A61E305F6000AC2687 /* WorkoutDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A51E305F6000AC2687 /* WorkoutDetailCoordinator.swift */; };
@@ -97,7 +96,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		482513A7A77DC057EC885E74 /* Pods_nWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B30314671E302F1F00E13EBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldBehaviorHandler.swift; sourceTree = "<group>"; };
 		B31953A51E305F6000AC2687 /* WorkoutDetailCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailCoordinator.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DF7CCC7CAC55B8F1B4BAD5E /* Pods_nWorkout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,14 +201,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		81E9A3CBA105F19D04AE834B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				482513A7A77DC057EC885E74 /* Pods_nWorkout.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		95234BE99C341F7210A0C624 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,8 +233,6 @@
 				B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */,
 				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
 				B34BA0551DC1CC29006B6A51 /* Theme.swift */,
-				E066A07A451347ACA3E40A34 /* Pods */,
-				81E9A3CBA105F19D04AE834B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -529,13 +516,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		E066A07A451347ACA3E40A34 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -543,12 +523,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B356FBD11DC09C160006A0F0 /* Build configuration list for PBXNativeTarget "nWorkout" */;
 			buildPhases = (
-				F37A1BFDAB2F23428BE2E0AE /* [CP] Check Pods Manifest.lock */,
 				B356FBBB1DC09C160006A0F0 /* Sources */,
 				B356FBBC1DC09C160006A0F0 /* Frameworks */,
 				B356FBBD1DC09C160006A0F0 /* Resources */,
-				81C30AABE5287C52C43AE722 /* [CP] Embed Pods Frameworks */,
-				66CBEDD0E4B11D6B10F1D1B9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -637,54 +614,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		66CBEDD0E4B11D6B10F1D1B9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		81C30AABE5287C52C43AE722 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F37A1BFDAB2F23428BE2E0AE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B356FBBB1DC09C160006A0F0 /* Sources */ = {
