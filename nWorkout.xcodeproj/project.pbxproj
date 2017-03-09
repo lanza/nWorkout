@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551712E6C2F0B667A7547A74 /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F0CE2B324A47FD8DFF71AC /* Pods_nWorkout.framework */; };
 		B30314681E302F1F00E13EBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30314671E302F1F00E13EBE /* Assets.xcassets */; };
 		B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */; };
 		B31953A61E305F6000AC2687 /* WorkoutDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A51E305F6000AC2687 /* WorkoutDetailCoordinator.swift */; };
@@ -85,6 +86,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190DF16077EA380B4ECE1D89 /* Pods-nWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.release.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.release.xcconfig"; sourceTree = "<group>"; };
+		29CBBBA4F33383A1DFB21533 /* Pods-nWorkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.debug.xcconfig"; sourceTree = "<group>"; };
+		37F0CE2B324A47FD8DFF71AC /* Pods_nWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B30314671E302F1F00E13EBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldBehaviorHandler.swift; sourceTree = "<group>"; };
 		B31953A51E305F6000AC2687 /* WorkoutDetailCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailCoordinator.swift; sourceTree = "<group>"; };
@@ -173,12 +177,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551712E6C2F0B667A7547A74 /* Pods_nWorkout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		152B28F4173F3564164288A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29CBBBA4F33383A1DFB21533 /* Pods-nWorkout.debug.xcconfig */,
+				190DF16077EA380B4ECE1D89 /* Pods-nWorkout.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		95234BE99C341F7210A0C624 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +224,8 @@
 				B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */,
 				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
 				B34BA0551DC1CC29006B6A51 /* Theme.swift */,
+				152B28F4173F3564164288A1 /* Pods */,
+				D14D9535C5EA0B79BEABDBA2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -473,6 +489,14 @@
 			path = "Auxiliary Classes";
 			sourceTree = "<group>";
 		};
+		D14D9535C5EA0B79BEABDBA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37F0CE2B324A47FD8DFF71AC /* Pods_nWorkout.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DBD3A75B04BA5C514F4A4D03 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,9 +513,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B356FBD11DC09C160006A0F0 /* Build configuration list for PBXNativeTarget "nWorkout" */;
 			buildPhases = (
+				CEB093213246CD6CB876DEE6 /* [CP] Check Pods Manifest.lock */,
 				B356FBBB1DC09C160006A0F0 /* Sources */,
 				B356FBBC1DC09C160006A0F0 /* Frameworks */,
 				B356FBBD1DC09C160006A0F0 /* Resources */,
+				2CB466580B943373D34C537E /* [CP] Embed Pods Frameworks */,
+				7642CEE65D77B3DEAFE92F92 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -548,6 +575,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CB466580B943373D34C537E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7642CEE65D77B3DEAFE92F92 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEB093213246CD6CB876DEE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B356FBBB1DC09C160006A0F0 /* Sources */ = {
@@ -742,6 +817,7 @@
 		};
 		B356FBD21DC09C160006A0F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29CBBBA4F33383A1DFB21533 /* Pods-nWorkout.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
@@ -754,6 +830,7 @@
 		};
 		B356FBD31DC09C160006A0F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 190DF16077EA380B4ECE1D89 /* Pods-nWorkout.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
