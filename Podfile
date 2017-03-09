@@ -8,8 +8,8 @@ target 'nWorkout' do
 
   pod 'DZNEmptyDataSet'
 
-  pod 'RxSwift', '3.0'
-  pod 'RxCocoa', '3.0'
+  pod 'RxSwift', '~> 3.0'
+  pod 'RxCocoa', '~> 3.0'
   pod 'RealmSwift'
   pod 'RxRealm'
 

@@ -42,7 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6EA9948BA15616B3A40E22433B34BA7"
+               BlueprintIdentifier = "D7D4C7F5947842B37D89400CE2B2A539"
                BuildableName = "ChartView.framework"
                BlueprintName = "ChartView"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -112,7 +112,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EE774F234E810C0DD8263855D7A1A166"
+               BlueprintIdentifier = "675A114988AE198732ED4AD726408964"
                BuildableName = "Eureka.framework"
                BlueprintName = "Eureka"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
