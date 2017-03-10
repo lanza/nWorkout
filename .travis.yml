@@ -16,6 +16,5 @@ before_install:
   - set -o pipefail
 script: 
   - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build test | xcpretty -c
-  - xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch 1386 run-tests
-
-
+  - xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch i386 run-tests
+  - xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch i386 run-tests -parallelize
