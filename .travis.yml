@@ -1,28 +1,17 @@
 language: objective-c
-cache: cocoapods
 osx_image: xcode8.2
-xcode_workspace: nWorkout.xcworkspace
-xcode_scheme: nWorkout
-xcode_sdk: iphonesimulator10.2
 
-branches:
-  only:
-    - master
-env:
-  - LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
 before_install:
   - gem update
   - gem install xcpretty -N || true
-  - brew update
-  - brew update
-  - brew upgrade
+  - brew update; brew update; brew upgrade
   - brew install swiftlint || true
   - brew install xctool || true
   - pod repo update
-script: 
   - set -o pipefail
-  - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout build-for-testing | xcpretty -c
-  - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.2' | xcpretty -c
-  - xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch 1386 run-tests
+script: 
+  - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.2' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build test | xcpretty -c
+    ##- xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.2' | xcpretty -c
+    ##- xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch 1386 run-tests
 
 
