@@ -1,6 +1,11 @@
 language: objective-c
 osx_image: xcode8.2
 
+env:
+  global:
+  matrix:
+    - DESTINATION="platform=iOS Simulator,OS=10.2,id=63A0BA5F-3911-496F-BF2E-512830B4AD7F"
+
 before_install:
   - gem update
   - gem install xcpretty -N || true
@@ -10,8 +15,7 @@ before_install:
   - pod repo update
   - set -o pipefail
 script: 
-  - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.2' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build test | xcpretty -c
-    ##- xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.2' | xcpretty -c
-    ##- xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch 1386 run-tests
+  - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build test | xcpretty -c
+  - xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch 1386 run-tests
 
 

@@ -86,6 +86,17 @@
 		B3FCCD391E172AC3003EF14E /* WorkoutLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		B318DB3D1E72B7BB00AA050B /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXContainerItemProxy section */
 		B3D50EFD1E715A4E0062B118 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -551,8 +562,10 @@
 				B356FBBD1DC09C160006A0F0 /* Resources */,
 				AFE1A5B9D350CB177D504F80 /* [CP] Embed Pods Frameworks */,
 				80B463E03E9D835D51FCEECD /* [CP] Copy Pods Resources */,
+				B3256E101E72A6E50059576C /* Increment Build Number */,
 			);
 			buildRules = (
+				B318DB3D1E72B7BB00AA050B /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -670,6 +683,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B3256E101E72A6E50059576C /* Increment Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 		D95836F09FF4B1CDA8034F4F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
