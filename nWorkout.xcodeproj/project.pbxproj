@@ -32,7 +32,6 @@
 		B34BA05C1DC1CCED006B6A51 /* Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA05B1DC1CCED006B6A51 /* Lift.swift */; };
 		B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */; };
 		B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B356FBC21DC09C160006A0F0 /* AppDelegate.swift */; };
-		B356FBCD1DC09C160006A0F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B356FBCB1DC09C160006A0F0 /* LaunchScreen.storyboard */; };
 		B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */; };
 		B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */; };
 		B36059201E1C3D8F00EBE620 /* ColumnRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360591F1E1C3D8F00EBE620 /* ColumnRowView.swift */; };
@@ -78,6 +77,7 @@
 		B3BB31901DDAA24C0015F9B0 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB318F1DDAA24C0015F9B0 /* SettingsCoordinator.swift */; };
 		B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D456C21DC1E309008075D5 /* DataProvider.swift */; };
 		B3D50EFB1E715A4E0062B118 /* nWorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D50EFA1E715A4E0062B118 /* nWorkoutTests.swift */; };
+		B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */; };
 		B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */; };
 		B3FCCD251E137828003EF14E /* BaseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD241E137828003EF14E /* BaseTVC.swift */; };
 		B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */; };
@@ -124,7 +124,6 @@
 		B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
 		B356FBBF1DC09C160006A0F0 /* nWorkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nWorkout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B356FBC21DC09C160006A0F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B356FBCC1DC09C160006A0F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B356FBCE1DC09C160006A0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRowView.swift; sourceTree = "<group>"; };
 		B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyboard&KeyboardDelegate.swift"; sourceTree = "<group>"; };
@@ -175,6 +174,7 @@
 		B3D50EF81E715A4D0062B118 /* nWorkoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nWorkoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D50EFA1E715A4E0062B118 /* nWorkoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nWorkoutTests.swift; sourceTree = "<group>"; };
 		B3D50EFC1E715A4E0062B118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorkoutsTVC.swift; sourceTree = "<group>"; };
 		B3FCCD241E137828003EF14E /* BaseTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTVC.swift; sourceTree = "<group>"; };
 		B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 				B356FBC01DC09C160006A0F0 /* Products */,
 				B30314671E302F1F00E13EBE /* Assets.xcassets */,
 				B356FBCE1DC09C160006A0F0 /* Info.plist */,
-				B356FBCB1DC09C160006A0F0 /* LaunchScreen.storyboard */,
+				B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -626,7 +626,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B356FBCD1DC09C160006A0F0 /* LaunchScreen.storyboard in Resources */,
+				B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */,
 				B30314681E302F1F00E13EBE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,18 +787,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		B356FBCB1DC09C160006A0F0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B356FBCC1DC09C160006A0F0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		B356FBCF1DC09C160006A0F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -905,6 +893,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -918,6 +907,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

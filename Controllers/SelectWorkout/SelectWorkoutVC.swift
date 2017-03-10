@@ -52,7 +52,7 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
 
         tableView.register(SelectWorkoutCell.self)
         
-        Observable.from(objects).bindTo(tableView.rx.items(cellIdentifier: SelectWorkoutCell.reuseIdentifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
+        Observable.collection(from: objects).bindTo(tableView.rx.items(cellIdentifier: SelectWorkoutCell.reuseIdentifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
             cell.configure(for: workout, at: IndexPath(row: index, section: 0))
             }.addDisposableTo(db)
         
