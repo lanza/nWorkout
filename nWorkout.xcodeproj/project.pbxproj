@@ -563,6 +563,7 @@
 				AFE1A5B9D350CB177D504F80 /* [CP] Embed Pods Frameworks */,
 				80B463E03E9D835D51FCEECD /* [CP] Copy Pods Resources */,
 				B3256E101E72A6E50059576C /* Increment Build Number */,
+				B32D437B1E73A05000DAE063 /* ShellScript */,
 			);
 			buildRules = (
 				B318DB3D1E72B7BB00AA050B /* PBXBuildRule */,
@@ -697,6 +698,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ $USER == 'lanza' ]]; then\n    /Users/lanza/bin/incrementXcodeBuild\nfi ";
+		};
+		B32D437B1E73A05000DAE063 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
 		};
 		D95836F09FF4B1CDA8034F4F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
