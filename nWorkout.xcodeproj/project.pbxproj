@@ -257,7 +257,6 @@
 				B3780EF41DD5AF1B0087CEC1 /* Data Sources */,
 				B39E3A691E47D8F100440F28 /* nWorkoutTests */,
 				B3D456C41DC1E48C008075D5 /* Model */,
-				B356FBC11DC09C160006A0F0 /* Other */,
 				B366E56F1E309B17006658D7 /* Statistics */,
 				B3D456C61DC1E4A0008075D5 /* UIKit Extensions */,
 				B3FCCD271E171736003EF14E /* Views */,
@@ -267,6 +266,7 @@
 				8DB658A6C9CB4B62B3223A8C /* Pods */,
 				B3D50EF91E715A4E0062B118 /* nWorkoutTests */,
 				2F7392B7ED222C231CCD59F8 /* Frameworks */,
+				B356FBC11DC09C160006A0F0 /* Other */,
 			);
 			sourceTree = "<group>";
 		};
@@ -696,7 +696,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = /Users/lanza/bin/incrementXcodeBuild;
+			shellScript = "if [[ $USER == 'lanza' ]]; then\n    /Users/lanza/bin/incrementXcodeBuild\nfi ";
 		};
 		D95836F09FF4B1CDA8034F4F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
