@@ -20,7 +20,9 @@ before_install:
   - brew install xctool || true
   - pod repo update
   - set -o pipefail
+  - gem install xcprofiler
 script: 
   - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout -destination "$DESTINATION" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build test | xcpretty -c
+  - xcprofiler nWorkout | head -40
     # - xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch i386 run-tests
     #- xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch i386 run-tests -parallelize

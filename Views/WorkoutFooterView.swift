@@ -23,7 +23,9 @@ class WorkoutFooterView: UIView {
     let stackView = UIStackView(axis: .vertical, spacing: 4, distribution: .fillEqually)
     
     static func create(_ activeOrFinished: ActiveOrFinished) -> WorkoutFooterView {
-        let view = WorkoutFooterView(frame: CGRect(x: 0, y: 0, width: 0, height: activeOrFinished == .active ? (34*4 + 4*3 + 8*2) : (34*2 + 4*1 + 8*2)))
+        let trueValue = (34*4 + 4*3 + 8*2)
+        let falseValue = (34*2 + 4*1 + 8*2)
+        let view = WorkoutFooterView(frame: CGRect(x: 0, y: 0, width: 0, height: activeOrFinished == .active ? trueValue : falseValue))
         view.activeOrFinished = activeOrFinished
         
         view.addSubview(view.stackView)
