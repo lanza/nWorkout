@@ -1,3 +1,4 @@
+# vim: set ft=ruby :
 # https://github.com/fastlane/fastlane/tree/master/fastlane/docs
 # All available actions: https://docs.fastlane.tools/actions
 # can also be listed using the `fastlane actions` command
@@ -27,8 +28,7 @@ platform :ios do
   lane :beta do
     # match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: "nWorkout") # Build your app - more options available
-    pilot
-    testflight
+    testflight(skip_waiting_for_build_processing: true)
 
     # sh "your_script.sh"
     # You can also use other beta testing services here (run `fastlane actions`)

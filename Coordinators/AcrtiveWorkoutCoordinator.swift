@@ -34,24 +34,6 @@ class ActiveWorkoutCoordinator: Coordinator {
             
             self.present(ltcNav, animated: true)
         }
-        workoutTVC.didFinishWorkout = {
-            RLM.write {
-                self.workout.isComplete = true
-                self.workout.finishDate = Date()
-                for lift in self.workout.lifts {
-                    
-                    let string = lift.sets.map { "\(($0.completedWeight.remainder(dividingBy: 1) == 0) ? String(Int($0.completedWeight)) : String($0.completedWeight))" + " x " + "\($0.completedReps)" }.joined(separator: ",")
-                    UserDefaults.standard.set(string, forKey: "last" + lift.name)
-                }
-            }
-            self.workoutIsNotActive()
-            self.navigationCoordinator?.parent?.dismiss(animated: true)
-        }
-        workoutTVC.didCancelWorkout = {
-            self.workout.deleteSelf()
-            self.workoutIsNotActive()
-            self.navigationCoordinator?.parent?.dismiss(animated: true)
-        }
     }
     
     var workoutIsNotActive: (() -> ())!
@@ -63,8 +45,27 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
         let wdc = WorkoutDetailCoordinator(workout: workoutTVC.workout)
         show(wdc, sender: self)
     }
-
+    
     func hideTapped(for workoutTVC: WorkoutTVC) {
         self.delegate.hideTapped(for: self)
+    }
+    
+    func workoutCancelled(for workoutTVC: WorkoutTVC) {
+        workout.deleteSelf()
+        workoutIsNotActive()
+        navigationCoordinator?.parent?.dismiss(animated: true)
+    }
+    func workoutFinished(for workoutTVC: WorkoutTVC) {
+        RLM.write {
+            self.workout.isComplete = true
+            self.workout.finishDate = Date()
+            for lift in self.workout.lifts {
+                
+                let string = lift.sets.map { "\(($0.completedWeight.remainder(dividingBy: 1) == 0) ? String(Int($0.completedWeight)) : String($0.completedWeight))" + " x " + "\($0.completedReps)" }.joined(separator: ",")
+                UserDefaults.standard.set(string, forKey: "last" + lift.name)
+            }
+        }
+        workoutIsNotActive()
+        navigationCoordinator?.parent?.dismiss(animated: true)
     }
 }

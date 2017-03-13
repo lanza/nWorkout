@@ -7,6 +7,9 @@ import BonMot
 protocol WorkoutTVCDelegate: class {
     func hideTapped(for workoutTVC: WorkoutTVC)
     func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC)
+    
+    func workoutCancelled(for workoutTVC: WorkoutTVC)
+    func workoutFinished(for workoutTVC: WorkoutTVC)
 }
 
 class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
@@ -61,28 +64,22 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     
     override func cancelWorkoutTapped() {
         let a = UIAlertController.confirmAction(title: "Cancel Workout?", message: "Are you sure you want to cancel this workout?") { _ in
-            self.didCancelWorkout()
+            self.delegate.workoutCancelled(for: self)
         }
         present(a, animated: true)
     }
-    var didCancelWorkout: (() -> ())!
     
     override func finishWorkoutTapped() {
         let a = UIAlertController.confirmAction(title: "Finish Workout?", message: "Are you sure you want to finish this workout?") { _ in
-            self.didFinishWorkout()
+            self.delegate.workoutFinished(for: self)
         }
         present(a, animated: true)
     }
-    var didFinishWorkout: (() -> ())!
     
     override func workoutDetailTapped() {
         delegate.showWorkoutDetailTapped(for: self)
     }
 }
-
-
-
-
 
 class NoteView<Type: Base, View: UIView>: UIView {
     var view: View!

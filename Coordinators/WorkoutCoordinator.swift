@@ -27,24 +27,6 @@ class WorkoutCoordinator: Coordinator {
             }
             self.present(ltcNav, animated: true)
         }
-        
-        workoutTVC.didFinishWorkout = {
-            RLM.write {
-                self.workout.isComplete = true
-                self.workout.finishDate = Date()
-                for lift in self.workout.lifts {
-                    let string = lift.sets.map { "\($0.completedWeight)" + " x " + "\($0.completedReps)" }.joined(separator: ",")
-                    UserDefaults.standard.set(string, forKey: "last" + lift.name)
-                }
-            }
-            self.navigationCoordinator?.parent?.dismiss(animated: true)
-        }
-        workoutTVC.didCancelWorkout = {
-            RLM.write {
-                self.workout.deleteSelf()
-            }
-            self.navigationCoordinator?.parent?.dismiss(animated: true)
-        }
     }
     
     let db = DisposeBag()
@@ -55,6 +37,24 @@ extension WorkoutCoordinator: WorkoutTVCDelegate {
     func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC) {
         let wdc = WorkoutDetailCoordinator(workout: workoutTVC.workout)
         show(wdc, sender: self)
+    }
+    
+    func workoutCancelled(for workoutTVC: WorkoutTVC) {
+        RLM.write {
+            self.workout.deleteSelf()
+        }
+        self.navigationCoordinator?.parent?.dismiss(animated: true)
+    }
+    func workoutFinished(for workoutTVC: WorkoutTVC) {
+        RLM.write {
+            self.workout.isComplete = true
+            self.workout.finishDate = Date()
+            for lift in self.workout.lifts {
+                let string = lift.sets.map { "\($0.completedWeight)" + " x " + "\($0.completedReps)" }.joined(separator: ",")
+                UserDefaults.standard.set(string, forKey: "last" + lift.name)
+            }
+        }
+        self.navigationCoordinator?.parent?.dismiss(animated: true)
     }
 }
 
