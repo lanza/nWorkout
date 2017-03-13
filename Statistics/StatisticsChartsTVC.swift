@@ -82,23 +82,22 @@ class StatisticsChartsTVC: BaseTVC {
 
 class ChartCell: UITableViewCell {
     
-    let chartView = LineChartView()
+    let chartView = LineChartView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         chartView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(chartView)
-       
+        contentView.addSubview(chartView)
+        
         NSLayoutConstraint.activate([
-            contentView.heightAnchor.constraint(equalToConstant: 300),
-            chartView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            chartView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            chartView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            chartView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            chartView.leftAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leftAnchor),
+            chartView.rightAnchor.constraint(equalTo: contentView.layoutMarginsGuide.rightAnchor),
+            chartView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+            chartView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 300)
             ])
         
-        chartView.backgroundColor = .blue
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
     

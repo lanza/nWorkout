@@ -21,6 +21,83 @@
 		B32504021E34447300C51909 /* StatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504011E34447300C51909 /* StatisticsCell.swift */; };
 		B32504041E34455900C51909 /* SingleLiftStatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */; };
 		B32504061E34456C00C51909 /* CarbonStatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504051E34456C00C51909 /* CarbonStatisticsVC.swift */; };
+		B32525C21E768C08003835DF /* SelectWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360593C1E1C4ACE00EBE620 /* SelectWorkoutCell.swift */; };
+		B32525C31E768C08003835DF /* BaseDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38208741DC2B1FA0008D6F8 /* BaseDataProvider.swift */; };
+		B32525C41E768C08003835DF /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEE1DD5A7010087CEC1 /* DataSource.swift */; };
+		B32525C51E768C08003835DF /* LiftTypeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059401E1C4B5600EBE620 /* LiftTypeCoordinator.swift */; };
+		B32525C61E768C08003835DF /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38208711DC2B1850008D6F8 /* WorkoutCell.swift */; };
+		B32525C71E768C08003835DF /* BaseWorkoutsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */; };
+		B32525C81E768C08003835DF /* WeightAndRepsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360592D1E1C3E8900EBE620 /* WeightAndRepsTextField.swift */; };
+		B32525C91E768C08003835DF /* ViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059431E1C92A600EBE620 /* ViewInfo.swift */; };
+		B32525CA1E768C08003835DF /* WorkoutFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */; };
+		B32525CB1E768C08003835DF /* CombinedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059471E1C951C00EBE620 /* CombinedView.swift */; };
+		B32525CC1E768C08003835DF /* TextFieldBehaviorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */; };
+		B32525CD1E768C08003835DF /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059451E1C92C100EBE620 /* SettingsCell.swift */; };
+		B32525CE1E768C08003835DF /* CompletedWeightAndRepsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360592F1E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift */; };
+		B32525CF1E768C08003835DF /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
+		B32525D01E768C08003835DF /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0591DC1CC4B006B6A51 /* Workout.swift */; };
+		B32525D11E768C08003835DF /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38208781DC2B23E0008D6F8 /* Base.swift */; };
+		B32525D21E768C08003835DF /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB318F1DDAA24C0015F9B0 /* SettingsCoordinator.swift */; };
+		B32525D31E768C08003835DF /* StatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB318D1DDAA2360015F9B0 /* StatisticsCoordinator.swift */; };
+		B32525D41E768C08003835DF /* StatisticsHistoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37951921E34ACF0000F7428 /* StatisticsHistoryTVC.swift */; };
+		B32525D51E768C08003835DF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0551DC1CC29006B6A51 /* Theme.swift */; };
+		B32525D61E768C08003835DF /* LiftTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */; };
+		B32525D71E768C08003835DF /* WorkoutFooterViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD311E17249D003EF14E /* WorkoutFooterViewButton.swift */; };
+		B32525D81E768C08003835DF /* WorkoutDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A51E305F6000AC2687 /* WorkoutDetailCoordinator.swift */; };
+		B32525D91E768C08003835DF /* ColumnRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360591F1E1C3D8F00EBE620 /* ColumnRowView.swift */; };
+		B32525DA1E768C08003835DF /* Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA05B1DC1CCED006B6A51 /* Lift.swift */; };
+		B32525DB1E768C08003835DF /* WorkoutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB31831DDAA15B0015F9B0 /* WorkoutCoordinator.swift */; };
+		B32525DC1E768C08003835DF /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8131DD6FA5E000948ED /* SettingsTVC.swift */; };
+		B32525DD1E768C08003835DF /* AcrtiveWorkoutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB31891DDAA1B60015F9B0 /* AcrtiveWorkoutCoordinator.swift */; };
+		B32525DE1E768C08003835DF /* RoutineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059211E1C3DB000EBE620 /* RoutineCell.swift */; };
+		B32525DF1E768C08003835DF /* RoutineSetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360592B1E1C3E7600EBE620 /* RoutineSetRowView.swift */; };
+		B32525E01E768C08003835DF /* WorkoutLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */; };
+		B32525E11E768C08003835DF /* WorkoutsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB31811DDAA1390015F9B0 /* WorkoutsCoordinator.swift */; };
+		B32525E21E768C08003835DF /* ArrayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF21DD5A7100087CEC1 /* ArrayProvider.swift */; };
+		B32525E31E768C08003835DF /* Removed - RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */; };
+		B32525E41E768C08003835DF /* SelectWorkoutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB318B1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift */; };
+		B32525E51E768C08003835DF /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
+		B32525E61E768C08003835DF /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF71DD5B0C80087CEC1 /* ConfigurableCell.swift */; };
+		B32525E71E768C08003835DF /* LiftTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6DB351E1F000700090C45 /* LiftTableHeaderView.swift */; };
+		B32525E81E768C08003835DF /* RoutinesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB31851DDAA17B0015F9B0 /* RoutinesCoordinator.swift */; };
+		B32525E91E768C08003835DF /* CarbonStatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504051E34456C00C51909 /* CarbonStatisticsVC.swift */; };
+		B32525EA1E768C08003835DF /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059381E1C3F0700EBE620 /* CompleteButton.swift */; };
+		B32525EB1E768C08003835DF /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360593E1E1C4B1700EBE620 /* UIAlertController+Extensions.swift */; };
+		B32525EC1E768C08003835DF /* RoutineLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059251E1C3E0800EBE620 /* RoutineLiftCell.swift */; };
+		B32525ED1E768C08003835DF /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC651DDB02A1002F826C /* LiftCell.swift */; };
+		B32525EE1E768C08003835DF /* SetNumberLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059321E1C3EC700EBE620 /* SetNumberLabel.swift */; };
+		B32525EF1E768C08003835DF /* RoutinesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBE1DD6AE3400B9AEFC /* RoutinesTVC.swift */; };
+		B32525F01E768C08003835DF /* BaseWorkoutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360594F1E1CC71F00EBE620 /* BaseWorkoutTVC.swift */; };
+		B32525F11E768C08003835DF /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */; };
+		B32525F21E768C08003835DF /* FailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059361E1C3EF600EBE620 /* FailButton.swift */; };
+		B32525F31E768C08003835DF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3312B331DC12F9700318AA6 /* MainCoordinator.swift */; };
+		B32525F41E768C08003835DF /* BaseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD241E137828003EF14E /* BaseTVC.swift */; };
+		B32525F51E768C08003835DF /* RoutineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D80F1DD6FA3C000948ED /* RoutineTVC.swift */; };
+		B32525F61E768C08003835DF /* WorkoutsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B382087A1DC2B2C00008D6F8 /* WorkoutsTVC.swift */; };
+		B32525F71E768C08003835DF /* StartBlankWorkoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360593A1E1C41C300EBE620 /* StartBlankWorkoutButton.swift */; };
+		B32525F81E768C08003835DF /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38208761DC2B22A0008D6F8 /* Set.swift */; };
+		B32525F91E768C08003835DF /* WorkoutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B382087E1DC2B3EE0008D6F8 /* WorkoutTVC.swift */; };
+		B32525FA1E768C08003835DF /* ActiveOrFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD361E172A9F003EF14E /* ActiveOrFinished.swift */; };
+		B32525FB1E768C08003835DF /* BaseChartViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059231E1C3DCF00EBE620 /* BaseChartViewDataSource.swift */; };
+		B32525FC1E768C08003835DF /* Keyboard&KeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */; };
+		B32525FD1E768C08003835DF /* SingleLiftStatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */; };
+		B32525FE1E768C08003835DF /* Removed - RoutinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */; };
+		B32525FF1E768C08003835DF /* WorkoutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A71E305F7900AC2687 /* WorkoutDetailVC.swift */; };
+		B32526001E768C08003835DF /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D456C21DC1E309008075D5 /* DataProvider.swift */; };
+		B32526011E768C08003835DF /* StatisticsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8111DD6FA52000948ED /* StatisticsTVC.swift */; };
+		B32526021E768C08003835DF /* WeightAndRepsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059341E1C3EDF00EBE620 /* WeightAndRepsLabel.swift */; };
+		B32526031E768C08003835DF /* StatisticsChartsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3852A5D1E767C7200900B24 /* StatisticsChartsTVC.swift */; };
+		B32526041E768C08003835DF /* WorkoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */; };
+		B32526051E768C08003835DF /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */; };
+		B32526061E768C08003835DF /* RoutineCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB31871DDAA19C0015F9B0 /* RoutineCoordinator.swift */; };
+		B32526071E768C08003835DF /* StatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504011E34447300C51909 /* StatisticsCell.swift */; };
+		B32526081E768C08003835DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B356FBC21DC09C160006A0F0 /* AppDelegate.swift */; };
+		B32526091E768C08003835DF /* WorkoutsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */; };
+		B325260A1E768C08003835DF /* SetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */; };
+		B325260B1E768C08003835DF /* Lets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0571DC1CC33006B6A51 /* Lets.swift */; };
+		B325260D1E768C08003835DF /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297284437228E456B1EA50E8 /* Pods_nWorkout.framework */; };
+		B325260F1E768C08003835DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */; };
+		B32526101E768C08003835DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30314671E302F1F00E13EBE /* Assets.xcassets */; };
 		B328D8101DD6FA3C000948ED /* RoutineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D80F1DD6FA3C000948ED /* RoutineTVC.swift */; };
 		B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8111DD6FA52000948ED /* StatisticsTVC.swift */; };
 		B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8131DD6FA5E000948ED /* SettingsTVC.swift */; };
@@ -96,6 +173,14 @@
 			outputFiles = (
 			);
 		};
+		B32526151E768C08003835DF /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +209,8 @@
 		B32504011E34447300C51909 /* StatisticsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCell.swift; sourceTree = "<group>"; };
 		B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLiftStatisticsCoordinator.swift; sourceTree = "<group>"; };
 		B32504051E34456C00C51909 /* CarbonStatisticsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarbonStatisticsVC.swift; sourceTree = "<group>"; };
+		B32526191E768C08003835DF /* nWorkoutInternal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nWorkoutInternal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B325261A1E768C09003835DF /* nWorkout copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "nWorkout copy-Info.plist"; path = "/Users/lanza/Documents/nWorkout/nWorkout copy-Info.plist"; sourceTree = "<absolute>"; };
 		B328D80F1DD6FA3C000948ED /* RoutineTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineTVC.swift; sourceTree = "<group>"; };
 		B328D8111DD6FA52000948ED /* StatisticsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTVC.swift; sourceTree = "<group>"; };
 		B328D8131DD6FA5E000948ED /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
@@ -200,6 +287,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B325260C1E768C08003835DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B325260D1E768C08003835DF /* Pods_nWorkout.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B356FBBC1DC09C160006A0F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +364,7 @@
 				B3D50EF91E715A4E0062B118 /* nWorkoutTests */,
 				2F7392B7ED222C231CCD59F8 /* Frameworks */,
 				B356FBC11DC09C160006A0F0 /* Other */,
+				B325261A1E768C09003835DF /* nWorkout copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,6 +373,7 @@
 			children = (
 				B356FBBF1DC09C160006A0F0 /* nWorkout.app */,
 				B3D50EF81E715A4D0062B118 /* nWorkoutTests.xctest */,
+				B32526191E768C08003835DF /* nWorkoutInternal.app */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -555,6 +652,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B32525BF1E768C08003835DF /* nWorkoutInternal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B32526161E768C08003835DF /* Build configuration list for PBXNativeTarget "nWorkoutInternal" */;
+			buildPhases = (
+				B32525C01E768C08003835DF /* [CP] Check Pods Manifest.lock */,
+				B32525C11E768C08003835DF /* Sources */,
+				B325260C1E768C08003835DF /* Frameworks */,
+				B325260E1E768C08003835DF /* Resources */,
+				B32526111E768C08003835DF /* [CP] Embed Pods Frameworks */,
+				B32526121E768C08003835DF /* [CP] Copy Pods Resources */,
+				B32526131E768C08003835DF /* Increment Build Number */,
+				B32526141E768C08003835DF /* ShellScript */,
+			);
+			buildRules = (
+				B32526151E768C08003835DF /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = nWorkoutInternal;
+			productName = nWorkout;
+			productReference = B32526191E768C08003835DF /* nWorkoutInternal.app */;
+			productType = "com.apple.product-type.application";
+		};
 		B356FBBE1DC09C160006A0F0 /* nWorkout */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B356FBD11DC09C160006A0F0 /* Build configuration list for PBXNativeTarget "nWorkout" */;
@@ -606,6 +726,9 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Nathan Lanza";
 				TargetAttributes = {
+					B32525BF1E768C08003835DF = {
+						DevelopmentTeam = 72MNHNDUNH;
+					};
 					B356FBBE1DC09C160006A0F0 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 72MNHNDUNH;
@@ -634,11 +757,21 @@
 			targets = (
 				B356FBBE1DC09C160006A0F0 /* nWorkout */,
 				B3D50EF71E715A4D0062B118 /* nWorkoutTests */,
+				B32525BF1E768C08003835DF /* nWorkoutInternal */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B325260E1E768C08003835DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B325260F1E768C08003835DF /* LaunchScreen.storyboard in Resources */,
+				B32526101E768C08003835DF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B356FBBD1DC09C160006A0F0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -688,6 +821,78 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B32525C01E768C08003835DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B32526111E768C08003835DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B32526121E768C08003835DF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B32526131E768C08003835DF /* Increment Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ $USER == 'lanza' ]]; then\n    /Users/lanza/bin/incrementXcodeBuild\nfi ";
+		};
+		B32526141E768C08003835DF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 		B3256E101E72A6E50059576C /* Increment Build Number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -733,6 +938,87 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B32525C11E768C08003835DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B32525C21E768C08003835DF /* SelectWorkoutCell.swift in Sources */,
+				B32525C31E768C08003835DF /* BaseDataProvider.swift in Sources */,
+				B32525C41E768C08003835DF /* DataSource.swift in Sources */,
+				B32525C51E768C08003835DF /* LiftTypeCoordinator.swift in Sources */,
+				B32525C61E768C08003835DF /* WorkoutCell.swift in Sources */,
+				B32525C71E768C08003835DF /* BaseWorkoutsTVC.swift in Sources */,
+				B32525C81E768C08003835DF /* WeightAndRepsTextField.swift in Sources */,
+				B32525C91E768C08003835DF /* ViewInfo.swift in Sources */,
+				B32525CA1E768C08003835DF /* WorkoutFooterView.swift in Sources */,
+				B32525CB1E768C08003835DF /* CombinedView.swift in Sources */,
+				B32525CC1E768C08003835DF /* TextFieldBehaviorHandler.swift in Sources */,
+				B32525CD1E768C08003835DF /* SettingsCell.swift in Sources */,
+				B32525CE1E768C08003835DF /* CompletedWeightAndRepsTextField.swift in Sources */,
+				B32525CF1E768C08003835DF /* SelectWorkoutVC.swift in Sources */,
+				B32525D01E768C08003835DF /* Workout.swift in Sources */,
+				B32525D11E768C08003835DF /* Base.swift in Sources */,
+				B32525D21E768C08003835DF /* SettingsCoordinator.swift in Sources */,
+				B32525D31E768C08003835DF /* StatisticsCoordinator.swift in Sources */,
+				B32525D41E768C08003835DF /* StatisticsHistoryTVC.swift in Sources */,
+				B32525D51E768C08003835DF /* Theme.swift in Sources */,
+				B32525D61E768C08003835DF /* LiftTypeTVC.swift in Sources */,
+				B32525D71E768C08003835DF /* WorkoutFooterViewButton.swift in Sources */,
+				B32525D81E768C08003835DF /* WorkoutDetailCoordinator.swift in Sources */,
+				B32525D91E768C08003835DF /* ColumnRowView.swift in Sources */,
+				B32525DA1E768C08003835DF /* Lift.swift in Sources */,
+				B32525DB1E768C08003835DF /* WorkoutCoordinator.swift in Sources */,
+				B32525DC1E768C08003835DF /* SettingsTVC.swift in Sources */,
+				B32525DD1E768C08003835DF /* AcrtiveWorkoutCoordinator.swift in Sources */,
+				B32525DE1E768C08003835DF /* RoutineCell.swift in Sources */,
+				B32525DF1E768C08003835DF /* RoutineSetRowView.swift in Sources */,
+				B32525E01E768C08003835DF /* WorkoutLiftCell.swift in Sources */,
+				B32525E11E768C08003835DF /* WorkoutsCoordinator.swift in Sources */,
+				B32525E21E768C08003835DF /* ArrayProvider.swift in Sources */,
+				B32525E31E768C08003835DF /* Removed - RoutineDataSource.swift in Sources */,
+				B32525E41E768C08003835DF /* SelectWorkoutCoordinator.swift in Sources */,
+				B32525E51E768C08003835DF /* RLM.swift in Sources */,
+				B32525E61E768C08003835DF /* ConfigurableCell.swift in Sources */,
+				B32525E71E768C08003835DF /* LiftTableHeaderView.swift in Sources */,
+				B32525E81E768C08003835DF /* RoutinesCoordinator.swift in Sources */,
+				B32525E91E768C08003835DF /* CarbonStatisticsVC.swift in Sources */,
+				B32525EA1E768C08003835DF /* CompleteButton.swift in Sources */,
+				B32525EB1E768C08003835DF /* UIAlertController+Extensions.swift in Sources */,
+				B32525EC1E768C08003835DF /* RoutineLiftCell.swift in Sources */,
+				B32525ED1E768C08003835DF /* LiftCell.swift in Sources */,
+				B32525EE1E768C08003835DF /* SetNumberLabel.swift in Sources */,
+				B32525EF1E768C08003835DF /* RoutinesTVC.swift in Sources */,
+				B32525F01E768C08003835DF /* BaseWorkoutTVC.swift in Sources */,
+				B32525F11E768C08003835DF /* KeyboardHandler.swift in Sources */,
+				B32525F21E768C08003835DF /* FailButton.swift in Sources */,
+				B32525F31E768C08003835DF /* MainCoordinator.swift in Sources */,
+				B32525F41E768C08003835DF /* BaseTVC.swift in Sources */,
+				B32525F51E768C08003835DF /* RoutineTVC.swift in Sources */,
+				B32525F61E768C08003835DF /* WorkoutsTVC.swift in Sources */,
+				B32525F71E768C08003835DF /* StartBlankWorkoutButton.swift in Sources */,
+				B32525F81E768C08003835DF /* Set.swift in Sources */,
+				B32525F91E768C08003835DF /* WorkoutTVC.swift in Sources */,
+				B32525FA1E768C08003835DF /* ActiveOrFinished.swift in Sources */,
+				B32525FB1E768C08003835DF /* BaseChartViewDataSource.swift in Sources */,
+				B32525FC1E768C08003835DF /* Keyboard&KeyboardDelegate.swift in Sources */,
+				B32525FD1E768C08003835DF /* SingleLiftStatisticsCoordinator.swift in Sources */,
+				B32525FE1E768C08003835DF /* Removed - RoutinesDataSource.swift in Sources */,
+				B32525FF1E768C08003835DF /* WorkoutDetailVC.swift in Sources */,
+				B32526001E768C08003835DF /* DataProvider.swift in Sources */,
+				B32526011E768C08003835DF /* StatisticsTVC.swift in Sources */,
+				B32526021E768C08003835DF /* WeightAndRepsLabel.swift in Sources */,
+				B32526031E768C08003835DF /* StatisticsChartsTVC.swift in Sources */,
+				B32526041E768C08003835DF /* WorkoutDataSource.swift in Sources */,
+				B32526051E768C08003835DF /* NoteButton.swift in Sources */,
+				B32526061E768C08003835DF /* RoutineCoordinator.swift in Sources */,
+				B32526071E768C08003835DF /* StatisticsCell.swift in Sources */,
+				B32526081E768C08003835DF /* AppDelegate.swift in Sources */,
+				B32526091E768C08003835DF /* WorkoutsDataSource.swift in Sources */,
+				B325260A1E768C08003835DF /* SetRowView.swift in Sources */,
+				B325260B1E768C08003835DF /* Lets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B356FBBB1DC09C160006A0F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -833,6 +1119,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		B32526171E768C08003835DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BDEB971C85D196E196704D5 /* Pods-nWorkout.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 72MNHNDUNH;
+				INFOPLIST_FILE = "nWorkout copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
+				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B32526181E768C08003835DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D352F275A3A7BFE78BB927BD /* Pods-nWorkout.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 72MNHNDUNH;
+				INFOPLIST_FILE = "nWorkout copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
+				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkout;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		B356FBCF1DC09C160006A0F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -935,6 +1253,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
 				INFOPLIST_FILE = Other/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -950,6 +1269,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
 				INFOPLIST_FILE = Other/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -991,6 +1311,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B32526161E768C08003835DF /* Build configuration list for PBXNativeTarget "nWorkoutInternal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B32526171E768C08003835DF /* Debug */,
+				B32526181E768C08003835DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B356FBBA1DC09C160006A0F0 /* Build configuration list for PBXProject "nWorkout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
