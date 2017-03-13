@@ -39,6 +39,8 @@ class StatisticsChartsTVC: BaseTVC {
     
     func setupTableView() {
         
+        tableView.delegate = nil
+        
 //        tableView.estimatedRowHeight = 100
 //        tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -66,25 +68,24 @@ class StatisticsChartsTVC: BaseTVC {
 
 class ChartCell: UITableViewCell {
     
-//    let label = UIView()
-    let label = UILabel()
+    let chartView = LineChartView()
+//    let label = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        label.text = "hi"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(label)
-        
-        addConstraints([
+        chartView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(chartView)
+       
+        NSLayoutConstraint.activate([
             contentView.heightAnchor.constraint(equalToConstant: 300),
-            label.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            label.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            label.topAnchor.constraint(equalTo: contentView.topAnchor),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            chartView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            chartView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            chartView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            chartView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
         
-        label.backgroundColor = .blue
+        chartView.backgroundColor = .blue
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
