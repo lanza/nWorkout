@@ -66,23 +66,25 @@ class StatisticsChartsTVC: BaseTVC {
 
 class ChartCell: UITableViewCell {
     
-    let chartView = UIView()
+//    let label = UIView()
+    let label = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        chartView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(chartView)
+        label.text = "hi"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(label)
         
         addConstraints([
             contentView.heightAnchor.constraint(equalToConstant: 300),
-            chartView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            chartView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            chartView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            chartView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            label.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            label.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            label.topAnchor.constraint(equalTo: contentView.topAnchor),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
         
-        chartView.backgroundColor = .blue
+        label.backgroundColor = .blue
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
