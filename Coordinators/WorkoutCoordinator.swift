@@ -50,7 +50,13 @@ extension WorkoutCoordinator: WorkoutTVCDelegate {
             self.workout.isComplete = true
             self.workout.finishDate = Date()
             for lift in self.workout.lifts {
-                let string = lift.sets.map { "\($0.completedWeight)" + " x " + "\($0.completedReps)" }.joined(separator: ",")
+                var strings: [String] = []
+                for set in lift.sets {
+                    let str = String(set.completedWeight) + " x " + String(set.completedReps)
+                    strings.append(str)
+                }
+//                let string = lift.sets.map { "\($0.completedWeight)" + " x " + "\($0.completedReps)" }.joined(separator: ",")
+                let string = strings.joined(separator: ", ")
                 UserDefaults.standard.set(string, forKey: "last" + lift.name)
             }
         }
