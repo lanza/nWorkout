@@ -61,8 +61,23 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
             self.workout.finishDate = Date()
             for lift in self.workout.lifts {
                 
-                let string = lift.sets.map { "\(($0.completedWeight.remainder(dividingBy: 1) == 0) ? String(Int($0.completedWeight)) : String($0.completedWeight))" + " x " + "\($0.completedReps)" }.joined(separator: ",")
-                UserDefaults.standard.set(string, forKey: "last" + lift.name)
+                var strings: [String] = []
+                for set in lift.sets {
+                    let rem = set.completedWeight.remainder(dividingBy: 1)
+                    var str: String
+                    if rem == 0 {
+                        str = String(Int(set.completedWeight))
+                    } else {
+                        str = String(set.completedWeight)
+                    }
+                    str = str + " x " + String(set.completedReps)
+                    strings.append(str)
+                }
+                let joined = strings.joined(separator: ", ")
+                
+                
+//                let string = lift.sets.map { "\(($0.completedWeight.remainder(dividingBy: 1) == 0) ? String(Int($0.completedWeight)) : String($0.completedWeight))" + " x " + "\($0.completedReps)" }.joined(separator: ",")
+                UserDefaults.standard.set(joined, forKey: "last" + lift.name)
             }
         }
         workoutIsNotActive()
