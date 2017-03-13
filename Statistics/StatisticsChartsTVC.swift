@@ -8,7 +8,7 @@ import RxDataSources
 import Charts
 
 struct ChartSectionModel {
-    let things = ["hi","what"]
+    let things = ["hi"]
 }
 extension ChartSectionModel: SectionModelType {
     var items: [String] { return things }
@@ -35,6 +35,19 @@ class StatisticsChartsTVC: BaseTVC {
         setupTableView()
     }
     
+   
+    func doData(cell: ChartCell) {
+        
+        let objects = RLM.objects(type: Lift.self).filter { $0.name == self.liftName }.sorted { $0.startDate < $1.startDate }.map { return ($0.startDate.timeIntervalSinceReferenceDate,$0.sets.last?.completedWeight ?? 0) }
+        
+        let dataEntries = objects.map { ChartDataEntry(x:$0.0, y: $0.1) }
+        
+        let chartDataSet = LineChartDataSet(values: dataEntries, label: "Progression")
+        let chartData = LineChartData(dataSet: chartDataSet)
+        cell.chartView.data = chartData
+    }
+    
+    
     let dataSource = RxTableViewSectionedReloadDataSource<ChartSectionModel>()
     
     func setupTableView() {
@@ -47,6 +60,7 @@ class StatisticsChartsTVC: BaseTVC {
         tableView.register(ChartCell.self)
         dataSource.configureCell = { ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(for: ip) as ChartCell
+            self.doData(cell: cell)
             return cell
         }
         let sections = [ChartSectionModel()]
@@ -69,7 +83,6 @@ class StatisticsChartsTVC: BaseTVC {
 class ChartCell: UITableViewCell {
     
     let chartView = LineChartView()
-//    let label = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
