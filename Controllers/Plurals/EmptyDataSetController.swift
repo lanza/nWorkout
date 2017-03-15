@@ -7,6 +7,7 @@ class EmptyDataSetController: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDe
     var imageTintColorForEmptyDataSet: UIColor?
     var titleForEmptyDataSet: NSAttributedString?
     var descriptionForEmptyDataSet: NSAttributedString?
+    var verticalOffsetForEmptyDataSet: CGFloat?
     
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
@@ -20,5 +21,8 @@ class EmptyDataSetController: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDe
     }
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return descriptionForEmptyDataSet
+    }
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+        return verticalOffsetForEmptyDataSet ?? 0
     }
 }

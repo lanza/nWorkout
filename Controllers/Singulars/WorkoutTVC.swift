@@ -38,29 +38,24 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
                 self.delegate.hideTapped(for: self)
             }).addDisposableTo(db)
         }
+        
+        setupDZN()
     }
     
-    override func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return #imageLiteral(resourceName: "workout")
-    }
-    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
-        return .white
-    }
-    override func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    
+    func setupDZN() {
+        emptyDataSetController.imageTintColorForEmptyDataSet = .white
+        emptyDataSetController.imageForEmptyDataSet = #imageLiteral(resourceName: "workout")
         let s = StringStyle(.color(.white))
-        return "You have not added any lifts, yet!".styled(with: s)
-    }
-    override func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let s = StringStyle(.color(.white))
-        return "Click \"Add Lift\" to add a new exercise to your Workout.".styled(with: s)
+        emptyDataSetController.titleForEmptyDataSet = "You have not added any lifts, yet!".styled(with: s)
+        emptyDataSetController.descriptionForEmptyDataSet = "Click \"Add Lift\" to add a new exercise to your Workout.".styled(with: s)
+        emptyDataSetController.verticalOffsetForEmptyDataSet = 40
+        
+        tableView.emptyDataSetDelegate = emptyDataSetController
+        tableView.emptyDataSetSource = emptyDataSetController
     }
     
-    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
-        return 40
-    }
-    //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-    //        return NSAttributedString(string: "This is the button title")
-    //    }
+    let emptyDataSetController = EmptyDataSetController()
     
     override func cancelWorkoutTapped() {
         let a = UIAlertController.confirmAction(title: "Cancel Workout?", message: "Are you sure you want to cancel this workout?") { _ in

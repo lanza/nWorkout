@@ -47,7 +47,11 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
         setTableHeaderView()
         
         navigationItem.leftBarButtonItem = editButtonItem
-        
+       
+        setupDZN()
+    }
+    
+    func setupDZN() {
         emptyDataSetController.imageTintColorForEmptyDataSet = .white
         emptyDataSetController.imageForEmptyDataSet = #imageLiteral(resourceName: "workout")
         let s = StringStyle(.color(.white))
@@ -66,24 +70,5 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
         let workout = workouts[indexPath.row]
         delegate!.workoutsTVC(self, didSelectWorkout: workout)
     }
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return #imageLiteral(resourceName: "workout")
-    }
-    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
-        return .white
-    }
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let s = StringStyle(.color(.white))
-        return "You have not done any workouts".styled(with: s)
-    }
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let s = StringStyle(.color(.white))
-        return "Click the + at the bottom to start your first workout or the \"Routines\" tab to set up a routine".styled(with: s)
-    }
-    //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-    //        return NSAttributedString(string: "This is the button title")
-    //    }
-    
 }
 
-extension WorkoutsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {}

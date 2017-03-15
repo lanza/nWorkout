@@ -19,23 +19,20 @@ class RoutineTVC: BaseWorkoutTVC<RoutineLiftCell> {
         super.viewDidLoad()
         
         title = workout.name
+        setupDZN()
     }
-
-    override func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return #imageLiteral(resourceName: "routine")
-    }
-    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
-        return .white
-    }
-    override func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    
+    
+    func setupDZN() {
+        emptyDataSetController.imageTintColorForEmptyDataSet = .white
+        emptyDataSetController.imageForEmptyDataSet = #imageLiteral(resourceName: "routine")
         let s = StringStyle(.color(.white))
-        return "You have not added any lifts, yet!".styled(with: s)
+        emptyDataSetController.titleForEmptyDataSet = "You do not have any lifts, yet!.".styled(with: s)
+        emptyDataSetController.descriptionForEmptyDataSet = "Click \"Add Lift\" to add a new exerccise to your Routine.".styled(with: s)
+        
+        tableView.emptyDataSetDelegate = emptyDataSetController
+        tableView.emptyDataSetSource = emptyDataSetController
     }
-    override func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let s = StringStyle(.color(.white))
-        return "Click \"Add Lift\" to add a new exercise to your Routine.".styled(with: s)
-    }
-    //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-    //        return NSAttributedString(string: "This is the button title")
-    //    }
+    
+    let emptyDataSetController = EmptyDataSetController()
 }

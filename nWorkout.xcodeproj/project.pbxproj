@@ -281,7 +281,7 @@
 		B3FCCD311E17249D003EF14E /* WorkoutFooterViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFooterViewButton.swift; sourceTree = "<group>"; };
 		B3FCCD361E172A9F003EF14E /* ActiveOrFinished.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveOrFinished.swift; sourceTree = "<group>"; };
 		B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLiftCell.swift; sourceTree = "<group>"; };
-		B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataSetController.swift; sourceTree = "<group>"; };
+		B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyDataSetController.swift; path = ../Controllers/Plurals/EmptyDataSetController.swift; sourceTree = "<group>"; };
 		D352F275A3A7BFE78BB927BD /* Pods-nWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.release.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -449,7 +449,6 @@
 			isa = PBXGroup;
 			children = (
 				B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */,
-				B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */,
 				B31E9FBE1DD6AE3400B9AEFC /* RoutinesTVC.swift */,
 				B382087A1DC2B2C00008D6F8 /* WorkoutsTVC.swift */,
 			);
@@ -600,6 +599,7 @@
 		B3FCCD2A1E171906003EF14E /* Auxiliary Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */,
 				B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */,
 				B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */,
 			);

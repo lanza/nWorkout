@@ -5,7 +5,7 @@ import DZNEmptyDataSet
 import CustomIOSAlertView
 import Reuse
 
-class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate, WorkoutFooterViewDelegate
+class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate, WorkoutFooterViewDelegate
 where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -36,10 +36,6 @@ where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
     
     func setDataSource() {
         fatalError()
-    }
-    func setEmptyDataSet() {
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
     }
     
     override func viewDidLoad() {
@@ -76,7 +72,6 @@ where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
         tableView.separatorStyle = .none
         
         setDataSource()
-        setEmptyDataSet()
         dataSource.delegate = self
         
         navigationItem.rightBarButtonItem = editButtonItem

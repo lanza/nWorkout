@@ -72,38 +72,32 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
         
         setTableHeaderView()
+        
+        setupDZN()
     }
+    
+    
+    func setupDZN() {
+        emptyDataSetController.imageTintColorForEmptyDataSet = .white
+        emptyDataSetController.imageForEmptyDataSet = #imageLiteral(resourceName: "routine")
+        let s = StringStyle(.color(.white))
+        emptyDataSetController.titleForEmptyDataSet = "You do not have any routines, yet!.".styled(with: s)
+        emptyDataSetController.descriptionForEmptyDataSet = "Click the + at the top to add your first routine.".styled(with: s)
+        
+        tableView.emptyDataSetDelegate = emptyDataSetController
+        tableView.emptyDataSetSource = emptyDataSetController
+    }
+   
+    let emptyDataSetController = EmptyDataSetController()
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let routine = dataSource.provider.object(at: indexPath.row)
         delegate!.routinesTVC(self, didSelectRoutine: routine)
     }
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return #imageLiteral(resourceName: "routine")
-    }
-    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
-        return .white
-    }
-    
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let s = StringStyle(.color(.white))
-        return "You do not have any routines, yet!".styled(with: s)
-    }
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let s = StringStyle(.color(.white))
-        return "Click the + at the top to add your first routine.".styled(with: s)
-    }
-    //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-    //        return NSAttributedString(string: "This is the button title")
-    //    }
 }
-
-extension RoutinesTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {}
-
-
 
 
 
