@@ -2,6 +2,20 @@ import UIKit
 import CoordinatorKit
 import RealmSwift
 
+
+class Application {
+    static func doOnFirstRun(closure: @escaping ()->()) {
+        onFirstRunClosures.append(closure)
+    }
+    
+    private static var onFirstRunClosures: [()->()] = []
+  
+    private static func callFirstRunClosures() {
+        onFirstRunClosures.forEach { $0() }
+    }
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

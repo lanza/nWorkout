@@ -43,9 +43,9 @@ class LiftCell: ChartViewCell {
     
     var rowViews: [SetRowView] { return chartView.rowViews as! [SetRowView] }
     
-    var setNumberLables: [UILabel?] { return rowViews.map { $0.setNumberLabel } }
-    var weightTextFields: [UITextField?] { return rowViews.map { $0.targetWeightTextField } }
-    var repsTextFields: [UITextField?] { return rowViews.map { $0.targetRepsTextField } }
+//    var setNumberLables: [UILabel?] { return rowViews.map { $0.setNumberLabel } }
+//    var weightTextFields: [UITextField?] { return rowViews.map { $0.targetWeightTextField } }
+//    var repsTextFields: [UITextField?] { return rowViews.map { $0.targetRepsTextField } }
     
     let label = UILabel()
     let noteButton = NoteButton()

@@ -41,8 +41,6 @@ class SetRowView: RowView {
         
         columnBackgroundColor = Theme.Colors.darkest
         
-        
-        
         setupSelectedColumnViewTypesAndWidth()
         configColumnViewTypes()
         configColumnWidthPercentages()
@@ -96,6 +94,7 @@ class SetRowView: RowView {
     }
     
     func setupButtons() {
+        
         failButton?.rx.tap.subscribe(onNext: { [unowned self] in
             self.didFail = !self.didFail
             self.didSetDidFail()
@@ -108,6 +107,7 @@ class SetRowView: RowView {
                 self.completedRepsTextField?.becomeFirstResponder()
             }
         }).addDisposableTo(db)
+        
         completeButton?.rx.tap.subscribe(onNext: { [unowned self] in
             self.isComplete = !self.isComplete
             self.didSetIsComplete()

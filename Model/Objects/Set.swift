@@ -5,11 +5,21 @@ class Set: Base {
     dynamic var weight: Double = 0
     dynamic var reps = 0
     dynamic var isWarmup = false
-    dynamic var completedWeight: Double = 0
-    dynamic var completedReps = 0
+    dynamic var completedWeight: Double = 0 {
+        didSet {
+            print("CompletedReps touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)")
+        }
+    }
+    
+    dynamic var completedReps = 0 {
+        didSet {
+            print("CompletedWeight touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)")
+        }
+    }
     
     var isComplete: Bool { return weight == completedWeight && reps == completedReps }
-    var didFail: Bool { return (completedReps > 0 && completedReps < reps) ||  (completedReps != 0 && completedWeight != 0 && !isComplete) || (completedWeight > 0 && completedReps == 0) }
+    var isFresh: Bool { return weight == 0 && reps == 0 }
+    var didFail: Bool { return !isComplete && !isFresh }
     
     static func new(isWorkout: Bool, isWarmup: Bool, weight: Double, reps: Int, completedWeight: Double, completedReps: Int, lift: Lift) -> Set {
         let set = Set()

@@ -76,7 +76,6 @@ struct Lets {
     static let timeZoneAbbreviation = "EST"
     
     
-    
     static let workoutDateDF: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = Lets.workoutDateFormat
