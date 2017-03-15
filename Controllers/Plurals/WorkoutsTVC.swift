@@ -42,14 +42,23 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.emptyDataSetDelegate = self
-        tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
         
         setTableHeaderView()
         
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        emptyDataSetController.imageTintColorForEmptyDataSet = .white
+        emptyDataSetController.imageForEmptyDataSet = #imageLiteral(resourceName: "workout")
+        let s = StringStyle(.color(.white))
+        emptyDataSetController.titleForEmptyDataSet = "You have not done any workouts.".styled(with: s)
+        emptyDataSetController.descriptionForEmptyDataSet = "Click the + at the bottom to start your first workout or the \"Routines\" tab to set up a routine".styled(with: s)
+        
+        tableView.emptyDataSetDelegate = emptyDataSetController
+        tableView.emptyDataSetSource = emptyDataSetController
     }
+   
+    let emptyDataSetController = EmptyDataSetController()
     
     
     //mark: - Swift is so fucking stupid

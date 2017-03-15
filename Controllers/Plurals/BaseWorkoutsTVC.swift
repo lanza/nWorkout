@@ -49,7 +49,6 @@ class BaseWorkoutsTVC<Cell: UITableViewCell>: UIViewController, UITableViewDeleg
         tableView.tableFooterView = UIView()
         navigationItem.leftBarButtonItem = editButtonItem
 
-        
         tableView.delegate = self
         tableView.separatorStyle = .none
     }
