@@ -47,7 +47,31 @@ struct ViewInfo: Equatable {
     
     static func setUsesCombinedView(_ bool: Bool) {
         UserDefaults.standard.set(bool, forKey: Lets.combineFailAndCompletedWeightAndRepsKey)
+        
+        var saved = self.saved
+        
+        if bool {
+            guard let completedWeightIndex = saved.index(where: { $0.name == Lets.completedWeightKey }) else { fatalError() }
+            saved.remove(at: completedWeightIndex)
+            
+            guard let completedRepsIndex = saved.index(where: { $0.name == Lets.completedRepsKey }) else { fatalError() }
+            saved.remove(at: completedRepsIndex)
+            
+            guard let doneButtonIndex = saved.index(where: { $0.name == Lets.doneButtonKey }) else { fatalError() }
+            let doneViewInfo = saved[doneButtonIndex]
+            let doneButtonCompletedWeightCompletedRepsViewInfo = ViewInfo(name: Lets.doneButtonCompletedWeightCompletedRepsKey, width: doneViewInfo.width, isOn: true)
+            
+            saved.replaceSubrange(doneButtonIndex...doneButtonIndex, with: [doneButtonCompletedWeightCompletedRepsViewInfo])
+            
+            U
+            
+        }
     }
+   
+    static func saveViewInfos(_ viewInfos: [ViewInfo]) {
+        UserDefaults.standard.set(viewInfos.map { $0.array }, forKey: Lets.viewInfoKey)
+    }
+    
     static var saved: [ViewInfo] {
         let stored = (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map { $0.map { ViewInfo.from(array: $0) } }
         return stored ?? ViewInfo.defaults

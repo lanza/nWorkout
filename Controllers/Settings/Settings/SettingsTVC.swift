@@ -142,7 +142,8 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        UserDefaults.standard.set(viewInfos.map { $0.array }, forKey: Lets.viewInfoKey)
+        ViewInfo.saveViewInfos(viewInfos)
+        broadcastSettingsDidChange()
     }
     
     func setTableHeaderView() {
