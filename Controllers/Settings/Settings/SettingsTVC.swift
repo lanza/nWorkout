@@ -89,6 +89,8 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
                 let vi = self.viewInfos[ip.row]
                 cell.onSwitch.isOn = vi.isOn
                 cell.widthTextField.text = "\(vi.width)"
+            } else {
+                cell.onSwitch.isOn = ViewInfo.usesCombinedView
             }
             cell.titleLabel.text = item
             cell.delegate = self
@@ -196,6 +198,13 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
         let indexPath = tableView.indexPath(for: cell)!
         if indexPath.section == 0 {
             ViewInfo.setUsesCombinedView(bool)
+           
+            viewInfos = ViewInfo.saved
+            var items = viewInfos.map { $0.name }
+            
+            self.sections[1] = SettingsSectionsModel(original: self.sections[1], items: items)
+            
+            tableView.reloadSections([1], with: .automatic)
         } else if indexPath.section == 1 {
             viewInfos[indexPath.row].isOn = !viewInfos[indexPath.row].isOn
         }
