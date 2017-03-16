@@ -41,7 +41,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     let tableView = UITableView()
     var viewInfos = ViewInfo.saved
     
-    let dataSource = RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>()
+    var dataSource = RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,13 +76,15 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
         setTableHeaderView()
         
         sections = [.top, .cells(items: viewInfos.map { $0.name })]
+        tableView.register(CellSettingsCell.self)
+        
         setupTableView()
     }
     
     var sections: [SettingsSectionsModel] = []
     
     func setupTableView() {
-        tableView.register(CellSettingsCell.self)
+        
         dataSource.configureCell = { [unowned self] ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
             if ip.section == 1 {
@@ -106,9 +108,8 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
         dataSource.canEditRowAtIndexPath = { _ in return true }
         dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .automatic, reloadAnimation: .automatic, deleteAnimation: .automatic)
         
-        
-        
         Observable.just(sections).bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(db)
+        
         tableView.rx.itemMoved.subscribe(onNext: { event in
             
             var items = self.sections[1].items
@@ -190,7 +191,6 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
             //
         } else if indexPath.section == 1 {
             viewInfos[indexPath.row].width = value
-            broadcastSettingsDidChange()
         }
         
     }
@@ -198,17 +198,18 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
         let indexPath = tableView.indexPath(for: cell)!
         if indexPath.section == 0 {
             ViewInfo.setUsesCombinedView(bool)
-           
-            viewInfos = ViewInfo.saved
-            var items = viewInfos.map { $0.name }
             
-            self.sections[1] = SettingsSectionsModel(original: self.sections[1], items: items)
+            viewInfos = ViewInfo.saved
+            let items = viewInfos.map { $0.name }
+            sections[1] = SettingsSectionsModel(original: sections[1], items: items)
+            dataSource.setSections(sections)
+            
             
             tableView.reloadSections([1], with: .automatic)
+            
         } else if indexPath.section == 1 {
             viewInfos[indexPath.row].isOn = !viewInfos[indexPath.row].isOn
         }
-        broadcastSettingsDidChange()
     }
     
     func broadcastSettingsDidChange() {
