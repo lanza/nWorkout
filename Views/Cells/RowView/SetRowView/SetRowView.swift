@@ -9,7 +9,7 @@ protocol SetRowViewDelegate: class {
 }
 
 class SetRowView: RowView {
-   
+    
     weak var delegate: SetRowViewDelegate!
     
     override func prepareForReuse() {
@@ -24,12 +24,15 @@ class SetRowView: RowView {
     
     var set: (nWorkout.Set)! {
         didSet {
-            if let set = set {
-                didFail = set.didFail
-                didSetDidFail()
-                isComplete = set.isComplete
-                didSetIsComplete()
-                noteButton?.update(for: set)
+            guard let set = set else { fatalError() }
+            noteButton?.update(for: set)
+            
+            if set.isComplete {
+                setUI(for: .complete)
+            } else if set.didFail {
+                self.setUI(for: .fail)
+            } else if set.isFresh {
+                self.setUI(for: .fresh)
             }
         }
     }
@@ -63,58 +66,97 @@ class SetRowView: RowView {
     }
     let usesCombinedView = ViewInfo.usesCombinedView
     
+    
     var didFail = false
-    func didSetDidFail() {
-        failButton?.setFail(didFail)
-
-        if didFail {
-            isComplete = false
-            completeButton?.setComplete(false)
-        }
-        
-        self.completedWeightTextField?.setNumber(double: self.didFail ? self.set.failureWeight() : 0 )
-        self.completedRepsTextField?.setNumber(int: 0)
-        
-        if usesCombinedView {
-            completedWeightTextField?.isHidden = !didFail
-            completedRepsTextField?.isHidden = !didFail
-            completeButton?.setHide(didFail)
-        }
-    }
     var isComplete = false
-    func didSetIsComplete() {
-        completeButton?.setComplete(isComplete)
-        if isComplete {
+    var isFresh = false
+    
+    enum State {
+        case fail
+        case fresh
+        case complete
+    }
+    
+    func setUI(for state: State) {
+        
+        switch state {
+        case .fail:
+            failButton?.setFail(true)
+            completeButton?.setComplete(false)
+            
+            isComplete = false
+            isFresh = false
+            didFail = true
+            
+            completedWeightTextField?.setNumber(double: set.failureWeight)
+            completedRepsTextField?.setNumber(int: 0)
+            
+            completedWeightTextField?.isHidden = false
+            completedRepsTextField?.isHidden = false
+            completeButton?.setHide(true)
+            
+            completedRepsTextField?.becomeFirstResponder()
+        case .complete:
             failButton?.setFail(false)
+            completeButton?.setComplete(true)
+            
+            isComplete = true
+            isFresh = false
             didFail = false
+            
+            completedWeightTextField?.setNumber(double: set.weight)
+            completedRepsTextField?.setNumber(int: set.reps)
+            
+            completedWeightTextField?.isHidden = true
+            completedRepsTextField?.isHidden = true
+            completeButton?.setHide(false)
+        case .fresh:
+            failButton?.setFail(false)
+            completeButton?.setComplete(false)
+            
+            isComplete = false
+            isFresh = true
+            didFail = false
+            
+            completedWeightTextField?.setNumber(double: 0)
+            completedRepsTextField?.setNumber(int: 0)
+            
+            completedWeightTextField?.isHidden = true
+            completedRepsTextField?.isHidden = true
+            completeButton?.setHide(false)
         }
         
-        self.completedWeightTextField?.setNumber(double: self.didFail ? self.set.failureWeight() : 0 )
-        self.completedRepsTextField?.setNumber(int: 0)
+    }
+    
+    func setFailed() {
+        setUI(for: .fail)
+        set.setCompleted(weight: set.failureWeight, reps: 0)
+    }
+    
+    func setComplete() {
+        setUI(for: .complete)
+        set.setCompleted(weight: set.weight, reps: set.reps)
+    }
+    func setFresh() {
+        setUI(for: .fresh)
+        set.setCompleted(weight: 0, reps: 0)
     }
     
     func setupButtons() {
         
         failButton?.rx.tap.subscribe(onNext: { [unowned self] in
-            self.didFail = !self.didFail
-            self.didSetDidFail()
-            
-            RLM.write {
-                self.set.completedWeight = self.didFail ? self.set.failureWeight() : 0
-                self.set.completedReps = 0
-            }
             if self.didFail {
-                self.completedRepsTextField?.becomeFirstResponder()
+                self.setFresh()
+            } else {
+                self.setFailed()
             }
         }).addDisposableTo(db)
         
         completeButton?.rx.tap.subscribe(onNext: { [unowned self] in
-            self.isComplete = !self.isComplete
-            self.didSetIsComplete()
-            
-            RLM.write {
-                self.set.completedWeight = self.isComplete ? self.set.weight : 0
-                self.set.completedReps = self.isComplete ? self.set.reps : 0
+            if self.isComplete {
+                self.setFresh()
+            } else {
+                self.setComplete()
             }
         }).addDisposableTo(db)
         noteButton?.rx.tap.subscribe(onNext: { [unowned self] in

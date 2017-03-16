@@ -47,7 +47,20 @@ extension Set {
         return set
     }
     
-    func failureWeight() -> Double {
-        return weight
+    var failureWeight: Double { return weight }
+}
+
+extension Set {
+    func setTarget(weight: Double, reps: Int) {
+        RLM.write {
+            self.weight = weight
+            self.reps = reps
+        } 
+    }
+    func setCompleted(weight: Double, reps: Int) {
+        RLM.write {
+            self.completedWeight = weight
+            self.completedReps = reps
+        }
     }
 }
