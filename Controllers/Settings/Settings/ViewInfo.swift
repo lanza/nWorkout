@@ -62,10 +62,16 @@ struct ViewInfo: Equatable {
             let doneButtonCompletedWeightCompletedRepsViewInfo = ViewInfo(name: Lets.doneButtonCompletedWeightCompletedRepsKey, width: doneViewInfo.width, isOn: true)
             
             saved.replaceSubrange(doneButtonIndex...doneButtonIndex, with: [doneButtonCompletedWeightCompletedRepsViewInfo])
+        } else {
+            guard let combinedIndex = saved.index(where: { $0.name == Lets.combineFailAndCompletedWeightAndRepsKey }) else { fatalError() }
             
-            U
+            let weightViewInfo = ViewInfo(name: Lets.completedWeightKey, width: 20, isOn: true)
+            let repsViewInfo = ViewInfo(name: Lets.completedRepsKey, width: 20, isOn: true)
+            let doneViewInfo = ViewInfo(name: Lets.doneButtonKey, width: 20, isOn: true)
             
+            saved.replaceSubrange(combinedIndex...combinedIndex, with: [weightViewInfo,repsViewInfo,doneViewInfo])
         }
+        ViewInfo.saveViewInfos(saved)
     }
    
     static func saveViewInfos(_ viewInfos: [ViewInfo]) {
