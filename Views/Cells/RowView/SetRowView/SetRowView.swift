@@ -92,9 +92,11 @@ class SetRowView: RowView {
             completedWeightTextField?.setNumber(double: set.failureWeight)
             completedRepsTextField?.setNumber(int: 0)
             
-            completedWeightTextField?.isHidden = false
-            completedRepsTextField?.isHidden = false
-            completeButton?.setHide(true)
+            if usesCombinedView {
+                completedWeightTextField?.isHidden = false
+                completedRepsTextField?.isHidden = false
+                completeButton?.setHide(true)
+            }
         case .complete:
             failButton?.setFail(false)
             completeButton?.setComplete(true)
@@ -106,9 +108,11 @@ class SetRowView: RowView {
             completedWeightTextField?.setNumber(double: set.weight)
             completedRepsTextField?.setNumber(int: set.reps)
             
-            completedWeightTextField?.isHidden = true
-            completedRepsTextField?.isHidden = true
-            completeButton?.setHide(false)
+            if usesCombinedView {
+                completedWeightTextField?.isHidden = true
+                completedRepsTextField?.isHidden = true
+                completeButton?.setHide(false)
+            }
         case .fresh:
             failButton?.setFail(false)
             completeButton?.setComplete(false)
@@ -120,9 +124,11 @@ class SetRowView: RowView {
             completedWeightTextField?.setNumber(double: 0)
             completedRepsTextField?.setNumber(int: 0)
             
-            completedWeightTextField?.isHidden = true
-            completedRepsTextField?.isHidden = true
-            completeButton?.setHide(false)
+            if usesCombinedView {
+                completedWeightTextField?.isHidden = true
+                completedRepsTextField?.isHidden = true
+                completeButton?.setHide(false)
+            }
         }
         
     }
