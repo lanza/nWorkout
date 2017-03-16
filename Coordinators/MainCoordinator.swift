@@ -6,7 +6,7 @@ import RxCocoa
 
 class MainCoordinator: TabBarCoordinator {
   
-    func checkForUnfinishedWorkout() {
+    func checkForUnfinishedWorkout(displayImmediately: Bool) {
         let workouts = RLM.realm.objects(Workout.self).filter("isComplete = false").filter("isWorkout = true")
         if let first = workouts.first {
             self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
@@ -21,7 +21,9 @@ class MainCoordinator: TabBarCoordinator {
             self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
                 self.activeWorkoutCoordinator = nil
             }
-            displayActiveWorkout()
+            if displayImmediately {
+                displayActiveWorkout()
+            }
         }
     }
     
@@ -64,12 +66,12 @@ class MainCoordinator: TabBarCoordinator {
         Theme.do()
     
         createCoordinators()
-        checkForUnfinishedWorkout()
+        checkForUnfinishedWorkout(displayImmediately: true)
         
         NotificationCenter.default.rx.notification(Notification.Name("settingsDidChange")).subscribe(onNext: { notification in
             print("Test")
             self.activeWorkoutCoordinator = nil
-            self.checkForUnfinishedWorkout()
+            self.checkForUnfinishedWorkout(displayImmediately: false)
         }).addDisposableTo(db)
     }
     
