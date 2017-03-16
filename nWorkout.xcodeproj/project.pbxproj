@@ -164,6 +164,7 @@
 		B3FCCD391E172AC3003EF14E /* WorkoutLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */; };
 		B3FF69D91E79FE8B005FE6C1 /* EmptyDataSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */; };
 		B3FF69DA1E7A002C005FE6C1 /* EmptyDataSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */; };
+		B3FF69E01E7A17A2005FE6C1 /* CellSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FF69DF1E7A17A2005FE6C1 /* CellSettingsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -282,6 +283,7 @@
 		B3FCCD361E172A9F003EF14E /* ActiveOrFinished.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveOrFinished.swift; sourceTree = "<group>"; };
 		B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLiftCell.swift; sourceTree = "<group>"; };
 		B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyDataSetController.swift; path = ../Controllers/Plurals/EmptyDataSetController.swift; sourceTree = "<group>"; };
+		B3FF69DF1E7A17A2005FE6C1 /* CellSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSettingsCell.swift; sourceTree = "<group>"; };
 		D352F275A3A7BFE78BB927BD /* Pods-nWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.release.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -335,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				B328D8131DD6FA5E000948ED /* SettingsTVC.swift */,
+				B3FF69DF1E7A17A2005FE6C1 /* CellSettingsCell.swift */,
 				B36059431E1C92A600EBE620 /* ViewInfo.swift */,
 			);
 			path = Settings;
@@ -1075,6 +1078,7 @@
 				B3BB31861DDAA17B0015F9B0 /* RoutinesCoordinator.swift in Sources */,
 				B32504061E34456C00C51909 /* CarbonStatisticsVC.swift in Sources */,
 				B36059391E1C3F0700EBE620 /* CompleteButton.swift in Sources */,
+				B3FF69E01E7A17A2005FE6C1 /* CellSettingsCell.swift in Sources */,
 				B360593F1E1C4B1700EBE620 /* UIAlertController+Extensions.swift in Sources */,
 				B36059261E1C3E0800EBE620 /* RoutineLiftCell.swift in Sources */,
 				B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */,

@@ -34,6 +34,7 @@ class ActiveWorkoutCoordinator: Coordinator {
             
             self.present(ltcNav, animated: true)
         }
+        
     }
     
     var workoutIsNotActive: (() -> ())!

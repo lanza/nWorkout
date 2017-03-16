@@ -162,33 +162,6 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
         tableView.tableHeaderView = view
     }
     
-    
-    //    func setupRx() {
-    
-    //        hideCompletionUntilFailTappedSwitch.rx.controlEvent(.valueChanged).subscribe(onNext: { [unowned self] in
-    //
-    //            ViewInfo.setUsesCombinedView(self.hideCompletionUntilFailTappedSwitch.isOn)
-    //
-    //            if self.hideCompletionUntilFailTappedSwitch.isOn {
-    //
-    //                let cwIndex = self.viewInfos$.value.index { $0.name == Lets.completedWeightKey }!
-    //                self.viewInfos$.value[cwIndex].name = Lets.doneButtonCompletedWeightCompletedRepsKey
-    //                let crIndex = self.viewInfos$.value.index { $0.name == Lets.completedRepsKey }!
-    //                self.viewInfos$.value.remove(at: crIndex)
-    //                let dbIndex = self.viewInfos$.value.index { $0.name == Lets.doneButtonKey }!
-    //                self.viewInfos$.value.remove(at: dbIndex)
-    //
-    //            } else {
-    //
-    //                let value = self.viewInfos$.value
-    //                let cIndex = value.index { $0.name == Lets.doneButtonCompletedWeightCompletedRepsKey }!
-    //
-    //                self.viewInfos$.value[cIndex].name = Lets.completedWeightKey
-    //                self.viewInfos$.value.append(contentsOf: [ViewInfo(name: Lets.completedRepsKey, width: 20, isOn: true), ViewInfo(name: Lets.doneButtonKey, width: 20, isOn: true)])
-    //            }
-    //        }).addDisposableTo(db)
-    
-    
     let db = DisposeBag()
     
     func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
@@ -200,104 +173,42 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .none
     }
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        return 42
-    //    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return 45
     }
     
     func widthDidChange(to value: CGFloat, for cell: CellSettingsCell) {
-        let index = tableView.indexPath(for: cell)!
-        viewInfos[index.row].width = value
+        let indexPath = tableView.indexPath(for: cell)!
+        if indexPath.section == 0 {
+            //
+        } else if indexPath.section == 1 {
+            viewInfos[indexPath.row].width = value
+            broadcastSettingsDidChange()
+        }
         
     }
     func switchDidChange(to bool: Bool, for cell: CellSettingsCell) {
-        let index = tableView.indexPath(for: cell)!
-        viewInfos[index.row].isOn = !viewInfos[index.row].isOn
-    }
-}
-
-
-class CellSettingsCell: UITableViewCell {
-    
-    weak var delegate: CellSettingsCellDelegate!
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        let views: [UIView] = [titleLabel,widthTextField,onSwitch]
-        views.forEach { view in
-            contentView.addSubview(view)
-            view.translatesAutoresizingMaskIntoConstraints = false
+        let indexPath = tableView.indexPath(for: cell)!
+        if indexPath.section == 0 {
+            ViewInfo.setUsesCombinedView(bool)
+        } else if indexPath.section == 1 {
+            viewInfos[indexPath.row].isOn = !viewInfos[indexPath.row].isOn
         }
-        
-
-        
-        let constraints = [
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
-            titleLabel.rightAnchor.constraint(equalTo: widthTextField.leftAnchor),
-            widthTextField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            widthTextField.rightAnchor.constraint(equalTo: onSwitch.leftAnchor, constant: -4),
-            onSwitch.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -4),
-            onSwitch.widthAnchor.constraint(equalTo: widthTextField.widthAnchor),
-            onSwitch.heightAnchor.constraint(equalTo: widthTextField.heightAnchor),
-            onSwitch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            contentView.heightAnchor.constraint(greaterThanOrEqualTo: onSwitch.heightAnchor, constant: 8)
-        ]
-        
-        
-        
-        titleLabel.setContentCompressionResistancePriority(100, for: .horizontal)
-        
-        NSLayoutConstraint.activate(constraints)
-        
-        backgroundColor = Theme.Colors.dark
-        
-        widthTextField.keyboardType = .decimalPad
-        
-        widthTextField.rx.text.skip(1).subscribe(onNext: { value in
-            let val = value!.characters.count == 0 ? "0" : value!
-            self.delegate.widthDidChange(to: CGFloat(Double(val)!), for: self)
-        }).addDisposableTo(db)
-        onSwitch.rx.value.skip(1).subscribe(onNext: { value in
-            self.delegate.switchDidChange(to: value, for: self)
-        }).addDisposableTo(db)
+        broadcastSettingsDidChange()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func broadcastSettingsDidChange() {
+        let notification = Notification(name: Notification.Name("settingsDidChange"))
+        NotificationCenter.default.post(notification)
     }
-    
-    let titleLabel = UILabel().then { label in
-        label.textColor = .white
-        label.backgroundColor = .clear
-        label.numberOfLines = 0
-        label.setFontScaling(minimum: 10)
-    }
-    let widthTextField = UITextField().then { textField in
-        textField.textColor = .white
-        textField.textAlignment = .center
-    }
-
-    let onSwitch = UISwitch().then({ swtch in
-        swtch.tintColor = Theme.Colors.main
-        swtch.onTintColor = Theme.Colors.main
-    })
-    
-    let db = DisposeBag()
 }
 
-protocol CellSettingsCellDelegate: class {
-    func switchDidChange(to bool: Bool, for cell: CellSettingsCell)
-    func widthDidChange(to value: CGFloat, for cell: CellSettingsCell)
-}
+
+
 
 
 

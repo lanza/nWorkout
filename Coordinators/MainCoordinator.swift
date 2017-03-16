@@ -66,6 +66,11 @@ class MainCoordinator: TabBarCoordinator {
         createCoordinators()
         checkForUnfinishedWorkout()
         
+        NotificationCenter.default.rx.notification(Notification.Name("settingsDidChange")).subscribe(onNext: { notification in
+            print("Test")
+            self.activeWorkoutCoordinator = nil
+            self.checkForUnfinishedWorkout()
+        }).addDisposableTo(db)
     }
     
     let dummy: Coordinator = {
