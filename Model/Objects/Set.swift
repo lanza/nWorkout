@@ -18,7 +18,7 @@ class Set: Base {
     }
     
     var isComplete: Bool { return weight == completedWeight && reps == completedReps }
-    var isFresh: Bool { return weight == 0 && reps == 0 }
+    var isFresh: Bool { return completedWeight == 0 && completedReps == 0 }
     var didFail: Bool { return !isComplete && !isFresh }
     
     static func new(isWorkout: Bool, isWarmup: Bool, weight: Double, reps: Int, completedWeight: Double, completedReps: Int, lift: Lift) -> Set {

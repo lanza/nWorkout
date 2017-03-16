@@ -24,15 +24,16 @@ class SetRowView: RowView {
     
     var set: (nWorkout.Set)! {
         didSet {
-            guard let set = set else { fatalError() }
+            guard let set = set else { return }
+            print(set.weight,set.reps,set.completedWeight,set.completedReps)
             noteButton?.update(for: set)
             
             if set.isComplete {
                 setUI(for: .complete)
             } else if set.didFail {
-                self.setUI(for: .fail)
+                setUI(for: .fail)
             } else if set.isFresh {
-                self.setUI(for: .fresh)
+                setUI(for: .fresh)
             }
         }
     }
@@ -94,8 +95,6 @@ class SetRowView: RowView {
             completedWeightTextField?.isHidden = false
             completedRepsTextField?.isHidden = false
             completeButton?.setHide(true)
-            
-            completedRepsTextField?.becomeFirstResponder()
         case .complete:
             failButton?.setFail(false)
             completeButton?.setComplete(true)
@@ -131,6 +130,7 @@ class SetRowView: RowView {
     func setFailed() {
         setUI(for: .fail)
         set.setCompleted(weight: set.failureWeight, reps: 0)
+        completedRepsTextField?.becomeFirstResponder()
     }
     
     func setComplete() {
