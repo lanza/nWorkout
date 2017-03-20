@@ -42,11 +42,28 @@ class StatisticsChartsTVC: BaseTVC {
         let prDataEntries = prDataPoints.map { ChartDataEntry(x: $0.timeInterval, y: $0.weight) }
         let prDataSet = LineChartDataSet(values: prDataEntries, label: "Personal Record Progression")
         let prLineChartData = LineChartData(dataSet: prDataSet)
-       
+        
         let sectionModel = ChartSectionModel(chartData: [bestSetLineChartData,prLineChartData])
         sections = [sectionModel]
         
         setupTableView()
+    }
+    
+    func test() {
+        let point = ChartDataPair(timeInterval: 0, weight: 0)
+        let entry = ChartDataEntry(x: point.timeInterval, y: point.weight)
+        let set = LineChartDataSet(values: [entry], label: "Test")
+        let data = LineChartData(dataSet: set)
+        
+        let chart = LineChartView()
+        
+        let blcvb = chart as! BarLineChartViewBase
+        let xaxis = blcvb.xAxis
+        
+        
+        let x = XAxis()
+        let a = AxisBase()
+        
     }
     
     var sections: [ChartSectionModel] = []
@@ -62,13 +79,14 @@ class StatisticsChartsTVC: BaseTVC {
         
         tableView.delegate = nil
         
-//        tableView.estimatedRowHeight = 100
-//        tableView.rowHeight = UITableViewAutomaticDimension
+        //        tableView.estimatedRowHeight = 100
+        //        tableView.rowHeight = UITableViewAutomaticDimension
         
         tableView.register(ChartCell.self)
         dataSource.configureCell = { ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(for: ip) as ChartCell
             cell.chartView.data = item
+            
             return cell
         }
         Observable.just(sections).bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(db)
@@ -103,7 +121,31 @@ class ChartCell: UITableViewCell {
             contentView.heightAnchor.constraint(equalToConstant: 300)
             ])
         
+        setupChartView()
+        
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
+    
+    func setupChartView() {
+        chartView.xAxis.valueFormatter = xAxisFormatter
+        
+    }
+    
+    let xAxisFormatter = XAxisFormatter()
+    
+    class XAxisFormatter: NSObject, IAxisValueFormatter {
+        
+        let df: DateFormatter = {
+            let df = DateFormatter()
+            df.timeStyle = .none
+            df.dateStyle = .short 
+            return df
+        }()
+        func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+            let date = Date(timeIntervalSinceReferenceDate: value) 
+            return df.string(from: date)
+        }
+        
+    }
     
 }
