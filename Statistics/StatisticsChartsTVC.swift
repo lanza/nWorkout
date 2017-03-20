@@ -8,12 +8,12 @@ import RxDataSources
 import Charts
 
 struct ChartSectionModel {
-    let things = ["hi"]
+    let chartData: [LineChartData]
 }
 extension ChartSectionModel: SectionModelType {
-    var items: [String] { return things }
-    init(original: ChartSectionModel, items: [String]) {
-        self.init()
+    var items: [LineChartData] { return chartData }
+    init(original: ChartSectionModel, items: [LineChartData]) {
+        self.chartData = items
     }
 }
 
@@ -33,24 +33,26 @@ class StatisticsChartsTVC: BaseTVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let bestSetDataPoints = chartDataProvider.getBestSetDataPoints()
+        let bestSetDataEntries = bestSetDataPoints.map { ChartDataEntry(x: $0.timeInterval, y: $0.weight) }
+        let bestSetDataSet = LineChartDataSet(values: bestSetDataEntries, label: "Best Set Progression")
+        let bestSetLineChartData = LineChartData(dataSet: bestSetDataSet)
+        
+        let prDataPoints = chartDataProvider.getPersonalRecordDataPoints()
+        let prDataEntries = prDataPoints.map { ChartDataEntry(x: $0.timeInterval, y: $0.weight) }
+        let prDataSet = LineChartDataSet(values: prDataEntries, label: "Personal Record Progression")
+        let prLineChartData = LineChartData(dataSet: prDataSet)
+       
+        let sectionModel = ChartSectionModel(chartData: [bestSetLineChartData,prLineChartData])
+        sections = [sectionModel]
+        
         setupTableView()
     }
+    
+    var sections: [ChartSectionModel] = []
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
-    }
-    
-   
-    func doData(cell: ChartCell) {
-        
-        let chartDataPoints = chartDataProvider.getChartDataPoints()
-        
-        let dataEntries = chartDataPoints.map { ChartDataEntry(x:$0.timeInterval, y: $0.weight) }
-        
-        let chartDataSet = LineChartDataSet(values: dataEntries, label: "Progression")
-        let chartData = LineChartData(dataSet: chartDataSet)
-        cell.chartView.data = chartData
     }
     
     
@@ -66,10 +68,9 @@ class StatisticsChartsTVC: BaseTVC {
         tableView.register(ChartCell.self)
         dataSource.configureCell = { ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(for: ip) as ChartCell
-            self.doData(cell: cell)
+            cell.chartView.data = item
             return cell
         }
-        let sections = [ChartSectionModel()]
         Observable.just(sections).bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(db)
         tableView.rx.setDelegate(self).addDisposableTo(db)
     }
