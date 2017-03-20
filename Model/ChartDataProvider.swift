@@ -44,10 +44,11 @@ final class ChartDataProvider {
             }
             if bestCompletedWeight > prWeight {
                 prWeight = bestCompletedWeight
-                prTimeInterval = lift.workout!.startDate.timeIntervalSinceReferenceDate
             }
+            prTimeInterval = lift.workout!.startDate.timeIntervalSinceReferenceDate
             prDataPoints.append(ChartDataPair(timeInterval: prTimeInterval, weight: prWeight))
         }
+        
         
         return prDataPoints
     } 
