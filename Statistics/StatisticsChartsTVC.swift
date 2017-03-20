@@ -19,28 +19,32 @@ extension ChartSectionModel: SectionModelType {
 
 class StatisticsChartsTVC: BaseTVC {
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
+    let liftName: String
+    let chartDataProvider: ChartDataProvider
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
     init(liftName: String) {
         self.liftName = liftName
+        self.chartDataProvider = ChartDataProvider(liftName: liftName)
         super.init(nibName: nil, bundle: nil)
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
    
     func doData(cell: ChartCell) {
         
-        let objects = RLM.objects(type: Lift.self).filter { $0.name == self.liftName }.sorted { $0.workout!.startDate < $1.workout!.startDate }.map { return ($0.workout!.startDate.timeIntervalSinceReferenceDate,$0.sets.last?.completedWeight ?? 0) }
+        let chartDataPoints = chartDataProvider.getChartDataPoints()
         
-        let dataEntries = objects.map { ChartDataEntry(x:$0.0, y: $0.1) }
+        let dataEntries = chartDataPoints.map { ChartDataEntry(x:$0.timeInterval, y: $0.weight) }
         
         let chartDataSet = LineChartDataSet(values: dataEntries, label: "Progression")
         let chartData = LineChartData(dataSet: chartDataSet)
@@ -65,7 +69,6 @@ class StatisticsChartsTVC: BaseTVC {
         }
         let sections = [ChartSectionModel()]
         Observable.just(sections).bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(db)
-        
         tableView.rx.setDelegate(self).addDisposableTo(db)
     }
     
@@ -77,7 +80,6 @@ class StatisticsChartsTVC: BaseTVC {
     }
     
     let db = DisposeBag()
-    let liftName: String
 }
 
 class ChartCell: UITableViewCell {

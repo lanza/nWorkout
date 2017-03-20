@@ -95,7 +95,7 @@ class StatisticsHistoryTVC: BaseTVC {
     required init?(coder aDecoder: NSCoder) { fatalError() }
     init(liftName: String) {
         self.liftName = liftName
-        self.lifts = RLM.objects(type: Lift.self).filter("name == %@", liftName).filter("isWorkout == true").sorted(byKeyPath   : "startDate", ascending: false)
+        self.lifts = RLM.objects(type: Lift.self).filter("name == %@", liftName).filter("isWorkout == true").sorted(byKeyPath   : "workout.startDate", ascending: false)
         
         super.init(nibName: nil, bundle: nil)
     }
