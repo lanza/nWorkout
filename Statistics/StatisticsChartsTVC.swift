@@ -49,22 +49,22 @@ class StatisticsChartsTVC: BaseTVC {
         setupTableView()
     }
     
-    func test() {
-        let point = ChartDataPair(timeInterval: 0, weight: 0)
-        let entry = ChartDataEntry(x: point.timeInterval, y: point.weight)
-        let set = LineChartDataSet(values: [entry], label: "Test")
-        let data = LineChartData(dataSet: set)
-        
-        let chart = LineChartView()
-        
-        let blcvb = chart as! BarLineChartViewBase
-        let xaxis = blcvb.xAxis
-        
-        
-        let x = XAxis()
-        let a = AxisBase()
-        
-    }
+//    func test() {
+//        let point = ChartDataPair(timeInterval: 0, weight: 0)
+//        let entry = ChartDataEntry(x: point.timeInterval, y: point.weight)
+//        let set = LineChartDataSet(values: [entry], label: "Test")
+//        let data = LineChartData(dataSet: set)
+//        
+//        let chart = LineChartView()
+//        
+//        let blcvb = chart as! BarLineChartViewBase
+//        let xaxis = blcvb.xAxis
+//        
+//        
+//        let x = XAxis()
+//        let a = AxisBase()
+//        
+//    }
     
     var sections: [ChartSectionModel] = []
     
@@ -110,6 +110,13 @@ class ChartCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        setupConstraints()
+        setupChartView()
+        
+    }
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+    
+    func setupConstraints() {
         chartView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(chartView)
         
@@ -120,14 +127,13 @@ class ChartCell: UITableViewCell {
             chartView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
             contentView.heightAnchor.constraint(equalToConstant: 300)
             ])
-        
-        setupChartView()
-        
     }
-    required init?(coder aDecoder: NSCoder) { fatalError() }
     
     func setupChartView() {
         chartView.xAxis.valueFormatter = xAxisFormatter
+        
+//        chartView.xAxis.axisLineWidth = 1
+//        chartView.xAxis.gridLineWidth = 3
         
     }
     
@@ -138,12 +144,13 @@ class ChartCell: UITableViewCell {
         let df: DateFormatter = {
             let df = DateFormatter()
             df.timeStyle = .none
-            df.dateStyle = .short 
+            df.dateStyle = .short
             return df
         }()
         func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-            let date = Date(timeIntervalSinceReferenceDate: value) 
-            return df.string(from: date)
+            let date = Date(timeIntervalSinceReferenceDate: value)
+            let str = df.string(from: date)
+            return str
         }
         
     }
