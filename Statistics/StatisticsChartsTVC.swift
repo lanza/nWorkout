@@ -38,7 +38,7 @@ class StatisticsChartsTVC: BaseTVC {
    
     func doData(cell: ChartCell) {
         
-        let objects = RLM.objects(type: Lift.self).filter { $0.name == self.liftName }.sorted { $0.startDate < $1.startDate }.map { return ($0.startDate.timeIntervalSinceReferenceDate,$0.sets.last?.completedWeight ?? 0) }
+        let objects = RLM.objects(type: Lift.self).filter { $0.name == self.liftName }.sorted { $0.workout!.startDate < $1.workout!.startDate }.map { return ($0.workout!.startDate.timeIntervalSinceReferenceDate,$0.sets.last?.completedWeight ?? 0) }
         
         let dataEntries = objects.map { ChartDataEntry(x:$0.0, y: $0.1) }
         

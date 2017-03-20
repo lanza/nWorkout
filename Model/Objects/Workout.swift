@@ -8,23 +8,13 @@ class Workout: Base {
     var activeOrFinished: ActiveOrFinished {
         return isComplete ? .finished : .active
     }
-    override var startDate: Date {
-        didSet {
-            for lift in lifts {
-                for set in lift.sets {
-                    set.startDate = startDate
-                }
-                lift.startDate = startDate
-            }
-        }
-    }
-    dynamic var finishDate: Date? = nil 
+    dynamic var startDate = Date()
+    dynamic var finishDate: Date? = nil
     
     func addNewSet(for lift: Lift) -> Set {
         let last = lift.sets.last
         let set = Set.new(isWorkout: isWorkout, isWarmup: false, weight: last?.weight ?? 45, reps: last?.reps ?? 6, completedWeight: 0, completedReps: 0, lift: lift)
         RLM.write {
-            lift.startDate = self.startDate
             lift.sets.append(set)
         }
         return set
@@ -32,7 +22,6 @@ class Workout: Base {
     func addNewLift(name: String) -> Lift {
         let lift = Lift.new(isWorkout: isWorkout, name: name, workout: self)
         RLM.write {
-            lift.startDate = self.startDate
             lifts.append(lift)
         }
         return lift

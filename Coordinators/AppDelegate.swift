@@ -39,24 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(false, forKey: "firstRun")
         }
         
-        Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
-            if oldSchemaVersion < 1 {
-                //do nothing
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 2, migrationBlock: { migration, oldSchemaVersion in
+            if oldSchemaVersion == 0 {
+                fatalError()
+            } else if oldSchemaVersion == 1 {
+                print("Should be here")
             }
         })
         
-        
-        let workouts = try! Realm().objects(Workout.self)
-        RLM.write {
-            for workout in workouts {
-                for lift in workout.lifts {
-                    lift.startDate = workout.startDate
-                    for set in lift.sets {
-                        set.startDate = lift.startDate
-                    }
-                }
-            }
-        }
         
         let lifts = try! Realm().objects(Lift.self)
         for lift in lifts {

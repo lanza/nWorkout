@@ -112,7 +112,7 @@ class StatisticsHistoryTVC: BaseTVC {
         Observable.collection(from: lifts).bindTo(tableView.rx.items(cellType: StatisticsHistoryCell.self)) { indexPath, lift, cell in
             
             cell.chartView.chartViewDataSource = BaseChartViewDataSource(object: lift)
-            cell.dateLabel.text = cell.df.string(from: lift.startDate)
+            cell.dateLabel.text = cell.df.string(from: lift.workout!.startDate)
             
             cell.chartView.configurationClosure = { (index,rowView) in
                 let set = lift.object(at: index)
