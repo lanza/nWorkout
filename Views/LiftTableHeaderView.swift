@@ -3,6 +3,7 @@ import ChartView
 
 class LiftTableHeaderView: UIView {
     required init?(coder aDecoder: NSCoder) { fatalError() }
+    
     var liftTableHeaderRowView: LiftTableHeaderRowView!
     
     init() {
@@ -24,6 +25,43 @@ class LiftTableHeaderView: UIView {
             liftTableHeaderRowView.rightAnchor.constraint(equalTo: rightAnchor, constant: -1),
             liftTableHeaderRowView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -1)
             ])
+    }
+}
+class LiftTableHeaderRowView: RowView {
+    required init?(coder aDecoder: NSCoder) { fatalError() }
+    required init() {
+        super.init()
+        backgroundColor = Theme.Colors.dark
+        columnBackgroundColor = Theme.Colors.darkest
+        setupViews()
+    }
+    
+    let viewInfos = ViewInfo.saved.filter { $0.isOn }
+    
+    override func getColumnView(columnNumber: Int) -> UIView {
+        let text = dict[order[columnNumber]]!
+        return LiftTableHeaderLabelHolder.create(text: text)
+    }
+    
+    let dict = [Lets.setNumberKey:"Set",
+                Lets.previousWorkoutKey:"Previous",
+                Lets.targetWeightKey:"Weight",
+                Lets.targetRepsKey:"Reps",
+                Lets.completedWeightKey: "Completed Weight",
+                Lets.completedRepsKey:"Completed Reps",
+                Lets.doneButtonKey:"Status",
+                Lets.failButtonKey:"Fail",
+                Lets.noteButtonKey:"Note",
+                Lets.doneButtonCompletedWeightCompletedRepsKey:"Combined"
+    ]
+    var order: [String]!
+    
+    func setupViews() {
+        order = viewInfos.map { $0.name }
+        columnWidths = viewInfos.map { $0.width }
+        columnViewTypes = viewInfos.map { _ in UILabel.self }
+        
+        setupColumns()
     }
 }
 
@@ -60,43 +98,7 @@ class StatisticsHistoryTableHeaderView: LiftTableHeaderView {
     }
 }
 
-class LiftTableHeaderRowView: RowView {
-    required init?(coder aDecoder: NSCoder) { fatalError() }
-    required init() {
-        super.init()
-        backgroundColor = Theme.Colors.dark
-        columnBackgroundColor = Theme.Colors.darkest
-        setupViews()
-    }
-    
-    let viewInfos = ViewInfo.saved.filter { $0.isOn }
-  
-    override func getColumnView(columnNumber: Int) -> UIView {
-        let text = dict[order[columnNumber]]!
-        return LiftTableHeaderLabelHolder.create(text: text)
-    }
-    
-    let dict = [Lets.setNumberKey:"Set",
-                Lets.previousWorkoutKey:"Previous",
-                Lets.targetWeightKey:"Weight",
-                Lets.targetRepsKey:"Reps",
-                Lets.completedWeightKey: "Completed Weight",
-                Lets.completedRepsKey:"Completed Reps",
-                Lets.doneButtonKey:"Status",
-                Lets.failButtonKey:"Fail",
-                Lets.noteButtonKey:"Note",
-                Lets.doneButtonCompletedWeightCompletedRepsKey:"Combined"
-    ]
-    var order: [String]!
-    
-    func setupViews() {
-        order = viewInfos.map { $0.name }
-        columnWidths = viewInfos.map { $0.width }
-        columnViewTypes = viewInfos.map { _ in UILabel.self }
-        
-        setupColumns()
-    }
-}
+
 
 class LiftTableHeaderLabelHolder: UIView {
     let lthl = LiftTableHeaderLabel.create()

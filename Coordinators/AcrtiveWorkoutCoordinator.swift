@@ -52,8 +52,10 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
     }
     
     func workoutCancelled(for workoutTVC: WorkoutTVC) {
-        workout.deleteSelf()
-        workoutIsNotActive()
+        DispatchQueue.main.async {
+            self.workout.deleteSelf()
+            self.workoutIsNotActive()
+        }
         navigationCoordinator?.parent?.dismiss(animated: true)
     }
     func workoutFinished(for workoutTVC: WorkoutTVC) {

@@ -48,18 +48,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         
-        let lifts = try! Realm().objects(Lift.self)
-        for lift in lifts {
-            if lift.workout == nil {
-                lift.deleteSelf()
-            }
-        }
-        let sets = try! Realm().objects(Set.self)
-        for set in sets {
-            if set.lift == nil {
-                set.deleteSelf()
-            }
-        }
+//        let lifts = try! Realm().objects(Lift.self)
+//        for lift in lifts {
+//            if lift.workout == nil {
+//                lift.deleteSelf()
+//            }
+//        }
+//        let sets = try! Realm().objects(Set.self)
+//        for set in sets {
+//            if set.lift == nil {
+//                set.deleteSelf()
+//            }
+//        }
         
         window = UIWindow()
         
