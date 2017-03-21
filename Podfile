@@ -4,16 +4,16 @@ target 'nWorkout' do
 
   use_frameworks!
 
-  pod 'CustomIOSAlertView', '~> 0.9.5'
+  pod 'CustomIOSAlertView'
 
   pod 'DZNEmptyDataSet'
 
   pod 'Hero'
 
-  pod 'RxSwift', '~> 3.2'
-  pod 'RxCocoa', '~> 3.2'
-  pod 'RealmSwift', '~> 2.4.3'
-  pod 'RxRealm', '~> 0.5'
+  pod 'RxSwift', '~> 3'
+  pod 'RxCocoa', '~> 3'
+  pod 'RealmSwift', '~> 2'
+  pod 'RxRealm'
 
   ##pod 'RxKeyboard'
   ##pod 'RxGesture'
@@ -22,12 +22,12 @@ target 'nWorkout' do
   if `whoami`[0...-1] == 'lanza'
     puts 'true'
     pod 'CoordinatorKit', :path => '~/Documents/CoordinatorKit', :branch => 'master'
-    pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master'
+    pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master', :version => '~> 0.0.1'
     pod 'Reuse', :path => '~/Documents/Reuse', :branch => 'master'
   else 
     puts 'false'
     pod 'CoordinatorKit', :git => 'https://github.com/nathanlanza/CoordinatorKit'
-    pod 'ChartView', :git => 'https://github.com/nathanlanza/ChartView'
+    pod 'ChartView', :git => 'https://github.com/nathanlanza/ChartView', :version => '~> 0.0.1'
     pod 'Reuse', :git=> 'https://github.com/nathanlanza/Reuse'
   end
 
