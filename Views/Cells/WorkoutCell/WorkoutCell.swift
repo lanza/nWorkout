@@ -6,7 +6,7 @@ import RxCocoa
 extension WorkoutCell: ConfigurableCell {
     func configure(for object: Workout, at indexPath: IndexPath) {
         
-        chartViewDataSource = BaseChartViewDataSource(object: object)
+        chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
         
         label.text = Lets.workoutDateDF.string(from: object.startDate)
         
