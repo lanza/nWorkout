@@ -14,7 +14,6 @@ class CombinedView: UIView {
         addSubview(completedRepsTextField)
         addSubview(completeButton)
         
-        
         completedWeightTextField.setBorder(color: .gray, width: 0.8, radius: 0)
         completedRepsTextField.setBorder(color: .gray, width: 0.8, radius: 0)
     }
@@ -30,7 +29,6 @@ class CombinedView: UIView {
         completeButton.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         completedWeightTextField.frame = CGRect(x: 0, y: 0, width: (frame.width - 1) / 2, height: frame.height)
         completedRepsTextField.frame = CGRect(x: (frame.width - 1) / 2 + 1, y: 0, width: (frame.width - 1) / 2, height: frame.height)
-        
         
     }
     

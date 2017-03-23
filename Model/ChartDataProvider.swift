@@ -7,7 +7,7 @@ struct ChartDataPair {
 }
 
 
-final class ChartDataProvider {
+final class StatisticsDataProvider {
     let liftName: String
     let lifts: [Lift]
     init(liftName: String) {
@@ -15,14 +15,10 @@ final class ChartDataProvider {
         self.lifts = RLM.objects(type: Lift.self).filter { $0.name == liftName }.sorted { $0.workout!.startDate < $1.workout!.startDate }
     }
     
-//    private func getRealmObjects() -> [Lift] {
-//        return RLM.objects(type: Lift.self).filter { $0.name == self.liftName }.sorted { $0.workout!.startDate < $1.workout!.startDate }
-//    }
-    
     func getBestSetDataPoints() -> [ChartDataPair] {
         let values = lifts.map(generateBestSetDataPair)
         return values
-    } 
+    }
     private func generateBestSetDataPair(from lift: Lift) -> ChartDataPair {
         let timeInterval = lift.workout!.startDate.timeIntervalSinceReferenceDate
         let weight = lift.sets.last?.completedWeight ?? 0
@@ -51,7 +47,34 @@ final class ChartDataProvider {
         
         
         return prDataPoints
-    } 
+    }
+    
+    func getPersonalRecordProgression() -> [Set] {
+        
+        var sets: [Set] = []
+        
+        for lift in lifts {
+            
+            var setIsNew = true
+            var bestCompletedSet: Set?
+            
+            for set in lift.sets {
+                if set.completedReps == set.reps,
+                    let bestCompletedWeight = bestCompletedSet?.completedWeight,
+                    set.completedWeight > bestCompletedWeight {
+                    bestCompletedSet = set
+                }
+            }
+           
+            if setIsNew, let best = bestCompletedSet {
+                sets.append(best)
+            } 
+            setIsNew = false
+        }
+        
+    
+        return sets
+    }
     
     
 }

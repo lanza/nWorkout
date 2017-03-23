@@ -156,6 +156,12 @@
 		B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D456C21DC1E309008075D5 /* DataProvider.swift */; };
 		B3D50EFB1E715A4E0062B118 /* nWorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D50EFA1E715A4E0062B118 /* nWorkoutTests.swift */; };
 		B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */; };
+		B3EA19FA1E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */; };
+		B3EA19FC1E83BF3E00B277E2 /* StatisticsHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */; };
+		B3EA19FE1E83BF6D00B277E2 /* Rx+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */; };
+		B3EA1A001E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FF1E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift */; };
+		B3EA1A031E83BFC400B277E2 /* ChartSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A021E83BFC400B277E2 /* ChartSectionModel.swift */; };
+		B3EA1A061E83C04E00B277E2 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A051E83C04E00B277E2 /* ChartCell.swift */; };
 		B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */; };
 		B3FCCD251E137828003EF14E /* BaseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD241E137828003EF14E /* BaseTVC.swift */; };
 		B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */; };
@@ -277,6 +283,12 @@
 		B3D50EFA1E715A4E0062B118 /* nWorkoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nWorkoutTests.swift; sourceTree = "<group>"; };
 		B3D50EFC1E715A4E0062B118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsPersonalRecordTVC.swift; sourceTree = "<group>"; };
+		B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsHistoryCell.swift; sourceTree = "<group>"; };
+		B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+Extensions.swift"; sourceTree = "<group>"; };
+		B3EA19FF1E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsHistorySetRowView.swift; sourceTree = "<group>"; };
+		B3EA1A021E83BFC400B277E2 /* ChartSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSectionModel.swift; sourceTree = "<group>"; };
+		B3EA1A051E83C04E00B277E2 /* ChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorkoutsTVC.swift; sourceTree = "<group>"; };
 		B3FCCD241E137828003EF14E /* BaseTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTVC.swift; sourceTree = "<group>"; };
 		B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -472,13 +484,9 @@
 		B366E56F1E309B17006658D7 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
-				B3BB318D1DDAA2360015F9B0 /* StatisticsCoordinator.swift */,
-				B328D8111DD6FA52000948ED /* StatisticsTVC.swift */,
-				B32504011E34447300C51909 /* StatisticsCell.swift */,
-				B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */,
-				B32504051E34456C00C51909 /* CarbonStatisticsVC.swift */,
-				B3852A5D1E767C7200900B24 /* StatisticsChartsTVC.swift */,
-				B37951921E34ACF0000F7428 /* StatisticsHistoryTVC.swift */,
+				B3EA19F51E83BE9E00B277E2 /* First */,
+				B3EA19F61E83BEAE00B277E2 /* Carbon */,
+				B3EA19F71E83BEB500B277E2 /* Trio */,
 			);
 			name = Statistics;
 			path = ../Statistics;
@@ -531,11 +539,11 @@
 		B3D456C41DC1E48C008075D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B36F37E71E0F7FF100667263 /* RLM.swift */,
 				B3B7D0121E7FC3A600483D95 /* ChartDataProvider.swift */,
 				B382087C1DC2B3D40008D6F8 /* Data Providers */,
 				B382087D1DC2B3DD0008D6F8 /* Objects */,
 				B3FCCD361E172A9F003EF14E /* ActiveOrFinished.swift */,
-				B36F37E71E0F7FF100667263 /* RLM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -563,6 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				B360593E1E1C4B1700EBE620 /* UIAlertController+Extensions.swift */,
+				B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */,
 			);
 			path = "UIKit Extensions";
 			sourceTree = "<group>";
@@ -589,6 +598,63 @@
 			);
 			name = Tests;
 			path = nWorkoutTests;
+			sourceTree = "<group>";
+		};
+		B3EA19F51E83BE9E00B277E2 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				B3BB318D1DDAA2360015F9B0 /* StatisticsCoordinator.swift */,
+				B328D8111DD6FA52000948ED /* StatisticsTVC.swift */,
+				B32504011E34447300C51909 /* StatisticsCell.swift */,
+			);
+			name = First;
+			sourceTree = "<group>";
+		};
+		B3EA19F61E83BEAE00B277E2 /* Carbon */ = {
+			isa = PBXGroup;
+			children = (
+				B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */,
+				B32504051E34456C00C51909 /* CarbonStatisticsVC.swift */,
+			);
+			name = Carbon;
+			sourceTree = "<group>";
+		};
+		B3EA19F71E83BEB500B277E2 /* Trio */ = {
+			isa = PBXGroup;
+			children = (
+				B3EA1A011E83BFAB00B277E2 /* History */,
+				B3EA1A041E83C03800B277E2 /* Charts */,
+				B3EA1A071E83C06900B277E2 /* Personal Record */,
+			);
+			name = Trio;
+			sourceTree = "<group>";
+		};
+		B3EA1A011E83BFAB00B277E2 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				B37951921E34ACF0000F7428 /* StatisticsHistoryTVC.swift */,
+				B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */,
+				B3EA19FF1E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		B3EA1A041E83C03800B277E2 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				B3852A5D1E767C7200900B24 /* StatisticsChartsTVC.swift */,
+				B3EA1A021E83BFC400B277E2 /* ChartSectionModel.swift */,
+				B3EA1A051E83C04E00B277E2 /* ChartCell.swift */,
+			);
+			name = Charts;
+			sourceTree = "<group>";
+		};
+		B3EA1A071E83C06900B277E2 /* Personal Record */ = {
+			isa = PBXGroup;
+			children = (
+				B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */,
+			);
+			name = "Personal Record";
 			sourceTree = "<group>";
 		};
 		B3FCCD261E15C9F9003EF14E /* Removed */ = {
@@ -1008,6 +1074,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B360593D1E1C4ACE00EBE620 /* SelectWorkoutCell.swift in Sources */,
+				B3EA1A001E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift in Sources */,
 				B38208751DC2B1FA0008D6F8 /* BaseDataProvider.swift in Sources */,
 				B3780EF01DD5A7010087CEC1 /* DataSource.swift in Sources */,
 				B36059411E1C4B5600EBE620 /* LiftTypeCoordinator.swift in Sources */,
@@ -1019,6 +1086,7 @@
 				B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */,
 				B36059481E1C951C00EBE620 /* CombinedView.swift in Sources */,
 				B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */,
+				B3EA19FC1E83BF3E00B277E2 /* StatisticsHistoryCell.swift in Sources */,
 				B36059461E1C92C100EBE620 /* SettingsCell.swift in Sources */,
 				B36059301E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift in Sources */,
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
@@ -1056,7 +1124,9 @@
 				B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */,
 				B36059331E1C3EC700EBE620 /* SetNumberLabel.swift in Sources */,
 				B31E9FBF1DD6AE3400B9AEFC /* RoutinesTVC.swift in Sources */,
+				B3EA1A031E83BFC400B277E2 /* ChartSectionModel.swift in Sources */,
 				B36059501E1CC71F00EBE620 /* BaseWorkoutTVC.swift in Sources */,
+				B3EA19FE1E83BF6D00B277E2 /* Rx+Extensions.swift in Sources */,
 				B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */,
 				B36059371E1C3EF600EBE620 /* FailButton.swift in Sources */,
 				B3312B341DC12F9700318AA6 /* MainCoordinator.swift in Sources */,
@@ -1074,8 +1144,10 @@
 				B31953A81E305F7900AC2687 /* WorkoutDetailVC.swift in Sources */,
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
 				B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */,
+				B3EA1A061E83C04E00B277E2 /* ChartCell.swift in Sources */,
 				B36059351E1C3EDF00EBE620 /* WeightAndRepsLabel.swift in Sources */,
 				B3852A5E1E767C7200900B24 /* StatisticsChartsTVC.swift in Sources */,
+				B3EA19FA1E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift in Sources */,
 				B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */,
 				B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */,
 				B3BB31881DDAA19C0015F9B0 /* RoutineCoordinator.swift in Sources */,
