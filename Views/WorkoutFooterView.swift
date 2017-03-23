@@ -79,7 +79,7 @@ class WorkoutFooterView: UIView {
             addLiftButton.frame = CGRect(x: margins, y: margins, width: width, height: buttonHeight)
             cancelWorkoutButton.frame = CGRect(x: margins, y: margins + (1 * buttonHeight) + (1 * betweenButtonSpacing), width: width, height: buttonHeight)
             finishWorkoutButton.frame = CGRect(x: margins, y: margins + (2 * buttonHeight) + (2 * betweenButtonSpacing), width: width, height: buttonHeight)
-            workoutDetailButton.frame = CGRect(x: margins, y: margins + (3 * buttonHeight) + (2 * betweenButtonSpacing), width: width, height: buttonHeight)
+            workoutDetailButton.frame = CGRect(x: margins, y: margins + (3 * buttonHeight) + (3 * betweenButtonSpacing), width: width, height: buttonHeight)
         } else {
             addLiftButton.frame = CGRect(x: margins, y: margins, width: width, height: buttonHeight)
             workoutDetailButton.frame = CGRect(x: margins, y: margins + (1 * buttonHeight) + (1 * betweenButtonSpacing), width: width, height: buttonHeight)
