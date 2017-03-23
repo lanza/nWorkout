@@ -154,7 +154,6 @@
 		B3BB318E1DDAA2360015F9B0 /* StatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB318D1DDAA2360015F9B0 /* StatisticsCoordinator.swift */; };
 		B3BB31901DDAA24C0015F9B0 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB318F1DDAA24C0015F9B0 /* SettingsCoordinator.swift */; };
 		B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D456C21DC1E309008075D5 /* DataProvider.swift */; };
-		B3D50EFB1E715A4E0062B118 /* nWorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D50EFA1E715A4E0062B118 /* nWorkoutTests.swift */; };
 		B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */; };
 		B3EA19FA1E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */; };
 		B3EA19FC1E83BF3E00B277E2 /* StatisticsHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */; };
@@ -197,16 +196,6 @@
 			);
 		};
 /* End PBXBuildRule section */
-
-/* Begin PBXContainerItemProxy section */
-		B3D50EFD1E715A4E0062B118 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B356FBB71DC09C160006A0F0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B356FBBE1DC09C160006A0F0;
-			remoteInfo = nWorkout;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		297284437228E456B1EA50E8 /* Pods_nWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,9 +274,6 @@
 		B3BB318D1DDAA2360015F9B0 /* StatisticsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCoordinator.swift; sourceTree = "<group>"; };
 		B3BB318F1DDAA24C0015F9B0 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		B3D456C21DC1E309008075D5 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
-		B3D50EF81E715A4D0062B118 /* nWorkoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nWorkoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3D50EFA1E715A4E0062B118 /* nWorkoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nWorkoutTests.swift; sourceTree = "<group>"; };
-		B3D50EFC1E715A4E0062B118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsPersonalRecordTVC.swift; sourceTree = "<group>"; };
 		B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsHistoryCell.swift; sourceTree = "<group>"; };
@@ -309,7 +295,6 @@
 		B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLiftCell.swift; sourceTree = "<group>"; };
 		B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyDataSetController.swift; path = ../Controllers/Plurals/EmptyDataSetController.swift; sourceTree = "<group>"; };
 		B3FF69DF1E7A17A2005FE6C1 /* CellSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSettingsCell.swift; sourceTree = "<group>"; };
-		C3B80C670CB50C4DDB32F57C /* Pods_nWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86E1D94B445ACD74DD85B56 /* Pods-nWorkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -329,25 +314,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B3D50EF51E715A4D0062B118 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F7392B7ED222C231CCD59F8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				297284437228E456B1EA50E8 /* Pods_nWorkout.framework */,
-			);
-			name = Frameworks;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		6F519444AFB6CA12368FB62B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,14 +324,6 @@
 				AAA08A9A5FEE3A26B3120289 /* Pods-nWorkout.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		8DB658A6C9CB4B62B3223A8C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Pods;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		B32887A31E03344100259D66 /* Settings */ = {
@@ -379,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				B3FF69D71E79FC49005FE6C1 /* Source */,
-				B3D50EF91E715A4E0062B118 /* Tests */,
 				B356FBC11DC09C160006A0F0 /* Other */,
 				6F519444AFB6CA12368FB62B /* Pods */,
 				C0C59FE9EF2670D17C13FC78 /* Frameworks */,
@@ -390,7 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				B356FBBF1DC09C160006A0F0 /* nWorkout.app */,
-				B3D50EF81E715A4D0062B118 /* nWorkoutTests.xctest */,
 				B32526191E768C08003835DF /* nWorkoutInternal.app */,
 			);
 			path = Products;
@@ -399,8 +358,6 @@
 		B356FBC11DC09C160006A0F0 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				8DB658A6C9CB4B62B3223A8C /* Pods */,
-				2F7392B7ED222C231CCD59F8 /* Frameworks */,
 				B356FBC01DC09C160006A0F0 /* Products */,
 				B30314671E302F1F00E13EBE /* Assets.xcassets */,
 				B325261A1E768C09003835DF /* nWorkoutInternal.plist */,
@@ -596,16 +553,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		B3D50EF91E715A4E0062B118 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				B3D50EFA1E715A4E0062B118 /* nWorkoutTests.swift */,
-				B3D50EFC1E715A4E0062B118 /* Info.plist */,
-			);
-			name = Tests;
-			path = nWorkoutTests;
-			sourceTree = "<group>";
-		};
 		B3EA19F51E83BE9E00B277E2 /* First */ = {
 			isa = PBXGroup;
 			children = (
@@ -764,7 +711,7 @@
 		C0C59FE9EF2670D17C13FC78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C3B80C670CB50C4DDB32F57C /* Pods_nWorkout.framework */,
+				297284437228E456B1EA50E8 /* Pods_nWorkout.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -803,7 +750,6 @@
 				AFE1A5B9D350CB177D504F80 /* [CP] Embed Pods Frameworks */,
 				80B463E03E9D835D51FCEECD /* [CP] Copy Pods Resources */,
 				B3256E101E72A6E50059576C /* Increment Build Number */,
-				B32D437B1E73A05000DAE063 /* ShellScript */,
 			);
 			buildRules = (
 				B318DB3D1E72B7BB00AA050B /* PBXBuildRule */,
@@ -814,24 +760,6 @@
 			productName = nWorkout;
 			productReference = B356FBBF1DC09C160006A0F0 /* nWorkout.app */;
 			productType = "com.apple.product-type.application";
-		};
-		B3D50EF71E715A4D0062B118 /* nWorkoutTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B3D50F011E715A4E0062B118 /* Build configuration list for PBXNativeTarget "nWorkoutTests" */;
-			buildPhases = (
-				B3D50EF41E715A4D0062B118 /* Sources */,
-				B3D50EF51E715A4D0062B118 /* Frameworks */,
-				B3D50EF61E715A4D0062B118 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B3D50EFE1E715A4E0062B118 /* PBXTargetDependency */,
-			);
-			name = nWorkoutTests;
-			productName = nWorkoutTests;
-			productReference = B3D50EF81E715A4D0062B118 /* nWorkoutTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -851,12 +779,6 @@
 						DevelopmentTeam = 72MNHNDUNH;
 						ProvisioningStyle = Automatic;
 					};
-					B3D50EF71E715A4D0062B118 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 72MNHNDUNH;
-						ProvisioningStyle = Automatic;
-						TestTargetID = B356FBBE1DC09C160006A0F0;
-					};
 				};
 			};
 			buildConfigurationList = B356FBBA1DC09C160006A0F0 /* Build configuration list for PBXProject "nWorkout" */;
@@ -874,7 +796,6 @@
 			targets = (
 				B356FBBE1DC09C160006A0F0 /* nWorkout */,
 				B32525BF1E768C08003835DF /* nWorkoutInternal */,
-				B3D50EF71E715A4D0062B118 /* nWorkoutTests */,
 			);
 		};
 /* End PBXProject section */
@@ -895,13 +816,6 @@
 			files = (
 				B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */,
 				B30314681E302F1F00E13EBE /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3D50EF61E715A4D0062B118 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,19 +892,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ $USER == 'lanza' ]]; then\n    /Users/lanza/bin/incrementXcodeBuild\nfi ";
-		};
-		B32D437B1E73A05000DAE063 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "Type a script or drag a script file from your workspace to insert its path";
 		};
 		D95836F09FF4B1CDA8034F4F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1188,23 +1089,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B3D50EF41E715A4D0062B118 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3D50EFB1E715A4E0062B118 /* nWorkoutTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B3D50EFE1E715A4E0062B118 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B356FBBE1DC09C160006A0F0 /* nWorkout */;
-			targetProxy = B3D50EFD1E715A4E0062B118 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B32526171E768C08003835DF /* Debug */ = {
@@ -1364,36 +1249,6 @@
 			};
 			name = Release;
 		};
-		B3D50EFF1E715A4E0062B118 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 72MNHNDUNH;
-				INFOPLIST_FILE = nWorkoutTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkoutTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nWorkout.app/nWorkout";
-			};
-			name = Debug;
-		};
-		B3D50F001E715A4E0062B118 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 72MNHNDUNH;
-				INFOPLIST_FILE = nWorkoutTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkoutTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nWorkout.app/nWorkout";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1420,15 +1275,6 @@
 			buildConfigurations = (
 				B356FBD21DC09C160006A0F0 /* Debug */,
 				B356FBD31DC09C160006A0F0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B3D50F011E715A4E0062B118 /* Build configuration list for PBXNativeTarget "nWorkoutTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B3D50EFF1E715A4E0062B118 /* Debug */,
-				B3D50F001E715A4E0062B118 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

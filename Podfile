@@ -27,7 +27,7 @@ target 'nWorkout' do
   else 
     puts 'false'
     pod 'CoordinatorKit', :git => 'https://github.com/nathanlanza/CoordinatorKit'
-    pod 'ChartView', :git => 'https://github.com/nathanlanza/ChartView', :version => '~> 0.0.1'
+    pod 'ChartView', :git => 'https://github.com/nathanlanza/ChartView', '~> 0.0.2'
     pod 'Reuse', :git=> 'https://github.com/nathanlanza/Reuse'
   end
 
