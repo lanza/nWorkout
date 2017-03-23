@@ -23,7 +23,7 @@ class LiftTableHeaderView: UIView {
         
     }
     func setRV() {
-        liftTableHeaderRowView = LiftTableHeaderRowView()
+        liftTableHeaderRowView = LiftTableHeaderRowView(type: .workout)
     }
     
     func setupViews() {
