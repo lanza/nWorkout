@@ -30,8 +30,7 @@ class LiftTableHeaderView: UIView {
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews()
-        
+        super.layoutSubviews() 
         liftTableHeaderRowView.frame = CGRect(x: 1, y: 1, width: frame.width - 2, height: frame.height - 2)
     }
 }

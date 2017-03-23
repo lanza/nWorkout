@@ -22,16 +22,30 @@ class WorkoutFooterView: UIView {
     
     let stackView = UIStackView(axis: .vertical, spacing: 4, distribution: .fillEqually)
     
+    let buttonHeight: CGFloat = 34
+    let betweenButtonSpacing: CGFloat = 4
+    let margins: CGFloat = 8
+    
     static func create(_ activeOrFinished: ActiveOrFinished) -> WorkoutFooterView {
-        let trueValue = (34*4 + 4*3 + 8*2)
-        let falseValue = (34*2 + 4*1 + 8*2)
-        let view = WorkoutFooterView(frame: CGRect(x: 0, y: 0, width: 0, height: activeOrFinished == .active ? trueValue : falseValue))
+        
+        let buttonHeight: CGFloat = 34
+        let betweenButtonSpacing: CGFloat = 4
+        let margins: CGFloat = 8
+        
+        let buttonCount: CGFloat = activeOrFinished == .active ? 4 : 2
+        
+        let height = (buttonHeight * buttonCount) + (betweenButtonSpacing * (buttonCount - 1)) + (margins * 2)
+        
+        let view = WorkoutFooterView(frame: CGRect(x: 0, y: 0, width: 0, height: height))
+        
         view.activeOrFinished = activeOrFinished
         
-        view.addSubview(view.stackView)
-        view.stackView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(view.stackView)
+//        
+//        view.stackView.translatesAutoresizingMaskIntoConstraints = false
         
         var buttons: [WorkoutFooterViewButton] = [view.addLiftButton]
+        
         if view.activeOrFinished == .active {
             view.cancelWorkoutButton = WorkoutFooterViewButton.create(title: Lets.cancelWorkout, type: .cancel)
             view.finishWorkoutButton = WorkoutFooterViewButton.create(title: Lets.finishWorkout, type: .finish)
@@ -42,18 +56,34 @@ class WorkoutFooterView: UIView {
         
         for button in buttons {
             view.addSubview(button)
-            view.stackView.addArrangedSubview(button)
+//            view.stackView.addArrangedSubview(button)
         }
         
-        NSLayoutConstraint.activate([
-            view.stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
-            view.stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8),
-            view.stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
-            view.stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
-        ])
+//        NSLayoutConstraint.activate([
+//            view.stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
+//            view.stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8),
+//            view.stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+//            view.stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
+//        ])
         
         view.setupRx()
         return view
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let width = frame.width - (2 * margins)
+        
+        if activeOrFinished == .active {
+            addLiftButton.frame = CGRect(x: margins, y: margins, width: width, height: buttonHeight)
+            cancelWorkoutButton.frame = CGRect(x: margins, y: margins + (1 * buttonHeight) + (1 * betweenButtonSpacing), width: width, height: buttonHeight)
+            finishWorkoutButton.frame = CGRect(x: margins, y: margins + (2 * buttonHeight) + (2 * betweenButtonSpacing), width: width, height: buttonHeight)
+            workoutDetailButton.frame = CGRect(x: margins, y: margins + (3 * buttonHeight) + (2 * betweenButtonSpacing), width: width, height: buttonHeight)
+        } else {
+            addLiftButton.frame = CGRect(x: margins, y: margins, width: width, height: buttonHeight)
+            workoutDetailButton.frame = CGRect(x: margins, y: margins + (1 * buttonHeight) + (1 * betweenButtonSpacing), width: width, height: buttonHeight)
+        }
     }
     
     func setupRx() {
