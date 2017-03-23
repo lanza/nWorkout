@@ -40,7 +40,7 @@ class StatisticsHistoryCell: ChartViewCell {
             ])
     }
     func setHeader() {
-        header = StatisticsHistoryTableHeaderView()
+        header = LiftTableHeaderView(type: .statisticsHistory)
     }
     var header: LiftTableHeaderView!
     

@@ -15,8 +15,8 @@
 		B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */; };
 		B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC651DDB02A1002F826C /* LiftCell.swift */; };
 		B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */; };
-		B31E9FBB1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */; };
-		B31E9FBD1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */; };
+		B31E9FBB1DD6AE2000B9AEFC /* RoutinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */; };
+		B31E9FBD1DD6AE2B00B9AEFC /* RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */; };
 		B31E9FBF1DD6AE3400B9AEFC /* RoutinesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBE1DD6AE3400B9AEFC /* RoutinesTVC.swift */; };
 		B32504021E34447300C51909 /* StatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504011E34447300C51909 /* StatisticsCell.swift */; };
 		B32504041E34455900C51909 /* SingleLiftStatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */; };
@@ -54,7 +54,7 @@
 		B32525E01E768C08003835DF /* WorkoutLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */; };
 		B32525E11E768C08003835DF /* WorkoutsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB31811DDAA1390015F9B0 /* WorkoutsCoordinator.swift */; };
 		B32525E21E768C08003835DF /* ArrayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF21DD5A7100087CEC1 /* ArrayProvider.swift */; };
-		B32525E31E768C08003835DF /* Removed - RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */; };
+		B32525E31E768C08003835DF /* RoutineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */; };
 		B32525E41E768C08003835DF /* SelectWorkoutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB318B1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift */; };
 		B32525E51E768C08003835DF /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
 		B32525E61E768C08003835DF /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF71DD5B0C80087CEC1 /* ConfigurableCell.swift */; };
@@ -81,7 +81,7 @@
 		B32525FB1E768C08003835DF /* BaseChartViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059231E1C3DCF00EBE620 /* BaseChartViewDataSource.swift */; };
 		B32525FC1E768C08003835DF /* Keyboard&KeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */; };
 		B32525FD1E768C08003835DF /* SingleLiftStatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */; };
-		B32525FE1E768C08003835DF /* Removed - RoutinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */; };
+		B32525FE1E768C08003835DF /* RoutinesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */; };
 		B32525FF1E768C08003835DF /* WorkoutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A71E305F7900AC2687 /* WorkoutDetailVC.swift */; };
 		B32526001E768C08003835DF /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D456C21DC1E309008075D5 /* DataProvider.swift */; };
 		B32526011E768C08003835DF /* StatisticsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8111DD6FA52000948ED /* StatisticsTVC.swift */; };
@@ -162,6 +162,10 @@
 		B3EA1A001E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FF1E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift */; };
 		B3EA1A031E83BFC400B277E2 /* ChartSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A021E83BFC400B277E2 /* ChartSectionModel.swift */; };
 		B3EA1A061E83C04E00B277E2 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A051E83C04E00B277E2 /* ChartCell.swift */; };
+		B3EA1A091E83C13000B277E2 /* SettingsSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A081E83C13000B277E2 /* SettingsSectionModel.swift */; };
+		B3EA1A0C1E83C20D00B277E2 /* LiftTableHeaderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A0B1E83C20D00B277E2 /* LiftTableHeaderRowView.swift */; };
+		B3EA1A0E1E83C23800B277E2 /* LiftTableHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A0D1E83C23800B277E2 /* LiftTableHeaderLabel.swift */; };
+		B3EA1A101E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A0F1E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift */; };
 		B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */; };
 		B3FCCD251E137828003EF14E /* BaseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD241E137828003EF14E /* BaseTVC.swift */; };
 		B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */; };
@@ -212,8 +216,8 @@
 		B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTypeTVC.swift; sourceTree = "<group>"; };
 		B31CEC651DDB02A1002F826C /* LiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
 		B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDataSource.swift; sourceTree = "<group>"; };
-		B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Removed - RoutinesDataSource.swift"; sourceTree = "<group>"; };
-		B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Removed - RoutineDataSource.swift"; sourceTree = "<group>"; };
+		B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutinesDataSource.swift; sourceTree = "<group>"; };
+		B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineDataSource.swift; sourceTree = "<group>"; };
 		B31E9FBE1DD6AE3400B9AEFC /* RoutinesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutinesTVC.swift; sourceTree = "<group>"; };
 		B32504011E34447300C51909 /* StatisticsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCell.swift; sourceTree = "<group>"; };
 		B32504031E34455900C51909 /* SingleLiftStatisticsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLiftStatisticsCoordinator.swift; sourceTree = "<group>"; };
@@ -235,7 +239,7 @@
 		B356FBCE1DC09C160006A0F0 /* nWorkout.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = nWorkout.plist; sourceTree = "<group>"; };
 		B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetRowView.swift; sourceTree = "<group>"; };
 		B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Keyboard&KeyboardDelegate.swift"; path = "../Keyboard&KeyboardDelegate.swift"; sourceTree = "<group>"; };
-		B360591F1E1C3D8F00EBE620 /* ColumnRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnRowView.swift; sourceTree = "<group>"; };
+		B360591F1E1C3D8F00EBE620 /* ColumnRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColumnRowView.swift; path = ../../Views/Cells/RowView/ColumnRowView.swift; sourceTree = "<group>"; };
 		B36059211E1C3DB000EBE620 /* RoutineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineCell.swift; sourceTree = "<group>"; };
 		B36059231E1C3DCF00EBE620 /* BaseChartViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChartViewDataSource.swift; sourceTree = "<group>"; };
 		B36059251E1C3E0800EBE620 /* RoutineLiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineLiftCell.swift; sourceTree = "<group>"; };
@@ -250,7 +254,7 @@
 		B360593C1E1C4ACE00EBE620 /* SelectWorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutCell.swift; sourceTree = "<group>"; };
 		B360593E1E1C4B1700EBE620 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		B36059401E1C4B5600EBE620 /* LiftTypeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTypeCoordinator.swift; sourceTree = "<group>"; };
-		B36059431E1C92A600EBE620 /* ViewInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewInfo.swift; path = Settings/ViewInfo.swift; sourceTree = "<group>"; };
+		B36059431E1C92A600EBE620 /* ViewInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewInfo.swift; path = ../Controllers/Settings/Settings/ViewInfo.swift; sourceTree = "<group>"; };
 		B36059451E1C92C100EBE620 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		B36059471E1C951C00EBE620 /* CombinedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinedView.swift; sourceTree = "<group>"; };
 		B360594F1E1CC71F00EBE620 /* BaseWorkoutTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorkoutTVC.swift; sourceTree = "<group>"; };
@@ -289,6 +293,10 @@
 		B3EA19FF1E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsHistorySetRowView.swift; sourceTree = "<group>"; };
 		B3EA1A021E83BFC400B277E2 /* ChartSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSectionModel.swift; sourceTree = "<group>"; };
 		B3EA1A051E83C04E00B277E2 /* ChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
+		B3EA1A081E83C13000B277E2 /* SettingsSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSectionModel.swift; sourceTree = "<group>"; };
+		B3EA1A0B1E83C20D00B277E2 /* LiftTableHeaderRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderRowView.swift; sourceTree = "<group>"; };
+		B3EA1A0D1E83C23800B277E2 /* LiftTableHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderLabel.swift; sourceTree = "<group>"; };
+		B3EA1A0F1E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderLabelHolder.swift; sourceTree = "<group>"; };
 		B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorkoutsTVC.swift; sourceTree = "<group>"; };
 		B3FCCD241E137828003EF14E /* BaseTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTVC.swift; sourceTree = "<group>"; };
 		B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -357,8 +365,8 @@
 			isa = PBXGroup;
 			children = (
 				B328D8131DD6FA5E000948ED /* SettingsTVC.swift */,
+				B3EA1A081E83C13000B277E2 /* SettingsSectionModel.swift */,
 				B3FF69DF1E7A17A2005FE6C1 /* CellSettingsCell.swift */,
-				B36059431E1C92A600EBE620 /* ViewInfo.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -430,7 +438,6 @@
 			isa = PBXGroup;
 			children = (
 				B360592A1E1C3E6900EBE620 /* SetRowView */,
-				B360591F1E1C3D8F00EBE620 /* ColumnRowView.swift */,
 			);
 			name = RowViews;
 			path = Cells/RowView;
@@ -495,7 +502,6 @@
 		B3780EF41DD5AF1B0087CEC1 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B3FCCD261E15C9F9003EF14E /* Removed */,
 				B3780EEE1DD5A7010087CEC1 /* DataSource.swift */,
 				B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */,
 				B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */,
@@ -539,6 +545,7 @@
 		B3D456C41DC1E48C008075D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B36059431E1C92A600EBE620 /* ViewInfo.swift */,
 				B36F37E71E0F7FF100667263 /* RLM.swift */,
 				B3B7D0121E7FC3A600483D95 /* ChartDataProvider.swift */,
 				B382087C1DC2B3D40008D6F8 /* Data Providers */,
@@ -567,12 +574,13 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		B3D456C61DC1E4A0008075D5 /* UIKit Extensions */ = {
+		B3D456C61DC1E4A0008075D5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				B360593E1E1C4B1700EBE620 /* UIAlertController+Extensions.swift */,
 				B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */,
 			);
+			name = Extensions;
 			path = "UIKit Extensions";
 			sourceTree = "<group>";
 		};
@@ -660,10 +668,12 @@
 		B3FCCD261E15C9F9003EF14E /* Removed */ = {
 			isa = PBXGroup;
 			children = (
-				B31E9FBC1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift */,
-				B31E9FBA1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift */,
+				B360591F1E1C3D8F00EBE620 /* ColumnRowView.swift */,
+				B31E9FBC1DD6AE2B00B9AEFC /* RoutineDataSource.swift */,
+				B31E9FBA1DD6AE2000B9AEFC /* RoutinesDataSource.swift */,
 			);
-			path = Removed;
+			name = Removed;
+			path = "Data Sources/Removed";
 			sourceTree = "<group>";
 		};
 		B3FCCD271E171736003EF14E /* Views */ = {
@@ -678,29 +688,31 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B3FCCD2A1E171906003EF14E /* Auxiliary Classes */ = {
+		B3FCCD2A1E171906003EF14E /* Auxiliary */ = {
 			isa = PBXGroup;
 			children = (
-				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
 				B34BA0551DC1CC29006B6A51 /* Theme.swift */,
+				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
 				B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */,
 				B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */,
 				B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */,
 				B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */,
 			);
+			name = Auxiliary;
 			path = "Auxiliary Classes";
 			sourceTree = "<group>";
 		};
 		B3FF69D71E79FC49005FE6C1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B3D456C61DC1E4A0008075D5 /* UIKit Extensions */,
-				B3FCCD2A1E171906003EF14E /* Auxiliary Classes */,
-				B3D456C71DC1E4AD008075D5 /* Controllers */,
+				B3D456C61DC1E4A0008075D5 /* Extensions */,
+				B3FCCD2A1E171906003EF14E /* Auxiliary */,
 				B3D456C51DC1E494008075D5 /* Coordinators */,
+				B3D456C71DC1E4AD008075D5 /* Controllers */,
 				B3780EF41DD5AF1B0087CEC1 /* Data Sources */,
 				B3D456C41DC1E48C008075D5 /* Model */,
 				B3FCCD271E171736003EF14E /* Views */,
+				B3FCCD261E15C9F9003EF14E /* Removed */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -718,6 +730,9 @@
 			isa = PBXGroup;
 			children = (
 				B3B6DB351E1F000700090C45 /* LiftTableHeaderView.swift */,
+				B3EA1A0B1E83C20D00B277E2 /* LiftTableHeaderRowView.swift */,
+				B3EA1A0D1E83C23800B277E2 /* LiftTableHeaderLabel.swift */,
+				B3EA1A0F1E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift */,
 			);
 			name = ChartViewHeaderView;
 			sourceTree = "<group>";
@@ -1025,7 +1040,7 @@
 				B32525E01E768C08003835DF /* WorkoutLiftCell.swift in Sources */,
 				B32525E11E768C08003835DF /* WorkoutsCoordinator.swift in Sources */,
 				B32525E21E768C08003835DF /* ArrayProvider.swift in Sources */,
-				B32525E31E768C08003835DF /* Removed - RoutineDataSource.swift in Sources */,
+				B32525E31E768C08003835DF /* RoutineDataSource.swift in Sources */,
 				B32525E41E768C08003835DF /* SelectWorkoutCoordinator.swift in Sources */,
 				B32525E51E768C08003835DF /* RLM.swift in Sources */,
 				B32525E61E768C08003835DF /* ConfigurableCell.swift in Sources */,
@@ -1052,7 +1067,7 @@
 				B32525FB1E768C08003835DF /* BaseChartViewDataSource.swift in Sources */,
 				B32525FC1E768C08003835DF /* Keyboard&KeyboardDelegate.swift in Sources */,
 				B32525FD1E768C08003835DF /* SingleLiftStatisticsCoordinator.swift in Sources */,
-				B32525FE1E768C08003835DF /* Removed - RoutinesDataSource.swift in Sources */,
+				B32525FE1E768C08003835DF /* RoutinesDataSource.swift in Sources */,
 				B32525FF1E768C08003835DF /* WorkoutDetailVC.swift in Sources */,
 				B32526001E768C08003835DF /* DataProvider.swift in Sources */,
 				B32526011E768C08003835DF /* StatisticsTVC.swift in Sources */,
@@ -1086,6 +1101,7 @@
 				B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */,
 				B36059481E1C951C00EBE620 /* CombinedView.swift in Sources */,
 				B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */,
+				B3EA1A0E1E83C23800B277E2 /* LiftTableHeaderLabel.swift in Sources */,
 				B3EA19FC1E83BF3E00B277E2 /* StatisticsHistoryCell.swift in Sources */,
 				B36059461E1C92C100EBE620 /* SettingsCell.swift in Sources */,
 				B36059301E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift in Sources */,
@@ -1107,10 +1123,11 @@
 				B3BB318A1DDAA1B60015F9B0 /* AcrtiveWorkoutCoordinator.swift in Sources */,
 				B36059221E1C3DB000EBE620 /* RoutineCell.swift in Sources */,
 				B360592C1E1C3E7600EBE620 /* RoutineSetRowView.swift in Sources */,
+				B3EA1A101E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift in Sources */,
 				B3FCCD391E172AC3003EF14E /* WorkoutLiftCell.swift in Sources */,
 				B3BB31821DDAA1390015F9B0 /* WorkoutsCoordinator.swift in Sources */,
 				B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */,
-				B31E9FBD1DD6AE2B00B9AEFC /* Removed - RoutineDataSource.swift in Sources */,
+				B31E9FBD1DD6AE2B00B9AEFC /* RoutineDataSource.swift in Sources */,
 				B3BB318C1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift in Sources */,
 				B36F37E81E0F7FF100667263 /* RLM.swift in Sources */,
 				B3780EF81DD5B0C80087CEC1 /* ConfigurableCell.swift in Sources */,
@@ -1140,7 +1157,7 @@
 				B36059241E1C3DCF00EBE620 /* BaseChartViewDataSource.swift in Sources */,
 				B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */,
 				B32504041E34455900C51909 /* SingleLiftStatisticsCoordinator.swift in Sources */,
-				B31E9FBB1DD6AE2000B9AEFC /* Removed - RoutinesDataSource.swift in Sources */,
+				B31E9FBB1DD6AE2000B9AEFC /* RoutinesDataSource.swift in Sources */,
 				B31953A81E305F7900AC2687 /* WorkoutDetailVC.swift in Sources */,
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
 				B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */,
@@ -1149,7 +1166,9 @@
 				B3852A5E1E767C7200900B24 /* StatisticsChartsTVC.swift in Sources */,
 				B3EA19FA1E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift in Sources */,
 				B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */,
+				B3EA1A091E83C13000B277E2 /* SettingsSectionModel.swift in Sources */,
 				B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */,
+				B3EA1A0C1E83C20D00B277E2 /* LiftTableHeaderRowView.swift in Sources */,
 				B3BB31881DDAA19C0015F9B0 /* RoutineCoordinator.swift in Sources */,
 				B32504021E34447300C51909 /* StatisticsCell.swift in Sources */,
 				B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */,

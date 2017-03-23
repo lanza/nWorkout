@@ -7,7 +7,7 @@ class RoutineLiftCell: LiftCell {
     }
     
     override func setHeader() {
-        header = RoutineLiftTableHeaderView()
+        header = LiftTableHeaderView(type: .routine)
     }
     
     override func configure(for object: Lift, at indexPath: IndexPath) {

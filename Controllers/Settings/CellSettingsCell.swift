@@ -2,6 +2,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol CellSettingsCellDelegate: class {
+    func switchDidChange(to bool: Bool, for cell: CellSettingsCell)
+    func widthDidChange(to value: CGFloat, for cell: CellSettingsCell)
+}
+
 class CellSettingsCell: UITableViewCell {
     
     weak var delegate: CellSettingsCellDelegate!
@@ -71,7 +76,4 @@ class CellSettingsCell: UITableViewCell {
     let db = DisposeBag()
 }
 
-protocol CellSettingsCellDelegate: class {
-    func switchDidChange(to bool: Bool, for cell: CellSettingsCell)
-    func widthDidChange(to value: CGFloat, for cell: CellSettingsCell)
-}
+
