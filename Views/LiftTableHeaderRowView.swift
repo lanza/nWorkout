@@ -56,25 +56,3 @@ class LiftTableHeaderRowView: RowView {
         setupColumns()
     }
 }
-
-//class RoutineLiftTableHeaderRowView: LiftTableHeaderRowView {
-//    override func setupViews() {
-//        let i = ViewInfo.routineColumnViewInfo
-//        order = i.map { $0.0 }
-//        columnWidths = i.map { $0.1 }
-//        columnViewTypes = i.map { _ in UILabel.self }
-//        
-//        setupColumns()
-//    }
-//}
-//
-//class StatisticsHistoryTableHeaderRowView: LiftTableHeaderRowView {
-//    override func setupViews() {
-//        let i = ViewInfo.statisticsHistoryColumnViewInfo
-//        order = i.map { $0.0 }
-//        columnWidths = i.map { $0.1 }
-//        columnViewTypes = i.map { _ in UILabel.self }
-//        
-//        setupColumns()
-//    }
-//}

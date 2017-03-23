@@ -18,9 +18,7 @@ class LiftTableHeaderView: UIView {
         super.init(frame: .zero)
         backgroundColor = .darkGray
         setRV()
-        setupViews()
-        setNeedsLayout()
-        
+        setupViews() 
     }
     func setRV() {
         liftTableHeaderRowView = LiftTableHeaderRowView(type: .workout)
@@ -29,32 +27,11 @@ class LiftTableHeaderView: UIView {
     func setupViews() {
         addSubview(liftTableHeaderRowView)
         liftTableHeaderRowView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            liftTableHeaderRowView.leftAnchor.constraint(equalTo: leftAnchor, constant: 1),
-            liftTableHeaderRowView.topAnchor.constraint(equalTo: topAnchor, constant: 1),
-            liftTableHeaderRowView.rightAnchor.constraint(equalTo: rightAnchor, constant: -1),
-            liftTableHeaderRowView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -1)
-            ])
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        liftTableHeaderRowView.frame = CGRect(x: 1, y: 1, width: frame.width - 2, height: frame.height - 2)
     }
 }
-
-
-
-
-//class RoutineLiftTableHeaderView: LiftTableHeaderView {
-//    override func setRV() {
-//        liftTableHeaderRowView = RoutineLiftTableHeaderRowView()
-//    }
-//}
-//
-//
-//class StatisticsHistoryTableHeaderView: LiftTableHeaderView {
-//    override func setRV() {
-//        liftTableHeaderRowView = StatisticsHistoryTableHeaderRowView()
-//    }
-//}
-
-
-
-
-

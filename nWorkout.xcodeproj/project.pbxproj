@@ -731,8 +731,8 @@
 			children = (
 				B3B6DB351E1F000700090C45 /* LiftTableHeaderView.swift */,
 				B3EA1A0B1E83C20D00B277E2 /* LiftTableHeaderRowView.swift */,
-				B3EA1A0D1E83C23800B277E2 /* LiftTableHeaderLabel.swift */,
 				B3EA1A0F1E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift */,
+				B3EA1A0D1E83C23800B277E2 /* LiftTableHeaderLabel.swift */,
 			);
 			name = ChartViewHeaderView;
 			sourceTree = "<group>";
