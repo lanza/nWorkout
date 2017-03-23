@@ -11,6 +11,7 @@ class LiftTableHeaderView: UIView {
         backgroundColor = .darkGray
         setRV()
         setupViews()
+        setNeedsLayout()
     }
     func setRV() {
         liftTableHeaderRowView = LiftTableHeaderRowView()
@@ -64,42 +65,6 @@ class LiftTableHeaderRowView: RowView {
         setupColumns()
     }
 }
-
-class RoutineLiftTableHeaderView: LiftTableHeaderView {
-    override func setRV() {
-        liftTableHeaderRowView = RoutineLiftTableHeaderRowView()
-    }
-}
-
-class RoutineLiftTableHeaderRowView: LiftTableHeaderRowView {
-    override func setupViews() {
-        let i = ViewInfo.routineColumnViewInfo
-        order = i.map { $0.0 }
-        columnWidths = i.map { $0.1 }
-        columnViewTypes = i.map { _ in UILabel.self }
-        
-        setupColumns()
-    }
-}
-
-class StatisticsHistoryTableHeaderRowView: LiftTableHeaderRowView {
-    override func setupViews() {
-        let i = ViewInfo.statisticsHistoryColumnViewInfo
-        order = i.map { $0.0 }
-        columnWidths = i.map { $0.1 }
-        columnViewTypes = i.map { _ in UILabel.self }
-        
-        setupColumns()
-    }
-}
-class StatisticsHistoryTableHeaderView: LiftTableHeaderView {
-    override func setRV() {
-        liftTableHeaderRowView = StatisticsHistoryTableHeaderRowView()
-    }
-}
-
-
-
 class LiftTableHeaderLabelHolder: UIView {
     let lthl = LiftTableHeaderLabel.create()
     static func create(text: String) -> LiftTableHeaderLabelHolder {
@@ -110,13 +75,14 @@ class LiftTableHeaderLabelHolder: UIView {
         l.lthl.translatesAutoresizingMaskIntoConstraints = false
         l.addSubview(l.lthl)
         
-        NSLayoutConstraint.activate([
-            l.lthl.leftAnchor.constraint(equalTo: l.leftAnchor, constant: 1),
-            l.lthl.rightAnchor.constraint(equalTo: l.rightAnchor, constant: -1),
-            l.lthl.topAnchor.constraint(equalTo: l.topAnchor),
-            l.lthl.bottomAnchor.constraint(equalTo: l.bottomAnchor)
-            ])
+        
         return l
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        lthl.frame = CGRect(x: 1, y: 0, width: frame.width - 2, height: frame.height)
     }
 }
 
@@ -124,6 +90,12 @@ class LiftTableHeaderLabel: UILabel {
     static func create() -> LiftTableHeaderLabel {
         let l = LiftTableHeaderLabel()
         
+        l.setContentCompressionResistancePriority(0, for: .horizontal)
+        l.setContentCompressionResistancePriority(0, for: .vertical)
+        l.setContentHuggingPriority(0, for: .horizontal)
+        l.setContentHuggingPriority(0, for: .vertical)
+        
+        l.translatesAutoresizingMaskIntoConstraints = false
         l.textAlignment = .center
         l.numberOfLines = 0
         l.baselineAdjustment = .alignCenters
@@ -136,3 +108,39 @@ class LiftTableHeaderLabel: UILabel {
         return l
     }
 }
+
+class RoutineLiftTableHeaderView: LiftTableHeaderView {
+    override func setRV() {
+        liftTableHeaderRowView = RoutineLiftTableHeaderRowView()
+    }
+}
+class RoutineLiftTableHeaderRowView: LiftTableHeaderRowView {
+    override func setupViews() {
+        let i = ViewInfo.routineColumnViewInfo
+        order = i.map { $0.0 }
+        columnWidths = i.map { $0.1 }
+        columnViewTypes = i.map { _ in UILabel.self }
+        
+        setupColumns()
+    }
+}
+
+class StatisticsHistoryTableHeaderView: LiftTableHeaderView {
+    override func setRV() {
+        liftTableHeaderRowView = StatisticsHistoryTableHeaderRowView()
+    }
+}
+class StatisticsHistoryTableHeaderRowView: LiftTableHeaderRowView {
+    override func setupViews() {
+        let i = ViewInfo.statisticsHistoryColumnViewInfo
+        order = i.map { $0.0 }
+        columnWidths = i.map { $0.1 }
+        columnViewTypes = i.map { _ in UILabel.self }
+        
+        setupColumns()
+    }
+}
+
+
+
+
