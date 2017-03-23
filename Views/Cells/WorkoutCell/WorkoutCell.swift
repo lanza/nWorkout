@@ -23,31 +23,6 @@ extension WorkoutCell: ConfigurableCell {
     }
 }
 
-class WorkoutCellRowView: RowView {
-    required init() {
-        super.init()
-        
-        columnBackgroundColor = Theme.Colors.Cell.contentBackground
-        
-        columnViewTypes = [DarkLabel.self, DarkLabel.self]
-    }
-    
-    
-    
-    required init?(coder aDecoder: NSCoder) { fatalError() }
-}
-
-class DarkLabel: UILabel {
-    init() {
-        super.init(frame: .zero)
-        textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
 class WorkoutCell: ChartViewCell {
     
     let label = UILabel()
@@ -58,7 +33,6 @@ class WorkoutCell: ChartViewCell {
         
 //        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
     }
-    
     
     func setupTopContentView() {
         label.translatesAutoresizingMaskIntoConstraints = false

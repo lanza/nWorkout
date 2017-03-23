@@ -20,8 +20,6 @@ class WorkoutFooterView: UIView {
     var finishWorkoutButton: WorkoutFooterViewButton!
     var workoutDetailButton = WorkoutFooterViewButton.create(title: Lets.viewWorkoutDetails, type: .details)
     
-    let stackView = UIStackView(axis: .vertical, spacing: 4, distribution: .fillEqually)
-    
     let buttonHeight: CGFloat = 34
     let betweenButtonSpacing: CGFloat = 4
     let margins: CGFloat = 8
@@ -40,10 +38,6 @@ class WorkoutFooterView: UIView {
         
         view.activeOrFinished = activeOrFinished
         
-//        view.addSubview(view.stackView)
-//        
-//        view.stackView.translatesAutoresizingMaskIntoConstraints = false
-        
         var buttons: [WorkoutFooterViewButton] = [view.addLiftButton]
         
         if view.activeOrFinished == .active {
@@ -56,15 +50,7 @@ class WorkoutFooterView: UIView {
         
         for button in buttons {
             view.addSubview(button)
-//            view.stackView.addArrangedSubview(button)
         }
-        
-//        NSLayoutConstraint.activate([
-//            view.stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
-//            view.stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8),
-//            view.stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
-//            view.stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
-//        ])
         
         view.setupRx()
         return view
