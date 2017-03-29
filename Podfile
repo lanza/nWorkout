@@ -26,7 +26,6 @@ target 'nWorkout' do
     pod 'Reuse', :git=> 'https://github.com/nathanlanza/Reuse'
   end
 
-  pod 'Charts'
   pod 'CarbonKit'
 
   pod 'BonMot'

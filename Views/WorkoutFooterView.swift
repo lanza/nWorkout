@@ -51,7 +51,7 @@ class WorkoutFooterView: UIView {
         for button in buttons {
             view.addSubview(button)
         }
-        
+
         view.setupRx()
         return view
     }

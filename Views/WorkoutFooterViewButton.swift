@@ -1,6 +1,9 @@
 import UIKit
 
 class WorkoutFooterViewButton: UIButton {
+    
+    override class var requiresConstraintBasedLayout: Bool { return false }
+    
     enum WorkoutFooterViewButtonType {
         case addLift
         case cancel
@@ -11,7 +14,6 @@ class WorkoutFooterViewButton: UIButton {
         let b = WorkoutFooterViewButton()
         b.setTitle(title)
         b.backgroundColor = Theme.Colors.dark
-        b.translatesAutoresizingMaskIntoConstraints = false
         
         b.setTitleColor(.white)
         
