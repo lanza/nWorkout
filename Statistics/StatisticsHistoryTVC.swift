@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RealmSwift
-import RxRealm
+//import RxRealm
 import ChartView
 import Reuse
 

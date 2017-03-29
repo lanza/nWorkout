@@ -130,6 +130,11 @@
 		B36059481E1C951C00EBE620 /* CombinedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36059471E1C951C00EBE620 /* CombinedView.swift */; };
 		B36059501E1CC71F00EBE620 /* BaseWorkoutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360594F1E1CC71F00EBE620 /* BaseWorkoutTVC.swift */; };
 		B36F37E81E0F7FF100667263 /* RLM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F37E71E0F7FF100667263 /* RLM.swift */; };
+		B374C9F91E8B5DA600671A93 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B374C9F81E8B5DA600671A93 /* Realm.framework */; };
+		B374C9FB1E8B5DAA00671A93 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B374C9FA1E8B5DAA00671A93 /* RealmSwift.framework */; };
+		B374C9FD1E8B5DAE00671A93 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B374C9FC1E8B5DAE00671A93 /* RxCocoa.framework */; };
+		B374C9FF1E8B5DB200671A93 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B374C9FE1E8B5DB200671A93 /* RxDataSources.framework */; };
+		B374CA011E8B5DB800671A93 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B374CA001E8B5DB800671A93 /* RxSwift.framework */; };
 		B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */; };
 		B3780EF01DD5A7010087CEC1 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EEE1DD5A7010087CEC1 /* DataSource.swift */; };
 		B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3780EF21DD5A7100087CEC1 /* ArrayProvider.swift */; };
@@ -250,6 +255,11 @@
 		B36059471E1C951C00EBE620 /* CombinedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinedView.swift; sourceTree = "<group>"; };
 		B360594F1E1CC71F00EBE620 /* BaseWorkoutTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorkoutTVC.swift; sourceTree = "<group>"; };
 		B36F37E71E0F7FF100667263 /* RLM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLM.swift; sourceTree = "<group>"; };
+		B374C9F81E8B5DA600671A93 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		B374C9FA1E8B5DAA00671A93 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		B374C9FC1E8B5DAE00671A93 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		B374C9FE1E8B5DB200671A93 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		B374CA001E8B5DB800671A93 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B3773F921DD7CF630067746D /* SelectWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutVC.swift; sourceTree = "<group>"; };
 		B3780EEE1DD5A7010087CEC1 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		B3780EF21DD5A7100087CEC1 /* ArrayProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayProvider.swift; sourceTree = "<group>"; };
@@ -310,6 +320,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B374CA011E8B5DB800671A93 /* RxSwift.framework in Frameworks */,
+				B374C9FB1E8B5DAA00671A93 /* RealmSwift.framework in Frameworks */,
+				B374C9FF1E8B5DB200671A93 /* RxDataSources.framework in Frameworks */,
+				B374C9FD1E8B5DAE00671A93 /* RxCocoa.framework in Frameworks */,
+				B374C9F91E8B5DA600671A93 /* Realm.framework in Frameworks */,
 				346BBE7C75AFB8BCAE468978 /* Pods_nWorkout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -711,6 +726,11 @@
 		C0C59FE9EF2670D17C13FC78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B374CA001E8B5DB800671A93 /* RxSwift.framework */,
+				B374C9FE1E8B5DB200671A93 /* RxDataSources.framework */,
+				B374C9FC1E8B5DAE00671A93 /* RxCocoa.framework */,
+				B374C9FA1E8B5DAA00671A93 /* RealmSwift.framework */,
+				B374C9F81E8B5DA600671A93 /* Realm.framework */,
 				297284437228E456B1EA50E8 /* Pods_nWorkout.framework */,
 			);
 			name = Frameworks;
@@ -750,6 +770,7 @@
 				AFE1A5B9D350CB177D504F80 /* [CP] Embed Pods Frameworks */,
 				80B463E03E9D835D51FCEECD /* [CP] Copy Pods Resources */,
 				B3256E101E72A6E50059576C /* Increment Build Number */,
+				B374CA021E8B5DD500671A93 /* ShellScript */,
 			);
 			buildRules = (
 				B318DB3D1E72B7BB00AA050B /* PBXBuildRule */,
@@ -892,6 +913,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ $USER == 'lanza' ]]; then\n    /Users/lanza/bin/incrementXcodeBuild\nfi ";
+		};
+		B374CA021E8B5DD500671A93 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 		D95836F09FF4B1CDA8034F4F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1223,6 +1262,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Other/nWorkout.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
@@ -1239,6 +1282,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Other/nWorkout.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";

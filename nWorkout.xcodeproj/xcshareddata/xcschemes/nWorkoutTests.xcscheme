@@ -154,7 +154,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0C6BF4AB355EEF5B47BC80080DB0FD70"
+               BlueprintIdentifier = "5F3301575E056159E99B918F64BC7511"
                BuildableName = "Reuse.framework"
                BlueprintName = "Reuse"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

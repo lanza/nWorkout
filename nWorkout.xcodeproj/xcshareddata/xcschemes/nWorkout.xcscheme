@@ -154,7 +154,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0C6BF4AB355EEF5B47BC80080DB0FD70"
+               BlueprintIdentifier = "5F3301575E056159E99B918F64BC7511"
                BuildableName = "Reuse.framework"
                BlueprintName = "Reuse"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -224,7 +224,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F8D7F80CE70BC302434502361237C023"
+               BlueprintIdentifier = "7D8C6D310A3C01E16119838D4321EF69"
                BuildableName = "Pods_nWorkout.framework"
                BlueprintName = "Pods-nWorkout"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

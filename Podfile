@@ -10,24 +10,19 @@ target 'nWorkout' do
 
   pod 'Hero'
 
-  pod 'RxSwift', '~> 3'
-  pod 'RxCocoa', '~> 3'
-  pod 'RealmSwift', '~> 2'
-  pod 'RxRealm'
 
   ##pod 'RxKeyboard'
   ##pod 'RxGesture'
-  pod 'RxDataSources'
   
   if `whoami`[0...-1] == 'lanza'
     puts 'true'
     pod 'CoordinatorKit', :path => '~/Documents/CoordinatorKit', :branch => 'master'
-    pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master', :version => '~> 0.0.1'
+    pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master'
     pod 'Reuse', :path => '~/Documents/Reuse', :branch => 'master'
   else 
     puts 'false'
     pod 'CoordinatorKit', :git => 'https://github.com/nathanlanza/CoordinatorKit'
-    pod 'ChartView', :git => 'https://github.com/nathanlanza/ChartView', '~> 0.0.2'
+    pod 'ChartView', :git => 'https://github.com/nathanlanza/ChartView'
     pod 'Reuse', :git=> 'https://github.com/nathanlanza/Reuse'
   end
 

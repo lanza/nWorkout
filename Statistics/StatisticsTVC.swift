@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import DZNEmptyDataSet
-import RxRealm
+//import RxRealm
 
 class StatisticsTVC: UIViewController, UITableViewDelegate {
     
