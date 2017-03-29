@@ -13,12 +13,12 @@ class WeightAndRepsLabelHolder: UIView {
         warl.translatesAutoresizingMaskIntoConstraints = false
         addSubview(warl)
         
-        NSLayoutConstraint.activate([
-            warl.leftAnchor.constraint(equalTo: leftAnchor, constant: 3),
-            warl.rightAnchor.constraint(equalTo: rightAnchor, constant: -3),
-            warl.topAnchor.constraint(equalTo: topAnchor),
-            warl.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        warl.frame = CGRect(x: 3, y: 0, width: frame.width - 6, height: frame.height)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -35,6 +35,11 @@ class WeightAndRepsLabel: UILabel {
         textColor = .lightGray
         
         setFontScaling(minimum: 4)
+        
+        setContentHuggingPriority(0, for: .vertical)
+        setContentHuggingPriority(0, for: .horizontal)
+        setContentCompressionResistancePriority(0, for: .vertical)
+        setContentCompressionResistancePriority(0, for: .horizontal)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
