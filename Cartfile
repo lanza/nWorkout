@@ -4,4 +4,3 @@ github "RxSwiftCommunity/RxDataSources"
 github "realm/realm-cocoa"
 github "RxSwiftCommunity/RxRealm"
 
-github "danielgindi/Charts"

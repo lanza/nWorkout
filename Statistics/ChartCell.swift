@@ -29,7 +29,7 @@ class ChartCell: UITableViewCell {
     
     func setupChartView() {
         chartView.xAxis.valueFormatter = xAxisFormatter
-        
+        chartView.xAxis.granularity = 3
         //        chartView.xAxis.axisLineWidth = 1
         //        chartView.xAxis.gridLineWidth = 3
         
@@ -41,8 +41,7 @@ class ChartCell: UITableViewCell {
         
         let df: DateFormatter = {
             let df = DateFormatter()
-            df.timeStyle = .none
-            df.dateStyle = .short
+            df.dateFormat = "MMM d"
             return df
         }()
         func stringForValue(_ value: Double, axis: AxisBase?) -> String {
@@ -52,5 +51,9 @@ class ChartCell: UITableViewCell {
         }
         
     }
+    
+}
+
+extension ChartCell: ChartViewDelegate {
     
 }

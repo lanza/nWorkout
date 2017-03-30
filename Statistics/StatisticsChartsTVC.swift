@@ -4,6 +4,22 @@ import RxCocoa
 import RxDataSources
 import Charts
 
+class BestSetLineChartDataSet: LineChartDataSet {
+    override init(values: [ChartDataEntry]?, label: String?) {
+        super.init(values: values, label: label)
+        
+        circleColors = [Theme.Colors.main]
+        circleRadius = 5
+        circleHoleRadius = 3
+        
+        colors = [Theme.Colors.main]
+    }
+    
+    required init() {
+        fatalError("init() has not been implemented")
+    }
+}
+
 class StatisticsChartsTVC: BaseTVC {
     
     let liftName: String
@@ -22,7 +38,7 @@ class StatisticsChartsTVC: BaseTVC {
         
         let bestSetDataPoints = statisticsDataProvider.getBestSetDataPoints()
         let bestSetDataEntries = bestSetDataPoints.map { ChartDataEntry(x: $0.timeInterval, y: $0.weight) }
-        let bestSetDataSet = LineChartDataSet(values: bestSetDataEntries, label: "Best Set Progression")
+        let bestSetDataSet = BestSetLineChartDataSet(values: bestSetDataEntries, label: "Best Set Progression")
         let bestSetLineChartData = LineChartData(dataSet: bestSetDataSet)
         
         let prDataPoints = statisticsDataProvider.getPersonalRecordDataPoints()
@@ -46,6 +62,7 @@ class StatisticsChartsTVC: BaseTVC {
     let dataSource = RxTableViewSectionedReloadDataSource<ChartSectionModel>()
     
     func setupTableView() {
+        tableView.allowsSelection = false
         
         tableView.delegate = nil
         
@@ -55,7 +72,7 @@ class StatisticsChartsTVC: BaseTVC {
         tableView.register(ChartCell.self)
         dataSource.configureCell = { ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(for: ip) as ChartCell
-            cell.chartView.data = item
+                cell.chartView.data = item
             
             return cell
         }
