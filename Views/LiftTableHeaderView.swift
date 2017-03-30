@@ -17,11 +17,7 @@ class LiftTableHeaderView: UIView {
         }
         super.init(frame: .zero)
         backgroundColor = .darkGray
-        setRV()
         setupViews() 
-    }
-    func setRV() {
-        liftTableHeaderRowView = LiftTableHeaderRowView(type: .workout)
     }
     
     func setupViews() {

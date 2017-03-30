@@ -27,7 +27,7 @@ class CarbonStatisticsVC: UIViewController, CarbonTabSwipeNavigationDelegate {
         super.viewDidLoad()
         view.backgroundColor = Theme.Colors.darkest
         
-        let items = ["History","Charts","PR"]
+        let items = ["History","Charts"]//,"PR"]
         let c = CarbonTabSwipeNavigation(items: items, delegate: self)
         
         c.setTabBarHeight(44)
@@ -36,9 +36,10 @@ class CarbonStatisticsVC: UIViewController, CarbonTabSwipeNavigationDelegate {
         c.setSelectedColor(Theme.Colors.main)
         c.setIndicatorColor(Theme.Colors.main)
         
-        c.carbonSegmentedControl?.setWidth(view.frame.width / 3, forSegmentAt: 0)
-        c.carbonSegmentedControl?.setWidth(view.frame.width / 3, forSegmentAt: 1)
-        c.carbonSegmentedControl?.setWidth(view.frame.width / 3, forSegmentAt: 2)
+        let count = CGFloat(items.count)
+        c.carbonSegmentedControl?.setWidth(view.frame.width / count, forSegmentAt: 0)
+        c.carbonSegmentedControl?.setWidth(view.frame.width / count, forSegmentAt: 1)
+//        c.carbonSegmentedControl?.setWidth(view.frame.width / count, forSegmentAt: 2)
         
         c.insert(intoRootViewController: self)
     }
