@@ -18,11 +18,13 @@ class ChartCell: UITableViewCell {
         chartView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(chartView)
         
+        backgroundColor = Theme.Colors.dark
+        
         NSLayoutConstraint.activate([
-            chartView.leftAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leftAnchor),
-            chartView.rightAnchor.constraint(equalTo: contentView.layoutMarginsGuide.rightAnchor),
-            chartView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
-            chartView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            chartView.leftAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leftAnchor, constant: 8),
+            chartView.rightAnchor.constraint(equalTo: contentView.layoutMarginsGuide.rightAnchor, constant: -8),
+            chartView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor, constant: -8),
+            chartView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor, constant: 8),
             contentView.heightAnchor.constraint(equalToConstant: 300)
             ])
     }
@@ -31,6 +33,10 @@ class ChartCell: UITableViewCell {
         chartView.xAxis.valueFormatter = xAxisFormatter
         chartView.xAxis.granularity = 3
         chartView.chartDescription?.text = nil
+        
+        chartView.backgroundColor = .white
+        chartView.setBorder(color: Theme.Colors.darkest, width: 1, radius: 10)
+        chartView.layer.masksToBounds = true
     }
     
     let xAxisFormatter = XAxisFormatter()

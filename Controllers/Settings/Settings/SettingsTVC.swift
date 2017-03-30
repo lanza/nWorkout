@@ -70,7 +70,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
             return cell
         }
         dataSource.titleForHeaderInSection = { ds, index in
-            return index == 0 ? "Settings" : "Cells"
+            return index == 0 ? "" : "Cells"
         }
         dataSource.canMoveRowAtIndexPath = { info in
             return true

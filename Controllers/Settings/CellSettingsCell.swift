@@ -20,8 +20,6 @@ class CellSettingsCell: UITableViewCell {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        
-        
         let constraints = [
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
