@@ -30,9 +30,7 @@ class ChartCell: UITableViewCell {
     func setupChartView() {
         chartView.xAxis.valueFormatter = xAxisFormatter
         chartView.xAxis.granularity = 3
-        //        chartView.xAxis.axisLineWidth = 1
-        //        chartView.xAxis.gridLineWidth = 3
-        
+        chartView.chartDescription?.text = nil
     }
     
     let xAxisFormatter = XAxisFormatter()

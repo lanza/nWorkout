@@ -27,7 +27,7 @@ class LiftCell: ChartViewCell {
         contentView.backgroundColor = Theme.Colors.Cell.contentBackground
         contentView.setBorder(color: .black, width: 1, radius: 0)
         
-//        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
+        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
     }
     
     weak var delegate: LiftCellDelegate!

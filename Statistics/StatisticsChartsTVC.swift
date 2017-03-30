@@ -4,7 +4,7 @@ import RxCocoa
 import RxDataSources
 import Charts
 
-class BestSetLineChartDataSet: LineChartDataSet {
+class CustomLineChartDataSet: LineChartDataSet {
     override init(values: [ChartDataEntry]?, label: String?) {
         super.init(values: values, label: label)
         
@@ -38,12 +38,12 @@ class StatisticsChartsTVC: BaseTVC {
         
         let bestSetDataPoints = statisticsDataProvider.getBestSetDataPoints()
         let bestSetDataEntries = bestSetDataPoints.map { ChartDataEntry(x: $0.timeInterval, y: $0.weight) }
-        let bestSetDataSet = BestSetLineChartDataSet(values: bestSetDataEntries, label: "Best Set Progression")
+        let bestSetDataSet = CustomLineChartDataSet(values: bestSetDataEntries, label: "Best Set Progression")
         let bestSetLineChartData = LineChartData(dataSet: bestSetDataSet)
         
         let prDataPoints = statisticsDataProvider.getPersonalRecordDataPoints()
         let prDataEntries = prDataPoints.map { ChartDataEntry(x: $0.timeInterval, y: $0.weight) }
-        let prDataSet = LineChartDataSet(values: prDataEntries, label: "Personal Record Progression")
+        let prDataSet = CustomLineChartDataSet(values: prDataEntries, label: "Personal Record Progression")
         let prLineChartData = LineChartData(dataSet: prDataSet)
         
         let sectionModel = ChartSectionModel(chartData: [bestSetLineChartData,prLineChartData])
