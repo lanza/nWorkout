@@ -4,7 +4,12 @@ class LiftTableHeaderLabelHolder: UIView {
     let lthl = LiftTableHeaderLabel.create()
     static func create(text: String) -> LiftTableHeaderLabelHolder {
         let l = LiftTableHeaderLabelHolder()
-        l.lthl.text = text
+        
+        if text == "Combined" {
+            l.lthl.text = "Status"
+        } else {
+            l.lthl.text = text
+        }
         
         
         l.lthl.translatesAutoresizingMaskIntoConstraints = false

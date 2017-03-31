@@ -656,8 +656,8 @@
 				B36059291E1C3E4600EBE620 /* RowViews */,
 				B38208731DC2B1930008D6F8 /* Cells */,
 				B3FF69DC1E7A0560005FE6C1 /* ChartViewHeaderView */,
-				B3FF69DD1E7A0576005FE6C1 /* Buttons */,
 				B3FF69DB1E7A0551005FE6C1 /* TableViewFooterView */,
+				B3FF69DD1E7A0576005FE6C1 /* Buttons */,
 			);
 			path = Views;
 			sourceTree = "<group>";
