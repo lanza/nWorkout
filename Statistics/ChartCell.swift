@@ -11,14 +11,16 @@ class ChartCell: UITableViewCell {
         setupConstraints()
         setupChartView()
         
+        backgroundColor = Theme.Colors.Table.background
+        contentView.backgroundColor = Theme.Colors.Cell.contentBackground
+        contentView.setBorder(color: .black, width: 1, radius: 3)
+        
     }
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
     func setupConstraints() {
         chartView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(chartView)
-        
-        backgroundColor = Theme.Colors.dark
         
         NSLayoutConstraint.activate([
             chartView.leftAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leftAnchor, constant: 8),

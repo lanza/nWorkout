@@ -23,6 +23,8 @@ struct Theme {
         
         let tableViewCellAppearance = UITableViewCell.appearance()
         tableViewCellAppearance.contentView.backgroundColor = Colors.Cell.contentBackground
+        tableViewCellAppearance.backgroundColor = Colors.Table.background
+        tableViewCellAppearance.contentView.setBorder(color: .black, width: 1, radius: 3)
         
         }
     

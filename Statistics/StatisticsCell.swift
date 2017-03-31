@@ -5,17 +5,17 @@ class StatisticsCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: StatisticsCell.reuseIdentifier)
         
-//        accessoryType = .disclosureIndicator
 
-        contentView.backgroundColor = Theme.Colors.dark
+        contentView.backgroundColor = Theme.Colors.Cell.contentBackground
+        backgroundColor = Theme.Colors.Table.background
+        contentView.setBorder(color: .black, width: 1, radius: 3)
 //        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
         
         textLabel?.textColor = .white
+        textLabel?.backgroundColor = .clear
+
         detailTextLabel?.backgroundColor = .clear
         detailTextLabel?.textColor = .white
-        
-//        accessoryView?.backgroundColor = Theme.Colors.dark
-//        accessoryView?.tintColor = .white
         
         selectionStyle = .none
     }
