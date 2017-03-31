@@ -23,9 +23,21 @@ class SnapshotTarget: XCTestCase {
         setupSnapshot(app)
         app.launch()
         
+        snapshot("history")
         
+        app.tabBars.buttons["Routines"].tap()
+        snapshot("routines")
         
+        app.tabBars.buttons["Show"].tap()
+        snapshot("workout")
         
+        app.navigationBars["3:21 AM"].buttons["Hide"].tap()
+        app.tabBars.buttons["Statistics"].tap()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["Statistics"].tap()
+        tablesQuery.staticTexts["Squat"].tap()
+        XCUIApplication().toolbars.segmentedControls.buttons["Charts"].tap()
+        snapshot("statistics")          
     }
     
 }
