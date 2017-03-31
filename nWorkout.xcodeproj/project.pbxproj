@@ -296,7 +296,7 @@
 		B3EA1A0B1E83C20D00B277E2 /* LiftTableHeaderRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderRowView.swift; sourceTree = "<group>"; };
 		B3EA1A0D1E83C23800B277E2 /* LiftTableHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderLabel.swift; sourceTree = "<group>"; };
 		B3EA1A0F1E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderLabelHolder.swift; sourceTree = "<group>"; };
-		B3EA1A141E83D20200B277E2 /* WorkoutCellRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutCellRowView.swift; path = ../RowView/WorkoutCellRowView.swift; sourceTree = "<group>"; };
+		B3EA1A141E83D20200B277E2 /* WorkoutCellRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutCellRowView.swift; sourceTree = "<group>"; };
 		B3EA1A161E83D26200B277E2 /* DarkLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkLabel.swift; sourceTree = "<group>"; };
 		B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorkoutsTVC.swift; sourceTree = "<group>"; };
 		B3FCCD241E137828003EF14E /* BaseTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTVC.swift; sourceTree = "<group>"; };
@@ -398,7 +398,6 @@
 			isa = PBXGroup;
 			children = (
 				B38208711DC2B1850008D6F8 /* WorkoutCell.swift */,
-				B3EA1A141E83D20200B277E2 /* WorkoutCellRowView.swift */,
 				B36059211E1C3DB000EBE620 /* RoutineCell.swift */,
 				B3EA1A161E83D26200B277E2 /* DarkLabel.swift */,
 			);
@@ -420,6 +419,7 @@
 			children = (
 				B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */,
 				B360592B1E1C3E7600EBE620 /* RoutineSetRowView.swift */,
+				B3EA1A141E83D20200B277E2 /* WorkoutCellRowView.swift */,
 				B36059311E1C3EB400EBE620 /* View types */,
 			);
 			name = RowViews;
