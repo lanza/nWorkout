@@ -107,6 +107,7 @@
 		B34BA05A1DC1CC4B006B6A51 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0591DC1CC4B006B6A51 /* Workout.swift */; };
 		B34BA05C1DC1CCED006B6A51 /* Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA05B1DC1CCED006B6A51 /* Lift.swift */; };
 		B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */; };
+		B3540AB21E8E1ECF0001B996 /* BaseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3540AB11E8E1ECF0001B996 /* BaseRowView.swift */; };
 		B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B356FBC21DC09C160006A0F0 /* AppDelegate.swift */; };
 		B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */; };
 		B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */; };
@@ -231,6 +232,7 @@
 		B34BA0591DC1CC4B006B6A51 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		B34BA05B1DC1CCED006B6A51 /* Lift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lift.swift; sourceTree = "<group>"; };
 		B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
+		B3540AB11E8E1ECF0001B996 /* BaseRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRowView.swift; sourceTree = "<group>"; };
 		B356FBBF1DC09C160006A0F0 /* nWorkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nWorkout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B356FBC21DC09C160006A0F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B356FBCE1DC09C160006A0F0 /* nWorkout.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = nWorkout.plist; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 		B36059291E1C3E4600EBE620 /* RowViews */ = {
 			isa = PBXGroup;
 			children = (
+				B3540AB11E8E1ECF0001B996 /* BaseRowView.swift */,
 				B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */,
 				B360592B1E1C3E7600EBE620 /* RoutineSetRowView.swift */,
 				B3EA1A141E83D20200B277E2 /* WorkoutCellRowView.swift */,
@@ -1129,6 +1132,7 @@
 				B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */,
 				B3780EF61DD5AF2D0087CEC1 /* WorkoutsDataSource.swift in Sources */,
 				B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */,
+				B3540AB21E8E1ECF0001B996 /* BaseRowView.swift in Sources */,
 				B34BA0581DC1CC33006B6A51 /* Lets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

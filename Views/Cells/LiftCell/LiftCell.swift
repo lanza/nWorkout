@@ -25,7 +25,7 @@ class LiftCell: ChartViewCell {
     
     func setupContentView() {
         contentView.backgroundColor = Theme.Colors.Cell.contentBackground
-        //contentView.setBorder(color: .black, width: 1, radius: 0)
+        contentView.setBorder(color: .black, width: 1, radius: 3)
         
 //        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
     }
@@ -90,8 +90,9 @@ class LiftCell: ChartViewCell {
     func setupBottomContentView() {
         addSetButton.setTitle("Add Set...", for: UIControlState())
         addSetButton.translatesAutoresizingMaskIntoConstraints = false
-        addSetButton.layer.borderColor = UIColor.darkGray.cgColor
-        addSetButton.layer.borderWidth = 1
+        
+        addSetButton.setBorder(color: Theme.Colors.Table.borders, width: 1, radius: 0)
+
         addSetButton.backgroundColor = Theme.Colors.darkest
         addSetButton.setTitleColor(.white)
         
@@ -109,7 +110,7 @@ class LiftCell: ChartViewCell {
         chartView.emptyText = nil
         
         chartView.backgroundColor = .clear
-        chartView.setBorder(color: .darkGray, width: 0.5, radius: 0)
+        chartView.setBorder(color: Theme.Colors.Table.borders, width: 1, radius: 0)
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -120,7 +121,7 @@ class LiftCell: ChartViewCell {
         setupChartView()
         setupContentView()
         
-        backgroundColor = Theme.Colors.light
+        backgroundColor = Theme.Colors.Table.background
     }
     
     override func prepareForReuse() {

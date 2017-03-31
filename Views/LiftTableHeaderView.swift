@@ -16,6 +16,8 @@ class LiftTableHeaderView: UIView {
             liftTableHeaderRowView = LiftTableHeaderRowView(type: .statisticsHistory)
         }
         super.init(frame: .zero)
+        
+        setBorder(color: Theme.Colors.Table.borders, width: 1, radius: 0)
         backgroundColor = .darkGray
         setupViews() 
     }

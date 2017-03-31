@@ -8,7 +8,7 @@ protocol SetRowViewDelegate: class {
     func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set)
 }
 
-class SetRowView: RowView {
+class SetRowView: BaseRowView {
     
     weak var delegate: SetRowViewDelegate!
     

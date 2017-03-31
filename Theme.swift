@@ -44,6 +44,7 @@ struct Theme {
         
         struct Table {
             static let background = Colors.darkest
+            static let borders = UIColor.darkGray
         }
         struct Nav {
             static let barTint = Colors.clear
