@@ -171,6 +171,75 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
         return 45
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section == 1 else { return nil }
+        let view = SettingsSectionHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
+        
+        return view
+    }
+    
+    class SettingsSectionHeaderView: UIView {
+        let cellTypeLabel: UILabel = {
+            let l = UILabel()
+            
+            l.backgroundColor = .clear
+            l.textColor = .white
+            l.text = "Cell Type"
+            l.font = UIFont.systemFont(ofSize: 13)
+            l.translatesAutoresizingMaskIntoConstraints = false
+            
+            return l
+        }()
+        let widthLabel: UILabel = {
+            let l = UILabel()
+            
+            l.backgroundColor = .clear
+            l.textColor = .white
+            l.text = "Width"
+            l.font = UIFont.systemFont(ofSize: 13)
+            l.translatesAutoresizingMaskIntoConstraints = false
+            l.textAlignment = .right
+            
+            return l
+        }()
+        let isOnLabel: UILabel = {
+            let l = UILabel()
+            
+            l.backgroundColor = .clear
+            l.textColor = .white
+            l.text = "Enabled"
+            l.font = UIFont.systemFont(ofSize: 13)
+            l.translatesAutoresizingMaskIntoConstraints = false
+            
+            return l
+        }()
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            
+            addSubview(cellTypeLabel)
+            addSubview(widthLabel)
+            addSubview(isOnLabel)
+            
+            widthLabel.setContentHuggingPriority(5, for: .horizontal)
+            
+            NSLayoutConstraint.activate([
+                cellTypeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+                cellTypeLabel.rightAnchor.constraint(equalTo: widthLabel.leftAnchor),
+                cellTypeLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+                widthLabel.rightAnchor.constraint(equalTo: isOnLabel.leftAnchor, constant: -13),
+                widthLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+                isOnLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+                isOnLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -40)
+                ])
+            
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
+    
     func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         if proposedDestinationIndexPath.section == 0 {
             return IndexPath(row: 0, section: 1)
