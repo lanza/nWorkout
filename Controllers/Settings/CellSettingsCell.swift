@@ -14,6 +14,10 @@ class CellSettingsCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        backgroundColor = Theme.Colors.Table.background
+        contentView.backgroundColor = Theme.Colors.Cell.contentBackground
+        contentView.setBorder(color: .black, width: 1, radius: 3)
+        
         let views: [UIView] = [titleLabel,widthTextField,onSwitch]
         views.forEach { view in
             contentView.addSubview(view)
@@ -39,9 +43,7 @@ class CellSettingsCell: UITableViewCell {
         titleLabel.setContentCompressionResistancePriority(100, for: .horizontal)
         
         NSLayoutConstraint.activate(constraints)
-        
-        backgroundColor = Theme.Colors.dark
-        
+
         widthTextField.keyboardType = .decimalPad
         
         widthTextField.rx.text.skip(1).subscribe(onNext: { value in

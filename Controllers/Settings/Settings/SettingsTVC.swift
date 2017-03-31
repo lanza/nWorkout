@@ -55,6 +55,8 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     
     func setupTableView() {
         
+        tableView.separatorStyle = .none
+        
         dataSource.configureCell = { [unowned self] ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
             if ip.section == 1 {
@@ -73,14 +75,28 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
             return index == 0 ? "" : "Cells"
         }
         dataSource.canMoveRowAtIndexPath = { info in
-            return true
+            switch info.1.section {
+            case 0:
+                return false
+            default:
+                return true
+            }
         }
-        dataSource.canEditRowAtIndexPath = { _ in return true }
+        dataSource.canEditRowAtIndexPath = { info in
+            switch info.1.section {
+            case 0:
+                return false
+            default:
+                return true
+            }
+        }
+        
         dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .automatic, reloadAnimation: .automatic, deleteAnimation: .automatic)
         
         Observable.just(sections).bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(db)
         
         tableView.rx.itemMoved.subscribe(onNext: { event in
+            guard event.destinationIndex.section == 1 else { return }
             
             var items = self.sections[1].items
             let moved = items.remove(at: event.sourceIndex.row)
@@ -153,6 +169,14 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 45
+    }
+    
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        if proposedDestinationIndexPath.section == 0 {
+            return IndexPath(row: 0, section: 1)
+        } else {
+            return proposedDestinationIndexPath
+        }
     }
     
     func widthDidChange(to value: CGFloat, for cell: CellSettingsCell) {
