@@ -1,8 +1,13 @@
 # vim: set ft=ruby :
 
 target 'nWorkout' do
-
   use_frameworks!
+
+  target 'SnapshotTarget' do
+    inherit! :search_paths
+    pod 'Quick'
+    pod 'Nimble'
+  end
 
   pod 'CustomIOSAlertView'
 

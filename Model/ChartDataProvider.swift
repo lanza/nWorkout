@@ -12,7 +12,7 @@ final class StatisticsDataProvider {
     let lifts: [Lift]
     init(liftName: String) {
         self.liftName = liftName
-        self.lifts = RLM.objects(type: Lift.self).filter { $0.name == liftName }.sorted { $0.workout!.startDate < $1.workout!.startDate }
+        self.lifts = RLM.objects(type: Lift.self).filter { $0.name == liftName }.filter { $0.isWorkout == true }.sorted { $0.workout!.startDate < $1.workout!.startDate }
     }
     
     func getBestSetDataPoints() -> [ChartDataPair] {

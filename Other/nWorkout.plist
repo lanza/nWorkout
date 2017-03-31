@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Lift</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.3</string>
+	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>250</string>
+	<string>263</string>
 	<key>ITSAppUsersNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
