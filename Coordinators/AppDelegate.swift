@@ -1,19 +1,20 @@
 import UIKit
 import CoordinatorKit
 import RealmSwift
+import HealthKit
 
 
-class Application {
-    static func doOnFirstRun(closure: @escaping ()->()) {
-        onFirstRunClosures.append(closure)
-    }
-    
-    private static var onFirstRunClosures: [()->()] = []
-  
-    private static func callFirstRunClosures() {
-        onFirstRunClosures.forEach { $0() }
-    }
-}
+//class Application {
+//    static func doOnFirstRun(closure: @escaping ()->()) {
+//        onFirstRunClosures.append(closure)
+//    }
+//    
+//    private static var onFirstRunClosures: [()->()] = []
+//  
+//    private static func callFirstRunClosures() {
+//        onFirstRunClosures.forEach { $0() }
+//    }
+//}
 
 
 @UIApplicationMain
@@ -30,7 +31,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let mainCoordinator = MainCoordinator()
     
+    func requestAccessToHealthKit() {
+        let healthStore = HKHealthStore()
+        
+        let types = Swift.Set([HKObjectType.workoutType(), HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!])
+        healthStore.requestAuthorization(toShare: types, read: types) { (success, error) in
+            if !success {
+                print(error!)
+            }
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        requestAccessToHealthKit()
        
         if let firstRun = UserDefaults.standard.value(forKey: "firstRun") as? Bool, firstRun == false {
             //

@@ -9,6 +9,10 @@ protocol ActiveWorkoutCoordinatorDelegate: class {
 
 class ActiveWorkoutCoordinator: Coordinator {
     
+    override func viewControllerDidLoad() {
+        super.viewControllerDidLoad()
+    }
+    
     weak var delegate: ActiveWorkoutCoordinatorDelegate!
     
     var workout: Workout!

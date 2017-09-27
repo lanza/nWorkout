@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>280</string>
+	<string>286</string>
 	<key>ITSAppUsersNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -29,6 +29,7 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+		<string>healthkit</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

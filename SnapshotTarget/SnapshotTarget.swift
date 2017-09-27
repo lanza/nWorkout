@@ -23,6 +23,8 @@ class SnapshotTarget: XCTestCase {
         setupSnapshot(app)
         app.launch()
         
+    
+        
         snapshot("history")
         
         app.tabBars.buttons["Routines"].tap()

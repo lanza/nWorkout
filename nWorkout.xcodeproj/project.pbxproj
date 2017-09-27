@@ -13,6 +13,8 @@
 		B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */; };
 		B31953A61E305F6000AC2687 /* WorkoutDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A51E305F6000AC2687 /* WorkoutDetailCoordinator.swift */; };
 		B31953A81E305F7900AC2687 /* WorkoutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A71E305F7900AC2687 /* WorkoutDetailVC.swift */; };
+		B31B63F51ED53D1E0020AF5E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31B63F41ED53D1E0020AF5E /* HealthKit.framework */; };
+		B31B63F71ED53DEA0020AF5E /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31B63F61ED53DEA0020AF5E /* HealthKitManager.swift */; };
 		B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */; };
 		B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC651DDB02A1002F826C /* LiftCell.swift */; };
 		B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */; };
@@ -225,6 +227,9 @@
 		B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldBehaviorHandler.swift; sourceTree = "<group>"; };
 		B31953A51E305F6000AC2687 /* WorkoutDetailCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailCoordinator.swift; sourceTree = "<group>"; };
 		B31953A71E305F7900AC2687 /* WorkoutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailVC.swift; sourceTree = "<group>"; };
+		B31B63F31ED53D1E0020AF5E /* nWorkout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nWorkout.entitlements; sourceTree = "<group>"; };
+		B31B63F41ED53D1E0020AF5E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		B31B63F61ED53DEA0020AF5E /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTypeTVC.swift; sourceTree = "<group>"; };
 		B31CEC651DDB02A1002F826C /* LiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
 		B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDataSource.swift; sourceTree = "<group>"; };
@@ -357,6 +362,7 @@
 				B374C9FF1E8B5DB200671A93 /* RxDataSources.framework in Frameworks */,
 				B374C9FD1E8B5DAE00671A93 /* RxCocoa.framework in Frameworks */,
 				B374C9F91E8B5DA600671A93 /* Realm.framework in Frameworks */,
+				B31B63F51ED53D1E0020AF5E /* HealthKit.framework in Frameworks */,
 				B3FCF6F81E8B66D800453E0F /* RxRealm.framework in Frameworks */,
 				346BBE7C75AFB8BCAE468978 /* Pods_nWorkout.framework in Frameworks */,
 			);
@@ -399,6 +405,7 @@
 		B356FBB61DC09C160006A0F0 = {
 			isa = PBXGroup;
 			children = (
+				B31B63F31ED53D1E0020AF5E /* nWorkout.entitlements */,
 				B3FF69D71E79FC49005FE6C1 /* Source */,
 				B356FBC11DC09C160006A0F0 /* Other */,
 				6F519444AFB6CA12368FB62B /* Pods */,
@@ -710,6 +717,7 @@
 		B3FCCD2A1E171906003EF14E /* Auxiliary */ = {
 			isa = PBXGroup;
 			children = (
+				B31B63F61ED53DEA0020AF5E /* HealthKitManager.swift */,
 				B34BA0551DC1CC29006B6A51 /* Theme.swift */,
 				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
 				B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */,
@@ -774,6 +782,7 @@
 		C0C59FE9EF2670D17C13FC78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B31B63F41ED53D1E0020AF5E /* HealthKit.framework */,
 				B3FCF6F71E8B66D800453E0F /* RxRealm.framework */,
 				B374CA001E8B5DB800671A93 /* RxSwift.framework */,
 				B374C9FE1E8B5DB200671A93 /* RxDataSources.framework */,
@@ -877,6 +886,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 72MNHNDUNH;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1061,7 +1075,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E01C2BD7521B500A35E94F91 /* [CP] Check Pods Manifest.lock */ = {
@@ -1076,7 +1090,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1252,6 +1266,7 @@
 				B31953A81E305F7900AC2687 /* WorkoutDetailVC.swift in Sources */,
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
 				B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */,
+				B31B63F71ED53DEA0020AF5E /* HealthKitManager.swift in Sources */,
 				B3EA1A061E83C04E00B277E2 /* ChartCell.swift in Sources */,
 				B36059351E1C3EDF00EBE620 /* WeightAndRepsLabel.swift in Sources */,
 				B3852A5E1E767C7200900B24 /* StatisticsChartsTVC.swift in Sources */,
@@ -1454,6 +1469,7 @@
 			baseConfigurationReference = D86E1D94B445ACD74DD85B56 /* Pods-nWorkout.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nWorkout.entitlements;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1474,6 +1490,7 @@
 			baseConfigurationReference = AAA08A9A5FEE3A26B3120289 /* Pods-nWorkout.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nWorkout.entitlements;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
