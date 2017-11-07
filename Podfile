@@ -13,7 +13,7 @@ target 'nWorkout' do
 
   pod 'DZNEmptyDataSet'
 
-  pod 'Hero'
+  pod 'Hero', '0.3.6'
 
 
   ##pod 'RxKeyboard'
@@ -31,11 +31,16 @@ target 'nWorkout' do
     pod 'Reuse', :git=> 'https://github.com/nathanlanza/Reuse'
   end
 
-  pod 'Charts', :git => 'https://github.com/danielgindi/Charts', :branch => 'master'
-  pod 'CarbonKit'
+  pod 'Charts', '3.0.2'
+  pod 'CarbonKit', '2.1.9'
 
-  pod 'BonMot'
-  pod 'Eureka', '~> 2.0.0-beta.1'
+  pod 'BonMot', '4.1'
+  pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka', :branch => 'feature/Xcode9-Swift3_2'
+
+  pod 'RxSwift', '3.5.0'
+  pod 'RxDataSources', '1.0.3'
+  pod 'RealmSwift', '2.7.0'
+  pod 'RxRealm', '0.6.0'
 
 end
 
