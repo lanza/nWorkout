@@ -1,1 +1,1 @@
-[Beta available here](http://nworkout.lanza.io)
+Available on app store.
