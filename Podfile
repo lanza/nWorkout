@@ -19,17 +19,17 @@ target 'nWorkout' do
   ##pod 'RxKeyboard'
   ##pod 'RxGesture'
   
-  if `whoami`[0...-1] == 'lanza'
-    puts 'true'
-    pod 'CoordinatorKit', :path => '~/Documents/CoordinatorKit', :branch => 'master'
-    pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master'
-    pod 'Reuse', :path => '~/Documents/Reuse', :branch => 'master'
-  else 
-    puts 'false'
-    pod 'CoordinatorKit', :git => 'https://github.com/nathanlanza/CoordinatorKit'
-    pod 'ChartView', :git => 'https://github.com/nathanlanza/ChartView'
-    pod 'Reuse', :git=> 'https://github.com/nathanlanza/Reuse'
-  end
+  # if `whoami`[0...-1] == 'lanza'
+  #   puts 'true'
+  #   pod 'CoordinatorKit', :path => '~/Documents/CoordinatorKit', :branch => 'master'
+  #   pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master'
+  #   pod 'Reuse', :path => '~/Documents/Reuse', :branch => 'master'
+  # else 
+    # puts 'false'
+    pod 'CoordinatorKit', :git => 'https://github.com/lanza/CoordinatorKit'
+    pod 'ChartView', :git => 'https://github.com/lanza/ChartView'
+    pod 'Reuse', :git=> 'https://github.com/lanza/Reuse'
+  # end
 
   pod 'Charts', '3.0.2'
   pod 'CarbonKit', '2.1.9'
