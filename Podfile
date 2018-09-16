@@ -22,12 +22,12 @@ target 'nWorkout' do
   # if `whoami`[0...-1] == 'lanza'
   #   puts 'true'
   #   pod 'CoordinatorKit', :path => '~/Documents/CoordinatorKit', :branch => 'master'
-  #   pod 'ChartView', :path => '~/Documents/ChartView', :branch => 'master'
+    pod 'ChartView', :path => '~/Projects/ChartView', :branch => 'master'
   #   pod 'Reuse', :path => '~/Documents/Reuse', :branch => 'master'
   # else 
     # puts 'false'
     pod 'CoordinatorKit', :git => 'https://github.com/lanza/CoordinatorKit'
-    pod 'ChartView', :git => 'https://github.com/lanza/ChartView'
+   # pod 'ChartView', :git => 'https://github.com/lanza/ChartView'
     pod 'Reuse', :git=> 'https://github.com/lanza/Reuse'
   # end
 
