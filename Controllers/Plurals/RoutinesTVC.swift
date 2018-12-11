@@ -34,7 +34,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
         b.rx.tap.subscribe(onNext: {
             let alert = UIAlertController.alert(title: Lets.createNewRoutine, message: nil)
             
-            alert.addAction(UIAlertAction(title: Lets.done, style: UIAlertActionStyle.default) { action in
+          alert.addAction(UIAlertAction(title: Lets.done, style: UIAlertAction.Style.default) { action in
                 guard let name = alert.textFields?.first?.text else { fatalError() }
                 
                 let routine = Workout.new(isWorkout: false, isComplete: false, name: name)
@@ -52,7 +52,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
             alert.addAction(UIAlertAction(title: Lets.cancel, style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
 
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         
         tableView.tableHeaderView = view
     }

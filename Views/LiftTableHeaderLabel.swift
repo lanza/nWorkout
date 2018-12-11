@@ -4,10 +4,10 @@ class LiftTableHeaderLabel: UILabel {
     static func create() -> LiftTableHeaderLabel {
         let l = LiftTableHeaderLabel()
         
-        l.setContentCompressionResistancePriority(0, for: .horizontal)
-        l.setContentCompressionResistancePriority(0, for: .vertical)
-        l.setContentHuggingPriority(0, for: .horizontal)
-        l.setContentHuggingPriority(0, for: .vertical)
+      l.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 0), for: .horizontal)
+      l.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 0), for: .vertical)
+      l.setContentHuggingPriority(UILayoutPriority(rawValue: 0), for: .horizontal)
+      l.setContentHuggingPriority(UILayoutPriority(rawValue: 0), for: .vertical)
         
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textAlignment = .center

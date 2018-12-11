@@ -5,7 +5,7 @@ import DZNEmptyDataSet
 import BonMot
 
 class LiftTypeCell: UITableViewCell {
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = Theme.Colors.Table.background
@@ -49,9 +49,9 @@ class LiftTypeTVC: BaseTVC {
     }
     
     func setupRx() {
-        liftTypes.asObservable().bindTo(tableView.rx.items(cellIdentifier: LiftTypeCell.reuseIdentifier, cellType: LiftTypeCell.self)) { index, string, cell in
+      liftTypes.asObservable().bind(to: tableView.rx.items(cellIdentifier: LiftTypeCell.reuseIdentifier, cellType: LiftTypeCell.self)) { index, string, cell in
             cell.textLabel?.text = string
-            }.addDisposableTo(db)
+        }.disposed(by: db)
         
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: {
             let alert = UIAlertController.alert(title: Lets.addNewLiftType, message: nil)
@@ -66,16 +66,16 @@ class LiftTypeTVC: BaseTVC {
             alert.addAction(cancel)
             
             self.present(alert, animated: true, completion: nil)
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         
         tableView.rx.modelSelected(String.self).subscribe(onNext: { name in
             self.didSelectLiftName(name)
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         
         tableView.rx.itemDeleted.subscribe(onNext: { indexPath in
             self.liftTypes.value.remove(at: indexPath.row)
             self.save()
-        }).addDisposableTo(db)
+        }).disposed(by: db)
     }
     
     func save() {

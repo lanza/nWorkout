@@ -2,9 +2,9 @@ import Foundation
 import RealmSwift
 
 class Lift: Base {
-    dynamic var name = ""
+  @objc dynamic var name = ""
     let sets = List<Set>()
-    dynamic var _previousStrings: String = ""
+  @objc dynamic var _previousStrings: String = ""
     var previousStrings: [String] { return _previousStrings.components(separatedBy: ",") }
     
     static func new(isWorkout: Bool, name: String, workout: Workout) -> Lift {
@@ -30,7 +30,7 @@ class Lift: Base {
     }
     
     
-    dynamic var workout: Workout?
+  @objc dynamic var workout: Workout?
 }
 
 extension Lift {
@@ -69,7 +69,7 @@ extension Lift: DataProvider {
     func remove(at index: Int) {
         let set = object(at: index)
         RLM.write {
-            sets.remove(objectAtIndex: index)
+          sets.remove(at: index)
         }
         set.deleteSelf()
     }

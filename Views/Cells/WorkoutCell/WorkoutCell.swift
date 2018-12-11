@@ -4,26 +4,27 @@ import RxSwift
 import RxCocoa
 
 extension WorkoutCell: ConfigurableCell {
-    func configure(for object: Workout, at indexPath: IndexPath) {
-        
-        chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
-        
-        label.text = Lets.workoutDateDF.string(from: object.startDate)
-        
-        chartView.configurationClosure = { (index,rowView) in
-            let lift = object.object(at: index)
-            (rowView.columnViews[0] as! UILabel).text = lift.name
-            (rowView.columnViews[0] as! UILabel).textAlignment = .center
-            (rowView.columnViews[1] as! UILabel).text = String(lift.sets.count) + " sets"
-            (rowView.columnViews[1] as! UILabel).textAlignment = .center
-        }
-        
-        chartView.setup()
-        setNeedsUpdateConstraints()
-    }
+  
 }
 
 class WorkoutCell: ChartViewCell {
+  func configure(for object: Workout, at indexPath: IndexPath) {
+    
+    chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
+    
+    label.text = Lets.workoutDateDF.string(from: object.startDate)
+    
+    chartView.configurationClosure = { (index,rowView) in
+      let lift = object.object(at: index)
+      (rowView.columnViews[0] as! UILabel).text = lift.name
+      (rowView.columnViews[0] as! UILabel).textAlignment = .center
+      (rowView.columnViews[1] as! UILabel).text = String(lift.sets.count) + " sets"
+      (rowView.columnViews[1] as! UILabel).textAlignment = .center
+    }
+    
+    chartView.setup()
+    setNeedsUpdateConstraints()
+  }
     
     let label = UILabel()
     
@@ -58,7 +59,7 @@ class WorkoutCell: ChartViewCell {
         chartView.emptyLabel.textColor = .white
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         chartView.isUserInteractionEnabled = false

@@ -2,16 +2,16 @@ import Foundation
 import RealmSwift
 
 class Set: Base {
-    dynamic var weight: Double = 0
-    dynamic var reps = 0
-    dynamic var isWarmup = false
-    dynamic var completedWeight: Double = 0 {
+  @objc dynamic var weight: Double = 0
+  @objc dynamic var reps = 0
+  @objc dynamic var isWarmup = false
+  @objc dynamic var completedWeight: Double = 0 {
         didSet {
             print("CompletedReps touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)")
         }
     }
     
-    dynamic var completedReps = 0 {
+  @objc dynamic var completedReps = 0 {
         didSet {
             print("CompletedWeight touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)")
         }
@@ -38,7 +38,7 @@ class Set: Base {
         return set
     }
     
-    dynamic var lift: Lift?
+  @objc dynamic var lift: Lift?
 }
 
 extension Set {

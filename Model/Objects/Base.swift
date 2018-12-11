@@ -2,8 +2,8 @@ import Foundation
 import RealmSwift
 
 class Base: Object {
-    dynamic var note = ""
-    dynamic var isWorkout = false
+  @objc dynamic var note = ""
+  @objc dynamic var isWorkout = false
     
     func deleteSelf() {
         RLM.write {

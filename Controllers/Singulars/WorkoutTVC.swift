@@ -36,7 +36,7 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: Lets.hide, style: .plain, target: nil, action: nil)
             navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
                 self.delegate.hideTapped(for: self)
-            }).addDisposableTo(db)
+            }).disposed(by: db)
         }
         
         setupDZN()

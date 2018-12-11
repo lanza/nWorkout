@@ -59,7 +59,12 @@ class StatisticsChartsTVC: BaseTVC {
     }
     
     
-    let dataSource = RxTableViewSectionedReloadDataSource<ChartSectionModel>()
+  let dataSource = RxTableViewSectionedReloadDataSource<ChartSectionModel>(configureCell: { ds, tv, ip, item in
+    let cell = tv.dequeueReusableCell(for: ip) as ChartCell
+    cell.chartView.data = item
+    
+    return cell
+  })
     
     func setupTableView() {
         tableView.allowsSelection = false
@@ -70,18 +75,12 @@ class StatisticsChartsTVC: BaseTVC {
         //        tableView.rowHeight = UITableViewAutomaticDimension
         
         tableView.register(ChartCell.self)
-        dataSource.configureCell = { ds, tv, ip, item in
-            let cell = tv.dequeueReusableCell(for: ip) as ChartCell
-                cell.chartView.data = item
-            
-            return cell
-        }
-        Observable.just(sections).bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(db)
-        tableView.rx.setDelegate(self).addDisposableTo(db)
+      Observable.just(sections).bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: db)
+      tableView.rx.setDelegate(self).disposed(by: db)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+      return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100

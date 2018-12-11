@@ -11,8 +11,8 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     let tableView = UITableView()
     var viewInfos = ViewInfo.saved
     
-    var dataSource = RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>()
-    
+  var dataSource: RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>! = nil
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,33 +57,33 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
         
         tableView.separatorStyle = .none
         
-        dataSource.configureCell = { [unowned self] ds, tv, ip, item in
-            let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
-            if ip.section == 1 {
-                let vi = self.viewInfos[ip.row]
-                cell.onSwitch.isOn = vi.isOn
-                cell.widthTextField.text = "\(vi.width)"
-            } else {
-                cell.onSwitch.isOn = ViewInfo.usesCombinedView
-            }
-            cell.titleLabel.text = item
-            cell.delegate = self
-            
-            return cell
+      dataSource = RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>(configureCell: { [unowned self] ds, tv, ip, item in
+        let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
+        if ip.section == 1 {
+          let vi = self.viewInfos[ip.row]
+          cell.onSwitch.isOn = vi.isOn
+          cell.widthTextField.text = "\(vi.width)"
+        } else {
+          cell.onSwitch.isOn = ViewInfo.usesCombinedView
         }
+        cell.titleLabel.text = item
+        cell.delegate = self
+        
+        return cell
+      })
         dataSource.titleForHeaderInSection = { ds, index in
             return index == 0 ? "" : "Cells"
         }
-        dataSource.canMoveRowAtIndexPath = { info in
-            switch info.1.section {
+        dataSource.canMoveRowAtIndexPath = { _, info in
+            switch info.section {
             case 0:
                 return false
             default:
                 return true
             }
         }
-        dataSource.canEditRowAtIndexPath = { info in
-            switch info.1.section {
+        dataSource.canEditRowAtIndexPath = { _, info in
+            switch info.section {
             case 0:
                 return false
             default:
@@ -93,7 +93,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
         
         dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .automatic, reloadAnimation: .automatic, deleteAnimation: .automatic)
         
-        Observable.just(sections).bindTo(tableView.rx.items(dataSource: dataSource)).addDisposableTo(db)
+      Observable.just(sections).bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: db)
         
         tableView.rx.itemMoved.subscribe(onNext: { event in
             guard event.destinationIndex.section == 1 else { return }
@@ -106,9 +106,9 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
             let viewInfo = self.viewInfos.remove(at: event.sourceIndex.row)
             self.viewInfos.insert(viewInfo, at: event.destinationIndex.row)
             
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         
-        tableView.rx.setDelegate(self).addDisposableTo(db)
+      tableView.rx.setDelegate(self).disposed(by: db)
         
     }
     
@@ -160,12 +160,12 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+  func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+      return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 45
@@ -221,7 +221,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate, CellSettingsCellDelega
             addSubview(widthLabel)
             addSubview(isOnLabel)
             
-            widthLabel.setContentHuggingPriority(5, for: .horizontal)
+          widthLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 5), for: .horizontal)
             
             NSLayoutConstraint.activate([
                 cellTypeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),

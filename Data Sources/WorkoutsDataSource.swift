@@ -2,7 +2,7 @@ import UIKit
 import RealmSwift
 import Reuse
 
-class WorkoutsDataSource<Cell: UITableViewCell> : DataSource<BaseDataProvider<Workout>,Cell> where Cell: ConfigurableCell, Cell.Object == Workout, Cell: ReusableView {
+class WorkoutsDataSource<Cell: UITableViewCell> : DataSource<BaseDataProvider<Workout>,Cell> where Cell: ConfigurableCell, Cell.Object == Workout {
     
     
     
@@ -15,7 +15,7 @@ class WorkoutsDataSource<Cell: UITableViewCell> : DataSource<BaseDataProvider<Wo
     
     override func initialSetup() {
         super.initialSetup()
-        tableView.rowHeight = UITableViewAutomaticDimension
+      tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
     }
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -24,7 +24,7 @@ class WorkoutsDataSource<Cell: UITableViewCell> : DataSource<BaseDataProvider<Wo
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { fatalError() }
         let strings = Lets.deleteConfirmationFor(name: name)
         let alert = UIAlertController(title: strings.title, message: strings.message, preferredStyle: .alert)

@@ -36,10 +36,10 @@ class WeightAndRepsLabel: UILabel {
         
         setFontScaling(minimum: 4)
         
-        setContentHuggingPriority(0, for: .vertical)
-        setContentHuggingPriority(0, for: .horizontal)
-        setContentCompressionResistancePriority(0, for: .vertical)
-        setContentCompressionResistancePriority(0, for: .horizontal)
+      setContentHuggingPriority(UILayoutPriority(rawValue: 0), for: .vertical)
+      setContentHuggingPriority(UILayoutPriority(rawValue: 0), for: .horizontal)
+      setContentCompressionResistancePriority(UILayoutPriority(rawValue: 0), for: .vertical)
+      setContentCompressionResistancePriority(UILayoutPriority(rawValue: 0), for: .horizontal)
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError() }

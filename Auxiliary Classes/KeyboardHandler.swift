@@ -7,21 +7,21 @@ class KeyboardHandler: NSObject {
         let kh = KeyboardHandler()
         kh.tableView = tableView
         kh.view = view
-        NotificationCenter.default.addObserver(kh, selector: #selector(KeyboardHandler.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(kh, selector: #selector(KeyboardHandler.keyboardDidShow(_: )), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(kh, selector: #selector(KeyboardHandler.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+      NotificationCenter.default.addObserver(kh, selector: #selector(KeyboardHandler.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+      NotificationCenter.default.addObserver(kh, selector: #selector(KeyboardHandler.keyboardDidShow(_: )), name: UIResponder.keyboardDidShowNotification, object: nil)
+      NotificationCenter.default.addObserver(kh, selector: #selector(KeyboardHandler.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         return kh
     }
     var defaultInsets: UIEdgeInsets!
     var keyboardHeight: CGFloat!
-    func keyboardWillShow(_ notification: Notification) {
+  @objc func keyboardWillShow(_ notification: Notification) {
         if let userInfo = notification.userInfo {
             
             if defaultInsets == nil {
                 defaultInsets = tableView.contentInset
             }
             
-            let value = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+          let value = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
             keyboardHeight = value?.height ?? view.frame.height * CGFloat(Lets.keyboardToViewRatio)
             
             let insets = UIEdgeInsets(top: defaultInsets.top, left: defaultInsets.left, bottom: keyboardHeight, right: defaultInsets.right)
@@ -30,7 +30,7 @@ class KeyboardHandler: NSObject {
             tableView.scrollIndicatorInsets = insets
         }
     }
-    func keyboardDidShow(_ notification: Notification) {
+  @objc func keyboardDidShow(_ notification: Notification) {
         scrollToTextField()
     }
     
@@ -52,7 +52,7 @@ class KeyboardHandler: NSObject {
         }
     }
     
-    func keyboardWillHide(_ notification: Notification) {
+  @objc func keyboardWillHide(_ notification: Notification) {
         UIView.animate(withDuration: 0.2) {
             guard let defaultInsets = self.defaultInsets else { return }
             self.tableView.contentInset = defaultInsets

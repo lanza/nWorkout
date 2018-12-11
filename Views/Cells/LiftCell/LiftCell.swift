@@ -22,6 +22,53 @@ extension LiftCell: SetRowViewDelegate {
 }
 
 class LiftCell: ChartViewCell {
+  func configure(for object: Lift, at indexPath: IndexPath) {
+    
+    label.text = object.name
+    
+    chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
+    
+    chartView.configurationClosure = { (index,rowView) in
+      let rowView = rowView as! SetRowView
+      rowView.delegate = self
+      let set = object.object(at: index)
+      rowView.set = set
+      
+      if let snl = rowView.setNumberLabel {
+        snl.text = String(index + 1)
+      }
+      
+      if let twtf = rowView.targetWeightTextField {
+        var weight: String
+        if set.weight.remainder(dividingBy: 1) == 0 {
+          weight = String(Int(set.weight))
+        } else {
+          weight = String(set.weight)
+        }
+        twtf.text = weight
+      }
+      if let trtf = rowView.targetRepsTextField {
+        trtf.text = String(set.reps)
+      }
+      
+      if let cwtf = rowView.completedWeightTextField {
+        cwtf.setNumber(double: set.completedWeight)
+      }
+      if let crtf = rowView.completedRepsTextField {
+        crtf.setNumber(int: set.completedReps)
+      }
+      if let pl = rowView.previousLabel {
+        if object.previousStrings.count > index && object.previousStrings[0] != "" {
+          pl.text = object.previousStrings[index]
+        } else {
+          pl.text = Lets.noPreviousSet
+        }
+      }
+    }
+    
+    chartView.setup()
+    setNeedsUpdateConstraints()
+  }
     
     func setupContentView() {
         contentView.backgroundColor = Theme.Colors.Cell.contentBackground
@@ -37,7 +84,7 @@ class LiftCell: ChartViewCell {
             noteButton.update(for: lift)
             noteButton.rx.tap.subscribe(onNext: {
                 self.delegate.liftCell(self, didTapNoteButtonForLift: self.lift)
-            }).addDisposableTo(db)
+            }).disposed(by: db)
         }
     }
     
@@ -113,7 +160,7 @@ class LiftCell: ChartViewCell {
         chartView.setBorder(color: Theme.Colors.Table.borders, width: 1, radius: 0)
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupTopContentView()
@@ -135,51 +182,5 @@ class LiftCell: ChartViewCell {
 }
 
 extension LiftCell: ConfigurableCell {
-    func configure(for object: Lift, at indexPath: IndexPath) {
-        
-        label.text = object.name
-        
-        chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
-        
-        chartView.configurationClosure = { (index,rowView) in
-            let rowView = rowView as! SetRowView
-            rowView.delegate = self
-            let set = object.object(at: index)
-            rowView.set = set
-            
-            if let snl = rowView.setNumberLabel {
-                snl.text = String(index + 1)
-            }
-            
-            if let twtf = rowView.targetWeightTextField {
-                var weight: String
-                if set.weight.remainder(dividingBy: 1) == 0 {
-                    weight = String(Int(set.weight))
-                } else {
-                    weight = String(set.weight)
-                }
-                twtf.text = weight
-            }
-            if let trtf = rowView.targetRepsTextField {
-                trtf.text = String(set.reps)
-            }
-            
-            if let cwtf = rowView.completedWeightTextField {
-                cwtf.setNumber(double: set.completedWeight)
-            }
-            if let crtf = rowView.completedRepsTextField {
-                crtf.setNumber(int: set.completedReps)
-            }
-            if let pl = rowView.previousLabel {
-                if object.previousStrings.count > index && object.previousStrings[0] != "" {
-                    pl.text = object.previousStrings[index]
-                } else {
-                    pl.text = Lets.noPreviousSet
-                }
-            }
-        }
-        
-        chartView.setup()
-        setNeedsUpdateConstraints()
-    }
+  
 }

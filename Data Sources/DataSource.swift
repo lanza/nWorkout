@@ -1,7 +1,7 @@
 import UIKit
 import Reuse
 
-class DataSource<Provider: DataProvider, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate where Cell: ConfigurableCell, Cell: ReusableView, Provider.Object == Cell.Object {
+class DataSource<Provider: DataProvider, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate where Cell: ConfigurableCell, Provider.Object == Cell.Object {
     
     let tableView: UITableView
     let provider: Provider
@@ -36,7 +36,7 @@ class DataSource<Provider: DataProvider, Cell: UITableViewCell>: NSObject, UITab
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         fatalError()
     }
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {

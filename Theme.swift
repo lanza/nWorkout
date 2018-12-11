@@ -4,7 +4,7 @@ struct Theme {
     static func `do`() {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.titleTextAttributes = [
-            NSForegroundColorAttributeName: Colors.Nav.title
+          NSAttributedString.Key.foregroundColor: Colors.Nav.title
         ]
         navBarAppearance.barStyle = .blackOpaque
         navBarAppearance.barTintColor = Colors.Nav.barTint

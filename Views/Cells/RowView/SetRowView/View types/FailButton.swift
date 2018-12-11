@@ -3,7 +3,7 @@ import UIKit
 class FailButton: UIButton {
     init() {
         super.init(frame: CGRect.zero)
-        setTitle(Lets.failButtonText, for: UIControlState())
+      setTitle(Lets.failButtonText, for: UIControl.State())
         
         titleLabel?.numberOfLines = 1
         titleLabel?.minimumScaleFactor = 3/titleLabel!.font.pointSize

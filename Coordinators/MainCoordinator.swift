@@ -17,7 +17,7 @@ class MainCoordinator: TabBarCoordinator {
             self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem = UIBarButtonItem(title: Lets.hide, style: .plain, target: nil, action: nil)
             self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext: {
                 self.dismiss(animated: true)
-            }).addDisposableTo(self.db)
+            }).disposed(by: self.db)
             self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
                 self.activeWorkoutCoordinator = nil
             }
@@ -72,7 +72,7 @@ class MainCoordinator: TabBarCoordinator {
             print("Test")
             self.activeWorkoutCoordinator = nil
             self.checkForUnfinishedWorkout(displayImmediately: false)
-        }).addDisposableTo(db)
+        }).disposed(by: db)
     }
     
     let dummy: Coordinator = {

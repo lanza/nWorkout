@@ -24,7 +24,7 @@ class StatisticsHistoryTVC: BaseTVC {
     func setupRx() {
         
         tableView.register(StatisticsHistoryCell.self)
-        Observable.collection(from: lifts).bindTo(tableView.rx.items(cellType: StatisticsHistoryCell.self)) { indexPath, lift, cell in
+      Observable.collection(from: lifts).bind(to: tableView.rx.items(cellType: StatisticsHistoryCell.self)) { indexPath, lift, cell in
             
             cell.chartView.chartViewDataSource = BaseChartViewDataSource(object: lift)
             cell.dateLabel.text = cell.df.string(from: lift.workout!.startDate)
@@ -42,11 +42,11 @@ class StatisticsHistoryTVC: BaseTVC {
             cell.chartView.setup()
             cell.setNeedsUpdateConstraints()
             
-            }.addDisposableTo(db)
+        }.disposed(by: db)
         
         tableView.rx.itemDeleted.subscribe(onNext: { indexPath in
             
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         
     }
     
@@ -56,9 +56,9 @@ class StatisticsHistoryTVC: BaseTVC {
     let db = DisposeBag()
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+      return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+      return UITableView.automaticDimension
     }
 }

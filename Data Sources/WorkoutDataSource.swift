@@ -7,7 +7,7 @@ protocol WorkoutDataSourceDelegate: class {
     func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: Lift)
 }
 
-class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
+class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> {
     
     var name: String!
     
@@ -23,7 +23,7 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: Co
     
     override func initialSetup() {
         super.initialSetup()
-        tableView.rowHeight = UITableViewAutomaticDimension
+      tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         
         setupFooterView()
@@ -45,7 +45,7 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: Co
         
         cell.addSetButton.rx.tap.subscribe(onNext: {
             self.addSet(for: lift, and: cell)
-        }).addDisposableTo(cell.db)
+        }).disposed(by: cell.db)
        
         cell.delegate = self
         
@@ -74,8 +74,9 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout,Cell> where Cell: Co
         }
         return tfbh
     }()
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+  
+  
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { fatalError() }
         provider.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)

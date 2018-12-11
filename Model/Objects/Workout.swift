@@ -3,13 +3,13 @@ import RealmSwift
 
 class Workout: Base {
     let lifts = List<Lift>()
-    dynamic var name = ""
-    dynamic var isComplete = false
+  @objc dynamic var name = ""
+  @objc dynamic var isComplete = false
     var activeOrFinished: ActiveOrFinished {
         return isComplete ? .finished : .active
     }
-    dynamic var startDate = Date()
-    dynamic var finishDate: Date? = nil
+  @objc dynamic var startDate = Date()
+  @objc dynamic var finishDate: Date? = nil
     
     func addNewSet(for lift: Lift) -> Set {
         let last = lift.sets.last
@@ -80,14 +80,14 @@ extension Workout: DataProvider {
     func remove(at index: Int) {
         let lift = object(at: index)
         RLM.write {
-            lifts.remove(objectAtIndex: index)
+          lifts.remove(at: index)
         }
         lift.deleteSelf()
     }
     func move(from sourceIndex: Int, to destinationIndex: Int) {
         let lift = lifts[sourceIndex]
         RLM.write {
-            lifts.remove(objectAtIndex: sourceIndex)
+          lifts.remove(at: sourceIndex)
             lifts.insert(lift, at: destinationIndex)
         }
     }

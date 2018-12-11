@@ -156,7 +156,7 @@ class SetRowView: BaseRowView {
             } else {
                 self.setFailed()
             }
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         
         completeButton?.rx.tap.subscribe(onNext: { [unowned self] in
             if self.isComplete {
@@ -164,10 +164,10 @@ class SetRowView: BaseRowView {
             } else {
                 self.setComplete()
             }
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         noteButton?.rx.tap.subscribe(onNext: { [unowned self] in
             self.delegate.setRowView(self, didTapNoteButtonForSet: self.set)
-        }).addDisposableTo(db)
+        }).disposed(by: db)
     }
     
     let dict: [String:UIView.Type] = [

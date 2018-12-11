@@ -28,25 +28,25 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
             RLM.write {
                 setRowView.set.weight = value
             }
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.targetRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
             guard let value = Int(setRowView.targetRepsTextField!.text!), value != setRowView.set.reps else { return }
             RLM.write {
                 setRowView.set.reps = value
             }
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.completedWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
             guard let value = Double(setRowView.completedWeightTextField!.text!), value != setRowView.set.completedWeight else { return }
             RLM.write {
                 setRowView.set.completedWeight = value
             }
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.completedRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
             guard let value = Int(setRowView.completedRepsTextField!.text!), value != setRowView.set.completedReps else { return }
             RLM.write {
                 setRowView.set.completedReps = value
             }
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
     }
     
     func setupObserversForSettingBackTextAfterEditing(setRowView: SetRowView) {

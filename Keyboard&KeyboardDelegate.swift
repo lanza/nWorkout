@@ -62,14 +62,14 @@ class Keyboard: UIView {
         characters.append(".")
         
         for (number,button) in zip(characters, numberButtons) {
-            button.setTitle(String(number), for: UIControlState())
+          button.setTitle(String(number), for: UIControl.State())
             button.addTarget(self, action: #selector(keyTapped(_:)), for: .touchUpInside)
         }
         
         backspaceButton.setTitle("←", for: .normal)
         backspaceButton.addTarget(self, action: #selector(backspaceTapped(_:)), for: .touchUpInside)
         
-        nextButton.setTitle("Next", for: UIControlState())
+      nextButton.setTitle("Next", for: UIControl.State())
         nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .touchUpInside)
     }
     
@@ -93,7 +93,7 @@ class Keyboard: UIView {
         masterStackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(masterStackView)
         
-        hideButton.setTitle("Hide", for: UIControlState())
+      hideButton.setTitle("Hide", for: UIControl.State())
         
         hideButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(hideButton)
