@@ -1,5 +1,7 @@
 # vim: set ft=ruby :
 
+platform :ios, '11.0'
+
 target 'nWorkout' do
   use_frameworks!
 
@@ -12,9 +14,13 @@ target 'nWorkout' do
   pod 'CustomIOSAlertView' 
   pod 'DZNEmptyDataSet' 
 
-  pod 'ChartView', :path => '~/Projects/ChartView', :branch => 'master'
-  pod 'CoordinatorKit', :git => 'https://github.com/lanza/CoordinatorKit'
-  pod 'Reuse', :git=> 'https://github.com/lanza/Reuse'
+  # pod 'ChartView', :git => 'https://github.com/lanza/ChartView', :branch => 'master'
+  # pod 'CoordinatorKit', :git => 'https://github.com/lanza/CoordinatorKit'
+  # pod 'Reuse', :git=> 'https://github.com/lanza/Reuse'
+
+  pod 'ChartView', :path => '~/Projects/ChartView'
+  pod 'CoordinatorKit', :path => '~/Projects/CoordinatorKit'
+  pod 'Reuse', :path => '~/Projects/Reuse'
 
   pod 'Charts'
   pod 'CarbonKit'
