@@ -14,9 +14,9 @@ target 'nWorkout' do
   pod 'CustomIOSAlertView' 
   pod 'DZNEmptyDataSet' 
 
-  # pod 'ChartView', :git => 'https://github.com/lanza/ChartView', :branch => 'master'
-  # pod 'CoordinatorKit', :git => 'https://github.com/lanza/CoordinatorKit'
-  # pod 'Reuse', :git=> 'https://github.com/lanza/Reuse'
+  # pod 'ChartView', :git => 'https://github.com/nworkout/ChartView'
+  # pod 'CoordinatorKit', :git => 'https://github.com/nworkout/CoordinatorKit'
+  # pod 'Reuse', :git=> 'https://github.com/nworkout/Reuse'
 
   pod 'ChartView', :path => '~/Projects/ChartView'
   pod 'CoordinatorKit', :path => '~/Projects/CoordinatorKit'
