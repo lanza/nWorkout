@@ -5,12 +5,6 @@ platform :ios, '11.0'
 target 'nWorkout' do
   use_frameworks!
 
-  target 'SnapshotTarget' do
-    inherit! :search_paths
-    pod 'Quick'
-    pod 'Nimble'
-  end
-
   pod 'CustomIOSAlertView' 
   pod 'DZNEmptyDataSet' 
 
