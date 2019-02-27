@@ -18,9 +18,9 @@ target 'nWorkout' do
   # pod 'CoordinatorKit', :git => 'https://github.com/nworkout/CoordinatorKit'
   # pod 'Reuse', :git=> 'https://github.com/nworkout/Reuse'
 
-  pod 'ChartView', :path => '~/Projects/ChartView'
-  pod 'CoordinatorKit', :path => '~/Projects/CoordinatorKit'
-  pod 'Reuse', :path => '~/Projects/Reuse'
+  pod 'ChartView', :path => '~/Projects/nWorkout/ChartView'
+  pod 'CoordinatorKit', :path => '~/Projects/nWorkout/CoordinatorKit'
+  pod 'Reuse', :path => '~/Projects/nWorkout/Reuse'
 
   pod 'Charts'
   pod 'CarbonKit'
