@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17B7B83673AF4C80C2289A64 /* Pods_nWorkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C28EEED137330DEEC3C28A7 /* Pods_nWorkout.framework */; };
 		B30314681E302F1F00E13EBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B30314671E302F1F00E13EBE /* Assets.xcassets */; };
 		B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */; };
 		B31953A61E305F6000AC2687 /* WorkoutDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A51E305F6000AC2687 /* WorkoutDetailCoordinator.swift */; };
@@ -111,6 +112,7 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
+		2C28EEED137330DEEC3C28A7 /* Pods_nWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA08A9A5FEE3A26B3120289 /* Pods-nWorkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.release.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.release.xcconfig"; sourceTree = "<group>"; };
 		B30314671E302F1F00E13EBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldBehaviorHandler.swift; sourceTree = "<group>"; };
@@ -213,12 +215,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B7B83673AF4C80C2289A64 /* Pods_nWorkout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39E431DD8274B3A39029E61A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C28EEED137330DEEC3C28A7 /* Pods_nWorkout.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6F519444AFB6CA12368FB62B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +256,7 @@
 				B3FF69D71E79FC49005FE6C1 /* Source */,
 				B356FBC11DC09C160006A0F0 /* Other */,
 				6F519444AFB6CA12368FB62B /* Pods */,
+				39E431DD8274B3A39029E61A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
