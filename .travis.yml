@@ -1,29 +1,11 @@
 language: objective-c
 osx_image: xcode10.1
+xcode_workspace: nWorkout.xcworkspace
+xcode_scheme: nWorkout
+xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
 
-notifications:
-  email:
-    recipients:
-      - nathan@lanza.io
-      - eric@lanza.io
-    on_success: change # default: change
-    on_failure: always # default: always
 env:
-  global:
-    - TRAVIS=TRAVIS
-  matrix:
-    - DESTINATION="platform=iOS Simulator,OS=10.2,id=63A0BA5F-3911-496F-BF2E-512830B4AD7F"
-
-before_install:
-  - gem update
-  - gem install xcpretty xcprofiler -N
-  - brew update && brew update && brew upgrade
-  - brew install swiftlint || true
-  - brew install xctool || true
-  - pod repo update
-  - set -o pipefail
-script: 
-  - xcodebuild -workspace nWorkout.xcworkspace -scheme nWorkout build | xcpretty -c
-  - xcprofiler nWorkout | head -40
-    # - xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch i386 run-tests
-    #- xctool -workspace nWorkout.xcworkspace -scheme nWorkout -sdk iphonesimulator -arch i386 run-tests -parallelize
+ global:
+   - TRAVIS=TRAVIS
+ matrix:
+   - DESTINATION="platform=iOS Simulator,OS=10.2,id=63A0BA5F-3911-496F-BF2E-512830B4AD7F"

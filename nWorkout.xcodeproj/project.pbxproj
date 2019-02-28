@@ -96,6 +96,7 @@
 		B3FCCD321E17249D003EF14E /* WorkoutFooterViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD311E17249D003EF14E /* WorkoutFooterViewButton.swift */; };
 		B3FCCD371E172A9F003EF14E /* ActiveOrFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD361E172A9F003EF14E /* ActiveOrFinished.swift */; };
 		B3FCCD391E172AC3003EF14E /* WorkoutLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */; };
+		B3FD3BF3222778E30005ED37 /* nWorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD3BF2222778E30005ED37 /* nWorkoutTests.swift */; };
 		B3FF69D91E79FE8B005FE6C1 /* EmptyDataSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */; };
 		B3FF69E01E7A17A2005FE6C1 /* CellSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FF69DF1E7A17A2005FE6C1 /* CellSettingsCell.swift */; };
 /* End PBXBuildFile section */
@@ -110,6 +111,16 @@
 			);
 		};
 /* End PBXBuildRule section */
+
+/* Begin PBXContainerItemProxy section */
+		B3FD3BF5222778E40005ED37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B356FBB71DC09C160006A0F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B356FBBE1DC09C160006A0F0;
+			remoteInfo = nWorkout;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2C28EEED137330DEEC3C28A7 /* Pods_nWorkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nWorkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,7 +149,6 @@
 		B34BA05B1DC1CCED006B6A51 /* Lift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lift.swift; sourceTree = "<group>"; };
 		B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
 		B3540AB11E8E1ECF0001B996 /* BaseRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRowView.swift; sourceTree = "<group>"; };
-		B356FBBF1DC09C160006A0F0 /* nWorkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = nWorkout.app; path = "/Users/lanza/Projects/nWorkout/nWorkout/build/Debug-iphoneos/nWorkout.app"; sourceTree = "<absolute>"; };
 		B356FBC21DC09C160006A0F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B356FBCE1DC09C160006A0F0 /* nWorkout.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = nWorkout.plist; sourceTree = "<group>"; };
 		B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetRowView.swift; path = SetRowView/SetRowView.swift; sourceTree = "<group>"; };
@@ -205,6 +215,10 @@
 		B3FCCD311E17249D003EF14E /* WorkoutFooterViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFooterViewButton.swift; sourceTree = "<group>"; };
 		B3FCCD361E172A9F003EF14E /* ActiveOrFinished.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveOrFinished.swift; sourceTree = "<group>"; };
 		B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLiftCell.swift; sourceTree = "<group>"; };
+		B3FD3BDC22276FF00005ED37 /* nWorkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nWorkout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3FD3BF0222778E30005ED37 /* nWorkoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nWorkoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3FD3BF2222778E30005ED37 /* nWorkoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nWorkoutTests.swift; sourceTree = "<group>"; };
+		B3FD3BF4222778E40005ED37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyDataSetController.swift; path = ../Controllers/Plurals/EmptyDataSetController.swift; sourceTree = "<group>"; };
 		B3FF69DF1E7A17A2005FE6C1 /* CellSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSettingsCell.swift; sourceTree = "<group>"; };
 		D86E1D94B445ACD74DD85B56 /* Pods-nWorkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +230,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B7B83673AF4C80C2289A64 /* Pods_nWorkout.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3FD3BED222778E30005ED37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +277,10 @@
 				B3FF69D71E79FC49005FE6C1 /* Source */,
 				B356FBC11DC09C160006A0F0 /* Other */,
 				6F519444AFB6CA12368FB62B /* Pods */,
+				B3FD3BF1222778E30005ED37 /* nWorkoutTests */,
 				39E431DD8274B3A39029E61A /* Frameworks */,
+				B3FD3BDC22276FF00005ED37 /* nWorkout.app */,
+				B3FD3BF0222778E30005ED37 /* nWorkoutTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -552,6 +576,15 @@
 			path = "Auxiliary Classes";
 			sourceTree = "<group>";
 		};
+		B3FD3BF1222778E30005ED37 /* nWorkoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				B3FD3BF2222778E30005ED37 /* nWorkoutTests.swift */,
+				B3FD3BF4222778E40005ED37 /* Info.plist */,
+			);
+			path = nWorkoutTests;
+			sourceTree = "<group>";
+		};
 		B3FF69D71E79FC49005FE6C1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,8 +654,26 @@
 			);
 			name = nWorkout;
 			productName = nWorkout;
-			productReference = B356FBBF1DC09C160006A0F0 /* nWorkout.app */;
+			productReference = B3FD3BDC22276FF00005ED37 /* nWorkout.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B3FD3BEF222778E30005ED37 /* nWorkoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3FD3BF9222778E40005ED37 /* Build configuration list for PBXNativeTarget "nWorkoutTests" */;
+			buildPhases = (
+				B3FD3BEC222778E30005ED37 /* Sources */,
+				B3FD3BED222778E30005ED37 /* Frameworks */,
+				B3FD3BEE222778E30005ED37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3FD3BF6222778E40005ED37 /* PBXTargetDependency */,
+			);
+			name = nWorkoutTests;
+			productName = nWorkoutTests;
+			productReference = B3FD3BF0222778E30005ED37 /* nWorkoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -630,7 +681,7 @@
 		B356FBB71DC09C160006A0F0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Nathan Lanza";
 				TargetAttributes = {
@@ -643,6 +694,12 @@
 								enabled = 0;
 							};
 						};
+					};
+					B3FD3BEF222778E30005ED37 = {
+						CreatedOnToolsVersion = 10.2;
+						DevelopmentTeam = 72MNHNDUNH;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B356FBBE1DC09C160006A0F0;
 					};
 				};
 			};
@@ -660,6 +717,7 @@
 			projectRoot = "";
 			targets = (
 				B356FBBE1DC09C160006A0F0 /* nWorkout */,
+				B3FD3BEF222778E30005ED37 /* nWorkoutTests */,
 			);
 		};
 /* End PBXProject section */
@@ -671,6 +729,13 @@
 			files = (
 				B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */,
 				B30314681E302F1F00E13EBE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3FD3BEE222778E30005ED37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -843,7 +908,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B3FD3BEC222778E30005ED37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3FD3BF3222778E30005ED37 /* nWorkoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B3FD3BF6222778E40005ED37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B356FBBE1DC09C160006A0F0 /* nWorkout */;
+			targetProxy = B3FD3BF5222778E40005ED37 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B356FBCF1DC09C160006A0F0 /* Debug */ = {
@@ -893,6 +974,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -938,6 +1020,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -950,7 +1033,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Other/nWorkout.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -967,11 +1050,71 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Other/nWorkout.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		B3FD3BF7222778E40005ED37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 72MNHNDUNH;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = nWorkoutTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nWorkout.app/nWorkout";
+			};
+			name = Debug;
+		};
+		B3FD3BF8222778E40005ED37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 72MNHNDUNH;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = nWorkoutTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nWorkout.app/nWorkout";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -992,6 +1135,15 @@
 			buildConfigurations = (
 				B356FBD21DC09C160006A0F0 /* Debug */,
 				B356FBD31DC09C160006A0F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3FD3BF9222778E40005ED37 /* Build configuration list for PBXNativeTarget "nWorkoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3FD3BF7222778E40005ED37 /* Debug */,
+				B3FD3BF8222778E40005ED37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
