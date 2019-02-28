@@ -1,7 +1,7 @@
 import UIKit
 
 struct Theme {
-    static func `do`() {
+    static func configure() {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.titleTextAttributes = [
           NSAttributedString.Key.foregroundColor: Colors.Nav.title
