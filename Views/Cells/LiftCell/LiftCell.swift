@@ -135,7 +135,7 @@ class LiftCell: ChartViewCell {
         
     }
     func setupBottomContentView() {
-        addSetButton.setTitle("Add Set...", for: UIControlState())
+        addSetButton.setTitle("Add Set...", for: UIControl.State())
         addSetButton.translatesAutoresizingMaskIntoConstraints = false
         
         addSetButton.setBorder(color: Theme.Colors.Table.borders, width: 1, radius: 0)

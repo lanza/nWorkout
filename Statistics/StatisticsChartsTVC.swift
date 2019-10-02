@@ -5,8 +5,8 @@ import RxDataSources
 import Charts
 
 class CustomLineChartDataSet: LineChartDataSet {
-    override init(values: [ChartDataEntry]?, label: String?) {
-        super.init(values: values, label: label)
+    override init(entries values: [ChartDataEntry]?, label: String?) {
+        super.init(entries: values, label: label)
         
         circleColors = [Theme.Colors.main]
         circleRadius = 5
@@ -38,12 +38,12 @@ class StatisticsChartsTVC: BaseTVC {
         
         let bestSetDataPoints = statisticsDataProvider.getBestSetDataPoints()
         let bestSetDataEntries = bestSetDataPoints.map { ChartDataEntry(x: $0.timeInterval, y: $0.weight) }
-        let bestSetDataSet = CustomLineChartDataSet(values: bestSetDataEntries, label: "Best Set Progression")
+        let bestSetDataSet = CustomLineChartDataSet(entries: bestSetDataEntries, label: "Best Set Progression")
         let bestSetLineChartData = LineChartData(dataSet: bestSetDataSet)
         
         let prDataPoints = statisticsDataProvider.getPersonalRecordDataPoints()
         let prDataEntries = prDataPoints.map { ChartDataEntry(x: $0.timeInterval, y: $0.weight) }
-        let prDataSet = CustomLineChartDataSet(values: prDataEntries, label: "Personal Record Progression")
+        let prDataSet = CustomLineChartDataSet(entries: prDataEntries, label: "Personal Record Progression")
         let prLineChartData = LineChartData(dataSet: prDataSet)
         
         let sectionModel = ChartSectionModel(chartData: [bestSetLineChartData,prLineChartData])

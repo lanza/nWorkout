@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A360B8D543867061E8D7A3AA292DF19B"
+               BlueprintIdentifier = "4C48FB7D363771FBD71AB44C090CB586"
                BuildableName = "BonMot.framework"
                BlueprintName = "BonMot"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9C055E6686F56826D3E11E9689230C1"
+               BlueprintIdentifier = "AF9228424A074D42F13FABA26E972B57"
                BuildableName = "CarbonKit.framework"
                BlueprintName = "CarbonKit"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -42,7 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A3713427E7848248E80D0A511DD827E"
+               BlueprintIdentifier = "F7094D87C646E2109B216BEAB4176226"
                BuildableName = "ChartView.framework"
                BlueprintName = "ChartView"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -56,7 +56,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "336FDD3B5AD2050C729FBB44200A05BD"
+               BlueprintIdentifier = "BF03B0B2B8B052092CB5F90CC5FB3757"
                BuildableName = "Charts.framework"
                BlueprintName = "Charts"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -70,7 +70,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CA42A18406FF2FD25EA799EF5D1E6851"
+               BlueprintIdentifier = "2931D26BD98BC13A48CBB87B67391150"
                BuildableName = "CoordinatorKit.framework"
                BlueprintName = "CoordinatorKit"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -84,7 +84,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D54273E3FB6C99113300D62C1F7192BA"
+               BlueprintIdentifier = "D7940BE184F37BA203D5586A4D2F87BF"
                BuildableName = "CustomIOSAlertView.framework"
                BlueprintName = "CustomIOSAlertView"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -98,7 +98,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3310EEFF328C58D7A02083727BC09E65"
+               BlueprintIdentifier = "F1BCD9702276377FB5B3BDB6EAF709D7"
                BuildableName = "DZNEmptyDataSet.framework"
                BlueprintName = "DZNEmptyDataSet"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -112,7 +112,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A11863F9C957A817CC8B383CDFBFDD59"
+               BlueprintIdentifier = "88BE8BE7A2FE6CED4193CCD8FF3CBEF7"
                BuildableName = "Eureka.framework"
                BlueprintName = "Eureka"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -126,7 +126,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "25CB6C4E47B0F6CBE84E4A81C750FCFA"
+               BlueprintIdentifier = "68494F30B4A13F8E5E88BCCAEC25B0A4"
                BuildableName = "Realm.framework"
                BlueprintName = "Realm"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -140,7 +140,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AE6827E7DD0C8572DF0C1F801A3A4A94"
+               BlueprintIdentifier = "782725687624F8665247B84AB581BEB1"
                BuildableName = "RealmSwift.framework"
                BlueprintName = "RealmSwift"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -154,7 +154,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA86714277284E394FA30329AB7182D4"
+               BlueprintIdentifier = "01E70B848FB8F9BA3400AC2867C6AC6F"
                BuildableName = "Reuse.framework"
                BlueprintName = "Reuse"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -182,7 +182,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E71C7B4D6BE1DE69E1BA0C9E05F5F931"
+               BlueprintIdentifier = "7AD0C6DCDC9CEC8A3C7C10C7FEE07BE6"
                BuildableName = "RxCocoa.framework"
                BlueprintName = "RxCocoa"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -196,7 +196,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4A4413364174490BB61DE2E8165803FA"
+               BlueprintIdentifier = "401909D4FB2014BF539896BF0CCA48C2"
                BuildableName = "RxDataSources.framework"
                BlueprintName = "RxDataSources"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -238,7 +238,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "980E542603D1C144BC67BD5F73ED2BD5"
+               BlueprintIdentifier = "B84176EC6F73D04B5ACA4EEC5AC876FF"
                BuildableName = "RxRealm.framework"
                BlueprintName = "RxRealm"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -252,7 +252,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0DE1FF3E6ECC4AC0DD356FD4775C50F"
+               BlueprintIdentifier = "EA9EA43B3B503823EE36C60D9C8A865F"
                BuildableName = "RxSwift.framework"
                BlueprintName = "RxSwift"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -279,6 +279,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B356FBBE1DC09C160006A0F0"
+            BuildableName = "nWorkout.app"
+            BlueprintName = "nWorkout"
+            ReferencedContainer = "container:nWorkout.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -301,17 +310,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B356FBBE1DC09C160006A0F0"
-            BuildableName = "nWorkout.app"
-            BlueprintName = "nWorkout"
-            ReferencedContainer = "container:nWorkout.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -333,8 +331,6 @@
             ReferencedContainer = "container:nWorkout.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
