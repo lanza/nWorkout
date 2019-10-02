@@ -9,7 +9,7 @@ extension Reactive where Base: UITableView {
         -> (_ source: O)
         -> (_ configureCell: @escaping (Int, S.Iterator.Element, Cell) -> Void)
         -> Disposable
-        where O.E == S, Cell: ReusableView {
+        where O.Element == S {
             return items(cellIdentifier: cellType.reuseIdentifier, cellType: cellType)
     }
 }

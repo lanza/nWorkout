@@ -75,16 +75,16 @@ class WorkoutFooterView: UIView {
     func setupRx() {
         addLiftButton.rx.tap.subscribe(onNext: {
             self.delegate.addLiftTapped()
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         finishWorkoutButton?.rx.tap.subscribe(onNext: {
             self.delegate.finishWorkoutTapped()
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         cancelWorkoutButton?.rx.tap.subscribe(onNext: {
             self.delegate.cancelWorkoutTapped()
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         workoutDetailButton.rx.tap.subscribe(onNext: {
             self.delegate.workoutDetailTapped()
-        }).addDisposableTo(db)
+        }).disposed(by: db)
     }
     let db = DisposeBag()
 }

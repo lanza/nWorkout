@@ -51,13 +51,13 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
 
         tableView.register(SelectWorkoutCell.self)
         
-        Observable.collection(from: objects).bindTo(tableView.rx.items(cellIdentifier: SelectWorkoutCell.reuseIdentifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
+        Observable.collection(from: objects).bind(to: tableView.rx.items(cellIdentifier: SelectWorkoutCell.reuseIdentifier, cellType: SelectWorkoutCell.self)) { index, workout, cell in
             cell.configure(for: workout, at: IndexPath(row: index, section: 0))
-            }.addDisposableTo(db)
+        }.disposed(by: db)
         
         tableView.rx.modelSelected(Workout.self).subscribe(onNext: { routine in
             self.delegate.selectWorkoutVC(self, selectedRoutine: routine)
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         
 //        tableView.tableFooterView = UIView()
     }
@@ -70,11 +70,11 @@ class SelectWorkoutVC: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataSetD
         
         startBlankWorkoutButton.rx.tap.subscribe(onNext: {
             self.delegate.startBlankWorkoutSelected(for: self)
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: Lets.cancel, style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
             self.delegate.cancelSelected(for: self)
-        }).addDisposableTo(db)
+        }).disposed(by: db)
     }
     
     override func viewWillAppear(_ animated: Bool) {

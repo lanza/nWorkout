@@ -29,7 +29,7 @@ class ActiveWorkoutCoordinator: Coordinator {
             
             ltc.liftTypeTVC.navigationItem.leftBarButtonItem!.rx.tap.subscribe(onNext: {
                 self.dismiss(animated: true)
-            }).addDisposableTo(self.db)
+            }).disposed(by: self.db)
             
             ltc.liftTypeTVC.didSelectLiftName = { name in
                 self.dismiss(animated: true)

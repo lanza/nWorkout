@@ -171,14 +171,14 @@ class WorkoutDetailVC2: UIViewController {
             }
             
             self.startDateLabel.text = self.df.string(from: self.startDatePicker.date)
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         
         finishDatePicker.rx.controlEvent(.valueChanged).subscribe(onNext: {
             RLM.write {
                 self.workout.finishDate = self.finishDatePicker.date
             }
             self.finishDateLabel.text = self.df.string(from: self.finishDatePicker.date)
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         
         NSLayoutConstraint.activate([
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),

@@ -95,14 +95,14 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
     func setupRx() {
         tableView.dataSource = nil
         tableView.delegate = nil
-        pairs.asObservable().bindTo(tableView.rx.items(cellIdentifier: StatisticsCell.reuseIdentifier, cellType: StatisticsCell.self)) { index, pair, cell in
+        pairs.asObservable().bind(to: tableView.rx.items(cellIdentifier: StatisticsCell.reuseIdentifier, cellType: StatisticsCell.self)) { index, pair, cell in
             cell.textLabel?.text = pair.0
             cell.detailTextLabel?.text = "\(pair.1)"
-        }.addDisposableTo(db)
+        }.disposed(by: db)
         
         tableView.rx.modelSelected((String,Int).self).subscribe(onNext: { item in
             self.delegate.statisticsTVC(self, didSelectLiftType: item.0)
-        }).addDisposableTo(db)
+        }).disposed(by: db)
     }
     let db = DisposeBag()
 }

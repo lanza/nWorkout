@@ -54,22 +54,22 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
             if setRowView.targetWeightTextField?.text == "" {
                 setRowView.targetWeightTextField?.text = setRowView.targetWeightTextField?.placeholder
             }
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.targetRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
             if setRowView.targetRepsTextField?.text == "" {
                 setRowView.targetRepsTextField?.text = setRowView.targetRepsTextField?.placeholder
             }
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.completedWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
             if setRowView.completedWeightTextField?.text == "" {
                 setRowView.completedWeightTextField?.text = setRowView.completedWeightTextField?.placeholder
             }
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.completedRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(onNext: {
             if setRowView.completedRepsTextField?.text == "" {
                 setRowView.completedRepsTextField?.text = setRowView.completedRepsTextField?.placeholder
             }
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
     }
     
     
@@ -79,23 +79,23 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
                 guard twtf.text != nil else { return }
                 twtf.placeholder = twtf.text
                 twtf.text = nil
-            }).addDisposableTo(setRowView.textFieldDB)
+            }).disposed(by: setRowView.textFieldDB)
         }
         setRowView.targetRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
             guard setRowView.targetRepsTextField?.text != nil else { return }
             setRowView.targetRepsTextField?.placeholder = setRowView.targetRepsTextField?.text
             setRowView.targetRepsTextField?.text = nil
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.completedWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
             guard setRowView.completedWeightTextField?.text != nil else { return }
             setRowView.completedWeightTextField?.placeholder = setRowView.completedWeightTextField?.text
             setRowView.completedWeightTextField?.text = nil
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.completedRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
             guard setRowView.completedRepsTextField?.text != nil else { return }
             setRowView.completedRepsTextField?.placeholder = setRowView.completedRepsTextField?.text
             setRowView.completedRepsTextField?.text = nil
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
     }
     
     func setupObserversForCurrentlyEditing(setRowView: SetRowView, cell: LiftCell) {
@@ -103,22 +103,22 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
             self.currentlyEditingLiftCell = cell
             self.currentlyEditingRowView = setRowView
             self.currentlyEditingTextField = setRowView.targetWeightTextField
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.targetRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
             self.currentlyEditingLiftCell = cell
             self.currentlyEditingRowView = setRowView
             self.currentlyEditingTextField = setRowView.targetRepsTextField
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.completedWeightTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
             self.currentlyEditingLiftCell = cell
             self.currentlyEditingRowView = setRowView
             self.currentlyEditingTextField = setRowView.completedWeightTextField
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
         setRowView.completedRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(onNext: {
             self.currentlyEditingLiftCell = cell
             self.currentlyEditingRowView = setRowView
             self.currentlyEditingTextField = setRowView.completedRepsTextField
-        }).addDisposableTo(setRowView.textFieldDB)
+        }).disposed(by: setRowView.textFieldDB)
     }
     func hideWasTapped() {
         UIResponder.currentFirstResponder?.resignFirstResponder()

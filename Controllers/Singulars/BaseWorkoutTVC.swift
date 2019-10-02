@@ -6,7 +6,7 @@ import CustomIOSAlertView
 import Reuse
 
 class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate, WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate, WorkoutFooterViewDelegate
-where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
+where Cell.Object == Lift {
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
@@ -80,10 +80,10 @@ where Cell: ConfigurableCell, Cell.Object == Lift, Cell: ReusableView {
         
         NotificationCenter.default.rx.notification(Notification.Name(rawValue: Lets.chartViewWillDeleteNotificationName)).subscribe(onNext: { noti in
             self.tableView.beginUpdates()
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         NotificationCenter.default.rx.notification(Notification.Name(rawValue: Lets.chartViewDidDeleteNotificationName)).subscribe(onNext: { noti in
             self.tableView.endUpdates()
-        }).addDisposableTo(db)
+        }).disposed(by: db)
         
         dataSource.workoutFooterView.delegate = self
     }
