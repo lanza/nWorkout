@@ -1,10 +1,10 @@
 import Foundation
 import RealmSwift
 
-class Lift: Base {
-  @objc dynamic var name = ""
+class Lift: Base, Encodable {
+    @objc dynamic var name = ""
     let sets = List<Set>()
-  @objc dynamic var _previousStrings: String = ""
+    @objc dynamic var _previousStrings: String = ""
     var previousStrings: [String] { return _previousStrings.components(separatedBy: ",") }
     
     static func new(isWorkout: Bool, name: String, workout: Workout) -> Lift {
@@ -29,8 +29,12 @@ class Lift: Base {
         super.deleteSelf()
     }
     
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case sets
+    }
     
-  @objc dynamic var workout: Workout?
+    @objc dynamic var workout: Workout?
 }
 
 extension Lift {
@@ -69,7 +73,7 @@ extension Lift: DataProvider {
     func remove(at index: Int) {
         let set = object(at: index)
         RLM.write {
-          sets.remove(at: index)
+            sets.remove(at: index)
         }
         set.deleteSelf()
     }

@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-class Workout: Base {
+class Workout: Base, Encodable {
     let lifts = List<Lift>()
   @objc dynamic var name = ""
   @objc dynamic var isComplete = false

@@ -32,20 +32,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let mainCoordinator = MainCoordinator()
     
     func requestAccessToHealthKit() {
-//        let healthStore = HKHealthStore()
-//        
-//        let types = Swift.Set([HKObjectType.workoutType(), HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!])
-//        healthStore.requestAuthorization(toShare: types, read: types) { (success, error) in
-//            if !success {
-//                print(error!)
-//            }
-//        }
+        //        let healthStore = HKHealthStore()
+        //
+        //        let types = Swift.Set([HKObjectType.workoutType(), HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!])
+        //        healthStore.requestAuthorization(toShare: types, read: types) { (success, error) in
+        //            if !success {
+        //                print(error!)
+        //            }
+        //        }
     }
     
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         requestAccessToHealthKit()
-       
+        
         if let firstRun = UserDefaults.standard.value(forKey: "firstRun") as? Bool, firstRun == false {
             //
         } else {
@@ -61,19 +61,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
+        let workouts = try! Realm().objects(Workout.self)
+        let wos = Array(workouts.map { w in w })
+        for workout in workouts {
+            print(workout)
+            let encoded = try! JSONEncoder().encode(workout)
+            print(String(data: encoded, encoding: .utf8)!)
+        }
         
-//        let lifts = try! Realm().objects(Lift.self)
-//        for lift in lifts {
-//            if lift.workout == nil {
-//                lift.deleteSelf()
-//            }
-//        }
-//        let sets = try! Realm().objects(Set.self)
-//        for set in sets {
-//            if set.lift == nil {
-//                set.deleteSelf()
-//            }
-//        }
+        print(wos)
+        
+        //        let lifts = try! Realm().objects(Lift.self)
+        //        for lift in lifts {
+        //            if lift.workout == nil {
+        //                lift.deleteSelf()
+        //            }
+        //        }
+        //        let sets = try! Realm().objects(Set.self)
+        //        for set in sets {
+        //            if set.lift == nil {
+        //                set.deleteSelf()
+        //            }
+        //        }
         
         window = UIWindow()
         

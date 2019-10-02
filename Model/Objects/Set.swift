@@ -1,17 +1,24 @@
 import Foundation
 import RealmSwift
 
-class Set: Base {
-  @objc dynamic var weight: Double = 0
-  @objc dynamic var reps = 0
-  @objc dynamic var isWarmup = false
-  @objc dynamic var completedWeight: Double = 0 {
+class Set: Base, Encodable {
+    private enum CodingKeys: String, CodingKey {
+        case weight
+        case reps
+        case isWarmup
+        case completedWeight
+        case completedReps
+    }
+    @objc dynamic var weight: Double = 0
+    @objc dynamic var reps = 0
+    @objc dynamic var isWarmup = false
+    @objc dynamic var completedWeight: Double = 0 {
         didSet {
             print("CompletedReps touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)")
         }
     }
     
-  @objc dynamic var completedReps = 0 {
+    @objc dynamic var completedReps = 0 {
         didSet {
             print("CompletedWeight touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)")
         }
@@ -38,7 +45,7 @@ class Set: Base {
         return set
     }
     
-  @objc dynamic var lift: Lift?
+    @objc dynamic var lift: Lift?
 }
 
 extension Set {
