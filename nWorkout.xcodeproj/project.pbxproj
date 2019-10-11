@@ -66,6 +66,7 @@
 		B382087B1DC2B2C00008D6F8 /* WorkoutsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B382087A1DC2B2C00008D6F8 /* WorkoutsTVC.swift */; };
 		B382087F1DC2B3EE0008D6F8 /* WorkoutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B382087E1DC2B3EE0008D6F8 /* WorkoutTVC.swift */; };
 		B3852A5E1E767C7200900B24 /* StatisticsChartsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3852A5D1E767C7200900B24 /* StatisticsChartsTVC.swift */; };
+		B3882693235060DC00C3BAF5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3882692235060DC00C3BAF5 /* CloudKit.framework */; };
 		B3B6DB361E1F000700090C45 /* LiftTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6DB351E1F000700090C45 /* LiftTableHeaderView.swift */; };
 		B3B7D0131E7FC3A600483D95 /* ChartDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B7D0121E7FC3A600483D95 /* ChartDataProvider.swift */; };
 		B3BB31821DDAA1390015F9B0 /* WorkoutsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB31811DDAA1390015F9B0 /* WorkoutsCoordinator.swift */; };
@@ -106,6 +107,8 @@
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.proxy.script;
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 			);
@@ -185,6 +188,7 @@
 		B382087A1DC2B2C00008D6F8 /* WorkoutsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsTVC.swift; sourceTree = "<group>"; };
 		B382087E1DC2B3EE0008D6F8 /* WorkoutTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTVC.swift; sourceTree = "<group>"; };
 		B3852A5D1E767C7200900B24 /* StatisticsChartsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsChartsTVC.swift; sourceTree = "<group>"; };
+		B3882692235060DC00C3BAF5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		B3B6DB351E1F000700090C45 /* LiftTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderView.swift; sourceTree = "<group>"; };
 		B3B7D0121E7FC3A600483D95 /* ChartDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartDataProvider.swift; sourceTree = "<group>"; };
 		B3BB31811DDAA1390015F9B0 /* WorkoutsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsCoordinator.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B7B83673AF4C80C2289A64 /* Pods_nWorkout.framework in Frameworks */,
+				B3882693235060DC00C3BAF5 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +251,7 @@
 		39E431DD8274B3A39029E61A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3882692235060DC00C3BAF5 /* CloudKit.framework */,
 				2C28EEED137330DEEC3C28A7 /* Pods_nWorkout.framework */,
 			);
 			name = Frameworks;
@@ -708,6 +714,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1029,6 +1036,7 @@
 			baseConfigurationReference = D86E1D94B445ACD74DD85B56 /* Pods-nWorkout.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nWorkout.entitlements;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Other/nWorkout.plist;
@@ -1046,6 +1054,7 @@
 			baseConfigurationReference = AAA08A9A5FEE3A26B3120289 /* Pods-nWorkout.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nWorkout.entitlements;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Other/nWorkout.plist;

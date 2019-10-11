@@ -2,6 +2,7 @@ import CoordinatorKit
 import HealthKit
 import RealmSwift
 import UIKit
+import CloudKit
 
 //class Application {
 //    static func doOnFirstRun(closure: @escaping ()->()) {
@@ -72,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
       }
     )
+    
 
     let workouts = try! Realm().objects(Workout.self)
     let wos = Array(
