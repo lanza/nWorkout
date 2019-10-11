@@ -1,13 +1,13 @@
-import RxDataSources
 import Charts
-
+import RxDataSources
 
 struct ChartSectionModel {
-    let chartData: [LineChartData]
+  let chartData: [LineChartData]
 }
 extension ChartSectionModel: SectionModelType {
-    var items: [LineChartData] { return chartData }
-    init(original: ChartSectionModel, items: [LineChartData]) {
-        self.chartData = items
-    }
+  var items: [LineChartData] { return chartData }
+
+  init(original: ChartSectionModel, items: [LineChartData]) {
+    self.chartData = items
+  }
 }

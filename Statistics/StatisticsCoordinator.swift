@@ -1,24 +1,22 @@
-import UIKit
 import CoordinatorKit
+import UIKit
 
 class StatisticsCoordinator: Coordinator {
-    
-    var statisticsTVC: StatisticsTVC { return viewController as! StatisticsTVC }
-    
-    override func loadViewController() {
-        viewController = StatisticsTVC()
-        statisticsTVC.delegate = self
-    }
+
+  var statisticsTVC: StatisticsTVC { return viewController as! StatisticsTVC }
+
+  override func loadViewController() {
+    viewController = StatisticsTVC()
+    statisticsTVC.delegate = self
+  }
 }
 
 extension StatisticsCoordinator: StatisticsTVCDelegate {
-    func statisticsTVC(_ statisticsTVC: StatisticsTVC, didSelectLiftType liftType: String) {
-        let slsc = SingleLiftStatisticsCoordinator(liftName: liftType)
-        show(slsc, sender: self)
-    }
+  func statisticsTVC(
+    _ statisticsTVC: StatisticsTVC,
+    didSelectLiftType liftType: String
+  ) {
+    let slsc = SingleLiftStatisticsCoordinator(liftName: liftType)
+    show(slsc, sender: self)
+  }
 }
-
-
-
-
-

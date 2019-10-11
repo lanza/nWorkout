@@ -1,4 +1,4 @@
 enum ActiveOrFinished {
-    case active
-    case finished
+  case active
+  case finished
 }

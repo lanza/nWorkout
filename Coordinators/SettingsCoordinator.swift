@@ -1,16 +1,11 @@
-import UIKit
 import CoordinatorKit
+import UIKit
 
 class SettingsCoordinator: Coordinator {
-    
-    var settingsTVC: SettingsTVC { return viewController as! SettingsTVC }
-    
-    override func loadViewController() {
-        viewController = SettingsTVC()
-    }
+
+  var settingsTVC: SettingsTVC { return viewController as! SettingsTVC }
+
+  override func loadViewController() {
+    viewController = SettingsTVC()
+  }
 }
-
-
-
-
-
