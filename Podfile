@@ -1,6 +1,6 @@
 # vim: set ft=ruby :
 
-platform :ios, '11.0'
+platform :ios, '13.0'
 
 target 'nWorkout' do
   use_frameworks!

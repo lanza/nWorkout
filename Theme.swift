@@ -13,7 +13,7 @@ struct Theme {
         navBarAppearance.shadowImage = UIImage()
         
         let tabBarAppearance = UITabBar.appearance()
-        tabBarAppearance.barStyle = .blackOpaque
+        tabBarAppearance.barStyle = .black
         tabBarAppearance.barTintColor = Colors.Tab.barTint
         tabBarAppearance.tintColor = Colors.Tab.tint
         tabBarAppearance.unselectedItemTintColor = Colors.Tab.unselectedItemTint

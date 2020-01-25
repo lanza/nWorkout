@@ -1,8 +1,8 @@
+import CloudKit
 import CoordinatorKit
 import HealthKit
 import RealmSwift
 import UIKit
-import CloudKit
 
 //class Application {
 //    static func doOnFirstRun(closure: @escaping ()->()) {
@@ -53,8 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       firstRun == false
     {
       //
-    }
-    else {
+    } else {
       UserDefaults.standard.set(
         true,
         forKey: Lets.combineFailAndCompletedWeightAndRepsKey
@@ -67,13 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       migrationBlock: { migration, oldSchemaVersion in
         if oldSchemaVersion == 0 {
           fatalError()
-        }
-        else if oldSchemaVersion == 1 {
+        } else if oldSchemaVersion == 1 {
           print("Should be here")
         }
       }
     )
-    
 
     let workouts = try! Realm().objects(Workout.self)
     let wos = Array(
@@ -82,12 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     )
     for workout in workouts {
-      print(workout)
       let encoded = try! JSONEncoder().encode(workout)
       print(String(data: encoded, encoding: .utf8)!)
     }
-
-    print(wos)
 
     //        let lifts = try! Realm().objects(Lift.self)
     //        for lift in lifts {
