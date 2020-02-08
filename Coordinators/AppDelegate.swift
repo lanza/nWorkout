@@ -73,16 +73,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     )
 
     let workouts = try! Realm().objects(Workout.self)
-    let wos = Array(
-      workouts.map { w in
-        w
-      }
-    )
+
     for workout in workouts {
       let encoded = try! JSONEncoder().encode(workout)
       print(String(data: encoded, encoding: .utf8)!)
     }
 
+    // Not sure why I ever this chunk of code. Don't know when
+    // I would have wanted to delete everything
     //        let lifts = try! Realm().objects(Lift.self)
     //        for lift in lifts {
     //            if lift.workout == nil {
