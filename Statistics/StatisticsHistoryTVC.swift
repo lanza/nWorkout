@@ -1,4 +1,3 @@
-import RealmSwift
 import RxCocoa
 import RxRealm
 import RxSwift

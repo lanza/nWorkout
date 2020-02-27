@@ -2,8 +2,6 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-//import RxRealm
-
 class StatisticsTVC: UIViewController, UITableViewDelegate {
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
