@@ -77,6 +77,19 @@
 		B3BB318C1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB318B1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift */; };
 		B3BB318E1DDAA2360015F9B0 /* StatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB318D1DDAA2360015F9B0 /* StatisticsCoordinator.swift */; };
 		B3BB31901DDAA24C0015F9B0 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB318F1DDAA24C0015F9B0 /* SettingsCoordinator.swift */; };
+		B3C955FC24077C5600743481 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955EC24077C5500743481 /* UILabel+Extensions.swift */; };
+		B3C955FD24077C5600743481 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955ED24077C5500743481 /* UIViewController+Extensions.swift */; };
+		B3C955FE24077C5600743481 /* TripleQuestionMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955EE24077C5500743481 /* TripleQuestionMark.swift */; };
+		B3C9560024077C5600743481 /* UIResponder+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F024077C5500743481 /* UIResponder+FirstResponder.swift */; };
+		B3C9560124077C5600743481 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F124077C5500743481 /* UIStackView+Extension.swift */; };
+		B3C9560224077C5600743481 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F224077C5500743481 /* ReusableView.swift */; };
+		B3C9560324077C5600743481 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F324077C5500743481 /* UITextField+Extensions.swift */; };
+		B3C9560524077C5600743481 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F524077C5600743481 /* Then.swift */; };
+		B3C9560624077C5600743481 /* CGColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F624077C5600743481 /* CGColor+Extensions.swift */; };
+		B3C9560724077C5600743481 /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F724077C5600743481 /* UIBarButtonItem+Extensions.swift */; };
+		B3C9560824077C5600743481 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F824077C5600743481 /* UIView+Extension.swift */; };
+		B3C9560924077C5600743481 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F924077C5600743481 /* Defaults.swift */; };
+		B3C9560A24077C5600743481 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955FA24077C5600743481 /* UIButton+Extensions.swift */; };
 		B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D456C21DC1E309008075D5 /* DataProvider.swift */; };
 		B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */; };
 		B3EA19FA1E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */; };
@@ -199,6 +212,19 @@
 		B3BB318B1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWorkoutCoordinator.swift; sourceTree = "<group>"; };
 		B3BB318D1DDAA2360015F9B0 /* StatisticsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCoordinator.swift; sourceTree = "<group>"; };
 		B3BB318F1DDAA24C0015F9B0 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		B3C955EC24077C5500743481 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		B3C955ED24077C5500743481 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		B3C955EE24077C5500743481 /* TripleQuestionMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripleQuestionMark.swift; sourceTree = "<group>"; };
+		B3C955F024077C5500743481 /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
+		B3C955F124077C5500743481 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		B3C955F224077C5500743481 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		B3C955F324077C5500743481 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		B3C955F524077C5600743481 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		B3C955F624077C5600743481 /* CGColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGColor+Extensions.swift"; sourceTree = "<group>"; };
+		B3C955F724077C5600743481 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
+		B3C955F824077C5600743481 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B3C955F924077C5600743481 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		B3C955FA24077C5600743481 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		B3D456C21DC1E309008075D5 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsPersonalRecordTVC.swift; sourceTree = "<group>"; };
@@ -432,6 +458,26 @@
 			path = Objects;
 			sourceTree = "<group>";
 		};
+		B3C955EB24077C4900743481 /* Reuse */ = {
+			isa = PBXGroup;
+			children = (
+				B3C955F624077C5600743481 /* CGColor+Extensions.swift */,
+				B3C955F924077C5600743481 /* Defaults.swift */,
+				B3C955F224077C5500743481 /* ReusableView.swift */,
+				B3C955F524077C5600743481 /* Then.swift */,
+				B3C955EE24077C5500743481 /* TripleQuestionMark.swift */,
+				B3C955F724077C5600743481 /* UIBarButtonItem+Extensions.swift */,
+				B3C955FA24077C5600743481 /* UIButton+Extensions.swift */,
+				B3C955EC24077C5500743481 /* UILabel+Extensions.swift */,
+				B3C955F024077C5500743481 /* UIResponder+FirstResponder.swift */,
+				B3C955F124077C5500743481 /* UIStackView+Extension.swift */,
+				B3C955F324077C5500743481 /* UITextField+Extensions.swift */,
+				B3C955F824077C5600743481 /* UIView+Extension.swift */,
+				B3C955ED24077C5500743481 /* UIViewController+Extensions.swift */,
+			);
+			path = Reuse;
+			sourceTree = "<group>";
+		};
 		B3D456C41DC1E48C008075D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,6 +640,7 @@
 		B3FF69D71E79FC49005FE6C1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B3C955EB24077C4900743481 /* Reuse */,
 				B3D456C61DC1E4A0008075D5 /* Extensions */,
 				B3FCCD2A1E171906003EF14E /* Auxiliary */,
 				B3D456C51DC1E494008075D5 /* Coordinators */,
@@ -755,17 +802,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-nWorkout/Pods-nWorkout-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BonMot/BonMot.framework",
 				"${BUILT_PRODUCTS_DIR}/CarbonKit/CarbonKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ChartView/ChartView.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/CoordinatorKit/CoordinatorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/CustomIOSAlertView/CustomIOSAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Reuse/Reuse.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
@@ -774,17 +818,14 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BonMot.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CarbonKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChartView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoordinatorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CustomIOSAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reuse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
@@ -841,23 +882,28 @@
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
 				B34BA05A1DC1CC4B006B6A51 /* Workout.swift in Sources */,
 				B38208791DC2B23E0008D6F8 /* Base.swift in Sources */,
+				B3C9560124077C5600743481 /* UIStackView+Extension.swift in Sources */,
 				B3BB31901DDAA24C0015F9B0 /* SettingsCoordinator.swift in Sources */,
 				B3BB318E1DDAA2360015F9B0 /* StatisticsCoordinator.swift in Sources */,
+				B3C955FD24077C5600743481 /* UIViewController+Extensions.swift in Sources */,
 				B37951931E34ACF0000F7428 /* StatisticsHistoryTVC.swift in Sources */,
 				B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */,
 				B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */,
 				B3FCCD321E17249D003EF14E /* WorkoutFooterViewButton.swift in Sources */,
+				B3C9560324077C5600743481 /* UITextField+Extensions.swift in Sources */,
 				B31953A61E305F6000AC2687 /* WorkoutDetailCoordinator.swift in Sources */,
 				B34BA05C1DC1CCED006B6A51 /* Lift.swift in Sources */,
 				B3BB31841DDAA15B0015F9B0 /* WorkoutCoordinator.swift in Sources */,
 				B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */,
 				B3B7D0131E7FC3A600483D95 /* ChartDataProvider.swift in Sources */,
 				B3BB318A1DDAA1B60015F9B0 /* AcrtiveWorkoutCoordinator.swift in Sources */,
+				B3C9560724077C5600743481 /* UIBarButtonItem+Extensions.swift in Sources */,
 				B36059221E1C3DB000EBE620 /* RoutineCell.swift in Sources */,
 				B360592C1E1C3E7600EBE620 /* RoutineSetRowView.swift in Sources */,
 				B3EA1A101E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift in Sources */,
 				B3FCCD391E172AC3003EF14E /* WorkoutLiftCell.swift in Sources */,
 				B3BB31821DDAA1390015F9B0 /* WorkoutsCoordinator.swift in Sources */,
+				B3C9560224077C5600743481 /* ReusableView.swift in Sources */,
 				B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */,
 				B3BB318C1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift in Sources */,
 				B36F37E81E0F7FF100667263 /* RLM.swift in Sources */,
@@ -866,6 +912,7 @@
 				B3BB31861DDAA17B0015F9B0 /* RoutinesCoordinator.swift in Sources */,
 				B32504061E34456C00C51909 /* CarbonStatisticsVC.swift in Sources */,
 				B36059391E1C3F0700EBE620 /* CompleteButton.swift in Sources */,
+				B3C9560924077C5600743481 /* Defaults.swift in Sources */,
 				B3FF69E01E7A17A2005FE6C1 /* CellSettingsCell.swift in Sources */,
 				B360593F1E1C4B1700EBE620 /* UIAlertController+Extensions.swift in Sources */,
 				B36059261E1C3E0800EBE620 /* RoutineLiftCell.swift in Sources */,
@@ -875,22 +922,27 @@
 				B3EA1A031E83BFC400B277E2 /* ChartSectionModel.swift in Sources */,
 				B36059501E1CC71F00EBE620 /* BaseWorkoutTVC.swift in Sources */,
 				B3EA19FE1E83BF6D00B277E2 /* Rx+Extensions.swift in Sources */,
+				B3C9560624077C5600743481 /* CGColor+Extensions.swift in Sources */,
 				B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */,
 				B36059371E1C3EF600EBE620 /* FailButton.swift in Sources */,
 				B3312B341DC12F9700318AA6 /* MainCoordinator.swift in Sources */,
 				B3FCCD251E137828003EF14E /* BaseTVC.swift in Sources */,
 				B328D8101DD6FA3C000948ED /* RoutineTVC.swift in Sources */,
+				B3C955FE24077C5600743481 /* TripleQuestionMark.swift in Sources */,
 				B382087B1DC2B2C00008D6F8 /* WorkoutsTVC.swift in Sources */,
 				B360593B1E1C41C300EBE620 /* StartBlankWorkoutButton.swift in Sources */,
 				B38208771DC2B22A0008D6F8 /* Set.swift in Sources */,
 				B382087F1DC2B3EE0008D6F8 /* WorkoutTVC.swift in Sources */,
+				B3C9560524077C5600743481 /* Then.swift in Sources */,
 				B3EA1A171E83D26200B277E2 /* DarkLabel.swift in Sources */,
 				B3EA1A151E83D20200B277E2 /* WorkoutCellRowView.swift in Sources */,
 				B3FCCD371E172A9F003EF14E /* ActiveOrFinished.swift in Sources */,
 				B36059241E1C3DCF00EBE620 /* BaseChartViewDataSource.swift in Sources */,
 				B35DAE401DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift in Sources */,
 				B32504041E34455900C51909 /* SingleLiftStatisticsCoordinator.swift in Sources */,
+				B3C9560A24077C5600743481 /* UIButton+Extensions.swift in Sources */,
 				B31953A81E305F7900AC2687 /* WorkoutDetailVC.swift in Sources */,
+				B3C9560024077C5600743481 /* UIResponder+FirstResponder.swift in Sources */,
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
 				B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */,
 				B31B63F71ED53DEA0020AF5E /* HealthKitManager.swift in Sources */,
@@ -899,6 +951,7 @@
 				B3852A5E1E767C7200900B24 /* StatisticsChartsTVC.swift in Sources */,
 				B3EA19FA1E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift in Sources */,
 				B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */,
+				B3C955FC24077C5600743481 /* UILabel+Extensions.swift in Sources */,
 				B3EA1A091E83C13000B277E2 /* SettingsSectionModel.swift in Sources */,
 				B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */,
 				B3EA1A0C1E83C20D00B277E2 /* LiftTableHeaderRowView.swift in Sources */,
@@ -908,6 +961,7 @@
 				B3780EF61DD5AF2D0087CEC1 /* WorkoutsDataSource.swift in Sources */,
 				B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */,
 				B3540AB21E8E1ECF0001B996 /* BaseRowView.swift in Sources */,
+				B3C9560824077C5600743481 /* UIView+Extension.swift in Sources */,
 				B34BA0581DC1CC33006B6A51 /* Lets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

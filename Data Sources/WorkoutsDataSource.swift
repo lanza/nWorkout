@@ -1,5 +1,4 @@
 import RealmSwift
-import Reuse
 import UIKit
 
 class WorkoutsDataSource<Cell: UITableViewCell>: DataSource<
