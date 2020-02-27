@@ -36,7 +36,7 @@ open class TabBarCoordinator: Coordinator {
         }
         set {
             guard let coordinator = newValue else { fatalError() }
-            selectedIndex = (coordinators?.index(of: coordinator))!
+            selectedIndex = (coordinators?.firstIndex(of: coordinator))!
         }
     }
     public var selectedIndex: Int {
@@ -91,15 +91,15 @@ public extension TabBarCoordinatorDelegate {
 class TabBarControllerDelegateProxy: NSObject, UITabBarControllerDelegate {
     weak var tabBarCoordinator: TabBarCoordinator!
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let index = tabBarController.viewControllers?.index(of: viewController) else { return }
+        guard let index = tabBarController.viewControllers?.firstIndex(of: viewController) else { return }
         guard let coordinator = tabBarCoordinator.coordinators?[index] else { fatalError() }
         tabBarCoordinator.delegate?.tabBarCoordinator(tabBarCoordinator, didSelect: coordinator)
     }
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        guard let index = tabBarCoordinator.tabBarController.viewControllers?.index(of: viewController) else { return true }
+        guard let index = tabBarCoordinator.tabBarController.viewControllers?.firstIndex(of: viewController) else { return true }
         guard let coordinator = tabBarCoordinator.coordinators?[index] else { fatalError() }
         //MARK: - Handling dummy buttons
-        if let dummyIndex = tabBarCoordinator.dummyCoordinators.index(of: coordinator) {
+        if let dummyIndex = tabBarCoordinator.dummyCoordinators.firstIndex(of: coordinator) {
             let c = tabBarCoordinator.buttonCoordinators[dummyIndex]
             (c as! TabBarButtonCoordinator).prepareForReuse()
             let cNav = NavigationCoordinator(rootCoordinator: c)

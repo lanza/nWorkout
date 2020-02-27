@@ -24,7 +24,7 @@ open class HamburgerCoordinator: Coordinator, HamburgerControllerDelegate {
         }
         set {
             guard let coordinator = newValue else { fatalError() }
-            selectedIndex = (coordinators?.index(of: coordinator))!
+            selectedIndex = (coordinators?.firstIndex(of: coordinator))!
         }
     }
     public var selectedIndex: Int {
