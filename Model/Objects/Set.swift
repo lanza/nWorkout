@@ -1,13 +1,23 @@
 import Foundation
 import RealmSwift
 
-class Set: Base, Encodable {
+class Set: Base {
   private enum CodingKeys: String, CodingKey {
     case weight
     case reps
     case isWarmup
     case completedWeight
     case completedReps
+  }
+
+  override func encode(to encoder: Encoder) throws {
+    try super.encode(to: encoder)
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(self.weight, forKey: .weight)
+    try container.encode(self.reps, forKey: .reps)
+    try container.encode(self.isWarmup, forKey: .isWarmup)
+    try container.encode(self.completedWeight, forKey: .completedWeight)
+    try container.encode(self.completedReps, forKey: .completedReps)
   }
 
   @objc dynamic var weight: Double = 0

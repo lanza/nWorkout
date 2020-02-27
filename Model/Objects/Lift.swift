@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-class Lift: Base, Encodable {
+class Lift: Base {
   @objc dynamic var name = ""
   let sets = List<Set>()
   @objc dynamic var _previousStrings: String = ""
@@ -35,9 +35,18 @@ class Lift: Base, Encodable {
     super.deleteSelf()
   }
 
-  private enum CodingKeys: String, CodingKey {
+  public enum CodingKeys: String, CodingKey {
     case name
     case sets
+    case _previousStrings
+  }
+
+  override func encode(to encoder: Encoder) throws {
+    try super.encode(to: encoder)
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(self.name, forKey: .name)
+    try container.encode(self.sets, forKey: .sets)
+    try container.encode(self._previousStrings, forKey: ._previousStrings)
   }
 
   @objc dynamic var workout: Workout?
