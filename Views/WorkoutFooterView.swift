@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 protocol WorkoutFooterViewDelegate: class {
@@ -125,29 +123,16 @@ class WorkoutFooterView: UIView {
       )
     }
   }
+  
+  @objc func addLiftButtonTapped() { self.delegate.addLiftTapped() }
+  @objc func finishWorkoutButtonTapped() { self.delegate.finishWorkoutTapped() }
+  @objc func cancelWorkoutButtonTapped() { self.delegate.cancelWorkoutTapped() }
+  @objc func workoutDetailButtonTapped() { self.delegate.workoutDetailTapped() }
 
   func setupRx() {
-    addLiftButton.rx.tap.subscribe(
-      onNext: {
-        self.delegate.addLiftTapped()
-      }
-    ).disposed(by: db)
-    finishWorkoutButton?.rx.tap.subscribe(
-      onNext: {
-        self.delegate.finishWorkoutTapped()
-      }
-    ).disposed(by: db)
-    cancelWorkoutButton?.rx.tap.subscribe(
-      onNext: {
-        self.delegate.cancelWorkoutTapped()
-      }
-    ).disposed(by: db)
-    workoutDetailButton.rx.tap.subscribe(
-      onNext: {
-        self.delegate.workoutDetailTapped()
-      }
-    ).disposed(by: db)
+    addLiftButton.addTarget(self, action: #selector(addLiftButtonTapped), for: .touchUpInside)
+    finishWorkoutButton.addTarget(self, action: #selector(finishWorkoutButtonTapped), for: .touchUpInside)
+    cancelWorkoutButton?.addTarget(self, action: #selector(cancelWorkoutButtonTapped), for: .touchUpInside)
+    workoutDetailButton.addTarget(self, action: #selector(workoutDetailButtonTapped), for: .touchUpInside)
   }
-
-  let db = DisposeBag()
 }
