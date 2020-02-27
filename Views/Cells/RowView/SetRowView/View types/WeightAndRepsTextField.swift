@@ -1,4 +1,3 @@
-import BonMot
 import Reuse
 import UIKit
 
@@ -15,8 +14,9 @@ class WeightAndRepsTextField: UITextField {
 
   override var placeholder: String? {
     didSet {
-      let s = StringStyle(.color(.gray))
-      attributedPlaceholder = placeholder?.styled(with: s)
+      guard let ph = placeholder else { return }
+      let attributes = [NSAttributedString.Key.foregroundColor: UIColor.gray]
+      attributedPlaceholder = NSAttributedString(string: ph, attributes: attributes)
     }
   }
 

@@ -20,7 +20,6 @@ target 'nWorkout' do
   pod 'Charts'
   pod 'CarbonKit'
 
-  pod 'BonMot'
   pod 'Eureka'
 
   pod 'RxSwift'
