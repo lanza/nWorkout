@@ -1,4 +1,3 @@
-import CoordinatorKit
 import RxCocoa
 import RxSwift
 import UIKit
