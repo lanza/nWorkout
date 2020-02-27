@@ -7,12 +7,6 @@ target 'nWorkout' do
 
   pod 'CustomIOSAlertView'
 
-  if ENV['TRAVIS'] == 'TRAVIS' then
-    pod 'ChartView', :git => 'https://github.com/nworkout/ChartView'
-  else
-    pod 'ChartView', :path => '~/Projects/nWorkout/ChartView'
-  end
-
   pod 'Charts'
   pod 'CarbonKit'
 

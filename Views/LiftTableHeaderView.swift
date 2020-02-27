@@ -1,4 +1,3 @@
-import ChartView
 import UIKit
 
 class LiftTableHeaderView: UIView {
