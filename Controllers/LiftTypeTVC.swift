@@ -1,5 +1,4 @@
 import BonMot
-import DZNEmptyDataSet
 import RxCocoa
 import RxSwift
 import UIKit
@@ -54,8 +53,6 @@ class LiftTypeTVC: BaseTVC {
 
     title = "Add Lift"
 
-    tableView.emptyDataSetDelegate = self
-    tableView.emptyDataSetSource = self
     tableView.tableFooterView = UIView()
 
     tableView.register(LiftTypeCell.self)
@@ -119,31 +116,4 @@ class LiftTypeTVC: BaseTVC {
 
   var didSelectLiftName: ((String) -> Void)!
   let db = DisposeBag()
-}
-
-extension LiftTypeTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-    return #imageLiteral(resourceName: "workout")
-  }
-
-  func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
-    return .white
-  }
-
-  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-    let s = StringStyle(.color(.white))
-    return "You have no exercise types, yet!".styled(with: s)
-  }
-
-  func description(forEmptyDataSet scrollView: UIScrollView!)
-    -> NSAttributedString!
-  {
-    let s = StringStyle(.color(.white))
-    return "Click the + in the top right to add a new exercise type.".styled(
-      with: s
-    )
-  }
-  //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-  //        return NSAttributedString(string: "This is the button title")
-  //    }
 }

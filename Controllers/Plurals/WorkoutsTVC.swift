@@ -1,5 +1,4 @@
 import BonMot
-import DZNEmptyDataSet
 import RealmSwift
 import RxCocoa
 import RxSwift
@@ -49,26 +48,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     setTableHeaderView()
 
     navigationItem.leftBarButtonItem = editButtonItem
-
-    setupDZN()
   }
-
-  func setupDZN() {
-    emptyDataSetController.imageTintColorForEmptyDataSet = .white
-    emptyDataSetController.imageForEmptyDataSet
-      = #imageLiteral(resourceName: "workout")
-    let s = StringStyle(.color(.white))
-    emptyDataSetController.titleForEmptyDataSet
-      = "You have not done any workouts.".styled(with: s)
-    emptyDataSetController.descriptionForEmptyDataSet
-      = "Click the + at the bottom to start your first workout or the \"Routines\" tab to set up a routine"
-      .styled(with: s)
-
-    tableView.emptyDataSetDelegate = emptyDataSetController
-    tableView.emptyDataSetSource = emptyDataSetController
-  }
-
-  let emptyDataSetController = EmptyDataSetController()
 
   //mark: - Swift is so fucking stupid
   override func tableView(

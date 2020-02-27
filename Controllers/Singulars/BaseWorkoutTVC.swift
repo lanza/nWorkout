@@ -1,5 +1,4 @@
 import CustomIOSAlertView
-import DZNEmptyDataSet
 import Reuse
 import RxCocoa
 import RxSwift
@@ -127,25 +126,6 @@ where Cell.Object == Lift {
 
   let db = DisposeBag()
 
-  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-    return #imageLiteral(resourceName: "workout")
-  }
-
-  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-    return NSAttributedString(string: "You have not added any lifts, yet!")
-  }
-
-  func description(forEmptyDataSet scrollView: UIScrollView!)
-    -> NSAttributedString!
-  {
-    return NSAttributedString(
-      string: "Click \"Add Lift\" to add a new exercise to your Workout."
-    )
-  }
-
-  //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-  //        return NSAttributedString(string: "This is the button title")
-  //    }
   func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set) {
     let a = CustomIOSAlertView()
     a?.containerView = NoteView.new(for: set, view: setRowView)

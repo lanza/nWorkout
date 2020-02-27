@@ -1,5 +1,4 @@
 import BonMot
-import DZNEmptyDataSet
 import RxCocoa
 import RxSwift
 import UIKit
@@ -23,24 +22,5 @@ class RoutineTVC: BaseWorkoutTVC<RoutineLiftCell> {
     super.viewDidLoad()
 
     title = workout.name
-    setupDZN()
   }
-
-  func setupDZN() {
-    emptyDataSetController.imageTintColorForEmptyDataSet = .white
-    emptyDataSetController.imageForEmptyDataSet
-      = #imageLiteral(resourceName: "routine")
-    let s = StringStyle(.color(.white))
-    emptyDataSetController.titleForEmptyDataSet
-      = "You do not have any lifts, yet!.".styled(with: s)
-    emptyDataSetController.descriptionForEmptyDataSet
-      = "Click \"Add Lift\" to add a new exerccise to your Routine.".styled(
-        with: s
-      )
-
-    tableView.emptyDataSetDelegate = emptyDataSetController
-    tableView.emptyDataSetSource = emptyDataSetController
-  }
-
-  let emptyDataSetController = EmptyDataSetController()
 }

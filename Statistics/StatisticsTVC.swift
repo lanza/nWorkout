@@ -1,5 +1,4 @@
 import BonMot
-import DZNEmptyDataSet
 import RxCocoa
 import RxSwift
 import UIKit
@@ -107,8 +106,6 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
     setTableHeaderView()
 
     tableView.register(StatisticsCell.self)
-    tableView.emptyDataSetDelegate = self
-    tableView.emptyDataSetSource = self
     tableView.tableFooterView = UIView()
 
     setupRx()
@@ -143,35 +140,4 @@ protocol StatisticsTVCDelegate: class {
     _ statisticsTVC: StatisticsTVC,
     didSelectLiftType liftType: String
   )
-}
-
-extension StatisticsTVC: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-    return #imageLiteral(resourceName: "statistics")
-  }
-
-  func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
-    return .white
-  }
-
-  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-    let s = StringStyle(.color(.white))
-    return "You havne't done any workouts, yet!".styled(with: s)
-  }
-
-  func description(forEmptyDataSet scrollView: UIScrollView!)
-    -> NSAttributedString!
-  {
-    let s = StringStyle(.color(.white))
-    return
-      "After you've completed a workout, this page will show you statistics on your exercises done."
-      .styled(with: s)
-  }
-
-  //    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
-  //        return NSAttributedString(string: "This is the button title")
-  //    }
-  func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
-    return -70
-  }
 }

@@ -1,5 +1,4 @@
 import BonMot
-import DZNEmptyDataSet
 import RxCocoa
 import RxSwift
 import UIKit
@@ -49,30 +48,7 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
         }
       ).disposed(by: db)
     }
-
-    setupDZN()
   }
-
-  func setupDZN() {
-    emptyDataSetController.imageTintColorForEmptyDataSet = .white
-    emptyDataSetController.imageForEmptyDataSet
-      = #imageLiteral(resourceName: "workout")
-    let s = StringStyle(.color(.white))
-    emptyDataSetController.titleForEmptyDataSet
-      = "You have not added any lifts, yet!".styled(
-        with: s
-      )
-    emptyDataSetController.descriptionForEmptyDataSet
-      = "Click \"Add Lift\" to add a new exercise to your Workout.".styled(
-        with: s
-      )
-    emptyDataSetController.verticalOffsetForEmptyDataSet = 40
-
-    tableView.emptyDataSetDelegate = emptyDataSetController
-    tableView.emptyDataSetSource = emptyDataSetController
-  }
-
-  let emptyDataSetController = EmptyDataSetController()
 
   override func cancelWorkoutTapped() {
     let a = UIAlertController.confirmAction(

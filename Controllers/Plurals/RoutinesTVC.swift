@@ -1,5 +1,4 @@
 import BonMot
-import DZNEmptyDataSet
 import RealmSwift
 import RxCocoa
 import RxSwift
@@ -92,27 +91,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
     super.viewDidLoad()
 
     setTableHeaderView()
-
-    setupDZN()
   }
-
-  func setupDZN() {
-    emptyDataSetController.imageTintColorForEmptyDataSet = .white
-    emptyDataSetController.imageForEmptyDataSet
-      = #imageLiteral(resourceName: "routine")
-    let s = StringStyle(.color(.white))
-    emptyDataSetController.titleForEmptyDataSet
-      = "You do not have any routines, yet!.".styled(
-        with: s
-      )
-    emptyDataSetController.descriptionForEmptyDataSet
-      = "Click the + at the top to add your first routine.".styled(with: s)
-
-    tableView.emptyDataSetDelegate = emptyDataSetController
-    tableView.emptyDataSetSource = emptyDataSetController
-  }
-
-  let emptyDataSetController = EmptyDataSetController()
 
   override func tableView(
     _ tableView: UITableView,
