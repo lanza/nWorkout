@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-class Base: Object {
+class Base: Object, Encodable {
   @objc dynamic var note = ""
   @objc dynamic var isWorkout = false
 
@@ -9,5 +9,10 @@ class Base: Object {
     RLM.write {
       RLM.realm.delete(self)
     }
+  }
+  
+  private enum CodingKeys: String, CodingKey {
+    case note
+    case isWorkout
   }
 }

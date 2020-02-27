@@ -1,10 +1,28 @@
 import Foundation
 import RealmSwift
 
-class Workout: Base, Encodable {
+class Workout: Base {
   let lifts = List<Lift>()
   @objc dynamic var name = ""
   @objc dynamic var isComplete = false
+  
+  public enum CodingKeys: String, CodingKey {
+    case name
+    case isComplete
+    case lifts
+    case startDate
+    case finishDate
+  }
+  
+  override func encode(to encoder: Encoder) throws {
+    try super.encode(to: encoder)
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(self.name, forKey: .name)
+    try container.encode(self.isComplete, forKey: .isComplete)
+    try container.encode(self.lifts, forKey: .lifts)
+    try container.encode(self.startDate, forKey: .startDate)
+    try container.encode(self.finishDate, forKey: .finishDate)
+  }
 
   var activeOrFinished: ActiveOrFinished {
     return isComplete ? .finished : .active
