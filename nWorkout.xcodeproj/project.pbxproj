@@ -122,7 +122,6 @@
 		B3FCCD371E172A9F003EF14E /* ActiveOrFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD361E172A9F003EF14E /* ActiveOrFinished.swift */; };
 		B3FCCD391E172AC3003EF14E /* WorkoutLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD381E172AC3003EF14E /* WorkoutLiftCell.swift */; };
 		B3FD3BF3222778E30005ED37 /* nWorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FD3BF2222778E30005ED37 /* nWorkoutTests.swift */; };
-		B3FF69D91E79FE8B005FE6C1 /* EmptyDataSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */; };
 		B3FF69E01E7A17A2005FE6C1 /* CellSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FF69DF1E7A17A2005FE6C1 /* CellSettingsCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -271,7 +270,6 @@
 		B3FD3BF0222778E30005ED37 /* nWorkoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nWorkoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3FD3BF2222778E30005ED37 /* nWorkoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nWorkoutTests.swift; sourceTree = "<group>"; };
 		B3FD3BF4222778E40005ED37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyDataSetController.swift; path = ../Controllers/Plurals/EmptyDataSetController.swift; sourceTree = "<group>"; };
 		B3FF69DF1E7A17A2005FE6C1 /* CellSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSettingsCell.swift; sourceTree = "<group>"; };
 		D86E1D94B445ACD74DD85B56 /* Pods-nWorkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nWorkout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nWorkout/Pods-nWorkout.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -666,7 +664,6 @@
 				B31B63F61ED53DEA0020AF5E /* HealthKitManager.swift */,
 				B34BA0551DC1CC29006B6A51 /* Theme.swift */,
 				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
-				B3FF69D81E79FE8B005FE6C1 /* EmptyDataSetController.swift */,
 				B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */,
 				B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */,
 				B35DAE3F1DDBDAB300EE5960 /* Keyboard&KeyboardDelegate.swift */,
@@ -920,7 +917,6 @@
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
 				B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */,
 				B3C9562124077F6A00743481 /* ChartView.swift in Sources */,
-				B3FF69D91E79FE8B005FE6C1 /* EmptyDataSetController.swift in Sources */,
 				B360592E1E1C3E8900EBE620 /* WeightAndRepsTextField.swift in Sources */,
 				B36059441E1C92A600EBE620 /* ViewInfo.swift in Sources */,
 				B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */,
