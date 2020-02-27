@@ -1,4 +1,3 @@
-import CoordinatorKit
 import RealmSwift
 import RxCocoa
 import RxSwift

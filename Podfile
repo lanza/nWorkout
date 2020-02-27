@@ -9,10 +9,8 @@ target 'nWorkout' do
 
   if ENV['TRAVIS'] == 'TRAVIS' then
     pod 'ChartView', :git => 'https://github.com/nworkout/ChartView'
-    pod 'CoordinatorKit', :git => 'https://github.com/nworkout/CoordinatorKit'
   else
     pod 'ChartView', :path => '~/Projects/nWorkout/ChartView'
-    pod 'CoordinatorKit', :path => '~/Projects/nWorkout/CoordinatorKit'
   end
 
   pod 'Charts'

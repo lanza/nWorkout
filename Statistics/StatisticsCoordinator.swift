@@ -1,4 +1,3 @@
-import CoordinatorKit
 import UIKit
 
 class StatisticsCoordinator: Coordinator {
