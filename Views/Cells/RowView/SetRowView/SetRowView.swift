@@ -1,4 +1,3 @@
-import ChartView
 import CustomIOSAlertView
 import RxCocoa
 import RxSwift

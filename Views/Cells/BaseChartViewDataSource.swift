@@ -1,4 +1,5 @@
-import ChartView
+import Foundation
+import UIKit
 
 class BaseChartViewDataSource<BaseType: DataProvider>: ChartViewDataSource {
   init(object: BaseType) {

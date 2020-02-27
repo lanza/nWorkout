@@ -73,11 +73,11 @@ class ChartCell: UITableViewCell {
       let str = df.string(from: date)
       return str
     }
-
   }
-
 }
 
 extension ChartCell: ChartViewDelegate {
+  func chartView(_ chartView: ChartView, commit editingStyle: ChartView.EditingStyle, forRowAt index: Int) {  }
+  
 
 }

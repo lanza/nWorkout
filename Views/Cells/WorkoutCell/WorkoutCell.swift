@@ -1,4 +1,3 @@
-import ChartView
 import RxCocoa
 import RxSwift
 import UIKit

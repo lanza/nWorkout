@@ -90,8 +90,19 @@
 		B3C9560824077C5600743481 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F824077C5600743481 /* UIView+Extension.swift */; };
 		B3C9560924077C5600743481 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955F924077C5600743481 /* Defaults.swift */; };
 		B3C9560A24077C5600743481 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C955FA24077C5600743481 /* UIButton+Extensions.swift */; };
+		B3C9562024077F6A00743481 /* ChartViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9561C24077F6A00743481 /* ChartViewConfigurator.swift */; };
+		B3C9562124077F6A00743481 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9561D24077F6A00743481 /* ChartView.swift */; };
+		B3C9562224077F6A00743481 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9561E24077F6A00743481 /* RowView.swift */; };
+		B3C9562324077F6A00743481 /* ChartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9561F24077F6A00743481 /* ChartViewCell.swift */; };
 		B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D456C21DC1E309008075D5 /* DataProvider.swift */; };
 		B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */; };
+		B3DB437D24077FC300D9F1E5 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437624077FC300D9F1E5 /* TabBarCoordinator.swift */; };
+		B3DB437E24077FC300D9F1E5 /* UIWindow+CoordinatorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437724077FC300D9F1E5 /* UIWindow+CoordinatorKit.swift */; };
+		B3DB437F24077FC300D9F1E5 /* SplitViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437824077FC300D9F1E5 /* SplitViewCoordinator.swift */; };
+		B3DB438024077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437924077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift */; };
+		B3DB438124077FC300D9F1E5 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */; };
+		B3DB438224077FC300D9F1E5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437B24077FC300D9F1E5 /* Coordinator.swift */; };
+		B3DB438324077FC300D9F1E5 /* HamburgerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437C24077FC300D9F1E5 /* HamburgerCoordinator.swift */; };
 		B3EA19FA1E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */; };
 		B3EA19FC1E83BF3E00B277E2 /* StatisticsHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */; };
 		B3EA19FE1E83BF6D00B277E2 /* Rx+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */; };
@@ -225,8 +236,19 @@
 		B3C955F824077C5600743481 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B3C955F924077C5600743481 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		B3C955FA24077C5600743481 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		B3C9561C24077F6A00743481 /* ChartViewConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewConfigurator.swift; sourceTree = "<group>"; };
+		B3C9561D24077F6A00743481 /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		B3C9561E24077F6A00743481 /* RowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		B3C9561F24077F6A00743481 /* ChartViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewCell.swift; sourceTree = "<group>"; };
 		B3D456C21DC1E309008075D5 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B3DB437624077FC300D9F1E5 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		B3DB437724077FC300D9F1E5 /* UIWindow+CoordinatorKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+CoordinatorKit.swift"; sourceTree = "<group>"; };
+		B3DB437824077FC300D9F1E5 /* SplitViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewCoordinator.swift; sourceTree = "<group>"; };
+		B3DB437924077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoordinatorKit.swift"; sourceTree = "<group>"; };
+		B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		B3DB437B24077FC300D9F1E5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B3DB437C24077FC300D9F1E5 /* HamburgerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerCoordinator.swift; sourceTree = "<group>"; };
 		B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsPersonalRecordTVC.swift; sourceTree = "<group>"; };
 		B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsHistoryCell.swift; sourceTree = "<group>"; };
 		B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+Extensions.swift"; sourceTree = "<group>"; };
@@ -478,6 +500,17 @@
 			path = Reuse;
 			sourceTree = "<group>";
 		};
+		B3C9561B24077F5C00743481 /* ChartView */ = {
+			isa = PBXGroup;
+			children = (
+				B3C9561D24077F6A00743481 /* ChartView.swift */,
+				B3C9561F24077F6A00743481 /* ChartViewCell.swift */,
+				B3C9561C24077F6A00743481 /* ChartViewConfigurator.swift */,
+				B3C9561E24077F6A00743481 /* RowView.swift */,
+			);
+			path = ChartView;
+			sourceTree = "<group>";
+		};
 		B3D456C41DC1E48C008075D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +564,20 @@
 				B35DFC441E42B8C0005D770B /* SelectWorkout */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B3DB437524077FC300D9F1E5 /* CoordinatorKit */ = {
+			isa = PBXGroup;
+			children = (
+				B3DB437624077FC300D9F1E5 /* TabBarCoordinator.swift */,
+				B3DB437724077FC300D9F1E5 /* UIWindow+CoordinatorKit.swift */,
+				B3DB437824077FC300D9F1E5 /* SplitViewCoordinator.swift */,
+				B3DB437924077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift */,
+				B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */,
+				B3DB437B24077FC300D9F1E5 /* Coordinator.swift */,
+				B3DB437C24077FC300D9F1E5 /* HamburgerCoordinator.swift */,
+			);
+			path = CoordinatorKit;
 			sourceTree = "<group>";
 		};
 		B3EA19F51E83BE9E00B277E2 /* First */ = {
@@ -640,6 +687,8 @@
 		B3FF69D71E79FC49005FE6C1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B3DB437524077FC300D9F1E5 /* CoordinatorKit */,
+				B3C9561B24077F5C00743481 /* ChartView */,
 				B3C955EB24077C4900743481 /* Reuse */,
 				B3D456C61DC1E4A0008075D5 /* Extensions */,
 				B3FCCD2A1E171906003EF14E /* Auxiliary */,
@@ -803,7 +852,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-nWorkout/Pods-nWorkout-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CarbonKit/CarbonKit.framework",
-				"${BUILT_PRODUCTS_DIR}/ChartView/ChartView.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/CustomIOSAlertView/CustomIOSAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
@@ -819,7 +867,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CarbonKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChartView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CustomIOSAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
@@ -865,10 +912,12 @@
 				B360593D1E1C4ACE00EBE620 /* SelectWorkoutCell.swift in Sources */,
 				B3EA1A001E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift in Sources */,
 				B38208751DC2B1FA0008D6F8 /* BaseDataProvider.swift in Sources */,
+				B3DB437E24077FC300D9F1E5 /* UIWindow+CoordinatorKit.swift in Sources */,
 				B3780EF01DD5A7010087CEC1 /* DataSource.swift in Sources */,
 				B36059411E1C4B5600EBE620 /* LiftTypeCoordinator.swift in Sources */,
 				B38208721DC2B1850008D6F8 /* WorkoutCell.swift in Sources */,
 				B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */,
+				B3C9562124077F6A00743481 /* ChartView.swift in Sources */,
 				B3FF69D91E79FE8B005FE6C1 /* EmptyDataSetController.swift in Sources */,
 				B360592E1E1C3E8900EBE620 /* WeightAndRepsTextField.swift in Sources */,
 				B36059441E1C92A600EBE620 /* ViewInfo.swift in Sources */,
@@ -882,12 +931,14 @@
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
 				B34BA05A1DC1CC4B006B6A51 /* Workout.swift in Sources */,
 				B38208791DC2B23E0008D6F8 /* Base.swift in Sources */,
+				B3DB438324077FC300D9F1E5 /* HamburgerCoordinator.swift in Sources */,
 				B3C9560124077C5600743481 /* UIStackView+Extension.swift in Sources */,
 				B3BB31901DDAA24C0015F9B0 /* SettingsCoordinator.swift in Sources */,
 				B3BB318E1DDAA2360015F9B0 /* StatisticsCoordinator.swift in Sources */,
 				B3C955FD24077C5600743481 /* UIViewController+Extensions.swift in Sources */,
 				B37951931E34ACF0000F7428 /* StatisticsHistoryTVC.swift in Sources */,
 				B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */,
+				B3C9562224077F6A00743481 /* RowView.swift in Sources */,
 				B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */,
 				B3FCCD321E17249D003EF14E /* WorkoutFooterViewButton.swift in Sources */,
 				B3C9560324077C5600743481 /* UITextField+Extensions.swift in Sources */,
@@ -902,10 +953,12 @@
 				B360592C1E1C3E7600EBE620 /* RoutineSetRowView.swift in Sources */,
 				B3EA1A101E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift in Sources */,
 				B3FCCD391E172AC3003EF14E /* WorkoutLiftCell.swift in Sources */,
+				B3DB437D24077FC300D9F1E5 /* TabBarCoordinator.swift in Sources */,
 				B3BB31821DDAA1390015F9B0 /* WorkoutsCoordinator.swift in Sources */,
 				B3C9560224077C5600743481 /* ReusableView.swift in Sources */,
 				B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */,
 				B3BB318C1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift in Sources */,
+				B3DB438124077FC300D9F1E5 /* NavigationCoordinator.swift in Sources */,
 				B36F37E81E0F7FF100667263 /* RLM.swift in Sources */,
 				B3780EF81DD5B0C80087CEC1 /* ConfigurableCell.swift in Sources */,
 				B3B6DB361E1F000700090C45 /* LiftTableHeaderView.swift in Sources */,
@@ -921,6 +974,7 @@
 				B31E9FBF1DD6AE3400B9AEFC /* RoutinesTVC.swift in Sources */,
 				B3EA1A031E83BFC400B277E2 /* ChartSectionModel.swift in Sources */,
 				B36059501E1CC71F00EBE620 /* BaseWorkoutTVC.swift in Sources */,
+				B3DB438024077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift in Sources */,
 				B3EA19FE1E83BF6D00B277E2 /* Rx+Extensions.swift in Sources */,
 				B3C9560624077C5600743481 /* CGColor+Extensions.swift in Sources */,
 				B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */,
@@ -930,6 +984,7 @@
 				B328D8101DD6FA3C000948ED /* RoutineTVC.swift in Sources */,
 				B3C955FE24077C5600743481 /* TripleQuestionMark.swift in Sources */,
 				B382087B1DC2B2C00008D6F8 /* WorkoutsTVC.swift in Sources */,
+				B3C9562024077F6A00743481 /* ChartViewConfigurator.swift in Sources */,
 				B360593B1E1C41C300EBE620 /* StartBlankWorkoutButton.swift in Sources */,
 				B38208771DC2B22A0008D6F8 /* Set.swift in Sources */,
 				B382087F1DC2B3EE0008D6F8 /* WorkoutTVC.swift in Sources */,
@@ -944,6 +999,7 @@
 				B31953A81E305F7900AC2687 /* WorkoutDetailVC.swift in Sources */,
 				B3C9560024077C5600743481 /* UIResponder+FirstResponder.swift in Sources */,
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
+				B3DB438224077FC300D9F1E5 /* Coordinator.swift in Sources */,
 				B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */,
 				B31B63F71ED53DEA0020AF5E /* HealthKitManager.swift in Sources */,
 				B3EA1A061E83C04E00B277E2 /* ChartCell.swift in Sources */,
@@ -959,7 +1015,9 @@
 				B32504021E34447300C51909 /* StatisticsCell.swift in Sources */,
 				B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */,
 				B3780EF61DD5AF2D0087CEC1 /* WorkoutsDataSource.swift in Sources */,
+				B3C9562324077F6A00743481 /* ChartViewCell.swift in Sources */,
 				B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */,
+				B3DB437F24077FC300D9F1E5 /* SplitViewCoordinator.swift in Sources */,
 				B3540AB21E8E1ECF0001B996 /* BaseRowView.swift in Sources */,
 				B3C9560824077C5600743481 /* UIView+Extension.swift in Sources */,
 				B34BA0581DC1CC33006B6A51 /* Lets.swift in Sources */,

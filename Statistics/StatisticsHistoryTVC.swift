@@ -1,4 +1,3 @@
-import ChartView
 import RealmSwift
 import RxCocoa
 import RxRealm
