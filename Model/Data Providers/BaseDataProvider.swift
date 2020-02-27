@@ -1,5 +1,4 @@
 import Foundation
-import RealmSwift
 
 class BaseDataProvider<BaseType: AnyObject>: DataProvider {
 

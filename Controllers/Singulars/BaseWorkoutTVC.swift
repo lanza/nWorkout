@@ -6,7 +6,7 @@ import UIKit
 class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
   WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate,
   WorkoutFooterViewDelegate
-where Cell.Object == Lift {
+where Cell.Object == NewLift {
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -145,13 +145,13 @@ where Cell.Object == Lift {
     clickedButtonAt buttonIndex: Int
   ) {
     let av = alertView as! CustomIOSAlertView
-    if let nv = av.containerView as? NoteView<Set, SetRowView> {
-      nv.type.note = nv.textView.text
-      nv.view.noteButton?.update(for: nv.type)
-    } else if let nv = av.containerView as? NoteView<Lift, LiftCell> {
-      nv.type.note = nv.textView.text
-      nv.view.noteButton.update(for: nv.type)
-    }
+//    if let nv = av.containerView as? NoteView<Set, SetRowView> {
+//      nv.type.note = nv.textView.text
+//      nv.view.noteButton?.update(for: nv.type)
+//    } else if let nv = av.containerView as? NoteView<Lift, LiftCell> {
+//      nv.type.note = nv.textView.text
+//      nv.view.noteButton.update(for: nv.type)
+//    }
     av.close()
   }
 

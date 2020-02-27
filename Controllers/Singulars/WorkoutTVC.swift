@@ -74,7 +74,7 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
   }
 }
 
-class NoteView<Type: Base, View: UIView>: UIView {
+class NoteView<Type, View: UIView>: UIView {
   var view: View!
   var type: Type!
 
@@ -82,7 +82,7 @@ class NoteView<Type: Base, View: UIView>: UIView {
     let n = NoteView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
     n.type = type
     n.view = view
-    n.textView.text = n.type.note
+//    n.textView.text = n.type.note
     n.setupViews()
     return n
   }

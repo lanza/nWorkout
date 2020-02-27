@@ -12,7 +12,6 @@ target 'nWorkout' do
 
   pod 'RxSwift'
   pod 'RxDataSources'
-  pod 'RealmSwift'
 
 end
 

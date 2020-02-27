@@ -1,6 +1,5 @@
 import CloudKit
 import HealthKit
-import RealmSwift
 import UIKit
 
 func getDocumentsDirectory() -> URL {
@@ -31,33 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions:
       [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 2,
-      migrationBlock: { migration, oldSchemaVersion in
-        if oldSchemaVersion == 0 {
-          fatalError()
-        }
-        else if oldSchemaVersion == 1 {
-          print("Should be here")
-        }
-      }
-    )
-
-    if !UserDefaults.standard.bool(forKey: "hasLeftRealm") {
-      let workouts = (try! Realm().objects(Workout.self).map { $0 })
-        as [Workout]
-
-      let encoded = try! JSONEncoder().encode(workouts)
-      let url = getDocumentsDirectory()
-      do {
-        try encoded.write(to: url.appendingPathComponent("data.json"))
-      }
-      catch {
-        fatalError()
-      }
-      UserDefaults.standard.set(true, forKey: "hasLeftRealm")
-    }
 
     window = UIWindow()
     window?.rootCoordinator = mainCoordinator

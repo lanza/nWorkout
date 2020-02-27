@@ -1,4 +1,3 @@
-import RealmSwift
 import UIKit
 
 class RoutinesDataSource: DataSource<BaseDataProvider<Workout>, RoutineCell> {

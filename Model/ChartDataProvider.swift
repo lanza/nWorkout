@@ -1,5 +1,4 @@
 import Foundation
-import RealmSwift
 
 struct ChartDataPair {
   let timeInterval: TimeInterval

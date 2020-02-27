@@ -1,5 +1,4 @@
 import Foundation
-import RealmSwift
 
 enum JDB {
   static func write() {
