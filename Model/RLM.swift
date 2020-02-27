@@ -30,7 +30,6 @@ enum JDB {
         }
       }
     }
-    print(workouts.count)
     return workouts
   }
 
