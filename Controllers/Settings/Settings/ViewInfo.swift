@@ -70,14 +70,14 @@ struct ViewInfo: Equatable {
 
     if bool {
       guard
-        let completedWeightIndex = saved.index(
+        let completedWeightIndex = saved.firstIndex(
           where: { $0.name == Lets.completedWeightKey }
         )
       else { fatalError() }
       saved.remove(at: completedWeightIndex)
 
       guard
-        let completedRepsIndex = saved.index(
+        let completedRepsIndex = saved.firstIndex(
           where: { $0.name == Lets.completedRepsKey }
         )
       else {
@@ -86,7 +86,7 @@ struct ViewInfo: Equatable {
       saved.remove(at: completedRepsIndex)
 
       guard
-        let doneButtonIndex = saved.index(
+        let doneButtonIndex = saved.firstIndex(
           where: { $0.name == Lets.doneButtonKey }
         )
       else {
@@ -106,7 +106,7 @@ struct ViewInfo: Equatable {
     }
     else {
       guard
-        let combinedIndex = saved.index(
+        let combinedIndex = saved.firstIndex(
           where: { $0.name == Lets.doneButtonCompletedWeightCompletedRepsKey }
         )
       else { fatalError() }

@@ -18,7 +18,7 @@ class BaseDataProvider<BaseType: Base>: DataProvider {
   }
 
   func index(of object: BaseType) -> Int? {
-    return objects.index(of: object)
+    return objects.firstIndex(of: object)
   }
 
   func append(_ object: BaseType) {

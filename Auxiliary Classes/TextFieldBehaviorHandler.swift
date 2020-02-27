@@ -234,7 +234,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
     if let neighbor = getNeighborTextField(for: cetf) {
       neighbor.becomeFirstResponder()
     }
-    else if let rowIndex = celc.rowViews.index(of: cerv),
+    else if let rowIndex = celc.rowViews.firstIndex(of: cerv),
       celc.rowViews.count > rowIndex + 1
     {
       currentlyEditingRowView = celc.rowViews[rowIndex + 1]

@@ -200,7 +200,7 @@ class SetRowView: BaseRowView {
   var combinedView: CombinedView? {
     guard usesCombinedView else { return nil }
     guard
-      let index = selectedColumnViewTypes.index(
+      let index = selectedColumnViewTypes.firstIndex(
         of: Lets.doneButtonCompletedWeightCompletedRepsKey
       )
     else { return nil }
@@ -209,7 +209,7 @@ class SetRowView: BaseRowView {
   }
 
   var previousLabel: WeightAndRepsLabelHolder? {
-    guard let index = selectedColumnViewTypes.index(of: Lets.previousWorkoutKey)
+    guard let index = selectedColumnViewTypes.firstIndex(of: Lets.previousWorkoutKey)
     else { return nil }
     guard let pl = columnViews[index] as? WeightAndRepsLabelHolder else {
       fatalError()
@@ -218,14 +218,14 @@ class SetRowView: BaseRowView {
   }
 
   var setNumberLabel: SetNumberLabel? {
-    guard let index = selectedColumnViewTypes.index(of: Lets.setNumberKey)
+    guard let index = selectedColumnViewTypes.firstIndex(of: Lets.setNumberKey)
     else { return nil }
     guard let snl = columnViews[index] as? SetNumberLabel else { fatalError() }
     return snl
   }
 
   var targetWeightTextField: WeightAndRepsTextField? {
-    guard let index = selectedColumnViewTypes.index(of: Lets.targetWeightKey)
+    guard let index = selectedColumnViewTypes.firstIndex(of: Lets.targetWeightKey)
     else { return nil }
     guard let twtf = columnViews[index] as? WeightAndRepsTextField else {
       fatalError()
@@ -234,7 +234,7 @@ class SetRowView: BaseRowView {
   }
 
   var targetRepsTextField: WeightAndRepsTextField? {
-    guard let index = selectedColumnViewTypes.index(of: Lets.targetRepsKey)
+    guard let index = selectedColumnViewTypes.firstIndex(of: Lets.targetRepsKey)
     else { return nil }
     guard let trtf = columnViews[index] as? WeightAndRepsTextField else {
       fatalError()
@@ -246,7 +246,7 @@ class SetRowView: BaseRowView {
     if let cv = combinedView {
       return cv.completedWeightTextField
     }
-    guard let index = selectedColumnViewTypes.index(of: Lets.completedWeightKey)
+    guard let index = selectedColumnViewTypes.firstIndex(of: Lets.completedWeightKey)
     else { return nil }
     guard let cwtf = columnViews[index] as? CompletedWeightAndRepsTextField
     else { fatalError() }
@@ -257,7 +257,7 @@ class SetRowView: BaseRowView {
     if let cv = combinedView {
       return cv.completedRepsTextField
     }
-    guard let index = selectedColumnViewTypes.index(of: Lets.completedRepsKey)
+    guard let index = selectedColumnViewTypes.firstIndex(of: Lets.completedRepsKey)
     else { return nil }
     guard let crtf = columnViews[index] as? CompletedWeightAndRepsTextField
     else { fatalError() }
@@ -268,21 +268,21 @@ class SetRowView: BaseRowView {
     if let cv = combinedView {
       return cv.completeButton
     }
-    guard let index = selectedColumnViewTypes.index(of: Lets.doneButtonKey)
+    guard let index = selectedColumnViewTypes.firstIndex(of: Lets.doneButtonKey)
     else { return nil }
     guard let cb = columnViews[index] as? CompleteButton else { fatalError() }
     return cb
   }
 
   var failButton: FailButton? {
-    guard let index = selectedColumnViewTypes.index(of: Lets.failButtonKey)
+    guard let index = selectedColumnViewTypes.firstIndex(of: Lets.failButtonKey)
     else { return nil }
     guard let fb = columnViews[index] as? FailButton else { fatalError() }
     return fb
   }
 
   var noteButton: NoteButton? {
-    guard let index = selectedColumnViewTypes.index(of: Lets.noteButtonKey)
+    guard let index = selectedColumnViewTypes.firstIndex(of: Lets.noteButtonKey)
     else { return nil }
     guard let nb = columnViews[index] as? NoteButton else { fatalError() }
     return nb

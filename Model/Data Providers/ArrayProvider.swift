@@ -28,6 +28,6 @@ class ArrayProvider<Type: Equatable>: DataProvider {
   }
 
   func index(of object: Type) -> Int? {
-    return objects.index(of: object)
+    return objects.firstIndex(of: object)
   }
 }

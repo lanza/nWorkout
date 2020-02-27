@@ -61,7 +61,7 @@ open class NavigationCoordinator: Coordinator {
         return last
     }
     public func popToCoordinator(_ coordinator: Coordinator, animated: Bool) -> [Coordinator]? {
-        guard let index = coordinators.index(of: coordinator) else { return nil }
+        guard let index = coordinators.firstIndex(of: coordinator) else { return nil }
         let removed = Array(coordinators.suffix(from: index))
         coordinators = Array(coordinators.prefix(upTo: index))
         return removed
