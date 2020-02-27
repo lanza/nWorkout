@@ -2,8 +2,8 @@ import RealmSwift
 import UIKit
 
 class WorkoutsDataSource<Cell: UITableViewCell>: DataSource<
-    BaseDataProvider<NewWorkout>, Cell
-  >
+  BaseDataProvider<NewWorkout>, Cell
+>
 where Cell: ConfigurableCell, Cell.Object == NewWorkout {
 
   var name: String!

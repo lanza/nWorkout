@@ -5,7 +5,7 @@ class Workout: Base {
   let lifts = List<Lift>()
   @objc dynamic var name = ""
   @objc dynamic var isComplete = false
-  
+
   public enum CodingKeys: String, CodingKey {
     case name
     case isComplete
@@ -13,7 +13,7 @@ class Workout: Base {
     case startDate
     case finishDate
   }
-  
+
   override func encode(to encoder: Encoder) throws {
     try super.encode(to: encoder)
     var container = encoder.container(keyedBy: CodingKeys.self)

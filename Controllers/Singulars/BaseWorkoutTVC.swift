@@ -125,16 +125,17 @@ where Cell.Object == Lift {
 
   let db = DisposeBag()
 
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet) {
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
+  {
     let a = CustomIOSAlertView()
-//    a?.containerView = NoteView.new(for: set, view: setRowView)
+    //    a?.containerView = NoteView.new(for: set, view: setRowView)
     a?.delegate = self
     a?.show()
   }
 
   func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NewLift) {
     let a = CustomIOSAlertView()
-//    a?.containerView = NoteView.new(for: lift, view: liftCell)
+    //    a?.containerView = NoteView.new(for: lift, view: liftCell)
     a?.delegate = self
     a?.show()
   }
@@ -147,8 +148,7 @@ where Cell.Object == Lift {
     if let nv = av.containerView as? NoteView<Set, SetRowView> {
       nv.type.note = nv.textView.text
       nv.view.noteButton?.update(for: nv.type)
-    }
-    else if let nv = av.containerView as? NoteView<Lift, LiftCell> {
+    } else if let nv = av.containerView as? NoteView<Lift, LiftCell> {
       nv.type.note = nv.textView.text
       nv.view.noteButton.update(for: nv.type)
     }

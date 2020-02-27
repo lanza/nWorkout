@@ -21,8 +21,8 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
 
     label.translatesAutoresizingMaskIntoConstraints = false
 
-    label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive
-      = true
+    label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive =
+      true
     label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
     tableView.tableHeaderView = view
@@ -43,7 +43,7 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
         var new = dict
         new[lift.name] = (dict[lift.name] ?? 0) + 1
         return new
-    }
+      }
 
     pairs.value = Array(zip(lifts.keys, lifts.values))
 

@@ -129,7 +129,8 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<NewWorkout, Cell> {
 }
 
 extension WorkoutDataSource: LiftCellDelegate {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet) {
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
+  {
     delegate.setRowView(setRowView, didTapNoteButtonForSet: set)
   }
 

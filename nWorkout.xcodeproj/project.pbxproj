@@ -98,7 +98,6 @@
 		B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */; };
 		B3DB437D24077FC300D9F1E5 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437624077FC300D9F1E5 /* TabBarCoordinator.swift */; };
 		B3DB437E24077FC300D9F1E5 /* UIWindow+CoordinatorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437724077FC300D9F1E5 /* UIWindow+CoordinatorKit.swift */; };
-		B3DB437F24077FC300D9F1E5 /* SplitViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437824077FC300D9F1E5 /* SplitViewCoordinator.swift */; };
 		B3DB438024077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437924077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift */; };
 		B3DB438124077FC300D9F1E5 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */; };
 		B3DB438224077FC300D9F1E5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437B24077FC300D9F1E5 /* Coordinator.swift */; };
@@ -138,6 +137,7 @@
 			isEditable = 1;
 			outputFiles = (
 			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
 		};
 /* End PBXBuildRule section */
 
@@ -1023,7 +1023,6 @@
 				B3780EF61DD5AF2D0087CEC1 /* WorkoutsDataSource.swift in Sources */,
 				B3C9562324077F6A00743481 /* ChartViewCell.swift in Sources */,
 				B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */,
-				B3DB437F24077FC300D9F1E5 /* SplitViewCoordinator.swift in Sources */,
 				B3540AB21E8E1ECF0001B996 /* BaseRowView.swift in Sources */,
 				B3C9560824077C5600743481 /* UIView+Extension.swift in Sources */,
 				B34BA0581DC1CC33006B6A51 /* Lets.swift in Sources */,

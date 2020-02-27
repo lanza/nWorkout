@@ -13,7 +13,9 @@ final class StatisticsDataProvider {
   init(liftName: String) {
     self.liftName = liftName
     self.lifts = JDB.getLifts().filter { $0.name == liftName }
-      .filter { $0.isWorkout == true }.sorted { $0.workout!.startDate < $1.workout!.startDate }
+      .filter { $0.isWorkout == true }.sorted {
+        $0.workout!.startDate < $1.workout!.startDate
+      }
   }
 
   func getBestSetDataPoints() -> [ChartDataPair] {

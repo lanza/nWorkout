@@ -77,7 +77,10 @@ class ChartCell: UITableViewCell {
 }
 
 extension ChartCell: ChartViewDelegate {
-  func chartView(_ chartView: ChartView, commit editingStyle: ChartView.EditingStyle, forRowAt index: Int) {  }
-  
+  func chartView(
+    _ chartView: ChartView,
+    commit editingStyle: ChartView.EditingStyle,
+    forRowAt index: Int
+  ) {}
 
 }

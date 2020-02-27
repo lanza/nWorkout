@@ -103,8 +103,7 @@ struct ViewInfo: Equatable {
         doneButtonIndex...doneButtonIndex,
         with: [doneButtonCompletedWeightCompletedRepsViewInfo]
       )
-    }
-    else {
+    } else {
       guard
         let combinedIndex = saved.firstIndex(
           where: { $0.name == Lets.doneButtonCompletedWeightCompletedRepsKey }

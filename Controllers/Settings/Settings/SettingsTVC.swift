@@ -14,8 +14,8 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
   let tableView = UITableView()
   var viewInfos = ViewInfo.saved
 
-  var dataSource: RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>!
-    = nil
+  var dataSource:
+    RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>! = nil
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -79,8 +79,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
           let vi = self.viewInfos[ip.row]
           cell.onSwitch.isOn = vi.isOn
           cell.widthTextField.text = "\(vi.width)"
-        }
-        else {
+        } else {
           cell.onSwitch.isOn = ViewInfo.usesCombinedView
         }
         cell.titleLabel.text = item
@@ -180,8 +179,8 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
 
     label.translatesAutoresizingMaskIntoConstraints = false
 
-    label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive
-      = true
+    label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive =
+      true
     label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
     tableView.tableHeaderView = view
@@ -320,8 +319,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
   ) -> IndexPath {
     if proposedDestinationIndexPath.section == 0 {
       return IndexPath(row: 0, section: 1)
-    }
-    else {
+    } else {
       return proposedDestinationIndexPath
     }
   }
@@ -330,8 +328,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
     let indexPath = tableView.indexPath(for: cell)!
     if indexPath.section == 0 {
       //
-    }
-    else if indexPath.section == 1 {
+    } else if indexPath.section == 1 {
       viewInfos[indexPath.row].width = value
     }
 
@@ -349,8 +346,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
 
       tableView.reloadSections([1], with: .automatic)
 
-    }
-    else if indexPath.section == 1 {
+    } else if indexPath.section == 1 {
       viewInfos[indexPath.row].isOn = !viewInfos[indexPath.row].isOn
     }
   }

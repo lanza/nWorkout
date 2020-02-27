@@ -42,9 +42,10 @@ class KeyboardHandler: NSObject {
       let value = (
         userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject
       ).cgRectValue
-      keyboardHeight = value?.height ?? view.frame.height * CGFloat(
-        Lets.keyboardToViewRatio
-      )
+      keyboardHeight = value?.height ?? view.frame.height
+        * CGFloat(
+          Lets.keyboardToViewRatio
+        )
 
       let insets = UIEdgeInsets(
         top: defaultInsets.top,
@@ -83,8 +84,10 @@ class KeyboardHandler: NSObject {
         )
         let scrollPoint = CGPoint(
           x: 0,
-          y: frInViewsFrame.origin.y - keyboardHeight - tableView.contentInset
-            .top - frInViewsFrame
+          y: frInViewsFrame.origin.y - keyboardHeight
+            - tableView.contentInset
+            .top
+            - frInViewsFrame
             .height - UIApplication.shared.statusBarFrame.height
         )
 

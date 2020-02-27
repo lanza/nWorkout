@@ -8,7 +8,7 @@ class Base: Object, Encodable {
   func deleteSelf() {
 
   }
-  
+
   private enum CodingKeys: String, CodingKey {
     case note
     case isWorkout

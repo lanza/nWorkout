@@ -16,8 +16,8 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
 
     label.translatesAutoresizingMaskIntoConstraints = false
 
-    label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive
-      = true
+    label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive =
+      true
     label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
     tableView.tableHeaderView = view
@@ -29,7 +29,6 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
 
     workouts = JDB.getWorkouts().filter { $0.isWorkout == true }
       .sorted(by: { $0.startDate > $1.startDate })
-      
 
     dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
     dataSource.name = Lets.workout

@@ -10,10 +10,19 @@ protocol KeyboardDelegate: class {
 class Keyboard: UIView {
   static let shared: Keyboard = Keyboard(
     frame: CGRect(
-      x: 0, y: 0, width: 1,
+      x: 0,
+      y: 0,
+      width: 1,
       height: Double(
-        (UIApplication.shared.windows.first?.rootViewController?.view.frame.size.height)!) * Lets
-        .keyboardToViewRatio))
+        (
+          UIApplication.shared.windows.first?.rootViewController?.view.frame
+            .size.height
+        )!
+      )
+        * Lets
+        .keyboardToViewRatio
+    )
+  )
 
   weak var delegate: KeyboardDelegate?
 
@@ -27,8 +36,10 @@ class Keyboard: UIView {
     bindActions()
     backgroundColor = Theme.Colors.Keyboard.background
     let buttons = [
-      zeroButton, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven,
-      buttonEight, buttonNine, thirdSideButton, topSideButton, secondSideButton, decimalButton,
+      zeroButton, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive,
+      buttonSix, buttonSeven,
+      buttonEight, buttonNine, thirdSideButton, topSideButton, secondSideButton,
+      decimalButton,
       backspaceButton, nextButton,
     ]
     for button in buttons {
@@ -42,8 +53,10 @@ class Keyboard: UIView {
     bindActions()
     backgroundColor = Theme.Colors.Keyboard.background
     let buttons = [
-      zeroButton, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven,
-      buttonEight, buttonNine, thirdSideButton, topSideButton, secondSideButton, decimalButton,
+      zeroButton, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive,
+      buttonSix, buttonSeven,
+      buttonEight, buttonNine, thirdSideButton, topSideButton, secondSideButton,
+      decimalButton,
       backspaceButton, nextButton,
     ]
     for button in buttons {
@@ -72,7 +85,8 @@ class Keyboard: UIView {
   func bindActions() {
 
     let numberButtons = [
-      zeroButton, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive, buttonSix, buttonSeven,
+      zeroButton, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive,
+      buttonSix, buttonSeven,
       buttonEight, buttonNine, decimalButton,
     ]
     var characters = (0...9).map { "\($0)" }
@@ -80,14 +94,26 @@ class Keyboard: UIView {
 
     for (number, button) in zip(characters, numberButtons) {
       button.setTitle(String(number), for: UIControl.State())
-      button.addTarget(self, action: #selector(keyTapped(_:)), for: .touchUpInside)
+      button.addTarget(
+        self,
+        action: #selector(keyTapped(_:)),
+        for: .touchUpInside
+      )
     }
 
     backspaceButton.setTitle("←", for: .normal)
-    backspaceButton.addTarget(self, action: #selector(backspaceTapped(_:)), for: .touchUpInside)
+    backspaceButton.addTarget(
+      self,
+      action: #selector(backspaceTapped(_:)),
+      for: .touchUpInside
+    )
 
     nextButton.setTitle("Next", for: UIControl.State())
-    nextButton.addTarget(self, action: #selector(nextTapped(_:)), for: .touchUpInside)
+    nextButton.addTarget(
+      self,
+      action: #selector(nextTapped(_:)),
+      for: .touchUpInside
+    )
   }
 
   func createStacks() {
@@ -98,9 +124,12 @@ class Keyboard: UIView {
     let thirdStackView = UIStackView(
       arrangedSubviews: [buttonSeven, buttonEight, buttonNine, thirdSideButton])
     let fourthStackView = UIStackView(
-      arrangedSubviews: [decimalButton, zeroButton, backspaceButton, nextButton])
+      arrangedSubviews: [decimalButton, zeroButton, backspaceButton, nextButton]
+    )
 
-    let stackViews = [firstStackView, secondStackView, thirdStackView, fourthStackView]
+    let stackViews = [
+      firstStackView, secondStackView, thirdStackView, fourthStackView
+    ]
 
     for stackView in stackViews {
       stackView.axis = .horizontal
@@ -118,17 +147,29 @@ class Keyboard: UIView {
 
     hideButton.translatesAutoresizingMaskIntoConstraints = false
     addSubview(hideButton)
-    hideButton.addTarget(self, action: #selector(hideTapped(_:)), for: .touchUpInside)
+    hideButton.addTarget(
+      self,
+      action: #selector(hideTapped(_:)),
+      for: .touchUpInside
+    )
 
     var constraints = [NSLayoutConstraint]()
     constraints.append(hideButton.leftAnchor.constraint(equalTo: leftAnchor))
     constraints.append(hideButton.rightAnchor.constraint(equalTo: rightAnchor))
-    constraints.append(hideButton.bottomAnchor.constraint(equalTo: masterStackView.topAnchor))
+    constraints.append(
+      hideButton.bottomAnchor.constraint(equalTo: masterStackView.topAnchor)
+    )
     constraints.append(hideButton.topAnchor.constraint(equalTo: topAnchor))
 
-    constraints.append(masterStackView.leftAnchor.constraint(equalTo: leftAnchor))
-    constraints.append(masterStackView.rightAnchor.constraint(equalTo: rightAnchor))
-    constraints.append(masterStackView.bottomAnchor.constraint(equalTo: bottomAnchor))
+    constraints.append(
+      masterStackView.leftAnchor.constraint(equalTo: leftAnchor)
+    )
+    constraints.append(
+      masterStackView.rightAnchor.constraint(equalTo: rightAnchor)
+    )
+    constraints.append(
+      masterStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+    )
     NSLayoutConstraint.activate(constraints)
   }
 
