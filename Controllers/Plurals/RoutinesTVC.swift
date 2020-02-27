@@ -42,7 +42,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
             action in
             guard let name = alert.textFields?.first?.text else { fatalError() }
 
-            let routine = Workout.new(
+            let routine = NewWorkout.new(
               isWorkout: false,
               isComplete: false,
               name: name
@@ -76,8 +76,8 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
     super.viewWillAppear(animated)
     navigationController?.setNavigationBarHidden(true, animated: false)
 
-    workouts = RLM.realm.objects(Workout.self).filter("isWorkout = false")
-      .sorted(byKeyPath: "name")
+    workouts = JDB.getWorkouts().filter { $0.isWorkout == false }
+      .sorted(by: { $0.name > $1.name })
 
     dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
     dataSource.name = Lets.routine

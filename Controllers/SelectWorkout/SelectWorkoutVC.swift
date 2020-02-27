@@ -8,7 +8,7 @@ protocol SelectWorkoutDelegate: class {
 
   func selectWorkoutVC(
     _ selectWorkoutVC: SelectWorkoutVC,
-    selectedRoutine routine: Workout
+    selectedRoutine routine: NewWorkout
   )
 }
 
@@ -57,25 +57,25 @@ class SelectWorkoutVC: UIViewController {
     )
   }
 
-  let objects = RLM.objects(type: Workout.self).filter("isWorkout = false")
+  let objects = JDB.getWorkouts().filter { $0.isWorkout == false }
 
   func setupTableView() {
     tableView.register(SelectWorkoutCell.self)
 
-    Observable.collection(from: objects).bind(
-      to: tableView.rx.items(
-        cellIdentifier: SelectWorkoutCell.reuseIdentifier,
-        cellType: SelectWorkoutCell.self
-      )
-    ) { index, workout, cell in
-      cell.configure(for: workout, at: IndexPath(row: index, section: 0))
-    }.disposed(by: db)
-
-    tableView.rx.modelSelected(Workout.self).subscribe(
-      onNext: { routine in
-        self.delegate.selectWorkoutVC(self, selectedRoutine: routine)
-      }
-    ).disposed(by: db)
+//    Observable.collection(from: objects).bind(
+//      to: tableView.rx.items(
+//        cellIdentifier: SelectWorkoutCell.reuseIdentifier,
+//        cellType: SelectWorkoutCell.self
+//      )
+//    ) { index, workout, cell in
+//      cell.configure(for: workout, at: IndexPath(row: index, section: 0))
+//    }.disposed(by: db)
+//
+//    tableView.rx.modelSelected(NewWorkout.self).subscribe(
+//      onNext: { routine in
+//        self.delegate.selectWorkoutVC(self, selectedRoutine: routine)
+//      }
+//    ).disposed(by: db)
 
     //        tableView.tableFooterView = UIView()
   }

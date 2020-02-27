@@ -8,15 +8,12 @@ struct ChartDataPair {
 
 final class StatisticsDataProvider {
   let liftName: String
-  let lifts: [Lift]
+  let lifts: [NewLift]
 
   init(liftName: String) {
     self.liftName = liftName
-    self.lifts = RLM.objects(type: Lift.self).filter { $0.name == liftName }
-      .filter
-    {
-      $0.isWorkout == true
-    }.sorted { $0.workout!.startDate < $1.workout!.startDate }
+    self.lifts = JDB.getLifts().filter { $0.name == liftName }
+      .filter { $0.isWorkout == true }.sorted { $0.workout!.startDate < $1.workout!.startDate }
   }
 
   func getBestSetDataPoints() -> [ChartDataPair] {
@@ -24,7 +21,7 @@ final class StatisticsDataProvider {
     return values
   }
 
-  private func generateBestSetDataPair(from lift: Lift) -> ChartDataPair {
+  private func generateBestSetDataPair(from lift: NewLift) -> ChartDataPair {
     let timeInterval = lift.workout!.startDate.timeIntervalSinceReferenceDate
     let weight = lift.sets.last?.completedWeight ?? 0
     return ChartDataPair(timeInterval: timeInterval, weight: weight)
@@ -55,14 +52,14 @@ final class StatisticsDataProvider {
     return prDataPoints
   }
 
-  func getPersonalRecordProgression() -> [Set] {
+  func getPersonalRecordProgression() -> [NewSet] {
 
-    var sets: [Set] = []
+    var sets: [NewSet] = []
 
     for lift in lifts {
 
       var setIsNew = true
-      var bestCompletedSet: Set?
+      var bestCompletedSet: NewSet?
 
       for set in lift.sets {
         if set.completedReps == set.reps,

@@ -27,10 +27,9 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     super.viewWillAppear(animated)
     navigationController?.setNavigationBarHidden(true, animated: false)
 
-    workouts = RLM.realm.objects(Workout.self).filter("isWorkout = true")
-      .filter(
-        "isComplete = true"
-      ).sorted(byKeyPath: "startDate", ascending: false)
+    workouts = JDB.getWorkouts().filter { $0.isWorkout == true }
+      .sorted(by: { $0.startDate > $1.startDate })
+      
 
     dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
     dataSource.name = Lets.workout

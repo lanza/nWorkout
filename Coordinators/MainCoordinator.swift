@@ -6,10 +6,9 @@ import UIKit
 class MainCoordinator: TabBarCoordinator {
 
   func checkForUnfinishedWorkout(displayImmediately: Bool) {
-    let workouts = RLM.realm.objects(Workout.self).filter("isComplete = false")
-      .filter(
-        "isWorkout = true"
-      )
+    let workouts = JDB.getWorkouts().filter { $0.isComplete == false }
+      .filter { $0.isWorkout == true }
+    
     if let first = workouts.first {
       self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
       self.activeWorkoutCoordinator?.delegate = self
@@ -140,7 +139,7 @@ class MainCoordinator: TabBarCoordinator {
 extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
   func selectWorkoutCoordinator(
     _ selectWorkoutCoordinator: SelectWorkoutCoordinator,
-    didSelectRoutine routine: Workout?
+    didSelectRoutine routine: NewWorkout?
   ) -> ActiveWorkoutCoordinator {
 
     activeWorkoutCoordinator = ActiveWorkoutCoordinator()
@@ -150,14 +149,11 @@ extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
       activeWorkoutCoordinator!.workout = routine.makeWorkoutWorkout()
     }
     else {
-      activeWorkoutCoordinator!.workout = Workout.new(
+      activeWorkoutCoordinator!.workout = NewWorkout.new(
         isWorkout: true,
         isComplete: false,
         name: Lets.blank
       )
-    }
-    RLM.write {
-      RLM.realm.add(self.activeWorkoutCoordinator!.workout)
     }
 
     activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in

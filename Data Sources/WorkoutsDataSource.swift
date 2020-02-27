@@ -2,13 +2,13 @@ import RealmSwift
 import UIKit
 
 class WorkoutsDataSource<Cell: UITableViewCell>: DataSource<
-    BaseDataProvider<Workout>, Cell
+    BaseDataProvider<NewWorkout>, Cell
   >
-where Cell: ConfigurableCell, Cell.Object == Workout {
+where Cell: ConfigurableCell, Cell.Object == NewWorkout {
 
   var name: String!
 
-  init(tableView: UITableView, workouts: Results<Workout>) {
+  init(tableView: UITableView, workouts: [NewWorkout]) {
     let provider = BaseDataProvider(objects: workouts)
     super.init(tableView: tableView, provider: provider)
   }

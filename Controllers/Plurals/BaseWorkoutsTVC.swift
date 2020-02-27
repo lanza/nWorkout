@@ -5,7 +5,7 @@ import UIKit
 
 class BaseWorkoutsTVC<Cell: UITableViewCell>: UIViewController,
   UITableViewDelegate
-where Cell: ConfigurableCell, Cell.Object == Workout {
+where Cell: ConfigurableCell, Cell.Object == NewWorkout {
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -21,7 +21,7 @@ where Cell: ConfigurableCell, Cell.Object == Workout {
   weak var delegate: WorkoutsTVCDelegate!
 
   var dataSource: WorkoutsDataSource<Cell>!
-  var workouts: Results<Workout>!
+  var workouts: [NewWorkout]!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -95,11 +95,11 @@ where Cell: ConfigurableCell, Cell.Object == Workout {
 protocol WorkoutsTVCDelegate: class {
   func workoutsTVC(
     _ workoutsTVC: WorkoutsTVC,
-    didSelectWorkout workout: Workout
+    didSelectWorkout workout: NewWorkout
   )
 
   func routinesTVC(
     _ routinesTVC: RoutinesTVC,
-    didSelectRoutine routine: Workout
+    didSelectRoutine routine: NewWorkout
   )
 }

@@ -13,17 +13,14 @@ class Lift: Base {
   static func new(isWorkout: Bool, name: String, workout: Workout) -> Lift {
     let lift = Lift()
 
-    RLM.write {
-      lift.isWorkout = isWorkout
-      lift.name = name
-      lift.workout = workout
-      if lift.isWorkout {
-        lift._previousStrings = UserDefaults.standard.value(
-          forKey: "last" + lift.name
-        ) as? String
-          ?? ""
-      }
-      RLM.realm.add(lift)
+    lift.isWorkout = isWorkout
+    lift.name = name
+    lift.workout = workout
+    if lift.isWorkout {
+      lift._previousStrings = UserDefaults.standard.value(
+        forKey: "last" + lift.name
+      ) as? String
+        ?? ""
     }
     return lift
   }
@@ -58,9 +55,7 @@ extension Lift {
 
     for set in sets {
       let new = set.makeWorkoutSet(lift: self)
-      RLM.write {
-        lift.sets.append(new)
-      }
+      lift.sets.append(new)
     }
 
     return lift
@@ -90,9 +85,7 @@ extension Lift: DataProvider {
 
   func remove(at index: Int) {
     let set = object(at: index)
-    RLM.write {
-      sets.remove(at: index)
-    }
+    sets.remove(at: index)
     set.deleteSelf()
   }
 }

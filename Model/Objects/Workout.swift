@@ -42,28 +42,21 @@ class Workout: Base {
       completedReps: 0,
       lift: lift
     )
-    RLM.write {
-      lift.sets.append(set)
-    }
+    lift.sets.append(set)
     return set
   }
 
   func addNewLift(name: String) -> Lift {
     let lift = Lift.new(isWorkout: isWorkout, name: name, workout: self)
-    RLM.write {
-      lifts.append(lift)
-    }
+    lifts.append(lift)
     return lift
   }
 
   static func new(isWorkout: Bool, isComplete: Bool, name: String) -> Workout {
     let workout = Workout()
-    RLM.write {
-      workout.name = name
-      workout.isWorkout = isWorkout
-      workout.isComplete = isComplete
-      RLM.realm.add(workout)
-    }
+    workout.name = name
+    workout.isWorkout = isWorkout
+    workout.isComplete = isComplete
     return workout
   }
 
@@ -81,9 +74,7 @@ extension Workout {
 
     for lift in lifts {
       let new = lift.makeWorkoutLift(workout: workout)
-      RLM.write {
-        workout.lifts.append(new)
-      }
+      workout.lifts.append(new)
     }
     return workout
   }
@@ -112,18 +103,14 @@ extension Workout: DataProvider {
 
   func remove(at index: Int) {
     let lift = object(at: index)
-    RLM.write {
-      lifts.remove(at: index)
-    }
+    lifts.remove(at: index)
     lift.deleteSelf()
   }
 
   func move(from sourceIndex: Int, to destinationIndex: Int) {
     let lift = lifts[sourceIndex]
-    RLM.write {
-      lifts.remove(at: sourceIndex)
-      lifts.insert(lift, at: destinationIndex)
-    }
+    lifts.remove(at: sourceIndex)
+    lifts.insert(lift, at: destinationIndex)
   }
 
 }

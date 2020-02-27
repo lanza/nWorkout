@@ -103,6 +103,9 @@
 		B3DB438124077FC300D9F1E5 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */; };
 		B3DB438224077FC300D9F1E5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437B24077FC300D9F1E5 /* Coordinator.swift */; };
 		B3DB438324077FC300D9F1E5 /* HamburgerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437C24077FC300D9F1E5 /* HamburgerCoordinator.swift */; };
+		B3E3944A24079E3A0038E66B /* NewWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3944924079E3A0038E66B /* NewWorkout.swift */; };
+		B3E3944C24079EEB0038E66B /* NewLift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3944B24079EEB0038E66B /* NewLift.swift */; };
+		B3E3944F2407A17E0038E66B /* NewSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3944D24079F970038E66B /* NewSet.swift */; };
 		B3EA19FA1E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */; };
 		B3EA19FC1E83BF3E00B277E2 /* StatisticsHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */; };
 		B3EA19FE1E83BF6D00B277E2 /* Rx+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */; };
@@ -248,6 +251,9 @@
 		B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		B3DB437B24077FC300D9F1E5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B3DB437C24077FC300D9F1E5 /* HamburgerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerCoordinator.swift; sourceTree = "<group>"; };
+		B3E3944924079E3A0038E66B /* NewWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkout.swift; sourceTree = "<group>"; };
+		B3E3944B24079EEB0038E66B /* NewLift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLift.swift; sourceTree = "<group>"; };
+		B3E3944D24079F970038E66B /* NewSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSet.swift; sourceTree = "<group>"; };
 		B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsPersonalRecordTVC.swift; sourceTree = "<group>"; };
 		B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsHistoryCell.swift; sourceTree = "<group>"; };
 		B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+Extensions.swift"; sourceTree = "<group>"; };
@@ -471,9 +477,12 @@
 			isa = PBXGroup;
 			children = (
 				B38208781DC2B23E0008D6F8 /* Base.swift */,
+				B3E3944D24079F970038E66B /* NewSet.swift */,
 				B34BA0591DC1CC4B006B6A51 /* Workout.swift */,
+				B3E3944924079E3A0038E66B /* NewWorkout.swift */,
 				B34BA05B1DC1CCED006B6A51 /* Lift.swift */,
 				B38208761DC2B22A0008D6F8 /* Set.swift */,
+				B3E3944B24079EEB0038E66B /* NewLift.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -927,6 +936,7 @@
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
 				B34BA05A1DC1CC4B006B6A51 /* Workout.swift in Sources */,
 				B38208791DC2B23E0008D6F8 /* Base.swift in Sources */,
+				B3E3944F2407A17E0038E66B /* NewSet.swift in Sources */,
 				B3DB438324077FC300D9F1E5 /* HamburgerCoordinator.swift in Sources */,
 				B3C9560124077C5600743481 /* UIStackView+Extension.swift in Sources */,
 				B3BB31901DDAA24C0015F9B0 /* SettingsCoordinator.swift in Sources */,
@@ -954,6 +964,7 @@
 				B3C9560224077C5600743481 /* ReusableView.swift in Sources */,
 				B3780EF31DD5A7100087CEC1 /* ArrayProvider.swift in Sources */,
 				B3BB318C1DDAA1F10015F9B0 /* SelectWorkoutCoordinator.swift in Sources */,
+				B3E3944A24079E3A0038E66B /* NewWorkout.swift in Sources */,
 				B3DB438124077FC300D9F1E5 /* NavigationCoordinator.swift in Sources */,
 				B36F37E81E0F7FF100667263 /* RLM.swift in Sources */,
 				B3780EF81DD5B0C80087CEC1 /* ConfigurableCell.swift in Sources */,
@@ -981,6 +992,7 @@
 				B3C955FE24077C5600743481 /* TripleQuestionMark.swift in Sources */,
 				B382087B1DC2B2C00008D6F8 /* WorkoutsTVC.swift in Sources */,
 				B3C9562024077F6A00743481 /* ChartViewConfigurator.swift in Sources */,
+				B3E3944C24079EEB0038E66B /* NewLift.swift in Sources */,
 				B360593B1E1C41C300EBE620 /* StartBlankWorkoutButton.swift in Sources */,
 				B38208771DC2B22A0008D6F8 /* Set.swift in Sources */,
 				B382087F1DC2B3EE0008D6F8 /* WorkoutTVC.swift in Sources */,

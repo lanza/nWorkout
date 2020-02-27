@@ -1,11 +1,11 @@
 import UIKit
 
 protocol WorkoutDataSourceDelegate: class {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set)
-  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: Lift)
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
+  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NewLift)
 }
 
-class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout, Cell> {
+class WorkoutDataSource<Cell: LiftCell>: DataSource<NewWorkout, Cell> {
 
   var name: String!
 
@@ -14,7 +14,7 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout, Cell> {
   //START Specific to Workout
   init(
     tableView: UITableView,
-    provider: Workout,
+    provider: NewWorkout,
     activeOrFinished: ActiveOrFinished
   ) {
     self.activeOrFinished = activeOrFinished
@@ -63,7 +63,7 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout, Cell> {
     return cell
   }
 
-  func addSet(for lift: Lift, and cell: LiftCell) {
+  func addSet(for lift: NewLift, and cell: LiftCell) {
 
     tableView.beginUpdates()
 
@@ -129,11 +129,11 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<Workout, Cell> {
 }
 
 extension WorkoutDataSource: LiftCellDelegate {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set) {
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet) {
     delegate.setRowView(setRowView, didTapNoteButtonForSet: set)
   }
 
-  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: Lift) {
+  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NewLift) {
     delegate.liftCell(liftCell, didTapNoteButtonForLift: lift)
   }
 }

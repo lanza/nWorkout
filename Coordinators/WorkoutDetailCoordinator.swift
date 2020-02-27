@@ -2,13 +2,13 @@ import UIKit
 
 class WorkoutDetailCoordinator: Coordinator {
 
-  let workout: Workout!
+  let workout: NewWorkout!
 
   var workoutDetailVC: WorkoutDetailVC {
     return viewController as! WorkoutDetailVC
   }
 
-  init(workout: Workout) {
+  init(workout: NewWorkout) {
     self.workout = workout
     super.init()
   }

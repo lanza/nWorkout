@@ -39,14 +39,14 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
 
     navigationController?.setNavigationBarHidden(true, animated: false)
 
-    let lifts = RLM.realm.objects(Lift.self).filter("isWorkout = true").reduce(
-      [String: Int]()
-    ) {
-      (dict, lift) in
-      var new = dict
-      new[lift.name] = (dict[lift.name] ?? 0) + 1
-      return new
+    let lifts = JDB.getLifts().filter { $0.isWorkout == true }
+      .reduce([String: Int]()) {
+        (dict, lift) in
+        var new = dict
+        new[lift.name] = (dict[lift.name] ?? 0) + 1
+        return new
     }
+
     pairs.value = Array(zip(lifts.keys, lifts.values))
 
     if tabBarController != nil {

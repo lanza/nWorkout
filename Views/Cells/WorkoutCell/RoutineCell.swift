@@ -8,7 +8,7 @@ class RoutineCell: WorkoutCell {
     chartView.emptyText = "This routine is empty"
   }
 
-  override func configure(for object: Workout, at indexPath: IndexPath) {
+  override func configure(for object: NewWorkout, at indexPath: IndexPath) {
     super.configure(for: object, at: indexPath)
     label.text = object.name
   }

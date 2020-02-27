@@ -3,8 +3,8 @@ import RxSwift
 import UIKit
 
 protocol LiftCellDelegate: class {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set)
-  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: Lift)
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
+  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NewLift)
 }
 
 extension LiftCell: ChartViewDelegate {
@@ -18,13 +18,13 @@ extension LiftCell: ChartViewDelegate {
 }
 
 extension LiftCell: SetRowViewDelegate {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set) {
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet) {
     self.delegate.setRowView(setRowView, didTapNoteButtonForSet: set)
   }
 }
 
 class LiftCell: ChartViewCell {
-  func configure(for object: Lift, at indexPath: IndexPath) {
+  func configure(for object: NewLift, at indexPath: IndexPath) {
 
     label.text = object.name
 
@@ -85,7 +85,7 @@ class LiftCell: ChartViewCell {
 
   weak var delegate: LiftCellDelegate!
 
-  weak var lift: Lift! {
+  weak var lift: NewLift! {
     didSet {
       noteButton.update(for: lift)
       noteButton.rx.tap.subscribe(

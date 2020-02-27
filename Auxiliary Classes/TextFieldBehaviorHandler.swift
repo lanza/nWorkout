@@ -3,18 +3,18 @@ import UIKit
 
 class TextFieldBehaviorHandler: KeyboardDelegate {
   //    var liftCells = [LiftCell]()
-
+  
   var currentlyEditingLiftCell: LiftCell?
-
+  
   var currentlyEditingRowView: SetRowView?
   var currentlyEditingTextField: UITextField?
-
+  
   func setupSetConnections(for cell: LiftCell) {
     for setRowView in cell.rowViews {
       setupRowConnections(for: setRowView, cell: cell)
     }
   }
-
+  
   func setupRowConnections(for setRowView: SetRowView, cell: LiftCell) {
     setRowView.textFieldDB = DisposeBag()
     setupObserversForCurrentlyEditing(setRowView: setRowView, cell: cell)
@@ -22,52 +22,44 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
     setupObserversForSettingBackTextAfterEditing(setRowView: setRowView)
     setupObserversForUpdatingSetValues(setRowView: setRowView)
   }
-
+  
   func setupObserversForUpdatingSetValues(setRowView: SetRowView) {
     setRowView.targetWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(
       onNext: {
         guard let value = Double(setRowView.targetWeightTextField!.text!),
           value != setRowView.set.weight
-        else { return }
-        RLM.write {
-          setRowView.set.weight = value
-        }
-      }
+          else { return }
+        setRowView.set.weight = value
+    }
     ).disposed(by: setRowView.textFieldDB)
     setRowView.targetRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(
       onNext: {
         guard let value = Int(setRowView.targetRepsTextField!.text!),
           value != setRowView.set.reps
-        else { return }
-        RLM.write {
-          setRowView.set.reps = value
-        }
-      }
+          else { return }
+        setRowView.set.reps = value
+    }
     ).disposed(by: setRowView.textFieldDB)
     setRowView.completedWeightTextField?.rx.controlEvent(.editingDidEnd)
       .subscribe(
         onNext: {
           guard let value = Double(setRowView.completedWeightTextField!.text!),
             value != setRowView.set.completedWeight
-          else { return }
-          RLM.write {
-            setRowView.set.completedWeight = value
-          }
-        }
-      ).disposed(by: setRowView.textFieldDB)
+            else { return }
+          setRowView.set.completedWeight = value
+      }
+    ).disposed(by: setRowView.textFieldDB)
     setRowView.completedRepsTextField?.rx.controlEvent(.editingDidEnd)
       .subscribe(
         onNext: {
           guard let value = Int(setRowView.completedRepsTextField!.text!),
             value != setRowView.set.completedReps
-          else { return }
-          RLM.write {
-            setRowView.set.completedReps = value
-          }
-        }
-      ).disposed(by: setRowView.textFieldDB)
+            else { return }
+          setRowView.set.completedReps = value
+      }
+    ).disposed(by: setRowView.textFieldDB)
   }
-
+  
   func setupObserversForSettingBackTextAfterEditing(setRowView: SetRowView) {
     setRowView.targetWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(
       onNext: {
@@ -75,7 +67,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
           setRowView.targetWeightTextField?.text = setRowView
             .targetWeightTextField?.placeholder
         }
-      }
+    }
     ).disposed(by: setRowView.textFieldDB)
     setRowView.targetRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(
       onNext: {
@@ -83,7 +75,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
           setRowView.targetRepsTextField?.text = setRowView.targetRepsTextField?
             .placeholder
         }
-      }
+    }
     ).disposed(by: setRowView.textFieldDB)
     setRowView.completedWeightTextField?.rx.controlEvent(.editingDidEnd)
       .subscribe(
@@ -93,8 +85,8 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
               .completedWeightTextField?
               .placeholder
           }
-        }
-      ).disposed(by: setRowView.textFieldDB)
+      }
+    ).disposed(by: setRowView.textFieldDB)
     setRowView.completedRepsTextField?.rx.controlEvent(.editingDidEnd)
       .subscribe(
         onNext: {
@@ -102,10 +94,10 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
             setRowView.completedRepsTextField?.text = setRowView
               .completedRepsTextField?.placeholder
           }
-        }
-      ).disposed(by: setRowView.textFieldDB)
+      }
+    ).disposed(by: setRowView.textFieldDB)
   }
-
+  
   func setupObserversForTextHandling(setRowView: SetRowView) {
     if let twtf = setRowView.targetWeightTextField {
       twtf.rx.controlEvent(.editingDidBegin).subscribe(
@@ -113,7 +105,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
           guard twtf.text != nil else { return }
           twtf.placeholder = twtf.text
           twtf.text = nil
-        }
+      }
       ).disposed(by: setRowView.textFieldDB)
     }
     setRowView.targetRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(
@@ -122,7 +114,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
         setRowView.targetRepsTextField?.placeholder = setRowView
           .targetRepsTextField?.text
         setRowView.targetRepsTextField?.text = nil
-      }
+    }
     ).disposed(by: setRowView.textFieldDB)
     setRowView.completedWeightTextField?.rx.controlEvent(.editingDidBegin)
       .subscribe(
@@ -131,8 +123,8 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
           setRowView.completedWeightTextField?.placeholder = setRowView
             .completedWeightTextField?.text
           setRowView.completedWeightTextField?.text = nil
-        }
-      ).disposed(by: setRowView.textFieldDB)
+      }
+    ).disposed(by: setRowView.textFieldDB)
     setRowView.completedRepsTextField?.rx.controlEvent(.editingDidBegin)
       .subscribe(
         onNext: {
@@ -140,10 +132,10 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
           setRowView.completedRepsTextField?.placeholder = setRowView
             .completedRepsTextField?.text
           setRowView.completedRepsTextField?.text = nil
-        }
-      ).disposed(by: setRowView.textFieldDB)
+      }
+    ).disposed(by: setRowView.textFieldDB)
   }
-
+  
   func setupObserversForCurrentlyEditing(setRowView: SetRowView, cell: LiftCell)
   {
     setRowView.targetWeightTextField?.rx.controlEvent(.editingDidBegin)
@@ -152,14 +144,14 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
           self.currentlyEditingLiftCell = cell
           self.currentlyEditingRowView = setRowView
           self.currentlyEditingTextField = setRowView.targetWeightTextField
-        }
-      ).disposed(by: setRowView.textFieldDB)
+      }
+    ).disposed(by: setRowView.textFieldDB)
     setRowView.targetRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(
       onNext: {
         self.currentlyEditingLiftCell = cell
         self.currentlyEditingRowView = setRowView
         self.currentlyEditingTextField = setRowView.targetRepsTextField
-      }
+    }
     ).disposed(by: setRowView.textFieldDB)
     setRowView.completedWeightTextField?.rx.controlEvent(.editingDidBegin)
       .subscribe(
@@ -167,24 +159,24 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
           self.currentlyEditingLiftCell = cell
           self.currentlyEditingRowView = setRowView
           self.currentlyEditingTextField = setRowView.completedWeightTextField
-        }
-      ).disposed(by: setRowView.textFieldDB)
+      }
+    ).disposed(by: setRowView.textFieldDB)
     setRowView.completedRepsTextField?.rx.controlEvent(.editingDidBegin)
       .subscribe(
         onNext: {
           self.currentlyEditingLiftCell = cell
           self.currentlyEditingRowView = setRowView
           self.currentlyEditingTextField = setRowView.completedRepsTextField
-        }
-      ).disposed(by: setRowView.textFieldDB)
+      }
+    ).disposed(by: setRowView.textFieldDB)
   }
-
+  
   func hideWasTapped() {
     UIResponder.currentFirstResponder?.resignFirstResponder()
   }
-
+  
   var liftNeedsNewSet: (() -> Void)!
-
+  
   func getNeighborTextField(for textField: UITextField) -> UITextField? {
     guard let cerv = currentlyEditingRowView else { fatalError() }
     if textField === cerv.targetWeightTextField {
@@ -224,13 +216,13 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
       return nil
     }
   }
-
+  
   func nextWasTapped() {
     guard let cetf = currentlyEditingTextField,
       var cerv = currentlyEditingRowView,
       let celc = currentlyEditingLiftCell
-    else { fatalError() }
-
+      else { fatalError() }
+    
     if let neighbor = getNeighborTextField(for: cetf) {
       neighbor.becomeFirstResponder()
     }
@@ -264,11 +256,11 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
         .becomeFirstResponder()
     }
   }
-
+  
   func backspaceWasTapped() {
     currentlyEditingTextField?.deleteBackward()
   }
-
+  
   func keyWasTapped(character: String) {
     currentlyEditingTextField!.text?.append(character)
   }

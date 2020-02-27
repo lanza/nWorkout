@@ -7,7 +7,7 @@ extension WorkoutCell: ConfigurableCell {
 }
 
 class WorkoutCell: ChartViewCell {
-  func configure(for object: Workout, at indexPath: IndexPath) {
+  func configure(for object: NewWorkout, at indexPath: IndexPath) {
 
     chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
 

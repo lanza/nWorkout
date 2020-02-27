@@ -20,7 +20,7 @@ where Cell.Object == Lift {
   let tableView = UITableView()
 
   var dataSource: WorkoutDataSource<Cell>!
-  var workout: Workout!
+  var workout: NewWorkout!
 
   var keyboardHandler: KeyboardHandler!
 
@@ -125,16 +125,16 @@ where Cell.Object == Lift {
 
   let db = DisposeBag()
 
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set) {
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet) {
     let a = CustomIOSAlertView()
-    a?.containerView = NoteView.new(for: set, view: setRowView)
+//    a?.containerView = NoteView.new(for: set, view: setRowView)
     a?.delegate = self
     a?.show()
   }
 
-  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: Lift) {
+  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NewLift) {
     let a = CustomIOSAlertView()
-    a?.containerView = NoteView.new(for: lift, view: liftCell)
+//    a?.containerView = NoteView.new(for: lift, view: liftCell)
     a?.delegate = self
     a?.show()
   }
@@ -145,15 +145,11 @@ where Cell.Object == Lift {
   ) {
     let av = alertView as! CustomIOSAlertView
     if let nv = av.containerView as? NoteView<Set, SetRowView> {
-      RLM.write {
-        nv.type.note = nv.textView.text
-      }
+      nv.type.note = nv.textView.text
       nv.view.noteButton?.update(for: nv.type)
     }
     else if let nv = av.containerView as? NoteView<Lift, LiftCell> {
-      RLM.write {
-        nv.type.note = nv.textView.text
-      }
+      nv.type.note = nv.textView.text
       nv.view.noteButton.update(for: nv.type)
     }
     av.close()

@@ -1,10 +1,10 @@
 import Foundation
 import RealmSwift
 
-class BaseDataProvider<BaseType: Base>: DataProvider {
+class BaseDataProvider<BaseType: AnyObject>: DataProvider {
 
-  init(objects: Results<BaseType>) {
-    self.objects = Array(objects)
+  init(objects: [BaseType]) {
+    self.objects = objects
   }
 
   var objects: [BaseType]
@@ -18,7 +18,7 @@ class BaseDataProvider<BaseType: Base>: DataProvider {
   }
 
   func index(of object: BaseType) -> Int? {
-    return objects.firstIndex(of: object)
+    return objects.firstIndex(where: { $0 === object })
   }
 
   func append(_ object: BaseType) {
@@ -35,7 +35,6 @@ class BaseDataProvider<BaseType: Base>: DataProvider {
   }
 
   func remove(at index: Int) {
-    object(at: index).deleteSelf()
     objects.remove(at: index)
   }
 }

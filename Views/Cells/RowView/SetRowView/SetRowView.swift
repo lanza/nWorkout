@@ -4,7 +4,7 @@ import RxSwift
 import UIKit
 
 protocol SetRowViewDelegate: class {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: Set)
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
 }
 
 class SetRowView: BaseRowView {
@@ -22,7 +22,7 @@ class SetRowView: BaseRowView {
     setupButtons()
   }
 
-  var set: (nWorkout.Set)! {
+  var set: NewSet! {
     didSet {
       guard let set = set else { return }
       print(set.weight, set.reps, set.completedWeight, set.completedReps)
