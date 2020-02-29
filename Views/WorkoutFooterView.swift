@@ -72,8 +72,8 @@ class WorkoutFooterView: UIView {
     for button in buttons {
       view.addSubview(button)
     }
-
-    view.setupRx()
+    
+    view.setupActions()
     return view
   }
 
@@ -129,9 +129,9 @@ class WorkoutFooterView: UIView {
   @objc func cancelWorkoutButtonTapped() { self.delegate.cancelWorkoutTapped() }
   @objc func workoutDetailButtonTapped() { self.delegate.workoutDetailTapped() }
 
-  func setupRx() {
+  func setupActions() {
     addLiftButton.addTarget(self, action: #selector(addLiftButtonTapped), for: .touchUpInside)
-    finishWorkoutButton.addTarget(self, action: #selector(finishWorkoutButtonTapped), for: .touchUpInside)
+    finishWorkoutButton?.addTarget(self, action: #selector(finishWorkoutButtonTapped), for: .touchUpInside)
     cancelWorkoutButton?.addTarget(self, action: #selector(cancelWorkoutButtonTapped), for: .touchUpInside)
     workoutDetailButton.addTarget(self, action: #selector(workoutDetailButtonTapped), for: .touchUpInside)
   }
