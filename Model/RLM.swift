@@ -13,12 +13,15 @@ enum JDB {
     }
   }
 
+  static func getFilePath() -> URL {
+    return getDocumentsDirectory().appendingPathComponent("data.json")
+  }
+
   private static var workouts: [NewWorkout]! = nil
 
   static func getWorkouts() -> [NewWorkout] {
     if workouts == nil {
-      let d = try! Data(
-        contentsOf: getDocumentsDirectory().appendingPathComponent("data.json"))
+      let d = try! Data(contentsOf: getFilePath())
       workouts = try! JSONDecoder().decode([NewWorkout].self, from: d)
       for workout in workouts {
         for lift in workout.lifts {

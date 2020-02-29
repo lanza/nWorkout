@@ -3,6 +3,35 @@ import RxSwift
 import UIKit
 
 class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    shareAction(url: JDB.getFilePath())
+  }
+  
+  let documentInteractionController = UIDocumentInteractionController()
+  func share(url: URL) {
+    documentInteractionController.url = url
+    documentInteractionController.uti = url.typeIdentifier ?? "public.data, public.content"
+    documentInteractionController.name = url.localizedName ?? url.lastPathComponent
+    documentInteractionController.presentOptionsMenu(from: view.frame, in: view, animated: true)
+  }
+  func shareAction(url: URL) {
+    URLSession.shared.dataTask(with: url) { data, response, error in
+      guard let data = data, error == nil else { return }
+      let tmpURL = FileManager.default.temporaryDirectory
+        .appendingPathComponent(response?.suggestedFilename ?? "fileName.json")
+      do {
+        try data.write(to: tmpURL)
+        DispatchQueue.main.async {
+          self.share(url: tmpURL)
+        }
+      } catch {
+        print(error)
+      }
+    }.resume()
+  }
 
   func setTableHeaderView() {
     let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
