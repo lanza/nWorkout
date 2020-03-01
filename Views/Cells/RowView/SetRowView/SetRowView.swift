@@ -1,6 +1,4 @@
 import CustomIOSAlertView
-import RxCocoa
-import RxSwift
 import UIKit
 
 protocol SetRowViewDelegate: class {
@@ -18,7 +16,6 @@ class SetRowView: BaseRowView {
 
   override func setupColumns() {
     super.setupColumns()
-    db = DisposeBag()
     setupButtons()
   }
 
@@ -134,7 +131,6 @@ class SetRowView: BaseRowView {
         completeButton?.setHide(false)
       }
     }
-
   }
 
   func setFailed() {
@@ -153,34 +149,28 @@ class SetRowView: BaseRowView {
     set.setCompleted(weight: 0, reps: 0)
   }
 
+  @objc func failButtonTapped() {
+    if self.didFail {
+      self.setFresh()
+    } else {
+      self.setFailed()
+    }
+  }
+  @objc func completeButtonTapped() {
+    if self.isComplete {
+      self.setFresh()
+    } else {
+      self.setComplete()
+    }
+  }
+  @objc func noteButtonTapped() {
+    self.delegate.setRowView(self, didTapNoteButtonForSet: self.set)
+  }
   func setupButtons() {
 
-    failButton?.rx.tap.subscribe(
-      onNext: { [unowned self] in
-        if self.didFail {
-          self.setFresh()
-        }
-        else {
-          self.setFailed()
-        }
-      }
-    ).disposed(by: db)
-
-    completeButton?.rx.tap.subscribe(
-      onNext: { [unowned self] in
-        if self.isComplete {
-          self.setFresh()
-        }
-        else {
-          self.setComplete()
-        }
-      }
-    ).disposed(by: db)
-    noteButton?.rx.tap.subscribe(
-      onNext: { [unowned self] in
-        self.delegate.setRowView(self, didTapNoteButtonForSet: self.set)
-      }
-    ).disposed(by: db)
+    failButton?.addTarget(self, action: #selector(failButtonTapped), for: .touchUpInside)
+    completeButton?.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
+    noteButton?.addTarget(self, action: #selector(noteButtonTapped), for: .touchUpInside)
   }
 
   let dict: [String: UIView.Type] = [
@@ -287,7 +277,4 @@ class SetRowView: BaseRowView {
     guard let nb = columnViews[index] as? NoteButton else { fatalError() }
     return nb
   }
-
-  var db: DisposeBag!
-  var textFieldDB: DisposeBag!
 }
