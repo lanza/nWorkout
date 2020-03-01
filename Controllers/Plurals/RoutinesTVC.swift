@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
@@ -15,6 +13,8 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
     b.setTitle("New")
     b.setTitleColor(.white)
 
+    b.addTarget(self, action: #selector(newButtonTapped), for: .touchUpInside)
+
     view.addSubview(label)
     label.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(b)
@@ -28,47 +28,43 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
         b.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       ]
     )
-
-    b.rx.tap.subscribe(
-      onNext: {
-        let alert = UIAlertController.alert(
-          title: Lets.createNewRoutine,
-          message: nil
-        )
-
-        alert.addAction(
-          UIAlertAction(title: Lets.done, style: UIAlertAction.Style.default) {
-            action in
-            guard let name = alert.textFields?.first?.text else { fatalError() }
-
-            let routine = NewWorkout.new(
-              isWorkout: false,
-              isComplete: false,
-              name: name
-            )
-
-            self.dataSource.provider.append(routine)
-
-            guard let index = self.dataSource.provider.index(of: routine) else {
-              fatalError()
-            }
-            let indexPath = IndexPath(row: index, section: 0)
-            self.tableView.insertRows(at: [indexPath], with: .automatic)
-            if self.dataSource.provider.numberOfItems() == 1 {
-              self.tableView.reloadData()
-            }
-            self.delegate!.routinesTVC(self, didSelectRoutine: routine)
-          }
-        )
-        alert.addAction(
-          UIAlertAction(title: Lets.cancel, style: .cancel, handler: nil)
-        )
-        self.present(alert, animated: true, completion: nil)
-
-      }
-    ).disposed(by: db)
-
     tableView.tableHeaderView = view
+  }
+
+  @objc func newButtonTapped() {
+    let alert = UIAlertController.alert(
+      title: Lets.createNewRoutine,
+      message: nil
+    )
+
+    alert.addAction(
+      UIAlertAction(title: Lets.done, style: UIAlertAction.Style.default) {
+        action in
+        guard let name = alert.textFields?.first?.text else { fatalError() }
+
+        let routine = NewWorkout.new(
+          isWorkout: false,
+          isComplete: false,
+          name: name
+        )
+
+        self.dataSource.provider.append(routine)
+
+        guard let index = self.dataSource.provider.index(of: routine) else {
+          fatalError()
+        }
+        let indexPath = IndexPath(row: index, section: 0)
+        self.tableView.insertRows(at: [indexPath], with: .automatic)
+        if self.dataSource.provider.numberOfItems() == 1 {
+          self.tableView.reloadData()
+        }
+        self.delegate!.routinesTVC(self, didSelectRoutine: routine)
+      }
+    )
+    alert.addAction(
+      UIAlertAction(title: Lets.cancel, style: .cancel, handler: nil)
+    )
+    self.present(alert, animated: true, completion: nil)
   }
 
   override func viewWillAppear(_ animated: Bool) {
