@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 class BaseTVC: UIViewController, UITableViewDelegate {
