@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 protocol SelectWorkoutDelegate: class {
@@ -80,28 +78,29 @@ class SelectWorkoutVC: UIViewController {
     //        tableView.tableFooterView = UIView()
   }
 
+  @objc func startBlankWorkoutButtonTapped() {
+    self.delegate.startBlankWorkoutSelected(for: self)
+  }
+
+  @objc func cancelButtonTapped() {
+    self.delegate.cancelSelected(for: self)
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
     setupView()
     setupTableView()
 
-    startBlankWorkoutButton.rx.tap.subscribe(
-      onNext: {
-        self.delegate.startBlankWorkoutSelected(for: self)
-      }
-    ).disposed(by: db)
+    startBlankWorkoutButton.addTarget(
+      self, action: #selector(startBlankWorkoutButtonTapped),
+      for: .touchUpInside)
     navigationItem.leftBarButtonItem = UIBarButtonItem(
       title: Lets.cancel,
       style: .plain,
-      target: nil,
-      action: nil
+      target: self,
+      action: #selector(cancelButtonTapped)
     )
-    navigationItem.leftBarButtonItem!.rx.tap.subscribe(
-      onNext: {
-        self.delegate.cancelSelected(for: self)
-      }
-    ).disposed(by: db)
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -111,6 +110,4 @@ class SelectWorkoutVC: UIViewController {
 
     tableView.reloadData()
   }
-
-  let db = DisposeBag()
 }
