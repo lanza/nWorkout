@@ -103,7 +103,6 @@
 		B3E3944F2407A17E0038E66B /* NewSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3944D24079F970038E66B /* NewSet.swift */; };
 		B3EA19FA1E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */; };
 		B3EA19FC1E83BF3E00B277E2 /* StatisticsHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */; };
-		B3EA19FE1E83BF6D00B277E2 /* Rx+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */; };
 		B3EA1A001E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FF1E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift */; };
 		B3EA1A031E83BFC400B277E2 /* ChartSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A021E83BFC400B277E2 /* ChartSectionModel.swift */; };
 		B3EA1A061E83C04E00B277E2 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A051E83C04E00B277E2 /* ChartCell.swift */; };
@@ -248,7 +247,6 @@
 		B3E3944D24079F970038E66B /* NewSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSet.swift; sourceTree = "<group>"; };
 		B3EA19F91E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsPersonalRecordTVC.swift; sourceTree = "<group>"; };
 		B3EA19FB1E83BF3E00B277E2 /* StatisticsHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsHistoryCell.swift; sourceTree = "<group>"; };
-		B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+Extensions.swift"; sourceTree = "<group>"; };
 		B3EA19FF1E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsHistorySetRowView.swift; sourceTree = "<group>"; };
 		B3EA1A021E83BFC400B277E2 /* ChartSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSectionModel.swift; sourceTree = "<group>"; };
 		B3EA1A051E83C04E00B277E2 /* ChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
@@ -542,7 +540,6 @@
 			isa = PBXGroup;
 			children = (
 				B360593E1E1C4B1700EBE620 /* UIAlertController+Extensions.swift */,
-				B3EA19FD1E83BF6D00B277E2 /* Rx+Extensions.swift */,
 			);
 			name = Extensions;
 			path = "UIKit Extensions";
@@ -961,7 +958,6 @@
 				B3EA1A031E83BFC400B277E2 /* ChartSectionModel.swift in Sources */,
 				B36059501E1CC71F00EBE620 /* BaseWorkoutTVC.swift in Sources */,
 				B3DB438024077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift in Sources */,
-				B3EA19FE1E83BF6D00B277E2 /* Rx+Extensions.swift in Sources */,
 				B3C9560624077C5600743481 /* CGColor+Extensions.swift in Sources */,
 				B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */,
 				B36059371E1C3EF600EBE620 /* FailButton.swift in Sources */,
