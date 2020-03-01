@@ -37,3 +37,10 @@ class BaseDataProvider<BaseType: AnyObject>: DataProvider {
     objects.remove(at: index)
   }
 }
+
+extension BaseDataProvider where BaseType: NewWorkout {
+  func remove(at index: Int) {
+    let wo = objects.remove(at: index)
+    JDB.removeWorkout(wo)
+  }
+}

@@ -12,13 +12,13 @@ enum JDB {
       fatalError()
     }
   }
-
+  
   static func getFilePath() -> URL {
     return getDocumentsDirectory().appendingPathComponent("data.json")
   }
-
+  
   private static var workouts: [NewWorkout]! = nil
-
+  
   static func getWorkouts() -> [NewWorkout] {
     if workouts == nil {
       let d = try! Data(contentsOf: getFilePath())
@@ -34,17 +34,24 @@ enum JDB {
     }
     return workouts
   }
-
+  
   static func getLifts() -> [NewLift] {
     return getWorkouts().map { $0.lifts }.reduce([], +)
   }
-
+  
   static func addWorkout(_ workout: NewWorkout) {
     if JDB.workouts.contains(where: { $0 === workout }) {
       return
     } else {
       JDB.workouts.append(workout)
       JDB.write()
+    }
+  }
+  static func removeWorkout(_ workout: NewWorkout) {
+    if let index = JDB.workouts.firstIndex(where: { $0 === workout }) {
+      JDB.workouts.remove(at: index)
+    } else {
+      fatalError("There was no workout for \(workout)")
     }
   }
 }
