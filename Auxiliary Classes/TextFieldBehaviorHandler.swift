@@ -1,4 +1,3 @@
-import RxSwift
 import UIKit
 
 class TextFieldBehaviorHandler: KeyboardDelegate {
@@ -16,166 +15,187 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
   }
 
   func setupRowConnections(for setRowView: SetRowView, cell: LiftCell) {
-    setRowView.textFieldDB = DisposeBag()
-    setupObserversForCurrentlyEditing(setRowView: setRowView, cell: cell)
-    setupObserversForTextHandling(setRowView: setRowView)
-    setupObserversForSettingBackTextAfterEditing(setRowView: setRowView)
-    setupObserversForUpdatingSetValues(setRowView: setRowView)
+    setupMapFromTextFieldsToSetRowView(for: setRowView, and: cell)
+    setupObserversForTextHandlingAndCurrentlyEditing(
+      setRowView: setRowView, cell: cell)
+    setupObserversForUpdatingSetValuesAndSettingBackTextAfterEditing(
+      setRowView: setRowView)
   }
 
-  func setupObserversForUpdatingSetValues(setRowView: SetRowView) {
-    setRowView.targetWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(
-      onNext: {
-        guard let value = Double(setRowView.targetWeightTextField!.text!),
-          value != setRowView.set.weight
-        else { return }
-        setRowView.set.weight = value
-      }
-    ).disposed(by: setRowView.textFieldDB)
-    setRowView.targetRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(
-      onNext: {
-        guard let value = Int(setRowView.targetRepsTextField!.text!),
-          value != setRowView.set.reps
-        else { return }
-        setRowView.set.reps = value
-      }
-    ).disposed(by: setRowView.textFieldDB)
-    setRowView.completedWeightTextField?.rx.controlEvent(.editingDidEnd)
-      .subscribe(
-        onNext: {
-          guard let value = Double(setRowView.completedWeightTextField!.text!),
-            value != setRowView.set.completedWeight
-          else { return }
-          setRowView.set.completedWeight = value
-        }
-      ).disposed(by: setRowView.textFieldDB)
-    setRowView.completedRepsTextField?.rx.controlEvent(.editingDidEnd)
-      .subscribe(
-        onNext: {
-          guard let value = Int(setRowView.completedRepsTextField!.text!),
-            value != setRowView.set.completedReps
-          else { return }
-          setRowView.set.completedReps = value
-        }
-      ).disposed(by: setRowView.textFieldDB)
+  var textFieldToSetRowViewMap: [UITextField: SetRowView] = [:]
+  var textFieldToCellMap: [UITextField: LiftCell] = [:]
+
+  func setupMapFromTextFieldsToSetRowView(
+    for setRowView: SetRowView, and cell: LiftCell
+  ) {
+    textFieldToSetRowViewMap[setRowView.targetWeightTextField!] = setRowView
+    textFieldToSetRowViewMap[setRowView.targetRepsTextField!] = setRowView
+    textFieldToSetRowViewMap[setRowView.completedWeightTextField!] = setRowView
+    textFieldToSetRowViewMap[setRowView.completedRepsTextField!] = setRowView
+
+    textFieldToCellMap[setRowView.targetWeightTextField!] = cell
+    textFieldToCellMap[setRowView.targetRepsTextField!] = cell
+    textFieldToCellMap[setRowView.completedWeightTextField!] = cell
+    textFieldToCellMap[setRowView.completedRepsTextField!] = cell
   }
 
-  func setupObserversForSettingBackTextAfterEditing(setRowView: SetRowView) {
-    setRowView.targetWeightTextField?.rx.controlEvent(.editingDidEnd).subscribe(
-      onNext: {
-        if setRowView.targetWeightTextField?.text == "" {
-          setRowView.targetWeightTextField?.text =
-            setRowView
-            .targetWeightTextField?.placeholder
-        }
-      }
-    ).disposed(by: setRowView.textFieldDB)
-    setRowView.targetRepsTextField?.rx.controlEvent(.editingDidEnd).subscribe(
-      onNext: {
-        if setRowView.targetRepsTextField?.text == "" {
-          setRowView.targetRepsTextField?.text =
-            setRowView.targetRepsTextField?
-            .placeholder
-        }
-      }
-    ).disposed(by: setRowView.textFieldDB)
-    setRowView.completedWeightTextField?.rx.controlEvent(.editingDidEnd)
-      .subscribe(
-        onNext: {
-          if setRowView.completedWeightTextField?.text == "" {
-            setRowView.completedWeightTextField?.text =
-              setRowView
-              .completedWeightTextField?
-              .placeholder
-          }
-        }
-      ).disposed(by: setRowView.textFieldDB)
-    setRowView.completedRepsTextField?.rx.controlEvent(.editingDidEnd)
-      .subscribe(
-        onNext: {
-          if setRowView.completedRepsTextField?.text == "" {
-            setRowView.completedRepsTextField?.text =
-              setRowView
-              .completedRepsTextField?.placeholder
-          }
-        }
-      ).disposed(by: setRowView.textFieldDB)
-  }
-
-  func setupObserversForTextHandling(setRowView: SetRowView) {
-    if let twtf = setRowView.targetWeightTextField {
-      twtf.rx.controlEvent(.editingDidBegin).subscribe(
-        onNext: {
-          guard twtf.text != nil else { return }
-          twtf.placeholder = twtf.text
-          twtf.text = nil
-        }
-      ).disposed(by: setRowView.textFieldDB)
+  @objc func targetWeightTextFieldEditingDidEnd(textField: UITextField) {
+    guard let setRowView = textFieldToSetRowViewMap[textField] else {
+      fatalError()
     }
-    setRowView.targetRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(
-      onNext: {
-        guard setRowView.targetRepsTextField?.text != nil else { return }
-        setRowView.targetRepsTextField?.placeholder =
-          setRowView
-          .targetRepsTextField?.text
-        setRowView.targetRepsTextField?.text = nil
-      }
-    ).disposed(by: setRowView.textFieldDB)
-    setRowView.completedWeightTextField?.rx.controlEvent(.editingDidBegin)
-      .subscribe(
-        onNext: {
-          guard setRowView.completedWeightTextField?.text != nil else { return }
-          setRowView.completedWeightTextField?.placeholder =
-            setRowView
-            .completedWeightTextField?.text
-          setRowView.completedWeightTextField?.text = nil
-        }
-      ).disposed(by: setRowView.textFieldDB)
-    setRowView.completedRepsTextField?.rx.controlEvent(.editingDidBegin)
-      .subscribe(
-        onNext: {
-          guard setRowView.completedRepsTextField?.text != nil else { return }
-          setRowView.completedRepsTextField?.placeholder =
-            setRowView
-            .completedRepsTextField?.text
-          setRowView.completedRepsTextField?.text = nil
-        }
-      ).disposed(by: setRowView.textFieldDB)
+
+    if setRowView.targetWeightTextField?.text == "" {
+      setRowView.targetWeightTextField?.text =
+        setRowView
+        .targetWeightTextField?.placeholder
+    } else {
+      guard let value = Double(setRowView.targetWeightTextField!.text!),
+        value != setRowView.set.weight
+      else { return }
+      setRowView.set.weight = value
+    }
   }
 
-  func setupObserversForCurrentlyEditing(setRowView: SetRowView, cell: LiftCell)
-  {
-    setRowView.targetWeightTextField?.rx.controlEvent(.editingDidBegin)
-      .subscribe(
-        onNext: {
-          self.currentlyEditingLiftCell = cell
-          self.currentlyEditingRowView = setRowView
-          self.currentlyEditingTextField = setRowView.targetWeightTextField
-        }
-      ).disposed(by: setRowView.textFieldDB)
-    setRowView.targetRepsTextField?.rx.controlEvent(.editingDidBegin).subscribe(
-      onNext: {
-        self.currentlyEditingLiftCell = cell
-        self.currentlyEditingRowView = setRowView
-        self.currentlyEditingTextField = setRowView.targetRepsTextField
-      }
-    ).disposed(by: setRowView.textFieldDB)
-    setRowView.completedWeightTextField?.rx.controlEvent(.editingDidBegin)
-      .subscribe(
-        onNext: {
-          self.currentlyEditingLiftCell = cell
-          self.currentlyEditingRowView = setRowView
-          self.currentlyEditingTextField = setRowView.completedWeightTextField
-        }
-      ).disposed(by: setRowView.textFieldDB)
-    setRowView.completedRepsTextField?.rx.controlEvent(.editingDidBegin)
-      .subscribe(
-        onNext: {
-          self.currentlyEditingLiftCell = cell
-          self.currentlyEditingRowView = setRowView
-          self.currentlyEditingTextField = setRowView.completedRepsTextField
-        }
-      ).disposed(by: setRowView.textFieldDB)
+  @objc func targetRepsTextFieldEditingDidEnd(textField: UITextField) {
+    guard let setRowView = textFieldToSetRowViewMap[textField] else {
+      fatalError()
+    }
+    if setRowView.targetRepsTextField?.text == "" {
+      setRowView.targetRepsTextField?.text =
+        setRowView.targetRepsTextField?
+        .placeholder
+    } else {
+      guard let value = Int(setRowView.targetRepsTextField!.text!),
+        value != setRowView.set.reps
+      else { return }
+      setRowView.set.reps = value
+    }
+  }
+
+  @objc func completedWeightTextFieldEditingDidEnd(textField: UITextField) {
+    guard let setRowView = textFieldToSetRowViewMap[textField] else {
+      fatalError()
+    }
+    if setRowView.completedWeightTextField?.text == "" {
+      setRowView.completedWeightTextField?.text =
+        setRowView
+        .completedWeightTextField?
+        .placeholder
+    } else {
+      guard let value = Double(setRowView.completedWeightTextField!.text!),
+        value != setRowView.set.completedWeight
+      else { return }
+      setRowView.set.completedWeight = value
+    }
+  }
+
+  @objc func completedRepsTextFieldEditingDidEnd(textField: UITextField) {
+    guard let setRowView = textFieldToSetRowViewMap[textField] else {
+      fatalError()
+    }
+    if setRowView.completedRepsTextField?.text == "" {
+      setRowView.completedRepsTextField?.text =
+        setRowView
+        .completedRepsTextField?.placeholder
+    } else {
+      guard let value = Int(setRowView.completedRepsTextField!.text!),
+        value != setRowView.set.completedReps
+      else { return }
+      setRowView.set.completedReps = value
+    }
+  }
+
+  func setupObserversForUpdatingSetValuesAndSettingBackTextAfterEditing(
+    setRowView: SetRowView
+  ) {
+    setRowView.targetWeightTextField?.addTarget(
+      self, action: #selector(targetWeightTextFieldEditingDidEnd(textField:)),
+      for: .editingDidEnd)
+    setRowView.targetRepsTextField?.addTarget(
+      self, action: #selector(targetRepsTextFieldEditingDidEnd(textField:)),
+      for: .editingDidEnd)
+    setRowView.completedWeightTextField?.addTarget(
+      self,
+      action: #selector(completedWeightTextFieldEditingDidEnd(textField:)),
+      for: .editingDidEnd)
+    setRowView.completedRepsTextField?.addTarget(
+      self, action: #selector(completedRepsTextFieldEditingDidEnd(textField:)),
+      for: .editingDidEnd)
+  }
+
+  @objc func targetWeightTextFieldEditingDidBegin(textField: UITextField) {
+    guard let cell = textFieldToCellMap[textField] else { fatalError() }
+    guard let setRowView = textFieldToSetRowViewMap[textField] else {
+      fatalError()
+    }
+    self.currentlyEditingLiftCell = cell
+    self.currentlyEditingRowView = setRowView
+    self.currentlyEditingTextField = setRowView.targetWeightTextField
+
+    guard textField.text != nil else { return }
+    textField.placeholder = textField.text
+    textField.text = nil
+  }
+
+  @objc func targetRepsTextFieldEditingDidBegin(textField: UITextField) {
+    guard let cell = textFieldToCellMap[textField] else { fatalError() }
+    guard let setRowView = textFieldToSetRowViewMap[textField] else {
+      fatalError()
+    }
+    self.currentlyEditingLiftCell = cell
+    self.currentlyEditingRowView = setRowView
+    self.currentlyEditingTextField = setRowView.targetRepsTextField
+
+    guard textField.text != nil else { return }
+    textField.placeholder = textField.text
+    textField.text = nil
+  }
+
+  @objc func completedWeightTextFieldEditingDidBegin(textField: UITextField) {
+    guard let cell = textFieldToCellMap[textField] else { fatalError() }
+    guard let setRowView = textFieldToSetRowViewMap[textField] else {
+      fatalError()
+    }
+    self.currentlyEditingLiftCell = cell
+    self.currentlyEditingRowView = setRowView
+    self.currentlyEditingTextField = setRowView.completedWeightTextField
+
+    guard textField.text != nil else { return }
+    textField.placeholder = textField.text
+    textField.text = nil
+  }
+
+  @objc func completedRepsTextFieldEditingDidBegin(textField: UITextField) {
+    guard let cell = textFieldToCellMap[textField] else { fatalError() }
+    guard let setRowView = textFieldToSetRowViewMap[textField] else {
+      fatalError()
+    }
+    self.currentlyEditingLiftCell = cell
+    self.currentlyEditingRowView = setRowView
+    self.currentlyEditingTextField = setRowView.completedRepsTextField
+
+    guard textField.text != nil else { return }
+    textField.placeholder = textField.text
+    textField.text = nil
+  }
+
+  func setupObserversForTextHandlingAndCurrentlyEditing(
+    setRowView: SetRowView, cell: LiftCell
+  ) {
+    setRowView.targetWeightTextField?.addTarget(
+      self, action: #selector(targetWeightTextFieldEditingDidBegin(textField:)),
+      for: .editingDidBegin)
+    setRowView.targetRepsTextField?.addTarget(
+      self, action: #selector(targetRepsTextFieldEditingDidBegin(textField:)),
+      for: .editingDidBegin)
+    setRowView.completedWeightTextField?.addTarget(
+      self,
+      action: #selector(completedWeightTextFieldEditingDidBegin(textField:)),
+      for: .editingDidBegin)
+    setRowView.completedRepsTextField?.addTarget(
+      self,
+      action: #selector(completedRepsTextFieldEditingDidBegin(textField:)),
+      for: .editingDidBegin)
   }
 
   func hideWasTapped() {
