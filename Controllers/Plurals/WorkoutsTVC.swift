@@ -90,7 +90,6 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     navigationItem.leftBarButtonItem = editButtonItem
   }
 
-  //mark: - Swift is so fucking stupid
   override func tableView(
     _ tableView: UITableView,
     didSelectRowAt indexPath: IndexPath

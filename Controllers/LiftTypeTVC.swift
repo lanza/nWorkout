@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 class LiftTypeCell: UITableViewCell {
@@ -18,7 +16,7 @@ class LiftTypeCell: UITableViewCell {
   required init?(coder aDecoder: NSCoder) { fatalError() }
 }
 
-class LiftTypeTVC: BaseTVC {
+class LiftTypeTVC: BaseTVC, UITableViewDataSource {
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -52,13 +50,34 @@ class LiftTypeTVC: BaseTVC {
       target: self,
       action: #selector(newLiftButtonTappedForwarder)
     )
+    newLiftButtonTappedCallBack = { [unowned self] in
+      let alert = UIAlertController.alert(
+        title: Lets.addNewLiftType,
+        message: nil
+      )
+
+      let okay = UIAlertAction(title: Lets.done, style: .default) { _ in
+        guard let name = alert.textFields?.first?.text else { fatalError() }
+        self.liftTypes.append(name)
+        self.save()
+      }
+      let cancel = UIAlertAction(
+        title: Lets.cancel,
+        style: .cancel,
+        handler: nil
+      )
+      alert.addAction(okay)
+      alert.addAction(cancel)
+
+      self.present(alert, animated: true, completion: nil)
+    }
+
   }
 
   required init?(coder aDecoder: NSCoder) { fatalError() }
 
-  var liftTypes = Variable(
-    UserDefaults.standard.value(forKey: Lets.liftTypesKey) as? [String] ?? []
-  )
+  var liftTypes = UserDefaults.standard.value(forKey: Lets.liftTypesKey)
+    as? [String] ?? []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -66,66 +85,50 @@ class LiftTypeTVC: BaseTVC {
     title = "Add Lift"
 
     tableView.tableFooterView = UIView()
+    tableView.dataSource = self
 
     tableView.register(LiftTypeCell.self)
     setupRx()
   }
 
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+    -> UITableViewCell
+  {
+    let cell = tableView.dequeueReusableCell(
+      withIdentifier: LiftTypeCell.reuseIdentifier, for: indexPath)
+      as! LiftTypeCell
+    cell.textLabel?.text = liftTypes[indexPath.row]
+    return cell
+  }
+
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+    -> Int
+  {
+    return liftTypes.count
+  }
+
+  override func tableView(
+    _ tableView: UITableView, didSelectRowAt indexPath: IndexPath
+  ) {
+    self.didSelectLiftName(liftTypes[indexPath.row])
+  }
+
   func setupRx() {
-    liftTypes.asObservable().bind(
-      to: tableView.rx.items(
-        cellIdentifier: LiftTypeCell.reuseIdentifier,
-        cellType: LiftTypeCell.self
-      )
-    ) { index, string, cell in
-      cell.textLabel?.text = string
-    }.disposed(by: db)
-
-    navigationItem.rightBarButtonItem?.rx.tap.subscribe(
-      onNext: {
-        let alert = UIAlertController.alert(
-          title: Lets.addNewLiftType,
-          message: nil
-        )
-
-        let okay = UIAlertAction(title: Lets.done, style: .default) { _ in
-          guard let name = alert.textFields?.first?.text else { fatalError() }
-          self.liftTypes.value.append(name)
-          self.save()
-        }
-        let cancel = UIAlertAction(
-          title: Lets.cancel,
-          style: .cancel,
-          handler: nil
-        )
-        alert.addAction(okay)
-        alert.addAction(cancel)
-
-        self.present(alert, animated: true, completion: nil)
-      }
-    ).disposed(by: db)
-
-    tableView.rx.modelSelected(String.self).subscribe(
-      onNext: { name in
-        self.didSelectLiftName(name)
-      }
-    ).disposed(by: db)
-
-    tableView.rx.itemDeleted.subscribe(
-      onNext: { indexPath in
-        self.liftTypes.value.remove(at: indexPath.row)
-        self.save()
-      }
-    ).disposed(by: db)
+    // THIS NEEDS REIMPLMENTED
+    //    tableView.rx.itemDeleted.subscribe(
+    //      onNext: { indexPath in
+    //        self.liftTypes.value.remove(at: indexPath.row)
+    //        self.save()
+    //      }
+    //    ).disposed(by: db)
   }
 
   func save() {
     UserDefaults.standard.setValue(
-      self.liftTypes.value,
+      self.liftTypes,
       forKey: Lets.liftTypesKey
     )
   }
 
   var didSelectLiftName: ((String) -> Void)!
-  let db = DisposeBag()
 }
