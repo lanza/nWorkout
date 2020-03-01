@@ -30,13 +30,18 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
   ) {
     textFieldToSetRowViewMap[setRowView.targetWeightTextField!] = setRowView
     textFieldToSetRowViewMap[setRowView.targetRepsTextField!] = setRowView
-    textFieldToSetRowViewMap[setRowView.completedWeightTextField!] = setRowView
-    textFieldToSetRowViewMap[setRowView.completedRepsTextField!] = setRowView
+    
+    if let cwtf = setRowView.completedWeightTextField {
+      textFieldToSetRowViewMap[cwtf] = setRowView
+      textFieldToCellMap[cwtf] = cell
+    }
+    if let crtf = setRowView.completedRepsTextField {
+      textFieldToSetRowViewMap[crtf] = setRowView
+      textFieldToCellMap[crtf] = cell
+    }
 
     textFieldToCellMap[setRowView.targetWeightTextField!] = cell
     textFieldToCellMap[setRowView.targetRepsTextField!] = cell
-    textFieldToCellMap[setRowView.completedWeightTextField!] = cell
-    textFieldToCellMap[setRowView.completedRepsTextField!] = cell
   }
 
   @objc func targetWeightTextFieldEditingDidEnd(textField: UITextField) {
@@ -76,13 +81,11 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
     guard let setRowView = textFieldToSetRowViewMap[textField] else {
       fatalError()
     }
-    if setRowView.completedWeightTextField?.text == "" {
-      setRowView.completedWeightTextField?.text =
-        setRowView
-        .completedWeightTextField?
-        .placeholder
+    guard let cwtf = setRowView.completedWeightTextField else { return }
+    if cwtf.text == "" {
+      cwtf.text = cwtf.placeholder
     } else {
-      guard let value = Double(setRowView.completedWeightTextField!.text!),
+      guard let value = Double(cwtf.text!),
         value != setRowView.set.completedWeight
       else { return }
       setRowView.set.completedWeight = value
@@ -93,12 +96,12 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
     guard let setRowView = textFieldToSetRowViewMap[textField] else {
       fatalError()
     }
-    if setRowView.completedRepsTextField?.text == "" {
-      setRowView.completedRepsTextField?.text =
-        setRowView
-        .completedRepsTextField?.placeholder
+    guard let crtf = setRowView.completedRepsTextField else { return }
+    if crtf.text == "" {
+      crtf.text =
+        crtf.placeholder
     } else {
-      guard let value = Int(setRowView.completedRepsTextField!.text!),
+      guard let value = Int(crtf.text!),
         value != setRowView.set.completedReps
       else { return }
       setRowView.set.completedReps = value
