@@ -1,8 +1,10 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 class MainCoordinator: TabBarCoordinator {
+
+  @objc func hideButtonTapped() {
+    self.dismiss(animated: true)
+  }
 
   func checkForUnfinishedWorkout(displayImmediately: Bool) {
     let workouts = JDB.getWorkouts().filter { $0.isComplete == false }
@@ -18,15 +20,9 @@ class MainCoordinator: TabBarCoordinator {
         UIBarButtonItem(
           title: Lets.hide,
           style: .plain,
-          target: nil,
-          action: nil
+          target: self,
+          action: #selector(hideButtonTapped)
         )
-      self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem?.rx.tap
-        .subscribe(
-          onNext: {
-            self.dismiss(animated: true)
-          }
-        ).disposed(by: self.db)
       self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
         self.activeWorkoutCoordinator = nil
       }
@@ -67,6 +63,12 @@ class MainCoordinator: TabBarCoordinator {
     colorButtons(colorsAndIndices: [(Theme.Colors.main, 2)])
   }
 
+  @objc func settingsDidChange() {
+    print("Test")
+    self.activeWorkoutCoordinator = nil
+    self.checkForUnfinishedWorkout(displayImmediately: false)
+  }
+
   override func viewControllerDidLoad() {
     super.viewControllerDidLoad()
 
@@ -76,15 +78,9 @@ class MainCoordinator: TabBarCoordinator {
     createCoordinators()
     checkForUnfinishedWorkout(displayImmediately: true)
 
-    NotificationCenter.default.rx.notification(
-      Notification.Name("settingsDidChange")
-    ).subscribe(
-      onNext: { notification in
-        print("Test")
-        self.activeWorkoutCoordinator = nil
-        self.checkForUnfinishedWorkout(displayImmediately: false)
-      }
-    ).disposed(by: db)
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(settingsDidChange),
+      name: Notification.Name("settingsDidChange"), object: nil)
   }
 
   let dummy: Coordinator = {
@@ -97,8 +93,7 @@ class MainCoordinator: TabBarCoordinator {
   func presentWorkoutCoordinator() {
     if activeWorkoutCoordinator == nil {
       displaySelectWorkout()
-    }
-    else {
+    } else {
       displayActiveWorkout()
     }
   }
@@ -124,15 +119,12 @@ class MainCoordinator: TabBarCoordinator {
       if activeWorkoutCoordinator == nil {
         dummy.tabBarItem.image = #imageLiteral(resourceName: "newWorkout")
         dummy.tabBarItem.title = Lets.start
-      }
-      else {
+      } else {
         dummy.tabBarItem.image = #imageLiteral(resourceName: "show")
         dummy.tabBarItem.title = Lets.show
       }
     }
   }
-
-  let db = DisposeBag()
 }
 
 extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
@@ -146,8 +138,7 @@ extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
 
     if let routine = routine {
       activeWorkoutCoordinator!.workout = routine.makeWorkoutWorkout()
-    }
-    else {
+    } else {
       activeWorkoutCoordinator!.workout = NewWorkout.new(
         isWorkout: true,
         isComplete: false,
@@ -170,8 +161,7 @@ extension MainCoordinator: TabBarCoordinatorDelegate {
     if coordinator === dummy {
       presentWorkoutCoordinator()
       return false
-    }
-    else {
+    } else {
       return true
     }
   }
