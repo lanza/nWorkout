@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 class BaseWorkoutsTVC<Cell: UITableViewCell>: UIViewController,
@@ -77,10 +75,7 @@ where Cell: ConfigurableCell, Cell.Object == NewWorkout {
         right: ci.right
       )
     }
-
   }
-
-  let db = DisposeBag()
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
   {}
