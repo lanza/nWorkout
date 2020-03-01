@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 class StatisticsHistoryTVC: BaseTVC {
@@ -53,9 +51,8 @@ class StatisticsHistoryTVC: BaseTVC {
   //  }
 
   let liftName: String
-  var lifts: [NewLift]
 
-  let db = DisposeBag()
+  var lifts: [NewLift]
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath)
     -> CGFloat
