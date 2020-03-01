@@ -12,33 +12,37 @@ enum JDB {
       fatalError()
     }
   }
-  
+
   static func getFilePath() -> URL {
     return getDocumentsDirectory().appendingPathComponent("data.json")
   }
-  
+
   private static var workouts: [NewWorkout]! = nil
-  
+
   static func getWorkouts() -> [NewWorkout] {
     if workouts == nil {
-      let d = try! Data(contentsOf: getFilePath())
-      workouts = try! JSONDecoder().decode([NewWorkout].self, from: d)
-      for workout in workouts {
-        for lift in workout.lifts {
-          for set in lift.sets {
-            set.lift = lift
+      do {
+        let d = try Data(contentsOf: getFilePath())
+        workouts = try JSONDecoder().decode([NewWorkout].self, from: d)
+        for workout in workouts {
+          for lift in workout.lifts {
+            for set in lift.sets {
+              set.lift = lift
+            }
+            lift.workout = workout
           }
-          lift.workout = workout
         }
+      } catch {
+        workouts = []
       }
     }
-    return workouts
+    return JDB.workouts
   }
-  
+
   static func getLifts() -> [NewLift] {
     return getWorkouts().map { $0.lifts }.reduce([], +)
   }
-  
+
   static func addWorkout(_ workout: NewWorkout) {
     if JDB.workouts.contains(where: { $0 === workout }) {
       return
@@ -47,6 +51,7 @@ enum JDB {
       JDB.write()
     }
   }
+
   static func removeWorkout(_ workout: NewWorkout) {
     if let index = JDB.workouts.firstIndex(where: { $0 === workout }) {
       JDB.workouts.remove(at: index)
