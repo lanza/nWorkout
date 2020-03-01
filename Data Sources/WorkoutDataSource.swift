@@ -40,6 +40,15 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<NewWorkout, Cell> {
 
   var workoutFooterView: WorkoutFooterView!
 
+  var buttonToCellDict: [UIButton: Cell] = [:]
+
+  @objc func addSetButtonTapped(button: UIButton) {
+    guard let cell = buttonToCellDict[button] else {
+      fatalError("Fix this before release")
+    }
+    self.addSet(for: cell.lift, and: cell)
+  }
+
   override func tableView(
     _ tableView: UITableView,
     cellForRowAt indexPath: IndexPath
@@ -52,11 +61,9 @@ class WorkoutDataSource<Cell: LiftCell>: DataSource<NewWorkout, Cell> {
     let lift = provider.object(at: indexPath.row)
     cell.lift = lift
 
-    cell.addSetButton.rx.tap.subscribe(
-      onNext: {
-        self.addSet(for: lift, and: cell)
-      }
-    ).disposed(by: cell.db)
+    buttonToCellDict[cell.addSetButton] = cell
+    cell.addSetButton.addTarget(
+      self, action: #selector(addSetButtonTapped(button:)), for: .touchUpInside)
 
     cell.delegate = self
 
