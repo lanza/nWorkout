@@ -1,7 +1,4 @@
 import Charts
-import RxCocoa
-import RxDataSources
-import RxSwift
 import UIKit
 
 class CustomLineChartDataSet: LineChartDataSet {
@@ -70,14 +67,14 @@ class StatisticsChartsTVC: BaseTVC {
     super.viewWillAppear(animated)
   }
 
-  let dataSource = RxTableViewSectionedReloadDataSource<ChartSectionModel>(
-    configureCell: { ds, tv, ip, item in
-      let cell = tv.dequeueReusableCell(for: ip) as ChartCell
-      cell.chartView.data = item
-
-      return cell
-    }
-  )
+  //  let dataSource = RxTableViewSectionedReloadDataSource<ChartSectionModel>(
+  //    configureCell: { ds, tv, ip, item in
+  //      let cell = tv.dequeueReusableCell(for: ip) as ChartCell
+  //      cell.chartView.data = item
+  //
+  //      return cell
+  //    }
+  //  )
 
   func setupTableView() {
     tableView.allowsSelection = false
@@ -88,10 +85,10 @@ class StatisticsChartsTVC: BaseTVC {
     //        tableView.rowHeight = UITableViewAutomaticDimension
 
     tableView.register(ChartCell.self)
-    Observable.just(sections).bind(
-      to: tableView.rx.items(dataSource: dataSource)
-    ).disposed(by: db)
-    tableView.rx.setDelegate(self).disposed(by: db)
+    //    Observable.just(sections).bind(
+    //      to: tableView.rx.items(dataSource: dataSource)
+    //    ).disposed(by: db)
+    //    tableView.rx.setDelegate(self).disposed(by: db)
   }
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath)
@@ -106,6 +103,4 @@ class StatisticsChartsTVC: BaseTVC {
   ) -> CGFloat {
     return 100
   }
-
-  let db = DisposeBag()
 }
