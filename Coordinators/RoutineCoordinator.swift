@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 class RoutineCoordinator: Coordinator {
@@ -13,12 +11,9 @@ class RoutineCoordinator: Coordinator {
     routineTVC.didTapAddNewLift = {
       let ltc = LiftTypeCoordinator()
       let ltcNav = NavigationCoordinator(rootCoordinator: ltc)
-
-      ltc.liftTypeTVC.navigationItem.leftBarButtonItem!.rx.tap.subscribe(
-        onNext: {
-          self.dismiss(animated: true)
-        }
-      ).disposed(by: self.db)
+      ltc.liftTypeTVC.hideButtonTappedCallBack = {
+        self.dismiss(animated: true)
+      }
 
       ltc.liftTypeTVC.didSelectLiftName = { name in
         self.dismiss(animated: true)
@@ -28,6 +23,4 @@ class RoutineCoordinator: Coordinator {
       self.present(ltcNav, animated: true)
     }
   }
-
-  let db = DisposeBag()
 }
