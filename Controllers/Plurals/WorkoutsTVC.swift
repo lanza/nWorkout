@@ -6,8 +6,6 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    
-    shareAction(url: JDB.getFilePath())
   }
   
   let documentInteractionController = UIDocumentInteractionController()
@@ -32,6 +30,10 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
       }
     }.resume()
   }
+  
+  @objc func saveButtonTapped() {
+    shareAction(url: JDB.getFilePath())
+  }
 
   func setTableHeaderView() {
     let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
@@ -39,6 +41,12 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     label.text = "History"
     label.textColor = .white
     label.font = UIFont.systemFont(ofSize: 28)
+    
+    let b = UIButton()
+    b.setTitle("Save Data")
+    b.setTitleColor(.white)
+    
+    b.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
 
     view.addSubview(label)
 
