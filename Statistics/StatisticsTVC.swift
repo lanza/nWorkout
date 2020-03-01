@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 class StatisticsTVC: UIViewController, UITableViewDelegate {
@@ -30,7 +28,7 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
 
   weak var delegate: StatisticsTVCDelegate!
 
-  var pairs = Variable([(String, Int)]())
+  var pairs: [(String, Int)] = []
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -45,7 +43,7 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
         return new
       }
 
-    pairs.value = Array(zip(lifts.keys, lifts.values))
+    pairs = Array(zip(lifts.keys, lifts.values))
 
     if tabBarController != nil {
       let ci = tableView.contentInset
@@ -110,26 +108,24 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
   }
 
   func setupRx() {
-    tableView.dataSource = nil
-    tableView.delegate = nil
-    pairs.asObservable().bind(
-      to: tableView.rx.items(
-        cellIdentifier: StatisticsCell.reuseIdentifier,
-        cellType: StatisticsCell.self
-      )
-    ) { index, pair, cell in
-      cell.textLabel?.text = pair.0
-      cell.detailTextLabel?.text = "\(pair.1)"
-    }.disposed(by: db)
-
-    tableView.rx.modelSelected((String, Int).self).subscribe(
-      onNext: { item in
-        self.delegate.statisticsTVC(self, didSelectLiftType: item.0)
-      }
-    ).disposed(by: db)
+    //    tableView.dataSource = nil
+    //    tableView.delegate = nil
+    //    pairs.asObservable().bind(
+    //      to: tableView.rx.items(
+    //        cellIdentifier: StatisticsCell.reuseIdentifier,
+    //        cellType: StatisticsCell.self
+    //      )
+    //    ) { index, pair, cell in
+    //      cell.textLabel?.text = pair.0
+    //      cell.detailTextLabel?.text = "\(pair.1)"
+    //    }.disposed(by: db)
+    //
+    //    tableView.rx.modelSelected((String, Int).self).subscribe(
+    //      onNext: { item in
+    //        self.delegate.statisticsTVC(self, didSelectLiftType: item.0)
+    //      }
+    //    ).disposed(by: db)
   }
-
-  let db = DisposeBag()
 }
 
 protocol StatisticsTVCDelegate: class {
