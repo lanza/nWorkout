@@ -1,10 +1,6 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
-extension WorkoutCell: ConfigurableCell {
-
-}
+extension WorkoutCell: ConfigurableCell {}
 
 class WorkoutCell: ChartViewCell {
   func configure(for object: NewWorkout, at indexPath: IndexPath) {
@@ -79,7 +75,6 @@ class WorkoutCell: ChartViewCell {
     setupBottomContentView()
     setupChartView()
     setupContentView()
-
   }
 
   required init?(coder aDecoder: NSCoder) { fatalError() }
