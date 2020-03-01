@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 protocol WorkoutTVCDelegate: class {
@@ -29,6 +27,10 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     tableView.reloadData()
   }
 
+  @objc func hideButtonTapped() {
+    self.delegate.hideTapped(for: self)
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -38,14 +40,9 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
       navigationItem.leftBarButtonItem = UIBarButtonItem(
         title: Lets.hide,
         style: .plain,
-        target: nil,
-        action: nil
+        target: self,
+        action: #selector(hideButtonTapped)
       )
-      navigationItem.leftBarButtonItem!.rx.tap.subscribe(
-        onNext: {
-          self.delegate.hideTapped(for: self)
-        }
-      ).disposed(by: db)
     }
   }
 
@@ -82,7 +79,7 @@ class NoteView<Type, View: UIView>: UIView {
     let n = NoteView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
     n.type = type
     n.view = view
-//    n.textView.text = n.type.note
+    //    n.textView.text = n.type.note
     n.setupViews()
     return n
   }
