@@ -1,12 +1,9 @@
-import RxSwift
 import UIKit
 
 class SettingsCell: UITableViewCell {
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var widthTextField: UITextField!
   @IBOutlet weak var isOnSwitch: UISwitch!
-
-  var db: DisposeBag!
 }
 
 extension SettingsCell: ConfigurableCell {
