@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 class WorkoutDetailVC: UIViewController {
@@ -91,6 +89,20 @@ class WorkoutDetailVC2: UIViewController {
   let startDatePicker = UIDatePicker()
   let finishDatePicker = UIDatePicker()
 
+  @objc func startDatePickerValueChanged() {
+    self.workout.startDate = self.startDatePicker.date
+    self.startDateLabel.text = self.df.string(
+      from: self.startDatePicker.date
+    )
+  }
+
+  @objc func finishDatePickerValueChanged() {
+    self.workout.finishDate = self.finishDatePicker.date
+    self.finishDateLabel.text = self.df.string(
+      from: self.finishDatePicker.date
+    )
+  }
+
   func setupViews() {
     view.addSubview(stackView)
     stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -100,25 +112,10 @@ class WorkoutDetailVC2: UIViewController {
     stackView.addArrangedSubview(finishDateLabel)
     finishDateLabel.inputView = finishDatePicker
 
-    startDatePicker.rx.controlEvent(.valueChanged).subscribe(
-      onNext: {
-        print("hi")
-        self.workout.startDate = self.startDatePicker.date
-
-        self.startDateLabel.text = self.df.string(
-          from: self.startDatePicker.date
-        )
-      }
-    ).disposed(by: db)
-
-    finishDatePicker.rx.controlEvent(.valueChanged).subscribe(
-      onNext: {
-        self.workout.finishDate = self.finishDatePicker.date
-        self.finishDateLabel.text = self.df.string(
-          from: self.finishDatePicker.date
-        )
-      }
-    ).disposed(by: db)
+    startDatePicker.addTarget(
+      self, action: #selector(startDatePickerValueChanged), for: .valueChanged)
+    finishDatePicker.addTarget(
+      self, action: #selector(finishDatePickerValueChanged), for: .valueChanged)
 
     NSLayoutConstraint.activate(
       [
@@ -144,6 +141,4 @@ class WorkoutDetailVC2: UIViewController {
     finishDateLabel.resignFirstResponder()
     super.viewWillDisappear(animated)
   }
-
-  let db = DisposeBag()
 }
