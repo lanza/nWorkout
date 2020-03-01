@@ -1,4 +1,4 @@
-import RxCocoa
+import Foundation
 
 class WorkoutCoordinator: Coordinator {
   var workoutTVC: WorkoutTVC { return viewController as! WorkoutTVC }

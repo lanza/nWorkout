@@ -1,4 +1,4 @@
-import RxCocoa
+import Foundation
 
 protocol ActiveWorkoutCoordinatorDelegate: class {
   func hideTapped(for activeWorkoutCoordinator: ActiveWorkoutCoordinator)
