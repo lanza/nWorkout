@@ -1,6 +1,4 @@
 import RxCocoa
-import RxSwift
-import UIKit
 
 class WorkoutCoordinator: Coordinator {
   var workoutTVC: WorkoutTVC { return viewController as! WorkoutTVC }
@@ -16,11 +14,9 @@ class WorkoutCoordinator: Coordinator {
       let ltc = LiftTypeCoordinator()
       let ltcNav = NavigationCoordinator(rootCoordinator: ltc)
 
-      ltc.liftTypeTVC.navigationItem.leftBarButtonItem!.rx.tap.subscribe(
-        onNext: {
-          self.dismiss(animated: true)
-        }
-      ).disposed(by: self.db)
+      ltc.liftTypeTVC.hideButtonTappedCallBack = {
+        self.dismiss(animated: true)
+      }
 
       ltc.liftTypeTVC.didSelectLiftName = { name in
         self.dismiss(animated: true)
@@ -29,8 +25,6 @@ class WorkoutCoordinator: Coordinator {
       self.present(ltcNav, animated: true)
     }
   }
-
-  let db = DisposeBag()
 }
 
 extension WorkoutCoordinator: WorkoutTVCDelegate {
@@ -57,7 +51,9 @@ extension WorkoutCoordinator: WorkoutTVCDelegate {
           )
         strings.append(str)
       }
-      //                let string = lift.sets.map { "\($0.completedWeight)" + " x " + "\($0.completedReps)" }.joined(separator: ",")
+      // let string = lift.sets.map {
+      //   "\($0.completedWeight)" + " x " + "\($0.completedReps)"
+      // }.joined(separator: ",")
       let string = strings.joined(separator: ", ")
       UserDefaults.standard.set(string, forKey: "last" + lift.name)
     }
