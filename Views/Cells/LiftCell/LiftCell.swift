@@ -18,7 +18,8 @@ extension LiftCell: ChartViewDelegate {
 }
 
 extension LiftCell: SetRowViewDelegate {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet) {
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
+  {
     self.delegate.setRowView(setRowView, didTapNoteButtonForSet: set)
   }
 }
@@ -44,8 +45,7 @@ class LiftCell: ChartViewCell {
         var weight: String
         if set.weight.remainder(dividingBy: 1) == 0 {
           weight = String(Int(set.weight))
-        }
-        else {
+        } else {
           weight = String(set.weight)
         }
         twtf.text = weight
@@ -61,12 +61,12 @@ class LiftCell: ChartViewCell {
         crtf.setNumber(int: set.completedReps)
       }
       if let pl = rowView.previousLabel {
-        if object.previousStrings.count > index && object.previousStrings[0]
-          != ""
+        if object.previousStrings.count > index
+          && object.previousStrings[0]
+            != ""
         {
           pl.text = object.previousStrings[index]
-        }
-        else {
+        } else {
           pl.text = Lets.noPreviousSet
         }
       }
@@ -85,14 +85,15 @@ class LiftCell: ChartViewCell {
 
   weak var delegate: LiftCellDelegate!
 
+  @objc func noteButtonTapped() {
+    self.delegate.liftCell(self, didTapNoteButtonForLift: self.lift)
+  }
+
   weak var lift: NewLift! {
     didSet {
       noteButton.update(for: lift)
-      noteButton.rx.tap.subscribe(
-        onNext: {
-          self.delegate.liftCell(self, didTapNoteButtonForLift: self.lift)
-        }
-      ).disposed(by: db)
+      noteButton.addTarget(
+        self, action: #selector(noteButtonTapped), for: .touchUpInside)
     }
   }
 
@@ -207,10 +208,7 @@ class LiftCell: ChartViewCell {
 
   override func prepareForReuse() {
     super.prepareForReuse()
-    db = DisposeBag()
   }
-
-  var db = DisposeBag()
 
   required init?(coder aDecoder: NSCoder) { fatalError() }
 }
