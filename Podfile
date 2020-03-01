@@ -10,9 +10,6 @@ target 'nWorkout' do
   pod 'Charts'
   pod 'CarbonKit'
 
-  pod 'RxSwift'
-  pod 'RxDataSources'
-
 end
 
 # post_install do |installer|
