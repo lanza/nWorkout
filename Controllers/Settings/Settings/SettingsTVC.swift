@@ -1,6 +1,3 @@
-import RxCocoa
-import RxDataSources
-import RxSwift
 import UIKit
 
 class SettingsTVC: UIViewController, UITableViewDelegate,
@@ -14,8 +11,8 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
   let tableView = UITableView()
   var viewInfos = ViewInfo.saved
 
-  var dataSource:
-    RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>! = nil
+  //  var dataSource:
+  //    RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>! = nil
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -60,83 +57,83 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
 
     setTableHeaderView()
 
-    sections = [.top, .cells(items: viewInfos.map { $0.name })]
+    //    sections = [.top, .cells(items: viewInfos.map { $0.name })]
     tableView.register(CellSettingsCell.self)
 
     setupTableView()
   }
 
-  var sections: [SettingsSectionsModel] = []
+  //  var sections: [SettingsSectionsModel] = []
 
   func setupTableView() {
 
     tableView.separatorStyle = .none
 
-    dataSource = RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>(
-      configureCell: { [unowned self] ds, tv, ip, item in
-        let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
-        if ip.section == 1 {
-          let vi = self.viewInfos[ip.row]
-          cell.onSwitch.isOn = vi.isOn
-          cell.widthTextField.text = "\(vi.width)"
-        } else {
-          cell.onSwitch.isOn = ViewInfo.usesCombinedView
-        }
-        cell.titleLabel.text = item
-        cell.delegate = self
+    //    dataSource = RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>(
+    //      configureCell: { [unowned self] ds, tv, ip, item in
+    //        let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
+    //        if ip.section == 1 {
+    //          let vi = self.viewInfos[ip.row]
+    //          cell.onSwitch.isOn = vi.isOn
+    //          cell.widthTextField.text = "\(vi.width)"
+    //        } else {
+    //          cell.onSwitch.isOn = ViewInfo.usesCombinedView
+    //        }
+    //        cell.titleLabel.text = item
+    //        cell.delegate = self
+    //
+    //        return cell
+    //      }
+    //    )
+    //    dataSource.titleForHeaderInSection = { ds, index in
+    //      return index == 0 ? "" : "Cells"
+    //    }
+    //    dataSource.canMoveRowAtIndexPath = { _, info in
+    //      switch info.section {
+    //      case 0:
+    //        return false
+    //      default:
+    //        return true
+    //      }
+    //    }
+    //    dataSource.canEditRowAtIndexPath = { _, info in
+    //      switch info.section {
+    //      case 0:
+    //        return false
+    //      default:
+    //        return true
+    //      }
+    //    }
 
-        return cell
-      }
-    )
-    dataSource.titleForHeaderInSection = { ds, index in
-      return index == 0 ? "" : "Cells"
-    }
-    dataSource.canMoveRowAtIndexPath = { _, info in
-      switch info.section {
-      case 0:
-        return false
-      default:
-        return true
-      }
-    }
-    dataSource.canEditRowAtIndexPath = { _, info in
-      switch info.section {
-      case 0:
-        return false
-      default:
-        return true
-      }
-    }
+    //    dataSource.animationConfiguration = AnimationConfiguration(
+    //      insertAnimation: .automatic,
+    //      reloadAnimation: .automatic,
+    //      deleteAnimation: .automatic
+    //    )
+    //
+    //    Observable.just(sections).bind(
+    //      to: tableView.rx.items(dataSource: dataSource)
+    //    ).disposed(by: db)
 
-    dataSource.animationConfiguration = AnimationConfiguration(
-      insertAnimation: .automatic,
-      reloadAnimation: .automatic,
-      deleteAnimation: .automatic
-    )
+    //    tableView.rx.itemMoved.subscribe(
+    //      onNext: { event in
+    //        guard event.destinationIndex.section == 1 else { return }
+    //
+    //        var items = self.sections[1].items
+    //        let moved = items.remove(at: event.sourceIndex.row)
+    //        items.insert(moved, at: event.destinationIndex.row)
+    //        self.sections[1] = SettingsSectionsModel(
+    //          original: self.sections[1],
+    //          items: items
+    //        )
+    //
+    //        let viewInfo = self.viewInfos.remove(at: event.sourceIndex.row)
+    //        self.viewInfos.insert(viewInfo, at: event.destinationIndex.row)
+    //
+    //      }
+    //    ).disposed(by: db)
 
-    Observable.just(sections).bind(
-      to: tableView.rx.items(dataSource: dataSource)
-    ).disposed(by: db)
-
-    tableView.rx.itemMoved.subscribe(
-      onNext: { event in
-        guard event.destinationIndex.section == 1 else { return }
-
-        var items = self.sections[1].items
-        let moved = items.remove(at: event.sourceIndex.row)
-        items.insert(moved, at: event.destinationIndex.row)
-        self.sections[1] = SettingsSectionsModel(
-          original: self.sections[1],
-          items: items
-        )
-
-        let viewInfo = self.viewInfos.remove(at: event.sourceIndex.row)
-        self.viewInfos.insert(viewInfo, at: event.destinationIndex.row)
-
-      }
-    ).disposed(by: db)
-
-    tableView.rx.setDelegate(self).disposed(by: db)
+    //    tableView.rx.setDelegate(self).disposed(by: db)
 
   }
 
@@ -185,8 +182,6 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
 
     tableView.tableHeaderView = view
   }
-
-  let db = DisposeBag()
 
   func tableView(
     _ tableView: UITableView,
@@ -341,8 +336,8 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
 
       viewInfos = ViewInfo.saved
       let items = viewInfos.map { $0.name }
-      sections[1] = SettingsSectionsModel(original: sections[1], items: items)
-      dataSource.setSections(sections)
+      //      sections[1] = SettingsSectionsModel(original: sections[1], items: items)
+      //      dataSource.setSections(sections)
 
       tableView.reloadSections([1], with: .automatic)
 
