@@ -1,5 +1,3 @@
-import RxCocoa
-import RxSwift
 import UIKit
 
 protocol CellSettingsCellDelegate: class {
@@ -67,17 +65,21 @@ class CellSettingsCell: UITableViewCell {
 
     widthTextField.keyboardType = .decimalPad
 
-    widthTextField.rx.text.skip(1).subscribe(
-      onNext: { value in
-        let val = value!.count == 0 ? "0" : value!
-        self.delegate.widthDidChange(to: CGFloat(Double(val)!), for: self)
-      }
-    ).disposed(by: db)
-    onSwitch.rx.value.skip(1).subscribe(
-      onNext: { value in
-        self.delegate.switchDidChange(to: value, for: self)
-      }
-    ).disposed(by: db)
+    widthTextField.addTarget(
+      self, action: #selector(widthTextFieldTextDidChange), for: .editingChanged
+    )
+    onSwitch.addTarget(
+      self, action: #selector(onSwitchValueChanged), for: .valueChanged)
+  }
+
+  @objc func widthTextFieldTextDidChange() {
+    guard let value = widthTextField.text else { return }
+    let val = value.count == 0 ? "0" : value
+    self.delegate.widthDidChange(to: CGFloat(Double(val)!), for: self)
+  }
+
+  @objc func onSwitchValueChanged() {
+    self.delegate.switchDidChange(to: onSwitch.isOn, for: self)
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -102,6 +104,4 @@ class CellSettingsCell: UITableViewCell {
       swtch.onTintColor = Theme.Colors.main
     }
   )
-
-  let db = DisposeBag()
 }
