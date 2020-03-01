@@ -6,6 +6,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     super.viewDidAppear(animated)
   }
 
+#if !targetEnvironment(macCatalyst)
   let documentInteractionController = UIDocumentInteractionController()
 
   func share(url: URL) {
@@ -37,6 +38,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
   @objc func saveButtonTapped() {
     shareAction(url: JDB.getFilePath())
   }
+#endif
 
   func setTableHeaderView() {
     let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
@@ -45,23 +47,29 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     label.textColor = .white
     label.font = UIFont.systemFont(ofSize: 28)
 
+#if !targetEnvironment(macCatalyst)
     let b = UIButton()
     b.setTitle("Save Data")
     b.setTitleColor(.white)
-
-    b.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
-
-    view.addSubview(label)
-    label.translatesAutoresizingMaskIntoConstraints = false
+    
     view.addSubview(b)
     b.translatesAutoresizingMaskIntoConstraints = false
 
+    b.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     NSLayoutConstraint.activate([
-      label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12),
-      label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       b.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12),
       b.centerYAnchor.constraint(equalTo: view.centerYAnchor),
     ])
+#endif
+
+    view.addSubview(label)
+    label.translatesAutoresizingMaskIntoConstraints = false
+
+
+    NSLayoutConstraint.activate([
+      label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12),
+      label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+  ])
 
     tableView.tableHeaderView = view
   }
