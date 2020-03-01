@@ -1,4 +1,3 @@
-import RxSwift
 import UIKit
 
 class LiftTypeCoordinator: Coordinator {
@@ -7,6 +6,4 @@ class LiftTypeCoordinator: Coordinator {
   override func loadViewController() {
     viewController = LiftTypeTVC()
   }
-
-  let db = DisposeBag()
 }
