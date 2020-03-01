@@ -1,6 +1,4 @@
 import CustomIOSAlertView
-import RxCocoa
-import RxSwift
 import UIKit
 
 class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
@@ -95,22 +93,25 @@ where Cell.Object == NewLift {
 
     keyboardHandler = KeyboardHandler.new(tableView: tableView, view: view)
 
-    NotificationCenter.default.rx.notification(
-      Notification.Name(rawValue: Lets.chartViewWillDeleteNotificationName)
-    ).subscribe(
-      onNext: { noti in
-        self.tableView.beginUpdates()
-      }
-    ).disposed(by: db)
-    NotificationCenter.default.rx.notification(
-      Notification.Name(rawValue: Lets.chartViewDidDeleteNotificationName)
-    ).subscribe(
-      onNext: { noti in
-        self.tableView.endUpdates()
-      }
-    ).disposed(by: db)
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(observeChartViewWillDeleteNotification),
+      name: Notification.Name(
+        rawValue: Lets.chartViewWillDeleteNotificationName), object: nil)
+
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(observeChartViewDidDeleteNotification),
+      name: Notification.Name(
+        rawValue: Lets.chartViewDidDeleteNotificationName), object: nil)
 
     dataSource.workoutFooterView.delegate = self
+  }
+
+  @objc func observeChartViewWillDeleteNotification() {
+    self.tableView.beginUpdates()
+  }
+
+  @objc func observeChartViewDidDeleteNotification() {
+    self.tableView.endUpdates()
   }
 
   func addNewLift(name: String) {
@@ -122,8 +123,6 @@ where Cell.Object == NewLift {
   }
 
   var didTapAddNewLift: (() -> Void)!
-
-  let db = DisposeBag()
 
   func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
   {
@@ -145,13 +144,13 @@ where Cell.Object == NewLift {
     clickedButtonAt buttonIndex: Int
   ) {
     let av = alertView as! CustomIOSAlertView
-//    if let nv = av.containerView as? NoteView<Set, SetRowView> {
-//      nv.type.note = nv.textView.text
-//      nv.view.noteButton?.update(for: nv.type)
-//    } else if let nv = av.containerView as? NoteView<Lift, LiftCell> {
-//      nv.type.note = nv.textView.text
-//      nv.view.noteButton.update(for: nv.type)
-//    }
+    //    if let nv = av.containerView as? NoteView<Set, SetRowView> {
+    //      nv.type.note = nv.textView.text
+    //      nv.view.noteButton?.update(for: nv.type)
+    //    } else if let nv = av.containerView as? NoteView<Lift, LiftCell> {
+    //      nv.type.note = nv.textView.text
+    //      nv.view.noteButton.update(for: nv.type)
+    //    }
     av.close()
   }
 
