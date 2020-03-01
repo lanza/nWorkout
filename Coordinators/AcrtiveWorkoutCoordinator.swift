@@ -1,6 +1,4 @@
 import RxCocoa
-import RxSwift
-import UIKit
 
 protocol ActiveWorkoutCoordinatorDelegate: class {
   func hideTapped(for activeWorkoutCoordinator: ActiveWorkoutCoordinator)
@@ -26,12 +24,9 @@ class ActiveWorkoutCoordinator: Coordinator {
       let ltc = LiftTypeCoordinator()
       let ltcNav = NavigationCoordinator(rootCoordinator: ltc)
 
-      ltc.liftTypeTVC.navigationItem.leftBarButtonItem!.rx.tap.subscribe(
-        onNext: {
-          self.dismiss(animated: true)
-        }
-      ).disposed(by: self.db)
-
+      ltc.liftTypeTVC.hideButtonTappedCallBack = {
+        self.dismiss(animated: true)
+      }
       ltc.liftTypeTVC.didSelectLiftName = { name in
         self.dismiss(animated: true)
         self.workoutTVC.addNewLift(name: name)
@@ -39,11 +34,9 @@ class ActiveWorkoutCoordinator: Coordinator {
 
       self.present(ltcNav, animated: true)
     }
-
   }
 
   var workoutIsNotActive: (() -> Void)!
-  let db = DisposeBag()
 }
 
 extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
@@ -75,8 +68,7 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
         var str: String
         if rem == 0 {
           str = String(Int(set.completedWeight))
-        }
-        else {
+        } else {
           str = String(set.completedWeight)
         }
         str = str + " x " + String(set.completedReps)

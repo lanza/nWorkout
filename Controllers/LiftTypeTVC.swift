@@ -24,20 +24,33 @@ class LiftTypeTVC: BaseTVC {
     return .lightContent
   }
 
+  var hideButtonTappedCallBack: (() -> Void)? = nil
+
+  @objc func hideButtonTappedForwarder() {
+    hideButtonTappedCallBack?()
+  }
+
+  var newLiftButtonTappedCallBack: (() -> Void)? = nil
+
+  @objc func newLiftButtonTappedForwarder() {
+    newLiftButtonTappedCallBack?()
+  }
+
   init() {
     super.init(nibName: nil, bundle: nil)
 
     navigationItem.leftBarButtonItem = UIBarButtonItem(
       title: Lets.hide,
       style: .plain,
-      target: nil,
-      action: nil
+      target: self,
+      action: #selector(hideButtonTappedForwarder)
     )
+
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       title: Lets.newLift,
       style: .plain,
-      target: nil,
-      action: nil
+      target: self,
+      action: #selector(newLiftButtonTappedForwarder)
     )
   }
 
