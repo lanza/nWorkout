@@ -3,18 +3,23 @@ import RxSwift
 import UIKit
 
 class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
-  
+
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
   }
-  
+
   let documentInteractionController = UIDocumentInteractionController()
+
   func share(url: URL) {
     documentInteractionController.url = url
-    documentInteractionController.uti = url.typeIdentifier ?? "public.data, public.content"
-    documentInteractionController.name = url.localizedName ?? url.lastPathComponent
-    documentInteractionController.presentOptionsMenu(from: view.frame, in: view, animated: true)
+    documentInteractionController.uti = url.typeIdentifier
+      ?? "public.data, public.content"
+    documentInteractionController.name = url.localizedName
+      ?? url.lastPathComponent
+    documentInteractionController.presentOptionsMenu(
+      from: view.frame, in: view, animated: true)
   }
+
   func shareAction(url: URL) {
     URLSession.shared.dataTask(with: url) { data, response, error in
       guard let data = data, error == nil else { return }
@@ -30,7 +35,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
       }
     }.resume()
   }
-  
+
   @objc func saveButtonTapped() {
     shareAction(url: JDB.getFilePath())
   }
@@ -41,20 +46,24 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     label.text = "History"
     label.textColor = .white
     label.font = UIFont.systemFont(ofSize: 28)
-    
+
     let b = UIButton()
     b.setTitle("Save Data")
     b.setTitleColor(.white)
-    
+
     b.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
 
     view.addSubview(label)
-
     label.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(b)
+    b.translatesAutoresizingMaskIntoConstraints = false
 
-    label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive =
-      true
-    label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    NSLayoutConstraint.activate([
+      label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12),
+      label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      b.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12),
+      b.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+    ])
 
     tableView.tableHeaderView = view
   }
