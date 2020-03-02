@@ -14,7 +14,7 @@ enum JDB {
   }
 
   static func getFilePath() -> URL {
-    #if false
+    #if true
       return getDocumentsDirectory().appendingPathComponent("data.json")
     #else
       return Bundle.main.bundleURL.appendingPathComponent("data.json")
