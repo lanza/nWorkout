@@ -14,7 +14,11 @@ enum JDB {
   }
 
   static func getFilePath() -> URL {
-    return getDocumentsDirectory().appendingPathComponent("data.json")
+    #if false
+      return getDocumentsDirectory().appendingPathComponent("data.json")
+    #else
+      return Bundle.main.bundleURL.appendingPathComponent("data.json")
+    #endif
   }
 
   private static var workouts: [NewWorkout]! = nil
