@@ -1,4 +1,3 @@
-import CustomIOSAlertView
 import UIKit
 
 class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,

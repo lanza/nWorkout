@@ -5,8 +5,6 @@ platform :ios, '13.0'
 target 'nWorkout' do
   use_frameworks!
 
-  pod 'CustomIOSAlertView'
-
   pod 'Charts'
   pod 'CarbonKit'
 

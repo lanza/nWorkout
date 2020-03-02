@@ -1,4 +1,3 @@
-import CustomIOSAlertView
 import UIKit
 
 protocol SetRowViewDelegate: class {
