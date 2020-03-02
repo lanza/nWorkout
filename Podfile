@@ -6,7 +6,6 @@ target 'nWorkout' do
   use_frameworks!
 
   pod 'Charts'
-  pod 'CarbonKit'
 
 end
 
