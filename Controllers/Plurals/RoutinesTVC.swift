@@ -17,7 +17,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
 
     alert.addAction(
       UIAlertAction(title: Lets.done, style: UIAlertAction.Style.default) {
-        action in
+        _ in
         guard let name = alert.textFields?.first?.text else { fatalError() }
 
         let routine = NewWorkout.new(
