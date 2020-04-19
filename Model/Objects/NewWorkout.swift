@@ -7,7 +7,7 @@ class NewWorkout: Codable {
   var name = ""
   var isComplete = false
   var startDate = Date()
-  var finishDate: Date? = nil
+  var finishDate: Date?
 
   public enum CodingKeys: String, CodingKey {
     case note
