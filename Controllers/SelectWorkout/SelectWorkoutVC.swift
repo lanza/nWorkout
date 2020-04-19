@@ -10,7 +10,9 @@ protocol SelectWorkoutDelegate: class {
   )
 }
 
-class SelectWorkoutVC: UIViewController {
+class SelectWorkoutVC: UIViewController, UITableViewDataSource,
+  UITableViewDelegate
+{
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -57,25 +59,25 @@ class SelectWorkoutVC: UIViewController {
 
   let objects = JDB.getWorkouts().filter { $0.isWorkout == false }
 
-  func setupTableView() {
-    tableView.register(SelectWorkoutCell.self)
-
-    //    Observable.collection(from: objects).bind(
-    //      to: tableView.rx.items(
-    //        cellIdentifier: SelectWorkoutCell.reuseIdentifier,
-    //        cellType: SelectWorkoutCell.self
-    //      )
-    //    ) { index, workout, cell in
-    //      cell.configure(for: workout, at: IndexPath(row: index, section: 0))
-    //    }.disposed(by: db)
-    //
-    //    tableView.rx.modelSelected(NewWorkout.self).subscribe(
-    //      onNext: { routine in
-    //        self.delegate.selectWorkoutVC(self, selectedRoutine: routine)
-    //      }
-    //    ).disposed(by: db)
-
-    //        tableView.tableFooterView = UIView()
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+    -> Int
+  {
+    return objects.count
+  }
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+    -> UITableViewCell
+  {
+    let cell =
+      tableView.dequeueReusableCell(
+        withIdentifier: SelectWorkoutCell.reuseIdentifier) as! SelectWorkoutCell
+    let nwo = objects[indexPath.row]
+    cell.configure(for: nwo, at: indexPath)
+    return cell
+  }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+  {
+    let routine = objects[indexPath.row]
+    self.delegate.selectWorkoutVC(self, selectedRoutine: routine)
   }
 
   @objc func startBlankWorkoutButtonTapped() {
@@ -90,7 +92,10 @@ class SelectWorkoutVC: UIViewController {
     super.viewDidLoad()
 
     setupView()
-    setupTableView()
+    tableView.register(SelectWorkoutCell.self)
+    tableView.tableFooterView = UIView()
+    tableView.delegate = self
+    tableView.dataSource = self
 
     startBlankWorkoutButton.addTarget(
       self, action: #selector(startBlankWorkoutButtonTapped),
