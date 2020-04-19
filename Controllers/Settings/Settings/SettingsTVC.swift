@@ -19,57 +19,79 @@ class SettingsTVC: UITableViewController, CellSettingsCellDelegate {
     setupTableView()
   }
 
-  //  var sections: [SettingsSectionsModel] = []
+  override func tableView(
+    _ tableView: UITableView, numberOfRowsInSection section: Int
+  ) -> Int {
+    if section == 0 {
+      return 0
+    } else {
+      return items.count
+    }
+  }
+
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    return 2
+  }
+
+  override func tableView(
+    _ tableView: UITableView, cellForRowAt indexPath: IndexPath
+  ) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(for: indexPath) as CellSettingsCell
+    let item = items[indexPath.row]
+    if indexPath.section == 1 {
+      let vi = self.viewInfos[indexPath.row]
+      cell.onSwitch.isOn = vi.isOn
+      cell.widthTextField.text = "\(vi.width)"
+    } else {
+      cell.onSwitch.isOn = ViewInfo.usesCombinedView
+    }
+    cell.titleLabel.text = item
+    cell.delegate = self
+
+    return cell
+  }
+  override func tableView(
+    _ tableView: UITableView, titleForHeaderInSection section: Int
+  ) -> String? {
+    return section == 0 ? "" : "Cells"
+  }
+  override func tableView(
+    _ tableView: UITableView, canMoveRowAt indexPath: IndexPath
+  ) -> Bool {
+    switch indexPath.section {
+    case 0:
+      return false
+    default:
+      return true
+    }
+  }
+  override func tableView(
+    _ tableView: UITableView, canEditRowAt indexPath: IndexPath
+  ) -> Bool {
+    switch indexPath.section {
+    case 0:
+      return false
+    default:
+      return true
+    }
+  }
+
+  override func tableView(
+    _ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
+    forRowAt indexPath: IndexPath
+  ) {
+    fatalError()
+  }
 
   func setupTableView() {
-
     tableView.separatorStyle = .none
-
-    //    dataSource = RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>(
-    //      configureCell: { [unowned self] ds, tv, ip, item in
-    //        let cell = tv.dequeueReusableCell(for: ip) as CellSettingsCell
-    //        if ip.section == 1 {
-    //          let vi = self.viewInfos[ip.row]
-    //          cell.onSwitch.isOn = vi.isOn
-    //          cell.widthTextField.text = "\(vi.width)"
-    //        } else {
-    //          cell.onSwitch.isOn = ViewInfo.usesCombinedView
-    //        }
-    //        cell.titleLabel.text = item
-    //        cell.delegate = self
-    //
-    //        return cell
-    //      }
-    //    )
-    //    dataSource.titleForHeaderInSection = { ds, index in
-    //      return index == 0 ? "" : "Cells"
-    //    }
-    //    dataSource.canMoveRowAtIndexPath = { _, info in
-    //      switch info.section {
-    //      case 0:
-    //        return false
-    //      default:
-    //        return true
-    //      }
-    //    }
-    //    dataSource.canEditRowAtIndexPath = { _, info in
-    //      switch info.section {
-    //      case 0:
-    //        return false
-    //      default:
-    //        return true
-    //      }
-    //    }
-
+    tableView.delegate = self
+    tableView.dataSource = self
     //    dataSource.animationConfiguration = AnimationConfiguration(
     //      insertAnimation: .automatic,
     //      reloadAnimation: .automatic,
     //      deleteAnimation: .automatic
     //    )
-    //
-    //    Observable.just(sections).bind(
-    //      to: tableView.rx.items(dataSource: dataSource)
-    //    ).disposed(by: db)
 
     //    tableView.rx.itemMoved.subscribe(
     //      onNext: { event in
@@ -269,15 +291,15 @@ class SettingsTVC: UITableViewController, CellSettingsCellDelegate {
 
   }
 
+  var items: [String] = ViewInfo.saved.map { $0.name }
+
   func switchDidChange(to bool: Bool, for cell: CellSettingsCell) {
     let indexPath = tableView.indexPath(for: cell)!
     if indexPath.section == 0 {
       ViewInfo.setUsesCombinedView(bool)
 
       viewInfos = ViewInfo.saved
-      let items = viewInfos.map { $0.name }
-      //      sections[1] = SettingsSectionsModel(original: sections[1], items: items)
-      //      dataSource.setSections(sections)
+      items = viewInfos.map { $0.name }
 
       tableView.reloadSections([1], with: .automatic)
 

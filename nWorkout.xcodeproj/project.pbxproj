@@ -108,7 +108,6 @@
 		B3EA1A001E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA19FF1E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift */; };
 		B3EA1A031E83BFC400B277E2 /* ChartSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A021E83BFC400B277E2 /* ChartSectionModel.swift */; };
 		B3EA1A061E83C04E00B277E2 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A051E83C04E00B277E2 /* ChartCell.swift */; };
-		B3EA1A091E83C13000B277E2 /* SettingsSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A081E83C13000B277E2 /* SettingsSectionModel.swift */; };
 		B3EA1A0C1E83C20D00B277E2 /* LiftTableHeaderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A0B1E83C20D00B277E2 /* LiftTableHeaderRowView.swift */; };
 		B3EA1A0E1E83C23800B277E2 /* LiftTableHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A0D1E83C23800B277E2 /* LiftTableHeaderLabel.swift */; };
 		B3EA1A101E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A0F1E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift */; };
@@ -254,7 +253,6 @@
 		B3EA19FF1E83BF8B00B277E2 /* StatisticsHistorySetRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsHistorySetRowView.swift; sourceTree = "<group>"; };
 		B3EA1A021E83BFC400B277E2 /* ChartSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSectionModel.swift; sourceTree = "<group>"; };
 		B3EA1A051E83C04E00B277E2 /* ChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
-		B3EA1A081E83C13000B277E2 /* SettingsSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSectionModel.swift; sourceTree = "<group>"; };
 		B3EA1A0B1E83C20D00B277E2 /* LiftTableHeaderRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderRowView.swift; sourceTree = "<group>"; };
 		B3EA1A0D1E83C23800B277E2 /* LiftTableHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderLabel.swift; sourceTree = "<group>"; };
 		B3EA1A0F1E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderLabelHolder.swift; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				B328D8131DD6FA5E000948ED /* SettingsTVC.swift */,
-				B3EA1A081E83C13000B277E2 /* SettingsSectionModel.swift */,
 				B3FF69DF1E7A17A2005FE6C1 /* CellSettingsCell.swift */,
 			);
 			path = Settings;
@@ -947,7 +944,6 @@
 				B3EA19FA1E83BEEA00B277E2 /* StatisticsPersonalRecordTVC.swift in Sources */,
 				B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */,
 				B3C955FC24077C5600743481 /* UILabel+Extensions.swift in Sources */,
-				B3EA1A091E83C13000B277E2 /* SettingsSectionModel.swift in Sources */,
 				B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */,
 				B3EA1A0C1E83C20D00B277E2 /* LiftTableHeaderRowView.swift in Sources */,
 				B3BB31881DDAA19C0015F9B0 /* RoutineCoordinator.swift in Sources */,
