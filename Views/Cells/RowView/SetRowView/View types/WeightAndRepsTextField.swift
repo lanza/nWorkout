@@ -15,7 +15,8 @@ class WeightAndRepsTextField: UITextField {
     didSet {
       guard let ph = placeholder else { return }
       let attributes = [NSAttributedString.Key.foregroundColor: UIColor.gray]
-      attributedPlaceholder = NSAttributedString(string: ph, attributes: attributes)
+      attributedPlaceholder = NSAttributedString(
+        string: ph, attributes: attributes)
     }
   }
 
@@ -24,8 +25,7 @@ class WeightAndRepsTextField: UITextField {
   func setNumber(double: Double) {
     if double.remainder(dividingBy: 1) == 0 {
       setNumber(int: Int(double))
-    }
-    else {
+    } else {
       setNumberString("\(double)")
     }
   }

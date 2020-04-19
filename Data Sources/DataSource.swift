@@ -30,10 +30,11 @@ where Cell: ConfigurableCell, Provider.Object == Cell.Object {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
     -> UITableViewCell
   {
-    let cell = tableView.dequeueReusableCell(
-      withIdentifier: Cell.reuseIdentifier,
-      for: indexPath
-    )
+    let cell =
+      tableView.dequeueReusableCell(
+        withIdentifier: Cell.reuseIdentifier,
+        for: indexPath
+      )
       as! Cell
     let object = provider.object(at: indexPath.row)
     cell.configure(for: object, at: indexPath)

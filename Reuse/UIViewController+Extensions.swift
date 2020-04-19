@@ -1,7 +1,7 @@
 import UIKit
 
-public extension UIViewController {
-  func presentAlert(
+extension UIViewController {
+  public func presentAlert(
     title: String,
     message: String? = nil,
     okText: String,

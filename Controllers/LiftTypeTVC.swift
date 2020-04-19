@@ -76,7 +76,8 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
 
   required init?(coder aDecoder: NSCoder) { fatalError() }
 
-  var liftTypes = UserDefaults.standard.value(forKey: Lets.liftTypesKey)
+  var liftTypes =
+    UserDefaults.standard.value(forKey: Lets.liftTypesKey)
     as? [String] ?? []
 
   override func viewDidLoad() {
@@ -94,8 +95,9 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
     -> UITableViewCell
   {
-    let cell = tableView.dequeueReusableCell(
-      withIdentifier: LiftTypeCell.reuseIdentifier, for: indexPath)
+    let cell =
+      tableView.dequeueReusableCell(
+        withIdentifier: LiftTypeCell.reuseIdentifier, for: indexPath)
       as! LiftTypeCell
     cell.textLabel?.text = liftTypes[indexPath.row]
     return cell

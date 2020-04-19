@@ -45,7 +45,8 @@ extension WorkoutCoordinator: WorkoutTVCDelegate {
     for lift in self.workout.lifts {
       var strings: [String] = []
       for set in lift.sets {
-        let str = String(set.completedWeight) + " x "
+        let str =
+          String(set.completedWeight) + " x "
           + String(
             set.completedReps
           )

@@ -30,7 +30,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
   ) {
     textFieldToSetRowViewMap[setRowView.targetWeightTextField!] = setRowView
     textFieldToSetRowViewMap[setRowView.targetRepsTextField!] = setRowView
-    
+
     if let cwtf = setRowView.completedWeightTextField {
       textFieldToSetRowViewMap[cwtf] = setRowView
       textFieldToCellMap[cwtf] = cell

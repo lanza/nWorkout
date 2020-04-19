@@ -1,7 +1,7 @@
 import Foundation
 
-public extension UserDefaults {
-  class Proxy {
+extension UserDefaults {
+  public class Proxy {
     fileprivate let defaults: UserDefaults
     fileprivate let key: String
 
@@ -89,19 +89,19 @@ public extension UserDefaults {
 
   /// `NSNumber` representation of a user default
 
-  func numberForKey(_ key: String) -> NSNumber? {
+  public func numberForKey(_ key: String) -> NSNumber? {
     return object(forKey: key) as? NSNumber
   }
 
   /// Returns getter proxy for `key`
 
-  subscript(key: String) -> Proxy {
+  public subscript(key: String) -> Proxy {
     return Proxy(self, key)
   }
 
   /// Sets value for `key`
 
-  subscript(key: String) -> Any? {
+  public subscript(key: String) -> Any? {
     get {
       // return untyped Proxy
       // (make sure we don't fall into infinite loop)
@@ -129,13 +129,13 @@ public extension UserDefaults {
 
   /// Returns `true` if `key` exists
 
-  func hasKey(_ key: String) -> Bool {
+  public func hasKey(_ key: String) -> Bool {
     return object(forKey: key) != nil
   }
 
   /// Removes value for `key`
 
-  func remove(_ key: String) {
+  public func remove(_ key: String) {
     removeObject(forKey: key)
   }
 
@@ -144,7 +144,7 @@ public extension UserDefaults {
   /// - Note: This method only removes keys on the receiver `UserDefaults` object.
   ///         System-defined keys will still be present afterwards.
 
-  func removeAll() {
+  public func removeAll() {
     for (key, _) in dictionaryRepresentation() {
       removeObject(forKey: key)
     }
@@ -403,8 +403,7 @@ extension UserDefaults {
   {
     if let value = value {
       set(key, value.rawValue)
-    }
-    else {
+    } else {
       remove(key)
     }
   }
@@ -430,8 +429,7 @@ extension UserDefaults {
   public func archive<T>(_ key: DefaultsKey<T?>, _ value: T?) {
     if let value = value {
       set(key, NSKeyedArchiver.archivedData(withRootObject: value))
-    }
-    else {
+    } else {
       remove(key)
     }
   }

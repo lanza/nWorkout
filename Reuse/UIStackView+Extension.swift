@@ -1,7 +1,7 @@
 import UIKit
 
-public extension UIStackView {
-  convenience init(
+extension UIStackView {
+  public convenience init(
     arrangedSubviews: [UIView],
     axis: NSLayoutConstraint.Axis,
     spacing: CGFloat,
@@ -12,7 +12,7 @@ public extension UIStackView {
     self.spacing = spacing
     self.distribution = distribution
   }
-  convenience init(
+  public convenience init(
     axis: NSLayoutConstraint.Axis,
     spacing: CGFloat,
     distribution: UIStackView.Distribution
@@ -25,7 +25,7 @@ public extension UIStackView {
     )
   }
 
-  func set(
+  public func set(
     arrangedSubviews: [UIView],
     axis: NSLayoutConstraint.Axis,
     spacing: CGFloat,
@@ -38,7 +38,7 @@ public extension UIStackView {
     self.spacing = spacing
     self.distribution = distribution
   }
-  func set(
+  public func set(
     axis: NSLayoutConstraint.Axis,
     spacing: CGFloat,
     distribution: UIStackView.Distribution

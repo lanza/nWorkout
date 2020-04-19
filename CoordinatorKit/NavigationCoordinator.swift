@@ -53,8 +53,7 @@ open class NavigationCoordinator: Coordinator {
   public func pushCoordinator(_ coordinator: Coordinator, animated: Bool) {
     if let last = coordinators.last {
       coordinator.parent = last
-    }
-    else {
+    } else {
       coordinator.parent = self
     }
     coordinators.append(coordinator)

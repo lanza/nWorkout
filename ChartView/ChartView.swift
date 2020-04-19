@@ -103,8 +103,7 @@ open class ChartView: UIView {
       }
       constrainEmptyLabel()
       emptyLabel.text = text
-    }
-    else {
+    } else {
       if subviews.contains(emptyLabel) {
         emptyLabel.removeFromSuperview()
         removeConstraint(emptyBottomConstraint!)
@@ -138,8 +137,7 @@ open class ChartView: UIView {
   func dequeueRowView() -> RowView {
     if unusedRows.count > 0 {
       return unusedRows.removeLast()
-    }
-    else {
+    } else {
       let rv = (rowViewInformation?.type ?? RowView.self).init()
       let pgr = UIPanGestureRecognizer(
         target: self,
@@ -173,7 +171,8 @@ open class ChartView: UIView {
       )
       ch.height = rv.heightAnchor.constraint(equalToConstant: rowHeight)
 
-      let top = (rowNumber == 0)
+      let top =
+        (rowNumber == 0)
         ? topAnchor : rowViews[rowNumber - 1].bottomAnchor
       ch.top = rv.topAnchor.constraint(equalTo: top, constant: rowSpacing)
       constraintHolders.append(ch)
@@ -231,8 +230,7 @@ open class ChartView: UIView {
         )
         self.deleteRowView(pgr.view as! RowView, velocity: velocity.x)
 
-      }
-      else {
+      } else {
         UIView.animate(withDuration: 0.2) {
           pgr.view!.transform = CGAffineTransform(translationX: 0, y: 0)
         }
@@ -279,8 +277,7 @@ extension ChartView {
       self.bottomConstraint.isActive = true
       singleConstraint = bottomConstraint
 
-    }
-    else if index == 0 {
+    } else if index == 0 {
       let belowCH = constraintHolders[index]
 
       singleConstraint = belowCH.top
@@ -295,8 +292,7 @@ extension ChartView {
       singleConstraint = belowCH.top
       singleConstraintHolder = belowCH
 
-    }
-    else if index == (rowViews.count) {
+    } else if index == (rowViews.count) {
       let aboveCH = constraintHolders[index - 1]
 
       singleConstraint = self.bottomConstraint
@@ -310,8 +306,7 @@ extension ChartView {
       self.bottomConstraint.isActive = true
       singleConstraint = self.bottomConstraint
 
-    }
-    else {
+    } else {
       let aboveCH = constraintHolders[index - 1]
       let belowCH = constraintHolders[index]
 
@@ -353,8 +348,7 @@ extension ChartView {
         singleConstraint.isActive = true
         if let sch = singleConstraintHolder {
           sch.top = singleConstraint
-        }
-        else {
+        } else {
           self.bottomConstraint = singleConstraint
         }
       }

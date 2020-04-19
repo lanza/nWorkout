@@ -230,21 +230,19 @@ public class HamburgerController: UIViewController {
 
     if pgr.state == .began {
       originalLeftConstraintConstant = leftConstraint.constant
-    }
-    else if pgr.state == .changed {
+    } else if pgr.state == .changed {
       if leftConstraint.constant < view.frame.width - 80 {
         leftConstraint.constant = originalLeftConstraintConstant + translation.x
-        rightConstraint.constant = originalLeftConstraintConstant
+        rightConstraint.constant =
+          originalLeftConstraintConstant
           + translation.x
       }
-    }
-    else if pgr.state == .ended {
+    } else if pgr.state == .ended {
       UIView.animate(withDuration: 0.3) {
         if velocity.x > 0 {
           self.leftConstraint.constant = self.view.frame.width - 80
           self.rightConstraint.constant = self.view.frame.width - 80
-        }
-        else {
+        } else {
           self.leftConstraint.constant = 0
           self.rightConstraint.constant = 0
         }
@@ -282,15 +280,18 @@ extension HamburgerController: UITableViewDataSource {
       for: indexPath
     )
     cell.textLabel?.text = delegate?.titleFor(row: indexPath.row) ?? ""
-    cell.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233,
-    blue: 0.9686274529, alpha: 1)
-    cell.textLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1,
-    alpha: 1)
+    cell.backgroundColor = #colorLiteral(
+      red: 0.2392156869, green: 0.6745098233,
+      blue: 0.9686274529, alpha: 1)
+    cell.textLabel?.textColor = #colorLiteral(
+      red: 1, green: 1, blue: 1,
+      alpha: 1)
     cell.textLabel?.backgroundColor = .clear
 
     let viewF = UIView()
-    viewF.backgroundColor = #colorLiteral(red: 0.1019607857,
-    green: 0.2784313858, blue: 0.400000006, alpha: 1)
+    viewF.backgroundColor = #colorLiteral(
+      red: 0.1019607857,
+      green: 0.2784313858, blue: 0.400000006, alpha: 1)
     cell.selectedBackgroundView = viewF
     if indexPath.row == 2 {
       let gr = UILongPressGestureRecognizer(

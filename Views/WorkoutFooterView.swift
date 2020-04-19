@@ -39,11 +39,9 @@ class WorkoutFooterView: UIView {
 
     let buttonCount: CGFloat = activeOrFinished == .active ? 4 : 2
 
-    let height = (buttonHeight * buttonCount) + (
-      betweenButtonSpacing * (buttonCount - 1)
-    ) + (
-      margins * 2
-    )
+    let height =
+      (buttonHeight * buttonCount) + (betweenButtonSpacing * (buttonCount - 1))
+      + (margins * 2)
 
     let view = WorkoutFooterView(
       frame: CGRect(x: 0, y: 0, width: 0, height: height)
@@ -72,7 +70,7 @@ class WorkoutFooterView: UIView {
     for button in buttons {
       view.addSubview(button)
     }
-    
+
     view.setupActions()
     return view
   }
@@ -107,8 +105,7 @@ class WorkoutFooterView: UIView {
         width: width,
         height: buttonHeight
       )
-    }
-    else {
+    } else {
       addLiftButton.frame = CGRect(
         x: margins,
         y: margins,
@@ -123,16 +120,20 @@ class WorkoutFooterView: UIView {
       )
     }
   }
-  
+
   @objc func addLiftButtonTapped() { self.delegate.addLiftTapped() }
   @objc func finishWorkoutButtonTapped() { self.delegate.finishWorkoutTapped() }
   @objc func cancelWorkoutButtonTapped() { self.delegate.cancelWorkoutTapped() }
   @objc func workoutDetailButtonTapped() { self.delegate.workoutDetailTapped() }
 
   func setupActions() {
-    addLiftButton.addTarget(self, action: #selector(addLiftButtonTapped), for: .touchUpInside)
-    finishWorkoutButton?.addTarget(self, action: #selector(finishWorkoutButtonTapped), for: .touchUpInside)
-    cancelWorkoutButton?.addTarget(self, action: #selector(cancelWorkoutButtonTapped), for: .touchUpInside)
-    workoutDetailButton.addTarget(self, action: #selector(workoutDetailButtonTapped), for: .touchUpInside)
+    addLiftButton.addTarget(
+      self, action: #selector(addLiftButtonTapped), for: .touchUpInside)
+    finishWorkoutButton?.addTarget(
+      self, action: #selector(finishWorkoutButtonTapped), for: .touchUpInside)
+    cancelWorkoutButton?.addTarget(
+      self, action: #selector(cancelWorkoutButtonTapped), for: .touchUpInside)
+    workoutDetailButton.addTarget(
+      self, action: #selector(workoutDetailButtonTapped), for: .touchUpInside)
   }
 }

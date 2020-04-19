@@ -1,9 +1,9 @@
 import UIKit
 
-public extension UIResponder {
+extension UIResponder {
   private weak static var _currentFirstResponder: UIResponder?
 
-  static var currentFirstResponder: UIResponder? {
+  public static var currentFirstResponder: UIResponder? {
     _currentFirstResponder = nil
 
     UIApplication.shared.sendAction(

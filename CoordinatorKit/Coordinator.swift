@@ -75,8 +75,7 @@ open class Coordinator {
   public func show(_ coordinator: Coordinator, sender: Any?) {
     if let nc = navigationCoordinator {
       nc.pushCoordinator(coordinator, animated: true)
-    }
-    else {
+    } else {
       present(coordinator, animated: true)
     }
   }
@@ -174,14 +173,12 @@ open class Coordinator {
   public var navigationCoordinator: NavigationCoordinator? {
     if let selfNav = self as? NavigationCoordinator {
       return selfNav
-    }
-    else {
+    } else {
       var p = parent
       while let par = p {
         if let parentNav = par as? NavigationCoordinator {
           return parentNav
-        }
-        else {
+        } else {
           p = par.parent
         }
       }

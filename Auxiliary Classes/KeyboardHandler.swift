@@ -39,10 +39,11 @@ class KeyboardHandler: NSObject {
         defaultInsets = tableView.contentInset
       }
 
-      let value = (
-        userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject
-      ).cgRectValue
-      keyboardHeight = value?.height ?? view.frame.height
+      let value =
+        (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject)
+        .cgRectValue
+      keyboardHeight =
+        value?.height ?? view.frame.height
         * CGFloat(
           Lets.keyboardToViewRatio
         )
@@ -72,9 +73,9 @@ class KeyboardHandler: NSObject {
         frFrame,
         from: firstResponder.superview
       )
-      let yRelativeToKeyboard = (view.frame.height - keyboardHeight) - (
-        corrected.origin.y + corrected.height
-      )
+      let yRelativeToKeyboard =
+        (view.frame.height - keyboardHeight)
+        - (corrected.origin.y + corrected.height)
 
       if yRelativeToKeyboard < 0 {
 

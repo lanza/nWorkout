@@ -8,8 +8,7 @@ class LiftTableHeaderLabelHolder: UIView {
 
     if text == "Combined" {
       l.lthl.text = "Status"
-    }
-    else {
+    } else {
       l.lthl.text = text
     }
 

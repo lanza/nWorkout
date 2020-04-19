@@ -1,7 +1,6 @@
 import UIKit
 
-class BaseWorkoutsTVC<Cell: UITableViewCell>: UIViewController,
-  UITableViewDelegate
+class BaseWorkoutsTVC<Cell: UITableViewCell>: UITableViewController
 where Cell: ConfigurableCell, Cell.Object == NewWorkout {
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -13,8 +12,6 @@ where Cell: ConfigurableCell, Cell.Object == NewWorkout {
     tableView.setEditing(editing, animated: animated)
   }
 
-  let tableView = UITableView()
-
   weak var delegate: WorkoutsTVCDelegate!
 
   var dataSource: WorkoutsDataSource<Cell>!
@@ -25,39 +22,7 @@ where Cell: ConfigurableCell, Cell.Object == NewWorkout {
 
     view.backgroundColor = Theme.Colors.darkest
 
-    let v = UIView(
-      frame: CGRect(
-        x: 0,
-        y: 0,
-        width: UIApplication.shared.windows[0].frame.width,
-        height: 20
-      )
-    )
-    v.backgroundColor = Theme.Colors.darkest
-    view.addSubview(v)
-    v.translatesAutoresizingMaskIntoConstraints = false
-
-    view.addSubview(tableView)
-    tableView.translatesAutoresizingMaskIntoConstraints = false
-
-    NSLayoutConstraint.activate(
-      [
-        v.topAnchor.constraint(equalTo: view.topAnchor),
-        v.leftAnchor.constraint(equalTo: view.leftAnchor),
-        v.rightAnchor.constraint(equalTo: view.rightAnchor),
-        v.heightAnchor.constraint(equalToConstant: 20),
-
-        tableView.topAnchor.constraint(equalTo: v.bottomAnchor),
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-        tableView.bottomAnchor.constraint(
-          equalTo: bottomLayoutGuide.bottomAnchor
-        ),
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-      ]
-    )
-
     tableView.tableFooterView = UIView()
-    navigationItem.leftBarButtonItem = editButtonItem
 
     tableView.delegate = self
     tableView.separatorStyle = .none
@@ -77,10 +42,11 @@ where Cell: ConfigurableCell, Cell.Object == NewWorkout {
     }
   }
 
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-  {}
+  override func tableView(
+    _ tableView: UITableView, didSelectRowAt indexPath: IndexPath
+  ) {}
 
-  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+  override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
     UIResponder.currentFirstResponder?.resignFirstResponder()
   }
 

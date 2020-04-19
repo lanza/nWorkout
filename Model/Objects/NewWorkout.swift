@@ -8,8 +8,7 @@ class NewWorkout: Codable {
   var isComplete = false
   var startDate = Date()
   var finishDate: Date? = nil
-  
-  
+
   public enum CodingKeys: String, CodingKey {
     case note
     case isWorkout
@@ -19,7 +18,7 @@ class NewWorkout: Codable {
     case startDate
     case finishDate
   }
-  
+
   var activeOrFinished: ActiveOrFinished {
     return isComplete ? .finished : .active
   }
@@ -45,7 +44,8 @@ class NewWorkout: Codable {
     return lift
   }
 
-  static func new(isWorkout: Bool, isComplete: Bool, name: String) -> NewWorkout {
+  static func new(isWorkout: Bool, isComplete: Bool, name: String) -> NewWorkout
+  {
     let workout = NewWorkout()
     workout.name = name
     workout.isWorkout = isWorkout

@@ -43,7 +43,8 @@ class RoutineDataSource: DataSource<Workout, RoutineLiftCell> {
     _ tableView: UITableView,
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
-    let cell = super.tableView(tableView, cellForRowAt: indexPath)
+    let cell =
+      super.tableView(tableView, cellForRowAt: indexPath)
       as! RoutineLiftCell
     textFieldBehaviorHandler.setupSetConnections(for: cell)
 
@@ -65,8 +66,7 @@ class RoutineDataSource: DataSource<Workout, RoutineLiftCell> {
       if let last = lift.sets.last {
         set.weight = last.weight
         set.reps = last.reps
-      }
-      else {
+      } else {
         set.weight = 225
         set.reps = 5
       }

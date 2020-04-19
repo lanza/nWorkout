@@ -142,11 +142,10 @@ struct ViewInfo: Equatable {
   }
 
   static var saved: [ViewInfo] {
-    let stored = (
-      UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]
-    ).map {
-      $0.map { ViewInfo.from(array: $0) }
-    }
+    let stored =
+      (UserDefaults.standard.value(forKey: Lets.viewInfoKey) as? [[Any]]).map {
+        $0.map { ViewInfo.from(array: $0) }
+      }
     return stored ?? ViewInfo.defaults
   }
 

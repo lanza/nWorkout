@@ -32,30 +32,54 @@ class MainCoordinator: TabBarCoordinator {
     }
   }
 
+  let app: UINavigationBarAppearance = {
+    let app = UINavigationBarAppearance()
+    app.backgroundColor = Theme.Colors.darkest
+    app.largeTitleTextAttributes = [
+      NSAttributedString.Key.foregroundColor: Theme.Colors.Nav.title
+    ]
+    app.titleTextAttributes = [
+      NSAttributedString.Key.foregroundColor: Theme.Colors.Nav.title
+    ]
+    return app
+  }()
+
+  func configureNavigationBarAppearance(for nav: NavigationCoordinator) {
+    nav.navigationController.navigationBar.standardAppearance = app
+    nav.navigationController.navigationBar.scrollEdgeAppearance = app
+    nav.navigationController.navigationBar.prefersLargeTitles = true
+  }
+
   func createCoordinators() {
+
     let wc = WorkoutsCoordinator()
     let wcNav = NavigationCoordinator(rootCoordinator: wc)
     wcNav.tabBarItem.image = #imageLiteral(resourceName: "workout")
     wcNav.tabBarItem.title = Lets.history
     wc.navigationItem.title = Lets.history
+    configureNavigationBarAppearance(for: wcNav)
 
     let rc = RoutinesCoordinator()
     let rcNav = NavigationCoordinator(rootCoordinator: rc)
     rcNav.tabBarItem.image = #imageLiteral(resourceName: "routine")
     rcNav.tabBarItem.title = Lets.routines
     rc.navigationItem.title = Lets.routines
+    configureNavigationBarAppearance(for: rcNav)
 
     let stc = StatisticsCoordinator()
     let stcNav = NavigationCoordinator(rootCoordinator: stc)
     stcNav.tabBarItem.image = #imageLiteral(resourceName: "statistics")
     stcNav.tabBarItem.title = Lets.statistics
     stc.navigationItem.title = Lets.statistics
+    configureNavigationBarAppearance(for: stcNav)
 
     let sec = SettingsCoordinator()
     let secNav = NavigationCoordinator(rootCoordinator: sec)
     secNav.tabBarItem.image = #imageLiteral(resourceName: "settings")
     secNav.tabBarItem.title = Lets.settings
+
     sec.navigationItem.title = Lets.settings
+    configureNavigationBarAppearance(for: secNav)
 
     let coordinators = [wcNav, rcNav, dummy, stcNav, secNav]
     self.coordinators = coordinators

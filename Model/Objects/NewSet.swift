@@ -10,13 +10,13 @@ class NewSet: Codable {
     case completedWeight
     case completedReps
   }
-  
+
   var note = ""
   var isWorkout = false
   var weight: Double = 0
   var reps = 0
   var isWarmup = false
-  
+
   var completedWeight: Double = 0 {
     didSet {
       print(
@@ -24,7 +24,7 @@ class NewSet: Codable {
       )
     }
   }
-  
+
   var completedReps = 0 {
     didSet {
       print(
@@ -32,14 +32,14 @@ class NewSet: Codable {
       )
     }
   }
-  
+
   var isComplete: Bool {
     return weight == completedWeight && reps == completedReps
   }
-  
+
   var isFresh: Bool { return completedWeight == 0 && completedReps == 0 }
   var didFail: Bool { return !isComplete && !isFresh }
-  
+
   static func new(
     isWorkout: Bool,
     isWarmup: Bool,
@@ -50,7 +50,7 @@ class NewSet: Codable {
     lift: NewLift
   ) -> NewSet {
     let set = NewSet()
-    
+
     set.isWorkout = isWorkout
     set.isWarmup = isWarmup
     set.weight = weight
@@ -58,10 +58,10 @@ class NewSet: Codable {
     set.completedWeight = completedWeight
     set.completedReps = completedReps
     set.lift = lift
-    
+
     return set
   }
-  
+
   var lift: NewLift?
 }
 
@@ -78,7 +78,7 @@ extension NewSet {
     )
     return set
   }
-  
+
   var failureWeight: Double { return weight }
 }
 
@@ -87,7 +87,7 @@ extension NewSet {
     self.weight = weight
     self.reps = reps
   }
-  
+
   func setCompleted(weight: Double, reps: Int) {
     self.completedWeight = weight
     self.completedReps = reps

@@ -14,10 +14,8 @@ class Keyboard: UIView {
       y: 0,
       width: 1,
       height: Double(
-        (
-          UIApplication.shared.windows.first?.rootViewController?.view.frame
-            .size.height
-        )!
+        (UIApplication.shared.windows.first?.rootViewController?.view.frame
+          .size.height)!
       )
         * Lets
         .keyboardToViewRatio
@@ -128,7 +126,7 @@ class Keyboard: UIView {
     )
 
     let stackViews = [
-      firstStackView, secondStackView, thirdStackView, fourthStackView
+      firstStackView, secondStackView, thirdStackView, fourthStackView,
     ]
 
     for stackView in stackViews {

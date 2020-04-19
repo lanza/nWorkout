@@ -1,12 +1,12 @@
 import UIKit
 
-public extension UIView {
-  func setBorder(color: UIColor, width: CGFloat, radius: CGFloat) {
+extension UIView {
+  public func setBorder(color: UIColor, width: CGFloat, radius: CGFloat) {
     layer.borderColor = color.cgColor
     layer.borderWidth = width
     layer.cornerRadius = radius
   }
-  func setShadow(
+  public func setShadow(
     offsetWidth: CGFloat,
     offsetHeight: CGFloat,
     radius: CGFloat,

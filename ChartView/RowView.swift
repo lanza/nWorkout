@@ -52,8 +52,7 @@ open class RowView: UIView {
 
       if columnNumber == 0 {
         constraints.append(cv.leftAnchor.constraint(equalTo: leftAnchor))
-      }
-      else {
+      } else {
         constraints.append(
           cv.leftAnchor.constraint(
             equalTo: columnViews[columnNumber - 1].rightAnchor,

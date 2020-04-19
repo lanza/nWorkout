@@ -25,7 +25,6 @@ where Cell.Object == NewLift {
     super.viewWillAppear(animated)
 
     Keyboard.shared.delegate = dataSource.textFieldBehaviorHandler
-    navigationController?.setNavigationBarHidden(false, animated: true)
 
     if tabBarController != nil {
       let ci = tableView.contentInset

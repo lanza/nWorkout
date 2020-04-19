@@ -1,65 +1,21 @@
 import UIKit
 
-class SettingsTVC: UIViewController, UITableViewDelegate,
-  CellSettingsCellDelegate
-{
+class SettingsTVC: UITableViewController, CellSettingsCellDelegate {
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
 
-  let tableView = UITableView()
   var viewInfos = ViewInfo.saved
-
-  //  var dataSource:
-  //    RxTableViewSectionedAnimatedDataSource<SettingsSectionsModel>! = nil
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     view.backgroundColor = Theme.Colors.darkest
 
-    view.addSubview(tableView)
-    tableView.translatesAutoresizingMaskIntoConstraints = false
-
-    let v = UIView(
-      frame: CGRect(
-        x: 0,
-        y: 0,
-        width: UIApplication.shared.windows[0].frame.width,
-        height: 20
-      )
-    )
-    v.backgroundColor = Theme.Colors.darkest
-    view.addSubview(v)
-    v.translatesAutoresizingMaskIntoConstraints = false
-
-    view.addSubview(tableView)
-    tableView.translatesAutoresizingMaskIntoConstraints = false
-
-    NSLayoutConstraint.activate(
-      [
-        v.topAnchor.constraint(equalTo: view.topAnchor),
-        v.leftAnchor.constraint(equalTo: view.leftAnchor),
-        v.rightAnchor.constraint(equalTo: view.rightAnchor),
-        v.heightAnchor.constraint(equalToConstant: 20),
-
-        tableView.topAnchor.constraint(equalTo: v.bottomAnchor),
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-        tableView.bottomAnchor.constraint(
-          equalTo: bottomLayoutGuide.bottomAnchor
-        ),
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-      ]
-    )
-
     tableView.tableFooterView = UIView()
 
-    setTableHeaderView()
-
-    //    sections = [.top, .cells(items: viewInfos.map { $0.name })]
     tableView.register(CellSettingsCell.self)
-
     setupTableView()
   }
 
@@ -140,8 +96,6 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    navigationController?.setNavigationBarHidden(true, animated: false)
-
     let ci = tableView.contentInset
     tableView.contentInset = UIEdgeInsets(
       top: ci.top,
@@ -165,32 +119,14 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
     broadcastSettingsDidChange()
   }
 
-  func setTableHeaderView() {
-    let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
-    let label = UILabel()
-    label.text = "Settings"
-    label.textColor = .white
-    label.font = UIFont.systemFont(ofSize: 28)
-
-    view.addSubview(label)
-
-    label.translatesAutoresizingMaskIntoConstraints = false
-
-    label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive =
-      true
-    label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-
-    tableView.tableHeaderView = view
-  }
-
-  func tableView(
+  override func tableView(
     _ tableView: UITableView,
     shouldShowMenuForRowAt indexPath: IndexPath
   ) -> Bool {
     return true
   }
 
-  func tableView(
+  override func tableView(
     _ tableView: UITableView,
     shouldIndentWhileEditingRowAt indexPath: IndexPath
   )
@@ -199,7 +135,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
     return false
   }
 
-  func tableView(
+  override func tableView(
     _ tableView: UITableView,
     editingStyleForRowAt indexPath: IndexPath
   )
@@ -208,20 +144,24 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
     return .none
   }
 
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath)
+  override func tableView(
+    _ tableView: UITableView, heightForRowAt indexPath: IndexPath
+  )
     -> CGFloat
   {
     return UITableView.automaticDimension
   }
 
-  func tableView(
+  override func tableView(
     _ tableView: UITableView,
     estimatedHeightForRowAt indexPath: IndexPath
   ) -> CGFloat {
     return 45
   }
 
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int)
+  override func tableView(
+    _ tableView: UITableView, viewForHeaderInSection section: Int
+  )
     -> UIView?
   {
     guard section == 1 else { return nil }
@@ -307,7 +247,7 @@ class SettingsTVC: UIViewController, UITableViewDelegate,
     }
   }
 
-  func tableView(
+  override func tableView(
     _ tableView: UITableView,
     targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath,
     toProposedIndexPath proposedDestinationIndexPath: IndexPath

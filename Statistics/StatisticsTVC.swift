@@ -1,29 +1,9 @@
 import UIKit
 
-class StatisticsTVC: UIViewController, UITableViewDelegate {
+class StatisticsTVC: UITableViewController {
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
-  }
-
-  let tableView = UITableView()
-
-  func setTableHeaderView() {
-    let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
-    let label = UILabel()
-    label.text = "Statistics"
-    label.textColor = .white
-    label.font = UIFont.systemFont(ofSize: 28)
-
-    view.addSubview(label)
-
-    label.translatesAutoresizingMaskIntoConstraints = false
-
-    label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive =
-      true
-    label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-
-    tableView.tableHeaderView = view
   }
 
   weak var delegate: StatisticsTVCDelegate!
@@ -32,8 +12,6 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
-    navigationController?.setNavigationBarHidden(true, animated: false)
 
     let lifts = JDB.getLifts().filter { $0.isWorkout == true }
       .reduce([String: Int]()) {
@@ -62,49 +40,13 @@ class StatisticsTVC: UIViewController, UITableViewDelegate {
 
     view.backgroundColor = Theme.Colors.darkest
 
-    let v = UIView(
-      frame: CGRect(
-        x: 0,
-        y: 0,
-        width: UIApplication.shared.windows[0].frame.width,
-        height: 20
-      )
-    )
-    v.backgroundColor = Theme.Colors.darkest
-    view.addSubview(v)
-    v.translatesAutoresizingMaskIntoConstraints = false
-
-    view.addSubview(tableView)
-    tableView.translatesAutoresizingMaskIntoConstraints = false
-
-    NSLayoutConstraint.activate(
-      [
-        v.topAnchor.constraint(equalTo: view.topAnchor),
-        v.leftAnchor.constraint(equalTo: view.leftAnchor),
-        v.rightAnchor.constraint(equalTo: view.rightAnchor),
-        v.heightAnchor.constraint(equalToConstant: 20),
-
-        tableView.topAnchor.constraint(equalTo: v.bottomAnchor),
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-        tableView.bottomAnchor.constraint(
-          equalTo: bottomLayoutGuide.bottomAnchor
-        ),
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-      ]
-    )
-
     tableView.tableFooterView = UIView()
 
     tableView.delegate = self
     tableView.separatorStyle = .none
 
-    setTableHeaderView()
-
     tableView.register(StatisticsCell.self)
     tableView.tableFooterView = UIView()
-
-    setupRx()
-
   }
 
   func setupRx() {

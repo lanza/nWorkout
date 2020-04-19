@@ -12,16 +12,18 @@ class NewLift: Codable {
     return _previousStrings.components(separatedBy: ",")
   }
 
-  static func new(isWorkout: Bool, name: String, workout: NewWorkout) -> NewLift {
+  static func new(isWorkout: Bool, name: String, workout: NewWorkout) -> NewLift
+  {
     let lift = NewLift()
 
     lift.isWorkout = isWorkout
     lift.name = name
     lift.workout = workout
     if lift.isWorkout {
-      lift._previousStrings = UserDefaults.standard.value(
-        forKey: "last" + lift.name
-      ) as? String
+      lift._previousStrings =
+        UserDefaults.standard.value(
+          forKey: "last" + lift.name
+        ) as? String
         ?? ""
     }
     return lift
@@ -44,7 +46,7 @@ extension NewLift {
 
     for set in sets {
       let new = set.makeWorkoutSet(lift: self)
-        lift.sets.append(new)
+      lift.sets.append(new)
     }
 
     return lift
@@ -66,7 +68,7 @@ extension NewLift: DataProvider {
 
   func index(of object: NewSet) -> Int? {
     return nil
-//    return sets.index(of: object)
+    //    return sets.index(of: object)
   }
 
   func insert(_ object: NewSet, at index: Int) {

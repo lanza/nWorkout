@@ -3,32 +3,10 @@ import UIKit
 class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
 
   func setTableHeaderView() {
-    let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
-    let label = UILabel()
-    label.text = "Routines"
-    label.textColor = .white
-    label.font = UIFont.systemFont(ofSize: 28)
-
     let b = UIButton()
     b.setTitle("New")
     b.setTitleColor(.white)
-
     b.addTarget(self, action: #selector(newButtonTapped), for: .touchUpInside)
-
-    view.addSubview(label)
-    label.translatesAutoresizingMaskIntoConstraints = false
-    view.addSubview(b)
-    b.translatesAutoresizingMaskIntoConstraints = false
-
-    NSLayoutConstraint.activate(
-      [
-        label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12),
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        b.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12),
-        b.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-      ]
-    )
-    tableView.tableHeaderView = view
   }
 
   @objc func newButtonTapped() {
@@ -69,7 +47,6 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    navigationController?.setNavigationBarHidden(true, animated: false)
 
     workouts = JDB.getWorkouts().filter { $0.isWorkout == false }
       .sorted(by: { $0.name > $1.name })
