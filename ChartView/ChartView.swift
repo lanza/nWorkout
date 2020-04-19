@@ -17,14 +17,14 @@ open class ChartView: UIView {
     temp.isActive = true
   }
 
-  //MARK: - Delegation
+  // MARK: - Delegation
   public weak var delegate: ChartViewDelegate?
 
   public enum EditingStyle {
     case delete
   }
 
-  //MARK: - DataSource
+  // MARK: - DataSource
   public var rowHeight: CGFloat { return chartViewDataSource.rowHeight }
 
   public var rowSpacing: CGFloat { return chartViewDataSource.rowSpacing }
@@ -34,7 +34,7 @@ open class ChartView: UIView {
     didSet { backgroundColor = chartViewDataSource.backgroundColor }
   }
 
-  //MARK: - RowView type registration
+  // MARK: - RowView type registration
   public func register(
     _ rowViewType: RowView.Type,
     forResuseIdentifier reuseIdentifier: String
@@ -44,7 +44,7 @@ open class ChartView: UIView {
 
   var rowViewInformation: (type: RowView.Type, identifier: String)?
 
-  //MARK: - RowViews
+  // MARK: - RowViews
   public var rowViews: [RowView] { return _rowViews }
 
   fileprivate var _rowViews = [RowView]()
@@ -55,12 +55,12 @@ open class ChartView: UIView {
     rowView.translatesAutoresizingMaskIntoConstraints = false
   }
 
-  //MARK: - Reuse Tracking
+  // MARK: - Reuse Tracking
   var currentRowCount = 0
 
   var unusedRows = [RowView]()
 
-  //MARK: - Setup
+  // MARK: - Setup
   open func prepareForReuse() {
     for rowView in rowViews {
       rowView.prepareForReuse()
@@ -208,11 +208,11 @@ open class ChartView: UIView {
     weak var top: NSLayoutConstraint!
 
     var all: [NSLayoutConstraint] {
-      return [left, right, height, top].compactMap { $0 ?? nil }
+      return [left, right, height, top].compactMap { $0 }
     }
   }
 
-  //MARK: - Gesture recognition
+  // MARK: - Gesture recognition
   @objc func didPan(_ pgr: UIPanGestureRecognizer) {
     if delegate == nil { return }
 
