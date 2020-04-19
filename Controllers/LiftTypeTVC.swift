@@ -22,13 +22,13 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
     return .lightContent
   }
 
-  var hideButtonTappedCallBack: (() -> Void)? = nil
+  var hideButtonTappedCallBack: (() -> Void)?
 
   @objc func hideButtonTappedForwarder() {
     hideButtonTappedCallBack?()
   }
 
-  var newLiftButtonTappedCallBack: (() -> Void)? = nil
+  var newLiftButtonTappedCallBack: (() -> Void)?
 
   @objc func newLiftButtonTappedForwarder() {
     newLiftButtonTappedCallBack?()
