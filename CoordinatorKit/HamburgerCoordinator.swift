@@ -133,7 +133,7 @@ public class HamburgerController: UIViewController {
         )
         NSLayoutConstraint.activate(constraints)
       },
-      completion: { finished in
+      completion: { _ in
         dvc.removeFromParent()
         svc.didMove(toParent: self)
         self.closeDrawer()
