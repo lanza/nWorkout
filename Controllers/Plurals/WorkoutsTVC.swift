@@ -38,9 +38,9 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
       }.resume()
     }
 
-    @objc func saveButtonTapped() {
-      shareAction(url: JDB.getFilePath())
-    }
+  @objc func saveButtonTapped() {
+    shareAction(url: JDB.getFilePath())
+  }
   #endif
 
   override func viewWillAppear(_ animated: Bool) {
