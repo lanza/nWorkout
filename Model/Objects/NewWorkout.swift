@@ -93,9 +93,7 @@ extension NewWorkout: DataProvider {
   }
 
   func remove(at index: Int) {
-    let lift = object(at: index)
     lifts.remove(at: index)
-    lift.deleteSelf()
   }
 
   func move(from sourceIndex: Int, to destinationIndex: Int) {
