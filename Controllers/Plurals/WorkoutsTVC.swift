@@ -61,9 +61,11 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     super.viewDidLoad()
 
     title = "History"
+#if !targetEnvironment(macCatalyst)
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       title: "Save Data", style: .plain, target: self,
       action: #selector(saveButtonTapped))
+#endif
   }
 
   override func tableView(
