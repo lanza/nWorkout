@@ -4,7 +4,7 @@ class NewLift: Codable {
   var note = ""
   var isWorkout = false
   var name = ""
-  var workout: NewWorkout? = nil
+  var workout: NewWorkout?
   var sets: [NewSet] = []
   var _previousStrings: String = ""
 
