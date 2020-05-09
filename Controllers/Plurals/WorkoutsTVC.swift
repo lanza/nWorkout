@@ -38,18 +38,18 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
       }.resume()
     }
 
-  @objc func saveButtonTapped() {
-    shareAction(url: JDB.getFilePath())
-  }
+    @objc func saveButtonTapped() {
+      shareAction(url: JDB.getFilePath())
+    }
   #endif
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
     workouts = JDB.getWorkouts()
-        .filter { $0.isWorkout == true }
-        .filter { $0.activeOrFinished == .finished }
-        .sorted(by: { $0.startDate > $1.startDate })
+      .filter { $0.isWorkout == true }
+      .filter { $0.activeOrFinished == .finished }
+      .sorted(by: { $0.startDate > $1.startDate })
 
     dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
     dataSource.name = Lets.workout
@@ -62,11 +62,11 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     super.viewDidLoad()
 
     title = "History"
-#if !targetEnvironment(macCatalyst)
-    navigationItem.rightBarButtonItem = UIBarButtonItem(
-      title: "Save Data", style: .plain, target: self,
-      action: #selector(saveButtonTapped))
-#endif
+    #if !targetEnvironment(macCatalyst)
+      navigationItem.rightBarButtonItem = UIBarButtonItem(
+        title: "Save Data", style: .plain, target: self,
+        action: #selector(saveButtonTapped))
+    #endif
   }
 
   override func tableView(
