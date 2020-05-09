@@ -71,7 +71,7 @@ where Cell.Object == NewLift {
         tableView.topAnchor.constraint(equalTo: v.bottomAnchor),
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
         tableView.bottomAnchor.constraint(
-          equalTo: bottomLayoutGuide.bottomAnchor
+            equalTo: view.safeAreaLayoutGuide.bottomAnchor
         ),
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
       ]
