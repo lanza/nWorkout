@@ -129,7 +129,7 @@ class WorkoutDetailVC2: UIViewController {
           constant: 20
         ),
         stackView.bottomAnchor.constraint(
-          equalTo: bottomLayoutGuide.topAnchor,
+          equalTo: view.safeAreaLayoutGuide.bottomAnchor,
           constant: -80
         ),
       ]
