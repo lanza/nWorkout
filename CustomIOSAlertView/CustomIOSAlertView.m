@@ -149,8 +149,8 @@ CGFloat buttonSpacerHeight = 0;
                                                             green:0
                                                              blue:0
                                                             alpha:0.4f];
-    self->dialogView.layer.opacity = 1.0f;
-    self->dialogView.layer.transform =
+                     self->dialogView.layer.opacity = 1.0f;
+                     self->dialogView.layer.transform =
                          CATransform3DMakeScale(1, 1, 1);
                    }
                    completion:NULL];
