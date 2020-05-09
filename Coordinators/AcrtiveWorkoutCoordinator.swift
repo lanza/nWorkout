@@ -51,7 +51,7 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
 
   func workoutCancelled(for workoutTVC: WorkoutTVC) {
     DispatchQueue.main.async {
-      JDB.removeWorkout(workout)
+        JDB.removeWorkout(self.workout)
       self.workoutIsNotActive()
     }
     navigationCoordinator?.parent?.dismiss(animated: true)
