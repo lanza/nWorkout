@@ -46,15 +46,16 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    workouts = JDB.getWorkouts().filter { $0.isWorkout == true }
-      .sorted(by: { $0.startDate > $1.startDate })
+    workouts = JDB.getWorkouts()
+        .filter { $0.isWorkout == true }
+        .filter { $0.activeOrFinished == .finished }
+        .sorted(by: { $0.startDate > $1.startDate })
 
     dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
     dataSource.name = Lets.workout
     dataSource.displayAlert = { alert in
       self.present(alert, animated: true, completion: nil)
     }
-
   }
 
   override func viewDidLoad() {

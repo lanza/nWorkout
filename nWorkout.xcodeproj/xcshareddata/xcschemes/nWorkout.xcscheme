@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C48FB7D363771FBD71AB44C090CB586"
-               BuildableName = "BonMot.framework"
-               BlueprintName = "BonMot"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+               BlueprintIdentifier = "B356FBBE1DC09C160006A0F0"
+               BuildableName = "nWorkout.app"
+               BlueprintName = "nWorkout"
+               ReferencedContainer = "container:nWorkout.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -301,6 +301,10 @@
             ReferencedContainer = "container:nWorkout.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <LocationScenarioReference
+         identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+         referenceType = "1">
+      </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
