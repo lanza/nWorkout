@@ -103,5 +103,8 @@ extension NewWorkout: DataProvider {
     lifts.remove(at: sourceIndex)
     lifts.insert(lift, at: destinationIndex)
   }
+}
 
+extension NewWorkout: Identifiable {
+  
 }
