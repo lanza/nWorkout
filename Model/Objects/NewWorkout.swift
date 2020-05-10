@@ -22,6 +22,8 @@ class NewWorkout: Codable {
   var activeOrFinished: ActiveOrFinished {
     return isComplete ? .finished : .active
   }
+  
+  var isFinished: Bool { return activeOrFinished == .finished }
 
   func addNewSet(for lift: NewLift) -> NewSet {
     let last = lift.sets.last
