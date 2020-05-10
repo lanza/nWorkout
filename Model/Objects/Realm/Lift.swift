@@ -1,10 +1,14 @@
 import Foundation
 import RealmSwift
 
+// properties
 class Lift: Base {
   @objc dynamic var name = ""
   let sets = List<Set>()
   @objc dynamic var _previousStrings: String = ""
+  @objc dynamic var workout: Workout?
+  
+  
 
   var previousStrings: [String] {
     return _previousStrings.components(separatedBy: ",")
@@ -49,8 +53,6 @@ class Lift: Base {
     try container.encode(self.sets, forKey: .sets)
     try container.encode(self._previousStrings, forKey: ._previousStrings)
   }
-
-  @objc dynamic var workout: Workout?
 }
 
 extension Lift {

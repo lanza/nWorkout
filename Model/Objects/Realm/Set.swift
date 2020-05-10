@@ -2,6 +2,25 @@ import Foundation
 import RealmSwift
 
 class Set: Base {
+  @objc dynamic var weight: Double = 0
+  @objc dynamic var reps = 0
+  @objc dynamic var isWarmup = false
+  @objc dynamic var lift: Lift?
+  @objc dynamic var completedWeight: Double = 0 {
+    didSet {
+      print(
+        "CompletedReps touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)"
+      )
+    }
+  }
+  @objc dynamic var completedReps = 0 {
+    didSet {
+      print(
+        "CompletedWeight touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)"
+      )
+    }
+  }
+
   private enum CodingKeys: String, CodingKey {
     case weight
     case reps
@@ -9,7 +28,6 @@ class Set: Base {
     case completedWeight
     case completedReps
   }
-
   override func encode(to encoder: Encoder) throws {
     try super.encode(to: encoder)
     var container = encoder.container(keyedBy: CodingKeys.self)
@@ -19,34 +37,16 @@ class Set: Base {
     try container.encode(self.completedWeight, forKey: .completedWeight)
     try container.encode(self.completedReps, forKey: .completedReps)
   }
-
-  @objc dynamic var weight: Double = 0
-  @objc dynamic var reps = 0
-  @objc dynamic var isWarmup = false
-
-  @objc dynamic var completedWeight: Double = 0 {
-    didSet {
-      print(
-        "CompletedReps touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)"
-      )
-    }
-  }
-
-  @objc dynamic var completedReps = 0 {
-    didSet {
-      print(
-        "CompletedWeight touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)"
-      )
-    }
-  }
-
+}
+ 
+extension Set {
   var isComplete: Bool {
     return weight == completedWeight && reps == completedReps
   }
-
+  
   var isFresh: Bool { return completedWeight == 0 && completedReps == 0 }
   var didFail: Bool { return !isComplete && !isFresh }
-
+  
   static func new(
     isWorkout: Bool,
     isWarmup: Bool,
@@ -57,7 +57,7 @@ class Set: Base {
     lift: Lift
   ) -> Set {
     let set = Set()
-
+    
     RLM.write {
       set.isWorkout = isWorkout
       set.isWarmup = isWarmup
@@ -68,11 +68,8 @@ class Set: Base {
       set.lift = lift
       RLM.realm.add(set)
     }
-
     return set
   }
-
-  @objc dynamic var lift: Lift?
 }
 
 extension Set {
@@ -88,7 +85,6 @@ extension Set {
     )
     return set
   }
-
   var failureWeight: Double { return weight }
 }
 
@@ -99,7 +95,6 @@ extension Set {
       self.reps = reps
     }
   }
-
   func setCompleted(weight: Double, reps: Int) {
     RLM.write {
       self.completedWeight = weight
