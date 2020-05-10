@@ -67,11 +67,9 @@ class MainCoordinator: TabBarCoordinator {
     configureNavigationBarAppearance(for: rcNav)
 
     let stc = StatisticsCoordinator()
-    let stcNav = NavigationCoordinator(rootCoordinator: stc)
-    stcNav.tabBarItem.image = #imageLiteral(resourceName: "statistics")
-    stcNav.tabBarItem.title = Lets.statistics
+    stc.tabBarItem.image = #imageLiteral(resourceName: "statistics")
+    stc.tabBarItem.title = Lets.statistics
     stc.navigationItem.title = Lets.statistics
-    configureNavigationBarAppearance(for: stcNav)
 
     let sec = SettingsCoordinator()
     let secNav = NavigationCoordinator(rootCoordinator: sec)
@@ -81,7 +79,7 @@ class MainCoordinator: TabBarCoordinator {
     sec.navigationItem.title = Lets.settings
     configureNavigationBarAppearance(for: secNav)
 
-    let coordinators = [wcNav, rcNav, dummy, stcNav, secNav]
+    let coordinators = [wcNav, rcNav, dummy, stc, secNav]
     self.coordinators = coordinators
 
     colorButtons(colorsAndIndices: [(Theme.Colors.main, 2)])
