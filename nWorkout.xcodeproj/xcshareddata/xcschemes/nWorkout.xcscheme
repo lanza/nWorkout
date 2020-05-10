@@ -239,8 +239,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B356FBBE1DC09C160006A0F0"
-               BuildableName = "nWorkout.app"
-               BlueprintName = "nWorkout"
+               BuildableName = "Lift Legacy.app"
+               BlueprintName = "nWorkoutLegacy"
                ReferencedContainer = "container:nWorkout.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -256,8 +256,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B356FBBE1DC09C160006A0F0"
-            BuildableName = "nWorkout.app"
-            BlueprintName = "nWorkout"
+            BuildableName = "Lift Legacy.app"
+            BlueprintName = "nWorkoutLegacy"
             ReferencedContainer = "container:nWorkout.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -296,8 +296,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B356FBBE1DC09C160006A0F0"
-            BuildableName = "nWorkout.app"
-            BlueprintName = "nWorkout"
+            BuildableName = "Lift Legacy.app"
+            BlueprintName = "nWorkoutLegacy"
             ReferencedContainer = "container:nWorkout.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -313,8 +313,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B356FBBE1DC09C160006A0F0"
-            BuildableName = "nWorkout.app"
-            BlueprintName = "nWorkout"
+            BuildableName = "Lift Legacy.app"
+            BlueprintName = "nWorkoutLegacy"
             ReferencedContainer = "container:nWorkout.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

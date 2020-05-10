@@ -22,7 +22,7 @@ class SetRowView: BaseRowView {
     setupButtons()
   }
 
-  var set: (nWorkout.Set)! {
+  var set: (Set)! {
     didSet {
       guard let set = set else { return }
       print(set.weight, set.reps, set.completedWeight, set.completedReps)
