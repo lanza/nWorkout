@@ -1,5 +1,6 @@
 import CloudKit
 import HealthKit
+import RealmSwift
 import UIKit
 
 func getDocumentsDirectory() -> URL {
@@ -41,30 +42,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
 
-    //    Realm.Configuration.defaultConfiguration = Realm.Configuration(
-    //      schemaVersion: 2,
-    //      migrationBlock: { migration, oldSchemaVersion in
-    //        if oldSchemaVersion == 0 {
-    //          fatalError()
-    //        } else if oldSchemaVersion == 1 {
-    //          print("Should be here")
-    //        }
-    //      }
-    //    )
-    //
-    //    if !UserDefaults.standard.bool(forKey: "hasLeftRealm") {
-    //      let workouts = (try! Realm().objects(Workout.self).map { $0 })
-    //        as [Workout]
-    //
-    //      let encoded = try! JSONEncoder().encode(workouts)
-    //      let url = getDocumentsDirectory()
-    //      do {
-    //        try encoded.write(to: url.appendingPathComponent("data.json"))
-    //      } catch {
-    //        fatalError()
-    //      }
-    //      UserDefaults.standard.set(true, forKey: "hasLeftRealm")
-    //    }
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(
+      schemaVersion: 2,
+      migrationBlock: { migration, oldSchemaVersion in
+        if oldSchemaVersion == 0 {
+          fatalError()
+        } else if oldSchemaVersion == 1 {
+          print("Should be here")
+        }
+      }
+    )
+
+    if !UserDefaults.standard.bool(forKey: "hasLeftRealm") {
+      guard let workouts = try? Realm().objects(Workout.self) else { fatalError("Fix this") }
+      let wos: [Workout] = workouts.map { $0 }
+
+      guard let encoded = try? JSONEncoder().encode(wos) else { fatalError("Fix this") }
+      guard let newWorkouts = try? JSONDecoder().decode([NewWorkout].self, from: encoded) else { fatalError("Fix this") }
+      
+      JDB.setAllWorkouts(with: newWorkouts)
+      UserDefaults.standard.set(true, forKey: "hasLeftRealm")
+    }
 
     window = UIWindow()
     window?.rootCoordinator = mainCoordinator
