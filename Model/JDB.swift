@@ -22,6 +22,10 @@ enum JDB {
   }
 
   private static var workouts: [NewWorkout]! = nil
+  
+  static func setAllWorkouts(with workouts: [NewWorkout]) {
+    JDB.workouts = workouts
+  }
 
   static func getWorkouts() -> [NewWorkout] {
     if workouts == nil {
