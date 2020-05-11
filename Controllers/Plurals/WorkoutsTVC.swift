@@ -39,14 +39,14 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     }
 
     @objc func saveButtonTapped() {
-      shareAction(url: JDB.getFilePath())
+      shareAction(url: JDB.shared.getFilePath())
     }
   #endif
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    workouts = JDB.getWorkouts()
+    workouts = JDB.shared.getWorkouts()
       .filter { $0.isWorkout == true }
       .filter { $0.activeOrFinished == .finished }
       .sorted(by: { $0.startDate > $1.startDate })

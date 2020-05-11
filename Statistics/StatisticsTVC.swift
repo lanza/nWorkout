@@ -13,7 +13,7 @@ class StatisticsTVC: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    let lifts = JDB.getLifts().filter { $0.isWorkout == true }
+    let lifts = JDB.shared.getLifts().filter { $0.isWorkout == true }
       .reduce([String: Int]()) {
         (dict, lift) in
         var new = dict

@@ -5,7 +5,7 @@ class StatisticsHistoryTVC: BaseTVC {
 
   init(liftName: String) {
     self.liftName = liftName
-    self.lifts = JDB.getLifts().filter { $0.name == liftName }
+    self.lifts = JDB.shared.getLifts().filter { $0.name == liftName }
       .filter { $0.isWorkout == true }
       .sorted(by: { $0.workout!.startDate < $1.workout!.startDate })
 

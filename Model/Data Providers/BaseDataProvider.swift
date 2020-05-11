@@ -41,6 +41,6 @@ class BaseDataProvider<BaseType: AnyObject>: DataProvider {
 extension BaseDataProvider where BaseType: NewWorkout {
   func remove(at index: Int) {
     let wo = objects.remove(at: index)
-    JDB.removeWorkout(wo)
+    JDB.shared.removeWorkout(wo)
   }
 }

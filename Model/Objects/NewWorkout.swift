@@ -52,7 +52,7 @@ class NewWorkout: Codable {
     workout.name = name
     workout.isWorkout = isWorkout
     workout.isComplete = isComplete
-    JDB.addWorkout(workout)
+    JDB.shared.addWorkout(workout)
     return workout
   }
 

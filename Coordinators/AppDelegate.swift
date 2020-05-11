@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       guard let encoded = try? JSONEncoder().encode(wos) else { fatalError("Fix this") }
       guard let newWorkouts = try? JSONDecoder().decode([NewWorkout].self, from: encoded) else { fatalError("Fix this") }
       
-      JDB.setAllWorkouts(with: newWorkouts)
+      JDB.shared.setAllWorkouts(with: newWorkouts)
       UserDefaults.standard.set(true, forKey: "hasLeftRealm")
     }
 
@@ -71,10 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-    JDB.write()
+    JDB.shared.write()
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
-    JDB.write()
+    JDB.shared.write()
   }
 }

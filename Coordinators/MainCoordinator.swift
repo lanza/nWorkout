@@ -7,7 +7,7 @@ class MainCoordinator: TabBarCoordinator {
   }
 
   func checkForUnfinishedWorkout(displayImmediately: Bool) {
-    let workouts = JDB.getWorkouts().filter { $0.isComplete == false }
+    let workouts = JDB.shared.getWorkouts().filter { $0.isComplete == false }
       .filter { $0.isWorkout == true }
 
     if let first = workouts.first {

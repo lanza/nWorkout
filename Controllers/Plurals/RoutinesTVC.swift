@@ -48,7 +48,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    workouts = JDB.getWorkouts().filter { $0.isWorkout == false }
+    workouts = JDB.shared.getWorkouts().filter { $0.isWorkout == false }
       .sorted(by: { $0.name > $1.name })
 
     dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)

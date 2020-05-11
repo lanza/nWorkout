@@ -1,7 +1,8 @@
 import Foundation
 
-enum JDB {
-  static func write() {
+class JDB {
+  static let shared = JDB()
+  func write() {
     guard let workouts = workouts else { return }
     do {
       let encoded = try JSONEncoder().encode(workouts)
@@ -13,7 +14,7 @@ enum JDB {
     }
   }
 
-  static func getFilePath() -> URL {
+  func getFilePath() -> URL {
     #if true
       return getDocumentsDirectory().appendingPathComponent("data.json")
     #else
@@ -21,13 +22,13 @@ enum JDB {
     #endif
   }
 
-  private static var workouts: [NewWorkout]! = nil
-  
-  static func setAllWorkouts(with workouts: [NewWorkout]) {
-    JDB.workouts = workouts
+  var workouts: [NewWorkout]! = nil
+
+  func setAllWorkouts(with workouts: [NewWorkout]) {
+    JDB.shared.workouts = workouts
   }
 
-  static func getWorkouts() -> [NewWorkout] {
+  func getWorkouts() -> [NewWorkout] {
     if workouts == nil {
       do {
         let d = try Data(contentsOf: getFilePath())
@@ -44,25 +45,25 @@ enum JDB {
         workouts = []
       }
     }
-    return JDB.workouts
+    return workouts
   }
 
-  static func getLifts() -> [NewLift] {
+  func getLifts() -> [NewLift] {
     return getWorkouts().map { $0.lifts }.reduce([], +)
   }
 
-  static func addWorkout(_ workout: NewWorkout) {
-    if JDB.workouts.contains(where: { $0 === workout }) {
+  func addWorkout(_ workout: NewWorkout) {
+    if workouts.contains(where: { $0 === workout }) {
       return
     } else {
-      JDB.workouts.append(workout)
-      JDB.write()
+      workouts.append(workout)
+      write()
     }
   }
 
-  static func removeWorkout(_ workout: NewWorkout) {
-    if let index = JDB.workouts.firstIndex(where: { $0 === workout }) {
-      JDB.workouts.remove(at: index)
+  func removeWorkout(_ workout: NewWorkout) {
+    if let index = workouts.firstIndex(where: { $0 === workout }) {
+      workouts.remove(at: index)
     } else {
       fatalError("There was no workout for \(workout)")
     }
