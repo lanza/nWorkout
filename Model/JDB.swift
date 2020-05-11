@@ -1,6 +1,7 @@
 import Foundation
+import SwiftUI
 
-class JDB {
+class JDB: ObservableObject {
   static let shared = JDB()
   func write() {
     guard let workouts = workouts else { return }
@@ -22,7 +23,7 @@ class JDB {
     #endif
   }
 
-  var workouts: [NewWorkout]! = nil
+  @Published var workouts: [NewWorkout]! = nil
 
   func setAllWorkouts(with workouts: [NewWorkout]) {
     JDB.shared.workouts = workouts

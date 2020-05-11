@@ -1,12 +1,14 @@
 import SwiftUI
-import Foundation
 
 struct StatisticsView: View {
-  let workouts: [NewWorkout] = JDB.getWorkouts().filter { return $0.isWorkout }
+  @ObservedObject var jdb = JDB.shared
+  
   let df = DateFormatter()
   var body: some View {
-    List(workouts) { workout in
-      Text("Workout")
+    NavigationView {
+      List(jdb.workouts.filter { $0.isWorkout }) { workout in
+        Text("Workout").foregroundColor(.white).font(.headline)
+      }.navigationBarTitle("Statistics")
     }
   }
 }
