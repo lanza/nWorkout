@@ -1,5 +1,11 @@
 import SwiftUI
 
+let df: DateFormatter = {
+  let df = DateFormatter()
+  df.dateFormat = "MM-dd-yyyy"
+  return df
+}()
+
 struct StatisticsView: View {
   @ObservedObject var jdb = JDB.shared
   
@@ -24,19 +30,36 @@ struct StatisticsView: View {
     return result
   }
   
-  let df = DateFormatter()
+  
   var body: some View {
     NavigationView {
       List(getLifts(), id: \.1) { (lifts, name, count) in
         NavigationLink(destination:
         LiftStatisticsView(lifts: lifts, name: name, count: count)) {
           HStack {
-            Text(name).foregroundColor(.white).font(.headline)
-            Text(String(count)).foregroundColor(.white).font(.headline)
-          }
+            Text(name)
+            Text(String(count))
+          }.foregroundColor(.white).font(.headline)
         }
       }.navigationBarTitle("Statistics")
-    }
+    }.background(Color(Theme.Colors.darkest))
+  }
+}
+
+struct LiftSetsView: View {
+  let lift: NewLift
+  var body: some View {
+    List(lift.sets) { set in
+      HStack(alignment: .center) {
+        Text(String(set.weight))
+        Spacer()
+        Text(String(set.reps))
+        Spacer()
+        Text(String(set.completedWeight))
+        Spacer()
+        Text(String(set.completedReps))
+      }
+    }.frame(height: CGFloat(lift.sets.count * 50))
   }
 }
 
@@ -44,16 +67,34 @@ struct LiftStatisticsView: View {
   let lifts: [NewLift]
   let name: String
   let count: Int
+  
+  @State var historyOrChartsToggle = 0
+  
   var body: some View {
     VStack {
-      Text(name)
-      Text(String(count))
-      List(lifts) { lift in
-        Text(String(lift.sets.count))
+      Picker(selection: $historyOrChartsToggle, label: Text("IDK")) {
+        Text("History").tag(0)
+        Text("Charts").tag(1)
+      }
+      .pickerStyle(SegmentedPickerStyle())
+      .foregroundColor(.white).font(.headline)
+      .background(Color(Theme.Colors.darkest))
+      if historyOrChartsToggle == 0 {
+        List(lifts) { lift in
+          VStack {
+            Text("\(df.string(from: lift.workout!.startDate))")
+            LiftSetsView(lift: lift)
+          }
+        }
+        .foregroundColor(.white).font(.headline)
+        .background(Color(Theme.Colors.darkest))
+      } else {
+        Spacer()
+        Text("Charts")
+        Spacer()
       }
     }
-    .foregroundColor(.white).font(.headline)
-    .background(Color(Theme.Colors.darkest))
+    .navigationBarTitle("\(name) Statistics")
   }
 }
 
