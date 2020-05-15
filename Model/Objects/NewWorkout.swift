@@ -1,6 +1,6 @@
 import Foundation
 
-class NewWorkout: Codable {
+class NewWorkout: Codable, Identifiable {
   var note = ""
   var isWorkout = false
   var lifts: [NewLift] = []
@@ -8,6 +8,8 @@ class NewWorkout: Codable {
   var isComplete = false
   var startDate = Date()
   var finishDate: Date?
+  
+  let id = UUID()
 
   public enum CodingKeys: String, CodingKey {
     case note
@@ -103,8 +105,4 @@ extension NewWorkout: DataProvider {
     lifts.remove(at: sourceIndex)
     lifts.insert(lift, at: destinationIndex)
   }
-}
-
-extension NewWorkout: Identifiable {
-  
 }

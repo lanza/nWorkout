@@ -1,6 +1,6 @@
 import Foundation
 
-class NewSet: Codable {
+class NewSet: Codable, Identifiable {
   private enum CodingKeys: String, CodingKey {
     case note
     case isWorkout
@@ -16,6 +16,8 @@ class NewSet: Codable {
   var weight: Double = 0
   var reps = 0
   var isWarmup = false
+  
+  let id = UUID()
 
   var completedWeight: Double = 0 {
     didSet {

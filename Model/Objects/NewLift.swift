@@ -1,12 +1,14 @@
 import Foundation
 
-class NewLift: Codable {
+class NewLift: Codable, Identifiable {
   var note = ""
   var isWorkout = false
   var name = ""
   var workout: NewWorkout?
   var sets: [NewSet] = []
   var _previousStrings: String = ""
+  
+  let id = UUID()
 
   var previousStrings: [String] {
     return _previousStrings.components(separatedBy: ",")
