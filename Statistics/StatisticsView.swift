@@ -9,6 +9,21 @@ let df: DateFormatter = {
 struct StatisticsView: View {
   @ObservedObject var jdb = JDB.shared
 
+  init() {
+    let app = UINavigationBarAppearance()
+    app.backgroundColor = Theme.Colors.darkest
+    app.largeTitleTextAttributes = [
+      NSAttributedString.Key.foregroundColor: Theme.Colors.Nav.title
+    ]
+    app.titleTextAttributes = [
+      NSAttributedString.Key.foregroundColor: Theme.Colors.Nav.title
+    ]
+
+    UINavigationBar.appearance().standardAppearance = app
+    UINavigationBar.appearance().scrollEdgeAppearance = app
+    UINavigationBar.appearance().prefersLargeTitles = true
+  }
+
   func getLifts() -> [([NewLift], String, Int)] {
     let filtered = jdb.workouts.filter { $0.isWorkout }
     let lifts = filtered.map { $0.lifts }
@@ -71,6 +86,13 @@ struct LiftStatisticsView: View {
 
   @State var historyOrChartsToggle = 0
 
+  init(lifts: [NewLift], name: String, count: Int) {
+    self.lifts = lifts
+    self.name = name
+    self.count = count
+
+  }
+
   var body: some View {
     VStack {
       Picker(selection: $historyOrChartsToggle, label: Text("IDK")) {
@@ -80,6 +102,7 @@ struct LiftStatisticsView: View {
       .pickerStyle(SegmentedPickerStyle())
       .foregroundColor(.white).font(.headline)
       .background(Color(Theme.Colors.darkest))
+
       if historyOrChartsToggle == 0 {
         List(lifts) { lift in
           VStack {
@@ -96,6 +119,7 @@ struct LiftStatisticsView: View {
       }
     }
     .navigationBarTitle("\(name) Statistics")
+    .background(Color(Theme.Colors.darkest))
   }
 }
 

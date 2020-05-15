@@ -7,6 +7,7 @@ class StatisticsCoordinator: Coordinator {
 
   override func loadViewController() {
     let hostingVC = UIHostingController(rootView: StatisticsView())
+    hostingVC.view.backgroundColor = Theme.Colors.darkest
     viewController = hostingVC
     //    statisticsTVC.delegate = self
   }
