@@ -16,7 +16,7 @@ class NewSet: Codable, Identifiable {
   var weight: Double = 0
   var reps = 0
   var isWarmup = false
-  
+
   let id = UUID()
 
   var completedWeight: Double = 0 {

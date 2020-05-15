@@ -38,15 +38,15 @@ class Set: Base {
     try container.encode(self.completedReps, forKey: .completedReps)
   }
 }
- 
+
 extension Set {
   var isComplete: Bool {
     return weight == completedWeight && reps == completedReps
   }
-  
+
   var isFresh: Bool { return completedWeight == 0 && completedReps == 0 }
   var didFail: Bool { return !isComplete && !isFresh }
-  
+
   static func new(
     isWorkout: Bool,
     isWarmup: Bool,
@@ -57,7 +57,7 @@ extension Set {
     lift: Lift
   ) -> Set {
     let set = Set()
-    
+
     RLM.write {
       set.isWorkout = isWorkout
       set.isWarmup = isWarmup

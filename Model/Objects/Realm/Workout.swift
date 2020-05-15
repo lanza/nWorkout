@@ -5,11 +5,10 @@ class Workout: Base {
   let lifts = List<Lift>()
   @objc dynamic var name = ""
   @objc dynamic var isComplete = false
-  
+
   @objc dynamic var startDate = Date()
   @objc dynamic var finishDate: Date? = nil
 
-  
   public enum CodingKeys: String, CodingKey {
     case name
     case isComplete
@@ -31,7 +30,7 @@ class Workout: Base {
   var activeOrFinished: ActiveOrFinished {
     return isComplete ? .finished : .active
   }
-    
+
   func addNewSet(for lift: Lift) -> Set {
     let last = lift.sets.last
     let set = Set.new(

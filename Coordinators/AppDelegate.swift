@@ -54,12 +54,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     )
 
     if !UserDefaults.standard.bool(forKey: "hasLeftRealm") {
-      guard let workouts = try? Realm().objects(Workout.self) else { fatalError("Fix this") }
+      guard let workouts = try? Realm().objects(Workout.self) else {
+        fatalError("Fix this")
+      }
       let wos: [Workout] = workouts.map { $0 }
 
-      guard let encoded = try? JSONEncoder().encode(wos) else { fatalError("Fix this") }
-      guard let newWorkouts = try? JSONDecoder().decode([NewWorkout].self, from: encoded) else { fatalError("Fix this") }
-      
+      guard let encoded = try? JSONEncoder().encode(wos) else {
+        fatalError("Fix this")
+      }
+      guard
+        let newWorkouts = try? JSONDecoder().decode(
+          [NewWorkout].self, from: encoded)
+      else { fatalError("Fix this") }
+
       JDB.shared.setAllWorkouts(with: newWorkouts)
       UserDefaults.standard.set(true, forKey: "hasLeftRealm")
     }

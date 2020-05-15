@@ -7,7 +7,7 @@ class NewLift: Codable, Identifiable {
   var workout: NewWorkout?
   var sets: [NewSet] = []
   var _previousStrings: String = ""
-  
+
   let id = UUID()
 
   var previousStrings: [String] {

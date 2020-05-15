@@ -7,8 +7,6 @@ class Lift: Base {
   let sets = List<Set>()
   @objc dynamic var _previousStrings: String = ""
   @objc dynamic var workout: Workout?
-  
-  
 
   var previousStrings: [String] {
     return _previousStrings.components(separatedBy: ",")

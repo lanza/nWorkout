@@ -8,7 +8,7 @@ class NewWorkout: Codable, Identifiable {
   var isComplete = false
   var startDate = Date()
   var finishDate: Date?
-  
+
   let id = UUID()
 
   public enum CodingKeys: String, CodingKey {
@@ -24,7 +24,7 @@ class NewWorkout: Codable, Identifiable {
   var activeOrFinished: ActiveOrFinished {
     return isComplete ? .finished : .active
   }
-  
+
   var isFinished: Bool { return activeOrFinished == .finished }
 
   func addNewSet(for lift: NewLift) -> NewSet {

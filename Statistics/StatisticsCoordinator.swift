@@ -1,5 +1,5 @@
-import UIKit
 import SwiftUI
+import UIKit
 
 class StatisticsCoordinator: Coordinator {
 
@@ -8,7 +8,7 @@ class StatisticsCoordinator: Coordinator {
   override func loadViewController() {
     let hostingVC = UIHostingController(rootView: StatisticsView())
     viewController = hostingVC
-//    statisticsTVC.delegate = self
+    //    statisticsTVC.delegate = self
   }
 }
 
