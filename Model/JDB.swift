@@ -1,5 +1,4 @@
 import Foundation
-import SwiftUI
 
 class JDB: ObservableObject {
   static let shared = JDB()
