@@ -38,7 +38,7 @@ class SelectWorkoutVC: UIViewController, UITableViewDataSource,
     NSLayoutConstraint.activate(
       [
         startBlankWorkoutButton.topAnchor.constraint(
-          equalTo: topLayoutGuide.bottomAnchor
+          equalTo: view.safeAreaLayoutGuide.topAnchor
         ),
         startBlankWorkoutButton.leftAnchor.constraint(
           equalTo: view.layoutMarginsGuide.leftAnchor
