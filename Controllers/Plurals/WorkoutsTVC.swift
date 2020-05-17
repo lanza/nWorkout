@@ -43,9 +43,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     }
   #endif
 
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-
+  func reloadData() {
     workouts = JDB.shared.getWorkouts()
       .filter { $0.isWorkout == true }
       .filter { $0.activeOrFinished == .finished }
@@ -56,6 +54,14 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     dataSource.displayAlert = { alert in
       self.present(alert, animated: true, completion: nil)
     }
+
+    tableView.reloadData()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    reloadData()
   }
 
   override func viewDidLoad() {
@@ -67,7 +73,17 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
         title: "Save Data", style: .plain, target: self,
         action: #selector(saveButtonTapped))
     #endif
+
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(activeWorkoutDidFinish),
+      name: Notification.activeWorkoutDidFinish, object: nil)
   }
+
+  @objc func activeWorkoutDidFinish(object: Any) {
+    reloadData()
+  }
+
+  var finishedWorkout: NewWorkout?
 
   override func tableView(
     _ tableView: UITableView,

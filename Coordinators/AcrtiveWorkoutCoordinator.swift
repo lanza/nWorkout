@@ -81,6 +81,16 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
     }
     workoutIsNotActive()
     navigationCoordinator?.parent?.dismiss(animated: true)
+
+    NotificationCenter.default.post(
+      name: Notification.activeWorkoutDidFinish, object: nil)
+
     JDB.shared.write()
+  }
+}
+
+extension Notification {
+  static var activeWorkoutDidFinish: Notification.Name {
+    return Notification.Name("ActiveWorkoutDidFinish")
   }
 }
