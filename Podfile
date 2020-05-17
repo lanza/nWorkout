@@ -5,15 +5,13 @@ platform :ios, '13.0'
 target 'nWorkout' do
   use_frameworks!
 
-  pod 'CustomIOSAlertView' 
-  pod 'DZNEmptyDataSet' 
-
+  pod 'CustomIOSAlertView'
+  pod 'DZNEmptyDataSet'
 
   pod 'Charts'
   pod 'CarbonKit'
 
   pod 'BonMot'
-  pod 'Eureka'
 
   pod 'RxSwift'
   pod 'RxDataSources'
