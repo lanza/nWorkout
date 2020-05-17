@@ -33,67 +33,64 @@ class KeyboardHandler: NSObject {
   var keyboardHeight: CGFloat!
 
   @objc func keyboardWillShow(_ notification: Notification) {
-    if let userInfo = notification.userInfo {
+    guard let userInfo = notification.userInfo else { return }
 
-      if defaultInsets == nil {
-        defaultInsets = tableView.contentInset
-      }
+    if defaultInsets == nil {
+      defaultInsets = tableView.contentInset
+    }
 
-      let value =
-        (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject)
-        .cgRectValue
-      keyboardHeight =
-        value?.height ?? view.frame.height
-        * CGFloat(
-          Lets.keyboardToViewRatio
-        )
-
-      let insets = UIEdgeInsets(
-        top: defaultInsets.top,
-        left: defaultInsets.left,
-        bottom: keyboardHeight,
-        right: defaultInsets.right
+    let value =
+      (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject)
+      .cgRectValue
+    keyboardHeight =
+      value?.height ?? view.frame.height
+      * CGFloat(
+        Lets.keyboardToViewRatio
       )
 
-      tableView.contentInset = insets
-      tableView.scrollIndicatorInsets = insets
-    }
+    let insets = UIEdgeInsets(
+      top: defaultInsets.top,
+      left: defaultInsets.left,
+      bottom: keyboardHeight,
+      right: defaultInsets.right
+    )
+
+    tableView.contentInset = insets
+    tableView.scrollIndicatorInsets = insets
   }
 
   @objc func keyboardDidShow(_ notification: Notification) {
-    scrollToTextField()
+    //    scrollToTextField()
   }
 
   func scrollToTextField() {
-    if let firstResponder = UIResponder.currentFirstResponder as? UIView {
+    guard let firstResponder = UIResponder.currentFirstResponder as? UIView
+    else { return }
 
-      let frFrame = firstResponder.frame
+    let frFrame = firstResponder.frame
 
-      let corrected = UIApplication.shared.keyWindow!.convert(
+    let corrected = UIApplication.shared.keyWindow!.convert(
+      frFrame,
+      from: firstResponder.superview
+    )
+    let yRelativeToKeyboard =
+      (view.frame.height - keyboardHeight)
+      - (corrected.origin.y + corrected.height)
+
+    if yRelativeToKeyboard < 0 {
+
+      let frInViewsFrame = view.convert(
         frFrame,
         from: firstResponder.superview
       )
-      let yRelativeToKeyboard =
-        (view.frame.height - keyboardHeight)
-        - (corrected.origin.y + corrected.height)
+      let scrollPoint = CGPoint(
+        x: 0,
+        y: frInViewsFrame.origin.y - keyboardHeight
+          - tableView.contentInset.top
+          - frInViewsFrame.height - UIApplication.shared.statusBarFrame.height
+      )
 
-      if yRelativeToKeyboard < 0 {
-
-        let frInViewsFrame = view.convert(
-          frFrame,
-          from: firstResponder.superview
-        )
-        let scrollPoint = CGPoint(
-          x: 0,
-          y: frInViewsFrame.origin.y - keyboardHeight
-            - tableView.contentInset
-            .top
-            - frInViewsFrame
-            .height - UIApplication.shared.statusBarFrame.height
-        )
-
-        tableView.setContentOffset(scrollPoint, animated: true)
-      }
+      tableView.setContentOffset(scrollPoint, animated: true)
     }
   }
 
