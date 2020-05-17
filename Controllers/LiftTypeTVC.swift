@@ -60,6 +60,7 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
         guard let name = alert.textFields?.first?.text else { fatalError() }
         self.liftTypes.append(name)
         self.save()
+        self.tableView.reloadData()
       }
       let cancel = UIAlertAction(
         title: Lets.cancel,
