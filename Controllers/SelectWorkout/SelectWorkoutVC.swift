@@ -24,7 +24,7 @@ class SelectWorkoutVC: UIViewController, UITableViewDataSource,
   var startBlankWorkoutButton = StartBlankWorkoutButton.create()
 
   override func loadView() {
-    automaticallyAdjustsScrollViewInsets = false
+    tableView.contentInsetAdjustmentBehavior = .never
     view = UIView(frame: AppDelegate.main.window!.frame)
     view.backgroundColor = Theme.Colors.darkest
   }
