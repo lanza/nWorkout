@@ -6,7 +6,8 @@ class StatisticsCoordinator: Coordinator {
   var statisticsTVC: StatisticsTVC { return viewController as! StatisticsTVC }
 
   override func loadViewController() {
-    let hostingVC = UIHostingController(rootView: StatisticsView())
+    let hostingVC = UIHostingController(
+      rootView: StatisticsView(jdb: JDB.shared))
     hostingVC.view.backgroundColor = Theme.Colors.darkest
     viewController = hostingVC
     //    statisticsTVC.delegate = self

@@ -9,7 +9,7 @@ let df: DateFormatter = {
 struct StatisticsView: View {
   @ObservedObject var jdb = JDB.shared
 
-  init() {
+  init(jdb: JDB) {
     let app = UINavigationBarAppearance()
     app.backgroundColor = Theme.Colors.darkest
     app.largeTitleTextAttributes = [
@@ -125,6 +125,20 @@ struct LiftStatisticsView: View {
 
 struct Statistics_Previews: PreviewProvider {
   static var previews: some View {
-    StatisticsView()
+    StatisticsView(jdb: makeFakeJDB())
   }
+}
+
+func makeFakeJDB() -> JDB {
+  let jdb = JDB()
+  let w = NewWorkout()
+  let l = NewLift()
+  let s = NewSet()
+  s.completedReps = 5
+  s.completedWeight = 55
+  s.setTarget(weight: 45, reps: 22)
+  l.sets.append(s)
+  w.lifts.append(l)
+  jdb.addWorkout(w)
+  return jdb
 }
