@@ -67,11 +67,6 @@ open class Coordinator {
     set { viewController.modalTransitionStyle = newValue }
   }
 
-  public var isModalInPopover: Bool {
-    get { return viewController.isModalInPopover }
-    set { viewController.isModalInPopover = newValue }
-  }
-
   public func show(_ coordinator: Coordinator, sender: Any?) {
     if let nc = navigationCoordinator {
       nc.pushCoordinator(coordinator, animated: true)
