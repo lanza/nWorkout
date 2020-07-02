@@ -1,12 +1,9 @@
+import SwiftUI
 import UIKit
 
 class WorkoutDetailCoordinator: Coordinator {
 
   let workout: NewWorkout!
-
-  var workoutDetailVC: WorkoutDetailVC {
-    return viewController as! WorkoutDetailVC
-  }
 
   init(workout: NewWorkout) {
     self.workout = workout
@@ -14,7 +11,9 @@ class WorkoutDetailCoordinator: Coordinator {
   }
 
   override func loadViewController() {
-    viewController = WorkoutDetailVC(workout: workout)
+    let hostingVC = UIHostingController(
+      rootView: WorkoutDetailView(workout: workout))
+    hostingVC.view.backgroundColor = Theme.Colors.darkest
+    viewController = hostingVC
   }
-
 }
