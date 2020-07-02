@@ -47,35 +47,47 @@ struct StatisticsView: View {
 
   var body: some View {
     NavigationView {
-      List(getLifts(), id: \.1) { (lifts, name, count) in
-        NavigationLink(
-          destination:
-            LiftStatisticsView(lifts: lifts, name: name, count: count)
-        ) {
-          HStack {
-            Text(name)
-            Text(String(count))
-          }.foregroundColor(.white).font(.headline)
+      List {
+        ForEach(getLifts(), id: \.1) { (lifts, name, count) in
+          NavigationLink(
+            destination:
+              LiftStatisticsView(lifts: lifts, name: name, count: count)
+          ) {
+            HStack {
+              Text(name)
+              Text(String(count))
+            }
+            .foregroundColor(.white).font(.headline)
+          }
         }
-      }.navigationBarTitle("Statistics")
-    }.background(Color(Theme.Colors.darkest))
+        .listRowBackground(Color(Theme.Colors.dark))
+        .listItemTint(Color(Theme.Colors.dark))
+        .foregroundColor(Color(Theme.Colors.darker))
+        .navigationBarTitle("Statistics")
+      }
+    }
   }
 }
 
 struct LiftSetsView: View {
   let lift: NewLift
   var body: some View {
-    List(lift.sets) { set in
-      HStack(alignment: .center) {
-        Text(String(set.weight))
-        Spacer()
-        Text(String(set.reps))
-        Spacer()
-        Text(String(set.completedWeight))
-        Spacer()
-        Text(String(set.completedReps))
+    List {
+      ForEach(lift.sets) { set in
+        HStack(alignment: .center) {
+          Text(String(set.weight))
+          Spacer()
+          Text(String(set.reps))
+          Spacer()
+          Text(String(set.completedWeight))
+          Spacer()
+          Text(String(set.completedReps))
+        }
+        .listRowBackground(Color(Theme.Colors.dark))
+        //          .frame(height: CGFloat(30))
       }
-    }.frame(height: CGFloat(lift.sets.count * 50))
+    }
+    .frame(height: CGFloat(lift.sets.count * 44))
   }
 }
 
@@ -90,7 +102,6 @@ struct LiftStatisticsView: View {
     self.lifts = lifts
     self.name = name
     self.count = count
-
   }
 
   var body: some View {
@@ -104,10 +115,13 @@ struct LiftStatisticsView: View {
       .background(Color(Theme.Colors.darkest))
 
       if historyOrChartsToggle == 0 {
-        List(lifts) { lift in
-          VStack {
-            Text("\(df.string(from: lift.workout!.startDate))")
-            LiftSetsView(lift: lift)
+        List {
+          ForEach(lifts) { lift in
+            VStack {
+              Text("\(df.string(from: lift.workout!.startDate))")
+              LiftSetsView(lift: lift)
+            }
+            .listRowBackground(Color(Theme.Colors.dark))
           }
         }
         .foregroundColor(.white).font(.headline)
@@ -119,7 +133,7 @@ struct LiftStatisticsView: View {
       }
     }
     .navigationBarTitle("\(name) Statistics")
-    .background(Color(Theme.Colors.darkest))
+    .background(Color(Theme.Colors.dark))
   }
 }
 
