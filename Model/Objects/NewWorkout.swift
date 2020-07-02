@@ -1,13 +1,14 @@
+import Combine
 import Foundation
 
-class NewWorkout: Codable, Identifiable {
-  var note = ""
+class NewWorkout: ObservableObject, Codable, Identifiable {
+  @Published var note = ""
   var isWorkout = false
   var lifts: [NewLift] = []
   var name = ""
   var isComplete = false
-  var startDate = Date()
-  var finishDate: Date?
+  @Published var startDate = Date()
+  @Published var finishDate: Date?
 
   let id = UUID()
 
@@ -19,6 +20,31 @@ class NewWorkout: Codable, Identifiable {
     case lifts
     case startDate
     case finishDate
+  }
+
+  init() {}
+
+  required init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    note = try container.decode(String.self, forKey: .note)
+    isWorkout = try container.decode(Bool.self, forKey: .isWorkout)
+    name = try container.decode(String.self, forKey: .name)
+    isComplete = try container.decode(Bool.self, forKey: .isComplete)
+    lifts = try container.decode(Array<NewLift>.self, forKey: .lifts)
+    startDate = try container.decode(Date.self, forKey: .startDate)
+    finishDate = try? container.decode(Date.self, forKey: .finishDate)
+  }
+
+  func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+
+    try container.encode(note, forKey: .note)
+    try container.encode(isWorkout, forKey: .isWorkout)
+    try container.encode(name, forKey: .name)
+    try container.encode(isComplete, forKey: .isComplete)
+    try container.encode(lifts, forKey: .lifts)
+    try container.encode(startDate, forKey: .startDate)
+    try container.encode(finishDate, forKey: .finishDate)
   }
 
   var activeOrFinished: ActiveOrFinished {
