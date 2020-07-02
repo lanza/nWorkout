@@ -23,7 +23,7 @@ class SettingsTVC: UITableViewController, CellSettingsCellDelegate {
     _ tableView: UITableView, numberOfRowsInSection section: Int
   ) -> Int {
     if section == 0 {
-      return 0
+      return 1
     } else {
       return items.count
     }
@@ -42,10 +42,12 @@ class SettingsTVC: UITableViewController, CellSettingsCellDelegate {
       let vi = self.viewInfos[indexPath.row]
       cell.onSwitch.isOn = vi.isOn
       cell.widthTextField.text = "\(vi.width)"
+      cell.titleLabel.text = item
     } else {
       cell.onSwitch.isOn = ViewInfo.usesCombinedView
+      cell.titleLabel.text = "Combine Target and Complete Reps and Sets"
     }
-    cell.titleLabel.text = item
+
     cell.delegate = self
 
     return cell
@@ -278,6 +280,16 @@ class SettingsTVC: UITableViewController, CellSettingsCellDelegate {
       return IndexPath(row: 0, section: 1)
     } else {
       return proposedDestinationIndexPath
+    }
+  }
+
+  override func tableView(
+    _ tableView: UITableView, heightForHeaderInSection section: Int
+  ) -> CGFloat {
+    if section == 0 {
+      return 0
+    } else {
+      return 40
     }
   }
 
