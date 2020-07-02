@@ -74,6 +74,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow()
     window?.rootCoordinator = mainCoordinator
     window?.makeKeyAndVisible()
+
+    UITableView.appearance().allowsSelection = false
+    UITableViewCell.appearance().selectionStyle = .none
+
     return true
   }
 
