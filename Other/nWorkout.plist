@@ -22,6 +22,8 @@
 	<string>286</string>
 	<key>ITSAppUsersNonExemptEncryption</key>
 	<false/>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.sports</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSHealthUpdateUsageDescription</key>

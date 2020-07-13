@@ -1,3 +1,4 @@
+import CoreData
 import Foundation
 import RealmSwift
 
@@ -15,4 +16,8 @@ enum RLM {
   static func objects<T: Object>(type: T.Type) -> Results<T> {
     return realm.objects(T.self)
   }
+}
+
+class CoreDataStack {
+
 }

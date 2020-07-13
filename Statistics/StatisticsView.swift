@@ -61,7 +61,7 @@ struct StatisticsView: View {
           }
         }
         .listRowBackground(Color(Theme.Colors.dark))
-        .listItemTint(Color(Theme.Colors.dark))
+        //        .listItemTint(Color(Theme.Colors.dark))
         .foregroundColor(Color(Theme.Colors.darker))
         .navigationBarTitle("Statistics")
       }

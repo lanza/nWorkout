@@ -12,7 +12,7 @@ struct WorkoutDetailView: View {
           "Finish Date", selection: Binding($workout.finishDate)!,
           in: ...Date(), displayedComponents: [.date, .hourAndMinute])
       }
-      TextEditor(text: $workout.note)
+      //      TextEditor(text: $workout.note)
     }
   }
 }

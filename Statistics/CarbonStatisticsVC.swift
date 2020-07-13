@@ -20,7 +20,7 @@ class CarbonStatisticsVC: UIViewController {
     super.viewDidLoad()
     view.backgroundColor = Theme.Colors.darkest
 
-//    let items = ["History", "Charts"]  //,"PR"]
+    //    let items = ["History", "Charts"]  //,"PR"]
     //    let c = CarbonTabSwipeNavigation(items: items, delegate: self)
     //
     //    c.setTabBarHeight(44)
