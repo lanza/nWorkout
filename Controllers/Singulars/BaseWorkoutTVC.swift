@@ -3,7 +3,7 @@ import UIKit
 class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
   WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate,
   WorkoutFooterViewDelegate
-where Cell.Object == NewLift {
+{
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
