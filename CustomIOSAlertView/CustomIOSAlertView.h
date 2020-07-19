@@ -1,14 +1,3 @@
-//
-//  CustomIOSAlertView.h
-//  CustomIOSAlertView
-//
-//  Created by Richard on 20/09/2013.
-//  Copyright (c) 2013-2015 Wimagguc.
-//
-//  Lincesed under The MIT License (MIT)
-//  http://opensource.org/licenses/MIT
-//
-
 #import <UIKit/UIKit.h>
 
 @protocol CustomIOSAlertViewDelegate
@@ -37,12 +26,6 @@
     (CustomIOSAlertView *alertView, int buttonIndex);
 
 - (id)init;
-
-/*!
- DEPRECATED: Use the [CustomIOSAlertView init] method without passing a parent
- view.
- */
-- (id)initWithParentView:(UIView *)_parentView __attribute__((deprecated));
 
 - (void)show;
 - (void)close;
