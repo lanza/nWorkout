@@ -10,8 +10,6 @@ extension UserDefaults {
       self.key = key
     }
 
-    // MARK: Getters
-
     public var object: Any? {
       return defaults.object(forKey: key)
     }
@@ -387,107 +385,4 @@ extension UserDefaults {
     get { return getArray(key) }
     set { set(key, newValue) }
   }
-}
-
-// MARK: - Archiving custom types
-
-// MARK: RawRepresentable
-
-extension UserDefaults {
-  // TODO: Ensure that T.RawValue is compatible
-  public func archive<T: RawRepresentable>(_ key: DefaultsKey<T>, _ value: T) {
-    set(key, value.rawValue)
-  }
-
-  public func archive<T: RawRepresentable>(_ key: DefaultsKey<T?>, _ value: T?)
-  {
-    if let value = value {
-      set(key, value.rawValue)
-    } else {
-      remove(key)
-    }
-  }
-
-  public func unarchive<T: RawRepresentable>(_ key: DefaultsKey<T?>) -> T? {
-    return object(forKey: key._key).flatMap { T(rawValue: $0 as! T.RawValue) }
-  }
-
-  public func unarchive<T: RawRepresentable>(_ key: DefaultsKey<T>) -> T? {
-    return object(forKey: key._key).flatMap { T(rawValue: $0 as! T.RawValue) }
-  }
-}
-
-// MARK: NSCoding
-
-extension UserDefaults {
-  // TODO: Can we simplify this and ensure that T is NSCoding compliant?
-
-  public func archive<T>(_ key: DefaultsKey<T>, _ value: T) {
-    set(key, NSKeyedArchiver.archivedData(withRootObject: value))
-  }
-
-  public func archive<T>(_ key: DefaultsKey<T?>, _ value: T?) {
-    if let value = value {
-      set(key, NSKeyedArchiver.archivedData(withRootObject: value))
-    } else {
-      remove(key)
-    }
-  }
-
-  public func unarchive<T>(_ key: DefaultsKey<T>) -> T? {
-    return data(forKey: key._key).flatMap {
-      NSKeyedUnarchiver.unarchiveObject(with: $0)
-    } as? T
-  }
-
-  public func unarchive<T>(_ key: DefaultsKey<T?>) -> T? {
-    return data(forKey: key._key).flatMap {
-      NSKeyedUnarchiver.unarchiveObject(with: $0)
-    } as? T
-  }
-}
-
-// MARK: - Deprecations
-
-infix operator ?=: AssignmentPrecedence
-
-/// If key doesn't exist, sets its value to `expr`
-/// - Deprecation: This will be removed in a future release.
-///   Please migrate to static keys and use this gist: https://gist.github.com/radex/68de9340b0da61d43e60
-/// - Note: This isn't the same as `Defaults.registerDefaults`. This method saves the new value to disk, whereas `registerDefaults` only modifies the defaults in memory.
-/// - Note: If key already exists, the expression after ?= isn't evaluated
-
-@available(
-  *,
-  deprecated,
-  message:
-    "Please migrate to static keys and use this gist: https://gist.github.com/radex/68de9340b0da61d43e60"
-)
-public func ?= (proxy: UserDefaults.Proxy, expr: @autoclosure () -> Any) {
-  if !proxy.defaults.hasKey(proxy.key) {
-    proxy.defaults[proxy.key] = expr()
-  }
-}
-
-/// Adds `b` to the key (and saves it as an integer)
-/// If key doesn't exist or isn't a number, sets value to `b`
-
-@available(*, deprecated, message: "Please migrate to static keys to use this.")
-public func += (proxy: UserDefaults.Proxy, b: Int) {
-  let a = proxy.defaults[proxy.key].intValue
-  proxy.defaults[proxy.key] = a + b
-}
-
-@available(*, deprecated, message: "Please migrate to static keys to use this.")
-public func += (proxy: UserDefaults.Proxy, b: Double) {
-  let a = proxy.defaults[proxy.key].doubleValue
-  proxy.defaults[proxy.key] = a + b
-}
-
-/// Icrements key by one (and saves it as an integer)
-/// If key doesn't exist or isn't a number, sets value to 1
-
-@available(*, deprecated, message: "Please migrate to static keys to use this.")
-public postfix func ++ (proxy: UserDefaults.Proxy) {
-  proxy += 1
 }
