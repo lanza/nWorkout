@@ -121,11 +121,18 @@ class MainCoordinator: TabBarCoordinator {
   }
 
   func displaySelectWorkout() {
-    let swc = SelectWorkoutCoordinator()
-    swc.delegate = self
-    let swcNav = NavigationCoordinator(rootCoordinator: swc)
-    swc.navigationItem.title = Lets.selectWorkout
-    present(swcNav, animated: true)
+    if JDB.shared.getWorkouts().filter { $0.isWorkout == false }.count == 0 {
+      let active = makeActiveWorkoutCoordinator(for: nil)
+      let aNav = NavigationCoordinator(rootCoordinator: active)
+      active.navigationItem.title = Lets.selectWorkout
+      present(aNav, animated: true)
+    } else {
+      let swc = SelectWorkoutCoordinator()
+      swc.delegate = self
+      let swcNav = NavigationCoordinator(rootCoordinator: swc)
+      swc.navigationItem.title = Lets.selectWorkout
+      present(swcNav, animated: true)
+    }
   }
 
   func displayActiveWorkout() {
@@ -150,11 +157,9 @@ class MainCoordinator: TabBarCoordinator {
 }
 
 extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
-  func selectWorkoutCoordinator(
-    _ selectWorkoutCoordinator: SelectWorkoutCoordinator,
-    didSelectRoutine routine: NewWorkout?
-  ) -> ActiveWorkoutCoordinator {
-
+  func makeActiveWorkoutCoordinator(for routine: NewWorkout?)
+    -> ActiveWorkoutCoordinator
+  {
     activeWorkoutCoordinator = ActiveWorkoutCoordinator()
     activeWorkoutCoordinator?.delegate = self
 
@@ -172,6 +177,13 @@ extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
       self.activeWorkoutCoordinator = nil
     }
     return activeWorkoutCoordinator!
+  }
+
+  func selectWorkoutCoordinator(
+    _ selectWorkoutCoordinator: SelectWorkoutCoordinator,
+    didSelectRoutine routine: NewWorkout?
+  ) -> ActiveWorkoutCoordinator {
+    makeActiveWorkoutCoordinator(for: routine)
   }
 }
 
