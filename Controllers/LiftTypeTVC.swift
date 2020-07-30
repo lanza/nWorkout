@@ -88,7 +88,6 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
     tableView.dataSource = self
 
     tableView.register(LiftTypeCell.self)
-    setupRx()
 
     var workoutNames: Swift.Set<String> = []
     for workout in JDB.shared.getWorkouts() {
@@ -120,16 +119,6 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
     _ tableView: UITableView, didSelectRowAt indexPath: IndexPath
   ) {
     self.didSelectLiftName(liftTypes[indexPath.row])
-  }
-
-  func setupRx() {
-    // THIS NEEDS REIMPLMENTED
-    //    tableView.rx.itemDeleted.subscribe(
-    //      onNext: { indexPath in
-    //        self.liftTypes.value.remove(at: indexPath.row)
-    //        self.save()
-    //      }
-    //    ).disposed(by: db)
   }
 
   func save() {
