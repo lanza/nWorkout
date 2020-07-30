@@ -121,7 +121,7 @@ class MainCoordinator: TabBarCoordinator {
   }
 
   func displaySelectWorkout() {
-    if JDB.shared.getWorkouts().filter { $0.isWorkout == false }.count == 0 {
+    if JDB.shared.getWorkouts().filter({ $0.isWorkout == false }).count == 0 {
       let active = makeActiveWorkoutCoordinator(for: nil)
       let aNav = NavigationCoordinator(rootCoordinator: active)
       active.navigationItem.title = Lets.selectWorkout
