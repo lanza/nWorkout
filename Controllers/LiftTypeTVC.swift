@@ -77,9 +77,7 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
 
   required init?(coder aDecoder: NSCoder) { fatalError() }
 
-  var liftTypes =
-    UserDefaults.standard.value(forKey: Lets.liftTypesKey)
-    as? [String] ?? []
+  var liftTypes: [String] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -91,6 +89,14 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
 
     tableView.register(LiftTypeCell.self)
     setupRx()
+
+    var workoutNames: Swift.Set<String> = []
+    for workout in JDB.shared.getWorkouts() {
+      for lift in workout.lifts {
+        workoutNames.insert(lift.name)
+      }
+    }
+    liftTypes = [String](workoutNames)
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
