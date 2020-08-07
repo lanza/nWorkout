@@ -96,6 +96,7 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
       }
     }
     liftTypes = [String](workoutNames)
+    liftTypes.sort()
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
