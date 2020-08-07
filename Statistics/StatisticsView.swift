@@ -38,9 +38,12 @@ struct StatisticsView: View {
       elements[element.name, default: []].append(element)
     }
 
-    var result: [([NewLift], String, Int)] = []
+    var result: [(elements: [NewLift], name: String, count: Int)] = []
     for key in counts.keys {
       result.append((elements[key, default: []], key, counts[key, default: 0]))
+    }
+    result.sort { left, right in
+      return left.name < right.name
     }
     return result
   }
