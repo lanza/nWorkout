@@ -96,7 +96,7 @@
 		B3C9562124077F6A00743481 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9561D24077F6A00743481 /* ChartView.swift */; };
 		B3C9562224077F6A00743481 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9561E24077F6A00743481 /* RowView.swift */; };
 		B3C9562324077F6A00743481 /* ChartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9561F24077F6A00743481 /* ChartViewCell.swift */; };
-		B3CE7F74240CBBA2004A448E /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = B3CE7F73240CBBA2004A448E /* Charts */; };
+		B3CE7F74240CBBA2004A448E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = B3CE7F73240CBBA2004A448E /* SwiftPackageProductDependency */; };
 		B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D456C21DC1E309008075D5 /* DataProvider.swift */; };
 		B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */; };
 		B3DB437D24077FC300D9F1E5 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437624077FC300D9F1E5 /* TabBarCoordinator.swift */; };
@@ -292,7 +292,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3CE7F74240CBBA2004A448E /* Charts in Frameworks */,
+				B3CE7F74240CBBA2004A448E /* BuildFile in Frameworks */,
 				B3882693235060DC00C3BAF5 /* CloudKit.framework in Frameworks */,
 				652E54E8AEA2226B7A6CF167 /* Pods_nWorkout.framework in Frameworks */,
 			);
@@ -785,8 +785,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B356FBD11DC09C160006A0F0 /* Build configuration list for PBXNativeTarget "nWorkout" */;
 			buildPhases = (
-				B3ED882024BC0A5B00563CB2 /* ShellScript */,
 				3DB34A2FF8FCE827B307E511 /* [CP] Check Pods Manifest.lock */,
+				B3ED882024BC0A5B00563CB2 /* ShellScript */,
 				B356FBBB1DC09C160006A0F0 /* Sources */,
 				B356FBBC1DC09C160006A0F0 /* Frameworks */,
 				B356FBBD1DC09C160006A0F0 /* Resources */,
@@ -799,7 +799,7 @@
 			);
 			name = nWorkout;
 			packageProductDependencies = (
-				B3CE7F73240CBBA2004A448E /* Charts */,
+				B3CE7F73240CBBA2004A448E /* SwiftPackageProductDependency */,
 			);
 			productName = nWorkout;
 			productReference = B3FD3BDC22276FF00005ED37 /* nWorkout.app */;
@@ -863,7 +863,7 @@
 			);
 			mainGroup = B356FBB61DC09C160006A0F0;
 			packageReferences = (
-				B3CE7F72240CBBA2004A448E /* XCRemoteSwiftPackageReference "Charts" */,
+				B3CE7F72240CBBA2004A448E /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = B356FBB61DC09C160006A0F0;
 			projectDirPath = "";
@@ -923,12 +923,15 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-nWorkout/Pods-nWorkout-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-nWorkout/Pods-nWorkout-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-nWorkout/Pods-nWorkout-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1208,7 +1211,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = nWorkout.entitlements;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Other/nWorkout.plist;
@@ -1220,12 +1222,12 @@
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "nWorkout-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1236,7 +1238,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = nWorkout.entitlements;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 72MNHNDUNH;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Other/nWorkout.plist;
@@ -1248,11 +1249,11 @@
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.lanza.nWorkout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "nWorkout-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1358,7 +1359,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B3CE7F72240CBBA2004A448E /* XCRemoteSwiftPackageReference "Charts" */ = {
+		B3CE7F72240CBBA2004A448E /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts";
 			requirement = {
@@ -1369,9 +1370,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B3CE7F73240CBBA2004A448E /* Charts */ = {
+		B3CE7F73240CBBA2004A448E /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B3CE7F72240CBBA2004A448E /* XCRemoteSwiftPackageReference "Charts" */;
+			package = B3CE7F72240CBBA2004A448E /* RemoteSwiftPackageReference */;
 			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
