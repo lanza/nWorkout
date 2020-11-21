@@ -131,7 +131,8 @@ struct LiftStatisticsView: View {
         .background(Color(Theme.Colors.darkest))
       } else {
         Spacer()
-        Text("Charts")
+        Text("Charts").bold()
+        Text("Not yet implemented.")
         Spacer()
       }
     }
