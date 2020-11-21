@@ -96,7 +96,7 @@
 		B3C9562124077F6A00743481 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9561D24077F6A00743481 /* ChartView.swift */; };
 		B3C9562224077F6A00743481 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9561E24077F6A00743481 /* RowView.swift */; };
 		B3C9562324077F6A00743481 /* ChartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9561F24077F6A00743481 /* ChartViewCell.swift */; };
-		B3CE7F74240CBBA2004A448E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = B3CE7F73240CBBA2004A448E /* SwiftPackageProductDependency */; };
+		B3CE7F74240CBBA2004A448E /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = B3CE7F73240CBBA2004A448E /* Charts */; };
 		B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D456C21DC1E309008075D5 /* DataProvider.swift */; };
 		B3D50F051E72337A0062B118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */; };
 		B3DB437D24077FC300D9F1E5 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437624077FC300D9F1E5 /* TabBarCoordinator.swift */; };
@@ -292,7 +292,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3CE7F74240CBBA2004A448E /* BuildFile in Frameworks */,
+				B3CE7F74240CBBA2004A448E /* Charts in Frameworks */,
 				B3882693235060DC00C3BAF5 /* CloudKit.framework in Frameworks */,
 				652E54E8AEA2226B7A6CF167 /* Pods_nWorkout.framework in Frameworks */,
 			);
@@ -799,7 +799,7 @@
 			);
 			name = nWorkout;
 			packageProductDependencies = (
-				B3CE7F73240CBBA2004A448E /* SwiftPackageProductDependency */,
+				B3CE7F73240CBBA2004A448E /* Charts */,
 			);
 			productName = nWorkout;
 			productReference = B3FD3BDC22276FF00005ED37 /* nWorkout.app */;
@@ -863,7 +863,7 @@
 			);
 			mainGroup = B356FBB61DC09C160006A0F0;
 			packageReferences = (
-				B3CE7F72240CBBA2004A448E /* RemoteSwiftPackageReference */,
+				B3CE7F72240CBBA2004A448E /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = B356FBB61DC09C160006A0F0;
 			projectDirPath = "";
@@ -1359,7 +1359,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B3CE7F72240CBBA2004A448E /* RemoteSwiftPackageReference */ = {
+		B3CE7F72240CBBA2004A448E /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts";
 			requirement = {
@@ -1370,9 +1370,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B3CE7F73240CBBA2004A448E /* SwiftPackageProductDependency */ = {
+		B3CE7F73240CBBA2004A448E /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B3CE7F72240CBBA2004A448E /* RemoteSwiftPackageReference */;
+			package = B3CE7F72240CBBA2004A448E /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
