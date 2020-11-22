@@ -14,7 +14,7 @@ struct LiftStatisticsView: View {
   }
 
   var body: some View {
-    VStack {
+    VStack(alignment: .center, spacing: 0) {
       Picker(selection: $historyOrChartsToggle, label: Text("IDK")) {
         Text("History").tag(0)
         Text("Charts").tag(1)
@@ -24,17 +24,31 @@ struct LiftStatisticsView: View {
       .background(Color(Theme.Colors.darkest))
 
       if historyOrChartsToggle == 0 {
-        List {
-          ForEach(lifts) { lift in
-            VStack {
-              Text("\(df.string(from: lift.workout!.startDate))")
-              LiftSetsView(lift: lift)
+        ScrollView {
+          LazyVStack(alignment: .center, spacing: 0) {
+            ForEach(lifts) { lift in
+              VStack(
+                alignment: .center,
+                spacing: 0
+              ) {
+                LazyHStack {
+                  Spacer()
+                  Text("\(df.string(from: lift.workout!.startDate))")
+                  Spacer()
+                }
+                .padding()
+                .background(Color(Theme.Colors.dark))
+                LiftSetsView(lift: lift)
+              }
+              .background(Color(Theme.Colors.dark))
+              .border(Color.black)
+              .listRowBackground(Color(Theme.Colors.dark))
             }
-            .listRowBackground(Color(Theme.Colors.dark))
+            .foregroundColor(.white).font(.headline)
+            .background(Color(Theme.Colors.darkest))
           }
         }
-        .foregroundColor(.white).font(.headline)
-        .background(Color(Theme.Colors.darkest))
+        .lineSpacing(0)
       } else {
         Spacer()
         Text("Charts").bold()
@@ -42,6 +56,7 @@ struct LiftStatisticsView: View {
         Spacer()
       }
     }
+    .lineSpacing(0)
     .navigationBarTitle("\(name) Statistics")
     .background(Color(Theme.Colors.dark))
   }
@@ -51,14 +66,21 @@ func makeFakeData() -> (
   workout: NWorkout, lifts: [NLift], name: String, count: Int
 ) {
   let l1 = NLift.makeDummy(name: "Pet Muffin")
-  let l2 = NLift.makeDummy(name: "Pet Muffin")
   let s1 = NSet.makeDummy()
   let s2 = NSet.makeDummy()
   l1.append(s1)
-  l2.append(s2)
+  l1.append(s2)
+
+  let l2 = NLift.makeDummy(name: "Pet Muffin")
+  let s3 = NSet.makeDummy()
+  let s4 = NSet.makeDummy()
+  l2.append(s3)
+  l2.append(s4)
+
   let w = NWorkout.makeDummy()
   w.append(l1)
   w.append(l2)
+
   return (workout: w, lifts: [l1, l2], name: "Pet Muffin", count: 2)
 }
 
