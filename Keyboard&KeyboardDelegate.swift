@@ -166,7 +166,7 @@ class Keyboard: UIView {
       masterStackView.rightAnchor.constraint(equalTo: rightAnchor)
     )
     constraints.append(
-      masterStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+      masterStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60)
     )
     NSLayoutConstraint.activate(constraints)
   }
