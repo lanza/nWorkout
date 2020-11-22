@@ -3,7 +3,6 @@ import Foundation
 class JDB: ObservableObject {
   static let shared = JDB()
   func write() {
-    guard let workouts = workouts else { return }
     do {
       let encoded = try JSONEncoder().encode(workouts)
       try encoded.write(
@@ -22,18 +21,18 @@ class JDB: ObservableObject {
     #endif
   }
 
-  @Published var workouts: [NewWorkout]? = nil
+  @Published var workouts: [NewWorkout] = []
 
   func setAllWorkouts(with workouts: [NewWorkout]) {
     JDB.shared.workouts = workouts
   }
 
   func getWorkouts() -> [NewWorkout] {
-    if workouts == nil {
+    if workouts.count == 0 {
       do {
         let d = try Data(contentsOf: getFilePath())
         workouts = try JSONDecoder().decode([NewWorkout].self, from: d)
-        for workout in workouts! {
+        for workout in workouts {
           for lift in workout.lifts {
             for set in lift.sets {
               set.lift = lift
@@ -45,7 +44,7 @@ class JDB: ObservableObject {
         workouts = []
       }
     }
-    return workouts!
+    return workouts
   }
 
   func getLifts() -> [NewLift] {
@@ -53,19 +52,17 @@ class JDB: ObservableObject {
   }
 
   func addWorkout(_ workout: NewWorkout) {
-    guard let wos = workouts else { fatalError("addWorkout") }
-    if wos.contains(where: { $0 === workout }) {
+    if workouts.contains(where: { $0 === workout }) {
       return
     } else {
-      workouts!.append(workout)
+      workouts.append(workout)
       write()
     }
   }
 
   func removeWorkout(_ workout: NewWorkout) {
-    guard let wos = workouts else { fatalError("addWorkout") }
-    if let index = wos.firstIndex(where: { $0 === workout }) {
-      workouts!.remove(at: index)
+    if let index = workouts.firstIndex(where: { $0 === workout }) {
+      workouts.remove(at: index)
     } else {
       fatalError("There was no workout for \(workout)")
     }
