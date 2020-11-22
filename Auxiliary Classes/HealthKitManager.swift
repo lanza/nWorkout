@@ -1,8 +1,5 @@
 import HealthKit
 
-func not(bool: Bool) -> Bool {
-  return !bool
-}
 class HealthKitManager {
   let healthKitStore = HKHealthStore()
 
