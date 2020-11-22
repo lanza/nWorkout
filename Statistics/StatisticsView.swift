@@ -51,23 +51,40 @@ struct StatisticsView: View {
 
   var body: some View {
     NavigationView {
-      List {
-        ForEach(getLifts(), id: \.1) { (lifts, name, count) in
-          NavigationLink(
-            destination:
-              LiftStatisticsView(lifts: lifts, name: name, count: count)
-          ) {
-            HStack {
-              Text(name)
-              Text(String(count))
-            }
-            .foregroundColor(.white).font(.headline)
+      ScrollView {
+        LazyVStack(alignment: .center, spacing: 0, pinnedViews: []) {
+          ForEach(getLifts(), id: \.1) { (lifts, name, count) in
+
+            //            GeometryReader { geometry in
+            //              Path { path in
+            //                path.move(to: .init(x: 0, y: 0))
+            //                path.addLine(to: .init(x: geometry.size.width, y: 0))
+            //              }
+            //              .strokedPath(.init(lineWidth: 1, dash: [1, 2]))
+            //            }
+            //            .foregroundColor(.red)
+            //            .frame(height: 1)
+
+            NavigationLink(
+              destination:
+                LiftStatisticsView(lifts: lifts, name: name, count: count)
+            ) {
+              HStack {
+                Text(name)
+                Spacer()
+                Text(String(count))
+              }
+              .foregroundColor(.white).font(.headline)
+            }.padding()
+
           }
+          .border(Color.black)
+          .listRowBackground(Color(Theme.Colors.dark))
+          .listItemTint(Color(Theme.Colors.dark))
+          .navigationBarTitle("Statistics")
         }
-        .listRowBackground(Color(Theme.Colors.dark))
-        //        .listItemTint(Color(Theme.Colors.dark))
         .foregroundColor(Color(Theme.Colors.darker))
-        .navigationBarTitle("Statistics")
+        .background(Color(Theme.Colors.dark))
       }
     }
   }
@@ -145,6 +162,7 @@ struct LiftStatisticsView: View {
 struct Statistics_Previews: PreviewProvider {
   static var previews: some View {
     StatisticsView(jdb: makeFakeJDB())
+
   }
 }
 
