@@ -870,7 +870,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/Users/lanza/.local/bin/xcode-format\n";
+			shellScript = "if [ $ENABLE_PREVIEWS == \"NO\" ]; then\n  /Users/lanza/.local/bin/xcode-format\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
