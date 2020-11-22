@@ -18,7 +18,6 @@
 		B3170D151DE3C405001A11CE /* TextFieldBehaviorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3170D141DE3C405001A11CE /* TextFieldBehaviorHandler.swift */; };
 		B31953A61E305F6000AC2687 /* WorkoutDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A51E305F6000AC2687 /* WorkoutDetailCoordinator.swift */; };
 		B31953A81E305F7900AC2687 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31953A71E305F7900AC2687 /* WorkoutDetailView.swift */; };
-		B31B63F71ED53DEA0020AF5E /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31B63F61ED53DEA0020AF5E /* HealthKitManager.swift */; };
 		B31CEC641DDAA764002F826C /* LiftTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */; };
 		B31CEC661DDB02A1002F826C /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31CEC651DDB02A1002F826C /* LiftCell.swift */; };
 		B31E9FB91DD6AE0100B9AEFC /* WorkoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */; };
@@ -164,7 +163,6 @@
 		B31953A51E305F6000AC2687 /* WorkoutDetailCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailCoordinator.swift; sourceTree = "<group>"; };
 		B31953A71E305F7900AC2687 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
 		B31B63F31ED53D1E0020AF5E /* nWorkout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nWorkout.entitlements; sourceTree = "<group>"; };
-		B31B63F61ED53DEA0020AF5E /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTypeTVC.swift; sourceTree = "<group>"; };
 		B31CEC651DDB02A1002F826C /* LiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftCell.swift; sourceTree = "<group>"; };
 		B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDataSource.swift; sourceTree = "<group>"; };
@@ -690,7 +688,6 @@
 		B3FCCD2A1E171906003EF14E /* Auxiliary */ = {
 			isa = PBXGroup;
 			children = (
-				B31B63F61ED53DEA0020AF5E /* HealthKitManager.swift */,
 				B34BA0551DC1CC29006B6A51 /* Theme.swift */,
 				B34BA0571DC1CC33006B6A51 /* Lets.swift */,
 				B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */,
@@ -1039,7 +1036,6 @@
 				B3D456C31DC1E309008075D5 /* DataProvider.swift in Sources */,
 				B3DB438224077FC300D9F1E5 /* Coordinator.swift in Sources */,
 				B328D8121DD6FA52000948ED /* StatisticsTVC.swift in Sources */,
-				B31B63F71ED53DEA0020AF5E /* HealthKitManager.swift in Sources */,
 				B3EA1A061E83C04E00B277E2 /* ChartCell.swift in Sources */,
 				B36059351E1C3EDF00EBE620 /* WeightAndRepsLabel.swift in Sources */,
 				B3DBD051240CB08100DCB41F /* CustomIOSAlertView.m in Sources */,
