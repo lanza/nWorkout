@@ -104,6 +104,7 @@ extension NWorkout {
 extension NWorkout: DataProvider {
   func append(_ object: NLift) {
     lifts.append(object)
+    object.workout = self
   }
 
   func numberOfItems() -> Int {

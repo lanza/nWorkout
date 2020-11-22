@@ -4,7 +4,7 @@ class NLift: Codable, Identifiable {
   var note = ""
   var isWorkout = false
   var name = ""
-  var workout: NWorkout?
+  weak var workout: NWorkout?
   var sets: [NSet] = []
   var _previousStrings: String = ""
 
@@ -58,6 +58,7 @@ extension NLift {
 extension NLift: DataProvider {
   func append(_ object: NSet) {
     sets.append(object)
+    object.lift = self
   }
 
   func numberOfItems() -> Int {

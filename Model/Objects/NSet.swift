@@ -64,7 +64,7 @@ class NSet: Codable, Identifiable {
     return set
   }
 
-  var lift: NLift?
+  weak var lift: NLift?
 }
 
 extension NSet {
