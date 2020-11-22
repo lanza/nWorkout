@@ -14,8 +14,7 @@ class NLift: Codable, Identifiable {
     return _previousStrings.components(separatedBy: ",")
   }
 
-  static func new(isWorkout: Bool, name: String, workout: NWorkout) -> NLift
-  {
+  static func new(isWorkout: Bool, name: String, workout: NWorkout) -> NLift {
     let lift = NLift()
 
     lift.isWorkout = isWorkout
@@ -80,5 +79,17 @@ extension NLift: DataProvider {
 
   func remove(at index: Int) {
     sets.remove(at: index)
+  }
+}
+
+extension NLift {
+
+  static func makeDummy(name: String = "Riley Feeding") -> NLift {
+    let l = NLift()
+    l.name = name
+    l._previousStrings = "IDK"
+    l.isWorkout = true
+    l.note = ""
+    return l
   }
 }

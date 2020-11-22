@@ -90,31 +90,16 @@ struct Statistics_Previews: PreviewProvider {
 func makeFakeJDB() -> JDB {
   let jdb = JDB()
   jdb.workouts = []
-  let w = NWorkout()
-  w.isWorkout = true
-  w.name = "Doggie"
-  let l1 = NLift()
-  l1.name = "Muffin Petting"
-  l1._previousStrings = "IDK"
-  l1.isWorkout = true
-  l1.note = ""
-
-  let l2 = NLift()
-  l2.name = "Riley Feeding"
-  l2._previousStrings = "IDK"
-  l2.isWorkout = true
-  l2.note = ""
-
-  let s = NSet()
-  s.reps = 5
-  s.weight = 55
-  s.completedReps = 5
-  s.completedWeight = 55
-  s.setTarget(weight: 45, reps: 22)
-  l1.sets.append(s)
-  l2.sets.append(s)
-  w.lifts.append(l1)
-  w.lifts.append(l2)
+  
+  let w = NWorkout.makeDummy()
+  let l1 = NLift.makeDummy(name: "Muffin Petting")
+  let l2 = NLift.makeDummy(name: "Riley Feeding")
+  let s = NSet.makeDummy()
+  l1.append(s)
+  l2.append(s)
+  
+  w.append(l1)
+  w.append(l2)
   jdb.addWorkout(w)
   return jdb
 }

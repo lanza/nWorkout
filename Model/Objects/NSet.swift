@@ -65,7 +65,23 @@ class NSet: Codable, Identifiable {
   }
 
   weak var lift: NLift?
+  
+  static func makeDummy() -> NSet {
+    let s = NSet()
+    
+    let reps = Int.random(in: 0...10)
+    let weight = Int.random(in: 0...100)
+    
+    s.reps = reps
+    s.weight = Double(weight)
+    
+    s.completedReps = reps - Int.random(in: 0...2)
+    s.completedWeight = Double(weight)
+
+    return s
+  }
 }
+
 
 extension NSet {
   func makeWorkoutSet(lift: NLift) -> NSet {

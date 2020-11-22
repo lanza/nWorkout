@@ -87,6 +87,15 @@ class NWorkout: ObservableObject, Codable, Identifiable {
   func deleteSelf() {
     fatalError("This just needs to be removed from JDB array")
   }
+  
+  static func makeDummy(name: String = "Dog Petting Session") -> NWorkout {
+    let w = NWorkout()
+    w.name = name
+    w.startDate = Date() - Date(timeIntervalSinceNow: -1000).timeIntervalSinceNow
+    w.finishDate = Date()
+    w.isWorkout = true
+    return w
+  }
 }
 
 extension NWorkout {
