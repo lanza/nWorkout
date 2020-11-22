@@ -30,6 +30,7 @@
 		B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0551DC1CC29006B6A51 /* Theme.swift */; };
 		B34BA0581DC1CC33006B6A51 /* Lets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0571DC1CC33006B6A51 /* Lets.swift */; };
 		B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */; };
+		B352C9B9256AE4A900CBC5F0 /* LiftStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B352C9B8256AE4A900CBC5F0 /* LiftStatisticsView.swift */; };
 		B3540AB21E8E1ECF0001B996 /* BaseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3540AB11E8E1ECF0001B996 /* BaseRowView.swift */; };
 		B356FBC31DC09C160006A0F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B356FBC21DC09C160006A0F0 /* AppDelegate.swift */; };
 		B35DAE3E1DDBC7BD00EE5960 /* SetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DAE3D1DDBC7BD00EE5960 /* SetRowView.swift */; };
@@ -112,6 +113,7 @@
 		B3EA1A101E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A0F1E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift */; };
 		B3EA1A151E83D20200B277E2 /* WorkoutCellRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A141E83D20200B277E2 /* WorkoutCellRowView.swift */; };
 		B3EA1A171E83D26200B277E2 /* DarkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA1A161E83D26200B277E2 /* DarkLabel.swift */; };
+		B3F542C9256B02E300A2836C /* LiftSetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F542C8256B02E300A2836C /* LiftSetsView.swift */; };
 		B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */; };
 		B3FCCD251E137828003EF14E /* BaseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD241E137828003EF14E /* BaseTVC.swift */; };
 		B3FCCD291E1718E6003EF14E /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */; };
@@ -171,6 +173,7 @@
 		B34BA0551DC1CC29006B6A51 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = ../Theme.swift; sourceTree = "<group>"; };
 		B34BA0571DC1CC33006B6A51 /* Lets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lets.swift; path = ../Lets.swift; sourceTree = "<group>"; };
 		B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
+		B352C9B8256AE4A900CBC5F0 /* LiftStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftStatisticsView.swift; sourceTree = "<group>"; };
 		B3540AB11E8E1ECF0001B996 /* BaseRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRowView.swift; sourceTree = "<group>"; };
 		B356FBC21DC09C160006A0F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B356FBCE1DC09C160006A0F0 /* nWorkout.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = nWorkout.plist; sourceTree = "<group>"; };
@@ -256,6 +259,7 @@
 		B3EA1A0F1E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderLabelHolder.swift; sourceTree = "<group>"; };
 		B3EA1A141E83D20200B277E2 /* WorkoutCellRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutCellRowView.swift; sourceTree = "<group>"; };
 		B3EA1A161E83D26200B277E2 /* DarkLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkLabel.swift; sourceTree = "<group>"; };
+		B3F542C8256B02E300A2836C /* LiftSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftSetsView.swift; sourceTree = "<group>"; };
 		B3FCCD221E137728003EF14E /* BaseWorkoutsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorkoutsTVC.swift; sourceTree = "<group>"; };
 		B3FCCD241E137828003EF14E /* BaseTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTVC.swift; sourceTree = "<group>"; };
 		B3FCCD281E1718E6003EF14E /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -300,6 +304,8 @@
 			isa = PBXGroup;
 			children = (
 				B31673692467D6EE0048874A /* StatisticsView.swift */,
+				B352C9B8256AE4A900CBC5F0 /* LiftStatisticsView.swift */,
+				B3F542C8256B02E300A2836C /* LiftSetsView.swift */,
 			);
 			name = SwiftUI;
 			sourceTree = "<group>";
@@ -883,6 +889,7 @@
 				B3FCCD231E137728003EF14E /* BaseWorkoutsTVC.swift in Sources */,
 				B3C9562124077F6A00743481 /* ChartView.swift in Sources */,
 				B360592E1E1C3E8900EBE620 /* WeightAndRepsTextField.swift in Sources */,
+				B3F542C9256B02E300A2836C /* LiftSetsView.swift in Sources */,
 				B36059441E1C92A600EBE620 /* ViewInfo.swift in Sources */,
 				B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */,
 				B36059481E1C951C00EBE620 /* CombinedView.swift in Sources */,
@@ -910,6 +917,7 @@
 				B3BB318A1DDAA1B60015F9B0 /* AcrtiveWorkoutCoordinator.swift in Sources */,
 				B3C9560724077C5600743481 /* UIBarButtonItem+Extensions.swift in Sources */,
 				B33835EA256A190C00A93E7B /* Model.xcdatamodeld in Sources */,
+				B352C9B9256AE4A900CBC5F0 /* LiftStatisticsView.swift in Sources */,
 				B36059221E1C3DB000EBE620 /* RoutineCell.swift in Sources */,
 				B360592C1E1C3E7600EBE620 /* RoutineSetRowView.swift in Sources */,
 				B3EA1A101E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift in Sources */,

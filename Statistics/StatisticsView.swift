@@ -86,76 +86,8 @@ struct StatisticsView: View {
         .foregroundColor(Color(Theme.Colors.darker))
         .background(Color(Theme.Colors.dark))
       }
-    }
-  }
-}
-
-struct LiftSetsView: View {
-  let lift: NLift
-  var body: some View {
-    List {
-      ForEach(lift.sets) { set in
-        HStack(alignment: .center) {
-          Text(String(set.weight))
-          Spacer()
-          Text(String(set.reps))
-          Spacer()
-          Text(String(set.completedWeight))
-          Spacer()
-          Text(String(set.completedReps))
-        }
-        .listRowBackground(Color(Theme.Colors.dark))
-        //          .frame(height: CGFloat(30))
-      }
-    }
-    .frame(height: CGFloat(lift.sets.count * 44))
-  }
-}
-
-struct LiftStatisticsView: View {
-  let lifts: [NLift]
-  let name: String
-  let count: Int
-
-  @State var historyOrChartsToggle = 0
-
-  init(lifts: [NLift], name: String, count: Int) {
-    self.lifts = lifts
-    self.name = name
-    self.count = count
-  }
-
-  var body: some View {
-    VStack {
-      Picker(selection: $historyOrChartsToggle, label: Text("IDK")) {
-        Text("History").tag(0)
-        Text("Charts").tag(1)
-      }
-      .pickerStyle(SegmentedPickerStyle())
-      .foregroundColor(.white).font(.headline)
       .background(Color(Theme.Colors.darkest))
-
-      if historyOrChartsToggle == 0 {
-        List {
-          ForEach(lifts) { lift in
-            VStack {
-              Text("\(df.string(from: lift.workout!.startDate))")
-              LiftSetsView(lift: lift)
-            }
-            .listRowBackground(Color(Theme.Colors.dark))
-          }
-        }
-        .foregroundColor(.white).font(.headline)
-        .background(Color(Theme.Colors.darkest))
-      } else {
-        Spacer()
-        Text("Charts").bold()
-        Text("Not yet implemented.")
-        Spacer()
-      }
     }
-    .navigationBarTitle("\(name) Statistics")
-    .background(Color(Theme.Colors.dark))
   }
 }
 
