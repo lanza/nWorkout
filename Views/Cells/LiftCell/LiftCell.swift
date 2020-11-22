@@ -16,8 +16,7 @@ extension LiftCell: ChartViewDelegate {
 }
 
 extension LiftCell: SetRowViewDelegate {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet)
-  {
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet) {
     self.delegate.setRowView(setRowView, didTapNoteButtonForSet: set)
   }
 }

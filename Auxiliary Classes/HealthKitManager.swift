@@ -8,7 +8,7 @@ class HealthKitManager {
   ) {
 
     let toWriteTypes: Swift.Set<HKSampleType> = [
-      HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+      HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!
     ]
     healthKitStore.requestAuthorization(
       toShare: toWriteTypes,

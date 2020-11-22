@@ -74,8 +74,7 @@ class NWorkout: ObservableObject, Codable, Identifiable {
     return lift
   }
 
-  static func new(isWorkout: Bool, isComplete: Bool, name: String) -> NWorkout
-  {
+  static func new(isWorkout: Bool, isComplete: Bool, name: String) -> NWorkout {
     let workout = NWorkout()
     workout.name = name
     workout.isWorkout = isWorkout
@@ -87,11 +86,12 @@ class NWorkout: ObservableObject, Codable, Identifiable {
   func deleteSelf() {
     fatalError("This just needs to be removed from JDB array")
   }
-  
+
   static func makeDummy(name: String = "Dog Petting Session") -> NWorkout {
     let w = NWorkout()
     w.name = name
-    w.startDate = Date() - Date(timeIntervalSinceNow: -1000).timeIntervalSinceNow
+    w.startDate =
+      Date() - Date(timeIntervalSinceNow: -1000).timeIntervalSinceNow
     w.finishDate = Date()
     w.isWorkout = true
     return w

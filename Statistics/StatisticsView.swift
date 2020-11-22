@@ -90,14 +90,14 @@ struct Statistics_Previews: PreviewProvider {
 func makeFakeJDB() -> JDB {
   let jdb = JDB()
   jdb.workouts = []
-  
+
   let w = NWorkout.makeDummy()
   let l1 = NLift.makeDummy(name: "Muffin Petting")
   let l2 = NLift.makeDummy(name: "Riley Feeding")
   let s = NSet.makeDummy()
   l1.append(s)
   l2.append(s)
-  
+
   w.append(l1)
   w.append(l2)
   jdb.addWorkout(w)

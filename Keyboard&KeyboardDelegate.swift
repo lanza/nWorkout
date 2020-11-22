@@ -122,7 +122,9 @@ class Keyboard: UIView {
     let thirdStackView = UIStackView(
       arrangedSubviews: [buttonSeven, buttonEight, buttonNine, thirdSideButton])
     let fourthStackView = UIStackView(
-      arrangedSubviews: [decimalButton, zeroButton, backspaceButton, nextButton]
+      arrangedSubviews: [
+        decimalButton, zeroButton, backspaceButton, nextButton,
+      ]
     )
 
     let stackViews = [
@@ -166,7 +168,8 @@ class Keyboard: UIView {
       masterStackView.rightAnchor.constraint(equalTo: rightAnchor)
     )
     constraints.append(
-      masterStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60)
+      masterStackView.bottomAnchor.constraint(
+        equalTo: bottomAnchor, constant: -60)
     )
     NSLayoutConstraint.activate(constraints)
   }

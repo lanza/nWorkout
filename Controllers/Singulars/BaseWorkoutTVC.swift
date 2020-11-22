@@ -122,8 +122,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
 
   var didTapAddNewLift: (() -> Void)!
 
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet)
-  {
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet) {
     let a = CustomIOSAlertView()
     //    a?.containerView = NoteView.new(for: set, view: setRowView)
     a?.delegate = self

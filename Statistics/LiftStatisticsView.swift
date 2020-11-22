@@ -47,7 +47,9 @@ struct LiftStatisticsView: View {
   }
 }
 
-func makeFakeData() -> (workout: NWorkout, lifts: [NLift], name: String, count: Int) {
+func makeFakeData() -> (
+  workout: NWorkout, lifts: [NLift], name: String, count: Int
+) {
   let l1 = NLift.makeDummy(name: "Pet Muffin")
   let l2 = NLift.makeDummy(name: "Pet Muffin")
   let s1 = NSet.makeDummy()
@@ -65,6 +67,7 @@ struct LiftStatistics_Previews: PreviewProvider {
   static var previews: some View {
     let data = makeFakeData()
     LiftStatistics_Previews.w = data.workout
-    return LiftStatisticsView(lifts: data.lifts, name: data.name, count: data.count)
+    return LiftStatisticsView(
+      lifts: data.lifts, name: data.name, count: data.count)
   }
 }

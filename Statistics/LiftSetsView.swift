@@ -21,4 +21,3 @@ struct LiftSetsView: View {
     .frame(height: CGFloat(lift.sets.count * 44))
   }
 }
-
