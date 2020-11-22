@@ -172,11 +172,17 @@ func makeFakeJDB() -> JDB {
   let w = NewWorkout()
   w.isWorkout = true
   w.name = "Doggie"
-  let l = NewLift()
-  l.name = "Muffin Petting"
-  l._previousStrings = "IDK"
-  l.isWorkout = true
-  l.note = ""
+  let l1 = NewLift()
+  l1.name = "Muffin Petting"
+  l1._previousStrings = "IDK"
+  l1.isWorkout = true
+  l1.note = ""
+
+  let l2 = NewLift()
+  l2.name = "Riley Feeding"
+  l2._previousStrings = "IDK"
+  l2.isWorkout = true
+  l2.note = ""
 
   let s = NewSet()
   s.reps = 5
@@ -184,8 +190,10 @@ func makeFakeJDB() -> JDB {
   s.completedReps = 5
   s.completedWeight = 55
   s.setTarget(weight: 45, reps: 22)
-  l.sets.append(s)
-  w.lifts.append(l)
+  l1.sets.append(s)
+  l2.sets.append(s)
+  w.lifts.append(l1)
+  w.lifts.append(l2)
   jdb.addWorkout(w)
   return jdb
 }
