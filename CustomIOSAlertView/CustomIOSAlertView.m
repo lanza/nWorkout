@@ -190,7 +190,7 @@ CGFloat buttonSpacerHeight = 0;
                                                alpha:0.0f];
         self->dialogView.layer.transform = CATransform3DConcat(
             currentTransform, CATransform3DMakeScale(0.6f, 0.6f, 1.0));
-        dialogView.layer.opacity = 0.0f;
+        self->dialogView.layer.opacity = 0.0f;
       }
       completion:^(BOOL finished) {
         for (UIView *v in [self subviews]) {
