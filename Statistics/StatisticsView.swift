@@ -26,7 +26,7 @@ struct StatisticsView: View {
   }
 
   func getLifts() -> [([NewLift], String, Int)] {
-    let filtered = jdb.workouts.filter { $0.isWorkout }
+    let filtered = jdb.workouts!.filter { $0.isWorkout }
     let lifts = filtered.map { $0.lifts }
     let reduced = lifts.flatMap { $0 }
     let sorted = reduced.sorted { $0.name < $1.name }
@@ -150,6 +150,7 @@ struct Statistics_Previews: PreviewProvider {
 
 func makeFakeJDB() -> JDB {
   let jdb = JDB()
+  jdb.workouts = []
   let w = NewWorkout()
   let l = NewLift()
   let s = NewSet()
