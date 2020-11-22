@@ -96,7 +96,6 @@
 		B3DB438024077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437924077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift */; };
 		B3DB438124077FC300D9F1E5 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */; };
 		B3DB438224077FC300D9F1E5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437B24077FC300D9F1E5 /* Coordinator.swift */; };
-		B3DB438324077FC300D9F1E5 /* HamburgerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB437C24077FC300D9F1E5 /* HamburgerCoordinator.swift */; };
 		B3DBD051240CB08100DCB41F /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBD04F240CB08000DCB41F /* CustomIOSAlertView.m */; };
 		B3DBD054240CB40E00DCB41F /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = B3DBD053240CB40E00DCB41F /* data.json */; };
 		B3E3944A24079E3A0038E66B /* NewWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3944924079E3A0038E66B /* NewWorkout.swift */; };
@@ -238,7 +237,6 @@
 		B3DB437924077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoordinatorKit.swift"; sourceTree = "<group>"; };
 		B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		B3DB437B24077FC300D9F1E5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		B3DB437C24077FC300D9F1E5 /* HamburgerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerCoordinator.swift; sourceTree = "<group>"; };
 		B3DBD04E240CB08000DCB41F /* nWorkout-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nWorkout-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3DBD04F240CB08000DCB41F /* CustomIOSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomIOSAlertView.m; path = CustomIOSAlertView/CustomIOSAlertView.m; sourceTree = "<group>"; };
 		B3DBD050240CB08100DCB41F /* CustomIOSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomIOSAlertView.h; path = CustomIOSAlertView/CustomIOSAlertView.h; sourceTree = "<group>"; };
@@ -562,7 +560,6 @@
 				B3DB437924077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift */,
 				B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */,
 				B3DB437B24077FC300D9F1E5 /* Coordinator.swift */,
-				B3DB437C24077FC300D9F1E5 /* HamburgerCoordinator.swift */,
 			);
 			path = CoordinatorKit;
 			sourceTree = "<group>";
@@ -892,7 +889,6 @@
 				B36059301E1C3EA700EBE620 /* CompletedWeightAndRepsTextField.swift in Sources */,
 				B3773F931DD7CF630067746D /* SelectWorkoutVC.swift in Sources */,
 				B3E3944F2407A17E0038E66B /* NewSet.swift in Sources */,
-				B3DB438324077FC300D9F1E5 /* HamburgerCoordinator.swift in Sources */,
 				B3C9560124077C5600743481 /* UIStackView+Extension.swift in Sources */,
 				B3BB31901DDAA24C0015F9B0 /* SettingsCoordinator.swift in Sources */,
 				B3BB318E1DDAA2360015F9B0 /* StatisticsCoordinator.swift in Sources */,
