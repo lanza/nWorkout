@@ -235,7 +235,6 @@
 		B3D50F041E72337A0062B118 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3DB437624077FC300D9F1E5 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		B3DB437724077FC300D9F1E5 /* UIWindow+CoordinatorKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+CoordinatorKit.swift"; sourceTree = "<group>"; };
-		B3DB437824077FC300D9F1E5 /* SplitViewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewCoordinator.swift; sourceTree = "<group>"; };
 		B3DB437924077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoordinatorKit.swift"; sourceTree = "<group>"; };
 		B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		B3DB437B24077FC300D9F1E5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -560,7 +559,6 @@
 			children = (
 				B3DB437624077FC300D9F1E5 /* TabBarCoordinator.swift */,
 				B3DB437724077FC300D9F1E5 /* UIWindow+CoordinatorKit.swift */,
-				B3DB437824077FC300D9F1E5 /* SplitViewCoordinator.swift */,
 				B3DB437924077FC300D9F1E5 /* UIViewController+CoordinatorKit.swift */,
 				B3DB437A24077FC300D9F1E5 /* NavigationCoordinator.swift */,
 				B3DB437B24077FC300D9F1E5 /* Coordinator.swift */,
