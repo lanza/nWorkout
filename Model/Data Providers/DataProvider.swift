@@ -22,5 +22,3 @@ extension DataProvider {
     insert(move, at: destinationIndex)
   }
 }
-
-// extension where Self: CollectionType or RealmCollectionType
