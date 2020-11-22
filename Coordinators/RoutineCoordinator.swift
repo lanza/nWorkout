@@ -2,7 +2,7 @@ import UIKit
 
 class RoutineCoordinator: Coordinator {
   var routineTVC: RoutineTVC { return viewController as! RoutineTVC }
-  var routine: NewWorkout!
+  var routine: NWorkout!
 
   override func loadViewController() {
     viewController = RoutineTVC()

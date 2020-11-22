@@ -1,11 +1,11 @@
 import Foundation
 
-class NewLift: Codable, Identifiable {
+class NLift: Codable, Identifiable {
   var note = ""
   var isWorkout = false
   var name = ""
-  var workout: NewWorkout?
-  var sets: [NewSet] = []
+  var workout: NWorkout?
+  var sets: [NSet] = []
   var _previousStrings: String = ""
 
   let id = UUID()
@@ -14,9 +14,9 @@ class NewLift: Codable, Identifiable {
     return _previousStrings.components(separatedBy: ",")
   }
 
-  static func new(isWorkout: Bool, name: String, workout: NewWorkout) -> NewLift
+  static func new(isWorkout: Bool, name: String, workout: NWorkout) -> NLift
   {
-    let lift = NewLift()
+    let lift = NLift()
 
     lift.isWorkout = isWorkout
     lift.name = name
@@ -42,9 +42,9 @@ class NewLift: Codable, Identifiable {
   }
 }
 
-extension NewLift {
-  func makeWorkoutLift(workout: NewWorkout) -> NewLift {
-    let lift = NewLift.new(isWorkout: true, name: name, workout: workout)
+extension NLift {
+  func makeWorkoutLift(workout: NWorkout) -> NLift {
+    let lift = NLift.new(isWorkout: true, name: name, workout: workout)
 
     for set in sets {
       let new = set.makeWorkoutSet(lift: self)
@@ -55,8 +55,8 @@ extension NewLift {
   }
 }
 
-extension NewLift: DataProvider {
-  func append(_ object: NewSet) {
+extension NLift: DataProvider {
+  func append(_ object: NSet) {
     sets.append(object)
   }
 
@@ -64,16 +64,16 @@ extension NewLift: DataProvider {
     return sets.count
   }
 
-  func object(at index: Int) -> NewSet {
+  func object(at index: Int) -> NSet {
     return sets[index]
   }
 
-  func index(of object: NewSet) -> Int? {
+  func index(of object: NSet) -> Int? {
     return nil
     //    return sets.index(of: object)
   }
 
-  func insert(_ object: NewSet, at index: Int) {
+  func insert(_ object: NSet, at index: Int) {
     sets.insert(object, at: index)
   }
 

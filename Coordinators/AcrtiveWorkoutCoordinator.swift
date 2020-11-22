@@ -12,7 +12,7 @@ class ActiveWorkoutCoordinator: Coordinator {
 
   weak var delegate: ActiveWorkoutCoordinatorDelegate!
 
-  var workout: NewWorkout!
+  var workout: NWorkout!
   var workoutTVC: WorkoutTVC { return viewController as! WorkoutTVC }
 
   override func loadViewController() {

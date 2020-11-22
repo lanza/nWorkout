@@ -52,7 +52,7 @@ class StatisticsHistoryTVC: BaseTVC {
 
   let liftName: String
 
-  var lifts: [NewLift]
+  var lifts: [NLift]
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath)
     -> CGFloat

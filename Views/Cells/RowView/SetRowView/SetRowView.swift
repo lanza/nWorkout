@@ -1,7 +1,7 @@
 import UIKit
 
 protocol SetRowViewDelegate: class {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet)
 }
 
 class SetRowView: BaseRowView {
@@ -18,7 +18,7 @@ class SetRowView: BaseRowView {
     setupButtons()
   }
 
-  var set: NewSet! {
+  var set: NSet! {
     didSet {
       guard let set = set else { return }
       print(set.weight, set.reps, set.completedWeight, set.completedReps)

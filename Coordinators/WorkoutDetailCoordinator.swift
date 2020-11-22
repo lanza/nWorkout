@@ -3,9 +3,9 @@ import UIKit
 
 class WorkoutDetailCoordinator: Coordinator {
 
-  let workout: NewWorkout!
+  let workout: NWorkout!
 
-  init(workout: NewWorkout) {
+  init(workout: NWorkout) {
     self.workout = workout
     super.init()
   }

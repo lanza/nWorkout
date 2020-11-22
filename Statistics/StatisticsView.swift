@@ -25,21 +25,21 @@ struct StatisticsView: View {
     UINavigationBar.appearance().prefersLargeTitles = true
   }
 
-  func getLifts() -> [([NewLift], String, Int)] {
+  func getLifts() -> [([NLift], String, Int)] {
     let filtered = jdb.workouts.filter { $0.isWorkout }
     let lifts = filtered.map { $0.lifts }
     let reduced = lifts.flatMap { $0 }
     let sorted = reduced.sorted { $0.name < $1.name }
 
     var counts: [String: Int] = [:]
-    var elements: [String: [NewLift]] = [:]
+    var elements: [String: [NLift]] = [:]
 
     for element in sorted {
       counts[element.name, default: 0] += 1
       elements[element.name, default: []].append(element)
     }
 
-    var result: [(elements: [NewLift], name: String, count: Int)] = []
+    var result: [(elements: [NLift], name: String, count: Int)] = []
     for key in counts.keys {
       result.append((elements[key, default: []], key, counts[key, default: 0]))
     }
@@ -91,7 +91,7 @@ struct StatisticsView: View {
 }
 
 struct LiftSetsView: View {
-  let lift: NewLift
+  let lift: NLift
   var body: some View {
     List {
       ForEach(lift.sets) { set in
@@ -113,13 +113,13 @@ struct LiftSetsView: View {
 }
 
 struct LiftStatisticsView: View {
-  let lifts: [NewLift]
+  let lifts: [NLift]
   let name: String
   let count: Int
 
   @State var historyOrChartsToggle = 0
 
-  init(lifts: [NewLift], name: String, count: Int) {
+  init(lifts: [NLift], name: String, count: Int) {
     self.lifts = lifts
     self.name = name
     self.count = count
@@ -169,22 +169,22 @@ struct Statistics_Previews: PreviewProvider {
 func makeFakeJDB() -> JDB {
   let jdb = JDB()
   jdb.workouts = []
-  let w = NewWorkout()
+  let w = NWorkout()
   w.isWorkout = true
   w.name = "Doggie"
-  let l1 = NewLift()
+  let l1 = NLift()
   l1.name = "Muffin Petting"
   l1._previousStrings = "IDK"
   l1.isWorkout = true
   l1.note = ""
 
-  let l2 = NewLift()
+  let l2 = NLift()
   l2.name = "Riley Feeding"
   l2._previousStrings = "IDK"
   l2.isWorkout = true
   l2.note = ""
 
-  let s = NewSet()
+  let s = NSet()
   s.reps = 5
   s.weight = 55
   s.completedReps = 5

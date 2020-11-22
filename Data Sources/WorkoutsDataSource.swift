@@ -1,13 +1,13 @@
 import UIKit
 
 class WorkoutsDataSource<Cell: UITableViewCell>: DataSource<
-  BaseDataProvider<NewWorkout>, Cell
+  BaseDataProvider<NWorkout>, Cell
 >
-where Cell: ConfigurableCell, Cell.Object == NewWorkout {
+where Cell: ConfigurableCell, Cell.Object == NWorkout {
 
   var name: String!
 
-  init(tableView: UITableView, workouts: [NewWorkout]) {
+  init(tableView: UITableView, workouts: [NWorkout]) {
     let provider = BaseDataProvider(objects: workouts)
     super.init(tableView: tableView, provider: provider)
   }

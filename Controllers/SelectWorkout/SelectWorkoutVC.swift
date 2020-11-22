@@ -6,7 +6,7 @@ protocol SelectWorkoutDelegate: class {
 
   func selectWorkoutVC(
     _ selectWorkoutVC: SelectWorkoutVC,
-    selectedRoutine routine: NewWorkout
+    selectedRoutine routine: NWorkout
   )
 }
 

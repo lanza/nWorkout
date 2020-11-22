@@ -7,29 +7,29 @@ class MainCoordinator: TabBarCoordinator {
   }
 
   func checkForUnfinishedWorkout(displayImmediately: Bool) {
-    let workouts = JDB.shared.getWorkouts().filter { $0.isComplete == false }
-      .filter { $0.isWorkout == true }
-
-    if let first = workouts.first {
-      self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
-      self.activeWorkoutCoordinator?.delegate = self
-      self.activeWorkoutCoordinator?.workout = first
-
-      self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
-      self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem =
-        UIBarButtonItem(
-          title: Lets.hide,
-          style: .plain,
-          target: self,
-          action: #selector(hideButtonTapped)
-        )
-      self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
-        self.activeWorkoutCoordinator = nil
-      }
-      if displayImmediately {
-        displayActiveWorkout()
-      }
-    }
+//    let workouts = JDB.shared.getWorkouts().filter { $0.isComplete == false }
+//      .filter { $0.isWorkout == true }
+//
+//    if let first = workouts.first {
+//      self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
+//      self.activeWorkoutCoordinator?.delegate = self
+//      self.activeWorkoutCoordinator?.workout = first
+//
+//      self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
+//      self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem =
+//        UIBarButtonItem(
+//          title: Lets.hide,
+//          style: .plain,
+//          target: self,
+//          action: #selector(hideButtonTapped)
+//        )
+//      self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
+//        self.activeWorkoutCoordinator = nil
+//      }
+//      if displayImmediately {
+//        displayActiveWorkout()
+//      }
+//    }
   }
 
   let app: UINavigationBarAppearance = {
@@ -86,7 +86,6 @@ class MainCoordinator: TabBarCoordinator {
   }
 
   @objc func settingsDidChange() {
-    print("Test")
     self.activeWorkoutCoordinator = nil
     self.checkForUnfinishedWorkout(displayImmediately: false)
   }
@@ -157,7 +156,7 @@ class MainCoordinator: TabBarCoordinator {
 }
 
 extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
-  func makeActiveWorkoutCoordinator(for routine: NewWorkout?)
+  func makeActiveWorkoutCoordinator(for routine: NWorkout?)
     -> ActiveWorkoutCoordinator
   {
     activeWorkoutCoordinator = ActiveWorkoutCoordinator()
@@ -166,7 +165,7 @@ extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
     if let routine = routine {
       activeWorkoutCoordinator!.workout = routine.makeWorkoutWorkout()
     } else {
-      activeWorkoutCoordinator!.workout = NewWorkout.new(
+      activeWorkoutCoordinator!.workout = NWorkout.new(
         isWorkout: true,
         isComplete: false,
         name: Lets.blank
@@ -181,7 +180,7 @@ extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
 
   func selectWorkoutCoordinator(
     _ selectWorkoutCoordinator: SelectWorkoutCoordinator,
-    didSelectRoutine routine: NewWorkout?
+    didSelectRoutine routine: NWorkout?
   ) -> ActiveWorkoutCoordinator {
     makeActiveWorkoutCoordinator(for: routine)
   }

@@ -1,10 +1,10 @@
 import Combine
 import Foundation
 
-class NewWorkout: ObservableObject, Codable, Identifiable {
+class NWorkout: ObservableObject, Codable, Identifiable {
   @Published var note = ""
   var isWorkout = false
-  var lifts: [NewLift] = []
+  var lifts: [NLift] = []
   var name = ""
   var isComplete = false
   @Published var startDate = Date()
@@ -30,7 +30,7 @@ class NewWorkout: ObservableObject, Codable, Identifiable {
     isWorkout = try container.decode(Bool.self, forKey: .isWorkout)
     name = try container.decode(String.self, forKey: .name)
     isComplete = try container.decode(Bool.self, forKey: .isComplete)
-    lifts = try container.decode(Array<NewLift>.self, forKey: .lifts)
+    lifts = try container.decode(Array<NLift>.self, forKey: .lifts)
     startDate = try container.decode(Date.self, forKey: .startDate)
     finishDate = try? container.decode(Date.self, forKey: .finishDate)
   }
@@ -53,9 +53,9 @@ class NewWorkout: ObservableObject, Codable, Identifiable {
 
   var isFinished: Bool { return activeOrFinished == .finished }
 
-  func addNewSet(for lift: NewLift) -> NewSet {
+  func addNewSet(for lift: NLift) -> NSet {
     let last = lift.sets.last
-    let set = NewSet.new(
+    let set = NSet.new(
       isWorkout: isWorkout,
       isWarmup: false,
       weight: last?.weight ?? 45,
@@ -68,15 +68,15 @@ class NewWorkout: ObservableObject, Codable, Identifiable {
     return set
   }
 
-  func addNewLift(name: String) -> NewLift {
-    let lift = NewLift.new(isWorkout: isWorkout, name: name, workout: self)
+  func addNewLift(name: String) -> NLift {
+    let lift = NLift.new(isWorkout: isWorkout, name: name, workout: self)
     lifts.append(lift)
     return lift
   }
 
-  static func new(isWorkout: Bool, isComplete: Bool, name: String) -> NewWorkout
+  static func new(isWorkout: Bool, isComplete: Bool, name: String) -> NWorkout
   {
-    let workout = NewWorkout()
+    let workout = NWorkout()
     workout.name = name
     workout.isWorkout = isWorkout
     workout.isComplete = isComplete
@@ -89,9 +89,9 @@ class NewWorkout: ObservableObject, Codable, Identifiable {
   }
 }
 
-extension NewWorkout {
-  func makeWorkoutWorkout() -> NewWorkout {
-    let workout = NewWorkout.new(isWorkout: true, isComplete: false, name: name)
+extension NWorkout {
+  func makeWorkoutWorkout() -> NWorkout {
+    let workout = NWorkout.new(isWorkout: true, isComplete: false, name: name)
 
     for lift in lifts {
       let new = lift.makeWorkoutLift(workout: workout)
@@ -101,8 +101,8 @@ extension NewWorkout {
   }
 }
 
-extension NewWorkout: DataProvider {
-  func append(_ object: NewLift) {
+extension NWorkout: DataProvider {
+  func append(_ object: NLift) {
     lifts.append(object)
   }
 
@@ -110,15 +110,15 @@ extension NewWorkout: DataProvider {
     return lifts.count
   }
 
-  func object(at index: Int) -> NewLift {
+  func object(at index: Int) -> NLift {
     return lifts[index]
   }
 
-  func index(of object: NewLift) -> Int? {
+  func index(of object: NLift) -> Int? {
     return lifts.firstIndex(where: { $0 === object })
   }
 
-  func insert(_ object: NewLift, at index: Int) {
+  func insert(_ object: NLift, at index: Int) {
     lifts.insert(object, at: index)
   }
 

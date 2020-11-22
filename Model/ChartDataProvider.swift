@@ -7,7 +7,7 @@ struct ChartDataPair {
 
 final class StatisticsDataProvider {
   let liftName: String
-  let lifts: [NewLift]
+  let lifts: [NLift]
 
   init(liftName: String) {
     self.liftName = liftName
@@ -22,7 +22,7 @@ final class StatisticsDataProvider {
     return values
   }
 
-  private func generateBestSetDataPair(from lift: NewLift) -> ChartDataPair {
+  private func generateBestSetDataPair(from lift: NLift) -> ChartDataPair {
     let timeInterval = lift.workout!.startDate.timeIntervalSinceReferenceDate
     let weight = lift.sets.last?.completedWeight ?? 0
     return ChartDataPair(timeInterval: timeInterval, weight: weight)
@@ -53,14 +53,14 @@ final class StatisticsDataProvider {
     return prDataPoints
   }
 
-  func getPersonalRecordProgression() -> [NewSet] {
+  func getPersonalRecordProgression() -> [NSet] {
 
-    var sets: [NewSet] = []
+    var sets: [NSet] = []
 
     for lift in lifts {
 
       var setIsNew = true
-      var bestCompletedSet: NewSet?
+      var bestCompletedSet: NSet?
 
       for set in lift.sets {
         if set.completedReps == set.reps,

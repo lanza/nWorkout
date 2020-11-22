@@ -1,6 +1,6 @@
 import Foundation
 
-class NewSet: Codable, Identifiable {
+class NSet: Codable, Identifiable {
   private enum CodingKeys: String, CodingKey {
     case note
     case isWorkout
@@ -49,9 +49,9 @@ class NewSet: Codable, Identifiable {
     reps: Int,
     completedWeight: Double,
     completedReps: Int,
-    lift: NewLift
-  ) -> NewSet {
-    let set = NewSet()
+    lift: NLift
+  ) -> NSet {
+    let set = NSet()
 
     set.isWorkout = isWorkout
     set.isWarmup = isWarmup
@@ -64,12 +64,12 @@ class NewSet: Codable, Identifiable {
     return set
   }
 
-  var lift: NewLift?
+  var lift: NLift?
 }
 
-extension NewSet {
-  func makeWorkoutSet(lift: NewLift) -> NewSet {
-    let set = NewSet.new(
+extension NSet {
+  func makeWorkoutSet(lift: NLift) -> NSet {
+    let set = NSet.new(
       isWorkout: true,
       isWarmup: isWarmup,
       weight: weight,
@@ -84,7 +84,7 @@ extension NewSet {
   var failureWeight: Double { return weight }
 }
 
-extension NewSet {
+extension NSet {
   func setTarget(weight: Double, reps: Int) {
     self.weight = weight
     self.reps = reps

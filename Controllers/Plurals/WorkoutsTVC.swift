@@ -83,7 +83,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     reloadData()
   }
 
-  var finishedWorkout: NewWorkout?
+  var finishedWorkout: NWorkout?
 
   override func tableView(
     _ tableView: UITableView,

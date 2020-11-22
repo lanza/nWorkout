@@ -1,8 +1,8 @@
 import UIKit
 
 protocol LiftCellDelegate: class {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
-  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NewLift)
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet)
+  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NLift)
 }
 
 extension LiftCell: ChartViewDelegate {
@@ -16,14 +16,14 @@ extension LiftCell: ChartViewDelegate {
 }
 
 extension LiftCell: SetRowViewDelegate {
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet)
   {
     self.delegate.setRowView(setRowView, didTapNoteButtonForSet: set)
   }
 }
 
 class LiftCell: ChartViewCell {
-  func configure(for object: NewLift, at indexPath: IndexPath) {
+  func configure(for object: NLift, at indexPath: IndexPath) {
 
     label.text = object.name
 
@@ -87,7 +87,7 @@ class LiftCell: ChartViewCell {
     self.delegate.liftCell(self, didTapNoteButtonForLift: self.lift)
   }
 
-  weak var lift: NewLift! {
+  weak var lift: NLift! {
     didSet {
       noteButton.update(for: lift)
       noteButton.addTarget(

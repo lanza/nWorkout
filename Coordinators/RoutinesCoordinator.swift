@@ -13,7 +13,7 @@ class RoutinesCoordinator: Coordinator {
 extension RoutinesCoordinator: WorkoutsTVCDelegate {
   func routinesTVC(
     _ routinesTVC: RoutinesTVC,
-    didSelectRoutine routine: NewWorkout
+    didSelectRoutine routine: NWorkout
   ) {
     let rvc = RoutineCoordinator()
     rvc.routine = routine
@@ -22,7 +22,7 @@ extension RoutinesCoordinator: WorkoutsTVCDelegate {
 
   func workoutsTVC(
     _ workoutsTVC: WorkoutsTVC,
-    didSelectWorkout workout: NewWorkout
+    didSelectWorkout workout: NWorkout
   ) {
     fatalError()
   }

@@ -3,7 +3,7 @@ import UIKit
 protocol SelectWorkoutCoordinatorDelegate: class {
   func selectWorkoutCoordinator(
     _ selectWorkoutCoordinator: SelectWorkoutCoordinator,
-    didSelectRoutine routine: NewWorkout?
+    didSelectRoutine routine: NWorkout?
   ) -> ActiveWorkoutCoordinator
 }
 
@@ -33,7 +33,7 @@ extension SelectWorkoutCoordinator: SelectWorkoutDelegate {
 
   func selectWorkoutVC(
     _ selectWorkoutVC: SelectWorkoutVC,
-    selectedRoutine routine: NewWorkout
+    selectedRoutine routine: NWorkout
   ) {
     let awc = delegate.selectWorkoutCoordinator(self, didSelectRoutine: routine)
     self.show(awc, sender: self)

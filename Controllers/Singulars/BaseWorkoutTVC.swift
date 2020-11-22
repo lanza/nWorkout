@@ -17,7 +17,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
   let tableView = UITableView()
 
   var dataSource: WorkoutDataSource<Cell>!
-  var workout: NewWorkout!
+  var workout: NWorkout!
 
   var keyboardHandler: KeyboardHandler!
 
@@ -122,7 +122,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
 
   var didTapAddNewLift: (() -> Void)!
 
-  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NewSet)
+  func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet)
   {
     let a = CustomIOSAlertView()
     //    a?.containerView = NoteView.new(for: set, view: setRowView)
@@ -130,7 +130,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
     a?.show()
   }
 
-  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NewLift) {
+  func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NLift) {
     let a = CustomIOSAlertView()
     //    a?.containerView = NoteView.new(for: lift, view: liftCell)
     a?.delegate = self

@@ -2,7 +2,7 @@ import Foundation
 
 class WorkoutCoordinator: Coordinator {
   var workoutTVC: WorkoutTVC { return viewController as! WorkoutTVC }
-  var workout: NewWorkout!
+  var workout: NWorkout!
   var isActive: Bool { return !workout.isComplete }
 
   override func loadViewController() {

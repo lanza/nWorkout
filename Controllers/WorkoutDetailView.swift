@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct WorkoutDetailView: View {
-  @ObservedObject var workout: NewWorkout
+  @ObservedObject var workout: NWorkout
   var body: some View {
     List {
       DatePicker(

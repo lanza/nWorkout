@@ -3,7 +3,7 @@ import UIKit
 extension WorkoutCell: ConfigurableCell {}
 
 class WorkoutCell: ChartViewCell {
-  func configure(for object: NewWorkout, at indexPath: IndexPath) {
+  func configure(for object: NWorkout, at indexPath: IndexPath) {
 
     chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
 

@@ -20,7 +20,7 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
         _ in
         guard let name = alert.textFields?.first?.text else { fatalError() }
 
-        let routine = NewWorkout.new(
+        let routine = NWorkout.new(
           isWorkout: false,
           isComplete: false,
           name: name
