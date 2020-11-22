@@ -86,22 +86,26 @@ class CellSettingsCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
-  let titleLabel = UILabel().then { label in
-    label.textColor = .white
-    label.backgroundColor = .clear
-    label.numberOfLines = 0
-    label.setFontScaling(minimum: 10)
-  }
+  let titleLabel: UILabel = {
+    let titleLabel = UILabel()
+    titleLabel.textColor = .white
+    titleLabel.backgroundColor = .clear
+    titleLabel.numberOfLines = 0
+    titleLabel.setFontScaling(minimum: 10)
+    return titleLabel
+  }()
 
-  let widthTextField = UITextField().then { textField in
-    textField.textColor = .white
-    textField.textAlignment = .center
-  }
+  let widthTextField: UITextField = {
+    let widthTextField = UITextField()
+    widthTextField.textColor = .white
+    widthTextField.textAlignment = .center
+    return widthTextField
+  }()
 
-  let onSwitch = UISwitch().then(
-    { swtch in
-      swtch.tintColor = Theme.Colors.main
-      swtch.onTintColor = Theme.Colors.main
-    }
-  )
+  let onSwitch: UISwitch = {
+    let onSwitch = UISwitch()
+    onSwitch.tintColor = Theme.Colors.main
+    onSwitch.onTintColor = Theme.Colors.main
+    return onSwitch
+  }()
 }
