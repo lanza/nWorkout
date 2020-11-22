@@ -7,9 +7,10 @@ let df: DateFormatter = {
 }()
 
 struct StatisticsView: View {
-  @ObservedObject var jdb = JDB.shared
+  @ObservedObject var jdb: JDB
 
   init(jdb: JDB) {
+    self.jdb = jdb
     let app = UINavigationBarAppearance()
     app.backgroundColor = Theme.Colors.darkest
     app.largeTitleTextAttributes = [
