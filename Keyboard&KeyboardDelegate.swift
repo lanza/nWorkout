@@ -151,7 +151,7 @@ class Keyboard: UIView {
       for: .touchUpInside
     )
 
-    var constraints = [NSLayoutConstraint]()
+    var constraints: [NSLayoutConstraint] = []
     constraints.append(hideButton.leftAnchor.constraint(equalTo: leftAnchor))
     constraints.append(hideButton.rightAnchor.constraint(equalTo: rightAnchor))
     constraints.append(
