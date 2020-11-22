@@ -58,9 +58,9 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
 
       let okay = UIAlertAction(title: Lets.done, style: .default) { _ in
         guard let name = alert.textFields?.first?.text else { fatalError() }
-        self.liftTypes.append(name)
+        self.liftTypes.insert(name, at: 0)
+        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         self.save()
-        self.tableView.reloadData()
       }
       let cancel = UIAlertAction(
         title: Lets.cancel,
