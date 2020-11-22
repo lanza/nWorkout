@@ -54,17 +54,6 @@ struct StatisticsView: View {
       ScrollView {
         LazyVStack(alignment: .center, spacing: 0, pinnedViews: []) {
           ForEach(getLifts(), id: \.1) { (lifts, name, count) in
-
-            //            GeometryReader { geometry in
-            //              Path { path in
-            //                path.move(to: .init(x: 0, y: 0))
-            //                path.addLine(to: .init(x: geometry.size.width, y: 0))
-            //              }
-            //              .strokedPath(.init(lineWidth: 1, dash: [1, 2]))
-            //            }
-            //            .foregroundColor(.red)
-            //            .frame(height: 1)
-
             NavigationLink(
               destination:
                 LiftStatisticsView(lifts: lifts, name: name, count: count)
