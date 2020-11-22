@@ -26,6 +26,7 @@
 		B328D8141DD6FA5E000948ED /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328D8131DD6FA5E000948ED /* SettingsTVC.swift */; };
 		B3312B341DC12F9700318AA6 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3312B331DC12F9700318AA6 /* MainCoordinator.swift */; };
 		B335C3671DEEAD7100D21562 /* WorkoutFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */; };
+		B33835EA256A190C00A93E7B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B33835E8256A190C00A93E7B /* Model.xcdatamodeld */; };
 		B34BA0561DC1CC29006B6A51 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0551DC1CC29006B6A51 /* Theme.swift */; };
 		B34BA0581DC1CC33006B6A51 /* Lets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BA0571DC1CC33006B6A51 /* Lets.swift */; };
 		B34E6FD81E1DF33600ACA4D5 /* NoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */; };
@@ -166,6 +167,7 @@
 		B328D8131DD6FA5E000948ED /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTVC.swift; path = Settings/SettingsTVC.swift; sourceTree = "<group>"; };
 		B3312B331DC12F9700318AA6 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B335C3661DEEAD7100D21562 /* WorkoutFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutFooterView.swift; sourceTree = "<group>"; };
+		B33835E9256A190C00A93E7B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B34BA0551DC1CC29006B6A51 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = ../Theme.swift; sourceTree = "<group>"; };
 		B34BA0571DC1CC33006B6A51 /* Lets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lets.swift; path = ../Lets.swift; sourceTree = "<group>"; };
 		B34E6FD71E1DF33600ACA4D5 /* NoteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 			children = (
 				B30A8D712467CB6100C406F3 /* CoreDataStack.swift */,
 				B36059431E1C92A600EBE620 /* ViewInfo.swift */,
+				B33835E8256A190C00A93E7B /* Model.xcdatamodeld */,
 				B36F37E71E0F7FF100667263 /* JDB.swift */,
 				B3B7D0121E7FC3A600483D95 /* ChartDataProvider.swift */,
 				B382087C1DC2B3D40008D6F8 /* Data Providers */,
@@ -905,6 +908,7 @@
 				B3B7D0131E7FC3A600483D95 /* ChartDataProvider.swift in Sources */,
 				B3BB318A1DDAA1B60015F9B0 /* AcrtiveWorkoutCoordinator.swift in Sources */,
 				B3C9560724077C5600743481 /* UIBarButtonItem+Extensions.swift in Sources */,
+				B33835EA256A190C00A93E7B /* Model.xcdatamodeld in Sources */,
 				B36059221E1C3DB000EBE620 /* RoutineCell.swift in Sources */,
 				B360592C1E1C3E7600EBE620 /* RoutineSetRowView.swift in Sources */,
 				B3EA1A101E83C25800B277E2 /* LiftTableHeaderLabelHolder.swift in Sources */,
@@ -1278,6 +1282,19 @@
 			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B33835E8256A190C00A93E7B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B33835E9256A190C00A93E7B /* Model.xcdatamodel */,
+			);
+			currentVersion = B33835E9256A190C00A93E7B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B356FBB71DC09C160006A0F0 /* Project object */;
 }
