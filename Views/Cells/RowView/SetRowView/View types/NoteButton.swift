@@ -12,7 +12,6 @@ class NoteButton: UIButton {
   }
 
   func update<Type>(for type: Type) {
-    print("HI")
     //    setTitleColor(
     //      base.note.count > 0
     //        ? #colorLiteral(red: 0.1764705926, green: 0.4980392158,
