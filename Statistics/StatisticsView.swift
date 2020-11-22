@@ -63,9 +63,9 @@ struct StatisticsView: View {
                 Spacer()
                 Text(String(count))
               }
-              .foregroundColor(.white).font(.headline)
+              .foregroundColor(.white)
+              .font(.headline)
             }.padding()
-
           }
           .border(Color.black)
           .listRowBackground(Color(Theme.Colors.dark))
