@@ -24,21 +24,12 @@ where Cell: ConfigurableCell, Provider.Object == Cell.Object {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
     -> Int
   {
-    if provider.numberOfItems() == 0 {
-      return 1
-    } else {
-      return provider.numberOfItems()
-    }
+    return provider.numberOfItems()
   }
-
-  let emptyCell = UITableViewCell()
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
     -> UITableViewCell
   {
-    if provider.numberOfItems() == 0 {
-      return emptyCell
-    }
     let cell =
       tableView.dequeueReusableCell(
         withIdentifier: Cell.reuseIdentifier,
