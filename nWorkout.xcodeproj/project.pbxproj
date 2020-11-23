@@ -434,15 +434,15 @@
 			path = ../Statistics;
 			sourceTree = "<group>";
 		};
-		B3780EF41DD5AF1B0087CEC1 /* Data Sources */ = {
+		B3780EF41DD5AF1B0087CEC1 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
 				B3780EEE1DD5A7010087CEC1 /* DataSource.swift */,
 				B31E9FB81DD6AE0100B9AEFC /* WorkoutDataSource.swift */,
 				B3780EF51DD5AF2D0087CEC1 /* WorkoutsDataSource.swift */,
 			);
-			name = "Data Sources";
-			path = "../Data Sources";
+			name = DataSources;
+			path = ../DataSources;
 			sourceTree = "<group>";
 		};
 		B38208731DC2B1930008D6F8 /* Cells */ = {
@@ -456,14 +456,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		B382087C1DC2B3D40008D6F8 /* Data Providers */ = {
+		B382087C1DC2B3D40008D6F8 /* DataProviders */ = {
 			isa = PBXGroup;
 			children = (
 				B3780EF21DD5A7100087CEC1 /* ArrayProvider.swift */,
 				B38208741DC2B1FA0008D6F8 /* BaseDataProvider.swift */,
 				B3D456C21DC1E309008075D5 /* DataProvider.swift */,
 			);
-			path = "Data Providers";
+			path = DataProviders;
 			sourceTree = "<group>";
 		};
 		B382087D1DC2B3DD0008D6F8 /* Objects */ = {
@@ -513,7 +513,7 @@
 				B33835E8256A190C00A93E7B /* Model.xcdatamodeld */,
 				B36F37E71E0F7FF100667263 /* JDB.swift */,
 				B3B7D0121E7FC3A600483D95 /* ChartDataProvider.swift */,
-				B382087C1DC2B3D40008D6F8 /* Data Providers */,
+				B382087C1DC2B3D40008D6F8 /* DataProviders */,
 				B382087D1DC2B3DD0008D6F8 /* Objects */,
 				B3FCCD361E172A9F003EF14E /* ActiveOrFinished.swift */,
 			);
@@ -551,7 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				B31953A71E305F7900AC2687 /* WorkoutDetailView.swift */,
-				B3EA1A111E83D0E300B277E2 /* Workouts and Routines */,
+				B3EA1A111E83D0E300B277E2 /* WorkoutsAndRoutines */,
 				B3FCCD241E137828003EF14E /* BaseTVC.swift */,
 				B31CEC631DDAA764002F826C /* LiftTypeTVC.swift */,
 				B32887A31E03344100259D66 /* Settings */,
@@ -639,14 +639,14 @@
 			name = "Personal Record";
 			sourceTree = "<group>";
 		};
-		B3EA1A111E83D0E300B277E2 /* Workouts and Routines */ = {
+		B3EA1A111E83D0E300B277E2 /* WorkoutsAndRoutines */ = {
 			isa = PBXGroup;
 			children = (
-				B3780EF41DD5AF1B0087CEC1 /* Data Sources */,
+				B3780EF41DD5AF1B0087CEC1 /* DataSources */,
 				B36059511E1CC74A00EBE620 /* Singulars */,
 				B36059521E1CC74D00EBE620 /* Plurals */,
 			);
-			name = "Workouts and Routines";
+			name = WorkoutsAndRoutines;
 			sourceTree = "<group>";
 		};
 		B3FCCD271E171736003EF14E /* Views */ = {
