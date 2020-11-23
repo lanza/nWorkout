@@ -21,7 +21,6 @@ class SetRowView: BaseRowView {
   var set: NSet! {
     didSet {
       guard let set = set else { return }
-      print(set.weight, set.reps, set.completedWeight, set.completedReps)
       noteButton?.update(for: set)
 
       if set.isComplete {

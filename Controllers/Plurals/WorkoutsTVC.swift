@@ -33,7 +33,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
             self.share(url: tmpURL)
           }
         } catch {
-          print(error)
+          fatalError(error.localizedDescription)
         }
       }.resume()
     }

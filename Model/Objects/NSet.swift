@@ -19,21 +19,8 @@ class NSet: Codable, Identifiable {
 
   let id = UUID()
 
-  var completedWeight: Double = 0 {
-    didSet {
-      print(
-        "CompletedReps touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)"
-      )
-    }
-  }
-
-  var completedReps = 0 {
-    didSet {
-      print(
-        "CompletedWeight touched - weight: \(weight), reps: \(reps), completedWeight: \(completedWeight), completedReps: \(completedReps)"
-      )
-    }
-  }
+  var completedWeight: Double = 0
+  var completedReps = 0
 
   var isComplete: Bool {
     return weight == completedWeight && reps == completedReps

@@ -91,8 +91,6 @@ open class Coordinator {
     animated flag: Bool,
     completion: (() -> Void)? = nil
   ) {
-    print(self)
-    print(coordinatorToPresent)
     presentedCoordinator = coordinatorToPresent
     coordinatorToPresent.parent = self
     viewController.present(
