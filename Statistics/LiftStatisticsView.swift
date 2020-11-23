@@ -15,9 +15,12 @@ struct LiftStatisticsView: View {
 
   var body: some View {
     VStack(alignment: .center, spacing: 0) {
-      Picker(selection: $historyOrChartsToggle, label: Text("IDK")) {
-        Text("History").tag(0)
-        Text("Charts").tag(1)
+      HStack {
+        Picker(selection: $historyOrChartsToggle, label: Text("IDK")) {
+          Text("History").tag(0)
+          Text("Charts").tag(1)
+        }
+        .padding()
       }
       .pickerStyle(SegmentedPickerStyle())
       .foregroundColor(.white).font(.headline)
