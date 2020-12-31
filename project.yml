@@ -1,20 +1,14 @@
-name: nWorkout2
+name: nWorkout
 options:
   bundleIdPrefix: io.lanza
-packages:
-  Charts:
-    url: https://github.com/danielgindi/Charts
-    from: v3.4.0
 targets:
   nWorkout:
     type: application
     platform: iOS
-    deploymentTarget: "13.0"
+    deploymentTarget: "14.0"
     sources: [Source]
     settings:
       configs:
         debug:
           CUSTOM_BUILD_SETTING: my_debug_value
-    dependencies:
-      - package: Charts
 
