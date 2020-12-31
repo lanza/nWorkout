@@ -23,11 +23,11 @@ class SetRowView: BaseRowView {
       guard let set = set else { return }
       noteButton?.update(for: set)
 
-      if set.isComplete {
+      if set.isComplete() {
         setUI(for: .complete)
-      } else if set.didFail {
+      } else if set.didFail() {
         setUI(for: .fail)
-      } else if set.isFresh {
+      } else if set.isFresh() {
         setUI(for: .fresh)
       }
     }
@@ -86,7 +86,7 @@ class SetRowView: BaseRowView {
       isFresh = false
       didFail = true
 
-      completedWeightTextField?.setNumber(double: set.failureWeight)
+      completedWeightTextField?.setNumber(double: set.weight)
       completedRepsTextField?.setNumber(int: 0)
 
       if usesCombinedView {
@@ -103,7 +103,7 @@ class SetRowView: BaseRowView {
       didFail = false
 
       completedWeightTextField?.setNumber(double: set.weight)
-      completedRepsTextField?.setNumber(int: set.reps)
+      completedRepsTextField?.setNumber(int: Int(set.reps))
 
       if usesCombinedView {
         completedWeightTextField?.isHidden = true
@@ -131,13 +131,13 @@ class SetRowView: BaseRowView {
 
   func setFailed() {
     setUI(for: .fail)
-    set.setCompleted(weight: set.failureWeight, reps: 0)
+    set.setCompleted(weight: set.weight, reps: 0)
     completedRepsTextField?.becomeFirstResponder()
   }
 
   func setComplete() {
     setUI(for: .complete)
-    set.setCompleted(weight: set.weight, reps: set.reps)
+    set.setCompleted(weight: set.weight, reps: Int(set.reps))
   }
 
   func setFresh() {

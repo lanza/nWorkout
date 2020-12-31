@@ -18,7 +18,7 @@ extension SelectWorkoutCell: ConfigurableCell {
     var string = ""
     for lift in object.lifts! {
       let l = lift as! NLift
-      string += l.name + ", "
+      string += l.name! + ", "
     }
     string.removeLast(2)
     detailTextLabel?.text = string

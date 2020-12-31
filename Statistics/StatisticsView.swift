@@ -7,10 +7,10 @@ let df: DateFormatter = {
 }()
 
 struct StatisticsView: View {
-  @ObservedObject var jdb: JDB
+  var workouts: [NWorkout]
 
-  init(jdb: JDB) {
-    self.jdb = jdb
+  init(workouts: [NWorkout]) {
+    self.workouts = workouts
     let app = UINavigationBarAppearance()
     app.backgroundColor = Theme.Colors.darkest
     app.largeTitleTextAttributes = [
@@ -26,17 +26,16 @@ struct StatisticsView: View {
   }
 
   func getLifts() -> [([NLift], String, Int)] {
-    let filtered = jdb.workouts.filter { $0.isWorkout }
-    let lifts = filtered.map { $0.lifts }
+    let lifts = workouts.map { $0.lifts!.map { return $0 as! NLift } }
     let reduced = lifts.flatMap { $0 }
-    let sorted = reduced.sorted { $0.name < $1.name }
+    let sorted = reduced.sorted { $0.name! < $1.name! }
 
     var counts: [String: Int] = [:]
     var elements: [String: [NLift]] = [:]
 
     for element in sorted {
-      counts[element.name, default: 0] += 1
-      elements[element.name, default: []].append(element)
+      counts[element.name!, default: 0] += 1
+      elements[element.name!, default: []].append(element)
     }
 
     var result: [(elements: [NLift], name: String, count: Int)] = []
@@ -82,14 +81,12 @@ struct StatisticsView: View {
 
 struct Statistics_Previews: PreviewProvider {
   static var previews: some View {
-    StatisticsView(jdb: makeFakeJDB())
-
+    StatisticsView(workouts: makeFakeWorkouts())
   }
 }
 
-func makeFakeJDB() -> JDB {
-  let jdb = JDB()
-  jdb.workouts = []
+func makeFakeWorkouts() -> [NWorkout] {
+  var workouts: [NWorkout] = []
 
   let w = NWorkout.makeDummy()
   let l1 = NLift.makeDummy(name: "Muffin Petting")
@@ -100,6 +97,6 @@ func makeFakeJDB() -> JDB {
 
   w.append(l1)
   w.append(l2)
-  jdb.addWorkout(w)
-  return jdb
+  workouts.append(w)
+  return workouts
 }

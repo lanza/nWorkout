@@ -55,18 +55,18 @@ class LiftCell: ChartViewCell {
         cwtf.setNumber(double: set.completedWeight)
       }
       if let crtf = rowView.completedRepsTextField {
-        crtf.setNumber(int: set.completedReps)
+        crtf.setNumber(int: Int(set.completedReps))
       }
-      if let pl = rowView.previousLabel {
-        if object.previousStrings.count > index
-          && object.previousStrings[0]
-            != ""
-        {
-          pl.text = object.previousStrings[index]
-        } else {
-          pl.text = Lets.noPreviousSet
-        }
-      }
+      //      if let pl = rowView.previousLabel {
+      //        if object.previousStrings.count > index
+      //          && object.previousStrings[0]
+      //            != ""
+      //        {
+      //          pl.text = object.previousStrings[index]
+      //        } else {
+      //          pl.text = Lets.noPreviousSet
+      //        }
+      //      }
     }
 
     chartView.setup()

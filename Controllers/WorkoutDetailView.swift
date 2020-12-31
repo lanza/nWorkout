@@ -5,7 +5,7 @@ struct WorkoutDetailView: View {
   var body: some View {
     LazyVStack {
       DatePicker(
-        "Start Date", selection: $workout.startDate, in: ...Date(),
+        "Start Date", selection: Binding($workout.startDate)!, in: ...Date(),
         displayedComponents: [.date, .hourAndMinute]
       )
       .foregroundColor(.white)

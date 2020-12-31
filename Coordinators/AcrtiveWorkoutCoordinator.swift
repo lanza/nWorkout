@@ -51,7 +51,7 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
 
   func workoutCancelled(for workoutTVC: WorkoutTVC) {
     DispatchQueue.main.async {
-      JDB.shared.removeWorkout(self.workout)
+      coreDataStack.managedObjectContext.delete(self.workout)
       self.workoutIsNotActive()
     }
     navigationCoordinator?.parent?.dismiss(animated: true)
@@ -60,10 +60,11 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
   func workoutFinished(for workoutTVC: WorkoutTVC) {
     self.workout.isComplete = true
     self.workout.finishDate = Date()
-    for lift in self.workout.lifts {
-
+    for l in self.workout.lifts! {
+      let lift = l as! NLift
       var strings: [String] = []
-      for set in lift.sets {
+      for s in lift.sets! {
+        let set = s as! NSet
         let rem = set.completedWeight.remainder(dividingBy: 1)
         var str: String
         if rem == 0 {
@@ -77,7 +78,7 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
       let joined = strings.joined(separator: ", ")
 
       //                let string = lift.sets.map { "\(($0.completedWeight.remainder(dividingBy: 1) == 0) ? String(Int($0.completedWeight)) : String($0.completedWeight))" + " x " + "\($0.completedReps)" }.joined(separator: ",")
-      UserDefaults.standard.set(joined, forKey: "last" + lift.name)
+      UserDefaults.standard.set(joined, forKey: "last" + lift.name!)
     }
     workoutIsNotActive()
     navigationCoordinator?.parent?.dismiss(animated: true)

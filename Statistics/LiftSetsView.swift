@@ -4,7 +4,7 @@ struct LiftSetsView: View {
   let lift: NLift
   var body: some View {
     LazyVStack(alignment: .center, spacing: 0) {
-      ForEach(lift.sets) { set in
+      ForEach(lift.sets!.map { return $0 as! NSet }) { set in
         HStack(alignment: .center) {
           Spacer()
           HStack(alignment: .center) {
@@ -22,7 +22,7 @@ struct LiftSetsView: View {
         }
       }
     }
-    .frame(height: CGFloat(lift.sets.count * 60))
+    .frame(height: CGFloat(lift.sets!.count * 60))
   }
 }
 

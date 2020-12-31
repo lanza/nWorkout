@@ -73,7 +73,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
       guard let value = Int(setRowView.targetRepsTextField!.text!),
         value != setRowView.set.reps
       else { return }
-      setRowView.set.reps = value
+      setRowView.set.reps = Int64(value)
     }
   }
 
@@ -104,7 +104,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
       guard let value = Int(crtf.text!),
         value != setRowView.set.completedReps
       else { return }
-      setRowView.set.completedReps = value
+      setRowView.set.completedReps = Int64(value)
     }
   }
 

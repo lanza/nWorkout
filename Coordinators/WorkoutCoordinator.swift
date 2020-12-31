@@ -42,9 +42,11 @@ extension WorkoutCoordinator: WorkoutTVCDelegate {
   func workoutFinished(for workoutTVC: WorkoutTVC) {
     self.workout.isComplete = true
     self.workout.finishDate = Date()
-    for lift in self.workout.lifts {
+    for l in self.workout.lifts! {
+      let lift = l as! NLift
       var strings: [String] = []
-      for set in lift.sets {
+      for s in lift.sets! {
+        let set = s as! NSet
         let str =
           String(set.completedWeight) + " x "
           + String(
@@ -56,7 +58,7 @@ extension WorkoutCoordinator: WorkoutTVCDelegate {
       //   "\($0.completedWeight)" + " x " + "\($0.completedReps)"
       // }.joined(separator: ",")
       let string = strings.joined(separator: ", ")
-      UserDefaults.standard.set(string, forKey: "last" + lift.name)
+      UserDefaults.standard.set(string, forKey: "last" + lift.name!)
     }
     self.navigationCoordinator?.parent?.dismiss(animated: true)
   }

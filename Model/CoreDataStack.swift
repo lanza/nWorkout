@@ -1,6 +1,8 @@
 import CoreData
 import Foundation
 
+let coreDataStack = CoreDataStack(modelName: "Model")
+
 class CoreDataStack {
   private let modelName: String
 

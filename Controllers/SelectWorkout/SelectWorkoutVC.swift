@@ -57,7 +57,7 @@ class SelectWorkoutVC: UIViewController, UITableViewDataSource,
     )
   }
 
-  let objects = JDB.shared.getWorkouts().filter { $0.isWorkout == false }
+  let objects: [NWorkout] = []
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
     -> Int

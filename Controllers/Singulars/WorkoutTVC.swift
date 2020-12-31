@@ -12,7 +12,9 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
 
   weak var delegate: WorkoutTVCDelegate!
 
-  var activeOrFinished: ActiveOrFinished { return workout.activeOrFinished }
+  var activeOrFinished: ActiveOrFinished {
+    return workout.isComplete ? .finished : .active
+  }
 
   override func setDataSource() {
     dataSource = WorkoutDataSource(
@@ -34,7 +36,7 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    title = Lets.workoutStartTimeDF.string(from: workout.startDate)
+    title = Lets.workoutStartTimeDF.string(from: workout.startDate!)
 
     if activeOrFinished == .active {
       navigationItem.leftBarButtonItem = UIBarButtonItem(

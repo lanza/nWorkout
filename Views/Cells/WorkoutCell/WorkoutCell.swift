@@ -7,14 +7,14 @@ class WorkoutCell: ChartViewCell {
 
     chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
 
-    label.text = Lets.workoutDateDF.string(from: object.startDate)
+    label.text = Lets.workoutDateDF.string(from: object.startDate!)
 
     chartView.configurationClosure = { (index, rowView) in
       let lift = object.object(at: index)
       (rowView.columnViews[0] as! UILabel).text = lift.name
       (rowView.columnViews[0] as! UILabel).textAlignment = .center
       (rowView.columnViews[1] as! UILabel).text =
-        String(lift.sets.count)
+        String(lift.sets!.count)
         + " sets"
       (rowView.columnViews[1] as! UILabel).textAlignment = .center
     }

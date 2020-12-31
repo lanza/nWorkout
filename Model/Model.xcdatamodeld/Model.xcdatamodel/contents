@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17707" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="NLift" representedClassName="NLift" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="note" optional="YES" attributeType="String"/>
-        <relationship name="previous" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NLift"/>
-        <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NSet" inverseName="lift" inverseEntity="NSet"/>
+        <relationship name="next" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NLift" inverseName="next" inverseEntity="NLift"/>
+        <relationship name="previous" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NLift" inverseName="previous" inverseEntity="NLift"/>
+        <relationship name="sets" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NSet" inverseName="lift" inverseEntity="NSet"/>
         <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NWorkout" inverseName="lifts" inverseEntity="NWorkout"/>
     </entity>
     <entity name="NSet" representedClassName="NSet" syncable="YES">
         <attribute name="completedReps" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="completedWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isWarmup" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="note" optional="YES" attributeType="String"/>
         <attribute name="reps" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
@@ -23,16 +25,16 @@
         <attribute name="isComplete" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="note" optional="YES" attributeType="String"/>
-        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="lifts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NLift" inverseName="workout" inverseEntity="NLift"/>
+        <attribute name="startDate" attributeType="Date" defaultDateTimeInterval="631095240" usesScalarValueType="NO"/>
+        <relationship name="lifts" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NLift" inverseName="workout" inverseEntity="NLift"/>
     </entity>
     <entity name="Routine" representedClassName="Routine" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="NLift" positionX="-63" positionY="-18" width="128" height="119"/>
-        <element name="Routine" positionX="-63" positionY="-9" width="128" height="44"/>
-        <element name="NSet" positionX="-54" positionY="-9" width="128" height="134"/>
+        <element name="NLift" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="NSet" positionX="-54" positionY="-9" width="128" height="149"/>
         <element name="NWorkout" positionX="-54" positionY="0" width="128" height="134"/>
+        <element name="Routine" positionX="-63" positionY="-9" width="128" height="44"/>
     </elements>
 </model>

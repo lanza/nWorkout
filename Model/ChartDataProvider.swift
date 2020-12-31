@@ -11,10 +11,9 @@ final class StatisticsDataProvider {
 
   init(liftName: String) {
     self.liftName = liftName
-    self.lifts = JDB.shared.getLifts().filter { $0.name == liftName }
-      .filter { $0.isWorkout == true }.sorted {
-        $0.workout!.startDate < $1.workout!.startDate
-      }
+    self.lifts = [NLift]().filter { $0.name == liftName }.sorted {
+      $0.workout!.startDate! < $1.workout!.startDate!
+    }
   }
 
   func getBestSetDataPoints() -> [ChartDataPair] {
@@ -23,8 +22,9 @@ final class StatisticsDataProvider {
   }
 
   private func generateBestSetDataPair(from lift: NLift) -> ChartDataPair {
-    let timeInterval = lift.workout!.startDate.timeIntervalSinceReferenceDate
-    let weight = lift.sets.last?.completedWeight ?? 0
+    let timeInterval = lift.workout!.startDate!.timeIntervalSinceReferenceDate
+    let set = lift.sets!.lastObject as? NSet
+    let weight = set?.completedWeight ?? 0
     return ChartDataPair(timeInterval: timeInterval, weight: weight)
   }
 
@@ -34,7 +34,8 @@ final class StatisticsDataProvider {
     var prDataPoints: [ChartDataPair] = []
     for lift in lifts {
       var bestCompletedWeight: Double = 0
-      for set in lift.sets {
+      for s in lift.sets! {
+        let set = s as! NSet
         if set.completedReps == set.reps {
           if set.completedWeight > bestCompletedWeight {
             bestCompletedWeight = set.completedWeight
@@ -44,7 +45,7 @@ final class StatisticsDataProvider {
       if bestCompletedWeight > prWeight {
         prWeight = bestCompletedWeight
       }
-      prTimeInterval = lift.workout!.startDate.timeIntervalSinceReferenceDate
+      prTimeInterval = lift.workout!.startDate!.timeIntervalSinceReferenceDate
       prDataPoints.append(
         ChartDataPair(timeInterval: prTimeInterval, weight: prWeight)
       )
@@ -62,7 +63,8 @@ final class StatisticsDataProvider {
       var setIsNew = true
       var bestCompletedSet: NSet?
 
-      for set in lift.sets {
+      for s in lift.sets! {
+        let set = s as! NSet
         if set.completedReps == set.reps,
           let bestCompletedWeight = bestCompletedSet?.completedWeight,
           set.completedWeight > bestCompletedWeight

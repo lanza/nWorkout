@@ -21,7 +21,6 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
         guard let name = alert.textFields?.first?.text else { fatalError() }
 
         let routine = NWorkout.new(
-          isWorkout: false,
           isComplete: false,
           name: name
         )
@@ -48,8 +47,8 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    workouts = JDB.shared.getWorkouts().filter { $0.isWorkout == false }
-      .sorted(by: { $0.name > $1.name })
+    workouts = [NWorkout]()
+      .sorted(by: { $0.name! > $1.name! })
 
     dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
     dataSource.name = Lets.routine

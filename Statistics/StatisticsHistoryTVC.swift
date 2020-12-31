@@ -5,9 +5,10 @@ class StatisticsHistoryTVC: BaseTVC {
 
   init(liftName: String) {
     self.liftName = liftName
-    self.lifts = JDB.shared.getLifts().filter { $0.name == liftName }
-      .filter { $0.isWorkout == true }
-      .sorted(by: { $0.workout!.startDate < $1.workout!.startDate })
+    //TODO: fill this out properly
+    let lifts: [NLift] = []
+    self.lifts = lifts.filter { $0.name == liftName }
+      .sorted(by: { $0.workout!.startDate! < $1.workout!.startDate! })
 
     super.init(nibName: nil, bundle: nil)
   }

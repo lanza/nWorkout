@@ -21,17 +21,17 @@ class JDB: ObservableObject {
     #endif
   }
 
-  @Published var workouts: [NWorkout] = []
+  @Published var workouts: [JWorkout] = []
 
-  func setAllWorkouts(with workouts: [NWorkout]) {
+  func setAllWorkouts(with workouts: [JWorkout]) {
     JDB.shared.workouts = workouts
   }
 
-  func getWorkouts() -> [NWorkout] {
+  func getWorkouts() -> [JWorkout] {
     if workouts.count == 0 {
       do {
         let d = try Data(contentsOf: getFilePath())
-        workouts = try JSONDecoder().decode([NWorkout].self, from: d)
+        workouts = try JSONDecoder().decode([JWorkout].self, from: d)
         for workout in workouts {
           for lift in workout.lifts {
             for set in lift.sets {
@@ -47,11 +47,11 @@ class JDB: ObservableObject {
     return workouts
   }
 
-  func getLifts() -> [NLift] {
+  func getLifts() -> [JLift] {
     return getWorkouts().map { $0.lifts }.reduce([], +)
   }
 
-  func addWorkout(_ workout: NWorkout) {
+  func addWorkout(_ workout: JWorkout) {
     if workouts.contains(where: { $0 === workout }) {
       return
     } else {
@@ -60,7 +60,7 @@ class JDB: ObservableObject {
     }
   }
 
-  func removeWorkout(_ workout: NWorkout) {
+  func removeWorkout(_ workout: JWorkout) {
     if let index = workouts.firstIndex(where: { $0 === workout }) {
       workouts.remove(at: index)
     } else {

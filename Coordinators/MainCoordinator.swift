@@ -166,7 +166,6 @@ extension MainCoordinator: SelectWorkoutCoordinatorDelegate {
       activeWorkoutCoordinator!.workout = routine.makeWorkoutWorkout()
     } else {
       activeWorkoutCoordinator!.workout = NWorkout.new(
-        isWorkout: true,
         isComplete: false,
         name: Lets.blank
       )

@@ -44,10 +44,12 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
   #endif
 
   func reloadData() {
-    workouts = JDB.shared.getWorkouts()
-      .filter { $0.isWorkout == true }
-      .filter { $0.activeOrFinished == .finished }
-      .sorted(by: { $0.startDate > $1.startDate })
+    // TODO: implement this with fetch request
+    let workouts2: [NWorkout] = []
+    workouts =
+      workouts2
+      .filter { $0.isComplete }
+      .sorted(by: { $0.startDate! > $1.startDate! })
 
     dataSource = WorkoutsDataSource(tableView: tableView, workouts: workouts)
     dataSource.name = Lets.workout

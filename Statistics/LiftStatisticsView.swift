@@ -36,7 +36,7 @@ struct LiftStatisticsView: View {
               ) {
                 LazyHStack {
                   Spacer()
-                  Text("\(df.string(from: lift.workout!.startDate))")
+                  Text("\(df.string(from: lift.workout!.startDate!))")
                   Spacer()
                 }
                 .padding()
