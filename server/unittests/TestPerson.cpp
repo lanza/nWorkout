@@ -1,5 +1,5 @@
-#include <gtest/gtest.h>
 #include <Person.hpp>
+#include <gtest/gtest.h>
 
 TEST(TestPerson, SaysHello) {
   Person P{"Muffin", 15};
