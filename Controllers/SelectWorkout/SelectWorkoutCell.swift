@@ -15,6 +15,12 @@ class SelectWorkoutCell: UITableViewCell {
 extension SelectWorkoutCell: ConfigurableCell {
   func configure(for object: NWorkout, at indexPath: IndexPath) {
     textLabel?.text = object.name
-    detailTextLabel?.text = object.lifts.map { $0.name }.joined(separator: ", ")
+    var string = ""
+    for lift in object.lifts! {
+      let l = lift as! NLift
+      string += l.name + ", "
+    }
+    string.removeLast(2)
+    detailTextLabel?.text = string
   }
 }
