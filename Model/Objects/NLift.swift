@@ -1,11 +1,11 @@
 import Foundation
 
-class NLift: Codable, Identifiable {
+class JLift: Codable, Identifiable {
   var note = ""
   var isWorkout = false
   var name = ""
-  weak var workout: NWorkout?
-  var sets: [NSet] = []
+  weak var workout: JWorkout?
+  var sets: [JSet] = []
   var _previousStrings: String = ""
 
   let id = UUID()
@@ -14,8 +14,8 @@ class NLift: Codable, Identifiable {
     return _previousStrings.components(separatedBy: ",")
   }
 
-  static func new(isWorkout: Bool, name: String, workout: NWorkout) -> NLift {
-    let lift = NLift()
+  static func new(isWorkout: Bool, name: String, workout: JWorkout) -> JLift {
+    let lift = JLift()
 
     lift.isWorkout = isWorkout
     lift.name = name
@@ -41,9 +41,9 @@ class NLift: Codable, Identifiable {
   }
 }
 
-extension NLift {
-  func makeWorkoutLift(workout: NWorkout) -> NLift {
-    let lift = NLift.new(isWorkout: true, name: name, workout: workout)
+extension JLift {
+  func makeWorkoutLift(workout: JWorkout) -> JLift {
+    let lift = JLift.new(isWorkout: true, name: name, workout: workout)
 
     for set in sets {
       let new = set.makeWorkoutSet(lift: self)
@@ -54,8 +54,8 @@ extension NLift {
   }
 }
 
-extension NLift: DataProvider {
-  func append(_ object: NSet) {
+extension JLift: DataProvider {
+  func append(_ object: JSet) {
     sets.append(object)
     object.lift = self
   }
@@ -64,16 +64,16 @@ extension NLift: DataProvider {
     return sets.count
   }
 
-  func object(at index: Int) -> NSet {
+  func object(at index: Int) -> JSet {
     return sets[index]
   }
 
-  func index(of object: NSet) -> Int? {
+  func index(of object: JSet) -> Int? {
     return nil
     //    return sets.index(of: object)
   }
 
-  func insert(_ object: NSet, at index: Int) {
+  func insert(_ object: JSet, at index: Int) {
     sets.insert(object, at: index)
   }
 
@@ -82,10 +82,10 @@ extension NLift: DataProvider {
   }
 }
 
-extension NLift {
+extension JLift {
 
-  static func makeDummy(name: String = "Riley Feeding") -> NLift {
-    let l = NLift()
+  static func makeDummy(name: String = "Riley Feeding") -> JLift {
+    let l = JLift()
     l.name = name
     l._previousStrings = "IDK"
     l.isWorkout = true

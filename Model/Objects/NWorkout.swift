@@ -1,10 +1,10 @@
 import Combine
 import Foundation
 
-class NWorkout: ObservableObject, Codable, Identifiable {
+class JWorkout: ObservableObject, Codable, Identifiable {
   @Published var note = ""
   var isWorkout = false
-  var lifts: [NLift] = []
+  var lifts: [JLift] = []
   var name = ""
   var isComplete = false
   @Published var startDate = Date()
@@ -30,7 +30,7 @@ class NWorkout: ObservableObject, Codable, Identifiable {
     isWorkout = try container.decode(Bool.self, forKey: .isWorkout)
     name = try container.decode(String.self, forKey: .name)
     isComplete = try container.decode(Bool.self, forKey: .isComplete)
-    lifts = try container.decode(Array<NLift>.self, forKey: .lifts)
+    lifts = try container.decode(Array<JLift>.self, forKey: .lifts)
     startDate = try container.decode(Date.self, forKey: .startDate)
     finishDate = try? container.decode(Date.self, forKey: .finishDate)
   }
@@ -53,9 +53,9 @@ class NWorkout: ObservableObject, Codable, Identifiable {
 
   var isFinished: Bool { return activeOrFinished == .finished }
 
-  func addNewSet(for lift: NLift) -> NSet {
+  func addNewSet(for lift: JLift) -> JSet {
     let last = lift.sets.last
-    let set = NSet.new(
+    let set = JSet.new(
       isWorkout: isWorkout,
       isWarmup: false,
       weight: last?.weight ?? 45,
@@ -68,14 +68,14 @@ class NWorkout: ObservableObject, Codable, Identifiable {
     return set
   }
 
-  func addNewLift(name: String) -> NLift {
-    let lift = NLift.new(isWorkout: isWorkout, name: name, workout: self)
+  func addNewLift(name: String) -> JLift {
+    let lift = JLift.new(isWorkout: isWorkout, name: name, workout: self)
     lifts.append(lift)
     return lift
   }
 
-  static func new(isWorkout: Bool, isComplete: Bool, name: String) -> NWorkout {
-    let workout = NWorkout()
+  static func new(isWorkout: Bool, isComplete: Bool, name: String) -> JWorkout {
+    let workout = JWorkout()
     workout.name = name
     workout.isWorkout = isWorkout
     workout.isComplete = isComplete
@@ -87,8 +87,8 @@ class NWorkout: ObservableObject, Codable, Identifiable {
     fatalError("This just needs to be removed from JDB array")
   }
 
-  static func makeDummy(name: String = "Dog Petting Session") -> NWorkout {
-    let w = NWorkout()
+  static func makeDummy(name: String = "Dog Petting Session") -> JWorkout {
+    let w = JWorkout()
     w.name = name
     w.startDate =
       Date() - Date(timeIntervalSinceNow: -1000).timeIntervalSinceNow
@@ -98,9 +98,9 @@ class NWorkout: ObservableObject, Codable, Identifiable {
   }
 }
 
-extension NWorkout {
-  func makeWorkoutWorkout() -> NWorkout {
-    let workout = NWorkout.new(isWorkout: true, isComplete: false, name: name)
+extension JWorkout {
+  func makeWorkoutWorkout() -> JWorkout {
+    let workout = JWorkout.new(isWorkout: true, isComplete: false, name: name)
 
     for lift in lifts {
       let new = lift.makeWorkoutLift(workout: workout)
@@ -110,8 +110,8 @@ extension NWorkout {
   }
 }
 
-extension NWorkout: DataProvider {
-  func append(_ object: NLift) {
+extension JWorkout: DataProvider {
+  func append(_ object: JLift) {
     lifts.append(object)
     object.workout = self
   }
@@ -120,15 +120,15 @@ extension NWorkout: DataProvider {
     return lifts.count
   }
 
-  func object(at index: Int) -> NLift {
+  func object(at index: Int) -> JLift {
     return lifts[index]
   }
 
-  func index(of object: NLift) -> Int? {
+  func index(of object: JLift) -> Int? {
     return lifts.firstIndex(where: { $0 === object })
   }
 
-  func insert(_ object: NLift, at index: Int) {
+  func insert(_ object: JLift, at index: Int) {
     lifts.insert(object, at: index)
   }
 

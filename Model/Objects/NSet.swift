@@ -1,6 +1,6 @@
 import Foundation
 
-class NSet: Codable, Identifiable {
+class JSet: Codable, Identifiable {
   private enum CodingKeys: String, CodingKey {
     case note
     case isWorkout
@@ -36,9 +36,9 @@ class NSet: Codable, Identifiable {
     reps: Int,
     completedWeight: Double,
     completedReps: Int,
-    lift: NLift
-  ) -> NSet {
-    let set = NSet()
+    lift: JLift
+  ) -> JSet {
+    let set = JSet()
 
     set.isWorkout = isWorkout
     set.isWarmup = isWarmup
@@ -51,10 +51,10 @@ class NSet: Codable, Identifiable {
     return set
   }
 
-  weak var lift: NLift?
+  weak var lift: JLift?
 
-  static func makeDummy() -> NSet {
-    let s = NSet()
+  static func makeDummy() -> JSet {
+    let s = JSet()
 
     let reps = Int.random(in: 0...10)
     let weight = Int.random(in: 0...100)
@@ -69,9 +69,9 @@ class NSet: Codable, Identifiable {
   }
 }
 
-extension NSet {
-  func makeWorkoutSet(lift: NLift) -> NSet {
-    let set = NSet.new(
+extension JSet {
+  func makeWorkoutSet(lift: JLift) -> JSet {
+    let set = JSet.new(
       isWorkout: true,
       isWarmup: isWarmup,
       weight: weight,
@@ -86,7 +86,7 @@ extension NSet {
   var failureWeight: Double { return weight }
 }
 
-extension NSet {
+extension JSet {
   func setTarget(weight: Double, reps: Int) {
     self.weight = weight
     self.reps = reps
