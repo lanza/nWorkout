@@ -45,10 +45,10 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
   #endif
 
   func reloadData() {
-    // TODO: implement this with fetch request
-    let workouts2: [NWorkout] = []
+    // TODO: Implement this properly once I laern coredata
+    guard let result = try? coreDataStack.managedObjectContext.fetch(NWorkout.getFetchRequest()) else { return }
     workouts =
-      workouts2
+      result
       .filter { $0.isComplete }
       .sorted(by: { $0.startDate! > $1.startDate! })
 
