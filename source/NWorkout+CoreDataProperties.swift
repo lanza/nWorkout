@@ -8,7 +8,6 @@ extension NWorkout {
   }
 
   @NSManaged public var finishDate: Date?
-  @NSManaged public var id: UUID?
   @NSManaged public var isComplete: Bool
   @NSManaged public var name: String?
   @NSManaged public var note: String?

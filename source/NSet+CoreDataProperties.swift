@@ -18,7 +18,6 @@ extension NSet {
 
   @NSManaged public var completedReps: Int64
   @NSManaged public var completedWeight: Double
-  @NSManaged public var id: UUID?
   @NSManaged public var note: String?
   @NSManaged public var reps: Int64
   @NSManaged public var weight: Double
