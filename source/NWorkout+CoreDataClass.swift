@@ -4,6 +4,10 @@ import Foundation
 @objc(NWorkout)
 public class NWorkout: NSManagedObject {
 
+  @nonobjc public class func getFetchRequest() -> NSFetchRequest<NWorkout> {
+    return NSFetchRequest<NWorkout>(entityName: "NWorkout")
+  }
+
   static func new(isComplete: Bool, name: String) -> NWorkout {
     let workout = NWorkout(context: coreDataStack.managedObjectContext)
     workout.name = name
