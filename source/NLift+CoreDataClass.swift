@@ -3,12 +3,18 @@ import Foundation
 
 @objc(NLift)
 public class NLift: NSManagedObject {
+
+  @nonobjc public class func getFetchRequest() -> NSFetchRequest<NLift> {
+    return NSFetchRequest<NLift>(entityName: "NLift")
+  }
+
   static func new(name: String, workout: NWorkout) -> NLift {
     let lift = NLift(context: coreDataStack.managedObjectContext)
     lift.name = name
     lift.workout = workout
     return lift
   }
+
   func makeWorkoutLift(workout: NWorkout) -> NLift {
     let lift = NLift.new(name: name!, workout: workout)
 
