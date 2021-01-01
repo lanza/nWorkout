@@ -8,7 +8,7 @@ public class NWorkout: NSManagedObject {
     return NSFetchRequest<NWorkout>(entityName: "NWorkout")
   }
 
-  static func new(isComplete: Bool, name: String) -> NWorkout {
+  static func new(isComplete: Bool = false, name: String) -> NWorkout {
     let workout = NWorkout(context: coreDataStack.managedObjectContext)
     workout.name = name
     workout.isComplete = isComplete
