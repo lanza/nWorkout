@@ -49,10 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-    JDB.shared.write()
+    try? coreDataStack.managedObjectContext.save()
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
+    try? coreDataStack.managedObjectContext.save()
     JDB.shared.write()
   }
 }
