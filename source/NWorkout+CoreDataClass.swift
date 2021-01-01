@@ -10,6 +10,7 @@ public class NWorkout: NSManagedObject {
 
   static func new(isComplete: Bool = false, name: String) -> NWorkout {
     let workout = NWorkout(context: coreDataStack.managedObjectContext)
+    workout.startDate = Date()
     workout.name = name
     workout.isComplete = isComplete
     return workout
