@@ -11,9 +11,10 @@ class MainCoordinator: TabBarCoordinator {
     request.fetchLimit = 10
     guard
       let fetchedWorkouts = try? coreDataStack.managedObjectContext.fetch(
-        request)jjjj
+        request)
     else { return }
 
+    // TODO: do this properly with a fetch request
     let workouts = fetchedWorkouts.filter { !$0.isComplete }
 
     if let first = workouts.first {
