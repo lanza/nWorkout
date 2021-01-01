@@ -1,0 +1,32 @@
+Inbox
+* 
+
+NextActions
+* Restore statistics
+* restore previous strings
+* Go through the few commits and see what was removed that I should add comments for
+
+
+LaterActions
+* figure out mapping from old JSON format to new CoreData format
+* figure out tests to do this
+* figure out how to implement tests in project.yaml
+* Cleanup coredata usage
+
+
+Planned
+* CloudKit implementation
+
+
+Sometime/Maybe
+* Remove Coordinators and implement more things in SwiftUI
+* Restore routines
+** Figure out if I should have a separate class for Routines or not
+* Restore note button via implmeneting the alert in Swift
+* Show notes in workout details
+* Readd charts
+
+
+Maybe?
+* Rerestore the SaveData button to work with JDB again -- I'll use this for syncing old version
+
