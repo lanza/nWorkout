@@ -1,5 +1,3 @@
-import CloudKit
-import HealthKit
 import UIKit
 
 func getDocumentsDirectory() -> URL {
