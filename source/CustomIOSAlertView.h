@@ -31,6 +31,7 @@
 - (void)close;
 
 - (IBAction)customIOS7dialogButtonTouchUpInside:(id)sender;
+
 - (void)setOnButtonTouchUpInside:
     (void (^)(CustomIOSAlertView *alertView,
               int buttonIndex))onButtonTouchUpInside;

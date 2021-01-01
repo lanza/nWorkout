@@ -1,7 +1,7 @@
 import UIKit
 
 class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
-  WorkoutDataSourceDelegate, CustomIOSAlertViewDelegate,
+  WorkoutDataSourceDelegate, //CustomIOSAlertViewDelegate,
   WorkoutFooterViewDelegate
 {
 
@@ -123,24 +123,24 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
   var didTapAddNewLift: (() -> Void)!
 
   func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet) {
-    let a = CustomIOSAlertView()
+//    let a = CustomIOSAlertView()
     //    a?.containerView = NoteView.new(for: set, view: setRowView)
-    a?.delegate = self
-    a?.show()
+//    a?.delegate = self
+//    a?.show()
   }
 
   func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NLift) {
-    let a = CustomIOSAlertView()
+//    let a = CustomIOSAlertView()
     //    a?.containerView = NoteView.new(for: lift, view: liftCell)
-    a?.delegate = self
-    a?.show()
+//    a?.delegate = self
+//    a?.show()
   }
 
   func customIOS7dialogButtonTouchUp(
     inside alertView: Any!,
     clickedButtonAt buttonIndex: Int
   ) {
-    let av = alertView as! CustomIOSAlertView
+//    let av = alertView as! CustomIOSAlertView
     //    if let nv = av.containerView as? NoteView<Set, SetRowView> {
     //      nv.type.note = nv.textView.text
     //      nv.view.noteButton?.update(for: nv.type)
@@ -148,7 +148,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
     //      nv.type.note = nv.textView.text
     //      nv.view.noteButton.update(for: nv.type)
     //    }
-    av.close()
+//    av.close()
   }
 
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
