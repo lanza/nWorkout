@@ -86,7 +86,8 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
     NotificationCenter.default.post(
       name: Notification.activeWorkoutDidFinish, object: nil)
 
-    JDB.shared.write()
+    // TODO: fix this
+    try! coreDataStack.managedObjectContext.save()
   }
 }
 
