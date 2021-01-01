@@ -90,14 +90,14 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
 
     tableView.register(LiftTypeCell.self)
 
-    var workoutNames: Swift.Set<String> = []
-    for workout in JDB.shared.getWorkouts() {
-      for lift in workout.lifts {
-        workoutNames.insert(lift.name)
-      }
+    // TODO: clean up this fetch request usage
+    let lifts = try! coreDataStack.managedObjectContext.fetch(NLift.getFetchRequest())
+    var workoutNames: Set<String> = []
+    for lift in lifts {
+      guard let name = lift.name else { continue }
+      workoutNames.insert(name)
     }
-    liftTypes = [String](workoutNames)
-    liftTypes.sort()
+    liftTypes = workoutNames.sorted()
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
