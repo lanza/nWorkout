@@ -7,29 +7,35 @@ class MainCoordinator: TabBarCoordinator {
   }
 
   func checkForUnfinishedWorkout(displayImmediately: Bool) {
-    //    let workouts = JDB.shared.getWorkouts().filter { $0.isComplete == false }
-    //      .filter { $0.isWorkout == true }
-    //
-    //    if let first = workouts.first {
-    //      self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
-    //      self.activeWorkoutCoordinator?.delegate = self
-    //      self.activeWorkoutCoordinator?.workout = first
-    //
-    //      self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
-    //      self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem =
-    //        UIBarButtonItem(
-    //          title: Lets.hide,
-    //          style: .plain,
-    //          target: self,
-    //          action: #selector(hideButtonTapped)
-    //        )
-    //      self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
-    //        self.activeWorkoutCoordinator = nil
-    //      }
-    //      if displayImmediately {
-    //        displayActiveWorkout()
-    //      }
-    //    }
+    let request = NWorkout.getFetchRequest()
+    request.fetchLimit = 10
+    guard
+      let fetchedWorkouts = try? coreDataStack.managedObjectContext.fetch(
+        request)jjjj
+    else { return }
+
+    let workouts = fetchedWorkouts.filter { !$0.isComplete }
+
+    if let first = workouts.first {
+      self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
+      self.activeWorkoutCoordinator?.delegate = self
+      self.activeWorkoutCoordinator?.workout = first
+
+      self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
+      self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem =
+        UIBarButtonItem(
+          title: Lets.hide,
+          style: .plain,
+          target: self,
+          action: #selector(hideButtonTapped)
+        )
+      self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
+        self.activeWorkoutCoordinator = nil
+      }
+      if displayImmediately {
+        displayActiveWorkout()
+      }
+    }
   }
 
   let app: UINavigationBarAppearance = {
