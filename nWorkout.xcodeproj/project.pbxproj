@@ -18,7 +18,7 @@
 		15414310EFA0243B5AA4C6EB /* WorkoutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE35B6B9A8C7A909987A5F5C /* WorkoutTVC.swift */; };
 		170FCCB7221E2D9C39D03582 /* WorkoutDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E8CFD501A349E63040394 /* WorkoutDetailCoordinator.swift */; };
 		1B46702FB86EA0D00A342ED6 /* WeightAndRepsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC9BF933A8C7E2076FA503F /* WeightAndRepsTextField.swift */; };
-		1D7BA2DFB9CA0D6C16402B3C /* NWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1EB379231F56E58BD8D838 /* NWorkout.swift */; };
+		1D7BA2DFB9CA0D6C16402B3C /* JWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1EB379231F56E58BD8D838 /* JWorkout.swift */; };
 		230B4E74BA8A1E65E6BEA037 /* StartBlankWorkoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E54B343D8C60CACD8305B9 /* StartBlankWorkoutButton.swift */; };
 		2B536F839F9364224A3FA1BD /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C8C00F10F42D1BFF4748C5 /* UIAlertController+Extensions.swift */; };
 		2DF59AD17259B5E74C51224C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EEE61C623D1D3732B51549 /* KeyboardHandler.swift */; };
@@ -64,7 +64,7 @@
 		7D0F5E0B868CB98BF98DAB70 /* SelectWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC031B224BF92B129F8FB32 /* SelectWorkoutCell.swift */; };
 		7E197C87E3A96E437FE186BF /* LiftTableHeaderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F40F7CBEA6BDED406D170CA /* LiftTableHeaderRowView.swift */; };
 		7E57C7B24867891860E0EFFC /* UIResponder+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B57640C59B961A78D4189 /* UIResponder+FirstResponder.swift */; };
-		810699F4E62A2D8908259905 /* NLift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0996D5C5E57FD08A482DFC /* NLift.swift */; };
+		810699F4E62A2D8908259905 /* JLift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0996D5C5E57FD08A482DFC /* JLift.swift */; };
 		851E35636F7DBC707A551F78 /* FailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6C033013C548E2446830E /* FailButton.swift */; };
 		852904F67962C8D745A7126D /* WorkoutLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413E5619534DF8E3467F296 /* WorkoutLiftCell.swift */; };
 		869F97FF73FA8E5EFD31FED8 /* CarbonStatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E23A6C78B1A55BF219C36C /* CarbonStatisticsVC.swift */; };
@@ -119,7 +119,7 @@
 		E1267D0D0D4CD682B173CB5C /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DE6C8F192E3D6E50ACC867 /* CustomIOSAlertView.m */; };
 		E24B72523B00E5F00E9D91AB /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3B9F4BCBF82A0DBDCEFBB8 /* LiftCell.swift */; };
 		E2E3B2A09A964AA1C6E35291 /* nWorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692E5D87FBC202A819ECF3B9 /* nWorkoutTests.swift */; };
-		E33151885A911768E1DDA403 /* NSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CCF622510B1810AD65B1F /* NSet.swift */; };
+		E33151885A911768E1DDA403 /* JSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CCF622510B1810AD65B1F /* JSet.swift */; };
 		E5985971E2B261205E955E99 /* LiftStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37783C23758D35E0CFBB2A8 /* LiftStatisticsView.swift */; };
 		E61D1A0F2421514A789199C2 /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805A6088FC7AE129E84EB8FE /* CompleteButton.swift */; };
 		E6CE4B10C2F65F029063332A /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA90BE9EE398B52DFCD286F /* UIButton+Extensions.swift */; };
@@ -146,7 +146,7 @@
 		17C05E1C64303ECF66F21B2F /* NWorkout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NWorkout+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1B4A0AF4198A46C0972C889B /* RoutineLiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineLiftCell.swift; sourceTree = "<group>"; };
 		1B57F6A783E8C9B2D9BF4A35 /* NLift+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NLift+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		1C0996D5C5E57FD08A482DFC /* NLift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLift.swift; sourceTree = "<group>"; };
+		1C0996D5C5E57FD08A482DFC /* JLift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLift.swift; sourceTree = "<group>"; };
 		2035FB46CF17CF53197ED238 /* NLift+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NLift+CoreDataClass.swift"; sourceTree = "<group>"; };
 		216C7DE68A301384B4883C9D /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
 		27D968C62E984504D09E9EA1 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		4636973CF18ED4C082CD181F /* SingleLiftStatisticsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLiftStatisticsCoordinator.swift; sourceTree = "<group>"; };
 		49360B4E8D6C71C5D9FD3688 /* LiftTableHeaderLabelHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderLabelHolder.swift; sourceTree = "<group>"; };
 		49C7951989A7E2062D716103 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
-		4D1EB379231F56E58BD8D838 /* NWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NWorkout.swift; sourceTree = "<group>"; };
+		4D1EB379231F56E58BD8D838 /* JWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWorkout.swift; sourceTree = "<group>"; };
 		4D73C5D2F322598372E3BA66 /* WeightAndRepsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightAndRepsLabel.swift; sourceTree = "<group>"; };
 		50918413B8DF0598AA4ED106 /* WorkoutFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFooterView.swift; sourceTree = "<group>"; };
 		53337C5C4CE041160C0E4220 /* LiftTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderView.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		5A601719070456AC909F4DC2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		5A9EE729C3CFF7D7588A965E /* LiftSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftSetsView.swift; sourceTree = "<group>"; };
 		5B383CB9D8EBEB0175C8DA79 /* nWorkout-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nWorkout-Bridging-Header.h"; sourceTree = "<group>"; };
-		5C6CCF622510B1810AD65B1F /* NSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSet.swift; sourceTree = "<group>"; };
+		5C6CCF622510B1810AD65B1F /* JSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSet.swift; sourceTree = "<group>"; };
 		5D4E732BB8690F252E1EC04E /* SettingsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		61540BDADAE64EBA497253C1 /* RoutineCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCoordinator.swift; sourceTree = "<group>"; };
 		62E23A6C78B1A55BF219C36C /* CarbonStatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonStatisticsVC.swift; sourceTree = "<group>"; };
@@ -350,15 +350,15 @@
 				5A601719070456AC909F4DC2 /* MainCoordinator.swift */,
 				053F6FE71EF26FD88E5535F5 /* Model.xcdatamodeld */,
 				D20EF953DAA47BB66CDEA891 /* NavigationCoordinator.swift */,
-				1C0996D5C5E57FD08A482DFC /* NLift.swift */,
+				1C0996D5C5E57FD08A482DFC /* JLift.swift */,
 				2035FB46CF17CF53197ED238 /* NLift+CoreDataClass.swift */,
 				1B57F6A783E8C9B2D9BF4A35 /* NLift+CoreDataProperties.swift */,
 				8EAFCFEDD626D442CA597EC0 /* NoteButton.swift */,
-				5C6CCF622510B1810AD65B1F /* NSet.swift */,
+				5C6CCF622510B1810AD65B1F /* JSet.swift */,
 				6DB9BDA4840333F3D0162F74 /* NSet+CoreDataClass.swift */,
 				E9BA46806D651C7B523BE69A /* NSet+CoreDataProperties.swift */,
 				5B383CB9D8EBEB0175C8DA79 /* nWorkout-Bridging-Header.h */,
-				4D1EB379231F56E58BD8D838 /* NWorkout.swift */,
+				4D1EB379231F56E58BD8D838 /* JWorkout.swift */,
 				17C05E1C64303ECF66F21B2F /* NWorkout+CoreDataClass.swift */,
 				DCB983C4A1547DB3404044D7 /* NWorkout+CoreDataProperties.swift */,
 				692E5D87FBC202A819ECF3B9 /* nWorkoutTests.swift */,
@@ -557,13 +557,13 @@
 				6079B9864A36C1CA1EB4ED23 /* Model.xcdatamodeld in Sources */,
 				76EAFDD59D4C1725FC6F299B /* NLift+CoreDataClass.swift in Sources */,
 				34427B97F18B32EC982166BB /* NLift+CoreDataProperties.swift in Sources */,
-				810699F4E62A2D8908259905 /* NLift.swift in Sources */,
+				810699F4E62A2D8908259905 /* JLift.swift in Sources */,
 				FF8AB362A5BA179DD3CAF409 /* NSet+CoreDataClass.swift in Sources */,
 				A150B8C8CCFDA76FD983DC66 /* NSet+CoreDataProperties.swift in Sources */,
-				E33151885A911768E1DDA403 /* NSet.swift in Sources */,
+				E33151885A911768E1DDA403 /* JSet.swift in Sources */,
 				3E9F89C723BA6CFD649A7CCF /* NWorkout+CoreDataClass.swift in Sources */,
 				FAB07127FED5C436736C2123 /* NWorkout+CoreDataProperties.swift in Sources */,
-				1D7BA2DFB9CA0D6C16402B3C /* NWorkout.swift in Sources */,
+				1D7BA2DFB9CA0D6C16402B3C /* JWorkout.swift in Sources */,
 				8929CBBE1E55F5A29BBD5B43 /* NavigationCoordinator.swift in Sources */,
 				63F80D700A8567BCF4A9B341 /* NoteButton.swift in Sources */,
 				652AA37E1A148503416A31DC /* ReusableView.swift in Sources */,
