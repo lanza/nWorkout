@@ -3,13 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		072BDC313B5052223C72B015 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF96D45B5D4208FF51A3FCCA /* UIStackView+Extension.swift */; };
 		082DE6A237D4A8F78BE9AD89 /* AcrtiveWorkoutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E77B0078079278324F928B /* AcrtiveWorkoutCoordinator.swift */; };
-		0DC4E2C9D17E3B410F8BD0E2 /* nWorkout.plist in Resources */ = {isa = PBXBuildFile; fileRef = B300C2FFC1F0C6205DCD053E /* nWorkout.plist */; };
+		0CE8EC157E9345552079F212 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF74D9044F1E7D2ABC1FFC1 /* AlertView.swift */; };
 		0DDC7D8E74C4ABB748AD1BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38205DB28C1B77C132B5630 /* LaunchScreen.storyboard */; };
 		0EC9D8FC8EE6530523CAE889 /* LiftTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53337C5C4CE041160C0E4220 /* LiftTableHeaderView.swift */; };
 		11E4F29C8811C409214A98CC /* ChartViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F212BD6FD2A338FF3E9E1DEC /* ChartViewConfigurator.swift */; };
@@ -95,7 +95,6 @@
 		A39ACB1095B5187360814D02 /* TextFieldBehaviorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A0442731ED92420FED2F4C /* TextFieldBehaviorHandler.swift */; };
 		AA334227C860AD597E0056DB /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4E732BB8690F252E1EC04E /* SettingsTVC.swift */; };
 		AE2346631C29CDFD436085A4 /* StatisticsHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B31FC8138325749CD098FE /* StatisticsHistoryCell.swift */; };
-		B37357B7259F224D0019B6CF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37357B6259F224D0019B6CF /* AlertView.swift */; };
 		BB365092828FD353DFAE548B /* WorkoutsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5C259A90278236567AD1 /* WorkoutsDataSource.swift */; };
 		BDF028D71A52AFF00B9259C4 /* SingleLiftStatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636973CF18ED4C082CD181F /* SingleLiftStatisticsCoordinator.swift */; };
 		BF53309081A403086AB589BA /* JDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB603534FECF9C1091AAF447 /* JDB.swift */; };
@@ -219,7 +218,7 @@
 		9BAB0F7A06930971411685F0 /* StatisticsHistorySetRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsHistorySetRowView.swift; sourceTree = "<group>"; };
 		9FCAF0CA27E039F798394449 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		A0FA78BB409464F2F1087129 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		A2DE34A56397866BA7540E40 /* nWorkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nWorkout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2DE34A56397866BA7540E40 /* nWorkout.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = nWorkout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37783C23758D35E0CFBB2A8 /* LiftStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftStatisticsView.swift; sourceTree = "<group>"; };
 		A6A0442731ED92420FED2F4C /* TextFieldBehaviorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBehaviorHandler.swift; sourceTree = "<group>"; };
 		A88182F03B8B84FAD183A696 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -228,12 +227,11 @@
 		AC229638C0BFB57C62FEDBF3 /* BaseChartViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartViewDataSource.swift; sourceTree = "<group>"; };
 		ACC031B224BF92B129F8FB32 /* SelectWorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWorkoutCell.swift; sourceTree = "<group>"; };
 		AF96D45B5D4208FF51A3FCCA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
-		B300C2FFC1F0C6205DCD053E /* nWorkout.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = nWorkout.plist; sourceTree = "<group>"; };
-		B37357B6259F224D0019B6CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		B38205DB28C1B77C132B5630 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5D800702F491BB06DB04105 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		B68B57640C59B961A78D4189 /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
 		BD1E8CFD501A349E63040394 /* WorkoutDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailCoordinator.swift; sourceTree = "<group>"; };
+		BDF74D9044F1E7D2ABC1FFC1 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		BFC9BF933A8C7E2076FA503F /* WeightAndRepsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightAndRepsTextField.swift; sourceTree = "<group>"; };
 		C108DB8B39ADDB1367CF76EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C40FE28A81F163042F6E9948 /* LiftTypeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftTypeCoordinator.swift; sourceTree = "<group>"; };
@@ -256,6 +254,7 @@
 		E6588DFC3B629AA4A7E93C5C /* RoutinesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesTVC.swift; sourceTree = "<group>"; };
 		E7E2DEC9687CA8FEFCE68832 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		E80BD72379E16552D57ADC59 /* CGColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+Extensions.swift"; sourceTree = "<group>"; };
+		E86F7BD78E4FE27C1FB88D6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E9BA46806D651C7B523BE69A /* NSet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSet+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EA6591C1B1A833B7B1A45F92 /* RoutineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDataSource.swift; sourceTree = "<group>"; };
 		EA7585364BB166F43362E1E2 /* WorkoutsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsCoordinator.swift; sourceTree = "<group>"; };
@@ -302,6 +301,7 @@
 			children = (
 				63E77B0078079278324F928B /* AcrtiveWorkoutCoordinator.swift */,
 				91DAEE70C74250B7F928C646 /* ActiveOrFinished.swift */,
+				BDF74D9044F1E7D2ABC1FFC1 /* AlertView.swift */,
 				C108DB8B39ADDB1367CF76EB /* AppDelegate.swift */,
 				88C0CFFB74752EC2B3C033C1 /* ArrayProvider.swift */,
 				AC229638C0BFB57C62FEDBF3 /* BaseChartViewDataSource.swift */,
@@ -328,7 +328,6 @@
 				0601DC3CB7EB134B8064EEA7 /* CoreDataStack.swift */,
 				8DB06744511AC2AC7A4CD338 /* CustomIOSAlertView.h */,
 				98DE6C8F192E3D6E50ACC867 /* CustomIOSAlertView.m */,
-				B37357B6259F224D0019B6CF /* AlertView.swift */,
 				F92BC43BC7E108372392464D /* DarkLabel.swift */,
 				49C7951989A7E2062D716103 /* DataProvider.swift */,
 				9FCAF0CA27E039F798394449 /* DataSource.swift */,
@@ -433,8 +432,8 @@
 			isa = PBXGroup;
 			children = (
 				6D8DC88ED7A52BFCFDD15ABD /* Assets.xcassets */,
+				E86F7BD78E4FE27C1FB88D6B /* Info.plist */,
 				B38205DB28C1B77C132B5630 /* LaunchScreen.storyboard */,
-				B300C2FFC1F0C6205DCD053E /* nWorkout.plist */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -469,6 +468,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = 73A4163EF444828013C67516 /* Build configuration list for PBXProject "nWorkout" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -497,7 +498,6 @@
 			files = (
 				9529006727EAB4C10D0F0697 /* Assets.xcassets in Resources */,
 				0DDC7D8E74C4ABB748AD1BEA /* LaunchScreen.storyboard in Resources */,
-				0DC4E2C9D17E3B410F8BD0E2 /* nWorkout.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,10 +510,10 @@
 			files = (
 				082DE6A237D4A8F78BE9AD89 /* AcrtiveWorkoutCoordinator.swift in Sources */,
 				E846A9090BE80E269582F2FA /* ActiveOrFinished.swift in Sources */,
+				0CE8EC157E9345552079F212 /* AlertView.swift in Sources */,
 				7127E7ADFDF9FAB50FE1E2D3 /* AppDelegate.swift in Sources */,
 				74FCE737359A69AD232E48BA /* ArrayProvider.swift in Sources */,
 				77091BAB39C9CA62E2F4FDAF /* BaseChartViewDataSource.swift in Sources */,
-				B37357B7259F224D0019B6CF /* AlertView.swift in Sources */,
 				9959AAFFC94328E88D8A9E89 /* BaseDataProvider.swift in Sources */,
 				CDDCBD41D1609C38555984B4 /* BaseRowView.swift in Sources */,
 				5198EBF27D2613353CF9D996 /* BaseTVC.swift in Sources */,
@@ -759,8 +759,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 72MNHNDUNH;
-				INFOPLIST_FILE = "$(SRCROOT)/resources/nWorkout.plist";
+				INFOPLIST_FILE = resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -778,8 +777,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CUSTOM_BUILD_SETTING = my_debug_value;
-				DEVELOPMENT_TEAM = 72MNHNDUNH;
-				INFOPLIST_FILE = "$(SRCROOT)/resources/nWorkout.plist";
+				INFOPLIST_FILE = resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
