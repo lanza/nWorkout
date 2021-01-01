@@ -10,7 +10,8 @@ struct StatisticsView: View {
   var workouts: [NWorkout]
 
   init(workouts: [NWorkout]) {
-    self.workouts = workouts
+    self.workouts = try! coreDataStack.managedObjectContext.fetch(
+      NWorkout.getFetchRequest())
     let app = UINavigationBarAppearance()
     app.backgroundColor = Theme.Colors.darkest
     app.largeTitleTextAttributes = [
