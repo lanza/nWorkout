@@ -12,4 +12,14 @@ public class LiftType: NSManagedObject {
     lt.name = name
     return lt
   }
+
+  func sortInstances() {
+    let i = instances! as! NSMutableOrderedSet
+    i.sort { left, right in
+      let l = left as! NLift
+      let r = right as! NLift
+      return (l.workout!.startDate! > r.workout!.startDate!)
+        ? .orderedAscending : .orderedDescending
+    }
+  }
 }
