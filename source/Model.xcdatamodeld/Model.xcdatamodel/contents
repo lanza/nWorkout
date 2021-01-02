@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17707" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="LiftType" representedClassName="LiftType" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="instances" toMany="YES" deletionRule="Nullify" destinationEntity="NLift" inverseName="type" inverseEntity="NLift"/>
+        <relationship name="instances" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NLift" inverseName="type" inverseEntity="NLift"/>
     </entity>
     <entity name="NLift" representedClassName="NLift" syncable="YES">
         <attribute name="note" optional="YES" attributeType="String"/>

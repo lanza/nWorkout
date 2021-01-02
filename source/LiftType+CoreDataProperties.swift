@@ -8,7 +8,7 @@ extension LiftType {
   }
 
   @NSManaged public var name: String?
-  @NSManaged public var instances: NSSet?
+  @NSManaged public var instances: NSOrderedSet?
 
 }
 
