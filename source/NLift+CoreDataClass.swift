@@ -17,13 +17,36 @@ public class NLift: NSManagedObject {
 
   static func new(name: String, workout: NWorkout) -> NLift {
     let lift = NLift(context: coreDataStack.managedObjectContext)
+    lift.workout = workout
+
     // TODO: Clean up this garbage usage
     let types = try! coreDataStack.managedObjectContext.fetch(
       LiftType.getFetchRequest())
-    lift.type =
+
+    let type =
       types.first(where: { $0.name == name }) ?? LiftType.new(name: name)
+
+    let instances = type.instances as! NSMutableOrderedSet
+
+    // TODO: confirming this is sorted should be done elsewhere
+    instances.sort { left, right in
+      let l = left as! NLift
+      let r = right as! NLift
+      return (l.workout!.startDate! > r.workout!.startDate!)
+        ? .orderedAscending : .orderedDescending
+    }
+
+    let arr = instances.array as! [NLift]
+    let lastOccurrence = arr.reversed().first(where: { ele in
+      return ele.workout!.startDate! < lift.workout!.startDate!
+    })
+
+    lift.type = type
+
+    lift.previous = lastOccurrence
+
     lift.setName(name)
-    lift.workout = workout
+
     return lift
   }
 
