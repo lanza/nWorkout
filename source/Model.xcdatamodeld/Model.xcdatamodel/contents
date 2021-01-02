@@ -6,9 +6,9 @@
     </entity>
     <entity name="NLift" representedClassName="NLift" syncable="YES">
         <attribute name="note" optional="YES" attributeType="String"/>
-        <relationship name="next" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NLift" inverseName="next" inverseEntity="NLift"/>
-        <relationship name="previous" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NLift" inverseName="previous" inverseEntity="NLift"/>
-        <relationship name="sets" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NSet" inverseName="lift" inverseEntity="NSet"/>
+        <relationship name="next" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NLift" inverseName="previous" inverseEntity="NLift"/>
+        <relationship name="previous" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NLift" inverseName="next" inverseEntity="NLift"/>
+        <relationship name="sets" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="NSet" inverseName="lift" inverseEntity="NSet"/>
         <relationship name="type" maxCount="1" deletionRule="Nullify" destinationEntity="LiftType" inverseName="instances" inverseEntity="LiftType"/>
         <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NWorkout" inverseName="lifts" inverseEntity="NWorkout"/>
     </entity>
@@ -27,7 +27,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="note" optional="YES" attributeType="String"/>
         <attribute name="startDate" attributeType="Date" defaultDateTimeInterval="631095240" usesScalarValueType="NO"/>
-        <relationship name="lifts" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NLift" inverseName="workout" inverseEntity="NLift"/>
+        <relationship name="lifts" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="NLift" inverseName="workout" inverseEntity="NLift"/>
     </entity>
     <entity name="Routine" representedClassName="Routine" syncable="YES"/>
     <elements>
