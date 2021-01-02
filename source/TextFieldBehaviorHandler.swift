@@ -57,7 +57,11 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
       guard let value = Double(setRowView.targetWeightTextField!.text!),
         value != setRowView.set.weight
       else { return }
-      setRowView.set.weight = value
+      let set = setRowView.set
+      set!.weight = value
+      if setRowView.isComplete {
+        set!.completedWeight = value
+      }
     }
   }
 
@@ -73,7 +77,11 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
       guard let value = Int(setRowView.targetRepsTextField!.text!),
         value != setRowView.set.reps
       else { return }
-      setRowView.set.reps = Int64(value)
+      let set = setRowView.set
+      set!.reps = Int64(value)
+      if setRowView.isComplete {
+        set!.completedReps = Int64(value)
+      }
     }
   }
 
