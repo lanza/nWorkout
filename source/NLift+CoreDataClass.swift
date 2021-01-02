@@ -18,9 +18,8 @@ public class NLift: NSManagedObject {
   func fixupPreviousOccurrence() {
     // TODO: Clean up this garbage usage
 
-    let index = type!.instances!.index(of: self)
-
     type!.sortInstances()
+    let index = type!.instances!.index(of: self)
 
     guard index > 0 else { return }
 
