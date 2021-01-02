@@ -27,6 +27,11 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     tableView.reloadData()
+
+    for lift in workout.lifts! {
+      let l = lift as! NLift
+      l.fixupPreviousOccurrence()
+    }
   }
 
   @objc func hideButtonTapped() {

@@ -15,6 +15,16 @@ public class NLift: NSManagedObject {
     type!.name = name
   }
 
+  func fixupPreviousOccurrence() {
+    // TODO: Clean up this garbage usage
+
+    let index = type!.instances!.index(of: self)
+
+    guard index > 0 else { return }
+
+    previous = (type!.instances![index - 1] as! NLift)
+  }
+
   static func new(name: String, workout: NWorkout) -> NLift {
     let lift = NLift(context: coreDataStack.managedObjectContext)
     lift.workout = workout
