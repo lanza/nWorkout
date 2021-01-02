@@ -1,9 +1,6 @@
 Inbox
-* 
 
 NextActions
-* Restore statistics
-* restore previous strings
 * Go through the few commits and see what was removed that I should add comments for
 
 
@@ -12,6 +9,9 @@ LaterActions
 * figure out tests to do this
 * figure out how to implement tests in project.yaml
 * Cleanup coredata usage
+* Merge my data manually -- e.g. combine lifts with incorrect names
+* Figure out deletion patterns and relationship consistency for e.g. deleted workouts
+** Deleting a workout -> deletes a lift -> breaks a next/prev chain
 
 
 Planned
@@ -25,6 +25,8 @@ Sometime/Maybe
 * Restore note button via implmeneting the alert in Swift
 * Show notes in workout details
 * Readd charts
+* Figure out that obnoxious CI bot
+* Teach settings TextField to dismiss keyboard
 
 
 Maybe?
