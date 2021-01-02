@@ -57,16 +57,15 @@ class LiftCell: ChartViewCell {
       if let crtf = rowView.completedRepsTextField {
         crtf.setNumber(int: Int(set.completedReps))
       }
-      //      if let pl = rowView.previousLabel {
-      //        if object.previousStrings.count > index
-      //          && object.previousStrings[0]
-      //            != ""
-      //        {
-      //          pl.text = object.previousStrings[index]
-      //        } else {
-      //          pl.text = Lets.noPreviousSet
-      //        }
-      //      }
+      if let pl = rowView.previousLabel, let prev = object.previous {
+        // TODO: clean this up
+        if prev.sets!.count > index, let set = prev.sets![index] as? NSet {
+          let string = "\(set.completedReps) x \(set.completedWeight)"
+          pl.text = string
+        } else {
+          pl.text = Lets.noPreviousSet
+        }
+      }
     }
 
     chartView.setup()
