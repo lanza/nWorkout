@@ -128,18 +128,18 @@ class MainCoordinator: TabBarCoordinator {
 
   func displaySelectWorkout() {
     // TODO: teach this about routines again
-//    if JDB.shared.getWorkouts().filter({ $0.isWorkout == false }).count == 0 {
-//      let active = makeActiveWorkoutCoordinator(for: nil)
-//      let aNav = NavigationCoordinator(rootCoordinator: active)
-//      active.navigationItem.title = Lets.selectWorkout
-//      present(aNav, animated: true)
-//    } else {
-      let swc = SelectWorkoutCoordinator()
-      swc.delegate = self
-      let swcNav = NavigationCoordinator(rootCoordinator: swc)
-      swc.navigationItem.title = Lets.selectWorkout
-      present(swcNav, animated: true)
-//    }
+    //    if JDB.shared.getWorkouts().filter({ $0.isWorkout == false }).count == 0 {
+    //      let active = makeActiveWorkoutCoordinator(for: nil)
+    //      let aNav = NavigationCoordinator(rootCoordinator: active)
+    //      active.navigationItem.title = Lets.selectWorkout
+    //      present(aNav, animated: true)
+    //    } else {
+    let swc = SelectWorkoutCoordinator()
+    swc.delegate = self
+    let swcNav = NavigationCoordinator(rootCoordinator: swc)
+    swc.navigationItem.title = Lets.selectWorkout
+    present(swcNav, animated: true)
+    //    }
   }
 
   func displayActiveWorkout() {

@@ -78,7 +78,7 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
       let joined = strings.joined(separator: ", ")
 
       // let string = lift.sets.map
-      //     { "\(($0.completedWeight.remainder(dividingBy: 1) == 0) 
+      //     { "\(($0.completedWeight.remainder(dividingBy: 1) == 0)
       //       ? String(Int($0.completedWeight)) : String($0.completedWeight))"
       //      + " x " + "\($0.completedReps)" }.joined(separator: ",")
       UserDefaults.standard.set(joined, forKey: "last" + lift.type!.name!)

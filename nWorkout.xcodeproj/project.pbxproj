@@ -451,6 +451,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20D610B3653FFC8FDD64BF46 /* Build configuration list for PBXNativeTarget "nWorkout" */;
 			buildPhases = (
+				B3262E7825A028E8001EF301 /* ShellScript */,
 				A68DB63C269AC13299B84A82 /* Sources */,
 				FCABBE46C2CAB88F2D98189B /* Resources */,
 				BC03CEB4A63EAE9575235547 /* Frameworks */,
@@ -506,6 +507,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B3262E7825A028E8001EF301 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/Users/lanza/.local/bin/xcode-format\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A68DB63C269AC13299B84A82 /* Sources */ = {

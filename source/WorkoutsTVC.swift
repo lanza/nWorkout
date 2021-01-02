@@ -46,7 +46,10 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
 
   func reloadData() {
     // TODO: Implement this properly once I laern coredata
-    guard let result = try? coreDataStack.managedObjectContext.fetch(NWorkout.getFetchRequest()) else { return }
+    guard
+      let result = try? coreDataStack.managedObjectContext.fetch(
+        NWorkout.getFetchRequest())
+    else { return }
     workouts =
       result
       .filter { $0.isComplete }
