@@ -7,7 +7,7 @@ class StatisticsHistoryTVC: BaseTVC {
     self.liftName = liftName
     //TODO: fill this out properly
     let lifts: [NLift] = []
-    self.lifts = lifts.filter { $0.name == liftName }
+    self.lifts = lifts.filter { $0.getName() == liftName }
       .sorted(by: { $0.workout!.startDate! < $1.workout!.startDate! })
 
     super.init(nibName: nil, bundle: nil)

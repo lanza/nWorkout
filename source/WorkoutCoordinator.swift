@@ -58,7 +58,7 @@ extension WorkoutCoordinator: WorkoutTVCDelegate {
       //   "\($0.completedWeight)" + " x " + "\($0.completedReps)"
       // }.joined(separator: ",")
       let string = strings.joined(separator: ", ")
-      UserDefaults.standard.set(string, forKey: "last" + lift.name!)
+      UserDefaults.standard.set(string, forKey: "last" + lift.getName())
     }
     self.navigationCoordinator?.parent?.dismiss(animated: true)
   }

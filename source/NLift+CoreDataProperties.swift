@@ -7,10 +7,11 @@ extension NLift {
     return NSFetchRequest<NLift>(entityName: "NLift")
   }
 
-  @NSManaged public var name: String?
   @NSManaged public var note: String?
+  @NSManaged public var next: NLift?
   @NSManaged public var previous: NLift?
   @NSManaged public var sets: NSOrderedSet?
+  @NSManaged public var type: LiftType?
   @NSManaged public var workout: NWorkout?
 
 }

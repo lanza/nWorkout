@@ -24,7 +24,7 @@ extension LiftCell: SetRowViewDelegate {
 class LiftCell: ChartViewCell {
   func configure(for object: NLift, at indexPath: IndexPath) {
 
-    label.text = object.name
+    label.text = object.getName()
 
     chartView.chartViewDataSource = BaseChartViewDataSource(object: object)
 

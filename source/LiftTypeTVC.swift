@@ -78,6 +78,7 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
 
   required init?(coder aDecoder: NSCoder) { fatalError() }
 
+  // TODO: clean this up to use LiftTypes
   var liftTypes: [String] = []
 
   override func viewDidLoad() {
@@ -94,8 +95,7 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
     let lifts = try! coreDataStack.managedObjectContext.fetch(NLift.getFetchRequest())
     var workoutNames: Set<String> = []
     for lift in lifts {
-      guard let name = lift.name else { continue }
-      workoutNames.insert(name)
+      workoutNames.insert(lift.getName())
     }
     liftTypes = workoutNames.sorted()
   }

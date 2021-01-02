@@ -29,14 +29,14 @@ struct StatisticsView: View {
   func getLifts() -> [([NLift], String, Int)] {
     let lifts = workouts.map { $0.lifts!.map { return $0 as! NLift } }
     let reduced = lifts.flatMap { $0 }
-    let sorted = reduced.sorted { $0.name! < $1.name! }
+    let sorted = reduced.sorted { $0.getName() < $1.getName() }
 
     var counts: [String: Int] = [:]
     var elements: [String: [NLift]] = [:]
 
     for element in sorted {
-      counts[element.name!, default: 0] += 1
-      elements[element.name!, default: []].append(element)
+      counts[element.getName(), default: 0] += 1
+      elements[element.getName(), default: []].append(element)
     }
 
     var result: [(elements: [NLift], name: String, count: Int)] = []

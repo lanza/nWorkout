@@ -8,15 +8,27 @@ public class NLift: NSManagedObject {
     return NSFetchRequest<NLift>(entityName: "NLift")
   }
 
+  func getName() -> String {
+    return type!.name!
+  }
+  func setName(_ name: String) {
+    type!.name = name
+  }
+
   static func new(name: String, workout: NWorkout) -> NLift {
     let lift = NLift(context: coreDataStack.managedObjectContext)
-    lift.name = name
+    // TODO: Clean up this garbage usage
+    let types = try! coreDataStack.managedObjectContext.fetch(
+      LiftType.getFetchRequest())
+    lift.type =
+      types.first(where: { $0.name == name }) ?? LiftType.new(name: name)
+    lift.setName(name)
     lift.workout = workout
     return lift
   }
 
   func makeWorkoutLift(workout: NWorkout) -> NLift {
-    let lift = NLift.new(name: name!, workout: workout)
+    let lift = NLift.new(name: getName(), workout: workout)
 
     for s in sets! {
       let set = s as! NSet
@@ -59,7 +71,9 @@ extension NLift: DataProvider {
 
   static func makeDummy(name: String = "Riley Feeding") -> NLift {
     let l = NLift()
-    l.name = name
+    let lt = LiftType()
+    lt.name = name
+    l.type = lt
     l.note = ""
     return l
   }

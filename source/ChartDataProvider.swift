@@ -11,7 +11,7 @@ final class StatisticsDataProvider {
 
   init(liftName: String) {
     self.liftName = liftName
-    self.lifts = [NLift]().filter { $0.name == liftName }.sorted {
+    self.lifts = [NLift]().filter { $0.getName() == liftName }.sorted {
       $0.workout!.startDate! < $1.workout!.startDate!
     }
   }
