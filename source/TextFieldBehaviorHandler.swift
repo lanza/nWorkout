@@ -62,6 +62,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
       if setRowView.isComplete {
         set!.completedWeight = value
       }
+      setRowView.setUI(for: setRowView.computeState())
     }
   }
 
@@ -82,6 +83,7 @@ class TextFieldBehaviorHandler: KeyboardDelegate {
       if setRowView.isComplete {
         set!.completedReps = Int64(value)
       }
+      setRowView.setUI(for: setRowView.computeState())
     }
   }
 

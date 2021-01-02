@@ -75,6 +75,20 @@ class SetRowView: BaseRowView {
     case complete
   }
 
+  func computeState() -> State {
+    if set.reps == set.completedReps && set.weight == set.completedWeight {
+      return .complete
+    } else if set.reps > set.completedReps || set.weight > set.completedWeight {
+      return .fail
+    } else if set.completedReps == 0 || set.completedWeight == 0 {
+
+      // TODO: this is also the condition for failed and skipped... figure out
+      // how to properly represent this...
+      return .fresh
+    }
+    fatalError()
+  }
+
   func setUI(for state: State) {
 
     switch state {
