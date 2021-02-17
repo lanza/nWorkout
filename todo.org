@@ -2,6 +2,12 @@ Inbox
 
 NextActions
 * Go through the few commits and see what was removed that I should add comments for
+* Core Data related things
+** Batch Size
+   fetchRequest.fetchBatchSize = 20
+** Add Sort Descriptors
+   let sortDescriptor = NSSortDescriptor(key: #keyPath(JournalEntry.date), ascending: false)
+   fetchRequest.sortDescriptors = [sortDescriptor]
 
 
 LaterActions
