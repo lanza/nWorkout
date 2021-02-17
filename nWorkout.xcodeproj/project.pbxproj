@@ -118,7 +118,6 @@
 		DCDEADE9A921BA617B33CB1C /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B684B0F022AE2B2525D4993 /* RowView.swift */; };
 		DD39001833C35FE56BDBA939 /* ViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FABAB371E5B7CA85933662 /* ViewInfo.swift */; };
 		DFF03F70053E11D04C32C0AC /* WorkoutCellRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713D672912445F572149DC54 /* WorkoutCellRowView.swift */; };
-		E1267D0D0D4CD682B173CB5C /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DE6C8F192E3D6E50ACC867 /* CustomIOSAlertView.m */; };
 		E24B72523B00E5F00E9D91AB /* LiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3B9F4BCBF82A0DBDCEFBB8 /* LiftCell.swift */; };
 		E2E3B2A09A964AA1C6E35291 /* nWorkoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692E5D87FBC202A819ECF3B9 /* nWorkoutTests.swift */; };
 		E5985971E2B261205E955E99 /* LiftStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37783C23758D35E0CFBB2A8 /* LiftStatisticsView.swift */; };
@@ -205,7 +204,6 @@
 		8AF5BC0DB4C21EB461B94069 /* BaseWorkoutTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWorkoutTVC.swift; sourceTree = "<group>"; };
 		8B5A7D069B6AB289AFFB634C /* WorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		8C8432596D822E0325D3294A /* BaseTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTVC.swift; sourceTree = "<group>"; };
-		8DB06744511AC2AC7A4CD338 /* CustomIOSAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomIOSAlertView.h; sourceTree = "<group>"; };
 		8DE0BAA1C6DE956DF32AE0DE /* BaseDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataProvider.swift; sourceTree = "<group>"; };
 		8EAFCFEDD626D442CA597EC0 /* NoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteButton.swift; sourceTree = "<group>"; };
 		8F40F7CBEA6BDED406D170CA /* LiftTableHeaderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderRowView.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 		92C8C00F10F42D1BFF4748C5 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		96C4C0DAE7E16DF0259B4961 /* WorkoutDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataSource.swift; sourceTree = "<group>"; };
 		98BA75BD2C17C92D2300D714 /* WorkoutsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsTVC.swift; sourceTree = "<group>"; };
-		98DE6C8F192E3D6E50ACC867 /* CustomIOSAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomIOSAlertView.m; sourceTree = "<group>"; };
 		9BAB0F7A06930971411685F0 /* StatisticsHistorySetRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsHistorySetRowView.swift; sourceTree = "<group>"; };
 		9FCAF0CA27E039F798394449 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		A0FA78BB409464F2F1087129 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -330,8 +327,6 @@
 				3A8E777577C65605E5C68A94 /* ConfigurableCell.swift */,
 				FAD3BC8B74C608614048621B /* Coordinator.swift */,
 				0601DC3CB7EB134B8064EEA7 /* CoreDataStack.swift */,
-				8DB06744511AC2AC7A4CD338 /* CustomIOSAlertView.h */,
-				98DE6C8F192E3D6E50ACC867 /* CustomIOSAlertView.m */,
 				F92BC43BC7E108372392464D /* DarkLabel.swift */,
 				49C7951989A7E2062D716103 /* DataProvider.swift */,
 				9FCAF0CA27E039F798394449 /* DataSource.swift */,
@@ -560,7 +555,6 @@
 				C0BB7266CD3980E6BC479F39 /* ConfigurableCell.swift in Sources */,
 				55E1737889F48AAFEC059044 /* Coordinator.swift in Sources */,
 				954396ED8ACDA8A9C73C6002 /* CoreDataStack.swift in Sources */,
-				E1267D0D0D4CD682B173CB5C /* CustomIOSAlertView.m in Sources */,
 				87D5D0EC2CADD664999BD734 /* DarkLabel.swift in Sources */,
 				F6749FBB75121922DF4B4C68 /* DataProvider.swift in Sources */,
 				DA15EEB8928CFCAC6E104C23 /* DataSource.swift in Sources */,
