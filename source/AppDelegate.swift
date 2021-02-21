@@ -47,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       for jworkout in jworkouts {
         let _ = NWorkout.createfromJWorkout(jworkout)
       }
+      try? coreDataStack.managedObjectContext.save()
       UserDefaults.standard.setValue(true, forKey: "HasConvertedFromJSON")
     }
 
