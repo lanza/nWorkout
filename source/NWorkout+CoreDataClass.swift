@@ -48,6 +48,18 @@ public class NWorkout: NSManagedObject, DataProvider {
     coreDataStack.managedObjectContext.delete(self)
   }
 
+  static func createfromJWorkout(_ jworkout: JWorkout) -> NWorkout {
+    let nw = NWorkout.new(name: jworkout.name)
+    nw.finishDate = jworkout.finishDate
+    nw.isComplete = jworkout.isComplete
+    nw.note = jworkout.note
+    nw.startDate = jworkout.startDate
+    for jlift in jworkout.lifts {
+      nw.addToLifts(NLift.createFromJLift(jlift, in: nw))
+    }
+    return nw
+  }
+
   func append(_ object: NLift) {
     addToLifts(object)
   }

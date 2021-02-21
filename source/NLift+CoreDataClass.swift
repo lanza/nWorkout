@@ -92,4 +92,12 @@ public class NLift: NSManagedObject, DataProvider {
     return l
   }
 
+  static func createFromJLift(_ jlift: JLift, in nworkout: NWorkout) -> NLift {
+    let nl = NLift.new(name: jlift.name, workout: nworkout)
+    nl.note = jlift.note
+    for jset in jlift.sets {
+      nl.addToSets(NSet.createFromJSet(jset, in: nl))
+    }
+    return nl
+  }
 }

@@ -42,6 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.rootCoordinator = mainCoordinator
     window?.makeKeyAndVisible()
 
+    if !UserDefaults.standard.bool(forKey: "HasConvertedFromJSON") {
+      let jworkouts = JDB.shared.getWorkouts()
+      for jworkout in jworkouts {
+        let _ = NWorkout.createfromJWorkout(jworkout)
+      }
+      UserDefaults.standard.setValue(true, forKey: "HasConvertedFromJSON")
+    }
+
     UITableView.appearance().allowsSelection = false
     UITableViewCell.appearance().selectionStyle = .none
 
