@@ -17,25 +17,24 @@ class MainCoordinator: TabBarCoordinator {
     // TODO: do this properly with a fetch request
     let workouts = fetchedWorkouts.filter { !$0.isComplete }
 
-    if let first = workouts.first {
-      self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
-      self.activeWorkoutCoordinator?.delegate = self
-      self.activeWorkoutCoordinator?.workout = first
+    guard let first = workouts.first else { return }
+    self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
+    self.activeWorkoutCoordinator?.delegate = self
+    self.activeWorkoutCoordinator?.workout = first
 
-      self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
-      self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem =
-        UIBarButtonItem(
-          title: Lets.hide,
-          style: .plain,
-          target: self,
-          action: #selector(hideButtonTapped)
-        )
-      self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
-        self.activeWorkoutCoordinator = nil
-      }
-      if displayImmediately {
-        displayActiveWorkout()
-      }
+    self.activeWorkoutCoordinator?.viewController.view.setNeedsLayout()
+    self.activeWorkoutCoordinator!.navigationItem.leftBarButtonItem =
+      UIBarButtonItem(
+        title: Lets.hide,
+        style: .plain,
+        target: self,
+        action: #selector(hideButtonTapped)
+      )
+    self.activeWorkoutCoordinator!.workoutIsNotActive = { [unowned self] in
+      self.activeWorkoutCoordinator = nil
+    }
+    if displayImmediately {
+      displayActiveWorkout()
     }
   }
 
