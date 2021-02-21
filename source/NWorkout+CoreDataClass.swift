@@ -2,7 +2,7 @@ import CoreData
 import Foundation
 
 @objc(NWorkout)
-public class NWorkout: NSManagedObject {
+public class NWorkout: NSManagedObject, DataProvider {
 
   @nonobjc public class func getFetchRequest() -> NSFetchRequest<NWorkout> {
     return NSFetchRequest<NWorkout>(entityName: "NWorkout")
@@ -47,9 +47,7 @@ public class NWorkout: NSManagedObject {
   func deleteSelf() {
     coreDataStack.managedObjectContext.delete(self)
   }
-}
 
-extension NWorkout: DataProvider {
   func append(_ object: NLift) {
     addToLifts(object)
   }

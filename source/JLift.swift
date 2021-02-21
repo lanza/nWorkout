@@ -1,6 +1,6 @@
 import Foundation
 
-class JLift: Codable, Identifiable {
+final class JLift: Codable, Identifiable, DataProvider {
   var note = ""
   var isWorkout = false
   var name = ""
@@ -39,9 +39,7 @@ class JLift: Codable, Identifiable {
     case sets
     case _previousStrings
   }
-}
 
-extension JLift {
   func makeWorkoutLift(workout: JWorkout) -> JLift {
     let lift = JLift.new(isWorkout: true, name: name, workout: workout)
 
@@ -52,9 +50,7 @@ extension JLift {
 
     return lift
   }
-}
 
-extension JLift: DataProvider {
   func append(_ object: JSet) {
     sets.append(object)
     object.lift = self
@@ -80,9 +76,6 @@ extension JLift: DataProvider {
   func remove(at index: Int) {
     sets.remove(at: index)
   }
-}
-
-extension JLift {
 
   static func makeDummy(name: String = "Riley Feeding") -> JLift {
     let l = JLift()

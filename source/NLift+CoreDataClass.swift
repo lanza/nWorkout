@@ -2,7 +2,7 @@ import CoreData
 import Foundation
 
 @objc(NLift)
-public class NLift: NSManagedObject {
+public class NLift: NSManagedObject, DataProvider {
 
   @nonobjc public class func getFetchRequest() -> NSFetchRequest<NLift> {
     return NSFetchRequest<NLift>(entityName: "NLift")
@@ -54,9 +54,7 @@ public class NLift: NSManagedObject {
 
     return lift
   }
-}
 
-extension NLift: DataProvider {
   func append(_ object: NSet) {
     addToSets(object)
   }
