@@ -14,7 +14,7 @@ class JDB: ObservableObject {
   }
 
   func getFilePath() -> URL {
-    #if true
+    #if false
       return getDocumentsDirectory().appendingPathComponent("data.json")
     #else
       return Bundle.main.bundleURL.appendingPathComponent("data.json")
