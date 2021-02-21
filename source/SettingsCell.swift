@@ -1,13 +1,11 @@
 import UIKit
 
 class SettingsCell: UITableViewCell {
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var widthTextField: UITextField!
-  @IBOutlet weak var isOnSwitch: UISwitch!
+  weak var nameLabel: UILabel!
+  weak var widthTextField: UITextField!
+  weak var isOnSwitch: UISwitch!
 }
 
 extension SettingsCell: ConfigurableCell {
-  func configure(for object: ViewInfo, at indexPath: IndexPath) {
-    //
-  }
+  func configure(for object: ViewInfo, at indexPath: IndexPath) {}
 }
