@@ -5,7 +5,7 @@ import Foundation
 public class NLift: NSManagedObject, DataProvider {
 
   @nonobjc public class func getFetchRequest() -> NSFetchRequest<NLift> {
-    return NSFetchRequest<NLift>(entityName: "NLift")
+    return fetchRequest()
   }
 
   func getName() -> String {
