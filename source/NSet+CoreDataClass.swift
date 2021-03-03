@@ -4,6 +4,10 @@ import Foundation
 @objc(NSet)
 public class NSet: NSManagedObject {
 
+  @nonobjc public class func getFetchRequest() -> NSFetchRequest<NSet> {
+    return fetchRequest()
+  }
+
   // TODO: This trio of things is really bad -- 0 & 0 can be skipped
   // Though implementing that in UI would have to be a good user experience
   // add a skip button?

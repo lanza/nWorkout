@@ -3,8 +3,9 @@ import Foundation
 
 @objc(LiftType)
 public class LiftType: NSManagedObject {
+
   @nonobjc public class func getFetchRequest() -> NSFetchRequest<LiftType> {
-    return NSFetchRequest<LiftType>(entityName: "LiftType")
+    return fetchRequest()
   }
 
   static func new(name: String) -> LiftType {
