@@ -41,6 +41,6 @@ class BaseDataProvider<BaseType: AnyObject>: DataProvider {
 extension BaseDataProvider where BaseType: NWorkout {
   func remove(at index: Int) {
     let wo = objects.remove(at: index)
-    coreDataStack.managedObjectContext.delete(wo)
+    coreDataStack.getContext().delete(wo)
   }
 }

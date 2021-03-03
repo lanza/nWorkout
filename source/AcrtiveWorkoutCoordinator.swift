@@ -51,7 +51,7 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
 
   func workoutCancelled(for workoutTVC: WorkoutTVC) {
     DispatchQueue.main.async {
-      coreDataStack.managedObjectContext.delete(self.workout)
+      coreDataStack.getContext().delete(self.workout)
       self.workoutIsNotActive()
     }
     navigationCoordinator?.parent?.dismiss(animated: true)
@@ -90,7 +90,7 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
       name: Notification.activeWorkoutDidFinish, object: nil)
 
     // TODO: fix this
-    try! coreDataStack.managedObjectContext.save()
+    try! coreDataStack.getContext().save()
   }
 }
 

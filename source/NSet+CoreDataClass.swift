@@ -21,7 +21,7 @@ public class NSet: NSManagedObject {
     completedReps: Int,
     lift: NLift
   ) -> NSet {
-    let set = NSet(context: coreDataStack.managedObjectContext)
+    let set = NSet(context: coreDataStack.getContext())
     set.isWarmup = isWarmup
     set.weight = weight
     set.reps = Int64(reps)

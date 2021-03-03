@@ -92,7 +92,7 @@ class LiftTypeTVC: BaseTVC, UITableViewDataSource {
     tableView.register(LiftTypeCell.self)
 
     // TODO: clean up this fetch request usage
-    let lifts = try! coreDataStack.managedObjectContext.fetch(
+    let lifts = try! coreDataStack.getContext().fetch(
       NLift.getFetchRequest())
     var workoutNames: Set<String> = []
     for lift in lifts {

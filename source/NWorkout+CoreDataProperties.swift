@@ -1,58 +1,47 @@
-import CoreData
+//
+//  NWorkout+CoreDataProperties.swift
+//  nWorkout
+//
+//  Created by Nathan Lanza on 3/2/21.
+//
+//
+
 import Foundation
+import CoreData
+
 
 extension NWorkout {
 
-  @nonobjc public class func fetchRequest() -> NSFetchRequest<NWorkout> {
-    return NSFetchRequest<NWorkout>(entityName: "NWorkout")
-  }
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<NWorkout> {
+        return NSFetchRequest<NWorkout>(entityName: "NWorkout")
+    }
 
-  @NSManaged public var finishDate: Date?
-  @NSManaged public var isComplete: Bool
-  @NSManaged public var name: String?
-  @NSManaged public var note: String?
-  @NSManaged public var startDate: Date?
-  @NSManaged public var lifts: NSOrderedSet?
+    @NSManaged public var finishDate: Date?
+    @NSManaged public var isComplete: Bool
+    @NSManaged public var name: String?
+    @NSManaged public var note: String?
+    @NSManaged public var startDate: Date?
+    @NSManaged public var lifts: NSSet?
 
 }
 
 // MARK: Generated accessors for lifts
 extension NWorkout {
 
-  @objc(insertObject:inLiftsAtIndex:)
-  @NSManaged public func insertIntoLifts(_ value: NLift, at idx: Int)
+    @objc(addLiftsObject:)
+    @NSManaged public func addToLifts(_ value: NLift)
 
-  @objc(removeObjectFromLiftsAtIndex:)
-  @NSManaged public func removeFromLifts(at idx: Int)
+    @objc(removeLiftsObject:)
+    @NSManaged public func removeFromLifts(_ value: NLift)
 
-  @objc(insertLifts:atIndexes:)
-  @NSManaged public func insertIntoLifts(
-    _ values: [NLift], at indexes: NSIndexSet)
+    @objc(addLifts:)
+    @NSManaged public func addToLifts(_ values: NSSet)
 
-  @objc(removeLiftsAtIndexes:)
-  @NSManaged public func removeFromLifts(at indexes: NSIndexSet)
-
-  @objc(replaceObjectInLiftsAtIndex:withObject:)
-  @NSManaged public func replaceLifts(at idx: Int, with value: NLift)
-
-  @objc(replaceLiftsAtIndexes:withLifts:)
-  @NSManaged public func replaceLifts(
-    at indexes: NSIndexSet, with values: [NLift])
-
-  @objc(addLiftsObject:)
-  @NSManaged public func addToLifts(_ value: NLift)
-
-  @objc(removeLiftsObject:)
-  @NSManaged public func removeFromLifts(_ value: NLift)
-
-  @objc(addLifts:)
-  @NSManaged public func addToLifts(_ values: NSOrderedSet)
-
-  @objc(removeLifts:)
-  @NSManaged public func removeFromLifts(_ values: NSOrderedSet)
+    @objc(removeLifts:)
+    @NSManaged public func removeFromLifts(_ values: NSSet)
 
 }
 
-extension NWorkout: Identifiable {
+extension NWorkout : Identifiable {
 
 }

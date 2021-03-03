@@ -9,7 +9,7 @@ public class NWorkout: NSManagedObject, DataProvider {
   }
 
   static func new(isComplete: Bool = false, name: String) -> NWorkout {
-    let workout = NWorkout(context: coreDataStack.managedObjectContext)
+    let workout = NWorkout(context: coreDataStack.getContext())
     workout.startDate = Date()
     workout.name = name
     workout.isComplete = isComplete
@@ -19,7 +19,7 @@ public class NWorkout: NSManagedObject, DataProvider {
   func addNewSet(for lift: NLift) -> NSet {
     let last = lift.sets?.lastObject as? NSet
 
-    let set = NSet(context: coreDataStack.managedObjectContext)
+    let set = NSet(context: coreDataStack.getContext())
     set.isWarmup = false
     set.weight = last?.weight ?? 45
     set.reps = last?.reps ?? 6
@@ -31,7 +31,7 @@ public class NWorkout: NSManagedObject, DataProvider {
   }
 
   func makeWorkoutWorkout() -> NWorkout {
-    let workout = NWorkout(context: coreDataStack.managedObjectContext)
+    let workout = NWorkout(context: coreDataStack.getContext())
     workout.isComplete = false
     workout.name = name
     workout.startDate = Date()
@@ -45,7 +45,7 @@ public class NWorkout: NSManagedObject, DataProvider {
   }
 
   func deleteSelf() {
-    coreDataStack.managedObjectContext.delete(self)
+    coreDataStack.getContext().delete(self)
   }
 
   static func createfromJWorkout(_ jworkout: JWorkout) -> NWorkout {

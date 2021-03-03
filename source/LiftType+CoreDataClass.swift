@@ -8,7 +8,7 @@ public class LiftType: NSManagedObject {
   }
 
   static func new(name: String) -> LiftType {
-    let lt = LiftType(context: coreDataStack.managedObjectContext)
+    let lt = LiftType(context: coreDataStack.getContext())
     lt.name = name
     return lt
   }

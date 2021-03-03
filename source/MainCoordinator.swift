@@ -10,7 +10,7 @@ class MainCoordinator: TabBarCoordinator {
     let request = NWorkout.getFetchRequest()
     request.fetchLimit = 10
     guard
-      let fetchedWorkouts = try? coreDataStack.managedObjectContext.fetch(
+      let fetchedWorkouts = try? coreDataStack.getContext().fetch(
         request)
     else { return }
 

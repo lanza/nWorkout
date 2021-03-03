@@ -27,11 +27,11 @@ public class NLift: NSManagedObject, DataProvider {
   }
 
   static func new(name: String, workout: NWorkout) -> NLift {
-    let lift = NLift(context: coreDataStack.managedObjectContext)
+    let lift = NLift(context: coreDataStack.getContext())
     lift.workout = workout
 
     // TODO: Clean up this garbage usage
-    let types = try! coreDataStack.managedObjectContext.fetch(
+    let types = try! coreDataStack.getContext().fetch(
       LiftType.getFetchRequest())
 
     lift.type =

@@ -1,58 +1,48 @@
-import CoreData
+//
+//  NLift+CoreDataProperties.swift
+//  nWorkout
+//
+//  Created by Nathan Lanza on 3/2/21.
+//
+//
+
 import Foundation
+import CoreData
+
 
 extension NLift {
 
-  @nonobjc public class func fetchRequest() -> NSFetchRequest<NLift> {
-    return NSFetchRequest<NLift>(entityName: "NLift")
-  }
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<NLift> {
+        return NSFetchRequest<NLift>(entityName: "NLift")
+    }
 
-  @NSManaged public var note: String?
-  @NSManaged public var next: NLift?
-  @NSManaged public var previous: NLift?
-  @NSManaged public var sets: NSOrderedSet?
-  @NSManaged public var type: LiftType?
-  @NSManaged public var workout: NWorkout?
+    @NSManaged public var note: String?
+    @NSManaged public var index: Int64
+    @NSManaged public var next: NLift?
+    @NSManaged public var previous: NLift?
+    @NSManaged public var sets: NSSet?
+    @NSManaged public var type: LiftType?
+    @NSManaged public var workout: NWorkout?
 
 }
 
 // MARK: Generated accessors for sets
 extension NLift {
 
-  @objc(insertObject:inSetsAtIndex:)
-  @NSManaged public func insertIntoSets(_ value: NSet, at idx: Int)
+    @objc(addSetsObject:)
+    @NSManaged public func addToSets(_ value: NSet)
 
-  @objc(removeObjectFromSetsAtIndex:)
-  @NSManaged public func removeFromSets(at idx: Int)
+    @objc(removeSetsObject:)
+    @NSManaged public func removeFromSets(_ value: NSet)
 
-  @objc(insertSets:atIndexes:)
-  @NSManaged public func insertIntoSets(
-    _ values: [NSet], at indexes: NSIndexSet)
+    @objc(addSets:)
+    @NSManaged public func addToSets(_ values: NSSet)
 
-  @objc(removeSetsAtIndexes:)
-  @NSManaged public func removeFromSets(at indexes: NSIndexSet)
-
-  @objc(replaceObjectInSetsAtIndex:withObject:)
-  @NSManaged public func replaceSets(at idx: Int, with value: NSet)
-
-  @objc(replaceSetsAtIndexes:withSets:)
-  @NSManaged public func replaceSets(
-    at indexes: NSIndexSet, with values: [NSet])
-
-  @objc(addSetsObject:)
-  @NSManaged public func addToSets(_ value: NSet)
-
-  @objc(removeSetsObject:)
-  @NSManaged public func removeFromSets(_ value: NSet)
-
-  @objc(addSets:)
-  @NSManaged public func addToSets(_ values: NSOrderedSet)
-
-  @objc(removeSets:)
-  @NSManaged public func removeFromSets(_ values: NSOrderedSet)
+    @objc(removeSets:)
+    @NSManaged public func removeFromSets(_ values: NSSet)
 
 }
 
-extension NLift: Identifiable {
+extension NLift : Identifiable {
 
 }

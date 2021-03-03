@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       for jworkout in jworkouts {
         let _ = NWorkout.createfromJWorkout(jworkout)
       }
-      try? coreDataStack.managedObjectContext.save()
+      try? coreDataStack.getContext().save()
       UserDefaults.standard.setValue(true, forKey: "HasConvertedFromJSON")
     }
 
@@ -58,11 +58,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-    try? coreDataStack.managedObjectContext.save()
+    try? coreDataStack.getContext().save()
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
-    try? coreDataStack.managedObjectContext.save()
+    try? coreDataStack.getContext().save()
     JDB.shared.write()
   }
 }

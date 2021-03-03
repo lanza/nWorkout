@@ -8,14 +8,15 @@ class CoreDataStack {
 
   init(modelName: String) {
     self.modelName = modelName
-  }
 
-  private(set) lazy var managedObjectContext: NSManagedObjectContext = {
-    let context = NSManagedObjectContext(
+    self.context = NSManagedObjectContext(
       concurrencyType: .mainQueueConcurrencyType)
     context.persistentStoreCoordinator = persistentStoreCoordinator
+  }
+  let context: NSManagedObjectContext
+  func getContext() -> NSManagedObjectContext {
     return context
-  }()
+  }
 
   private lazy var managedObjectModel: NSManagedObjectModel = {
     guard
