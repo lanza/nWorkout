@@ -4,6 +4,16 @@ import Foundation
 @objc(NLift)
 public class NLift: NSManagedObject, DataProvider {
 
+  func getOrderedSets() -> [NSet] {
+    guard let sets = sets else { return [] }
+    return sets.sorted(by: { (left, right) -> Bool in
+      guard let l = left as? NSet, let r = right as? NSet else {
+        fatalError("What?")
+      }
+      return l.index < r.index
+    }) as! [NSet]
+  }
+
   @nonobjc public class func getFetchRequest() -> NSFetchRequest<NLift> {
     return fetchRequest()
   }

@@ -17,7 +17,7 @@ public class NWorkout: NSManagedObject, DataProvider {
   }
 
   func addNewSet(for lift: NLift) -> NSet {
-    let last = lift.sets?.lastObject as? NSet
+    let last = lift.getOrderedSets().lastObject as? NSet
 
     let set = NSet(context: coreDataStack.getContext())
     set.isWarmup = false
