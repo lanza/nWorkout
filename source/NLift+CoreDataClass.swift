@@ -28,12 +28,15 @@ public class NLift: NSManagedObject, DataProvider {
   func fixupPreviousOccurrence() {
     // TODO: Clean up this garbage usage
 
-    type!.sortInstances()
-    let index = type!.instances!.index(of: self)
+    let elements = (type!.instances!.map { $0 } as! [NLift]).sorted(by: {
+      $0.index < $1.index
+    })
 
-    guard index > 0 else { return }
+    guard let thisIndex = elements.firstIndex(of: self), thisIndex > 0 else {
+      return
+    }
 
-    previous = (type!.instances![index - 1] as! NLift)
+    previous = elements[thisIndex - 1]
   }
 
   static func new(name: String, workout: NWorkout) -> NLift {
