@@ -19,7 +19,7 @@ public class NLift: NSManagedObject, DataProvider {
   }
 
   func getName() -> String {
-    return type!.name!
+    return type?.name ?? "Pending"
   }
   func setName(_ name: String) {
     type!.name = name
