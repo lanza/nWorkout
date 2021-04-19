@@ -40,6 +40,19 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
 
     @objc func saveButtonTapped() {
       // TODO: Implement this for CoreData?
+
+      guard
+        let result = try? coreDataStack.managedObjectContext.fetch(
+          NWorkout.getFetchRequest())
+      else { return }
+
+      let jworkouts = result.map { $0.convertToJWorkout() }
+      let sorted = jworkouts.sorted { (first, second) -> Bool in
+        return first.startDate < second.startDate
+      }
+      JDB.shared.setAllWorkouts(with: sorted)
+      JDB.shared.write()
+
       shareAction(url: JDB.shared.getFilePath())
     }
   #endif
