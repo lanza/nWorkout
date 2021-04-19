@@ -67,29 +67,48 @@ public class NLift: NSManagedObject, DataProvider {
   func append(_ object: NSet) {
     addToSets(object)
   }
+
   func numberOfItems() -> Int {
     return sets!.count
   }
+
+  func getSetsSorted() -> [NSet] {
+    return (sets!.map { $0 } as! [NSet]).sorted(by: { $0.index < $1.index })
+  }
+
+  func updateIndices(for sets: [NSet]) {
+    for (index, set) in sets.enumerated() {
+      set.index = Int64(index)
+    }
+  }
+
   func object(at index: Int) -> NSet {
-    return sets!.object(at: index) as! NSet
+    return getSetsSorted()[index]
   }
 
   func index(of object: NSet) -> Int? {
-    return sets!.index(of: object)
+    return getSetsSorted().firstIndex(of: object)
   }
 
   func insert(_ object: NSet, at index: Int) {
-    insertIntoSets(object, at: index)
+    var elements = getSetsSorted()
+    elements.insert(object, at: index)
+    updateIndices(for: elements)
+    addToSets(object)
   }
 
   func remove(at index: Int) {
-    removeFromSets(at: index)
+    var elements = getSetsSorted()
+    let ele = elements.remove(at: index)
+    updateIndices(for: elements)
+    removeFromSets(ele)
   }
 
   func move(from sourceIndex: Int, to destinationIndex: Int) {
-    let set = sets!.object(at: sourceIndex) as! NSet
-    removeFromSets(at: sourceIndex)
-    insertIntoSets(set, at: destinationIndex)
+    var elements = getSetsSorted()
+    let removed = elements.remove(at: sourceIndex)
+    elements.insert(removed, at: destinationIndex)
+    updateIndices(for: elements)
   }
 
   static func makeDummy(name: String = "Riley Feeding") -> NLift {
