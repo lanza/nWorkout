@@ -59,7 +59,8 @@ class LiftCell: ChartViewCell {
       }
       if let pl = rowView.previousLabel, let prev = object.previous {
         // TODO: clean this up
-        if prev.sets!.count > index, let set = prev.sets![index] as? NSet {
+        if prev.sets!.count > index {
+          let set = prev.getSetsSorted()[index]
           let string = "\(set.completedReps) x \(set.completedWeight)"
           pl.text = string
         } else {

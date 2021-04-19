@@ -23,7 +23,7 @@ final class StatisticsDataProvider {
 
   private func generateBestSetDataPair(from lift: NLift) -> ChartDataPair {
     let timeInterval = lift.workout!.startDate!.timeIntervalSinceReferenceDate
-    let set = lift.sets!.lastObject as? NSet
+    let set = lift.getSetsSorted().last
     let weight = set?.completedWeight ?? 0
     return ChartDataPair(timeInterval: timeInterval, weight: weight)
   }
