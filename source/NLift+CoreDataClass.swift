@@ -27,11 +27,7 @@ public class NLift: NSManagedObject, DataProvider {
 
   func fixupPreviousOccurrence() {
     // TODO: Clean up this garbage usage
-
-    let elements = (type!.instances!.map { $0 } as! [NLift]).sorted(by: {
-      $0.index < $1.index
-    })
-
+    let elements = type!.getInstancesSorted()
     guard let thisIndex = elements.firstIndex(of: self), thisIndex > 0 else {
       return
     }
