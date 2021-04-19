@@ -14,8 +14,9 @@ public class LiftType: NSManagedObject {
     return lt
   }
 
-  func sortInstances() {
-    let i = instances! as! NSMutableOrderedSet
-    i.sort(using: [NSSortDescriptor(key: "workout.startDate", ascending: true)])
+  func getInstancesSorted() -> [NLift] {
+    return (instances!.map { $0 } as! [NLift]).sorted(by: {
+      $0.index < $1.index
+    })
   }
 }
