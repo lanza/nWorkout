@@ -17,8 +17,7 @@ public class NWorkout: NSManagedObject, DataProvider {
   }
 
   func addNewSet(for lift: NLift) -> NSet {
-    let last = lift.getOrderedSets().lastObject as? NSet
-
+    let last = lift.getOrderedSets().last
     let set = NSet(context: coreDataStack.getContext())
     set.isWarmup = false
     set.weight = last?.weight ?? 45
@@ -68,26 +67,43 @@ public class NWorkout: NSManagedObject, DataProvider {
     return lifts!.count
   }
 
+  func getLiftsSorted() -> [NLift] {
+    return (lifts!.map { $0 } as! [NLift]).sorted(by: { $0.index < $1.index })
+  }
+
   func object(at index: Int) -> NLift {
-    return lifts!.object(at: index) as! NLift
+    return getLiftsSorted()[index]
   }
 
   func index(of object: NLift) -> Int? {
-    return lifts!.index(of: object)
+    return getLiftsSorted().firstIndex(of: object)
+  }
+
+  func updateIndices(for lifts: [NLift]) {
+    for (index, lift) in lifts.enumerated() {
+      lift.index = Int64(index)
+    }
   }
 
   func insert(_ object: NLift, at index: Int) {
-    insertIntoLifts(object, at: index)
+    var elements = getLiftsSorted()
+    elements.insert(object, at: index)
+    updateIndices(for: elements)
+    addToLifts(object)
   }
 
   func remove(at index: Int) {
-    removeFromLifts(at: index)
+    var elements = getLiftsSorted()
+    let ele = elements.remove(at: index)
+    updateIndices(for: elements)
+    removeFromLifts(ele)
   }
 
   func move(from sourceIndex: Int, to destinationIndex: Int) {
-    let lift = lifts!.object(at: sourceIndex) as! NLift
-    removeFromLifts(at: sourceIndex)
-    insertIntoLifts(lift, at: destinationIndex)
+    var elements = getLiftsSorted()
+    let removed = elements.remove(at: sourceIndex)
+    elements.insert(removed, at: destinationIndex)
+    updateIndices(for: elements)
   }
 
   static func makeDummy(name: String = "Dog Petting Session") -> NWorkout {
