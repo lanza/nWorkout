@@ -23730,7 +23730,11 @@
         ],
         "_previousStrings": "45 x 6, 45 x 6, 45 x 6"
       },
-      { "name": "Dumbell fly holds", "sets": [], "_previousStrings": "" }
+      {
+        "name": "Dumbell fly holds",
+        "sets": [],
+        "_previousStrings": ""
+      }
     ],
     "note": "",
     "isWorkout": true,
@@ -41398,6 +41402,1900 @@
     "note": "",
     "isWorkout": true,
     "finishDate": 617509561.30513799,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 635571655.69002295,
+    "lifts": [
+      {
+        "name": "Bench Press",
+        "sets": [
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 95,
+            "completedWeight": 95,
+            "note": "",
+            "reps": 6,
+            "completedReps": 6,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 135,
+            "completedWeight": 135,
+            "note": "",
+            "reps": 4,
+            "completedReps": 4,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 155,
+            "completedWeight": 155,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 155,
+            "completedWeight": 155,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 155,
+            "completedWeight": 155,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "45 x 10, 95 x 5, 115 x 8, 115 x 8, 115 x 8, 115 x 8"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 635573502.51117802,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 635625223.17254901,
+    "lifts": [
+      {
+        "name": "Dumbell Curl",
+        "sets": [
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 20,
+            "completedReps": 20,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 20,
+            "completedReps": 20,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 20,
+            "completedReps": 20,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 18, 30 x 18, 30 x 12"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 635627100,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 635828981.24980295,
+    "lifts": [
+      {
+        "name": "Preacher Curl",
+        "sets": [
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "25 x 16, 25 x 14, 25 x 12, 25 x 12"
+      },
+      {
+        "name": "Bulgarian Split Squat",
+        "sets": [
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "60 x 12, 60 x 12, 60 x 12"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 635831392.93469203,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 636001431.02953196,
+    "lifts": [
+      {
+        "name": "Preacher Curl",
+        "sets": [
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "25 x 16, 25 x 14, 25 x 12, 25 x 12"
+      },
+      {
+        "name": "Bulgarian Split Squat",
+        "sets": [
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "60 x 12, 60 x 12, 60 x 12"
+      },
+      {
+        "name": "Wide Press",
+        "sets": [
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 10, 30 x 10, 30 x 10, 30 x 10"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 636009246.85113502,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 636060554.08597302,
+    "lifts": [
+      {
+        "name": "Dumbell Shrugs",
+        "sets": [
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 14,
+            "completedReps": 14,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 14,
+            "completedReps": 14,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 14,
+            "completedReps": 14,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 14,
+            "completedReps": 14,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 15, 30 x 15, 30 x 15, 30 x 15"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 636062640,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 636171331.91957402,
+    "lifts": [
+      {
+        "name": "Bench Press",
+        "sets": [
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 6,
+            "completedReps": 6,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 135,
+            "completedWeight": 135,
+            "note": "",
+            "reps": 4,
+            "completedReps": 4,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 155,
+            "completedWeight": 155,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 135,
+            "completedWeight": 135,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 125,
+            "completedWeight": 125,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 125,
+            "completedWeight": 125,
+            "note": "",
+            "reps": 8,
+            "completedReps": 7,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "45 x 10, 95 x 5, 115 x 8, 115 x 8, 115 x 8, 115 x 8"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 636172999.306458,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 636243882.86509204,
+    "lifts": [
+      {
+        "name": "Bulgarian Split Squat",
+        "sets": [
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "60 x 12, 60 x 12, 60 x 12"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 636244488.00675905,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 636320468.09910595,
+    "lifts": [
+      {
+        "name": "Wide Press",
+        "sets": [
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 10, 30 x 10, 30 x 10, 30 x 10"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 636322800,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 636433653.90529597,
+    "lifts": [
+      {
+        "name": "Preacher Curl",
+        "sets": [
+          {
+            "weight": 12,
+            "completedWeight": 12,
+            "note": "",
+            "reps": 25,
+            "completedReps": 25,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 12,
+            "completedWeight": 12,
+            "note": "",
+            "reps": 25,
+            "completedReps": 25,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 12,
+            "completedWeight": 12,
+            "note": "",
+            "reps": 25,
+            "completedReps": 25,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 12,
+            "completedWeight": 12,
+            "note": "",
+            "reps": 25,
+            "completedReps": 25,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "25 x 16, 25 x 14, 25 x 12, 25 x 12"
+      },
+      {
+        "name": "Bench Press",
+        "sets": [
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 95,
+            "completedWeight": 95,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 105,
+            "completedWeight": 105,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 105,
+            "completedWeight": 105,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "45 x 10, 95 x 5, 115 x 8, 115 x 8, 115 x 8, 115 x 8"
+      },
+      {
+        "name": "Bulgarian Split Squat",
+        "sets": [
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "60 x 12, 60 x 12, 60 x 12"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 636444440.07556903,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 636493862.48817599,
+    "lifts": [
+      {
+        "name": "Wide Press",
+        "sets": [
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 10, 30 x 10, 30 x 10, 30 x 10"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 636495408.11971104,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 636605502.14078403,
+    "lifts": [
+      {
+        "name": "Bench Press",
+        "sets": [
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 95,
+            "completedWeight": 95,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "45 x 10, 95 x 5, 115 x 8, 115 x 8, 115 x 8, 115 x 8"
+      },
+      {
+        "name": "Deadlift",
+        "sets": [
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "95 x 5, 115 x 5, 135 x 5, 155 x 5, 165 x 5"
+      },
+      {
+        "name": "Dumbell Curl",
+        "sets": [
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 20,
+            "completedReps": 20,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 20,
+            "completedReps": 20,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 20,
+            "completedReps": 20,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 18, 30 x 18, 30 x 12"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 636609413.66150904,
+    "name": "Blank"
+  },
+  {
+    "isComplete": false,
+    "startDate": 636754815.35424995,
+    "lifts": [
+      {
+        "name": "Shoulder Raises",
+        "sets": [
+          {
+            "weight": 10,
+            "completedWeight": 10,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 10,
+            "completedWeight": 10,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 10,
+            "completedWeight": 10,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 10,
+            "completedWeight": 0,
+            "note": "",
+            "reps": 8,
+            "completedReps": 0,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": ""
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": null,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 637059775.11967397,
+    "lifts": [
+      {
+        "name": "Bulgarian Split Squat",
+        "sets": [
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 50,
+            "completedWeight": 50,
+            "note": "",
+            "reps": 12,
+            "completedReps": 11,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "60 x 12, 60 x 12, 60 x 12"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 637060050.27930295,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 637197580.95843995,
+    "lifts": [
+      {
+        "name": "Wide Press",
+        "sets": [
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 10, 30 x 10, 30 x 10, 30 x 10"
+      },
+      {
+        "name": "Squat",
+        "sets": [
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 6,
+            "completedReps": 6,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 95,
+            "completedWeight": 95,
+            "note": "",
+            "reps": 4,
+            "completedReps": 4,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 125,
+            "completedWeight": 125,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 135,
+            "completedWeight": 135,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 145,
+            "completedWeight": 145,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "45 x 5, 45 x 5, 95 x 10, 115 x 10, 115 x 10, 115 x 10"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 637201200,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 637356154.72258699,
+    "lifts": [
+      {
+        "name": "Dumbell Curl",
+        "sets": [
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 18, 30 x 18, 30 x 12"
+      },
+      {
+        "name": "Deadlift",
+        "sets": [
+          {
+            "weight": 120,
+            "completedWeight": 120,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 140,
+            "completedWeight": 140,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 165,
+            "completedWeight": 165,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 185,
+            "completedWeight": 185,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "95 x 5, 115 x 5, 135 x 5, 155 x 5, 165 x 5"
+      },
+      {
+        "name": "Tricep Pulldown",
+        "sets": [
+          {
+            "weight": 35,
+            "completedWeight": 35,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 40,
+            "completedWeight": 40,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 40,
+            "completedWeight": 40,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "40 x 12, 40 x 12, 40 x 12"
+      },
+      {
+        "name": "Wide Press",
+        "sets": [
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 10, 30 x 10, 30 x 10, 30 x 10"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 637360664.84274495,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 637639220.28185201,
+    "lifts": [
+      {
+        "name": "Bulgarian Split Squat",
+        "sets": [
+          {
+            "weight": 60,
+            "completedWeight": 60,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 60,
+            "completedWeight": 60,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 60,
+            "completedWeight": 60,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "60 x 12, 60 x 12, 60 x 12"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 637641181.39541101,
+    "name": "Blank"
+  },
+  {
+    "isComplete": false,
+    "startDate": 637894123.53177404,
+    "lifts": [
+      {
+        "name": "Squat",
+        "sets": [
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 6,
+            "completedReps": 6,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 95,
+            "completedWeight": 95,
+            "note": "",
+            "reps": 4,
+            "completedReps": 4,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 135,
+            "completedWeight": 135,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 145,
+            "completedWeight": 145,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 155,
+            "completedWeight": 155,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 165,
+            "completedWeight": 165,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 175,
+            "completedWeight": 0,
+            "note": "",
+            "reps": 5,
+            "completedReps": 0,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "45 x 5, 45 x 5, 95 x 10, 115 x 10, 115 x 10, 115 x 10"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": null,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 638566358.11602199,
+    "lifts": [
+      {
+        "name": "Deadlift",
+        "sets": [
+          {
+            "weight": 95,
+            "completedWeight": 95,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 135,
+            "completedWeight": 135,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 155,
+            "completedWeight": 155,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 165,
+            "completedWeight": 165,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "95 x 5, 115 x 5, 135 x 5, 155 x 5, 165 x 5"
+      },
+      {
+        "name": "Dumbell Curl",
+        "sets": [
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 18, 30 x 18, 30 x 12"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 638569558.37646103,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 639170649.92691004,
+    "lifts": [
+      {
+        "name": "Squat",
+        "sets": [
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 8,
+            "completedReps": 8,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 95,
+            "completedWeight": 95,
+            "note": "",
+            "reps": 6,
+            "completedReps": 6,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 135,
+            "completedWeight": 135,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 145,
+            "completedWeight": 145,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 155,
+            "completedWeight": 155,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "45 x 5, 45 x 5, 95 x 10, 115 x 10, 115 x 10, 115 x 10"
+      },
+      {
+        "name": "Tricep Pulldown",
+        "sets": [
+          {
+            "weight": 40,
+            "completedWeight": 40,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 40,
+            "completedWeight": 40,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 40,
+            "completedWeight": 40,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "40 x 12, 40 x 12, 40 x 12"
+      },
+      {
+        "name": "Dumbell Curl",
+        "sets": [
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 18,
+            "completedReps": 18,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 18,
+            "completedReps": 18,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 18,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 18, 30 x 18, 30 x 12"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 639174932.68289995,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 639458833.99326098,
+    "lifts": [
+      {
+        "name": "Squat",
+        "sets": [
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 95,
+            "completedWeight": 95,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 135,
+            "completedWeight": 135,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 145,
+            "completedWeight": 145,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 155,
+            "completedWeight": 155,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "45 x 5, 45 x 5, 95 x 10, 115 x 10, 115 x 10, 115 x 10"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 639460858.23811197,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 639772144.22036099,
+    "lifts": [
+      {
+        "name": "Wide Press",
+        "sets": [
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 10, 30 x 10, 30 x 10, 30 x 10"
+      },
+      {
+        "name": "Dumbell Shrugs",
+        "sets": [
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 15,
+            "completedReps": 15,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 15,
+            "completedReps": 15,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 15,
+            "completedReps": 15,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 30,
+            "completedWeight": 30,
+            "note": "",
+            "reps": 15,
+            "completedReps": 15,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "30 x 15, 30 x 15, 30 x 15, 30 x 15"
+      },
+      {
+        "name": "Preacher Curl",
+        "sets": [
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 16,
+            "completedReps": 16,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 14,
+            "completedReps": 14,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 25,
+            "completedWeight": 25,
+            "note": "",
+            "reps": 12,
+            "completedReps": 12,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "25 x 16, 25 x 14, 25 x 12, 25 x 12"
+      },
+      {
+        "name": "Squat",
+        "sets": [
+          {
+            "weight": 95,
+            "completedWeight": 95,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 135,
+            "completedWeight": 135,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "45 x 5, 45 x 5, 95 x 10, 115 x 10, 115 x 10, 115 x 10"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 639781704.70273697,
+    "name": "Blank"
+  },
+  {
+    "isComplete": true,
+    "startDate": 640488054.37534201,
+    "lifts": [
+      {
+        "name": "Squat",
+        "sets": [
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 45,
+            "completedWeight": 45,
+            "note": "",
+            "reps": 5,
+            "completedReps": 5,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 95,
+            "completedWeight": 95,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          },
+          {
+            "weight": 115,
+            "completedWeight": 115,
+            "note": "",
+            "reps": 10,
+            "completedReps": 10,
+            "isWorkout": true,
+            "isWarmup": false
+          }
+        ],
+        "_previousStrings": "45 x 5, 45 x 5, 95 x 10, 115 x 10, 115 x 10, 115 x 10"
+      }
+    ],
+    "note": "",
+    "isWorkout": true,
+    "finishDate": 640490700,
     "name": "Blank"
   }
 ]
