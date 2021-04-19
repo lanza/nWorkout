@@ -84,4 +84,13 @@ public class NSet: NSManagedObject {
     ns.index = Int64(index)
     return ns
   }
+
+  func convertToJSet(in jlift: JLift) -> JSet {
+    let jset = JSet.new(
+      isWorkout: true, isWarmup: isWarmup, weight: weight, reps: Int(reps),
+      completedWeight: completedWeight, completedReps: Int(completedReps),
+      lift: jlift)
+    jset.note = note ?? ""
+    return jset
+  }
 }

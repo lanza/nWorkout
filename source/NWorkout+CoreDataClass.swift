@@ -59,6 +59,21 @@ public class NWorkout: NSManagedObject, DataProvider {
     return nw
   }
 
+  func convertToJWorkout() -> JWorkout {
+    let jworkout = JWorkout.new(
+      isWorkout: true, isComplete: isComplete, name: name ?? "")
+    jworkout.note = note ?? ""
+
+    for lift in getLiftsSorted() {
+      jworkout.append(lift.convertToJLift(in: jworkout))
+    }
+
+    jworkout.startDate = startDate!
+    jworkout.finishDate = finishDate
+
+    return jworkout
+  }
+
   func append(_ object: NLift) {
     addToLifts(object)
   }
