@@ -100,4 +100,15 @@ public class NLift: NSManagedObject, DataProvider {
     }
     return nl
   }
+
+  func convertToJLift(in jworkout: JWorkout) -> JLift {
+    let jlift = JLift.new(isWorkout: true, name: getName(), workout: jworkout)
+    jlift.note = note ?? ""
+
+    for set in getSetsSorted() {
+      jlift.append(set.convertToJSet(in: jlift))
+    }
+
+    return jlift
+  }
 }
