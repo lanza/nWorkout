@@ -39,8 +39,6 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     }
 
     @objc func saveButtonTapped() {
-      // TODO: Implement this for CoreData?
-
       guard
         let result = try? coreDataStack.getContext().fetch(
           NWorkout.getFetchRequest())
