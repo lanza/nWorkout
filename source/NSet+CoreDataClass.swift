@@ -73,12 +73,15 @@ public class NSet: NSManagedObject {
     return s
   }
 
-  static func createFromJSet(_ jset: JSet, in nlift: NLift) -> NSet {
+  static func createFromJSet(_ jset: JSet, in nlift: NLift, at index: Int)
+    -> NSet
+  {
     let ns = NSet.new(
       isWarmup: jset.isWarmup, weight: jset.weight, reps: jset.reps,
       completedWeight: jset.completedWeight, completedReps: jset.completedReps,
       lift: nlift)
     ns.note = jset.note
+    ns.index = Int64(index)
     return ns
   }
 }

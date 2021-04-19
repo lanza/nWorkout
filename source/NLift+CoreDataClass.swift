@@ -120,11 +120,14 @@ public class NLift: NSManagedObject, DataProvider {
     return l
   }
 
-  static func createFromJLift(_ jlift: JLift, in nworkout: NWorkout) -> NLift {
+  static func createFromJLift(
+    _ jlift: JLift, in nworkout: NWorkout, at index: Int
+  ) -> NLift {
     let nl = NLift.new(name: jlift.name, workout: nworkout)
     nl.note = jlift.note
-    for jset in jlift.sets {
-      nl.addToSets(NSet.createFromJSet(jset, in: nl))
+    nl.index = Int64(index)
+    for (index, jset) in jlift.sets.enumerated() {
+      nl.addToSets(NSet.createFromJSet(jset, in: nl, at: index))
     }
     return nl
   }

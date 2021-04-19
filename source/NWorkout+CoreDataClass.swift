@@ -53,8 +53,8 @@ public class NWorkout: NSManagedObject, DataProvider {
     nw.isComplete = jworkout.isComplete
     nw.note = jworkout.note
     nw.startDate = jworkout.startDate
-    for jlift in jworkout.lifts {
-      nw.addToLifts(NLift.createFromJLift(jlift, in: nw))
+    for (index, jlift) in jworkout.lifts.enumerated() {
+      nw.addToLifts(NLift.createFromJLift(jlift, in: nw, at: index))
     }
     return nw
   }
