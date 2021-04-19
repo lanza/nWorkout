@@ -65,7 +65,7 @@ public class NWorkout: NSManagedObject, DataProvider {
       isWorkout: true, isComplete: isComplete, name: name ?? "")
     jworkout.note = note ?? ""
 
-    for lift in getLiftsSorted() {
+    for lift in (lifts!.array as! [NLift]) {
       jworkout.append(lift.convertToJLift(in: jworkout))
     }
 

@@ -105,7 +105,7 @@ public class NLift: NSManagedObject, DataProvider {
     let jlift = JLift.new(isWorkout: true, name: getName(), workout: jworkout)
     jlift.note = note ?? ""
 
-    for set in getSetsSorted() {
+    for set in (sets!.array as! [NSet]) {
       jlift.append(set.convertToJSet(in: jlift))
     }
 
