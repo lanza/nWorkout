@@ -47,6 +47,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       for jworkout in jworkouts {
         let _ = NWorkout.createfromJWorkout(jworkout)
       }
+
+      let nworkouts = try! coreDataStack.getContext().fetch(
+        NWorkout.getFetchRequest()
+      ).sorted(by: { lhs, rhs in
+        return lhs.startDate! < rhs.startDate!
+      })
+
+      for i in nworkouts.indices.dropLast() {
+        if nworkouts[i].isDuplicate(of: nworkouts[i + 1]) {
+          coreDataStack.getContext().delete(nworkouts[i])
+        }
+      }
+
       try? coreDataStack.getContext().save()
       UserDefaults.standard.setValue(true, forKey: "HasConvertedFromJSON")
     }
