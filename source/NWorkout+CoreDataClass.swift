@@ -29,6 +29,13 @@ public class NWorkout: NSManagedObject, DataProvider {
     return set
   }
 
+  func isDuplicate(of other: NWorkout) -> Bool {
+    return self.startDate == other.startDate
+      && self.finishDate == other.finishDate
+      && self.name == other.name && self.isComplete == other.isComplete
+      && self.lifts!.count == other.lifts!.count && self.note == other.note
+  }
+
   func makeWorkoutWorkout() -> NWorkout {
     let workout = NWorkout(context: coreDataStack.getContext())
     workout.isComplete = false
