@@ -17,7 +17,8 @@ public class NWorkout: NSManagedObject, DataProvider {
   }
 
   func addNewSet(for lift: NLift) -> NSet {
-    let last = lift.getOrderedSets().last
+    let sets = lift.getOrderedSets()
+    let last = sets.last
     let set = NSet(context: coreDataStack.getContext())
     set.isWarmup = false
     set.weight = last?.weight ?? 45
@@ -25,6 +26,7 @@ public class NWorkout: NSManagedObject, DataProvider {
     set.completedWeight = 0
     set.completedReps = 0
     set.lift = lift
+    set.index = Int64(sets.count)
     lift.addToSets(set)
     return set
   }
@@ -139,6 +141,7 @@ public class NWorkout: NSManagedObject, DataProvider {
 
   func addNewLift(name: String) -> NLift {
     let lift = NLift.new(name: name, workout: self)
+    lift.index = Int64(lifts!.count)
     addToLifts(lift)
     return lift
   }
