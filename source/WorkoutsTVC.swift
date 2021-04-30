@@ -56,7 +56,7 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
   #endif
 
   func reloadData() {
-    // TODO: Implement this properly once I laern coredata
+    // TODO: Implement this properly once I learn coredata
     guard
       let result = try? coreDataStack.getContext().fetch(
         NWorkout.getFetchRequest())
