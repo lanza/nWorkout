@@ -90,11 +90,11 @@ open class TabBarCoordinator: Coordinator {
   var hasSetUpColors = false
 }
 
-public protocol TabBarButtonCoordinator: class {
+public protocol TabBarButtonCoordinator: AnyObject {
   func prepareForReuse()
 }
 
-public protocol TabBarCoordinatorDelegate: class {
+public protocol TabBarCoordinatorDelegate: AnyObject {
   func tabBarCoordinator(
     _ tabBarCoordinator: TabBarCoordinator,
     didSelect coordinator: Coordinator

@@ -1,6 +1,6 @@
 import UIKit
 
-protocol SelectWorkoutCoordinatorDelegate: class {
+protocol SelectWorkoutCoordinatorDelegate: AnyObject {
   func selectWorkoutCoordinator(
     _ selectWorkoutCoordinator: SelectWorkoutCoordinator,
     didSelectRoutine routine: NWorkout?

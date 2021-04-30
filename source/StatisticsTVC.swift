@@ -70,7 +70,7 @@ class StatisticsTVC: UITableViewController {
   }
 }
 
-protocol StatisticsTVCDelegate: class {
+protocol StatisticsTVCDelegate: AnyObject {
   func statisticsTVC(
     _ statisticsTVC: StatisticsTVC,
     didSelectLiftType liftType: String

@@ -1,6 +1,6 @@
 import UIKit
 
-protocol WorkoutDataSourceDelegate: class {
+protocol WorkoutDataSourceDelegate: AnyObject {
   func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet)
   func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NLift)
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-protocol SelectWorkoutDelegate: class {
+protocol SelectWorkoutDelegate: AnyObject {
   func cancelSelected(for selectWorkoutVC: SelectWorkoutVC)
   func startBlankWorkoutSelected(for selectWorkoutVC: SelectWorkoutVC)
 

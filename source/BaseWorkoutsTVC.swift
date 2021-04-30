@@ -52,7 +52,7 @@ where Cell: ConfigurableCell, Cell.Object == NWorkout {
 
 }
 
-protocol WorkoutsTVCDelegate: class {
+protocol WorkoutsTVCDelegate: AnyObject {
   func workoutsTVC(
     _ workoutsTVC: WorkoutsTVC,
     didSelectWorkout workout: NWorkout

@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol ChartViewDelegate: class {
+public protocol ChartViewDelegate: AnyObject {
   func chartView(
     _ chartView: ChartView,
     commit editingStyle: ChartView.EditingStyle,

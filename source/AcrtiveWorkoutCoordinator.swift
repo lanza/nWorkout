@@ -1,6 +1,6 @@
 import Foundation
 
-protocol ActiveWorkoutCoordinatorDelegate: class {
+protocol ActiveWorkoutCoordinatorDelegate: AnyObject {
   func hideTapped(for activeWorkoutCoordinator: ActiveWorkoutCoordinator)
 }
 
