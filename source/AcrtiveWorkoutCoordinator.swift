@@ -132,8 +132,12 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
     NotificationCenter.default.post(
       name: Notification.activeWorkoutDidFinish, object: nil)
 
-    // TODO: fix this
-    try! coreDataStack.saveContext()
+    do {
+      try coreDataStack.saveContext()
+    } catch let e {
+      print(e)
+      crash(in: viewController, with: "Couldn't save")
+    }
   }
 }
 
