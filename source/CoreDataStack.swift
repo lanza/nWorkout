@@ -12,7 +12,6 @@ class CoreDataStack {
     self.modelName = modelName
     self.container = NSPersistentCloudKitContainer(name: "Model")
 
-    // this would be used for testing and previews in SwiftUI
     #if inMemory
       container.persistentStoreDescriptions.first!.url = URL(
         fileURLWithPath: "/dev/null")
