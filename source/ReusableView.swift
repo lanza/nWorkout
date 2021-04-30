@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol ReusableView: class {}
+public protocol ReusableView: AnyObject {}
 
 extension ReusableView where Self: UIView {
   public static var reuseIdentifier: String {
