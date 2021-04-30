@@ -41,7 +41,8 @@ class CoreDataStack {
   }
 
   func saveContext() throws {
-    try getContext().save()
+    let c = getContext()
+    try c.save()
   }
 
   // let context: NSManagedObjectContext
