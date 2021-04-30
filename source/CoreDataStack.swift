@@ -6,22 +6,23 @@ let coreDataStack = CoreDataStack(modelName: "Model")
 class CoreDataStack {
   private let modelName: String
 
+  let inMemory = false
+
   init(modelName: String) {
     self.modelName = modelName
     self.container = NSPersistentCloudKitContainer(name: "Model")
 
     // this would be used for testing and previews in SwiftUI
-    let inMemory = false
-    if inMemory {
+    #if inMemory
       container.persistentStoreDescriptions.first!.url = URL(
         fileURLWithPath: "/dev/null")
-    } else {
+    #else
       let fm = FileManager.default
       let storeName = "\(modelName).sqlite"
       let docDir = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
       let url = docDir.appendingPathComponent(storeName)
       container.persistentStoreDescriptions.first!.url = url
-    }
+    #endif
 
     container.loadPersistentStores(completionHandler: {
       (storeDescription, error) in
