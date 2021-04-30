@@ -46,11 +46,6 @@ class CoreDataStack {
     try c.save()
   }
 
-  // let context: NSManagedObjectContext
-  // func getContext() -> NSManagedObjectContext {
-  //   return context
-  // }
-
   private lazy var managedObjectModel: NSManagedObjectModel = {
     guard
       let modelURL = Bundle.main.url(
