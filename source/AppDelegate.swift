@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
       }
 
-      try? coreDataStack.getContext().save()
+      try? coreDataStack.saveContext()
       UserDefaults.standard.setValue(true, forKey: "HasConvertedFromJSON")
     }
 
@@ -71,11 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-    try? coreDataStack.getContext().save()
+    try? coreDataStack.saveContext()
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
-    try? coreDataStack.getContext().save()
+    try? coreDataStack.saveContext()
     JDB.shared.write()
   }
 }

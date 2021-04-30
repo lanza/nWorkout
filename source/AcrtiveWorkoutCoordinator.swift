@@ -90,7 +90,7 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
       name: Notification.activeWorkoutDidFinish, object: nil)
 
     // TODO: fix this
-    try! coreDataStack.getContext().save()
+    try! coreDataStack.saveContext()
   }
 }
 

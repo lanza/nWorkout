@@ -40,6 +40,10 @@ class CoreDataStack {
     return container.viewContext
   }
 
+  func saveContext() throws {
+    try getContext().save()
+  }
+
   // let context: NSManagedObjectContext
   // func getContext() -> NSManagedObjectContext {
   //   return context
