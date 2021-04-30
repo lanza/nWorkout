@@ -74,8 +74,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     try? coreDataStack.saveContext()
   }
 
+  func applicationDidEnterBackground(_ application: UIApplication) {
+    try? coreDataStack.saveContext()
+  }
+
   func applicationWillResignActive(_ application: UIApplication) {
     try? coreDataStack.saveContext()
-    JDB.shared.write()
   }
 }
