@@ -42,6 +42,7 @@ class CoreDataStack {
 
   func saveContext() throws {
     let c = getContext()
+    c.mergePolicy = NSMergePolicy(merge: .overwriteMergePolicyType)
     try c.save()
   }
 
