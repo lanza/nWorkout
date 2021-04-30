@@ -1,4 +1,6 @@
 import Foundation
+import UIKit
+
 func crash(in vc: UIViewController, with message: String? = nil) -> Never {
   let alert = UIAlertController(
     title: message ?? "Crashed unwrapping in \(#function)",
@@ -24,10 +26,9 @@ class ActiveWorkoutCoordinator: Coordinator {
     super.viewControllerDidLoad()
   }
 
-  weak var delegate: ActiveWorkoutCoordinatorDelegate!
+  weak var delegate: ActiveWorkoutCoordinatorDelegate?
 
-  var workout: NWorkout!
-  var workoutTVC: WorkoutTVC { return viewController as! WorkoutTVC }
+  var workout: NWorkout?
   var workoutTVC: WorkoutTVC {
     guard let vc = viewController as? WorkoutTVC else {
       guard let parent = parent else { fatalError("lol?") }
@@ -61,7 +62,7 @@ class ActiveWorkoutCoordinator: Coordinator {
     }
   }
 
-  var workoutIsNotActive: (() -> Void)!
+  var workoutIsNotActive: (() -> Void)?
 }
 
 extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
@@ -71,21 +72,33 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
   }
 
   func hideTapped(for workoutTVC: WorkoutTVC) {
-    self.delegate.hideTapped(for: self)
+    self.delegate?.hideTapped(for: self)
   }
 
   func workoutCancelled(for workoutTVC: WorkoutTVC) {
     DispatchQueue.main.async {
-      coreDataStack.getContext().delete(self.workout)
-      self.workoutIsNotActive()
+      guard let w = self.workout else {
+        crash(in: self.viewController)
+      }
+      coreDataStack.getContext().delete(w)
+      guard let workoutIsNotActive = self.workoutIsNotActive else {
+        crash(in: self.viewController)
+      }
+      workoutIsNotActive()
     }
     navigationCoordinator?.parent?.dismiss(animated: true)
   }
 
   func workoutFinished(for workoutTVC: WorkoutTVC) {
-    self.workout.isComplete = true
-    self.workout.finishDate = Date()
-    for l in self.workout.lifts! {
+    guard let w = self.workout else {
+      crash(
+        in: viewController,
+        with: "There was no workout in ActiveWorkoutCoordinator.workoutFinished"
+      )
+    }
+    w.isComplete = true
+    w.finishDate = Date()
+    for l in w.lifts! {
       let lift = l as! NLift
       var strings: [String] = []
       for s in lift.sets! {
@@ -108,7 +121,12 @@ extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
       //      + " x " + "\($0.completedReps)" }.joined(separator: ",")
       UserDefaults.standard.set(joined, forKey: "last" + lift.type!.name!)
     }
-    workoutIsNotActive()
+    guard let wina = self.workoutIsNotActive else {
+      crash(
+        in: viewController,
+        with: "ActiveWorkoutCoordinator.workokutIsNotActive was nil")
+    }
+    wina()
     navigationCoordinator?.parent?.dismiss(animated: true)
 
     NotificationCenter.default.post(
