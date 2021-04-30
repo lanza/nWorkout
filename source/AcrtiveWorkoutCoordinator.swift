@@ -1,4 +1,18 @@
 import Foundation
+func crash(in vc: UIViewController, with message: String? = nil) -> Never {
+  let alert = UIAlertController(
+    title: message ?? "Crashed unwrapping in \(#function)",
+    message: Thread.callStackSymbols.joined(separator: "\n"),
+    preferredStyle: .alert)
+  alert.addAction(
+    UIAlertAction(
+      title: "Okay", style: .destructive,
+      handler: { action in
+        fatalError("Crashed unwrapping in \(#function)")
+      }))
+  vc.present(alert, animated: true, completion: nil)
+  fatalError("Crashed unwrapping in \(#function)")
+}
 
 protocol ActiveWorkoutCoordinatorDelegate: AnyObject {
   func hideTapped(for activeWorkoutCoordinator: ActiveWorkoutCoordinator)
@@ -14,6 +28,17 @@ class ActiveWorkoutCoordinator: Coordinator {
 
   var workout: NWorkout!
   var workoutTVC: WorkoutTVC { return viewController as! WorkoutTVC }
+  var workoutTVC: WorkoutTVC {
+    guard let vc = viewController as? WorkoutTVC else {
+      guard let parent = parent else { fatalError("lol?") }
+      crash(
+        in: parent.viewController,
+        with:
+          "Crashed unwrapping workoutTVC in ActiveWorkoutCoordinator.workoutTVC"
+      )
+    }
+    return vc
+  }
 
   override func loadViewController() {
     viewController = WorkoutTVC()
