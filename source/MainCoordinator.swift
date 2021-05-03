@@ -8,16 +8,14 @@ class MainCoordinator: TabBarCoordinator {
 
   func checkForUnfinishedWorkout(displayImmediately: Bool) {
     let request = NWorkout.getFetchRequest()
-    request.fetchLimit = 10
+    request.fetchLimit = 1
+    request.predicate = NSPredicate(format: "isComplete = false")
     guard
       let fetchedWorkouts = try? coreDataStack.getContext().fetch(
         request)
     else { return }
 
-    // TODO: do this properly with a fetch request
-    let workouts = fetchedWorkouts.filter { !$0.isComplete }
-
-    guard let first = workouts.first else { return }
+    guard let first = fetchedWorkouts.first else { return }
     self.activeWorkoutCoordinator = ActiveWorkoutCoordinator()
     self.activeWorkoutCoordinator?.delegate = self
     self.activeWorkoutCoordinator?.workout = first
