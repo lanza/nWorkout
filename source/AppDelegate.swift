@@ -71,14 +71,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-    try? coreDataStack.saveContext()
+    do {
+      try coreDataStack.saveContext()
+    } catch _ {
+      crash(
+        in: mainCoordinator.viewController,
+        with: "Failed to save coreDataContext in \(#function)")
+    }
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {
-    try? coreDataStack.saveContext()
+    do {
+      try coreDataStack.saveContext()
+    } catch _ {
+      crash(
+        in: mainCoordinator.viewController,
+        with: "Failed to save coreDataContext in \(#function)")
+    }
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
-    try? coreDataStack.saveContext()
+    do {
+      try coreDataStack.saveContext()
+    } catch _ {
+      crash(
+        in: mainCoordinator.viewController,
+        with: "Failed to save coreDataContext in \(#function)")
+    }
   }
 }
