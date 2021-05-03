@@ -28,6 +28,7 @@ find_package(ZLIB REQUIRED)
 find_package(Boost REQUIRED ALL)
 find_package(Folly REQUIRED)
 find_package(fmt REQUIRED)
+find_package(GTest REQUIRED)
 include_directories(${LLVM_INCLUDE_DIRS})
 
 add_subdirectory(utils)
