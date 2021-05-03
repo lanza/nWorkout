@@ -14,9 +14,7 @@ class JDB: ObservableObject {
   }
 
   func getFilePath() -> URL {
-    // This database format will never be used again and will only ever be used
-    // for serialization. This should always be false below.
-    #if false
+    #if true
       return getDocumentsDirectory().appendingPathComponent("data.json")
     #else
       return Bundle.main.bundleURL.appendingPathComponent("data.json")
