@@ -24,7 +24,7 @@ int main(int Argc, char **Argv) {
   httplib::Server S;
 
   S.Get("/hi", [](const Request &Req, Response &Res) {
-    Res.set_content("Hello World!", "text/plain");
+    Res.set_content("<p>Hello World!<p>", "text/html");
   });
 
   S.Get(R"(/numbers/(\d+))", [&](const Request &Req, Response &res) {
