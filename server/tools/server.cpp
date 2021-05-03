@@ -43,6 +43,7 @@ int main(int Argc, char **Argv) {
 
   S.Get("/stop", [&](const Request &Req, Response &Res) { S.stop(); });
 
-  S.listen("localhost", 1234);
+  if (!S.listen("localhost", 1234))
+    std::cout << "Failed to start server" << std::endl;
   return 0;
 }
