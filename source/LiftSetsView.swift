@@ -2,9 +2,14 @@ import SwiftUI
 
 struct LiftSetsView: View {
   let lift: NLift
+  let sets: [NSet]
+  init(lift: NLift) {
+    self.lift = lift
+    self.sets = lift.getOrderedSets()
+  }
   var body: some View {
     LazyVStack(alignment: .center, spacing: 0) {
-      ForEach(lift.sets!.map { return $0 as! NSet }) { set in
+      ForEach(sets) { set in
         HStack(alignment: .center) {
           Spacer()
           HStack(alignment: .center) {
