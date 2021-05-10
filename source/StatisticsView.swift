@@ -10,8 +10,12 @@ struct StatisticsView: View {
   var workouts: [NWorkout]
 
   init(workouts: [NWorkout]) {
+    let request = NWorkout.getFetchRequest()
+    request.sortDescriptors = [
+      NSSortDescriptor(key: "startDate", ascending: false)
+    ]
     self.workouts = try! coreDataStack.getContext().fetch(
-      NWorkout.getFetchRequest())
+      request)
     let app = UINavigationBarAppearance()
     app.backgroundColor = Theme.Colors.darkest
     app.largeTitleTextAttributes = [
