@@ -1,2 +1,5 @@
 [swift]
   default_platform = iphoneos-arm64
+
+[cxx]
+  default_platform = iphonesimulator-x86_64

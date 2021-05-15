@@ -6,7 +6,14 @@ apple_resource(
 )
 
 
+apple_bundle(
+    name = 'nWorkoutApp',
+    binary = ':nWorkoutBinary',
+    extension = 'app',
+    info_plist = 'resources/info.plist',
+)
+
 apple_binary(
-    name = 'nWorkout',
+    name = 'nWorkoutBinary',
     deps = [':nWorkoutResources', '//source:work'],
 )
