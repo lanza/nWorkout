@@ -1,0 +1,9 @@
+
+
+swift_library(
+    name = 'work',
+    srcs = glob([
+        '*.swift',
+    ]),
+    visibility = ['PUBLIC'],
+)
