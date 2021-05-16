@@ -1,6 +1,6 @@
 
 
-swift_library(
+apple_library(
     name = 'work',
     srcs = glob([
         '*.swift',
