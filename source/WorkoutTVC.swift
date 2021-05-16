@@ -1,6 +1,6 @@
 import UIKit
 
-protocol WorkoutTVCDelegate: class {
+protocol WorkoutTVCDelegate: AnyObject {
   func hideTapped(for workoutTVC: WorkoutTVC)
   func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC)
 
