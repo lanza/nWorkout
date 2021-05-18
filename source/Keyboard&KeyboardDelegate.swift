@@ -1,6 +1,6 @@
 import UIKit
 
-protocol KeyboardDelegate: class {
+protocol KeyboardDelegate: AnyObject {
   func keyWasTapped(character: String)
   func hideWasTapped()
   func backspaceWasTapped()

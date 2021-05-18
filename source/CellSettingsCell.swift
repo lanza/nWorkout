@@ -1,6 +1,6 @@
 import UIKit
 
-protocol CellSettingsCellDelegate: class {
+protocol CellSettingsCellDelegate: AnyObject {
   func switchDidChange(to bool: Bool, for cell: CellSettingsCell)
   func widthDidChange(to value: CGFloat, for cell: CellSettingsCell)
 }

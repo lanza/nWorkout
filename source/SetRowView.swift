@@ -1,6 +1,6 @@
 import UIKit
 
-protocol SetRowViewDelegate: class {
+protocol SetRowViewDelegate: AnyObject {
   func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet)
 }
 

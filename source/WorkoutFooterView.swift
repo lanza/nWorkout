@@ -1,6 +1,6 @@
 import UIKit
 
-protocol WorkoutFooterViewDelegate: class {
+protocol WorkoutFooterViewDelegate: AnyObject {
   func addLiftTapped()
   func cancelWorkoutTapped()
   func finishWorkoutTapped()
