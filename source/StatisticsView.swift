@@ -94,11 +94,10 @@ func makeFakeWorkouts() -> [NWorkout] {
   var workouts: [NWorkout] = []
 
   let w = NWorkout.makeDummy()
-  let l1 = NLift.makeDummy(name: "Muffin Petting")
-  let l2 = NLift.makeDummy(name: "Riley Feeding")
-  let s = NSet.makeDummy()
-  l1.append(s)
-  l2.append(s)
+  let l1 = NLift.makeDummy(workout: w, name: "Muffin Petting")
+  let _ = NSet.makeDummy(lift: l1)
+  let l2 = NLift.makeDummy(workout: w, name: "Riley Feeding")
+  let _ = NSet.makeDummy(lift: l2)
 
   w.append(l1)
   w.append(l2)

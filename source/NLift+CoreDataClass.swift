@@ -111,10 +111,11 @@ public class NLift: NSManagedObject, DataProvider {
     updateIndices(for: elements)
   }
 
-  static func makeDummy(name: String = "Riley Feeding") -> NLift {
-    let l = NLift()
-    let lt = LiftType()
-    lt.name = name
+  static func makeDummy(workout: NWorkout, name: String = "Riley Feeding")
+    -> NLift
+  {
+    let l = NLift.new(name: name, workout: workout)
+    let lt = LiftType.new(name: name)
     l.type = lt
     l.note = ""
     return l

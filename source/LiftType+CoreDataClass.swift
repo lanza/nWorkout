@@ -15,7 +15,6 @@ public class LiftType: NSManagedObject {
   }
 
   func getInstancesSorted() -> [NLift] {
-
     return (instances!.map { $0 } as! [NLift]).sorted(by: {
       $0.workout!.startDate! < $1.workout!.startDate!
     })

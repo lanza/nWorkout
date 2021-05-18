@@ -58,18 +58,17 @@ public class NSet: NSManagedObject {
     self.completedReps = Int64(reps)
   }
 
-  static func makeDummy() -> NSet {
-    let s = NSet()
-
-    let reps = Int64.random(in: 0...10)
+  static func makeDummy(lift: NLift) -> NSet {
+    let reps = Int.random(in: 0...10)
     let weight = Int64.random(in: 0...100)
 
-    s.reps = reps
-    s.weight = Double(weight)
+    let completedReps = reps - Int.random(in: 0...2)
+    let completedWeight = Double(weight)
 
-    s.completedReps = reps - Int64.random(in: 0...2)
-    s.completedWeight = Double(weight)
-
+    let s = NSet.new(
+      isWarmup: false, weight: Double(weight), reps: reps,
+      completedWeight: completedWeight, completedReps: completedReps, lift: lift
+    )
     return s
   }
 

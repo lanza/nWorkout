@@ -68,19 +68,15 @@ struct LiftStatisticsView: View {
 func makeFakeData() -> (
   workout: NWorkout, lifts: [NLift], name: String, count: Int
 ) {
-  let l1 = NLift.makeDummy(name: "Pet Muffin")
-  let s1 = NSet.makeDummy()
-  let s2 = NSet.makeDummy()
-  l1.append(s1)
-  l1.append(s2)
-
-  let l2 = NLift.makeDummy(name: "Pet Muffin")
-  let s3 = NSet.makeDummy()
-  let s4 = NSet.makeDummy()
-  l2.append(s3)
-  l2.append(s4)
-
   let w = NWorkout.makeDummy()
+  let l1 = NLift.makeDummy(workout: w, name: "Pet Muffin")
+  let _ = NSet.makeDummy(lift: l1)
+  let _ = NSet.makeDummy(lift: l1)
+
+  let l2 = NLift.makeDummy(workout: w, name: "Pet Muffin")
+  let _ = NSet.makeDummy(lift: l2)
+  let _ = NSet.makeDummy(lift: l2)
+
   w.append(l1)
   w.append(l2)
 

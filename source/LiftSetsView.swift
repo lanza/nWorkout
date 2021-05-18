@@ -33,11 +33,10 @@ struct LiftSetsView: View {
 
 struct LiftSetsView_Previews: PreviewProvider {
   static var previews: some View {
-    let s1 = NSet.makeDummy()
-    let s2 = NSet.makeDummy()
-    let l1 = NLift.makeDummy()
-    l1.append(s1)
-    l1.append(s2)
+    let w = NWorkout.new(name: "Muffin")
+    let l1 = NLift.makeDummy(workout: w)
+    let _ = NSet.makeDummy(lift: l1)
+    let _ = NSet.makeDummy(lift: l1)
     return LiftSetsView(lift: l1)
   }
 }

@@ -131,8 +131,7 @@ public class NWorkout: NSManagedObject, DataProvider {
   }
 
   static func makeDummy(name: String = "Dog Petting Session") -> NWorkout {
-    let w = NWorkout()
-    w.name = name
+    let w = NWorkout.new(name: name)
     w.startDate =
       Date() - Date(timeIntervalSinceNow: -1000).timeIntervalSinceNow
     w.finishDate = Date()
