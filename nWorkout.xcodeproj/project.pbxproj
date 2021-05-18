@@ -543,7 +543,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/Users/lanza/.local/bin/xcode-format\n";
+			shellScript = "#/Users/lanza/.local/bin/xcode-format\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
