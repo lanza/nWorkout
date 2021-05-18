@@ -69,7 +69,7 @@ class KeyboardHandler: NSObject {
 
     let frFrame = firstResponder.frame
 
-    let corrected = UIApplication.shared.keyWindow!.convert(
+    let corrected = UIApplication.shared.windows.first!.convert(
       frFrame,
       from: firstResponder.superview
     )
@@ -85,9 +85,11 @@ class KeyboardHandler: NSObject {
       )
       let scrollPoint = CGPoint(
         x: 0,
-        y: frInViewsFrame.origin.y - keyboardHeight
+        y: frInViewsFrame.origin.y - keyboardHeight!
           - tableView.contentInset.top
-          - frInViewsFrame.height - UIApplication.shared.statusBarFrame.height
+          - frInViewsFrame.height
+          - UIApplication.shared.windows.first!.windowScene!.statusBarManager!
+          .statusBarFrame.height
       )
 
       tableView.setContentOffset(scrollPoint, animated: true)
