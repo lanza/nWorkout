@@ -96,7 +96,9 @@
 		A39ACB1095B5187360814D02 /* TextFieldBehaviorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A0442731ED92420FED2F4C /* TextFieldBehaviorHandler.swift */; };
 		AA334227C860AD597E0056DB /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4E732BB8690F252E1EC04E /* SettingsTVC.swift */; };
 		AE2346631C29CDFD436085A4 /* StatisticsHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B31FC8138325749CD098FE /* StatisticsHistoryCell.swift */; };
+		B31E602126535FDB0049023F /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E602026535FDB0049023F /* BarChart.swift */; };
 		B373136825EF379F001687DF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B373136725EF379F001687DF /* CloudKit.framework */; };
+		B3ABE9DC26535E0E000E4FCA /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ABE9DB26535E0E000E4FCA /* BarChartCell.swift */; };
 		B3E8D49625E23BB2000A07DD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E8D49525E23BB2000A07DD /* data.json */; };
 		BB365092828FD353DFAE548B /* WorkoutsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5C259A90278236567AD1 /* WorkoutsDataSource.swift */; };
 		BDF028D71A52AFF00B9259C4 /* SingleLiftStatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636973CF18ED4C082CD181F /* SingleLiftStatisticsCoordinator.swift */; };
@@ -228,8 +230,10 @@
 		ACC031B224BF92B129F8FB32 /* SelectWorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWorkoutCell.swift; sourceTree = "<group>"; };
 		AF96D45B5D4208FF51A3FCCA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		B30F606025E9729900DB7873 /* nWorkout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nWorkout.entitlements; sourceTree = "<group>"; };
+		B31E602026535FDB0049023F /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
 		B373136725EF379F001687DF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		B38205DB28C1B77C132B5630 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B3ABE9DB26535E0E000E4FCA /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
 		B3E8D49525E23BB2000A07DD /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = SOURCE_ROOT; };
 		B5D800702F491BB06DB04105 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		B68B57640C59B961A78D4189 /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
@@ -326,6 +330,8 @@
 				DADE6A2FDB43A92C1F7EDBFC /* ChartDataProvider.swift */,
 				0E562F06A02C1E62AD2D4DEC /* ChartSectionModel.swift */,
 				E7E2DEC9687CA8FEFCE68832 /* ChartView.swift */,
+				B3ABE9DB26535E0E000E4FCA /* BarChartCell.swift */,
+				B31E602026535FDB0049023F /* BarChart.swift */,
 				DA76F980C71B1F594D2EB1BB /* ChartViewCell.swift */,
 				F212BD6FD2A338FF3E9E1DEC /* ChartViewConfigurator.swift */,
 				4563F4D179A73D14FD9E8420 /* ColumnRowView.swift */,
@@ -604,6 +610,7 @@
 				FF8AB362A5BA179DD3CAF409 /* NSet+CoreDataClass.swift in Sources */,
 				A150B8C8CCFDA76FD983DC66 /* NSet+CoreDataProperties.swift in Sources */,
 				3E9F89C723BA6CFD649A7CCF /* NWorkout+CoreDataClass.swift in Sources */,
+				B3ABE9DC26535E0E000E4FCA /* BarChartCell.swift in Sources */,
 				FAB07127FED5C436736C2123 /* NWorkout+CoreDataProperties.swift in Sources */,
 				8929CBBE1E55F5A29BBD5B43 /* NavigationCoordinator.swift in Sources */,
 				63F80D700A8567BCF4A9B341 /* NoteButton.swift in Sources */,
@@ -627,6 +634,7 @@
 				F64C1BCD75C516061855E703 /* SetRowView.swift in Sources */,
 				C9164E83C924E567990A704A /* SettingsCell.swift in Sources */,
 				BFE6B79737E32B180DB27D79 /* SettingsCoordinator.swift in Sources */,
+				B31E602126535FDB0049023F /* BarChart.swift in Sources */,
 				AA334227C860AD597E0056DB /* SettingsTVC.swift in Sources */,
 				BDF028D71A52AFF00B9259C4 /* SingleLiftStatisticsCoordinator.swift in Sources */,
 				230B4E74BA8A1E65E6BEA037 /* StartBlankWorkoutButton.swift in Sources */,
