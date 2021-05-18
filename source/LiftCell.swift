@@ -1,6 +1,6 @@
 import UIKit
 
-protocol LiftCellDelegate: class {
+protocol LiftCellDelegate: AnyObject {
   func setRowView(_ setRowView: SetRowView, didTapNoteButtonForSet set: NSet)
   func liftCell(_ liftCell: LiftCell, didTapNoteButtonForLift lift: NLift)
 }
