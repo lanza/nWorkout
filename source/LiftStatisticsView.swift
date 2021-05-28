@@ -35,13 +35,12 @@ struct LiftStatisticsView: View {
                 spacing: 0
               ) {
                 LazyHStack {
-                  Spacer()
                   Text("\(df.string(from: lift.workout!.startDate!))")
-                  Spacer()
+                    .font(.title2)
                 }
                 .padding()
                 .background(Color(Theme.Colors.dark))
-                LiftSetsView(lift: lift)
+                LiftSetsView(sets: lift.getOrderedSets())
               }
               .background(Color(Theme.Colors.dark))
               .border(Color.black)
@@ -70,12 +69,12 @@ func makeFakeData() -> (
 ) {
   let w = NWorkout.makeDummy()
   let l1 = NLift.makeDummy(workout: w, name: "Pet Muffin")
-  let _ = NSet.makeDummy(lift: l1)
-  let _ = NSet.makeDummy(lift: l1)
+  _ = NSet.makeDummy(lift: l1)
+  _ = NSet.makeDummy(lift: l1)
 
   let l2 = NLift.makeDummy(workout: w, name: "Pet Muffin")
-  let _ = NSet.makeDummy(lift: l2)
-  let _ = NSet.makeDummy(lift: l2)
+  _ = NSet.makeDummy(lift: l2)
+  _ = NSet.makeDummy(lift: l2)
 
   w.append(l1)
   w.append(l2)
@@ -89,6 +88,7 @@ struct LiftStatistics_Previews: PreviewProvider {
     let data = makeFakeData()
     LiftStatistics_Previews.w = data.workout
     return LiftStatisticsView(
-      lifts: data.lifts, name: data.name, count: data.count)
+      lifts: data.lifts, name: data.name, count: data.count
+    )
   }
 }
