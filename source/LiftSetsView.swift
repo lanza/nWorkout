@@ -7,6 +7,7 @@ struct LiftSetsView: View {
     self.lift = lift
     self.sets = lift.getOrderedSets()
   }
+
   var body: some View {
     LazyVStack(alignment: .center, spacing: 0) {
       ForEach(sets) { set in
@@ -35,8 +36,8 @@ struct LiftSetsView_Previews: PreviewProvider {
   static var previews: some View {
     let w = NWorkout.new(name: "Muffin")
     let l1 = NLift.makeDummy(workout: w)
-    let _ = NSet.makeDummy(lift: l1)
-    let _ = NSet.makeDummy(lift: l1)
+    _ = NSet.makeDummy(lift: l1)
+    _ = NSet.makeDummy(lift: l1)
     return LiftSetsView(lift: l1)
   }
 }
