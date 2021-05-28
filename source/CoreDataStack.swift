@@ -30,10 +30,15 @@ class CoreDataStack {
       }
     })
 
-    // self.context = NSManagedObjectContext(
-    //   concurrencyType: .mainQueueConcurrencyType)
-    // context.persistentStoreCoordinator = persistentStoreCoordinator
-    // context.automaticallyMergesChangesFromParent = true
+    // no idea what this does...
+    getContext().automaticallyMergesChangesFromParent = true
+    do {
+      try container.viewContext.setQueryGenerationFrom(.current)
+    } catch {
+      fatalError(
+        "###\(#function): Failed to pin viewContext to the current generation:\(error)"
+      )
+    }
   }
 
   func getContext() -> NSManagedObjectContext {
