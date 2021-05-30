@@ -1,3 +1,4 @@
+import SwiftUI
 import UIKit
 
 protocol WorkoutTVCDelegate: AnyObject {
@@ -74,7 +75,10 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
   }
 
   override func workoutDetailTapped() {
-    delegate.showWorkoutDetailTapped(for: self)
+    let hostingVC = UIHostingController(
+      rootView: WorkoutDetailView(workout: workout))
+    hostingVC.view.backgroundColor = Theme.Colors.darkest
+    show(hostingVC, sender: self)
   }
 }
 
