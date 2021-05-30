@@ -15,11 +15,7 @@ class CompleteButton: UIButton {
   required init?(coder aDecoder: NSCoder) { fatalError() }
 
   func setComplete(_ bool: Bool) {
-    setTitleColor(
-      bool
-        ? .green
-        : .black
-    )
+    setTitleColor(bool ? .green : .black)
   }
 
   func setHide(_ bool: Bool) {
