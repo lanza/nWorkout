@@ -20,8 +20,6 @@ where Cell: ConfigurableCell, Cell.Object == NWorkout {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = Theme.Colors.darkest
-
     tableView.tableFooterView = UIView()
 
     tableView.delegate = self

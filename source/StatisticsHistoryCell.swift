@@ -12,7 +12,6 @@ class StatisticsHistoryCell: ChartViewCell {
     chartView.isUserInteractionEnabled = false
 
     contentView.backgroundColor = Theme.Colors.Cell.contentBackground
-    backgroundColor = Theme.Colors.Table.background
     contentView.setBorder(color: .black, width: 1, radius: 3)
     //        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
 

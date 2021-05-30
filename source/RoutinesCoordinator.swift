@@ -8,7 +8,6 @@ class RoutinesCoordinator: Coordinator {
   override func loadViewController() {
     let hostingVC = UIHostingController(
       rootView: WorkoutsView())
-    hostingVC.view.backgroundColor = Theme.Colors.darkest
     viewController = hostingVC
   }
 }

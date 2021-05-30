@@ -17,7 +17,6 @@ struct StatisticsView: View {
     self.workouts = try! coreDataStack.getContext().fetch(
       request)
     let app = UINavigationBarAppearance()
-    app.backgroundColor = Theme.Colors.darkest
     app.largeTitleTextAttributes = [
       NSAttributedString.Key.foregroundColor: Theme.Colors.Nav.title
     ]
@@ -72,14 +71,9 @@ struct StatisticsView: View {
             }.padding()
           }
           .border(Color.black)
-          .listRowBackground(Color(Theme.Colors.dark))
-          .listItemTint(Color(Theme.Colors.dark))
           .navigationBarTitle("Statistics")
         }
-        .foregroundColor(Color(Theme.Colors.darker))
-        .background(Color(Theme.Colors.dark))
       }
-      .background(Color(Theme.Colors.darkest))
     }
   }
 }

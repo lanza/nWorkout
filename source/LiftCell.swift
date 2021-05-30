@@ -163,9 +163,6 @@ class LiftCell: ChartViewCell {
       radius: 0
     )
 
-    addSetButton.backgroundColor = Theme.Colors.darkest
-    addSetButton.setTitleColor(.white)
-
     bottomContentView.addSubview(addSetButton)
 
     NSLayoutConstraint.activate(
@@ -199,8 +196,6 @@ class LiftCell: ChartViewCell {
     setupBottomContentView()
     setupChartView()
     setupContentView()
-
-    backgroundColor = Theme.Colors.Table.background
   }
 
   override func prepareForReuse() {

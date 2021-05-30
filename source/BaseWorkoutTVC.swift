@@ -44,8 +44,6 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = Theme.Colors.darkest
-
     let v = UIView(
       frame: CGRect(
         x: 0,
@@ -54,7 +52,6 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
         height: 64
       )
     )
-    v.backgroundColor = Theme.Colors.darkest
     view.addSubview(v)
     v.translatesAutoresizingMaskIntoConstraints = false
 
@@ -80,7 +77,6 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
     tableView.tableFooterView = UIView()
     navigationItem.rightBarButtonItem = editButtonItem
 
-    view.backgroundColor = Theme.Colors.darkest
     tableView.delegate = self
     tableView.separatorStyle = .none
 

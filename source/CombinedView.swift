@@ -25,10 +25,6 @@ class CombinedView: UIView {
         completeButton.bottomAnchor.constraint(equalTo: bottomAnchor),
       ]
     )
-
-    completeButton.backgroundColor = Theme.Colors.darkest
-    completedWeightTextField.backgroundColor = Theme.Colors.darkest
-    completedRepsTextField.backgroundColor = Theme.Colors.darkest
   }
 
   let completedWeightTextField = CompletedWeightAndRepsTextField()

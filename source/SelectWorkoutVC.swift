@@ -26,7 +26,6 @@ class SelectWorkoutVC: UIViewController, UITableViewDataSource,
   override func loadView() {
     tableView.contentInsetAdjustmentBehavior = .never
     view = UIView(frame: AppDelegate.main.window!.frame)
-    view.backgroundColor = Theme.Colors.darkest
   }
 
   func setupView() {

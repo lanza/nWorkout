@@ -77,7 +77,6 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
   override func workoutDetailTapped() {
     let hostingVC = UIHostingController(
       rootView: WorkoutDetailView(workout: workout))
-    hostingVC.view.backgroundColor = Theme.Colors.darkest
     show(hostingVC, sender: self)
   }
 }

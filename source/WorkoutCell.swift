@@ -70,7 +70,6 @@ class WorkoutCell: ChartViewCell {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
 
     chartView.isUserInteractionEnabled = false
-    backgroundColor = Theme.Colors.Table.background
 
     setupTopContentView()
     setupBottomContentView()

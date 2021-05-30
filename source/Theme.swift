@@ -43,8 +43,6 @@ struct Theme {
       red: 0.2128070295, green: 0.251644671, blue: 0.3068907559, alpha: 1)
     static let darker = #colorLiteral(
       red: 0.1975900531, green: 0.2120065689, blue: 0.2376480997, alpha: 1)
-    static let darkest = #colorLiteral(
-      red: 0.164578259, green: 0.1884423494, blue: 0.2438654006, alpha: 1)
     static let light = #colorLiteral(
       red: 0.9568895725, green: 0.9568895725, blue: 0.9568895725, alpha: 1)
     static let lighter = #colorLiteral(
@@ -55,11 +53,9 @@ struct Theme {
     }
 
     struct Table {
-      static let background = Colors.darkest
       static let borders = UIColor.darkGray
     }
     struct Nav {
-      static let barTint = Colors.darkest
       static let title = UIColor.white
       static let tint = UIColor.white
     }

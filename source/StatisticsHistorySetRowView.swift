@@ -3,7 +3,6 @@ import UIKit
 class StatisticsHistorySetRowView: RowView {
   required init() {
     super.init()
-    columnBackgroundColor = Theme.Colors.darkest
     columnViewTypes = [
       DarkLabel.self, DarkLabel.self, DarkLabel.self, DarkLabel.self,
     ]

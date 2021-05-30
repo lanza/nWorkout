@@ -52,7 +52,6 @@ struct MainView: View {
       }
       .tabItem { Label("Settings", image: "settings") }
     }
-    //    .background(Color(Theme.Colors.darkest))
   }
 }
 

@@ -23,8 +23,6 @@ struct LiftStatisticsView: View {
         .padding()
       }
       .pickerStyle(SegmentedPickerStyle())
-      .foregroundColor(.white).font(.headline)
-      .background(Color(Theme.Colors.darkest))
 
       if historyOrChartsToggle == 0 {
         ScrollView {
@@ -47,7 +45,6 @@ struct LiftStatisticsView: View {
               .listRowBackground(Color(Theme.Colors.dark))
             }
             .foregroundColor(.white).font(.headline)
-            .background(Color(Theme.Colors.darkest))
           }
         }
         .lineSpacing(0)

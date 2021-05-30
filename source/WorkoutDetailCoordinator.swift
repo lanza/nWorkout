@@ -13,7 +13,6 @@ class WorkoutDetailCoordinator: Coordinator {
   override func loadViewController() {
     let hostingVC = UIHostingController(
       rootView: WorkoutDetailView(workout: workout))
-    hostingVC.view.backgroundColor = Theme.Colors.darkest
     viewController = hostingVC
   }
 }

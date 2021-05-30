@@ -21,8 +21,6 @@ class LiftTableHeaderRowView: RowView {
     }
     super.init()
 
-    backgroundColor = Theme.Colors.dark
-    columnBackgroundColor = Theme.Colors.darkest
     setupViews()
   }
 

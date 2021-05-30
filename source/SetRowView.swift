@@ -38,8 +38,6 @@ class SetRowView: BaseRowView {
   required init() {
     super.init()
 
-    columnBackgroundColor = Theme.Colors.darkest
-
     setupSelectedColumnViewTypesAndWidth()
     configColumnViewTypes()
     configColumnWidthPercentages()
