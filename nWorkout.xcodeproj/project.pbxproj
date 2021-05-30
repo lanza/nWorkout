@@ -98,6 +98,8 @@
 		B31E602126535FDB0049023F /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E602026535FDB0049023F /* BarChart.swift */; };
 		B373136825EF379F001687DF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B373136725EF379F001687DF /* CloudKit.framework */; };
 		B3ABE9DC26535E0E000E4FCA /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ABE9DB26535E0E000E4FCA /* BarChartCell.swift */; };
+		B3CFC0652663331400633C29 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CFC0642663331400633C29 /* WorkoutView.swift */; };
+		B3CFC06726633E5900633C29 /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CFC06626633E5900633C29 /* WorkoutsView.swift */; };
 		B3E8D49625E23BB2000A07DD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E8D49525E23BB2000A07DD /* data.json */; };
 		BB365092828FD353DFAE548B /* WorkoutsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5C259A90278236567AD1 /* WorkoutsDataSource.swift */; };
 		BDF028D71A52AFF00B9259C4 /* SingleLiftStatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636973CF18ED4C082CD181F /* SingleLiftStatisticsCoordinator.swift */; };
@@ -233,6 +235,8 @@
 		B373136725EF379F001687DF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		B38205DB28C1B77C132B5630 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3ABE9DB26535E0E000E4FCA /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
+		B3CFC0642663331400633C29 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		B3CFC06626633E5900633C29 /* WorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsView.swift; sourceTree = "<group>"; };
 		B3E8D49525E23BB2000A07DD /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = SOURCE_ROOT; };
 		B5D800702F491BB06DB04105 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		B68B57640C59B961A78D4189 /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
@@ -401,6 +405,7 @@
 				29462CC28DAE875750725773 /* StatisticsCell.swift */,
 				C6EF28E8D35411804A99F1E5 /* StatisticsChartsTVC.swift */,
 				549A3E6AEB519845867EF109 /* StatisticsCoordinator.swift */,
+				B3CFC06626633E5900633C29 /* WorkoutsView.swift */,
 				76B31FC8138325749CD098FE /* StatisticsHistoryCell.swift */,
 				9BAB0F7A06930971411685F0 /* StatisticsHistorySetRowView.swift */,
 				64F3557C45DCFA1C4A87D8B7 /* StatisticsHistoryTVC.swift */,
@@ -436,6 +441,7 @@
 				6B6F5C259A90278236567AD1 /* WorkoutsDataSource.swift */,
 				98BA75BD2C17C92D2300D714 /* WorkoutsTVC.swift */,
 				DE35B6B9A8C7A909987A5F5C /* WorkoutTVC.swift */,
+				B3CFC0642663331400633C29 /* WorkoutView.swift */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -661,12 +667,14 @@
 				9C28F7D4C2DB76CB5EE3C085 /* WeightAndRepsLabel.swift in Sources */,
 				1B46702FB86EA0D00A342ED6 /* WeightAndRepsTextField.swift in Sources */,
 				586066876993CF289804BC11 /* WorkoutCell.swift in Sources */,
+				B3CFC0652663331400633C29 /* WorkoutView.swift in Sources */,
 				DFF03F70053E11D04C32C0AC /* WorkoutCellRowView.swift in Sources */,
 				9994794F0619299C3060BC6D /* WorkoutCoordinator.swift in Sources */,
 				4240E7AF1720F628C518E866 /* WorkoutDataSource.swift in Sources */,
 				170FCCB7221E2D9C39D03582 /* WorkoutDetailCoordinator.swift in Sources */,
 				2E57E0ADACC8BD644B2186D4 /* WorkoutDetailView.swift in Sources */,
 				980A9210A8F8E01D4EC55322 /* WorkoutFooterView.swift in Sources */,
+				B3CFC06726633E5900633C29 /* WorkoutsView.swift in Sources */,
 				9CCD5F74C88DAC8A8402C51B /* WorkoutFooterViewButton.swift in Sources */,
 				852904F67962C8D745A7126D /* WorkoutLiftCell.swift in Sources */,
 				15414310EFA0243B5AA4C6EB /* WorkoutTVC.swift in Sources */,
