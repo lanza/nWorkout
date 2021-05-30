@@ -36,24 +36,6 @@ class MainCoordinator: TabBarCoordinator {
     }
   }
 
-  let app: UINavigationBarAppearance = {
-    let app = UINavigationBarAppearance()
-    app.backgroundColor = Theme.Colors.darkest
-    app.largeTitleTextAttributes = [
-      NSAttributedString.Key.foregroundColor: Theme.Colors.Nav.title
-    ]
-    app.titleTextAttributes = [
-      NSAttributedString.Key.foregroundColor: Theme.Colors.Nav.title
-    ]
-    return app
-  }()
-
-  func configureNavigationBarAppearance(for nav: NavigationCoordinator) {
-    nav.navigationController.navigationBar.standardAppearance = app
-    nav.navigationController.navigationBar.scrollEdgeAppearance = app
-    nav.navigationController.navigationBar.prefersLargeTitles = true
-  }
-
   func createCoordinators() {
 
     let wc = WorkoutsCoordinator()
@@ -61,7 +43,6 @@ class MainCoordinator: TabBarCoordinator {
     wcNav.tabBarItem.image = #imageLiteral(resourceName: "workout")
     wcNav.tabBarItem.title = Lets.history
     wc.navigationItem.title = Lets.history
-    configureNavigationBarAppearance(for: wcNav)
 
     let rc = RoutinesCoordinator()
     rc.tabBarItem.image = #imageLiteral(resourceName: "routine")
@@ -79,7 +60,6 @@ class MainCoordinator: TabBarCoordinator {
     secNav.tabBarItem.title = Lets.settings
 
     sec.navigationItem.title = Lets.settings
-    configureNavigationBarAppearance(for: secNav)
 
     let coordinators = [wcNav, rc, dummy, stc, secNav]
     self.coordinators = coordinators
