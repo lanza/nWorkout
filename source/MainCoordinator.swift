@@ -96,7 +96,6 @@ class MainCoordinator: TabBarCoordinator {
     super.viewControllerDidLoad()
 
     delegate = self
-    Theme.configure()
 
     createCoordinators()
     checkForUnfinishedWorkout(displayImmediately: true)

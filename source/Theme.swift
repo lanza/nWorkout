@@ -1,38 +1,6 @@
 import UIKit
 
 struct Theme {
-  static func configure() {
-    let navBarAppearance = UINavigationBar.appearance()
-    navBarAppearance.titleTextAttributes = [
-      NSAttributedString.Key.foregroundColor: Colors.Nav.title
-    ]
-    navBarAppearance.largeTitleTextAttributes = [
-      NSAttributedString.Key.foregroundColor: Colors.Nav.title
-    ]
-    navBarAppearance.barStyle = .black
-    navBarAppearance.backgroundColor = Colors.darkest
-    navBarAppearance.barTintColor = Colors.Nav.barTint
-    navBarAppearance.tintColor = Colors.Nav.tint
-    navBarAppearance.prefersLargeTitles = true
-    navBarAppearance.shadowImage = UIImage()
-
-    let tabBarAppearance = UITabBar.appearance()
-    tabBarAppearance.barStyle = .black
-    tabBarAppearance.barTintColor = Colors.Tab.barTint
-    tabBarAppearance.tintColor = Colors.Tab.tint
-    tabBarAppearance.unselectedItemTintColor = Colors.Tab.unselectedItemTint
-
-    let tableViewAppearance = UITableView.appearance()
-    tableViewAppearance.backgroundColor = Colors.Table.background
-
-    let tableViewCellAppearance = UITableViewCell.appearance()
-    tableViewCellAppearance.contentView.backgroundColor =
-      Colors.Cell.contentBackground
-    tableViewCellAppearance.backgroundColor = Colors.Table.background
-    tableViewCellAppearance.contentView.setBorder(
-      color: .black, width: 1, radius: 3)
-  }
-
   struct Colors {
     static let clear = #colorLiteral(
       red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
