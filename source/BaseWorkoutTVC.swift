@@ -156,7 +156,16 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
   }
 
   func addLiftTapped() {
-    self.didTapAddNewLift()
+    let ltvc = LiftTypeTVC()
+    let nc = UINavigationController(rootViewController: ltvc)
+    ltvc.hideButtonTappedCallBack = {
+      self.dismiss(animated: true)
+    }
+    ltvc.didSelectLiftName = { name in
+      self.dismiss(animated: true)
+      _ = self.workout.addNewLift(name: name)
+    }
+    present(nc, animated: true)
   }
 
   func cancelWorkoutTapped() {
