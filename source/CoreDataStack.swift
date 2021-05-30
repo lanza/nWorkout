@@ -5,23 +5,45 @@ let coreDataStack = CoreDataStack(modelName: "Model")
 
 class CoreDataStack {
   private let modelName: String
+  private let inMemory: Bool = false
 
-  let inMemory = false
+  static var preview: CoreDataStack = {
+    let result = CoreDataStack(modelName: "Model", inMemory: true)
+    let viewContext = result.container.viewContext
+    for _ in 0..<10 {
+      let workout = NWorkout.new(isComplete: false, name: Lets.blank)
+      for _ in 0..<10 {
+        let lift = NLift.new(name: "Squat", workout: workout)
+        for _ in 0..<5 {
+          let set = NSet.new(
+            isWarmup: false, weight: 100, reps: 10, completedWeight: 100,
+            completedReps: 10, lift: lift)
+        }
+      }
+    }
+    do {
+      try viewContext.save()
+    } catch {
+      let nsError = error as NSError
+      fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    }
+    return result
+  }()
 
-  init(modelName: String) {
+  init(modelName: String, inMemory: Bool = false) {
     self.modelName = modelName
     self.container = NSPersistentCloudKitContainer(name: "Model")
 
-    #if inMemory
+    if inMemory {
       container.persistentStoreDescriptions.first!.url = URL(
         fileURLWithPath: "/dev/null")
-    #else
+    } else {
       let fm = FileManager.default
       let storeName = "\(modelName).sqlite"
       let docDir = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
       let url = docDir.appendingPathComponent(storeName)
       container.persistentStoreDescriptions.first!.url = url
-    #endif
+    }
 
     container.loadPersistentStores(completionHandler: {
       (storeDescription, error) in
