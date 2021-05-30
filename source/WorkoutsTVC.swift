@@ -107,6 +107,10 @@ class WorkoutsTVC: BaseWorkoutsTVC<WorkoutCell> {
     didSelectRowAt indexPath: IndexPath
   ) {
     let workout = workouts[indexPath.row]
-    delegate!.workoutsTVC(self, didSelectWorkout: workout)
+
+    let workoutTVC = WorkoutTVC()
+    workoutTVC.workout = workout
+
+    navigationController?.pushViewController(workoutTVC, animated: true)
   }
 }
