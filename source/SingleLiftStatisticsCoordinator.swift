@@ -7,12 +7,4 @@ class SingleLiftStatisticsCoordinator: Coordinator {
     self.liftName = liftName
     super.init()
   }
-
-  var carbonStatisticsVC: CarbonStatisticsVC {
-    return viewController as! CarbonStatisticsVC
-  }
-
-  override func loadViewController() {
-    viewController = CarbonStatisticsVC(liftName: liftName)
-  }
 }

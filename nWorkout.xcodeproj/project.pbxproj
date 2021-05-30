@@ -67,7 +67,6 @@
 		8249D9B42D9909F80F735698 /* JWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049388BD043C162E5155CBA /* JWorkout.swift */; };
 		851E35636F7DBC707A551F78 /* FailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6C033013C548E2446830E /* FailButton.swift */; };
 		852904F67962C8D745A7126D /* WorkoutLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413E5619534DF8E3467F296 /* WorkoutLiftCell.swift */; };
-		869F97FF73FA8E5EFD31FED8 /* CarbonStatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E23A6C78B1A55BF219C36C /* CarbonStatisticsVC.swift */; };
 		875AF36A6A8D5BE84DE1B1B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589927DDC9FB86D0041335D8 /* Theme.swift */; };
 		87D5D0EC2CADD664999BD734 /* DarkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BC43BC7E108372392464D /* DarkLabel.swift */; };
 		887AFF238B3722CD5E90549C /* WorkoutsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7585364BB166F43362E1E2 /* WorkoutsCoordinator.swift */; };
@@ -184,7 +183,6 @@
 		5B383CB9D8EBEB0175C8DA79 /* nWorkout-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nWorkout-Bridging-Header.h"; sourceTree = "<group>"; };
 		5D4E732BB8690F252E1EC04E /* SettingsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		61540BDADAE64EBA497253C1 /* RoutineCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCoordinator.swift; sourceTree = "<group>"; };
-		62E23A6C78B1A55BF219C36C /* CarbonStatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonStatisticsVC.swift; sourceTree = "<group>"; };
 		63B4B95DBF36F5D19B02AA20 /* RoutineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCell.swift; sourceTree = "<group>"; };
 		63E77B0078079278324F928B /* AcrtiveWorkoutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcrtiveWorkoutCoordinator.swift; sourceTree = "<group>"; };
 		64F3557C45DCFA1C4A87D8B7 /* StatisticsHistoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsHistoryTVC.swift; sourceTree = "<group>"; };
@@ -328,7 +326,6 @@
 				8C8432596D822E0325D3294A /* BaseTVC.swift */,
 				3A5766BC961CD11EE56A2836 /* BaseWorkoutsTVC.swift */,
 				8AF5BC0DB4C21EB461B94069 /* BaseWorkoutTVC.swift */,
-				62E23A6C78B1A55BF219C36C /* CarbonStatisticsVC.swift */,
 				8234ECF8A6CF81BB8D41B0BF /* CellSettingsCell.swift */,
 				E80BD72379E16552D57ADC59 /* CGColor+Extensions.swift */,
 				D9A3495358019C9219DFC360 /* ChartCell.swift */,
@@ -570,7 +567,6 @@
 				962F204436B9AB7F365D0B97 /* BaseWorkoutTVC.swift in Sources */,
 				89F5770C97CCD36B9B737F46 /* BaseWorkoutsTVC.swift in Sources */,
 				62DE1A19DFB7B89401EE91D3 /* CGColor+Extensions.swift in Sources */,
-				869F97FF73FA8E5EFD31FED8 /* CarbonStatisticsVC.swift in Sources */,
 				6C277D3273F47173017066AA /* CellSettingsCell.swift in Sources */,
 				D94BB3249556EEBE73CAD46E /* ChartCell.swift in Sources */,
 				6BB3442CDCA5B796F47B10EA /* ChartDataProvider.swift in Sources */,
