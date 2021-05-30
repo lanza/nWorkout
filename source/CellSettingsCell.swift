@@ -12,7 +12,6 @@ class CellSettingsCell: UITableViewCell {
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-    contentView.backgroundColor = Theme.Colors.Cell.contentBackground
     contentView.setBorder(color: .black, width: 1, radius: 3)
 
     let views: [UIView] = [titleLabel, widthTextField, onSwitch]
@@ -87,8 +86,6 @@ class CellSettingsCell: UITableViewCell {
 
   let titleLabel: UILabel = {
     let titleLabel = UILabel()
-    titleLabel.textColor = .white
-    titleLabel.backgroundColor = .clear
     titleLabel.numberOfLines = 0
     titleLabel.setFontScaling(minimum: 10)
     return titleLabel
@@ -96,15 +93,12 @@ class CellSettingsCell: UITableViewCell {
 
   let widthTextField: UITextField = {
     let widthTextField = UITextField()
-    widthTextField.textColor = .white
     widthTextField.textAlignment = .center
     return widthTextField
   }()
 
   let onSwitch: UISwitch = {
     let onSwitch = UISwitch()
-    onSwitch.tintColor = Theme.Colors.main
-    onSwitch.onTintColor = Theme.Colors.main
     return onSwitch
   }()
 }

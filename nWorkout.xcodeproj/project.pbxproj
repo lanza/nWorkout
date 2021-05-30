@@ -67,7 +67,6 @@
 		8249D9B42D9909F80F735698 /* JWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D049388BD043C162E5155CBA /* JWorkout.swift */; };
 		851E35636F7DBC707A551F78 /* FailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6C033013C548E2446830E /* FailButton.swift */; };
 		852904F67962C8D745A7126D /* WorkoutLiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4413E5619534DF8E3467F296 /* WorkoutLiftCell.swift */; };
-		875AF36A6A8D5BE84DE1B1B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589927DDC9FB86D0041335D8 /* Theme.swift */; };
 		87D5D0EC2CADD664999BD734 /* DarkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BC43BC7E108372392464D /* DarkLabel.swift */; };
 		887AFF238B3722CD5E90549C /* WorkoutsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7585364BB166F43362E1E2 /* WorkoutsCoordinator.swift */; };
 		8929CBBE1E55F5A29BBD5B43 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EF953DAA47BB66CDEA891 /* NavigationCoordinator.swift */; };
@@ -115,7 +114,6 @@
 		D0C35666B58BB4A7C13C1127 /* ColumnRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4D179A73D14FD9E8420 /* ColumnRowView.swift */; };
 		D52DB3A04755EAFC532798D0 /* ChartSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E562F06A02C1E62AD2D4DEC /* ChartSectionModel.swift */; };
 		D8A0DDC06BEFC1077C64DDE8 /* StatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29462CC28DAE875750725773 /* StatisticsCell.swift */; };
-		D94BB3249556EEBE73CAD46E /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A3495358019C9219DFC360 /* ChartCell.swift */; };
 		D9F74293A34315E303157493 /* StatisticsPersonalRecordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C6B2DEF3E583B0C6A97F53 /* StatisticsPersonalRecordTVC.swift */; };
 		DA15EEB8928CFCAC6E104C23 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCAF0CA27E039F798394449 /* DataSource.swift */; };
 		DAD1B0E4E87A56CA9165B6A0 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07758E1C6A8F52EB81968C7A /* StatisticsView.swift */; };
@@ -177,7 +175,6 @@
 		50918413B8DF0598AA4ED106 /* WorkoutFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFooterView.swift; sourceTree = "<group>"; };
 		53337C5C4CE041160C0E4220 /* LiftTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftTableHeaderView.swift; sourceTree = "<group>"; };
 		549A3E6AEB519845867EF109 /* StatisticsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCoordinator.swift; sourceTree = "<group>"; };
-		589927DDC9FB86D0041335D8 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5A601719070456AC909F4DC2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		5A9EE729C3CFF7D7588A965E /* LiftSetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiftSetsView.swift; sourceTree = "<group>"; };
 		5B383CB9D8EBEB0175C8DA79 /* nWorkout-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nWorkout-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -253,7 +250,6 @@
 		D02C9648157631244570E7E8 /* JLift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLift.swift; sourceTree = "<group>"; };
 		D049388BD043C162E5155CBA /* JWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWorkout.swift; sourceTree = "<group>"; };
 		D20EF953DAA47BB66CDEA891 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
-		D9A3495358019C9219DFC360 /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		DA76F980C71B1F594D2EB1BB /* ChartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewCell.swift; sourceTree = "<group>"; };
 		DADE6A2FDB43A92C1F7EDBFC /* ChartDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataProvider.swift; sourceTree = "<group>"; };
 		DC13616DE4823E8364A9CD9D /* SetRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRowView.swift; sourceTree = "<group>"; };
@@ -328,7 +324,6 @@
 				8AF5BC0DB4C21EB461B94069 /* BaseWorkoutTVC.swift */,
 				8234ECF8A6CF81BB8D41B0BF /* CellSettingsCell.swift */,
 				E80BD72379E16552D57ADC59 /* CGColor+Extensions.swift */,
-				D9A3495358019C9219DFC360 /* ChartCell.swift */,
 				DADE6A2FDB43A92C1F7EDBFC /* ChartDataProvider.swift */,
 				0E562F06A02C1E62AD2D4DEC /* ChartSectionModel.swift */,
 				E7E2DEC9687CA8FEFCE68832 /* ChartView.swift */,
@@ -413,7 +408,6 @@
 				07758E1C6A8F52EB81968C7A /* StatisticsView.swift */,
 				A88182F03B8B84FAD183A696 /* TabBarCoordinator.swift */,
 				A6A0442731ED92420FED2F4C /* TextFieldBehaviorHandler.swift */,
-				589927DDC9FB86D0041335D8 /* Theme.swift */,
 				92C8C00F10F42D1BFF4748C5 /* UIAlertController+Extensions.swift */,
 				216C7DE68A301384B4883C9D /* UIBarButtonItem+Extensions.swift */,
 				AAA90BE9EE398B52DFCD286F /* UIButton+Extensions.swift */,
@@ -568,7 +562,6 @@
 				89F5770C97CCD36B9B737F46 /* BaseWorkoutsTVC.swift in Sources */,
 				62DE1A19DFB7B89401EE91D3 /* CGColor+Extensions.swift in Sources */,
 				6C277D3273F47173017066AA /* CellSettingsCell.swift in Sources */,
-				D94BB3249556EEBE73CAD46E /* ChartCell.swift in Sources */,
 				6BB3442CDCA5B796F47B10EA /* ChartDataProvider.swift in Sources */,
 				D52DB3A04755EAFC532798D0 /* ChartSectionModel.swift in Sources */,
 				DB8E90C0B5DED48BD0B2A189 /* ChartView.swift in Sources */,
@@ -651,7 +644,6 @@
 				DAD1B0E4E87A56CA9165B6A0 /* StatisticsView.swift in Sources */,
 				CC2E547254E3ED96BF3AFAA7 /* TabBarCoordinator.swift in Sources */,
 				A39ACB1095B5187360814D02 /* TextFieldBehaviorHandler.swift in Sources */,
-				875AF36A6A8D5BE84DE1B1B9 /* Theme.swift in Sources */,
 				2B536F839F9364224A3FA1BD /* UIAlertController+Extensions.swift in Sources */,
 				493AAB7585816023C401F19F /* UIBarButtonItem+Extensions.swift in Sources */,
 				E6CE4B10C2F65F029063332A /* UIButton+Extensions.swift in Sources */,

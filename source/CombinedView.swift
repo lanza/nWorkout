@@ -4,7 +4,6 @@ class CombinedView: UIView {
 
   init() {
     super.init(frame: CGRect.zero)
-    backgroundColor = Theme.Colors.main
     isOpaque = false
 
     completedWeightTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -33,8 +32,6 @@ class CombinedView: UIView {
 
   override func layoutSubviews() {
     super.layoutSubviews()
-
-    backgroundColor = Theme.Colors.dark  //workaround for when I set background color in RowView
 
     completeButton.frame = CGRect(
       x: 0,

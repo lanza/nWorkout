@@ -63,8 +63,6 @@ class MainCoordinator: TabBarCoordinator {
 
     let coordinators = [wcNav, rc, dummy, stc, secNav]
     self.coordinators = coordinators
-
-    colorButtons(colorsAndIndices: [(Theme.Colors.main, 2)])
   }
 
   @objc func settingsDidChange() {

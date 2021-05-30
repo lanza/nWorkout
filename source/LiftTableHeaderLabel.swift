@@ -20,9 +20,6 @@ class LiftTableHeaderLabel: UILabel {
     l.numberOfLines = 0
     l.baselineAdjustment = .alignCenters
 
-    l.textColor = .white
-    l.backgroundColor = .clear
-
     l.setFontScaling(minimum: 1)
 
     return l

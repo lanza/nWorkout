@@ -4,12 +4,8 @@ class LiftTypeCell: UITableViewCell {
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-
-    contentView.backgroundColor = Theme.Colors.Cell.contentBackground
     contentView.setBorder(color: .black, width: 1, radius: 3)
     //        contentView.setShadow(offsetWidth: 1, offsetHeight: 1, radius: 1, opacity: 0.7, color: .black)
-    textLabel?.textColor = .white
-    textLabel?.backgroundColor = .clear
   }
 
   required init?(coder aDecoder: NSCoder) { fatalError() }

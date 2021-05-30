@@ -30,9 +30,7 @@ open class ChartView: UIView {
   public var rowSpacing: CGFloat { return chartViewDataSource.rowSpacing }
   public var numberOfRows: Int { return chartViewDataSource.numberOfRows }
 
-  public var chartViewDataSource: ChartViewDataSource! {
-    didSet { backgroundColor = chartViewDataSource.backgroundColor }
-  }
+  public var chartViewDataSource: ChartViewDataSource!
 
   // MARK: - RowView type registration
   public func register(

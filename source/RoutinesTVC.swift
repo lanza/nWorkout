@@ -5,7 +5,6 @@ class RoutinesTVC: BaseWorkoutsTVC<RoutineCell> {
   func setTableHeaderView() {
     let b = UIButton()
     b.setTitle("New")
-    b.setTitleColor(.white)
     b.addTarget(self, action: #selector(newButtonTapped), for: .touchUpInside)
   }
 

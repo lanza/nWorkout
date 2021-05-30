@@ -4,9 +4,6 @@ class SelectWorkoutCell: UITableViewCell {
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-    contentView.backgroundColor = Theme.Colors.Cell.contentBackground
-    textLabel?.textColor = .white
   }
 
   required init?(coder aDecoder: NSCoder) { fatalError() }

@@ -74,7 +74,6 @@ class LiftCell: ChartViewCell {
   }
 
   func setupContentView() {
-    contentView.backgroundColor = Theme.Colors.Cell.contentBackground
     contentView.setBorder(color: .black, width: 1, radius: 3)
 
     //        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
@@ -114,7 +113,6 @@ class LiftCell: ChartViewCell {
   func setupTopContentView() {
     label.text = "Hi muffin"
     label.translatesAutoresizingMaskIntoConstraints = false
-    label.textColor = .white
     topContentView.addSubview(label)
 
     noteButton.translatesAutoresizingMaskIntoConstraints = false
@@ -158,7 +156,7 @@ class LiftCell: ChartViewCell {
     addSetButton.translatesAutoresizingMaskIntoConstraints = false
 
     addSetButton.setBorder(
-      color: Theme.Colors.Table.borders,
+      color: .black,
       width: 1,
       radius: 0
     )
@@ -186,7 +184,6 @@ class LiftCell: ChartViewCell {
     chartView.emptyText = nil
 
     chartView.backgroundColor = .clear
-    chartView.setBorder(color: Theme.Colors.Table.borders, width: 1, radius: 0)
   }
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

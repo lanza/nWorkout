@@ -39,8 +39,6 @@ class WeightAndRepsLabel: UILabel {
     numberOfLines = 0
     baselineAdjustment = .alignCenters
 
-    textColor = .lightGray
-
     setFontScaling(minimum: 4)
 
     setContentHuggingPriority(UILayoutPriority(rawValue: 0), for: .vertical)

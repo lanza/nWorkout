@@ -16,9 +16,6 @@ class WorkoutFooterViewButton: UIButton {
   {
     let b = WorkoutFooterViewButton()
     b.setTitle(title)
-    b.backgroundColor = Theme.Colors.dark
-
-    b.setTitleColor(.white)
 
     b.setBorder(color: .black, width: 1, radius: 4)
     return b

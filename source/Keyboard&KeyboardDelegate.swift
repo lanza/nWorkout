@@ -32,34 +32,30 @@ class Keyboard: UIView {
     super.init(frame: frame)
     createStacks()
     bindActions()
-    backgroundColor = Theme.Colors.Keyboard.background
-    let buttons = [
-      zeroButton, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive,
-      buttonSix, buttonSeven,
-      buttonEight, buttonNine, thirdSideButton, topSideButton, secondSideButton,
-      decimalButton,
-      backspaceButton, nextButton,
-    ]
-    for button in buttons {
-      button.titleLabel?.tintColor = Theme.Colors.Keyboard.keys
-    }
+    //    let buttons = [
+    //      zeroButton, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive,
+    //      buttonSix, buttonSeven,
+    //      buttonEight, buttonNine, thirdSideButton, topSideButton, secondSideButton,
+    //      decimalButton,
+    //      backspaceButton, nextButton,
+    //    ]
+    //      button.titleLabel?.tintColor = Theme.Colors.Keyboard.keys
   }
 
   init() {
     super.init(frame: CGRect())
     createStacks()
     bindActions()
-    backgroundColor = Theme.Colors.Keyboard.background
-    let buttons = [
-      zeroButton, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive,
-      buttonSix, buttonSeven,
-      buttonEight, buttonNine, thirdSideButton, topSideButton, secondSideButton,
-      decimalButton,
-      backspaceButton, nextButton,
-    ]
-    for button in buttons {
-      button.titleLabel?.tintColor = Theme.Colors.Keyboard.keys
-    }
+    //    let buttons = [
+    //      zeroButton, buttonOne, buttonTwo, buttonThree, buttonFour, buttonFive,
+    //      buttonSix, buttonSeven,
+    //      buttonEight, buttonNine, thirdSideButton, topSideButton, secondSideButton,
+    //      decimalButton,
+    //      backspaceButton, nextButton,
+    //    ]
+    //    for button in buttons {
+    //      button.titleLabel?.tintColor = Theme.Colors.Keyboard.keys
+    //    }
   }
 
   let buttonOne = UIButton()

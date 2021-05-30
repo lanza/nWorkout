@@ -18,7 +18,6 @@
 //    addLiftButton = UIButton(type: .custom)
 //    addLiftButton.setTitle("Add Lift", for: UIControlState())
 //    addLiftButton.setTitleColor(.black, for: UIControlState())
-//    footer.backgroundColor = .white
 //    footer.addSubview(addLiftButton)
 //    addLiftButton.translatesAutoresizingMaskIntoConstraints = false
 //

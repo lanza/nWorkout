@@ -5,9 +5,6 @@ class StartBlankWorkoutButton: UIButton {
     let button = StartBlankWorkoutButton()
     button.setTitle(Lets.startBlankWorkout)
 
-    button.backgroundColor = Theme.Colors.dark
-    button.setTitleColor(.white)
-
     return button
   }
 }

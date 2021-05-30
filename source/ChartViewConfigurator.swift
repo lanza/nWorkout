@@ -31,5 +31,4 @@ extension ChartViewDataSource {
   public var rowHeight: CGFloat { return 35 }
   public var numberOfRows: Int { return 0 }
   public var rowSpacing: CGFloat { return 2 }
-  public var backgroundColor: UIColor { return .white }
 }

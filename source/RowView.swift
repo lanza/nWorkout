@@ -15,7 +15,6 @@ open class RowView: UIView {
   open var columnWidths: [CGFloat] = [50, 50]
 
   public var numberOfColumns: Int { return columnViewTypes.count }
-  public var columnBackgroundColor: UIColor = .white
   public var columnSpacing: CGFloat = 1
 
   public func appendColumnView(_ columnView: UIView) {
@@ -36,8 +35,6 @@ open class RowView: UIView {
       let cv = getColumnView(columnNumber: columnNumber)
 
       appendColumnView(cv)
-
-      cv.backgroundColor = columnBackgroundColor
 
       cv.setContentCompressionResistancePriority(
         UILayoutPriority(rawValue: 0),

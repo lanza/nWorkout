@@ -16,16 +16,6 @@ struct StatisticsView: View {
     ]
     self.workouts = try! coreDataStack.getContext().fetch(
       request)
-    let app = UINavigationBarAppearance()
-    app.largeTitleTextAttributes = [
-      NSAttributedString.Key.foregroundColor: Theme.Colors.Nav.title
-    ]
-    app.titleTextAttributes = [
-      NSAttributedString.Key.foregroundColor: Theme.Colors.Nav.title
-    ]
-
-    UINavigationBar.appearance().standardAppearance = app
-    UINavigationBar.appearance().scrollEdgeAppearance = app
     UINavigationBar.appearance().prefersLargeTitles = true
   }
 
@@ -66,7 +56,6 @@ struct StatisticsView: View {
                 Spacer()
                 Text(String(count))
               }
-              .foregroundColor(.white)
               .font(.headline)
             }.padding()
           }

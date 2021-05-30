@@ -16,8 +16,7 @@ class LiftTableHeaderView: UIView {
     }
     super.init(frame: .zero)
 
-    setBorder(color: Theme.Colors.Table.borders, width: 1, radius: 0)
-    backgroundColor = .darkGray
+    setBorder(color: .black, width: 1, radius: 0)
     setupViews()
   }
 

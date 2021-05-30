@@ -37,14 +37,10 @@ struct LiftStatisticsView: View {
                     .font(.title2)
                 }
                 .padding()
-                .background(Color(Theme.Colors.dark))
                 LiftSetsView(sets: lift.getOrderedSets())
               }
-              .background(Color(Theme.Colors.dark))
               .border(Color.black)
-              .listRowBackground(Color(Theme.Colors.dark))
             }
-            .foregroundColor(.white).font(.headline)
           }
         }
         .lineSpacing(0)
@@ -57,7 +53,6 @@ struct LiftStatisticsView: View {
     }
     .lineSpacing(0)
     .navigationBarTitle("\(name) Statistics")
-    .background(Color(Theme.Colors.dark))
   }
 }
 

@@ -26,7 +26,6 @@ class WorkoutCell: ChartViewCell {
   let label = UILabel()
 
   func setupContentView() {
-    contentView.backgroundColor = Theme.Colors.Cell.contentBackground
     contentView.setBorder(color: .black, width: 1, radius: 3)
 
     //        contentView.setShadow(offsetWidth: 3, offsetHeight: 3, radius: 1, opacity: 0.7, color: .black)
@@ -34,7 +33,6 @@ class WorkoutCell: ChartViewCell {
 
   func setupTopContentView() {
     label.translatesAutoresizingMaskIntoConstraints = false
-    label.textColor = .white
     topContentView.addSubview(label)
 
     NSLayoutConstraint.activate(
@@ -57,13 +55,11 @@ class WorkoutCell: ChartViewCell {
 
   func setupChartView() {
     chartView.emptyText = "This workout is empty"
-    chartView.backgroundColor = .clear
     chartView.setBorder(color: .clear, width: 0, radius: 0)
 
     chartView.register(WorkoutCellRowView.self, forResuseIdentifier: "row")
 
     //        chartView.emptyLabel.backgroundColor = Theme.Colors.dark
-    chartView.emptyLabel.textColor = .white
   }
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

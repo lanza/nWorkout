@@ -8,7 +8,6 @@ struct WorkoutDetailView: View {
         "Start Date", selection: Binding($workout.startDate)!, in: ...Date(),
         displayedComponents: [.date, .hourAndMinute]
       )
-      .foregroundColor(.white)
       .padding()
       .overlay(
         RoundedRectangle(cornerRadius: 20)
@@ -20,7 +19,6 @@ struct WorkoutDetailView: View {
           in: ...Date(), displayedComponents: [.date, .hourAndMinute]
         )
         .padding()
-        .foregroundColor(.white)
         .overlay(
           RoundedRectangle(cornerRadius: 20)
             .stroke(Color.black, lineWidth: 2)

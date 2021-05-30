@@ -198,8 +198,6 @@ class SettingsTVC: UITableViewController, CellSettingsCellDelegate {
     let cellTypeLabel: UILabel = {
       let l = UILabel()
 
-      l.backgroundColor = .clear
-      l.textColor = .white
       l.text = "Cell Type"
       l.font = UIFont.systemFont(ofSize: 13)
       l.translatesAutoresizingMaskIntoConstraints = false
@@ -210,8 +208,6 @@ class SettingsTVC: UITableViewController, CellSettingsCellDelegate {
     let widthLabel: UILabel = {
       let l = UILabel()
 
-      l.backgroundColor = .clear
-      l.textColor = .white
       l.text = "Width"
       l.font = UIFont.systemFont(ofSize: 13)
       l.translatesAutoresizingMaskIntoConstraints = false
@@ -223,8 +219,6 @@ class SettingsTVC: UITableViewController, CellSettingsCellDelegate {
     let isOnLabel: UILabel = {
       let l = UILabel()
 
-      l.backgroundColor = .clear
-      l.textColor = .white
       l.text = "Enabled"
       l.font = UIFont.systemFont(ofSize: 13)
       l.translatesAutoresizingMaskIntoConstraints = false

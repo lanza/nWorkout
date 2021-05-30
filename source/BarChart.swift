@@ -120,7 +120,7 @@ struct BarChart: View {
               .foregroundColor(.black)
               .padding(5)
               .background(
-                RoundedRectangle(cornerRadius: 5).foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 5).foregroundColor(.black)
                   .shadow(radius: 3))
           } else {
             Text(currentLabel)
@@ -128,7 +128,7 @@ struct BarChart: View {
               .foregroundColor(.black)
               .padding(5)
               .background(
-                RoundedRectangle(cornerRadius: 5).foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 5).foregroundColor(.black)
                   .shadow(radius: 3)
               )
               .animation(.easeIn)

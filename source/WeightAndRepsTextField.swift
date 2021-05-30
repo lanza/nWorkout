@@ -6,8 +6,6 @@ class WeightAndRepsTextField: UITextField {
     textAlignment = .center
     inputView = Keyboard.shared
 
-    textColor = .white
-
     setFontScaling(minimum: 6)
   }
 
