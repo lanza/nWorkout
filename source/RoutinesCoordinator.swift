@@ -1,3 +1,4 @@
+import SwiftUI
 import UIKit
 
 class RoutinesCoordinator: Coordinator {
@@ -5,8 +6,12 @@ class RoutinesCoordinator: Coordinator {
   var routinesTVC: RoutinesTVC { return viewController as! RoutinesTVC }
 
   override func loadViewController() {
-    viewController = RoutinesTVC()
-    routinesTVC.delegate = self
+    let workouts = try! coreDataStack.getContext().fetch(
+      NWorkout.getFetchRequest())
+    let hostingVC = UIHostingController(
+      rootView: WorkoutsView(workouts: workouts))
+    hostingVC.view.backgroundColor = Theme.Colors.darkest
+    viewController = hostingVC
   }
 }
 
