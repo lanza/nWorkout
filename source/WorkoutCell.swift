@@ -55,11 +55,8 @@ class WorkoutCell: ChartViewCell {
 
   func setupChartView() {
     chartView.emptyText = "This workout is empty"
-    chartView.setBorder(color: .clear, width: 0, radius: 0)
 
     chartView.register(WorkoutCellRowView.self, forResuseIdentifier: "row")
-
-    //        chartView.emptyLabel.backgroundColor = Theme.Colors.dark
   }
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

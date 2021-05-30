@@ -9,6 +9,7 @@ class CompleteButton: UIButton {
     titleLabel?.minimumScaleFactor = 5 / titleLabel!.font.pointSize
     titleLabel?.adjustsFontSizeToFitWidth = true
 
+    setTitleColor(.black)
   }
 
   required init?(coder aDecoder: NSCoder) { fatalError() }

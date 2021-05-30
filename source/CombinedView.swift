@@ -13,8 +13,8 @@ class CombinedView: UIView {
     addSubview(completedRepsTextField)
     addSubview(completeButton)
 
-    //        completedWeightTextField.setBorder(color: .gray, width: 0.8, radius: 0)
-    //        completedRepsTextField.setBorder(color: .gray, width: 0.8, radius: 0)
+    completedWeightTextField.setBorder(color: .gray, width: 0.8, radius: 0)
+    completedRepsTextField.setBorder(color: .gray, width: 0.8, radius: 0)
 
     NSLayoutConstraint.activate(
       [

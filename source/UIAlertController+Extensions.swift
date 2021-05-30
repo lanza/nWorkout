@@ -8,7 +8,6 @@ extension UIAlertController {
       preferredStyle: .alert
     )
     a.addTextField { tf in
-      tf.keyboardAppearance = .dark
       tf.returnKeyType = .done
       tf.autocapitalizationType = .words
     }
