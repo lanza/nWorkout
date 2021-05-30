@@ -100,6 +100,7 @@
 		B3ABE9DC26535E0E000E4FCA /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ABE9DB26535E0E000E4FCA /* BarChartCell.swift */; };
 		B3CFC0652663331400633C29 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CFC0642663331400633C29 /* WorkoutView.swift */; };
 		B3CFC06726633E5900633C29 /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CFC06626633E5900633C29 /* WorkoutsView.swift */; };
+		B3CFC0B32663455E00633C29 /* NWorkoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CFC0B22663455E00633C29 /* NWorkoutApp.swift */; };
 		B3E8D49625E23BB2000A07DD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E8D49525E23BB2000A07DD /* data.json */; };
 		BB365092828FD353DFAE548B /* WorkoutsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6F5C259A90278236567AD1 /* WorkoutsDataSource.swift */; };
 		BDF028D71A52AFF00B9259C4 /* SingleLiftStatisticsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636973CF18ED4C082CD181F /* SingleLiftStatisticsCoordinator.swift */; };
@@ -237,6 +238,7 @@
 		B3ABE9DB26535E0E000E4FCA /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
 		B3CFC0642663331400633C29 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		B3CFC06626633E5900633C29 /* WorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsView.swift; sourceTree = "<group>"; };
+		B3CFC0B22663455E00633C29 /* NWorkoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NWorkoutApp.swift; sourceTree = "<group>"; };
 		B3E8D49525E23BB2000A07DD /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = SOURCE_ROOT; };
 		B5D800702F491BB06DB04105 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		B68B57640C59B961A78D4189 /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			children = (
 				63E77B0078079278324F928B /* AcrtiveWorkoutCoordinator.swift */,
 				91DAEE70C74250B7F928C646 /* ActiveOrFinished.swift */,
+				B3CFC0B22663455E00633C29 /* NWorkoutApp.swift */,
 				BDF74D9044F1E7D2ABC1FFC1 /* AlertView.swift */,
 				C108DB8B39ADDB1367CF76EB /* AppDelegate.swift */,
 				88C0CFFB74752EC2B3C033C1 /* ArrayProvider.swift */,
@@ -641,6 +644,7 @@
 				AA334227C860AD597E0056DB /* SettingsTVC.swift in Sources */,
 				BDF028D71A52AFF00B9259C4 /* SingleLiftStatisticsCoordinator.swift in Sources */,
 				230B4E74BA8A1E65E6BEA037 /* StartBlankWorkoutButton.swift in Sources */,
+				B3CFC0B32663455E00633C29 /* NWorkoutApp.swift in Sources */,
 				D8A0DDC06BEFC1077C64DDE8 /* StatisticsCell.swift in Sources */,
 				9E1CF77C1F02086D71DBEB5F /* StatisticsChartsTVC.swift in Sources */,
 				565712D4D9F81CC263EF27D4 /* StatisticsCoordinator.swift in Sources */,

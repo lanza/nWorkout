@@ -19,7 +19,6 @@ extension URL {
   }
 }
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   override init() {
