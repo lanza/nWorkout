@@ -57,6 +57,6 @@ for element in ccs:
 
 jsout = list(map(lambda x: x.to_dict(), final))
 jsonified = commentjson.dumps(jsout)
-f = open("compile_command2s.json", "w")
+f = open("compile_commands.json", "w")
 f.write(jsonified)
 f.close()
