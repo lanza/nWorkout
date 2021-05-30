@@ -8,7 +8,15 @@ struct WorkoutOverviewView: View {
 }
 
 struct WorkoutsView: View {
-  let workouts: [NWorkout]
+  @Environment(\.managedObjectContext) private var viewContext
+
+  @FetchRequest(
+    sortDescriptors: [
+      NSSortDescriptor(keyPath: \NWorkout.startDate, ascending: true)
+    ],
+    animation: .default)
+  private var workouts: FetchedResults<NWorkout>
+
   var body: some View {
     NavigationView {
       ScrollView {
@@ -21,30 +29,20 @@ struct WorkoutsView: View {
                 label: {
                   WorkoutOverviewView(workout: workout)
                     .padding(.all, 10)
-                })
+                }
+              )
             }
           )
-          .navigationTitle("Routines")
         }
+        .navigationTitle("Routines")
       }
     }
   }
 }
 
 struct WorkoutsView_Previews: PreviewProvider {
-  static func getWorkout() -> NWorkout {
-    let w = NWorkout.makeDummy(name: "Saturday")
-    let l = NLift.makeDummy(workout: w, name: "Squat")
-    _ = NSet.makeDummy(lift: l)
-    _ = NSet.makeDummy(lift: l)
-    _ = NSet.makeDummy(lift: l)
-    let k = NLift.makeDummy(workout: w, name: "Bench Press")
-    _ = NSet.makeDummy(lift: k)
-    _ = NSet.makeDummy(lift: k)
-    _ = NSet.makeDummy(lift: k)
-    return w
-  }
   static var previews: some View {
-    WorkoutsView(workouts: [getWorkout(), getWorkout()])
+    WorkoutsView().environment(
+      \.managedObjectContext, CoreDataStack.preview.container.viewContext)
   }
 }
