@@ -25,7 +25,7 @@ class CoreDataStack {
       try viewContext.save()
     } catch {
       let nsError = error as NSError
-      fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//      fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
     }
     return result
   }()
@@ -46,21 +46,21 @@ class CoreDataStack {
     }
 
     container.loadPersistentStores(completionHandler: {
-      (storeDescription, error) in
+      _, error in
       if let error = error as NSError? {
         fatalError("Unresolved error \(error), \(error.userInfo)")
       }
     })
 
-    // no idea what this does...
-    getContext().automaticallyMergesChangesFromParent = true
-    do {
-      try container.viewContext.setQueryGenerationFrom(.current)
-    } catch {
-      fatalError(
-        "###\(#function): Failed to pin viewContext to the current generation:\(error)"
-      )
-    }
+      // no idea what this does...
+      getContext().automaticallyMergesChangesFromParent = true
+      do {
+        try container.viewContext.setQueryGenerationFrom(.current)
+      } catch {
+        fatalError(
+          "###\(#function): Failed to pin viewContext to the current generation:\(error)"
+        )
+      }
   }
 
   func getContext() -> NSManagedObjectContext {
