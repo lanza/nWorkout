@@ -15,8 +15,12 @@ public class LiftType: NSManagedObject {
   }
 
   func getInstancesSorted() -> [NLift] {
-    return (instances!.map { $0 } as! [NLift]).sorted(by: {
-      $0.workout!.startDate! < $1.workout!.startDate!
-    })
+    // TODO: I have to filter out lifts with nil workouts. This means something
+    // was erroneoulsy deleting workouts but not the corresponding lifts (and
+    // surely sets as well.
+    return (instances!.map { $0 } as! [NLift]).filter { $0.workout != nil }
+      .sorted(by: {
+        $0.workout!.startDate! < $1.workout!.startDate!
+      })
   }
 }
