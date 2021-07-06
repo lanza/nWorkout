@@ -63,6 +63,18 @@ struct InactiveWorkoutView: View {
 
 struct MainView: View {
   @State var activeWorkout: NWorkout?
+  @Environment(\.managedObjectContext) private var viewContext:
+    NSManagedObjectContext
+
+  // TODO: The app won't load with this active for some reason
+  //  @FetchRequest(
+  //    entity: NWorkout.entity(),
+  //    sortDescriptors: [
+  //      NSSortDescriptor(keyPath: \NWorkout.startDate, ascending: true)
+  //    ],
+  //    predicate: NSPredicate(format: "isComplete == NO"),
+  //    animation: .default)
+  //  private var incompleteWorkouts: FetchedResults<NWorkout>
 
   var body: some View {
     TabView {
