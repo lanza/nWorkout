@@ -25,23 +25,10 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
     }
   }
 
-  @objc func hideButtonTapped() {
-    self.delegate.hideTapped(for: self)
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
     title = Lets.workoutStartTimeDF.string(from: workout.startDate!)
-
-    if activeOrFinished == .active {
-      navigationItem.leftBarButtonItem = UIBarButtonItem(
-        title: Lets.hide,
-        style: .plain,
-        target: self,
-        action: #selector(hideButtonTapped)
-      )
-    }
   }
 
   override func cancelWorkoutTapped() {
@@ -50,7 +37,7 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
       message: "Are you sure you want to cancel this workout?"
     ) { _ in
       // TODO: implement cancellation
-//      self.delegate.workoutCancelled(for: self)
+      //      self.delegate.workoutCancelled(for: self)
     }
     present(a, animated: true)
   }
@@ -61,7 +48,7 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
       message: "Are you sure you want to finish this workout?"
     ) { _ in
       // TODO: implement completion
-//      self.delegate.workoutFinished(for: self)
+      //      self.delegate.workoutFinished(for: self)
     }
     present(a, animated: true)
   }
