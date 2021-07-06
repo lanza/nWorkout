@@ -160,6 +160,7 @@ class BaseWorkoutTVC<Cell: LiftCell>: UIViewController, UITableViewDelegate,
     ltvc.didSelectLiftName = { name in
       self.dismiss(animated: true)
       _ = self.workout.addNewLift(name: name)
+      self.tableView.reloadData()
     }
     present(nc, animated: true)
   }
