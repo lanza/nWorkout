@@ -1,10 +1,12 @@
 import SwiftUI
 import UIKit
 
-struct WorkoutsTVCView: UIViewControllerRepresentable {
+struct WorkoutTVCHost: UIViewControllerRepresentable {
+  @Binding var workout: NWorkout?
   func makeUIViewController(context: Context) -> some UIViewController {
-    let workoutsTVC = WorkoutsTVC()
-    return workoutsTVC
+    let workoutTVC = WorkoutTVC()
+    workoutTVC.workout = workout
+    return workoutTVC
   }
   func updateUIViewController(
     _ uiViewController: UIViewControllerType, context: Context
@@ -32,7 +34,30 @@ struct SettingsTVCHost: UIViewControllerRepresentable {
   }
 }
 
+//struct ActiveWorkoutView : View {
+//  @Binding var workout: NWorkout
+//  var body: some View {
+//
+//  }
+//}
+struct InactiveWorkoutView: View {
+  @Binding var activeWorkout: NWorkout?
+
+  var body: some View {
+    Button(
+      "Start Blank Workout",
+      action: {
+        activeWorkout = NWorkout.new(
+          isComplete: false,
+          name: Lets.blank
+        )
+      })
+  }
+}
+
 struct MainView: View {
+  @State var activeWorkout: NWorkout?
+
   var body: some View {
     TabView {
       NavigationView {
@@ -42,8 +67,14 @@ struct MainView: View {
       .tabItem { Label("Workouts", image: "workout") }
       WorkoutsView()
         .tabItem { Label("Routines", image: "routine") }
-      Text("HI")
-        .tabItem { Label("Workouts", systemImage: "list.dash") }
+      if activeWorkout != nil {
+        WorkoutTVCHost(workout: $activeWorkout)
+          .tabItem { Label("Active", systemImage: "list.dash") }
+      } else {
+        // TODO: make this process animated
+        InactiveWorkoutView(activeWorkout: $activeWorkout)
+          .tabItem { Label("Inactive", systemImage: "list.dash") }
+      }
       StatisticsView(workouts: [])
         .tabItem { Label("Statistics", image: "statistics") }
       NavigationView {
