@@ -8,7 +8,7 @@ struct WorkoutOverviewView: View {
 }
 
 struct WorkoutsView: View {
-  @Environment(\.managedObjectContext) private var viewContext
+  @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
 
   @FetchRequest(
     sortDescriptors: [
