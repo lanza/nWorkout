@@ -1,17 +1,7 @@
 import SwiftUI
 import UIKit
 
-protocol WorkoutTVCDelegate: AnyObject {
-  func hideTapped(for workoutTVC: WorkoutTVC)
-  func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC)
-
-  func workoutCancelled(for workoutTVC: WorkoutTVC)
-  func workoutFinished(for workoutTVC: WorkoutTVC)
-}
-
 class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
-
-  weak var delegate: WorkoutTVCDelegate!
 
   var activeOrFinished: ActiveOrFinished {
     return workout.isComplete ? .finished : .active
@@ -59,7 +49,8 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
       title: "Cancel Workout?",
       message: "Are you sure you want to cancel this workout?"
     ) { _ in
-      self.delegate.workoutCancelled(for: self)
+      // TODO: implement cancellation
+//      self.delegate.workoutCancelled(for: self)
     }
     present(a, animated: true)
   }
@@ -69,7 +60,8 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
       title: "Finish Workout?",
       message: "Are you sure you want to finish this workout?"
     ) { _ in
-      self.delegate.workoutFinished(for: self)
+      // TODO: implement completion
+//      self.delegate.workoutFinished(for: self)
     }
     present(a, animated: true)
   }

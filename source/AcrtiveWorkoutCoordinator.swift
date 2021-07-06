@@ -43,7 +43,6 @@ class ActiveWorkoutCoordinator: Coordinator {
 
   override func loadViewController() {
     viewController = WorkoutTVC()
-    workoutTVC.delegate = self
     workoutTVC.workout = workout
 
     workoutTVC.didTapAddNewLift = {
@@ -65,7 +64,7 @@ class ActiveWorkoutCoordinator: Coordinator {
   var workoutIsNotActive: (() -> Void)?
 }
 
-extension ActiveWorkoutCoordinator: WorkoutTVCDelegate {
+extension ActiveWorkoutCoordinator {  // : WorkoutTVCDelegate {
   func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC) {
     let wdc = WorkoutDetailCoordinator(workout: workoutTVC.workout)
     show(wdc, sender: self)

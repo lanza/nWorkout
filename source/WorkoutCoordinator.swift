@@ -7,7 +7,7 @@ class WorkoutCoordinator: Coordinator {
 
   override func loadViewController() {
     viewController = WorkoutTVC()
-    workoutTVC.delegate = self
+    //    workoutTVC.delegate = self
     workoutTVC.workout = workout
 
     workoutTVC.didTapAddNewLift = {
@@ -27,19 +27,22 @@ class WorkoutCoordinator: Coordinator {
   }
 }
 
-extension WorkoutCoordinator: WorkoutTVCDelegate {
+extension WorkoutCoordinator {  //: WorkoutTVCDelegate {
   func hideTapped(for workoutTVC: WorkoutTVC) {}  // active only
   func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC) {
+    assert(false)
     let wdc = WorkoutDetailCoordinator(workout: workoutTVC.workout)
     show(wdc, sender: self)
   }
 
   func workoutCancelled(for workoutTVC: WorkoutTVC) {
+    assert(false)
     self.workout.deleteSelf()
     self.navigationCoordinator?.parent?.dismiss(animated: true)
   }
 
   func workoutFinished(for workoutTVC: WorkoutTVC) {
+    assert(false)
     self.workout.isComplete = true
     self.workout.finishDate = Date()
     for l in self.workout.lifts! {
