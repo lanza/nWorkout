@@ -36,7 +36,6 @@ struct WorkoutsView: View {
         }
         .navigationTitle("Routines")
         .padding(15)
-
       }
     }
   }

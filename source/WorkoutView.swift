@@ -18,24 +18,24 @@ struct LiftView: View {
       ForEach(
         lift.getSetsSorted(),
         content: { nset in
-          SetView(nset: nset)
-        })
+        SetView(nset: nset)
+      })
     }
     .padding(10)
   }
 }
 
 struct WorkoutView: View {
-  let workout: NWorkout
+  @Binding let workout: NWorkout
   var body: some View {
     ScrollView {
       VStack {
         HStack {
           Button("hide") { print("hide") }
-            .padding(10)
+          .padding(10)
           Spacer()
           Button("edit") { print("hide") }
-            .padding( /*@START_MENU_TOKEN@*/10 /*@END_MENU_TOKEN@*/)
+          .padding( /*@START_MENU_TOKEN@*/10 /*@END_MENU_TOKEN@*/)
         }
         HStack {
           Text("10:45 PM May 29, 2021")
@@ -48,16 +48,18 @@ struct WorkoutView: View {
         ForEach(
           workout.getLiftsSorted(),
           content: { lift in
-            LiftView(lift: lift)
-          })
+          LiftView(lift: lift)
+        })
         Button("Add Lift") {}
+        .padding(5)
+        if !workout.isComplete {
+          Button("Cancel Workout") {}
           .padding(5)
-        Button("Cancel Workout") {}
+          Button("Finish Workout") {}
           .padding(5)
-        Button("Finish Workout") {}
-          .padding(5)
+        }
         Button("View Workout Details") {}
-          .padding(5)
+        .padding(5)
       }
     }
   }
@@ -76,7 +78,7 @@ struct WorkoutViewPreview: PreviewProvider {
     _ = NSet.makeDummy(lift: k)
     return w
   }
-
+  
   static var previews: some View {
     WorkoutView(workout: getWorkout())
   }
