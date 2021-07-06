@@ -2,6 +2,7 @@ import SwiftUI
 
 struct WorkoutDetailView: View {
   @ObservedObject var workout: NWorkout
+  var dismiss: (() -> Void)
   var body: some View {
     LazyVStack {
       DatePicker(
@@ -28,12 +29,17 @@ struct WorkoutDetailView: View {
     }
     .padding()
     Spacer(minLength: 50)
+    Button(
+      "Done",
+      action: {
+        self.dismiss()
+      })
   }
 }
 
 struct WorkoutDetail_Preview: PreviewProvider {
   static var previews: some View {
     let w = NWorkout.makeDummy()
-    return WorkoutDetailView(workout: w)
+    return WorkoutDetailView(workout: w, dismiss: {})
   }
 }

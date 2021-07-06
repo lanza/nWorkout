@@ -29,11 +29,6 @@ class WorkoutCoordinator: Coordinator {
 
 extension WorkoutCoordinator {  //: WorkoutTVCDelegate {
   func hideTapped(for workoutTVC: WorkoutTVC) {}  // active only
-  func showWorkoutDetailTapped(for workoutTVC: WorkoutTVC) {
-    assert(false)
-    let wdc = WorkoutDetailCoordinator(workout: workoutTVC.workout)
-    show(wdc, sender: self)
-  }
 
   func workoutCancelled(for workoutTVC: WorkoutTVC) {
     assert(false)

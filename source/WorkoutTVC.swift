@@ -54,8 +54,13 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
   }
 
   override func workoutDetailTapped() {
-    let hostingVC = UIHostingController(
-      rootView: WorkoutDetailView(workout: workout))
+    let wdv = WorkoutDetailView(
+      workout: workout,
+      dismiss: {
+        self.dismiss(animated: true, completion: nil)
+      })
+    let hostingVC = UIHostingController(rootView: wdv)
+
     show(hostingVC, sender: self)
   }
 }
