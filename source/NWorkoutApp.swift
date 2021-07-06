@@ -6,6 +6,12 @@ struct WorkoutTVCHost: UIViewControllerRepresentable {
   func makeUIViewController(context: Context) -> some UIViewController {
     let workoutTVC = WorkoutTVC()
     workoutTVC.workout = workout
+    workoutTVC.cancelWorkout = {
+      workout = nil
+    }
+    workoutTVC.finishWorkout = {
+      workout = nil
+    }
     return workoutTVC
   }
   func updateUIViewController(

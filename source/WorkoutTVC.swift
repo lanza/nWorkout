@@ -2,6 +2,9 @@ import SwiftUI
 import UIKit
 
 class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
+  
+  var cancelWorkout: (() -> ())? = nil
+  var finishWorkout: (() -> ())? = nil
 
   var activeOrFinished: ActiveOrFinished {
     return workout.isComplete ? .finished : .active
@@ -36,8 +39,7 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
       title: "Cancel Workout?",
       message: "Are you sure you want to cancel this workout?"
     ) { _ in
-      // TODO: implement cancellation
-      //      self.delegate.workoutCancelled(for: self)
+      self.cancelWorkout!()
     }
     present(a, animated: true)
   }
@@ -47,8 +49,7 @@ class WorkoutTVC: BaseWorkoutTVC<WorkoutLiftCell> {
       title: "Finish Workout?",
       message: "Are you sure you want to finish this workout?"
     ) { _ in
-      // TODO: implement completion
-      //      self.delegate.workoutFinished(for: self)
+      self.finishWorkout!()
     }
     present(a, animated: true)
   }
