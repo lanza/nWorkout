@@ -26,7 +26,7 @@ struct LiftView: View {
 }
 
 struct WorkoutView: View {
-  @Binding let workout: NWorkout
+  var workout: NWorkout
   var body: some View {
     ScrollView {
       VStack {
